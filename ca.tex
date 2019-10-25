@@ -11,18 +11,51 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{graphicx}
-\usepackage{color}
+\usepackage{xcolor}
+\usepackage{lipsum}
 \usepackage{chngcntr}
+\usepackage{titlesec}
 
-% Remove page numbers on chapter opens
-% must come before fullpage
-\usepackage{nopageno}
+%symmetric for web
+\usepackage[inner=1.2in,outer=1.2in,top=1in,bottom=1in]{geometry}
+%PRINT asymetric for book
+%\usepackage[inner=1.3in,outer=1.1in,top=1in,bottom=1in]{geometry}
 
-\usepackage[headings]{fullpage}
+%\newcommand{\mytitleparbox}[1]{\parbox[t]{0.9\textwidth}{\filleft {#1}}}
+%\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter$i$}{20pt}%
+%{\hfill\mytitleparbox}%
+%[\vspace{-1ex}\rule{0.5\textwidth}{0.5pt}\rule{0.5\textwidth}{1pt}]
+
+\definecolor{gray75}{gray}{0.75}
+
+\titleformat{\chapter}[hang]{\Huge\bfseries\filleft}%
+{\thechapter$i$\hspace*{10pt}{\textcolor{gray75}{$\backslash\!\!\backslash$}}}%
+{10pt}%
+{}
+[\vspace{-1ex}\rule{0.5\textwidth}{0.5pt}\rule{0.5\textwidth}{1pt}]
+
+\titleformat{\section}[hang]{\Large\bfseries}%
+{\thesection$i$\hspace*{10pt}{\textcolor{gray75}{$\backslash$}}}%
+{10pt}%
+{}%
+
+\titleformat{\subsection}[hang]{\large\bfseries}%
+{\thesubsection$i$\hspace*{10pt}{\textcolor{gray75}{$\cdot$}}}%
+{10pt}%
+{}%
+
+\assignpagestyle{\chapter}{empty}
+
+
+%FIXME: this is nonsense, this should be done above, except maybe the
+%cutting down
 
 % smaller margins top/bottom margins
-\addtolength{\textheight}{0.8in}
-\addtolength{\topmargin}{-0.3in}
+%\addtolength{\textheight}{0.8in}
+%\addtolength{\topmargin}{-0.3in}
+
+%thinner text
+%\addtolength{\textheight}{0.8in}
 
 %PRINT
 %First offset even/odd pages a bit
@@ -438,7 +471,7 @@ at github: \url{https://github.com/jirilebl/ca}
 \microtypesetup{protrusion=true}
 
 %\addtocontents{toc}{\protect\vspace{-2\baselineskip}}
-\addtocontents{toc}{\protect\vspace{-\baselineskip}}
+%\addtocontents{toc}{\protect\vspace{-\baselineskip}}
 %\addtocontents{toc}{\protect\enlargethispage{\baselineskip}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -453,23 +486,46 @@ at github: \url{https://github.com/jirilebl/ca}
 
 FIXME
 
+\noindent
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in arcu facilisis, maximus nibh amet.
+
+\noindent
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam condimentum nullam.
+
+%\rule[-1pt]{20pt}{5pt}
+
+%\lipsum
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{FIXME} \label{sec:FIXME}
+\section{Complex Numbers} \label{sec:FIXME}
 
 FIXME
 
+\subsection{Complex Numbers} \label{subsec:FIXME}
+
+FIXME2
+
+%\lipsum
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{FIXME} \label{ch:FIXME2}
+\chapter{Complex Numbers And Other Things in a Long Title} \label{ch:FIXME2}
+%\chapter{Complex Numbers} \label{ch:FIXME2}
+
+%\lipsum
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{FIXME} \label{sec:FIXME2}
 
+
+%\lipsum
+
 FIXME
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
