@@ -1,6 +1,8 @@
 One Complex Variable (FIXME: better title needed)
 -------------------------------------------------
 
+**Note:** This is not finished.  It is still being written, these are early days.
+
 One-semester graduate level mathematics textbook on basic complex analysis in
 one variable.  A free online textbook based on class notes for the graduate
 course at Oklahoma State University.
