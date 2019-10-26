@@ -239,8 +239,8 @@
     filecolor=mypersianblue,
     linkcolor=mypersianblue,
     urlcolor=mypersianblue,
-    pdftitle={FIXME },
-    pdfsubject={FIXME},
+    pdftitle={I'd Walk a Mile for Complex Analysis},
+    pdfsubject={Complex Analysis},
     pdfkeywords={one complex variable, complex analysis},
     pdfauthor={Jiri Lebl}
 }
@@ -367,9 +367,9 @@
 \vspace*{\stretch{1}}
 \noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
 \flushright
-{\Huge\bfseries \sffamily One Complex Variable }
+{\Huge\bfseries \sffamily I'd Walk a Mile for Complex Analysis}
 \noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
-\hfill\emph{\Large \sffamily A witty subtitle goes here }
+\hfill\emph{\Large \sffamily The Breakfast of Champions in One Variable}
 \end{minipage}}
 
 \vspace{\stretch{1}}
@@ -2137,6 +2137,1017 @@ which are just too interesting not to mention.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\chapter{Results From Basic Analysis} \label{ap:basicanal}
+
+\begin{myquote}
+If you cannot prove a man wrong, don't panic. You can always call him names.
+
+---Oscar Wilde 
+\end{myquote}
+
+We assume as a prerequisite a basic knowledge of analysis on the real line.
+Let us however, survey some basic results that the reader might not have
+seen in such a course, and that will be useful in the text.
+The text is partly adapted from \cite{ra:book} and \cite{ra:book2}.
+Those two texts are useful to find more details.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Pointwise and uniform convergence and interchange of limits}
+\label{sec:puconv}
+
+\subsection{Pointwise and uniform convergence}
+
+In the following, $S$ is any set.
+
+\begin{defn}
+\index{pointwise convergence}
+The sequence
+$\{ f_n \}_{n=1}^\infty$ of functions $f_n \colon S \to \R$
+\emph{\myindex{converges pointwise}} to $f \colon S \to \R$, if for every $x
+\in S$
+we have
+\begin{equation*}
+f(x) =
+\lim_{n\to\infty} f_n(x) .
+\end{equation*}
+\end{defn}
+
+If we say $f_n \colon S \to \R$
+\emph{converges to $f$ on $T \subset S$}
+we mean, of course that
+the restrictions of $f_n$ to $T$ converge pointwise to $f$.
+As limits of sequences of numbers are unique, the limit function $f$ is unique.
+
+Pointwise convergence does not preserve much structure about $f$.
+For example a pointwise limit of continuous functions is not continuous.
+
+\begin{exbox}
+\begin{exercise}
+Prove that the sequence $f_n(x) = x^{n}$ converges pointwise on $[0,1]$ to
+a discontinuous function.
+\end{exercise}
+\end{exbox}
+
+\begin{example} \label{example:geomsumptconv}
+We write
+\begin{equation*}
+\sum_{k=0}^\infty x^k
+\end{equation*}
+to denote the limit of the functions
+\begin{equation*}
+f_n(x) = \sum_{k=0}^n x^k .
+\end{equation*}
+You surely remember that $f_n$ converges pointwise on $(-1,1)$ to
+$\frac{1}{1-x}$.
+\end{example}
+
+\begin{defn}
+\index{uniform convergence}
+Let $f_n \colon S \to \R$
+and $f \colon S \to \R$
+be functions.  The sequence $\{ f_n \}$
+\emph{\myindex{converges uniformly}} to $f$, if for
+every $\epsilon > 0$ there exists an $N \in \N$ such that 
+for all $n \geq N$ we have
+\begin{equation*}
+\abs{f_n(x) - f(x)} < \epsilon \qquad \text{for all $x \in S$.}
+\end{equation*}
+\end{defn}
+
+In uniform convergence, $N$ cannot depend on $x$.  Given $\epsilon > 0$,
+we must find an $N$ that works for all $x \in S$.  See
+\figureref{fig:uniformconv} for an illustration.
+\begin{myfig}
+\includegraphics{figures/uniformconv}
+\caption{In uniform convergence,
+for $n \geq N$,
+the functions $f_n$ are within a strip of $\pm\epsilon$ from $f$.%
+\label{fig:uniformconv}}
+\end{myfig}
+
+It can easily be seen that uniform convergence implies pointwise
+convergence.  The converse does not hold.
+
+\begin{exbox}
+\begin{exercise}
+Prove that on $[0,1]$, the functions $x^n$ converge
+pointwise but not uniformly.
+\end{exercise}
+\end{exbox}
+
+\begin{defn} \label{def:unifnorm}
+Let $f \colon S \to \R$ be a bounded function.  Define
+\glsadd{not:uniformnorm}
+\begin{equation*}
+\norm{f}_S
+\overset{\text{def}}{=}
+\sup \bigl\{ \abs{f(x)} : x \in S \bigr\} .
+\end{equation*}
+$\norm{\cdot}_S$ is called the \emph{\myindex{uniform norm}}.
+\end{defn}
+
+\begin{prop}
+A sequence of bounded functions $f_n \colon S \to \R$ converges
+uniformly to $f \colon S \to \R$, if and only if
+\begin{equation*}
+\lim_{n\to\infty} \norm{f_n - f}_S = 0 .
+\end{equation*}
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
+
+Sometimes we say that \emph{$\{ f_n \}$ converges to $f$ in uniform norm}
+\index{converges in uniform norm}
+\index{uniform norm convergence}
+instead of \emph{converges uniformly}.  The proposition
+says that the two notions are the same thing.
+
+Using uniform norm, we define Cauchy sequences in a similar way
+as we define Cauchy sequences of real numbers.
+
+\begin{defn}
+Let $f_n \colon S \to \R$ be bounded functions.
+The sequence is \emph{\myindex{Cauchy in the uniform norm}}
+or \emph{\myindex{uniformly Cauchy}}
+if for every $\epsilon > 0$, there exists an $N \in \N$ such
+that for $m,k \geq N$ we have
+\begin{equation*}
+\norm{f_m-f_k}_S < \epsilon .
+\end{equation*}
+\end{defn}
+
+\begin{prop} \label{prop:uniformcauchy}
+Let $f_n \colon S \to \R$ be bounded functions.
+Then $\{ f_n \}$ is Cauchy in the uniform norm if and only if
+there exists an $f \colon S \to \R$ and $\{ f_n \}$ converges
+uniformly to $f$.
+\end{prop}
+
+\begin{proof}
+Let us first suppose $\{ f_n \}$ is Cauchy in the uniform norm.
+Let us define $f$.  Fix $x$, then
+the sequence $\{ f_n(x) \}$ is Cauchy because
+\begin{equation*}
+\abs{f_m(x)-f_k(x)}
+\leq
+\norm{f_m-f_k}_S .
+\end{equation*}
+Thus $\{ f_n(x) \}$ converges to some real number.  Define $f \colon S
+\to \R$ by
+\begin{equation*}
+f(x) = \lim_{n \to \infty} f_n(x) .
+\end{equation*}
+The sequence
+$\{ f_n \}$ converges pointwise to $f$.  To show that the convergence
+is uniform, let $\epsilon > 0$ be given.  Find an $N$ such that
+for $m, k \geq N$ we have
+$\norm{f_m-f_k}_S < \nicefrac{\epsilon}{2}$.  In other words for
+all $x$ we have
+$\abs{f_m(x)-f_k(x)} < \nicefrac{\epsilon}{2}$.  We take the limit
+as $k$ goes to infinity.  Then $\abs{f_m(x)-f_k(x)}$
+goes to $\abs{f_m(x)-f(x)}$.
+Consequently for all $x$ we get
+\begin{equation*}
+\abs{f_m(x)-f(x)} \leq \nicefrac{\epsilon}{2} < \epsilon .
+\end{equation*}
+And hence $\{ f_n \}$ converges uniformly.
+
+For the other direction, suppose $\{ f_n \}$ converges uniformly to
+$f$.  Given $\epsilon > 0$, find $N$ such that for all $n \geq N$
+we have $\abs{f_n(x)-f(x)} < \nicefrac{\epsilon}{4}$ for all $x \in S$.
+Therefore for all $m, k \geq N$ we have
+\begin{equation*}
+\abs{f_m(x)-f_k(x)} = 
+\abs{f_m(x)-f(x)+f(x)-f_k(x)} \leq
+\abs{f_m(x)-f(x)}+\abs{f(x)-f_k(x)} < \nicefrac{\epsilon}{4} +
+\nicefrac{\epsilon}{4} .
+\end{equation*}
+Take supremum over all $x$ to obtain
+\begin{equation*}
+\norm{f_m-f_k}_S \leq \nicefrac{\epsilon}{2} < \epsilon .  \qedhere
+\end{equation*}
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Let $f$ and $g$ be bounded functions on $[a,b]$.  Prove 
+\begin{equation*}
+\norm{f+g}_S \leq \norm{f}_S + \norm{g}_S .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+Find the pointwise limit $\dfrac{e^{x/n}}{n}$ for $x \in \R$.
+\item
+Is the limit uniform on $\R$?
+\item
+Is the limit uniform on $[0,1]$?
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f_n \colon S \to \R$ are functions that converge uniformly
+to $f \colon S \to \R$.  Suppose $A \subset S$.  Show that
+the sequence of restrictions $\{ f_n|_A \}$ converges uniformly to $f|_A$.
+\end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+Suppose $\{ f_n \}$ and $\{ g_n \}$ defined on some set $A$ converge to
+$f$ and $g$ respectively pointwise, and let $a,b \in \R$.
+Show that $\{ a f_n+ b g_n \}$ converges
+pointwise to $a f+ b g$.
+\item
+Show the same for uniform convergence.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Find an example of a sequence of functions $\{ f_n \}$ and $\{ g_n \}$
+that converge uniformly to some $f$ and $g$ on some set $A$, but such that
+$\{ f_ng_n \}$ (the multiple) does not converge uniformly to $fg$ on $A$.
+\end{exercise}
+
+\begin{exercise}
+Suppose there exists a sequence of functions $\{ g_n \}$ uniformly
+converging to $0$ on $A$.  Now suppose we have a sequence of functions
+$\{ f_n \}$ and a function $f$ on $A$ such that
+\begin{equation*}
+\abs{f_n(x) - f(x)} \leq g_n(x) 
+\end{equation*}
+for all $x \in A$.  Show that $\{ f_n \}$ converges uniformly to $f$ on $A$.
+\end{exercise}
+
+\begin{exercise}
+Let $\{ f_n \}$, $\{ g_n \}$ and $\{ h_n \}$ be sequences of functions on
+$[a,b]$.  Suppose $\{ f_n \}$ and $\{ h_n \}$ converge uniformly to some function
+$f \colon [a,b] \to \R$ and suppose $f_n(x) \leq g_n(x) \leq h_n(x)$
+for all $x \in [a,b]$.  Show that $\{ g_n \}$ converges uniformly to $f$.
+\end{exercise}
+
+\begin{exercise}
+Fix a continuous $h \colon [a,b] \to \R$.
+Let $f(x) = h(x)$ for $x \in [a,b]$,
+$f(x) = h(a)$ for $x < a$ and $f(x) = h(b)$ for all $x > b$.  First show
+that $f \colon \R \to \R$ is continuous.
+Let
+\begin{equation*}
+f_n(x) = \frac{n}{2} \int_{x-1/n}^{x+1/n} f(t) \, dt .
+\end{equation*}
+Show that $\{ f_n \}$ converges uniformly to $h$ on $[a,b]$.
+\end{exercise}
+
+
+\begin{exercise}
+Prove that
+if a sequence of functions $f_n \colon S \to \R$
+converge uniformly to a bounded function $f \colon S \to \R$,
+then there exists an $N$ such that for all $n \geq N$, the $f_n$
+are bounded.
+\end{exercise}
+
+\begin{exercise}
+In \exampleref{example:geomsumptconv} we saw
+$\sum_{k=0}^\infty x^k$ converges pointwise to $\frac{1}{1-x}$ on
+$(-1,1)$.
+\begin{exparts}
+\item
+Show that for any $0 \leq c < 1$, the series
+$\sum_{k=0}^\infty x^k$ converges uniformly on $[-c,c]$.
+\item
+Show that the series $\sum_{k=0}^\infty x^k$ does not converge uniformly
+on $(-1,1)$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
+\subsection{Continuity of the limit}
+
+If we have a sequence $\{ f_n \}$ of continuous functions,
+is the limit continuous?  We have seen that for pointwise
+convergence, this need not be the case.
+If we, however, require the convergence to be uniform, the limits can
+be interchanged.
+
+\begin{thm}
+Let $\{ f_n \}$ be 
+a sequence of continuous functions $f_n \colon S \to \R$ converging
+uniformly to  $f \colon S \to \R$.  Then $f$ is continuous.
+\end{thm}
+
+\begin{proof}
+Let $x \in S$ be fixed.  Let $\{ x_n \}$ be a sequence in $S$
+converging to $x$.
+
+Let $\epsilon > 0$ be given.
+As $\{ f_k \}$ converges uniformly to $f$, we find a $k \in \N$ such that
+\begin{equation*}
+\abs{f_k(y)-f(y)} < \nicefrac{\epsilon}{3}
+\end{equation*}
+for all $y \in S$.  As $f_k$ is continuous at $x$,
+we find an $N \in \N$ such that for $m \geq N$
+we have 
+\begin{equation*}
+\abs{f_k(x_m)-f_k(x)} < \nicefrac{\epsilon}{3} .
+\end{equation*}
+Thus for
+$m \geq N$ we have
+\begin{equation*}
+\begin{split}
+\abs{f(x_m)-f(x)}
+& =
+\abs{f(x_m)-f_k(x_m)+f_k(x_m)-f_k(x)+f_k(x)-f(x)}
+\\
+& \leq
+\abs{f(x_m)-f_k(x_m)}+
+\abs{f_k(x_m)-f_k(x)}+
+\abs{f_k(x)-f(x)}
+\\
+& <
+\nicefrac{\epsilon}{3} +
+\nicefrac{\epsilon}{3} +
+\nicefrac{\epsilon}{3} = \epsilon .
+\end{split}
+\end{equation*}
+Therefore $\{ f(x_m) \}$ converges to $f(x)$ and hence $f$ is continuous at
+$x$.  As $x$ was arbitrary, $f$ is continuous everywhere.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+We say that a sequence of functions $f_n \colon \R \to \R$
+\emph{\myindex{converges uniformly on compact subsets}}
+\index{uniform convergence on compact subsets}
+if for every $k \in \N$,
+the sequence $\{ f_n \}$ converges uniformly on $[-k,k]$.
+\begin{exparts}
+\item
+Prove that if $f_n \colon \R \to \R$ is a sequence of
+continuous functions converging uniformly on compact subsets, then
+the limit is continuous.
+\item 
+Prove that if $f_n \colon \R \to \R$ is a sequence of
+functions Riemann integrable on any closed and bounded interval $[a,b]$,
+and converging uniformly on compact subsets to an $f \colon \R \to \R$,
+then for any interval $[a,b]$, we have $f \in \sR[a,b]$, and
+$\int_a^b f = \lim_{n\to\infty} \int_a^b f_n$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
+\subsection{Integral of the limit}
+
+Again, if we simply require pointwise convergence, then the integral
+of a limit of a sequence of functions need not be equal to the limit
+of the integrals.
+
+\begin{example}
+Let $\chi_{T}$ be the characteristic function of a set $T$, that is $\chi_T(x) =
+1$ if $x \in T$ and $\chi_T(x) = 0$ otherwise.
+The functions $n \chi_{(0,\nicefrac{1}{n})}$ all integrate (on the interval
+$[0,1]$) to 1.  Their
+pointwise limit limit is 0 (whose integral is 0).
+\end{example}
+
+If we require the convergence to be uniform, the limits can
+be interchanged.
+
+\begin{thm} \label{integralinterchange:thm}
+Let $\{ f_n \}$ be a sequence of Riemann integrable
+functions
+$f_n \colon [a,b] \to \R$
+converging uniformly to $f \colon [a,b]
+\to \R$.  Then $f$ is Riemann integrable and
+\begin{equation*}
+\int_a^b f(x) \, dx = \lim_{n\to\infty} \int_a^b f_n(x) \, dx .
+\end{equation*}
+\end{thm}
+
+In the following, let 
+$\overline{\int_a^b} f(x)\, dx$ and 
+$\underline{\int_a^b} f(x)\, dx$ denote the upper and lower Darboux integral.
+The definition of the Riemann integral using Darboux sums and integrals is
+beyond the scope of this book, but let us just mention that 
+if the upper and lower Darboux integrals are equal, then a function is
+Riemann integrable, and the common value is the integral.  Given this,
+let us prove the theorem.
+
+\begin{proof}
+Let $\epsilon > 0$ be given.
+As $f_n$ goes to $f$ uniformly, we find an $M \in \N$ such that
+for all $n \geq M$ we have 
+$\abs{f_n(x)-f(x)} < \frac{\epsilon}{2(b-a)}$ for all $x \in [a,b]$.
+In particular, by reverse triangle inequality
+$\abs{f(x)} < \frac{\epsilon}{2(b-a)} + \abs{f_n(x)}$ for all $x$,
+hence $f$ is bounded
+as $f_n$ is bounded.
+Note that $f_n$ is integrable and compute
+\begin{equation*}
+\begin{split}
+\overline{\int_a^b} & f(x) \, dx
+-
+\underline{\int_a^b} f(x) \, dx
+\\
+& =
+\overline{\int_a^b} \bigl( f(x) - f_n(x) + f_n(x) \bigr) \, dx
+-
+\underline{\int_a^b} \bigl( f(x) - f_n(x) + f_n(x) \bigr) \, dx
+\\
+& \leq
+\overline{\int_a^b} \bigl( f(x) - f_n(x) \bigr) \, dx +  \overline{\int_a^b}
+f_n(x) \, dx
+-
+\underline{\int_a^b} \bigl( f(x) - f_n(x) \bigr) \, dx -
+\underline{\int_a^b} f_n(x) \, dx
+\\
+& =
+\overline{\int_a^b} \bigl( f(x) - f_n(x) \bigr)\, dx +  \int_a^b f_n(x) \, dx
+-
+\underline{\int_a^b} \bigl( f(x) - f_n(x) \bigr)\, dx -  \int_a^b f_n(x) \, dx
+\\
+& =
+\overline{\int_a^b} \bigl( f(x) - f_n(x) \bigr)\, dx
+-
+\underline{\int_a^b} \bigl( f(x) - f_n(x) \bigr)\, dx
+\\
+& \leq
+\frac{\epsilon}{2(b-a)} (b-a) + 
+\frac{\epsilon}{2(b-a)} (b-a) = \epsilon .
+\end{split}
+\end{equation*}
+The second inequality follows from
+the fact that for all $x \in [a,b]$ we have
+$\frac{-\epsilon}{2(b-a)} < f(x)-f_n(x) < \frac{\epsilon}{2(b-a)}$.
+As $\epsilon > 0$ was arbitrary, $f$ is Riemann integrable.
+
+We compute $\int_a^b f(x)\,dx$.
+For $n \geq M$ ($M$ is the same as above),
+\begin{equation*}
+\begin{split}
+\abs{\int_a^b f(x)\,dx - \int_a^b f_n(x)\,dx} & = 
+\abs{ \int_a^b \bigl(f(x) - f_n(x)\bigr)\,dx}
+\\
+& \leq
+\frac{\epsilon}{2(b-a)} (b-a) = \frac{\epsilon}{2} < \epsilon .
+\end{split}
+\end{equation*}
+Therefore $\bigl\{ \int_a^b f_n(x) \,dx \bigr\}$ converges to $\int_a^b f(x) \,dx$.
+\end{proof}
+
+\begin{example}
+Using \thmref{integralinterchange:thm}, we compute
+\begin{equation*}
+\lim_{n\to\infty} \int_0^1 \frac{nx+ \sin(nx^2)}{n} \,dx
+=
+\int_0^1
+x \,dx = \nicefrac{1}{2} .
+\end{equation*}
+It is impossible to compute the integrals for any particular $n$ using 
+calculus as $\sin(nx^2)$ has no closed-form antiderivative.
+\end{example}
+
+\begin{remark}
+While we will not require the Lebesgue integral in this book, note that
+for Lebesgue integral a much stronger convergence theorem holds.  In
+particular, the dominated convergence theorem implies that if
+$\{ f_n \}$ is a sequence of measurable functions on $[a,b]$,
+converging pointwise to $f \colon [a,b] \to \R$, and such that
+$\{ f_n \}$ is uniformly bounded (there is a single $B \in \R$ such that
+$\snorm{f_n}_{[a,b]} \leq B$ for all $n$), then
+\begin{equation*}
+\int_a^b f(x) \, dx = \lim_{n\to\infty} \int_a^b f_n(x) \, dx .
+\end{equation*}
+Where of course all the integrals would have to be the Lebesgue integrals,
+not the Riemann integrals.  The pointwise limit of Riemann integrable
+functions need not even be Riemann integrable.
+\end{remark}
+
+\begin{exbox}
+\begin{exercise}
+Compute
+$\displaystyle \lim_{n\to\infty} \int_1^2 e^{-nx^2} ~dx$.
+\end{exercise}
+
+\begin{exercise}
+Find a sequence of Riemann integrable functions $f_n \colon [0,1] \to \R$ such
+that $\{ f_n \}$ converges to zero pointwise, and such that
+\begin{exparts}
+\item
+$\bigl\{ \int_0^1 f_n(x)\,dx \bigr\}_{n=1}^\infty$ increases without bound,
+\item
+$\bigl\{ \int_0^1 f_n(x)\,dx \bigr\}_{n=1}^\infty$ is the sequence $-1,1,-1,1,-1,1, \ldots$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
+\subsection{Derivative of the limit}
+
+While uniform convergence is enough to swap limits with integrals, it is not,
+however, enough to swap limits with derivatives, unless you also have
+uniform convergence of the derivatives themselves.
+
+\begin{example}
+Let $f_n(x) = \frac{\sin(nx)}{n}$.  Then $f_n$ converges uniformly to
+0.  See \figureref{fig:conv1nsinxn}.
+The derivative of the limit is 0.  But $f_n'(x) = \cos(nx)$, which
+does not converge even pointwise, for
+example $f_n'(\pi) = {(-1)}^n$.  Furthermore,
+$f_n'(0) = 1$ for all $n$, which does converge, but not to 0.
+\begin{myfig}
+\includegraphics{figures/conv1nsinxn}
+\caption{Graphs of $\frac{\sin(nx)}{n}$ for
+$n=1,2,\ldots,10$, with higher $n$ in lighter gray.%
+\label{fig:conv1nsinxn}}
+\end{myfig}
+\end{example}
+
+The following theorem is true even if 
+we do not assume continuity of the derivatives, but the proof is more
+difficult.
+
+\begin{thm} \label{thm:dersconverge}
+Let $I$ be a bounded interval and let
+$f_n \colon I \to \R$ be continuously differentiable functions.
+Suppose $\{ f_n' \}$ converges uniformly to $g \colon I \to \R$,
+and suppose $\{ f_n(c) \}_{n=1}^\infty$ is a
+convergent sequence for some $c \in I$.  Then $\{ f_n \}$ converges uniformly to 
+a continuously differentiable function $f \colon I \to \R$, and $f' = g$.
+\end{thm}
+
+\begin{proof}
+Define $f(c) = \lim_{n\to \infty} f_n(c)$.
+As $f_n'$ are continuous and hence Riemann integrable,
+then
+via the fundamental theorem of calculus, we find that for $x \in I$,
+\begin{equation*}
+f_n(x) = f_n(c) + \int_c^x f_n' (t)\, dt.
+\end{equation*}
+As $\{ f_n' \}$ converges uniformly on $I$, it converges uniformly
+on $[c,x]$ (or $[x,c]$ if $x < c$).
+Therefore, we find that the limit on the right hand side exists.
+Let us define $f$ at the remaining points by this limit:
+\begin{equation*}
+f(x) =
+\lim_{n\to\infty} f_n(c) + \lim_{n\to\infty} \int_c^x f_n' (t)\, dt
+=
+f(c) + \int_c^x g(t)\,dt .
+\end{equation*}
+The function $g$ is continuous, being the uniform limit of continuous
+functions.  Hence $f$ is differentiable and $f'(x) = g(x)$ for all $x \in I$
+by the second form of the fundamental theorem.
+
+It remains to prove
+uniform convergence.
+Suppose $I$ has a lower bound $a$ and upper bound $b$.
+Let $\epsilon > 0$ be given.  Take $M$
+such that for $n \geq M$ we have
+$\abs{f(c)-f_n(c)} < \nicefrac{\epsilon}{2}$,
+and
+$\abs{g(x)-f_n'(x)} < \nicefrac{\epsilon}{2(b-a)}$
+for all $x \in I$.  Then
+\begin{equation*}
+\begin{split}
+\abs{f(x) - f_n(x)} & =
+\abs{f(c) + \int_c^x g - f_n(c) - \int_c^x f_n'(t)\,dt}
+\\
+& \leq
+\abs{f(c) - f_n(c)} + \abs{\int_c^x g(t)\,dt - \int_c^x f_n'(t)\,dt}
+\\
+& =
+\abs{f(c) - f_n(c)} + \abs{\int_c^x \bigl(g(t) - f_n'(t)\bigr) \, dt}
+\\
+& <
+\frac{\epsilon}{2}
++
+\frac{\epsilon}{2(b-a)}
+(b-a)
+=\epsilon. \qedhere
+\end{split}
+\end{equation*}
+\end{proof}
+
+The proof goes through without boundedness of $I$, except for the
+uniform convergence of $f_n$ to $f$.  As an example suppose $I = \R$ and let
+$f_n(x) = \nicefrac{x}{n}$.  Then $f_n'(x)=\nicefrac{1}{n}$, which
+converges uniformly to $0$.  However, $\{f_n\}$ converges to 0 only pointwise.
+
+\begin{exbox}
+\begin{exercise}
+Find an explicit example of a sequence of
+differentiable functions on $[-1,1]$ that converge uniformly to
+a function $f$ such that $f$ is not differentiable.
+Hint:
+There are many possibilities,
+simplest is perhaps to combine $\abs{x}$ and $\frac{n}{2}x^2 +
+\frac{1}{2n}$, another is to
+consider $\sqrt{x^2+{(\nicefrac{1}{n})}^2}$.  Show that these functions are differentiable,
+converge uniformly, and then show that the limit is not differentiable.
+\end{exercise}
+
+\begin{exercise}
+Let $f_n(x) = \frac{x^n}{n}$.  Show that $\{ f_n \}$ converges uniformly to
+a differentiable function $f$ on $[0,1]$ (find $f$).  However, show that
+$f'(1) \not= \lim\limits_{n\to\infty} f_n'(1)$.
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Continuity and derivatives under the integral}
+\label{sec:contlimitsunderint}
+
+\subsection{Continuity}
+
+Let us prove a useful criterion for
+continuity of functions defined by integrals.  Let $f(x,y)$ be a function of two variables and define
+\begin{equation*}
+g(y) = \int_a^b f(x,y) \,dx .
+\end{equation*}
+Question is, is $g$ is continuous?
+We are really asking when do two limiting operations commute,
+which is not always possible, so some extra hypothesis
+is necessary.  A useful sufficient (but not
+necessary) condition is that $f$ is continuous on a closed rectangle.
+
+\begin{prop} \label{prop:integralcontcont}
+If $f \colon [a,b] \times [c,d] \to \R$ is a continuous function,
+then $g \colon [c,d] \to \R$ defined by
+\begin{equation*}
+g(y) = \int_a^b f(x,y) \,dx  \qquad \text{is continuous}.
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Fix $y \in [c,d]$, and let $\{ y_n \}$ be a sequence in $[c,d]$
+converging to $y$.
+Let $\epsilon > 0$ be given.
+As $f$ is continuous on $[a,b] \times [c,d]$, which is compact, $f$
+is uniformly continuous.  
+In particular, there exists a $\delta > 0$ such that
+whenever $\widetilde{y} \in [c,d]$ and
+$\abs{\widetilde{y}-y} < \delta$ we have
+$\abs{f(x,\widetilde{y})-f(x,y)} < \epsilon$ for all $x \in [a,b]$.
+If we let $h_n(x)= f(x,y_n)$ and $h(x) = f(x,y)$,
+we have just shown that
+$h_n \colon [a,b] \to \R$ converges uniformly 
+to
+$h \colon [a,b] \to \R$ as $n$ goes to $\infty$.
+Uniform convergence implies the limit can be taken underneath the integral.
+So
+\begin{equation*}
+\lim_{n\to \infty}
+g(y_n)
+=
+\lim_{n\to \infty}
+\int_a^b 
+f(x,y_n) \,dx 
+= 
+\int_a^b 
+\lim_{n\to \infty}
+f(x,y_n) \,dx 
+= 
+\int_a^b 
+f(x,y) \,dx = g(y) . \qedhere
+\end{equation*}
+\end{proof}
+
+In applications, if we are interested in continuity at $y_0$, we just
+need to apply the proposition in $[a,b] \times [y_0-\epsilon,y_0+\epsilon]$
+for some small $\epsilon > 0$.  For example, if $f$ is continuous in
+$[a,b] \times \R$, then $g$ is continuous on $\R$.
+
+\begin{exbox}
+\begin{exercise} \label{exercise:integralcontcontextra}
+Prove a stronger version of \propref{prop:integralcontcont}:
+If $f \colon (a,b) \times (c,d) \to \R$ is a bounded continuous function,
+then $g \colon [c,d] \to \R$ defined by
+\begin{equation*}
+g(y) = \int_a^b f(x,y) \,dx  \qquad \text{is continuous}.
+\end{equation*}
+Hint: First integrate over $[a+\nicefrac{1}{n},b-\nicefrac{1}{n}]$.
+\end{exercise}
+\end{exbox}
+
+\subsection{Differentiation under the integral}
+\label{subsec:diffunderint}
+
+Let $f(x,y)$ be a function of two variables and
+\begin{equation*}
+g(y) = \int_a^b f(x,y) \,dx .
+\end{equation*}
+If $f$ is continuous on the compact rectangle $[a,b] \times [c,d]$, then
+\propref{prop:integralcontcont}
+says that $g$ is continuous on $[c,d]$.
+
+Suppose $f$ is differentiable in $y$.  The main question we want to
+ask is when can we ``differentiate under the integral,'' that is,
+when is it true that $g$ is differentiable and its derivative is
+\begin{equation*}
+g'(y) \overset{?}{=} \int_a^b \frac{\partial f}{\partial y}(x,y) \,dx .
+\end{equation*}
+Differentiation is a limit and therefore we are really asking when do the
+two limiting operations of integration and differentiation commute.
+This is not always possible and some extra hypothesis is
+necessary.  In particular, the first
+question we would face is the integrability of
+$\frac{\partial f}{\partial y}$, but the formula can fail even if
+$\frac{\partial f}{\partial y}$ is integrable as a function of $x$ for every
+fixed $y$.
+
+Let us prove a simple, but perhaps the most useful version of this theorem.
+
+\begin{thm}[\myindex{Leibniz integral rule}]
+Suppose $f \colon [a,b] \times [c,d] \to \R$ is a continuous function,
+such that $\frac{\partial f}{\partial y}$ exists for all $(x,y) \in [a,b]
+\times [c,d]$ and is continuous.  Define
+\begin{equation*}
+g(y) = \int_a^b f(x,y) \,dx .
+\end{equation*}
+Then $g \colon [c,d] \to \R$ is continuously differentiable and
+\begin{equation*}
+g'(y) = \int_a^b \frac{\partial f}{\partial y}(x,y) \,dx .
+\end{equation*}
+\end{thm}
+
+The hypotheses on $f$ and $\frac{\partial f}{\partial y}$ can be
+weakened, see e.g.\ \exerciseref{exercise:strongerleibniz},
+but not dropped outright.
+The main point in the proof is for
+$\frac{\partial f}{\partial y}$ to exist and be continuous for all $x$
+up to the ends, but we only need a small
+interval in the $y$ direction.  In applications, we often make $[c,d]$ be a
+small interval around the point where we need to differentiate.
+
+\begin{proof}
+Fix $y \in [c,d]$ and let $\epsilon > 0$ be given.
+As $\frac{\partial f}{\partial y}$ is continuous on $[a,b] \times [c,d]$ it
+is uniformly continuous.  In particular, there exists $\delta > 0$ such that
+whenever $y_1 \in [c,d]$ with
+$\abs{y_1-y} < \delta$ and all $x \in [a,b]$ we have
+\begin{equation*}
+\abs{\frac{\partial f}{\partial y}(x,y_1)-\frac{\partial f}{\partial y}(x,y)} < \epsilon .
+\end{equation*}
+
+Suppose $h$ is such that $y+h \in [c,d]$ and $\abs{h} < \delta$.
+Fix $x$ for a moment
+and apply the mean value theorem to find a $y_1$ between $y$ and $y+h$ such that
+\begin{equation*}
+\frac{f(x,y+h)-f(x,y)}{h}
+=
+\frac{\partial f}{\partial y}(x,y_1) .
+\end{equation*}
+As $\abs{y_1-y} \leq \abs{h} < \delta$,
+\begin{equation*}
+\abs{
+\frac{f(x,y+h)-f(x,y)}{h}
+-
+\frac{\partial f}{\partial y}(x,y) 
+}
+=
+\abs{
+\frac{\partial f}{\partial y}(x,y_1) 
+-
+\frac{\partial f}{\partial y}(x,y) 
+}
+< \epsilon .
+\end{equation*}
+This argument worked for every $x \in [a,b]$.  Therefore, as a function of
+$x$
+\begin{equation*}
+x \mapsto \frac{f(x,y+h)-f(x,y)}{h}
+\qquad
+\text{converges uniformly to}
+\qquad
+x \mapsto \frac{\partial f}{\partial y}(x,y)
+\qquad
+\text{as $h \to 0$} .
+\end{equation*}
+We defined uniform convergence for sequences although the idea is the
+same.  You may replace $h$ with a sequence of nonzero 
+numbers $\{ h_n \}$
+converging to $0$ such that $y+h_n \in [c,d]$ and let $n \to \infty$.
+
+Consider the difference quotient of $g$,
+\begin{equation*}
+\frac{g(y+h)-g(y)}{h}
+=
+\frac{\int_a^b f(x,y+h) \,dx -
+\int_a^b f(x,y) \,dx }{h}
+=
+\int_a^b \frac{f(x,y+h)-f(x,y)}{h} \,dx .
+\end{equation*}
+Uniform convergence implies the limit can be taken underneath the integral.
+So
+\begin{equation*}
+\lim_{h\to 0}
+\frac{g(y+h)-g(y)}{h}
+= 
+\int_a^b 
+\lim_{h\to 0}
+\frac{f(x,y+h)-f(x,y)}{h} \,dx 
+=
+\int_a^b 
+\frac{\partial f}{\partial y}(x,y) \,dx .
+\end{equation*}
+Then $g'$ is continuous on $[c,d]$ by
+\propref{prop:integralcontcont}.
+\end{proof}
+
+\begin{example} \label{example:counterexamplediffunder}
+Suppose we start with
+\begin{equation*}
+\int_0^{1} \frac{x-1}{\ln(x)} \,dx .
+\end{equation*}
+The function under the integral 
+extends to be continuous on $[0,1]$, and hence
+the integral exists, see \exerciseref{exercise:counterexamplediffunder}.  Trouble is finding it.  Introduce a parameter $y$
+and define a function:
+\begin{equation*}
+g(y) = \int_0^{1} \frac{x^y-1}{\ln(x)} \,dx .
+\end{equation*}
+The function
+$\frac{x^y-1}{\ln(x)}$
+also extends to a continuous function of $x$ and $y$
+for $(x,y) \in [0,1] \times [0,1]$ (also in the exercise).
+See \figureref{fig:diffunderexample}.
+\begin{myfig}
+\includegraphics{figures/diffunderexample}
+\caption{The graph $z= \frac{x^y-1}{\ln(x)}$ on $[0,1] \times [0,1]$.\label{fig:diffunderexample}}
+\end{myfig}
+
+
+Therefore
+$g$ is a continuous function of on $[0,1]$, and $g(0) = 0$.
+For any $\epsilon > 0$, the $y$ derivative of the integrand, $x^y$,
+is continuous on $[0,1] \times [\epsilon,1]$.  Therefore,
+for $y >0$ we may differentiate under the integral sign
+\begin{equation*}
+g'(y) =
+\int_0^{1} \frac{\ln(x) x^y}{\ln(x)} \,dx 
+=
+\int_0^{1} x^y \,dx =
+\frac{1}{y+1} .
+\end{equation*}
+We need to figure out $g(1)$, knowing $g'(y) = \frac{1}{y+1}$ and $g(0) =
+0$.  By elementary calculus we find $g(1) = \int_0^1 g'(y)\,dy = \ln(2)$.  Therefore
+\begin{equation*}
+\int_0^{1} \frac{x-1}{\ln(x)} \,dx  = \ln(2).
+\end{equation*}
+\end{example}
+
+\begin{exbox}
+\begin{samepage}
+\begin{exercise} \label{exercise:counterexamplediffunder}
+Prove the two statements that were asserted in
+\exampleref{example:counterexamplediffunder}:
+\begin{exparts}
+\item
+Prove $\frac{x-1}{\ln(x)}$ extends to a continuous function of
+$[0,1]$.  That is, there exists a continuous function on $[0,1]$
+that equals $\frac{x-1}{\ln(x)}$ on $(0,1)$.
+\item
+Prove $\frac{x^y-1}{\ln(x)}$ extends to a continuous function
+on $[0,1] \times [0,1]$.
+\end{exparts}
+\end{exercise}
+\end{samepage}
+
+\begin{exercise}
+Suppose $h \colon \R \to \R$ is a continuous function.  Suppose $g
+\colon \R \to \R$ is which is continuously differentiable and compactly
+supported.  That is there exists some $M > 0$ such that $g(x) = 0$ whenever
+$\abs{x} \geq M$.  Define
+\begin{equation*}
+f(x) = \int_{-\infty}^\infty h(y)g(x-y) \, dy  .
+\end{equation*}
+Show that $f$ is differentiable.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \R \to \R$ is an infinitely differentiable function (all derivatives exist)
+such that $f(0) = 0$.  Then show that there exists an infinitely
+differentiable function $g \colon \R \to \R$ such that $f(x) = x\,g(x)$.  Finally show that
+if $f'(0) \not= 0$, then $g(0) \not= 0$.\\
+Hint: First write
+$f(x) = \int_0^x f'(s) \,ds$ and then rewrite the integral to go
+from $0$ to $1$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \R^n$ be an open set and suppose
+$f(x,y_1,y_2,\ldots,y_n)$ is a continuous
+function defined on $[0,1] \times U \subset \R^{n+1}$.
+Suppose
+$\frac{\partial f}{\partial y_1},
+\frac{\partial f}{\partial y_2},\ldots,
+\frac{\partial f}{\partial y_n}$
+exist and are continuous on $[0,1] \times U$.
+Then prove that $F \colon U \to \R$ defined by
+\begin{equation*}
+F(y_1,y_2,\ldots,y_n) =
+\int_0^1
+f(x,y_1,y_2,\ldots,y_n)
+\, dx
+\end{equation*}
+is continuously differentiable.
+\end{exercise}
+
+\begin{exercise}
+Work out the following counterexample:  Let
+\begin{equation*}
+f(x,y) =
+\begin{cases}
+\frac{xy^3}{{(x^2+y^2)}^2} & \text{if $x\not=0$ or $y\not= 0$,}\\
+0 & \text{if $x=0$ and $y=0$.}
+\end{cases}
+\end{equation*}
+\begin{exparts}
+\item
+Prove that for any fixed $y$ the function $x \mapsto f(x,y)$ is
+Riemann integrable on $[0,1]$ and
+\begin{equation*}
+g(y) = \int_0^1 f(x,y) \, dx = \frac{y}{2y^2+2} .
+\end{equation*}
+Therefore $g'(y)$ exists and we get the continuous function
+\begin{equation*}
+g'(y) = \frac{1-y^2}{2{(y^2+1)}^2} .
+\end{equation*}
+\item
+Prove $\frac{\partial f}{\partial y}$ exists at all $x$ and $y$ and
+compute it.
+\item
+Show that for all $y$
+\begin{equation*}
+\int_0^1 \frac{\partial f}{\partial y} (x,y) \, dx
+\end{equation*}
+exists, but
+\begin{equation*}
+g'(0) \not= \int_0^1 \frac{\partial f}{\partial y} (x,0) \, dx .
+\end{equation*}
+\end{exparts}
+\end{exercise}
+
+\pagebreak[2]
+\begin{exercise}
+Work out the following counterexample:  Let
+\begin{equation*}
+f(x,y) =
+\begin{cases}
+x \,\sin \left(\frac{y}{x^2+y^2}\right) & \text{if $(x,y) \not= (0,0)$,}\\
+0 & \text{if $(x,y)=(0,0)$.}
+\end{cases}
+\end{equation*}
+\begin{exparts}
+\item
+Prove $f$ is continuous on all of $\R^2$.
+Therefore the following function is well defined for every $y \in \R$:
+\begin{equation*}
+g(y) = \int_0^1 f(x,y) \, dx .
+\end{equation*}
+\item
+Prove $\frac{\partial f}{\partial y}$ exists for all $(x,y)$,
+but is not continuous at $(0,0)$.
+\item
+Show that $\int_0^1 \frac{\partial f}{\partial y}(x,0) \, dx$ does not
+exist even if we take improper integrals, that is,
+that the limit
+$\lim\limits_{h \to 0^+} \int_h^1 \frac{\partial f}{\partial y}(x,0) \, dx$
+does not exist.
+\end{exparts}
+Note: Feel free to use what you know about sine and cosine from calculus.
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise} \label{exercise:strongerleibniz}
+Strengthen the Leibniz integral rule in the following way.
+Suppose $f \colon (a,b) \times (c,d) \to \R$ is a bounded continuous function,
+such that $\frac{\partial f}{\partial y}$ exists for all $(x,y) \in (a,b)
+\times (c,d)$ and is continuous and bounded.  Define
+\begin{equation*}
+g(y) = \int_a^b f(x,y) \,dx .
+\end{equation*}
+Then $g \colon (c,d) \to \R$ is continuously differentiable and
+\begin{equation*}
+g'(y) = \int_a^b \frac{\partial f}{\partial y}(x,y) \,dx .
+\end{equation*}
+Hint: See also \exerciseref{exercise:integralcontcontextra} and
+\thmref{thm:dersconverge}.
+\end{exercise}
+\end{samepage}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter{Metric spaces} \label{ap:metric}
 
 \begin{myquote}
@@ -2213,7 +3224,7 @@ whereas the concept of a metric space is a lot more general.
 \begin{example}
 The set of real numbers $\R$ is a metric space with the metric
 \begin{equation*}
-d(x,y) := \abs{x-y} .
+d(x,y) = \abs{x-y} .
 \end{equation*}
 Items \ref{metric:pos}--\ref{metric:com} of the definition
 are easy to verify.  The
@@ -2230,10 +3241,11 @@ about $\R$ as a metric space without mentioning a specific metric, we
 mean this particular metric.
 \end{example}
 
-An important metric space is the
+The 
 $n$-dimensional \emph{\myindex{euclidean space}}
 %\glsadd{not:euclidspace}
-$\R^n = \R \times \R \times \cdots \times \R$.   In this book
+$\R^n = \R \times \R \times \cdots \times \R$ is also a metric space.
+In this book
 we mostly see $\R^2$, but let us give the example in more generality.
 We use the following
 notation for points: $x =(x_1,x_2,\ldots,x_n) \in \R^n$.
@@ -2264,7 +3276,7 @@ If $x =(x_1,x_2,\ldots,x_n) \in \R^n$, $y =(y_1,y_2,\ldots,y_n) \in
 \end{lemma}
 
 \begin{proof}
-Any square of a real number is nonnegative.  Hence any sum of squares is
+A square of a real number is nonnegative and so a sum of squares is
 nonnegative:
 \begin{equation*}
 \begin{split}
@@ -2284,25 +3296,24 @@ y_k \bigr)
 -
 2
 \biggl( \sum_{j=1}^n x_j y_j \biggr)
-\biggl( \sum_{k=1}^n x_k y_k \biggr)
+\biggl( \sum_{k=1}^n x_k y_k \biggr) .
 \end{split}
 \end{equation*}
-We relabel and divide by 2 to obtain
+We relabel and divide by 2 to obtain the needed inequality:
 \begin{equation*}
 0 \leq 
 \biggl( \sum_{j=1}^n x_j^2 \biggr)
 \biggl( \sum_{j=1}^n y_j^2 \biggr)
 -
-{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2 ,
+{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2 . \qedhere
 \end{equation*}
-which is precisely what we wanted.
 \end{proof}
 
 \begin{example}
 Let us construct the
 standard metric\index{standard metric on $\R^n$} for $\R^n$.  Define
 \begin{equation*}
-d(x,y) :=
+d(x,y) =
 \sqrt{
 {(x_1-y_1)}^2 + 
 {(x_2-y_2)}^2 + 
@@ -2316,8 +3327,9 @@ d(x,y) :=
 \end{equation*}
 For $n=1$, the real line, this metric agrees with what we did above.  Again,
 the only tricky part of the definition to check is the triangle inequality.
-It is less messy to work with the square of the metric.  In the
-following, note the use of the Cauchy--Schwarz inequality.
+The trick is to work with the
+ the square of the metric and apply
+the Cauchy--Schwarz inequality.
 \begin{equation*}
 \begin{split}
 {\bigl(d(x,z)\bigr)}^2 & =
@@ -2376,13 +3388,12 @@ following, note the use of the Cauchy--Schwarz inequality.
 {\bigl( d(x,y) + d(y,z) \bigr)}^2 .
 \end{split}
 \end{equation*}
-Taking the square root of both sides we obtain the correct inequality,
-because the square root is an increasing function.
+Taking the square root of both sides we obtain the correct inequality.
 \end{example}
 
 \begin{example} \label{example:mscomplex}
 The set of complex numbers $\C$ is a metric space using the standard
-euclidean metric
+euclidean metric on $\R^2$
 by identifying $x+iy \in \C$ with $(x,y) \in \R^2$.
 \end{example}
 
@@ -2390,18 +3401,18 @@ by identifying $x+iy \in \C$ with $(x,y) \in \R^2$.
 Let $C([a,b],\R)$\glsadd{not:contfuncs} be the set of continuous real-valued functions on the
 interval $[a,b]$.  Define the metric on $C([a,b],\R)$ as
 \begin{equation*}
-d(f,g) := \sup_{x \in [a,b]} \abs{f(x)-g(x)} .
+d(f,g) = \sup_{x \in [a,b]} \abs{f(x)-g(x)} .
 \end{equation*}
 Let us check the properties.  First, $d(f,g)$ is finite as
 $\abs{f(x)-g(x)}$ is a continuous function on a closed bounded interval
 $[a,b]$, and so is bounded.
-It is clear that $d(f,g) \geq 0$, 
-it is the supremum of nonnegative numbers.  If $f = g$
+Clearly $d(f,g) \geq 0$. 
+If $f = g$,
 then $\abs{f(x)-g(x)} = 0$ for all $x$ and hence $d(f,g) = 0$.  Conversely,
 if $d(f,g) = 0$, then for any $x$ we have $\abs{f(x)-g(x)} \leq d(f,g) = 0$,
-and hence $f(x) = g(x)$ for all $x$ and $f=g$.  That $d(f,g) = d(g,f)$
-is equally trivial.  To show the triangle inequality we use the standard
-triangle inequality.
+and hence $f=g$.  That $d(f,g) = d(g,f)$
+is equally trivial.  The triangle inequality follows from the 
+triangle inequality on $\R$.
 \begin{equation*}
 \begin{split}
 d(f,g) & =
@@ -2427,14 +3438,14 @@ particular metric.
 \end{example}
 
 \begin{example}
-Another standard and useful example of a metric space is the sphere,
-usually called the \emph{\myindex{great circle distance}}.
+The sphere with the so-called
+\emph{\myindex{great circle distance}} is also a metric space.
 Let $S^2$ be the \myindex{unit sphere}\index{sphere} in $\R^3$,
-that is $S^2 := \{ x \in \R^3 : x_1^2+x_2^2+x_3^2 = 1 \}$.
+that is $S^2 = \{ x \in \R^3 : x_1^2+x_2^2+x_3^2 = 1 \}$.
 Take $x$ and $y$ in $S^2$, draw a line through the origin and $x$,
 and another line through the origin and $y$,
 and let $\theta$ be the angle that the two lines make.
-Then define $d(x,y) := \theta$, see \figureref{fig:spheremetric}.
+Then define $d(x,y) = \theta$, see \figureref{fig:spheremetric}.
 The law of cosines from vector calculus says
 $d(x,y) = \arccos(x_1y_1+x_2y_2+x_3y_3)$.
 It is relatively easy to see that this function satisfies the first three
@@ -2465,22 +3476,16 @@ $d|_{Y \times Y}$ is a metric on $Y$.
 \end{prop}
 
 \begin{defn}
-If $(X,d)$ is a metric space, $Y \subset X$, and $d' := d|_{Y \times Y}$,
+If $(X,d)$ is a metric space, $Y \subset X$, and $d' = d|_{Y \times Y}$,
 then $(Y,d')$ is said to be a \emph{\myindex{subspace}} of $(X,d)$.
 \end{defn}
 
 It is common to simply write $d$ for the metric on $Y$, as it is 
-the restriction of the metric on $X$.  Sometimes we say $d'$ is
+the restriction of the metric on $X$.  We say $d'$ is
 the \emph{\myindex{subspace metric}} and $Y$ has the
 \emph{\myindex{subspace topology}}.
 
 \medskip
-
-A subset of the real
-numbers is bounded whenever all its elements are at most some fixed distance
-from 0.
-When dealing with an arbitrary metric space there may not be some
-natural fixed point 0, but for the purposes of boundedness it does not matter.
 
 \begin{defn}
 Let $(X,d)$ be a metric space.  A subset $S \subset X$ is said to be
@@ -2493,29 +3498,27 @@ We say $(X,d)$ is bounded if $X$ itself is a bounded subset.
 \end{defn}
 
 For example, the set of real numbers with the standard metric is not a
-bounded metric space.  It is not hard to see that a
-subset of the real numbers is bounded in the
-sense of \chapterref{rn:chapter} if and only if it is bounded as a subset of the
-metric space of real numbers with the standard metric.
-
-On the other hand, if we take the real numbers with the discrete metric,
-then we obtain a bounded metric space.  In fact, any set with the
+bounded metric space.  
+On the other hand, if we take the real numbers with the
+\emph{\myindex{discrete metric}},
+$d(x,y) = 1$ if $x\not=y$, and $d(x,x) = 0$,
+then we obtain a bounded metric space.  Any set with the
 discrete metric is bounded.
 
-There are other equivalent ways we could generalize boundedness,
-and are left as exercises.  Suppose $X$ is nonempty to avoid a technicality.
-Then $S \subset X$ is bounded if and only if
-\begin{enumerate}[(i)]
-\item
-for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
-all $x \in S$.
-\item 
-\glsadd{not:diam}
-$\operatorname{diam}(S) := \sup \{ d(x,y) : x,y \in S \} < \infty$.
-\end{enumerate}
-The quantity $\operatorname{diam}(S)$ is called the
-\emph{\myindex{diameter}} of a set and is usually only defined for
-a nonempty set.
+%There are other equivalent ways we could generalize boundedness,
+%and are left as exercises.  Suppose $X$ is nonempty to avoid a technicality.
+%Then $S \subset X$ is bounded if and only if
+%\begin{enumerate}[(i)]
+%\item
+%for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
+%all $x \in S$.
+%\item 
+%\glsadd{not:diam}
+%$\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
+%\end{enumerate}
+%The quantity $\operatorname{diam}(S)$ is called the
+%\emph{\myindex{diameter}} of a set and is usually only defined for
+%a nonempty set.
 
 \subsection{Exercises}
 
@@ -2526,16 +3529,16 @@ $d(x,x) = 0$) does give a metric space $(X,d)$.
 \end{exercise}
 
 \begin{exercise}
-Let $X := \{ 0 \}$ be a set.  Can you make it into a metric space?
+Let $X = \{ 0 \}$ be a set.  Can you make it into a metric space?
 \end{exercise}
 
 \begin{exercise}
-Let $X := \{ a, b \}$ be a set.  Can you make it into two distinct metric
+Let $X = \{ a, b \}$ be a set.  Can you make it into two distinct metric
 spaces?  (define two distinct metrics on it)
 \end{exercise}
 
 %\begin{exercise}
-%Let the set $X := \{ A, B, C \}$ represent 3 buildings on campus.  Suppose we
+%Let the set $X = \{ A, B, C \}$ represent 3 buildings on campus.  Suppose we
 %wish our distance to be the time it takes to walk from one building to
 %the other.
 %It takes 5 minutes either way between buildings $A$ and $B$.  However,
@@ -2553,29 +3556,29 @@ an increasing function such that
 $\varphi(t) \geq 0$ for all $t$ and $\varphi(t) = 0$ if and only if
 $t=0$.  Also suppose $\varphi$ is \emph{\myindex{subadditive}},
 that is, $\varphi(s+t) \leq \varphi(s)+\varphi(t)$.
-Show that with $d'(x,y) := \varphi\bigl(d(x,y)\bigr)$, we obtain a new
+Show that with $d'(x,y) = \varphi\bigl(d(x,y)\bigr)$, we obtain a new
 metric space $(X,d')$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:mscross}
 Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Show that $(X \times Y,d)$ with
-$d\bigl( (x_1,y_1), (x_2,y_2) \bigr) := d_X(x_1,x_2) + d_Y(y_1,y_2)$ is
+$d\bigl( (x_1,y_1), (x_2,y_2) \bigr) = d_X(x_1,x_2) + d_Y(y_1,y_2)$ is
 a metric space.
 \item
 Show that $(X \times Y,d)$ with
-$d\bigl( (x_1,y_1), (x_2,y_2) \bigr) := \max \{ d_X(x_1,x_2) , d_Y(y_1,y_2) \}$ is
+$d\bigl( (x_1,y_1), (x_2,y_2) \bigr) = \max \{ d_X(x_1,x_2) , d_Y(y_1,y_2) \}$ is
 a metric space.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
 Let $X$ be the set of continuous functions on $[0,1]$.  Let $\varphi \colon
 [0,1] \to (0,\infty)$ be continuous.  Define
 \begin{equation*}
-d(f,g) := \int_0^1 \abs{f(x)-g(x)}\varphi(x)~dx .
+d(f,g) = \int_0^1 \abs{f(x)-g(x)}\varphi(x)\,dx .
 \end{equation*}
 Show that $(X,d)$ is a metric space.
 \end{exercise}
@@ -2583,17 +3586,17 @@ Show that $(X,d)$ is a metric space.
 \begin{exercise} \label{exercise:mshausdorffpseudo}
 Let $(X,d)$ be a metric space.  For nonempty bounded subsets $A$ and $B$ let
 \begin{equation*}
-d(x,B) := \inf \{ d(x,b) : b \in B \}
+d(x,B) = \inf \{ d(x,b) : b \in B \}
 \qquad \text{and} \qquad
-d(A,B) := \sup \{ d(a,B) : a \in A \} .
+d(A,B) = \sup \{ d(a,B) : a \in A \} .
 \end{equation*}
 Now define the \emph{\myindex{Hausdorff metric}} as
 \begin{equation*}
-d_H(A,B) := \max \{ d(A,B) , d(B,A) \} .
+d_H(A,B) = \max \{ d(A,B) , d(B,A) \} .
 \end{equation*}
 Note: $d_H$ can be defined for arbitrary nonempty subsets if we allow the
 extended reals.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Let $Y \subset \sP(X)$ be the set of bounded nonempty subsets.
 Prove that
@@ -2609,44 +3612,42 @@ d(B,A)$.
 \item
 Find a metric space $X$ and two different
 nonempty bounded subsets $A$ and $B$ such that $d_H(A,B) = 0$.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
-\begin{exercise}
-Let $(X,d)$ be a nonempty metric space and $S \subset X$ a subset.  Prove:
-\begin{enumerate}[a)]
-\item
-$S$ is bounded if and only if
-for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
-all $x \in S$.
-\item
-A nonempty $S$ is bounded if and only if
-$\operatorname{diam}(S) := \sup \{ d(x,y) : x,y \in S \} < \infty$.
-\end{enumerate}
-\end{exercise}
+%\begin{exercise}
+%Let $(X,d)$ be a nonempty metric space and $S \subset X$ a subset.  Prove:
+%\begin{exparts}
+%\item
+%$S$ is bounded if and only if
+%for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
+%all $x \in S$.
+%\item
+%A nonempty $S$ is bounded if and only if
+%$\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
+%\end{exparts}
+%\end{exercise}
+%
+%\begin{samepage}
+%\begin{exercise}
+%\begin{exparts}
+%\item
+%Working in $\R$, compute $\operatorname{diam}\bigl([a,b]\bigr)$.
+%\item
+%Working in $\R^n$, for any $r > 0$, let $B_r = \{ x_1^2+x_2^2+\cdots+x_n^2
+%< r^2 \}$.  Compute $\operatorname{diam}\bigl(B_r\bigr)$.
+%\item
+%Suppose $(X,d)$ is a metric space with at least two points,
+%$d$ is the discrete metric, and $p \in X$.
+%Compute
+%$\operatorname{diam}(\{ p \})$ and $\operatorname{diam}(X)$,
+%then conclude that $(X,d)$ is bounded.
+%\end{exparts}
+%\end{exercise}
+%\end{samepage}
 
-\begin{samepage}
 \begin{exercise}
-{\ }
-\begin{enumerate}[a)]
-\item
-Working in $\R$, compute $\operatorname{diam}\bigl([a,b]\bigr)$.
-\item
-Working in $\R^n$, for any $r > 0$, let $B_r := \{ x_1^2+x_2^2+\cdots+x_n^2
-< r^2 \}$.  Compute $\operatorname{diam}\bigl(B_r\bigr)$.
-\item
-Suppose $(X,d)$ is a metric space with at least two points,
-$d$ is the discrete metric, and $p \in X$.
-Compute
-$\operatorname{diam}(\{ p \})$ and $\operatorname{diam}(X)$,
-then conclude that $(X,d)$ is bounded.
-\end{enumerate}
-\end{exercise}
-\end{samepage}
-
-\begin{exercise}
-{\ }
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Find a metric $d$ on $\N$, such that $\N$ is an unbounded set in $(\N,d)$.
 \item
@@ -2654,7 +3655,7 @@ Find a metric $d$ on $\N$, such that $\N$ is a bounded set in $(\N,d)$.
 \item
 Find a metric $d$ on $\N$ such that for any $n \in \N$ and any $\epsilon > 0$
 there exists an $m \in \N$ such that $d(n,m) < \epsilon$.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise} \label{exercise:C1ab}
@@ -2662,7 +3663,7 @@ Let $C^1([a,b],\R)$\glsadd{not:contdifffuncs} be the set of once continuously di
 functions on $[a,b]$.
 Define
 \begin{equation*}
-d(f,g) := \snorm{f-g}_{[a,b]} + \snorm{f'-g'}_{[a,b]},
+d(f,g) = \snorm{f-g}_{[a,b]} + \snorm{f'-g'}_{[a,b]},
 \end{equation*}
 where $\snorm{f}_{X} = \sup_{x\in X} \sabs{f(x)}$ is the uniform norm.  Prove that $d$ is a metric.
 \end{exercise}
@@ -2672,7 +3673,7 @@ where $\snorm{f}_{X} = \sup_{x\in X} \sabs{f(x)}$ is the uniform norm.  Prove th
 The set of sequences $\{ x_n \}$
 of real numbers
 such that $\sum_{n=1}^\infty x_n^2 < \infty$ is called $\ell^2$.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Prove the \myindex{Cauchy--Schwarz inequality} for two sequences
 $\{x_n \}$ and $\{ y_n \}$ in $\ell^2$:
@@ -2684,8 +3685,8 @@ $\{x_n \}$ and $\{ y_n \}$ in $\ell^2$:
 \end{equation*}
 \item
 Prove that $\ell^2$ is a metric space with the metric
-$d(x,y) := \sqrt{\sum_{j=1}^\infty {(x_j-y_j)}^2}$.
-\end{enumerate}
+$d(x,y) = \sqrt{\sum_{j=1}^\infty {(x_j-y_j)}^2}$.
+\end{exparts}
 \end{exercise}
 \end{samepage}
 \end{exbox}
@@ -2697,31 +3698,24 @@ $d(x,y) := \sqrt{\sum_{j=1}^\infty {(x_j-y_j)}^2}$.
 
 \subsection{Topology}
 
-Before we get to convergence,
-we define the so-called \emph{\myindex{topology}}.
-That is,
-we define closed and open sets in a metric space.
-Before doing so,
-let us define two special sets.
-
 \begin{defn}
 Let $(X,d)$ be a metric space, $x \in X$ and $\delta > 0$.  Then define
 the \emph{\myindex{open ball}} or simply \emph{\myindex{ball}} of radius $\delta$
 around $x$ as
 \glsadd{not:openball}
 \begin{equation*}
-B(x,\delta) := \{ y \in X : d(x,y) < \delta \} .
+B(x,\delta) \overset{\text{def}}{=} \{ y \in X : d(x,y) < \delta \} .
 \end{equation*}
 Similarly define the \emph{\myindex{closed ball}} as
 \glsadd{not:closedball}
 \begin{equation*}
-C(x,\delta) := \{ y \in X : d(x,y) \leq \delta \} .
+C(x,\delta) \overset{\text{def}}{=} \{ y \in X : d(x,y) \leq \delta \} .
 \end{equation*}
 \end{defn}
 
-When we are dealing with different metric spaces, it is sometimes 
-convenient to emphasize which metric space the ball is in.  We do this by
-writing $B_X(x,\delta) := B(x,\delta)$ or $C_X(x,\delta) := C(x,\delta)$.
+When we are dealing with different metric spaces, we may
+emphasize which metric space the ball is in by
+writing $B_X(x,\delta) = B(x,\delta)$ or $C_X(x,\delta) = C(x,\delta)$.
 
 \begin{example}
 Take the metric space $\R$ with the standard metric.  For
@@ -2733,9 +3727,8 @@ C(x,\delta) = [x-\delta,x+\delta] .
 \end{example}
 
 \begin{example}
-Be careful when working on a subspace.  Suppose we take the
-metric space $[0,1]$ as a subspace of $\R$.  Then in $[0,1]$
-we get
+Consider the 
+metric space $[0,1]$ as a subspace of $\R$. Then
 \begin{equation*}
 B(0,\nicefrac{1}{2}) = B_{[0,1]}(0,\nicefrac{1}{2})
 = \{ y \in [0,1] : \abs{0-y} < \nicefrac{1}{2} \}
@@ -2751,14 +3744,16 @@ in.
 Let $(X,d)$ be a metric space.  A subset $V \subset X$
 is \emph{open}\index{open set}
 if for every $x \in V$, there exists a $\delta > 0$ such that
-$B(x,\delta) \subset V$.  See \figureref{fig:msopenset}.  A subset $E \subset X$ is 
+$B(x,\delta) \subset V$.  See \figureref{fig:msopenset}.
+A subset $E \subset X$ is 
 \emph{closed}\index{closed set} if the complement $E^c = X \setminus E$ is open.
 When the ambient space $X$ is not clear from context,
 we say \emph{$V$ is open in $X$} and \emph{$E$ is closed in $X$}.
+The set of open sets is called the \emph{\myindex{topology}} on $X$.
 
-If $x \in V$ and $V$ is open, then we say 
+If $x \in V$ and $V$ is open, then
 $V$ is an \emph{\myindex{open neighborhood}} of $x$ (or
-sometimes just \emph{\myindex{neighborhood}}).
+simply \emph{\myindex{neighborhood}}).
 \end{defn}
 
 \begin{myfig}
@@ -2777,11 +3772,11 @@ But not every set is either open or closed.  Generally, most subsets are neither
 
 \begin{example}
 The set $(0,\infty) \subset \R$ is open:  Given any $x \in (0,\infty)$,
-let $\delta := x$.  Then $B(x,\delta) = (0,2x) \subset (0,\infty)$.
+let $\delta = x$.  Then $B(x,\delta) = (0,2x) \subset (0,\infty)$.
 
 The set $[0,\infty) \subset \R$ is closed:  Given $x \in (-\infty,0) =
 [0,\infty)^c$,
-let $\delta := -x$.  Then $B(x,\delta) = (-2x,0) \subset
+let $\delta = -x$.  Then $B(x,\delta) = (-2x,0) \subset
 (-\infty,0) = [0,\infty)^c$.
 
 The set $[0,1) \subset \R$ is neither open nor closed.  First,
@@ -2823,7 +3818,7 @@ The sets $X$ and $\emptyset$ are obviously open in $X$.
 Let us prove \ref{topology:openii}.
 If $x \in \bigcap_{j=1}^k V_j$, then $x \in V_j$ for all $j$.
 As $V_j$ are all open, for every $j$ there exists a $\delta_j > 0$ 
-such that $B(x,\delta_j) \subset V_j$.  Take $\delta := \min \{
+such that $B(x,\delta_j) \subset V_j$.  Take $\delta = \min \{
 \delta_1,\delta_2,\ldots,\delta_k \}$ and notice $\delta > 0$.  We have
 $B(x,\delta) \subset B(x,\delta_j) \subset V_j$ for every $j$ and so
 $B(x,\delta) \subset \bigcap_{j=1}^k V_j$.  Consequently the intersection is open.
@@ -2847,7 +3842,7 @@ for example $\bigcap_{n=1}^\infty (-\nicefrac{1}{n},\nicefrac{1}{n}) = \{ 0
 \end{example}
 
 
-The proof of the following analogous proposition for closed sets
+The proof of the analogous proposition for closed sets
 is left as an exercise.
 
 %FIXMEevillayouthack
@@ -2881,7 +3876,7 @@ $C(x,\delta)$ is closed.
 \end{prop}
 
 \begin{proof}
-Let $y \in B(x,\delta)$.  Let $\alpha := \delta-d(x,y)$.  As $\alpha
+Let $y \in B(x,\delta)$.  Let $\alpha = \delta-d(x,y)$.  As $\alpha
 > 0$, consider $z \in B(y,\alpha)$.  Then
 \begin{equation*}
 d(x,z) \leq d(x,y) + d(y,z) < d(x,y) + \alpha = d(x,y) + \delta-d(x,y) =
@@ -2923,13 +3918,13 @@ there exists an open set $V \subset X$ (so open in $X$), such that
 $V \cap Y = U$.
 \end{prop}
 
-For example, let $X := \R$, $Y:=[0,1]$, $U := [0,\nicefrac{1}{2})$.
+For example, let $X = \R$, $Y=[0,1]$, $U = [0,\nicefrac{1}{2})$.
 We saw that $U$ is an open set in $Y$.
-We may take $V := (-\nicefrac{1}{2},\nicefrac{1}{2})$.
+We may take $V = (-\nicefrac{1}{2},\nicefrac{1}{2})$.
 
 \begin{proof}
 Suppose $V \subset X$ is open and $x \in V \cap Y$.
-Let $U := V \cap Y$.
+Let $U = V \cap Y$.
 As $V$ is open, there
 exists a $\delta > 0$ such that $B_X(x,\delta) \subset V$.
 Then
@@ -3087,7 +4082,7 @@ Suppose $x \in U_1 \cap S$
 and $y \in U_2 \cap S$.  Without loss of generality, assume $x < y$.
 As $S$ is an interval, $[x,y] \subset S$.
 Note that $U_2 \cap [x,y] \not= \emptyset$, and
-let $z := \inf (U_2 \cap [x,y])$.
+let $z = \inf (U_2 \cap [x,y])$.
 We wish to show that $z \in U_1$.
 If $z = x$, then $z \in U_1$.
 If $z > x$,
@@ -3131,9 +4126,10 @@ Let $(X,d)$ be a metric space and $A \subset X$.  Then
 the \emph{\myindex{closure}} of $A$ is the set
 \glsadd{not:closure}
 \begin{equation*}
-\widebar{A} := \bigcap \{ E \subset X : \text{$E$ is closed and $A \subset
+\widebar{A} \overset{\text{def}}{=} \bigcap \{ E \subset X : \text{$E$ is closed and $A \subset
 E$} \} .
 \end{equation*}
+We say $A$ is \emph{\myindex{dense}} in $X$ if $\widebar{A} = X$.
 \end{defn}
 
 That is,
@@ -3208,25 +4204,25 @@ Let $(X,d)$ be a metric space and $A \subset X$, then
 the \emph{\myindex{interior}} of $A$ is the set
 \glsadd{not:interior}
 \begin{equation*}
-A^\circ := \{ x \in A : \text{there exists a $\delta > 0$ such that
+A^\circ \overset{\text{def}}{=} \{ x \in A : \text{there exists a $\delta > 0$ such that
 $B(x,\delta) \subset A$} \} .
 \end{equation*}
 The \emph{\myindex{boundary}} of $A$ is the set
 \glsadd{not:boundary}
 \begin{equation*}
-\partial A := \widebar{A}\setminus A^\circ.
+\partial A \overset{\text{def}}{=} \widebar{A}\setminus A^\circ.
 \end{equation*}
 \end{defn}
 
 \begin{example}
-Suppose $A:=(0,1]$ and $X := \R$.  Then it is not hard
+Suppose $A=(0,1]$ and $X = \R$.  Then it is not hard
 to see that $\widebar{A}=[0,1]$, $A^\circ = (0,1)$,
 and $\partial A = \{ 0, 1 \}$.
 \end{example}
 
 \begin{example}
-Suppose $X := \{ a, b \}$ with the discrete metric.
-Let $A := \{ a \}$, then $\widebar{A} = A^\circ = A$ and $\partial A =
+Suppose $X = \{ a, b \}$ with the discrete metric.
+Let $A = \{ a \}$, then $\widebar{A} = A^\circ = A$ and $\partial A =
 \emptyset$.
 \end{example}
 
@@ -3332,24 +4328,24 @@ every open set can be written as a union of closed sets.
 \begin{samepage}
 \begin{exercise}
 In any metric space, prove:
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 $E$ is closed if and only if $\partial E \subset E$.
 \item
 $U$ is open if and only if $\partial U \cap U = \emptyset$.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 \end{samepage}
 
 \begin{exercise}
 In any metric space, prove:
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Show that $A$ is open if and only if $A^\circ = A$.
 \item
 Suppose that $U$ is an open set and $U \subset A$.  Show
 that $U \subset A^\circ$.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -3371,21 +4367,19 @@ Show that $\bigcup_{i=1}^\infty S_i$ is connected.
 \begin{samepage}
 \begin{exercise}
 Let $A$ be a connected set in a metric space.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Is $\widebar{A}$ connected?  Prove or find a counterexample.
 \item
 Is $A^\circ$ connected?  Prove or find a counterexample.
-\end{enumerate}
+\end{exparts}
 Hint: Think of sets in $\R^2$.
 \end{exercise}
 \end{samepage}
 
-\begin{exnote}
 The definition of open sets in the following exercise is usually called the
 \emph{\myindex{subspace topology}}.  You are asked to show that
 we obtain the same topology by considering the subspace metric.
-\end{exnote}
 
 \begin{exercise} \label{exercise:mssubspace}
 Finish the proof of \propref{prop:topology:subspaceopen}.
@@ -3395,17 +4389,19 @@ is open (in $Y$) then there exists an open set $V \subset X$ such
 that $U = V \cap Y$.
 \end{exercise}
 
+\begin{samepage}
 \begin{exercise}
 Let $(X,d)$ be a metric space.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 For any $x \in X$ and $\delta > 0$, show
 $\overline{B(x,\delta)} \subset C(x,\delta)$.
 \item
 Is it always true that
 $\overline{B(x,\delta)} = C(x,\delta)$?  Prove or find a counterexample.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
+\end{samepage}
 
 \begin{exercise}
 Let $(X,d)$ be a metric space and $A \subset X$.  Show that
@@ -3425,7 +4421,7 @@ the same.
 \begin{samepage}
 \begin{exercise}
 Let $(X,d)$ be a metric space.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Prove that for every $x \in X$, there either exists a $\delta > 0$ such that
 $B(x,\delta) = \{ x \}$, or $B(x,\delta)$ is infinite for every $\delta >  0$.
@@ -3441,13 +4437,13 @@ ball $B(x,\delta)$ is countably infinite.
 \item
 Prove that if $X$ is uncountable, then there exists
 an $x \in X$ and a $\delta > 0$ such that $B(x,\delta)$ is uncountable.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 \end{samepage}
 
 \begin{exercise}
 For every $x \in \R^n$ and every $\delta > 0$ define the ``rectangle''
-$R(x,\delta) :=
+$R(x,\delta) =
 (x_1-\delta,x_1+\delta) \times
 (x_2-\delta,x_2+\delta) \times \cdots \times
 (x_n-\delta,x_n+\delta)$.  Show that these sets generate the same open
@@ -3460,7 +4456,6 @@ U$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\sectionnewpage
 \section{Sequences and convergence}
 \label{sec:metseqs}
 
@@ -3505,7 +4500,7 @@ that $d(x_n,p) < \epsilon$ for all $n \geq M$.  The point $p$
 is said to be the \emph{limit}\index{limit!of a sequence in a metric space}
 of $\{ x_n \}$.  We write\glsadd{not:limseq}
 \begin{equation*}
-\lim_{n\to \infty} x_n := p .
+\lim_{n\to \infty} x_n \overset{\text{def}}{=} p .
 \end{equation*}
 
 A sequence
@@ -3530,22 +4525,17 @@ A convergent sequence in a metric space has a unique limit.
 %NOTE: should be word for word the same as 2.1.6
 Suppose the sequence $\{ x_n \}$ has limits $x$ and $y$.
 Take an arbitrary $\epsilon > 0$.
-From the definition find an $M_1$ such that for all $n \geq M_1$,
-$d(x_n,x) < \nicefrac{\epsilon}{2}$.  Similarly find an $M_2$
-such that for all $n \geq M_2$ we have
-$d(x_n,y) < \nicefrac{\epsilon}{2}$.  Now take an $n$ such that
-$n \geq M_1$ and also $n \geq M_2$, and estimate
+From the definition find an $n$ such that 
+$d(x_n,x) < \nicefrac{\epsilon}{2}$ and
+$d(x_n,y) < \nicefrac{\epsilon}{2}$.  Then
 \begin{equation*}
-\begin{split}
 d(y,x)
-& \leq
-d(y,x_n) + d(x_n,x) \\
-& <
+\leq
+d(y,x_n) + d(x_n,x)
+<
 \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon .
-\end{split}
 \end{equation*}
-As $d(y,x) < \epsilon$ for all $\epsilon > 0$, then $d(x,y) = 0$
-and $y=x$.  Hence the limit (if it exists) is unique.
+So $x=y$ and the limit (if it exists) is unique.
 \end{proof}
 
 The proofs of the following propositions are left as exercises.
@@ -3593,7 +4583,7 @@ if it converges in the metric space sense.
 
 \subsection{Convergence in euclidean space}
 
-In the euclidean space $\R^n$, a sequence converges if and only if every
+In $\R^n$, a sequence converges if and only if every
 component converges:
 
 \begin{prop} \label{prop:msconveuc}
@@ -3681,7 +4671,7 @@ U$.  As the sequence converges, find an $M \in \N$ such that for all $n \geq
 M$ we have $d(x,x_n) < \epsilon$ or in other words $x_n \in B(x,\epsilon)
 \subset U$.
 
-Let us prove the other direction.  Given $\epsilon > 0$ let $U :=
+Let us prove the other direction.  Given $\epsilon > 0$ let $U =
 B(x,\epsilon)$ be the neighborhood of $x$.  Then there is an $M \in \N$
 such that for $n \geq M$ we have $x_n \in U = B(x,\epsilon)$ or in other
 words, $d(x,x_n) < \epsilon$.
@@ -3735,17 +4725,16 @@ $E = \widebar{A}$.
 \end{exercise}
 
 \begin{exercise}
-{\ }
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
-Show that $d(x,y) := \min \{ 1, \abs{x-y} \}$ defines a metric on $\R$.
+Show that $d(x,y) = \min \{ 1, \abs{x-y} \}$ defines a metric on $\R$.
 \item
 Show that a sequence converges in $(\R,d)$ if and only if it converges
 in the standard metric.
 \item
 Find a bounded sequence in $(\R,d)$ that
 contains no convergent subsequence.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -3769,7 +4758,7 @@ a $K \in \N$ such that for all $n \geq K$ we have $x_n = x_K$.
 \end{exercise}
 
 \begin{exercise}
-A set $S \subset X$ is said to be \emph{\myindex{dense}} in $X$ if
+A set $S \subset X$ is said to be \emph{dense} in $X$ if
 $X \subset \widebar{S}$ or in other words if for every $x \in X$,
 there exists a sequence $\{ x_n \}$ in $S$ that converges to $x$.  Prove
 that $\R^n$ contains a countable dense subset.
@@ -3791,14 +4780,14 @@ $x_n \in E$ for infinitely many $n \in \N$.  Show $p \in E$.
 
 \begin{exercise} \label{exercise:extendedrealsmetric}
 Take $\R^* = \{ -\infty \} \cup \R \cup \{ \infty \}$ be the extended reals.
-Define $d(x,y) := \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
+Define $d(x,y) = \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
 \bigr\rvert$
 if $x, y \in \R$,
-define $d(\infty,x) := \bigl\lvert 1 - \frac{x}{1+\abs{x}} \bigr\rvert$,
-$d(-\infty,x) := \bigl\lvert 1 + \frac{x}{1+\abs{x}} \bigr\rvert$
+define $d(\infty,x) = \bigl\lvert 1 - \frac{x}{1+\abs{x}} \bigr\rvert$,
+$d(-\infty,x) = \bigl\lvert 1 + \frac{x}{1+\abs{x}} \bigr\rvert$
 for all $x \in \R$, and
-let $d(\infty,-\infty) := 2$.
-\begin{enumerate}[a)]
+let $d(\infty,-\infty) = 2$.
+\begin{exparts}
 \item
 Show that $(\R^*,d)$ is a metric space.
 \item
@@ -3810,7 +4799,7 @@ $(\R^*,d)$.
 Show that a sequence of real numbers converges to a real number
 in $(\R^*,d)$ if and
 only if it converges in $\R$ with the standard metric.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -3836,10 +4825,10 @@ converges to $p$.
 
 \begin{exercise}
 Consider $\R^n$, and let $d$ be the standard euclidean metric.
-Let $d'(x,y) := \sum_{\ell=1}^n \abs{x_\ell-y_\ell}$
-and $d''(x,y) := \max \{ \abs{x_1-y_1},\abs{x_2-y_2},\cdots,\abs{x_n-y_n}
+Let $d'(x,y) = \sum_{\ell=1}^n \abs{x_\ell-y_\ell}$
+and $d''(x,y) = \max \{ \abs{x_1-y_1},\abs{x_2-y_2},\cdots,\abs{x_n-y_n}
 \}$.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Use \exerciseref{exercise:mscross}, to show that
 $(\R^n,d')$ and
@@ -3847,15 +4836,15 @@ $(\R^n,d'')$ are metric spaces.
 \item
 Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$ and $p \in \R^n$.
 Prove that the following statements are equivalent:
-\begin{enumerate}[(1)]
+\begin{exnumparts}
 \item
 $\{ x_j \}$ converges to $p$ in $(\R^n,d)$.
 \item
 $\{ x_j \}$ converges to $p$ in $(\R^n,d')$.
 \item
 $\{ x_j \}$ converges to $p$ in $(\R^n,d'')$.
-\end{enumerate}
-\end{enumerate}
+\end{exnumparts}
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -3992,7 +4981,7 @@ $K$ is compact is to say that \emph{every open cover of $K$ has a finite
 \begin{example}
 Let $\R$ be the metric space with the standard metric.
 
-The set $\R$ is not compact.  Proof: Take the sets $U_j := (-j,j)$.
+The set $\R$ is not compact.  Proof: Take the sets $U_j = (-j,j)$.
 Any $x \in \R$ is in some $U_j$ (by the
 \hyperref[thm:arch:i]{Archimedean property}), so we have an open cover.
 Suppose we have a finite
@@ -4003,7 +4992,7 @@ a contradiction as $j_k \in \R$ on one hand and $j_k \notin U_{j_k} =
 other.
 
 The set $(0,1) \subset \R$ is also not compact.  Proof:  Take the 
-sets $U_{j} := (\nicefrac{1}{j},1-\nicefrac{1}{j})$ for $j=3,4,5,\ldots$.
+sets $U_{j} = (\nicefrac{1}{j},1-\nicefrac{1}{j})$ for $j=3,4,5,\ldots$.
 As above $(0,1) = \bigcup_{j=3}^\infty U_j$.  And similarly as above,
 if there exists a finite subcover, then there is one $U_j$ such that $(0,1)
 \subset U_j$, which again leads to a contradiction.
@@ -4150,7 +5139,7 @@ if $K$ is sequentially compact, then given any
 cover there is a single $\delta > 0$.  The $\delta$ depends on the cover,
 but of course it does not depend on $x$.
 
-For example, let $K := [-10,10]$ and for $n \in \Z$ let $U_n :=
+For example, let $K = [-10,10]$ and for $n \in \Z$ let $U_n =
 (n,n+2)$ define sets in an open cover.
 Take $x \in K$. There is an $n \in \Z$, 
 such that $n \leq x < n+1$.
@@ -4158,7 +5147,7 @@ If $n \leq x < n+\nicefrac{1}{2}$, then
 $B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n-1}$.  If
 If $n+ \nicefrac{1}{2} \leq x < n+1$, then
 $B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n}$.  So $\delta =
-\nicefrac{1}{2}$.  If instead we let $U'_n :=
+\nicefrac{1}{2}$.  If instead we let $U'_n =
 \bigl(\frac{n}{2},\frac{n+2}{2} \bigr)$, then we again obtain an open
 cover, but now the best $\delta$ we can find is $\nicefrac{1}{4}$.
 
@@ -4194,11 +5183,11 @@ Then there exists an $x \in K$ such that
 for any $\delta > 0$,
 $B(x,\delta)$ contains $x_k$ for infinitely many $k \in \N$.
 We define the subsequence inductively.
-The ball $B(x,1)$ contains some $x_k$ so let $n_1 := k$.
+The ball $B(x,1)$ contains some $x_k$ so let $n_1 = k$.
 Suppose $n_{j-1}$ is defined.
 There must exist a $k > n_{j-1}$
 such that $x_k \in B(x,\nicefrac{1}{j})$.  So define
-$n_j := k$.
+$n_j = k$.
 We now posses a subsequence $\{ x_{n_j} \}_{j=1}^\infty$.
 Since
 $d(x,x_{n_j}) < \nicefrac{1}{j}$,  \propref{prop:msconvifa} says
@@ -4310,7 +5299,7 @@ bounded, but not vice-versa.
 For $\R = \R^1$ if $K \subset \R$ is closed and bounded, then
 any sequence $\{ x_k \}$ in $K$ is bounded, so it has a convergent
 subsequence by
-Bolzano--Weierstrass theorem (\thmref{thm:bwseq}).
+the Bolzano--Weierstrass theorem.
 As $K$ is closed, the limit of the subsequence must be an element of
 $K$.  So $K$ is compact.
 
@@ -4333,9 +5322,9 @@ convergent sequence is still convergent, so
 $\{ x_{k_{j_i}} \}_{i=1}^\infty$ is convergent.
 Let
 \begin{equation*}
-x := \lim_{i\to\infty} x_{k_{j_i}}
+x = \lim_{i\to\infty} x_{k_{j_i}}
 \qquad \text{and} \qquad
-y := \lim_{i\to\infty} y_{k_{j_i}} .
+y = \lim_{i\to\infty} y_{k_{j_i}} .
 \end{equation*}
 By \propref{prop:msconveuc},
 $\bigl\{ (x_{k_{j_i}},y_{k_{j_i}}) \bigr\}_{i=1}^\infty$ converges to $(x,y)$.
@@ -4379,37 +5368,36 @@ Show that $A$ is compact.
 \begin{samepage}
 \begin{exercise}
 Let $A = \{ \nicefrac{1}{n} : n \in \N \} \subset \R$.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Show that $A$ is
 not compact directly using the definition.
 \item
 Show that $A \cup \{ 0 \}$ is
 compact directly using the definition.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 \end{samepage}
 
 
 \begin{exercise}
 Let $(X,d)$ be a metric space with the discrete metric.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Prove that $X$ is complete.
 \item
 Prove that $X$ is compact if and only if $X$ is a finite set.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
-{\ }
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Show that the union of finitely many compact sets is a compact set.
 \item
 Find an example where the union of infinitely many compact sets is not
 compact.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -4505,11 +5493,11 @@ compact as a subset of itself with the subspace metric.
 
 \begin{exercise} \label{exercise:cauchydepndsonmetric}
 Consider two metrics on $\R$.
-Let $d(x,y) := \abs{x-y}$ be the standard metric,
+Let $d(x,y) = \abs{x-y}$ be the standard metric,
 and let
-$d'(x,y) := \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
+$d'(x,y) = \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
 \bigr\rvert$.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Show that $(\R,d')$ is a metric space (if you have done
 \exerciseref{exercise:extendedrealsmetric} the computation is the same).
@@ -4527,7 +5515,7 @@ Find a sequence of real numbers that is Cauchy
 in $(\R,d')$ but not Cauchy in $(\R,d)$.
 \item
 While $(\R,d)$ is complete, show that $(\R,d')$ is not complete.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise} \label{exercise:relativelycompactseq}
@@ -4593,22 +5581,24 @@ does not converge to $f(c)$.
 \begin{example}
 Suppose $f \colon \R^2 \to \R$ is a polynomial.  That is,
 \begin{equation*}
-f(x,y) =
+\begin{split}
+f(x,y) & =
 \sum_{j=0}^d
 \sum_{k=0}^{d-j}
-a_{jk}\,x^jy^k =
+a_{jk}\,x^jy^k \\
+& =
 a_{0\,0} + a_{1\,0} \, x +
 a_{0\,1} \, y+  
 a_{2\,0} \, x^2+  
 a_{1\,1} \, xy+  
 a_{0\,2} \, y^2+ \cdots +
 a_{0\,d} \, y^d ,
+\end{split}
 \end{equation*}
 for some $d \in \N$ (the degree) and $a_{jk} \in \R$.  Then we claim 
 $f$ is continuous.  Let $\{ (x_n,y_n) \}_{n=1}^\infty$ be a sequence
 in $\R^2$ that converges to $(x,y) \in \R^2$.  We proved that this
-means $\lim\, x_n = x$ and $\lim\, y_n = y$.
-By \propref{prop:contalg} we have
+means $\lim\, x_n = x$ and $\lim\, y_n = y$.  Then
 \begin{equation*}
 \lim_{n\to\infty}
 f(x_n,y_n) =
@@ -4629,24 +5619,24 @@ polynomial in $n$ variables is continuous.
 \end{example}
 
 Be careful about taking limits separately.  In \exerciseref{exercise:dicontR2}
-you are asked to prove that the function defined by $f(x,y) := \frac{xy}{x^2+y^2}$
-outside the origin and $f(0,0) := 0$, is not continuous at the origin.  See
+you are asked to prove that the function defined by $f(x,y) = \frac{xy}{x^2+y^2}$
+outside the origin and $f(0,0) = 0$, is not continuous at the origin.  See
 \figureref{fig:xyxsqysq}.
-However, for any $y$, the function $g(x) := f(x,y)$ is
+However, for any $y$, the function $g(x) = f(x,y)$ is
 continuous,
-and for any $x$, the function $h(y) := f(x,y)$ is continuous.
+and for any $x$, the function $h(y) = f(x,y)$ is continuous.
 \begin{myfig}
 \includegraphics{figures/xyxsqysq}
 \caption{Graph of $\frac{xy}{x^2+y^2}$.\label{fig:xyxsqysq}}
 \end{myfig}
 
 \begin{example}
-Let $X$ be a metric space and take $f \colon X \to \C$ be a complex-valued
-function.  We write $f(p) = g(p) + i h(p)$, where $g \colon X \to \R$
+Let $X$ be a metric space and $f \colon X \to \C$ a complex-valued
+function.  Write $f(p) = g(p) + i h(p)$, where $g \colon X \to \R$
 and $h \colon X \to \R$ are the real and imaginary parts of $f$.
-Then $f$ is continuous at $c \in X$ if and only its real
+Then $f$ is continuous at $c \in X$ if and only if its real
 and imaginary parts are continuous at $c$.  
-The proof follows because $\{ f(p_n) = g(p_n) + i h(p_n) \}_{n=1}^\infty$
+This fact follows because $\{ f(p_n) = g(p_n) + i h(p_n) \}_{n=1}^\infty$
 converges to $f(p) = g(p) + i h(p)$ if and only if
 $\{ g(p_n) \}$ converges to $g(p)$ and
 $\{ h(p_n) \}$ converges to $h(p)$.
@@ -4655,7 +5645,7 @@ $\{ h(p_n) \}$ converges to $h(p)$.
 \subsection{Compactness and continuity}
 
 Continuous maps do not map closed sets to closed sets.  For example,
-$f \colon (0,1) \to \R$ defined by $f(x) := x$ takes the set $(0,1)$, which
+$f \colon (0,1) \to \R$ defined by $f(x) = x$ takes the set $(0,1)$, which
 is closed in $(0,1)$, to the set $(0,1)$, which is not closed in $\R$.
 On the other hand continuous maps do preserve compact sets.
 
@@ -4693,8 +5683,8 @@ f(x) \leq f(c) \qquad \text{ for all $x \in X$.}
 \begin{thm}
 Let $(X,d)$ be a compact metric space
 and $f \colon X \to \R$ a continuous function.  Then
-$f$ is bounded and in fact
-$f$ achieves an absolute minimum and an absolute maximum on $X$.
+$f$ achieves an absolute minimum and maximum on $X$.
+In particular, $f$ is bounded.
 \end{thm}
 
 \begin{proof}
@@ -4771,9 +5761,7 @@ we have a continuous
 function $f \colon X \to \R$, then the
 \emph{\myindex{zero set}} of $f$, that is, 
 $f^{-1}(0) = \{ x \in X :
-f(x) = 0 \}$, is closed.  We have just proved the most basic result in
-\emph{\myindex{algebraic geometry}}, the study of
-zero sets of polynomials:  The zero set of a polynomial is closed.
+f(x) = 0 \}$, is closed.
 
 Similarly the set where $f$ is nonnegative, that is,
 $f^{-1}\bigl( [0,\infty) \bigr) = \{ x \in X :
@@ -4837,66 +5825,9 @@ d_Y\bigl(f(c),f(q)\bigr)
 \end{equation*}
 \end{proof}
 
-As an application of uniform continuity, let us prove a useful criterion for
-continuity of functions defined by integrals.  Let $f(x,y)$ be a function of two variables and define
-\begin{equation*}
-g(y) := \int_a^b f(x,y) ~dx .
-\end{equation*}
-Question is, is $g$ is continuous?
-We are really asking when do two limiting operations commute,
-which is not always possible, so some extra hypothesis
-is necessary.  A useful sufficient (but not
-necessary) condition is that $f$ is continuous on a closed rectangle.
-
-\begin{prop} \label{prop:integralcontcont}
-If $f \colon [a,b] \times [c,d] \to \R$ is a continuous function,
-then $g \colon [c,d] \to \R$ defined by
-\begin{equation*}
-g(y) := \int_a^b f(x,y) ~dx  \qquad \text{is continuous}.
-\end{equation*}
-\end{prop}
-
-\begin{proof}
-Fix $y \in [c,d]$, and let $\{ y_n \}$ be a sequence in $[c,d]$
-converging to $y$.
-Let $\epsilon > 0$ be given.
-As $f$ is continuous on $[a,b] \times [c,d]$, which is compact, $f$
-is uniformly continuous.  
-In particular, there exists a $\delta > 0$ such that
-whenever $\widetilde{y} \in [c,d]$ and
-$\abs{\widetilde{y}-y} < \delta$ we have
-$\abs{f(x,\widetilde{y})-f(x,y)} < \epsilon$ for all $x \in [a,b]$.
-If we let $h_n(x):= f(x,y_n)$ and $h(x) := f(x,y)$,
-we have just shown that
-$h_n \colon [a,b] \to \R$ converges uniformly 
-to
-$h \colon [a,b] \to \R$ as $n$ goes to $\infty$.
-Uniform convergence implies the limit can be taken underneath the integral.
-So
-\begin{equation*}
-\lim_{n\to \infty}
-g(y_n)
-=
-\lim_{n\to \infty}
-\int_a^b 
-f(x,y_n) ~dx 
-= 
-\int_a^b 
-\lim_{n\to \infty}
-f(x,y_n) ~dx 
-= 
-\int_a^b 
-f(x,y) ~dx = g(y) . \qedhere
-\end{equation*}
-\end{proof}
-
-In applications, if we are interested in continuity at $y_0$, we just
-need to apply the proposition in $[a,b] \times [y_0-\epsilon,y_0+\epsilon]$
-for some small $\epsilon > 0$.  For example, if $f$ is continuous in
-$[a,b] \times \R$, then $g$ is continuous on $\R$.
 
 \begin{example}
-Useful examples of uniformly continuous functions are again the so-called
+Useful examples of uniformly continuous functions are the so-called
 \emph{Lipschitz continuous}%
 \index{Lipschitz continuous!in a metric space}%
 \index{function!Lipschitz}
@@ -4958,15 +5889,14 @@ to $p$, and $L$ is the \emph{limit} of $f(x)$ as $x$
 goes to $p$.  We write
 \glsadd{not:limfunc}
 \begin{equation*}
-\lim_{x \to p} f(x) := L .
+\lim_{x \to p} f(x) \overset{\text{def}}{=} L .
 \end{equation*}
 Otherwise we say $f$
 \emph{diverges}\index{diverges!function in a metric space} at $p$.
 \end{defn}
 
-As usual, we used the definite article without showing that the
-limit is unique.  The proof is a direct translation of the proof
-from \chapterref{lim:chapter}, so we leave it as an exercise.
+We again used the definite article without showing that the
+limit is unique.  We leave the proof of uniqueness as an exercise.
 
 \begin{prop} \label{prop:mslimitisunique}
 Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces, $S \subset X$, $p \in X$
@@ -5005,26 +5935,26 @@ $f \colon S \to Y$ is continuous at $p$ if and only if
 \begin{exercise}
 Consider $\N \subset \R$ with the standard metric.  Let $(X,d)$ be a
 metric space and $f \colon X \to \N$ a continuous function.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Prove that if $X$ is connected,
 then $f$ is constant (the range of $f$ is a single value).
 \item
 Find an example where $X$ is disconnected and $f$ is not constant.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise} \label{exercise:dicontR2}
-Let $f \colon \R^2 \to \R$ be defined by $f(0,0) := 0$, and
-$f(x,y) := \frac{xy}{x^2+y^2}$ if $(x,y) \not= (0,0)$.
-\begin{enumerate}[a)]
+Let $f \colon \R^2 \to \R$ be defined by $f(0,0) = 0$, and
+$f(x,y) = \frac{xy}{x^2+y^2}$ if $(x,y) \not= (0,0)$.
+\begin{exparts}
 \item
 Show that for any fixed $x$,
 the function that takes $y$ to $f(x,y)$ is continuous.  Similarly
 for any fixed $y$, the function that takes $x$ to $f(x,y)$ is continuous.
 \item
 Show that $f$ is not continuous.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{samepage}
@@ -5032,12 +5962,12 @@ Show that $f$ is not continuous.
 Suppose $(X,d_X)$, $(Y,d_Y)$ be metric spaces and
 $f \colon X \to Y$ is continuous.
 Let $A \subset X$.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Show that $f(\widebar{A}) \subset \overline{f(A)}$.
 \item
 Show that the subset can be proper.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 \end{samepage}
 
@@ -5080,34 +6010,34 @@ Take the metric space of continuous functions $C([0,1],\R)$.  Let
 $k \colon [0,1] \times [0,1] \to \R$ be a continuous function.
 Given $f \in C([0,1],\R)$ define
 \begin{equation*}
-\varphi_f(x) := \int_0^1 k(x,y) f(y) ~dy .
+\varphi_f(x) = \int_0^1 k(x,y) f(y)  \, dy .
 \end{equation*}
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
-Show that $T(f) := \varphi_f$ defines a function $T \colon C([0,1],\R) \to
+Show that $T(f) = \varphi_f$ defines a function $T \colon C([0,1],\R) \to
 C([0,1],\R)$.
 \item
 Show that $T$ is continuous.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{samepage}
 \begin{exercise}
 Let $(X,d)$ be a metric space.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 If $p \in X$,
 show that $f \colon X \to \R$ defined
-by $f(x) := d(x,p)$ is continuous.
+by $f(x) = d(x,p)$ is continuous.
 \item
 Define a metric on $X \times X$ as in \exerciseref{exercise:mscross} part
 b, and show that $g \colon X \times X \to \R$ defined by
-$g(x,y) := d(x,y)$ is continuous.
+$g(x,y) = d(x,y)$ is continuous.
 \item
 Show that if $K_1$ and $K_2$ are compact subsets of $X$, then
 there exists a $p \in K_1$ and $q \in K_2$ such that $d(p,q)$ is minimal,
 that is, $d(p,q) = \inf \{ d(x,y) \colon x \in K_1, y \in K_2 \}$.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 \end{samepage}
 
@@ -5115,16 +6045,16 @@ that is, $d(p,q) = \inf \{ d(x,y) \colon x \in K_1, y \in K_2 \}$.
 Let $(X,d)$ be a compact metric space, let $C(X,\R)$ be the set
 of real-valued continuous functions.  Define
 \begin{equation*}
-d(f,g) := \snorm{f-g}_u := \sup_{x \in X} \abs{f(x)-g(x)} .
+d(f,g) = \snorm{f-g}_S = \sup_{x \in X} \abs{f(x)-g(x)} .
 \end{equation*}
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Show that $d$ makes $C(X,\R)$ into a metric space.
 \item
 Show that for any $x \in X$, the evaluation function
-$E_x \colon C(X,\R) \to \R$ defined by $E_x(f) := f(x)$
+$E_x \colon C(X,\R) \to \R$ defined by $E_x(f) = f(x)$
 is a continuous function.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 
 \begin{samepage}
@@ -5134,25 +6064,25 @@ $C^1([a,b],\R)$\glsadd{not:contdifffuncs} the set of once continuously different
 functions on $[a,b]$.
 Define
 \begin{equation*}
-d_{C}(f,g) := \snorm{f-g}_u
+d_{C}(f,g) = \snorm{f-g}_S
 \qquad \text{and} \qquad
-d_{C^1}(f,g) := \snorm{f-g}_u + \snorm{f'-g'}_u,
+d_{C^1}(f,g) = \snorm{f-g}_S + \snorm{f'-g'}_S,
 \end{equation*}
-where $\snorm{\cdot}_u$ is the uniform norm.
+where $\snorm{\cdot}_S$ is the uniform norm.
 By \exampleref{example:msC01} and \exerciseref{exercise:C1ab} we know that
 $C([a,b],\R)$ with $d_C$ is a metric space and
 so is
 $C^1([a,b],\R)$ with $d_{C^1}$.
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Prove that the derivative operator $D \colon 
 C^1([a,b],\R) \to C([a,b],\R)$ defined by
-$D(f) := f'$ is continuous.
+$D(f) = f'$ is continuous.
 \item
 On the other hand if we consider the metric $d_C$ on $C^1([a,b],\R)$,
 then prove the derivative operator is no longer continuous.  Hint: Consider
 $\sin(n x)$.
-\end{enumerate}
+\end{exparts}
 \end{exercise}
 \end{samepage}
 
@@ -5183,13 +6113,13 @@ $f \colon S \to Y$ is continuous at $p$ if and only if
 \begin{exercise}
 Define
 \begin{equation*}
-f(x,y) :=
+f(x,y) =
 \begin{cases}
 \frac{2xy}{x^4+y^2} & \text{if $(x,y) \not= (0,0)$} \\
 0 & \text{if $(x,y) = (0,0)$} .
 \end{cases}
 \end{equation*}
-\begin{enumerate}[a)]
+\begin{exparts}
 \item
 Show that for every fixed $y$ the function that takes $x$ to $f(x,y)$
 is continuous and hence Riemann integrable.
@@ -5198,21 +6128,12 @@ For every fixed $x$, the function that takes $y$ to $f(x,y)$ is continuous.
 \item
 Show that $f$ is not continuous at $(0,0)$.
 \item
-Now show that $g(y) := \int_0^1 f(x,y)~dx$ is not continuous at $y=0$.
-\end{enumerate}
+Now show that $g(y) = \int_0^1 f(x,y)\,dx$ is not continuous at $y=0$.
+\end{exparts}
 Note: Feel free to use what you know about $\arctan$ from calculus,
 in particular that $\frac{d}{ds} \bigl[ \arctan(s) \bigr] = \frac{1}{1+s^2}$.
 \end{exercise}
 
-\begin{exercise} \label{exercise:integralcontcontextra}
-Prove a stronger version of \propref{prop:integralcontcont}:
-If $f \colon (a,b) \times (c,d) \to \R$ is a bounded continuous function,
-then $g \colon [c,d] \to \R$ defined by
-\begin{equation*}
-g(y) := \int_a^b f(x,y) ~dx  \qquad \text{is continuous}.
-\end{equation*}
-Hint: First integrate over $[a+\nicefrac{1}{n},b-\nicefrac{1}{n}]$.
-\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5239,6 +6160,24 @@ Hint: First integrate over $[a+\nicefrac{1}{n},b-\nicefrac{1}{n}]$.
 \begin{biblist}[\normalsize]
 
 %FIXME: also cite the ra book
+
+\bib{ra:book}{misc}{
+   author={Lebl, Ji\v{r}\'i},
+   title={Basic Analysis I: Introduction to Real Analysis, Volume I},
+   note={\url{https://www.jirka.org/ra/}}
+}
+
+\bib{ra:book2}{misc}{
+   author={Lebl, Ji\v{r}\'i},
+   title={Basic Analysis II: Introduction to Real Analysis, Volume II},
+   note={\url{https://www.jirka.org/ra/}}
+}
+
+\bib{scv:book}{misc}{
+   author={Lebl, Ji\v{r}\'i},
+   title={Tasty bits of Several Complex Variables},
+   note={\url{https://www.jirka.org/scv/}}
+}
 
 \bib{Rudin:principles}{book}{
    author={Rudin, Walter},
