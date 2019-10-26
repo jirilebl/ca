@@ -1,0 +1,51 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P F(double x, double y)
+{
+  	return P(x, y, x*y/(0.000000000000000000001+x*x+y*y));
+}
+
+P FF(double r, double th)
+{
+	double x = r*Cos(th);
+	double y = r*Sin(th);
+	return F(x,y);
+}
+
+double MAX(1.5), Bd(2);
+P pt1(-MAX,-MAX), pt2(MAX, MAX);
+domain R1(P(-MAX,-MAX), P(-2.5*MAX/12.5,MAX), mesh(10,25), mesh(10,75));
+domain R2(P(-2.5*MAX/12.5,-MAX),P(2.5*MAX/12.5,MAX), mesh(5,25), mesh(10,75));
+domain R3(P(2.5*MAX/12.5,-MAX), P(MAX,MAX), mesh(10,25), mesh(10,75));
+
+domain RR(P(0,0), P(1.5, 2*M_PI), mesh(8,40), mesh(16,120));
+
+int main()
+{
+  picture(P(-Bd,-Bd), P(Bd,Bd), "2.5x2.5in");
+
+  begin();
+
+  camera.at(P(6,2,5));
+
+  arrow(P(-Bd,0,0), P(Bd,0,0));
+  label(P(Bd,0), P(-4,-2), "$x$", l); 
+
+  arrow(P(0,-Bd,0), P(0,Bd,0));
+  label(P(0,Bd), P( 2,-2), "$y$", br);
+
+  plain ();
+  fill(White());
+  surface(F, R1); // rectangular
+  surface(F, R2); // rectangular
+  surface(F, R3); // rectangular
+  //surface(FF, RR); // polar
+
+  arrow(P(0, 0, 0.3), P(0,0,1.5));
+  label(P(0,0,1.5), P(0,4), "$z$", t);
+
+  tikz_format();
+  end();
+}

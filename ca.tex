@@ -15,6 +15,8 @@
 \usepackage{lipsum}
 \usepackage{chngcntr}
 \usepackage{titlesec}
+\usepackage{import}
+\usepackage{vogtwidebar}
 
 %symmetric for web
 \usepackage[inner=1.2in,outer=1.2in,top=1in,bottom=1in]{geometry}
@@ -46,6 +48,8 @@
 
 \assignpagestyle{\chapter}{empty}
 
+
+\usepackage[margin=10pt,font=small,labelfont=bf,labelsep=colon,singlelinecheck=false]{caption}
 
 %FIXME: this is nonsense, this should be done above, except maybe the
 %cutting down
@@ -136,6 +140,7 @@
 \newcommand{\codim}{\operatorname{codim}}
 \newcommand{\sing}{\operatorname{sing}}
 \newcommand{\ord}{\operatorname{ord}}
+\newcommand{\dist}{\operatorname{dist}}
 
 % reals
 \newcommand{\esssup}{\operatorname{ess~sup}}
@@ -246,9 +251,6 @@
 % Very simple indexing
 \newcommand{\myindex}[1]{#1\index{#1}}
 
-% define this to be empty to kill notes
-\newcommand{\sectionnotes}[1]{\noindent \emph{Note: #1} \medskip \par}
-
 \author{Ji\v{r}\'i Lebl}
 
 \title{One Complex Variable}
@@ -298,9 +300,20 @@
 }
 
 \newenvironment{myfig}{%
-    \begin{center}
+\begin{figure}[h!t]
+\noindent\rule{\textwidth}{0.4pt}\vspace{12pt}\par\centering}%
+{\par\noindent\rule{\textwidth}{0.4pt}
+\end{figure}}
+
+
+\newenvironment{myquote}{%
+    \begin{quote}%
+    %\begin{center}%
+    \begingroup\itshape
 }{%
-    \end{center}
+    \endgroup%
+    %\end{center}%
+    \end{quote}
 }
 
 \theoremstyle{exercise}
@@ -482,49 +495,1636 @@ at github: \url{https://github.com/jirilebl/ca}
 \addcontentsline{toc}{chapter}{Introduction}
 \markboth{INTRODUCTION}{INTRODUCTION}
 
+\begin{myquote}
+Let us be thankful for the fools. But for them the rest of us could not succeed.
+
+---Mark Twain 
+\end{myquote}
+
+\lipsum[1-2]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-FIXME
+\chapter{The Complex Plane} \label{ch:complexplane}
 
-\noindent
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla in arcu facilisis, maximus nibh amet.
+\begin{myquote}
+It's clearly a budget. It's got a lot of numbers in it.
 
-\noindent
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam condimentum nullam.
+---George W.\ Bush
+\end{myquote}
 
-%\rule[-1pt]{20pt}{5pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Complex numbers} \label{sec:complexnums}
+
+%In modern mathematics, in other words in the last couple hundred years, when 
+%faced with a problem such as solving $z^2+1 = 0$,
+%instead of trying to see when the equation has a solution with
+%the numbers we have, we define new numbers that solve the equation.
+
+Modern\footnote{In this context \emph{modern}
+means ``later than the middle ages.''}
+mathematics
+is taking a false statement such as ``all
+polynomials have a root'' and redefining what we mean by a ``number,''
+so that the statement is true.  In this case we arrive at the complex
+numbers.  Surprisingly, while this technique
+just feels like cheating, it has been very productive in giving us
+essentially all the mathematics we know, both pure and applied.  It is this same
+technique that starts with the natural numbers
+\glsadd{not:N}$\N = \{ 1,2,3,\ldots \}$, which are the only
+numbers that we can really make an argument are obvious from nature,
+and gets us zero and the negative numbers producing the integers
+\glsadd{not:Z}$\Z$ so that we can solve equations such as $n+2 = 1$.
+From \glsadd{not:Z}$\Z$, we define the rational numbers
+\glsadd{not:Z}$\Q$ to solve equations such as $2x=1$.  We extend
+\glsadd{not:Z}$\Q$ to the real numbers \glsadd{not:R}$\R$
+to solve equations such as $x^2=2$.  Really we want the real numbers to
+have things like the intermediate value theorem, Bolzano--Weierstrass,
+etc.  It is then not much of a stretch to do the same thing when trying
+to solve $z^2+1=0$.  Similarly as what happened when we defined the real
+numbers, the consequences of adding this solution to the mix are much more
+profound than just finding roots of polynomials.
+
+You have surely seen the complex number field,
+but let us review how one can define it.
+As a set, let the \emph{\myindex{complex number field}}
+\glsadd{not:C}$\C$ be the set $\R^2 = \R \times \R$.
+As the set is a plane, we call it the \emph{\myindex{complex plane}}%
+\footnote{Although there is that odd mathematician out there that
+thinks that the \emph{complex plane} is $\C^2 = \C \times \C$.
+If you hear someone say that, politely whack them over the head for me.}.
+To make it a field, we define addition and product:
+\begin{align*}
+(a,b) + (c,d) & \overset{\text{def}}{=} (a+b,c+d) , \\
+(a,b) (c,d) & \overset{\text{def}}{=} (ac-bd,bc+da) .
+\end{align*}
+
+\begin{exbox}
+\begin{exercise}
+Check that the above makes $\C$ into a field, where the additive
+identity $0=(0,0)$ and the multiplicative is $1=(1,0)$.
+That is, it is an abelian group under addition,
+the nonzero complex numbers are an abelian group under multiplication,
+and the distributive law holds.  Hint: The multiplicative inverse of $(a,b)$
+is $\left(\frac{a}{a^2+b^2},\frac{-b}{a^2+b^2}\right)$.
+\end{exercise}
+\end{exbox}
+
+We will actually never write complex numbers as $(x,y)$ from now on.
+When we write a real number $x$ we identify it with the
+complex number $(x,0)$.
+With this identification $\R \subset \C$.
+We define\footnote{Beware of engineers, they think it is called $j$.}%
+\glsadd{not:i}
+\begin{equation*}
+i \overset{\text{def}}{=} (0,1) ,
+\end{equation*}
+and we find that with this definition $(x,y) = x+iy$ using the field
+structure of $\C$.  So from now on, this is the only way we write
+the complex numbers.  We call the form $x+iy$ the \emph{\myindex{cartesian}}
+form of the complex number.
+
+The number $i$ has the magical property that
+\begin{equation*}
+i^2 = 1 .
+\end{equation*}
+It is the solution to $z^2+1=0$.
+For this reason we sometimes write%
+\footnote{There are those that even always write $\sqrt{-1}$ instead of $i$.
+Those people also deserve a good whack.}
+$i = \sqrt{-1}$.
+We will prove later that complex numbers
+are precisely the field in which every polynomial has roots.
+Note that there is another square root of $-1$, that is $-i$.
+
+%\begin{remark}
+%Another way to define complex numbers is to take the real numbers
+%and adjoin a root of $z^2+1=0$.
+%There is a subtle philosophical issue with the fact that there
+%are two such square roots.
+%Two chickens\index{chicken!imaginary}%
+%are running around in our yard,
+%and because we like to
+%know which is which, we catch one and write ``$i$'' on it.  If we happened
+%to have caught the other chicken, we would have gotten an exactly equivalent
+%theory, which we could not tell apart from the original.
+%\end{remark}
+
+If $z = x+iy \in \C$ for $x,y \in \R$, then $x$ is called the
+\emph{\myindex{real part}} and $y$ is called the
+\emph{\myindex{imaginary part}}.  We write
+\glsadd{not:real}%
+\glsadd{not:imag}%
+\begin{equation*}
+\Re z = 
+\Re (x+iy) =
+\frac{z+\bar{z}}{2}
+= x, \qquad 
+\Im z = 
+\Im (x+iy) =
+\frac{z-\bar{z}}{2i}
+=
+y .
+\end{equation*}
+
+Given a complex number $z$, its ``evil twin'' is 
+the \emph{\myindex{complex conjugate}} of $z$ and is defined as
+\glsadd{not:conj}%
+\begin{equation*}
+\bar{z} \overset{\text{def}}{=} x-iy.
+\end{equation*}
+
+The size of $z$ is measured by the so-called \emph{\myindex{modulus}},
+which is just the \emph{\myindex{Euclidean distance}}:
+\glsadd{not:mod}%
+\begin{equation*}
+\sabs{z} \overset{\text{def}}{=} \sqrt{z \bar{z}} = \sqrt{x^2+y^2} .
+\end{equation*}
+Perhaps easier equation is that ${\sabs{z}}^2 = z\bar{z}$.
+In particular, notice $\sabs{z} \geq 0$, and $\sabs{z} = 0$
+if and only if $z=0$.
+
+\begin{prop}[Cauchy--Schwarz and the triangle inequality]
+If $z,w \in \C$, then
+\begin{enumerate}[(i)]
+\item
+$\Re z\bar{w} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz),
+\item
+$\sabs{z+w} \leq \sabs{z} + \sabs{w}$ \quad (Triangle inequality).
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+The modulus squared of a complex number is always nonnegative:
+\begin{equation*}
+\begin{split}
+0 & \leq {\sabs{z\bar{w}-\bar{z}w}}^2 \\
+  & =    (z\bar{w}-\bar{z}w)(z\bar{w}-\bar{z}w) \\
+  & =    2z\bar{z}w\bar{w} - z^2\bar{w}^2 - \bar{z}^2w^2 \\
+  & =    4z\bar{z}w\bar{w} - {(z\bar{w}+\bar{z}w)}^2 \\
+  & =    {(2\sabs{z}\sabs{w})}^2 - {(2 \Re z\bar{w})}^2 .
+\end{split}
+\end{equation*}
+This proves Cauchy--Schwarz.  Similarly we prove the triangle inequality
+(using Cauchy--Schwarz):
+\begin{equation*}
+\begin{split}
+{\sabs{z+w}}^2 & =    (z+w)(\bar{z}+\bar{w}) \\
+               & =    z\bar{z} + w\bar{w} + z\bar{w} + \bar{z}w \\
+               & \leq z\bar{z} + w\bar{w} + 2 \sabs{z}\sabs{w} \\
+               & =    {(\sabs{z}+\sabs{w})}^2 . \qedhere
+\end{split}
+\end{equation*}
+\end{proof}
+
+The distance between two numbers $z$ and $w$ is measured by
+\begin{equation*}
+%\dist(z,w)
+%\overset{\text{def}}{=}
+\sabs{z-w} ,
+\end{equation*}
+and this makes $\C$ into a metric space.  See \Appendixref{ap:metric}
+for an introduction to metric spaces.  The basic neighbourhood (that is, an
+open ball) in $\C$
+is called a \emph{\myindex{disc}}.
+Given $a \in \C$ and $\rho > 0$, define the disc of radius $\rho$ around
+$a$
+as
+\glsadd{not:disc}%
+\begin{equation*}
+\Delta_\rho(a)
+\overset{\text{def}}{=}
+\bigl\{ z \in \C : \sabs{z-a} < \rho \bigr\} .
+\end{equation*}
+
+
+
+
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$a \in U$, and $\overline{\Delta_\rho(a)} \subset U$ (that is, the closure
+of the disc is in $U$, and so its boundary $\partial \Delta_\rho(a)$ is also in $U$).
+
+
+\chapter{FOO}
+
+\medskip
+
+Complex analysis is the study of holomorphic (or complex-analytic)
+functions.
+Holomorphic functions are a generalization of polynomials,
+and to get there one leaves the land of algebra to arrive in the realm of
+analysis.
+One can do an awful lot with polynomials, but sometimes they are
+just not enough.  For example, there is no nonzero polynomial function that solves
+the simplest of differential equations, $f' = f$.  We need the exponential
+function, which is holomorphic.  
+
+Let us start with polynomials.  In one variable, a polynomial in $z$ is
+an expression of the form
+\begin{equation*}
+P(z) = \sum_{j=0}^d c_j \, z^j ,
+\end{equation*}
+where $c_j \in \C$ and $c_d \not= 0$.  The number $d$ is called the
+\emph{degree}\index{degree of a polynomial}
+of the
+polynomial $P$.  We can plug in some number $z$ and simply compute
+$P(z)$, so we have a function $P \colon \C \to \C$.
+
+We try to write
+\begin{equation*}
+f(z) = \sum_{j=0}^\infty c_j \, z^j
+\end{equation*}
+and all is very fine until we wish to know what $f(z)$ is for some number
+$z \in \C$.
+We usually mean 
+\begin{equation*}
+\sum_{j=0}^\infty c_j \, z^j
+=
+\lim_{d\to\infty}
+\sum_{j=0}^d c_j \, z^j .
+\end{equation*}
+As long as the limit exists, we have a function.  You know all
+this; it is your one-variable complex analysis.  We usually
+start with the functions and prove that we can expand into series.
+
+Let $U \subset \C$ be open.  A function $f \colon U \to \C$
+is \emph{\myindex{holomorphic}}
+(or \emph{\myindex{complex-analytic}}) if it is
+\emph{\myindex{complex-differentiable}} at every point,
+that is, if
+\begin{equation*}
+f'(z)
+%=
+%\lim_{w \in \C \to z} \frac{f(w)-f(z_0)}{w-z} 
+=
+\lim_{\xi \in \C \to 0} \frac{f(z+\xi)-f(z)}{\xi} 
+\qquad \text{exists for all $z \in U$.}
+\end{equation*}
+Importantly, the limit is taken with respect to
+complex %$w$ or
+$\xi$.
+Another vantage point is to start with a continuously 
+differentiable\footnote{Holomorphic functions end up being infinitely
+differentiable anyway, so this hypothesis is not overly restrictive.} $f$,
+and say $f = u + i\, v$ is holomorphic if it satisfies
+the \emph{\myindex{Cauchy--Riemann equations}}:
+\begin{equation*}
+\frac{\partial u}{\partial x} = 
+\frac{\partial v}{\partial y} ,
+\qquad
+\frac{\partial u}{\partial y} = 
+-
+\frac{\partial v}{\partial x} .
+\end{equation*}
+The so-called \emph{\myindex{Wirtinger operators}},
+\begin{equation*}
+\frac{\partial}{\partial z}
+\overset{\text{def}}{=}
+\frac{1}{2}
+\left(
+\frac{\partial}{\partial x} - i
+\frac{\partial}{\partial y}
+\right),
+~ ~ ~ ~ ~
+\frac{\partial}{\partial \bar{z}}
+\overset{\text{def}}{=}
+\frac{1}{2}
+\left(
+\frac{\partial}{\partial x} + i
+\frac{\partial}{\partial y}
+\right)
+,
+\end{equation*}
+provide an easier way to understand the
+Cauchy--Riemann equations.
+These operators are determined by insisting
+\glsadd{not:wirt}%
+\begin{equation*}
+\frac{\partial}{\partial z} z = 1, \quad
+\frac{\partial}{\partial z} \bar{z} = 0, \quad
+\frac{\partial}{\partial \bar{z}} z = 0, \quad
+\frac{\partial}{\partial \bar{z}} \bar{z} = 1.
+\end{equation*}
+
+The function $f$ is holomorphic if and only if
+\begin{equation*}
+\frac{\partial f}{\partial \bar{z}} = 0 .
+\end{equation*}
+That seems a far nicer statement of the Cauchy--Riemann equations, and it is
+just one complex equation.  It says
+a function is holomorphic if and only if it depends on $z$ but not on
+$\bar{z}$ (perhaps that might not make a whole lot of sense at first
+glance).
+Let us check:
+\begin{equation*}
+\frac{\partial f}{\partial \bar{z}} 
+=
+\frac{1}{2}
+\left(
+\frac{\partial f}{\partial x} + i
+\frac{\partial f}{\partial y}
+\right)
+=
+%\frac{1}{2}
+%\left(
+%\frac{\partial }{\partial x} (u + iv) + i
+%\frac{\partial }{\partial y} (u + iv)
+%\right)
+%=
+\frac{1}{2}
+\left(
+\frac{\partial u}{\partial x} 
++ i \frac{\partial v}{\partial x} 
++ i \frac{\partial u}{\partial y}
+- \frac{\partial v}{\partial y}
+\right) 
+=
+\frac{1}{2}
+\left(
+\frac{\partial u}{\partial x} 
+- \frac{\partial v}{\partial y}
+\right)
++
+\frac{i}{2}
+\left(
+\frac{\partial v}{\partial x} 
++ \frac{\partial u}{\partial y}
+\right) .
+\end{equation*}
+This expression is zero if and only if the real parts and the imaginary
+parts are zero.  In other words %if and only if
+\begin{equation*}
+\frac{\partial u}{\partial x} 
+- \frac{\partial v}{\partial y}
+= 0,
+\qquad
+\text{and}
+\qquad
+\frac{\partial v}{\partial x} 
++ \frac{\partial u}{\partial y} = 0
+.
+\end{equation*}
+That is, the Cauchy--Riemann equations are satisfied.
+
+%Another common way to define a holomorphic function is to say that
+%the complex derivative at each point exists.  If $f'$ exists
+%at every point, it equals the derivative in $z$.
+If $f$ is holomorphic, the derivative in $z$ is the standard complex derivative you know and love:
+\begin{equation*}
+\frac{\partial f}{\partial z} (z_0)
+=
+f'(z_0)
+=
+\lim_{\xi \to 0} \frac{f(z_0+\xi)-f(z_0)}{\xi} .
+\end{equation*}
+That is because 
+\begin{equation*}
+\begin{split}
+\frac{\partial f}{\partial z} 
+=
+\frac{1}{2}
+\left(
+\frac{\partial u}{\partial x} 
++ \frac{\partial v}{\partial y}
+\right)
++
+\frac{i}{2}
+\left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
+\right) 
+& =
+\frac{\partial u}{\partial x} 
++ i \frac{\partial v}{\partial x}
+ =
+\frac{\partial f}{\partial x}
+\\
+& =
+\frac{1}{i} \left(
+\frac{\partial u}{\partial y}
++ i
+\frac{\partial v}{\partial y} 
+\right)
+ =
+\frac{\partial f}{\partial (iy)}
+.
+\end{split}
+\end{equation*}
+
+A function on $\C$ is really a function defined on
+$\R^2$ as identified above and hence it is a function of $x$ and $y$.
+Writing
+$x = \frac{z+\bar{z}}{2}$ and
+$y = \frac{z-\bar{z}}{2i}$, we think of it as a function of two
+complex variables $z$ and $\bar{z}$.  Pretend for a moment as if $\bar{z}$ did not
+depend on $z$.
+The Wirtinger operators
+work as if $z$ and $\bar{z}$ really were independent variables.  For example:
+\begin{equation*}
+\frac{\partial}{\partial z}
+\left[ z^2 \bar{z}^3 + z^{10} \right]
+=
+2z \bar{z}^3 + 10 z^{9}
+\qquad
+\text{and}
+\qquad
+\frac{\partial}{\partial \bar{z}}
+\left[ z^2 \bar{z}^3 + z^{10} \right]
+=
+z^2 ( 3 \bar{z}^2 ) + 0 .
+\end{equation*}
+So a holomorphic function is a function not depending on $\bar{z}$.
+
+The most important theorem in one variable is
+the \emph{\myindex{Cauchy integral formula}}\index{Cauchy formula}.
+
+\begin{thm}[Cauchy integral formula]
+Let $U \subset \C$ be a bounded domain where the boundary $\partial U$
+is a piecewise smooth
+simple closed path (a Jordan curve).  Let $f \colon \overline{U} \to \C$ be a continuous function,
+holomorphic in $U$.
+Orient $\partial U$ positively (going around counter-clockwise).
+Then
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i}
+\int_{\partial U}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta 
+\qquad \text{for all $z \in U$.}
+\end{equation*}
+\end{thm}
+
+%The path integral for a smooth path $\gamma \colon [a,b] \to \C$ is defined as
+%\begin{equation*}
+%\int_\gamma f(z) \, dz
+%=
+%\int_a^b f\bigl(\gamma(t)\bigr) \gamma'(t) \, dt .
+%\end{equation*}
+
+The Cauchy formula is the essential ingredient we need from 
+one complex variable.  It follows, for example,
+from Green's theorem\footnote{If you wish to feel inadequate,
+note that this theorem, on which all of complex analysis (and all of physics)
+rests, was proved by
+George Green, who was the son of a miller and had one year of formal
+schooling.}  (Stokes' theorem in two
+dimensions).  You can look forward to
+\thmref{thm:generalizedcauchy} for a proof of a more general formula,
+the Cauchy--Pompeiu integral formula.
+
+As a differential form, \glsadd{not:dz}$dz = dx + i \, dy$.  If you are uneasy
+about differential forms, you probably defined the path integral above
+directly using
+the Riemann--Stieltjes integral in your one-complex-variable class.
+Let us write down the formula in terms of the standard Riemann integral
+in a special case.  Take the \emph{\myindex{unit disc}}
+\glsadd{not:D}%
+\begin{equation*}
+\D
+\overset{\text{def}}{=}
+\bigl\{ z \in \C : \sabs{z} < 1 \bigr\} .
+\end{equation*}
+The boundary is the unit circle
+$\partial \D = \bigl\{ z \in \C : \sabs{z} = 1 \bigr\}$ oriented positively,
+that is, counter-clockwise.   Parametrize $\partial \D$
+by $e^{it}$, where $t$ goes from 0 to $2\pi$.  If $\zeta = e^{it}$,
+then $d\zeta = ie^{it}dt$, and
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i}
+\int_{\partial \D}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta 
+=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+\frac{f(e^{it}) e^{it} }{e^{it}-z}
+\,
+dt .
+\end{equation*}
+If you are not completely comfortable
+with
+path %or surface
+integrals, try to think about how you would parametrize the path, and
+write the integral as an integral any calculus student would recognize.
+
+I venture a guess that 90\% of what you learned in a one-variable complex analysis
+course (depending on who taught it)
+is more or less a straightforward consequence of the Cauchy
+integral formula.
+An important theorem from one variable that follows from
+the Cauchy formula is the
+\emph{\myindex{maximum modulus principle}} (or just
+the \emph{\myindex{maximum principle})}.
+Let us give its simplest version.
+
+\begin{thm}[Maximum modulus principle]
+Suppose $U \subset \C$ is a domain and $f \colon U \to \C$
+is holomorphic.
+If for some $z_0 \in U$
+\begin{equation*}
+\sup_{z \in U} \, \sabs{f(z)} = \sabs{f(z_0)} ,
+\end{equation*}
+\glsadd{not:identeq}%
+then $f$ is constant, that is, $f \equiv f(z_0)$.
+\end{thm}
+
+That is, if the supremum is attained in the interior of the domain,
+then the function must be constant.  Another way to state the maximum
+principle is to say: if $f$ extends continuously to the boundary of a
+domain, then the supremum of $\sabs{f(z)}$ is attained on the boundary.
+In
+one variable you learned that the maximum principle is really a
+property of harmonic functions.
+
+\begin{thm}[Maximum principle]
+Let $U \subset \C$ be a domain and $h \colon U \to \R$
+harmonic, that is,
+\glsadd{not:laplacian}%
+\begin{equation*}
+\nabla^2 h = \frac{\partial^2 h}{\partial x^2} + \frac{\partial^2 h}{\partial
+y^2} = 0 .
+\end{equation*}
+If for some $z_0 \in U$
+\begin{equation*}
+\sup_{z \in U} \, h(z) = h(z_0)
+\qquad \text{or} \qquad
+\inf_{z \in U} \, h(z) = h(z_0) ,
+\end{equation*}
+then $h$ is constant, that is, $h \equiv h(z_0)$.
+\end{thm}
+
+In one variable, if $f = u+iv$ is holomorphic for real valued $u$ and $v$,
+then $u$ and $v$ are harmonic.  Locally, any harmonic function is
+the real (or imaginary) part of a holomorphic function, so in
+one complex variable, studying 
+harmonic functions is almost equivalent to studying holomorphic
+functions.  Things are decidedly different
+in two or more variables.
+
+\medskip
+
+Holomorphic functions admit a power series representation in $z$
+at each point $a$:
+\begin{equation*}
+f(z) = \sum_{j=0}^\infty c_j {(z-a)}^j .
+\end{equation*}
+No $\bar{z}$ is necessary,
+since $\frac{\partial f}{\partial \bar{z}} = 0$.
+
+Let us see the proof using the Cauchy integral formula as we will
+require this computation in several variables as well.
+Given $a \in \C$ and $\rho > 0$, define the disc of radius $\rho$ around $a$
+\glsadd{not:disc}%
+\begin{equation*}
+\Delta_\rho(a)
+\overset{\text{def}}{=}
+\bigl\{ z \in \C : \sabs{z-a} < \rho \bigr\} .
+\end{equation*}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$a \in U$, and $\overline{\Delta_\rho(a)} \subset U$ (that is, the closure
+of the disc is in $U$, and so its boundary $\partial \Delta_\rho(a)$ is also in $U$).
+
+For $z \in \Delta_\rho(a)$ and $\zeta \in \partial \Delta_\rho(a)$, 
+\begin{equation*}
+\abs{\frac{z-a}{\zeta-a}} =
+\frac{\sabs{z-a}}{\rho} < 1 .
+\end{equation*}
+In fact, if $\sabs{z-a} \leq \rho' < \rho$, then
+$\abs{\frac{z-a}{\zeta-a}} \leq \frac{\rho'}{\rho} < 1$.  Therefore,
+the geometric series
+\begin{equation*}
+\sum_{j=0}^\infty
+{\left(\frac{z-a}{\zeta-a}\right)}^j
+=
+\frac{1}{1-
+\frac{z-a}{\zeta-a}}
+=
+\frac{\zeta-a}{\zeta-z}
+\end{equation*}
+converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{\rho'}(a)}
+\times \partial \Delta_\rho(a)$ (that is, $\sum_j {\bigl\lvert
+\frac{z-a}{\zeta-a} \bigr\rvert}^j$
+converges uniformly).
+%In particular, the
+%series converges uniformly absolutely in $z$ on compact subsets of $\Delta_{\rho}(a)$. 
+
+Let $\gamma$
+be the path going around 
+$\partial \Delta_\rho(a)$ once in the positive direction.  Compute
+\begin{equation*}
+\begin{split}
+f(z)
+& =
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta 
+\\
+& =
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{\zeta-a}
+\frac{\zeta-a}{\zeta-z}
+\,
+d \zeta 
+\\
+& =
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{\zeta-a}
+\sum_{j=0}^\infty
+{\left(\frac{z-a}{\zeta-a}\right)}^j
+\,
+d \zeta 
+\\
+& =
+\sum_{j=0}^\infty
+\left(
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{{(\zeta-a)}^{j+1}}
+\,
+d \zeta 
+\right)
+{(z-a)}^j .
+\end{split}
+\end{equation*}
+In the last equality, we may 
+interchange the limit on the sum with the integral either
+via Fubini's theorem or via uniform convergence:
+$z$ is fixed and if $M$ is the supremum of $\abs{\frac{f(\zeta)}{\zeta-a}} =
+\frac{\sabs{f(\zeta)}}{\rho}$ on $\partial \Delta_\rho(a)$,
+then
+\begin{equation*}
+\abs{
+\frac{f(\zeta)}{\zeta-a}
+{\left(\frac{z-a}{\zeta-a}\right)}^j
+}
+\leq
+M 
+{\left(\frac{\abs{z-a}}{\rho}\right)}^j,
+\qquad \text{and} \qquad
+\frac{\abs{z-a}}{\rho} < 1 .
+\end{equation*}
+
+The key point is writing the \emph{\myindex{Cauchy kernel}}
+$\frac{1}{\zeta-z}$ as
+\begin{equation*}
+\frac{1}{\zeta-z}
+=
+\frac{1}{\zeta-a}
+\frac{\zeta-a}{\zeta-z} ,
+\end{equation*}
+and then using the geometric series.
+
+Not only have we proved that $f$ has a power series, but we computed
+that the radius of convergence is at least $R$, where $R$ is the maximum $R$
+such that $\Delta_R(a) \subset U$.  We also obtained a formula for the
+coefficients
+\begin{equation*}
+c_j = 
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{{(\zeta-a)}^{j+1}}
+\,
+d \zeta  .
+\end{equation*}
+
+For a set $K$, denote the \emph{\myindex{supremum norm}}:
+\glsadd{not:supnorm}%
+\begin{equation*}
+\snorm{f}_K
+\overset{\text{def}}{=}
+\sup_{z \in K} \sabs{f(z)} .
+\end{equation*}
+By a brute force estimation, we obtain the very useful
+\emph{\myindex{Cauchy estimates}}:
+\begin{equation*}
+\sabs{c_j} = 
+\abs{
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{{(\zeta-a)}^{j+1}}
+\,
+d \zeta 
+}
+\leq
+\frac{1}{2\pi}
+\int_{\gamma}
+\frac{\snorm{f}_{\gamma}}{\rho^{j+1}}
+\,
+\sabs{d \zeta} 
+=
+\frac{\snorm{f}_{\gamma}}{\rho^{j}} .
+\end{equation*}
+
+We differentiate Cauchy's formula $j$ times (using the Wirtinger
+$\frac{\partial}{\partial z}$ operator),
+\begin{equation*}
+f^{(j)}(z)
+=
+\frac{\partial^j f}{\partial z^j} (z)
+=
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{j! f(\zeta)}{{(\zeta-z)}^{j+1}}
+\,
+d \zeta  ,
+\end{equation*}
+and therefore
+\begin{equation*}
+j! \, c_j =
+f^{(j)}(a)
+=
+\frac{\partial^j f}{\partial z^j}(a) .
+\end{equation*}
+Hence, we can control derivatives of $f$
+by the size of the function:
+\begin{equation*}
+\babs{f^{(j)}(a)}
+=
+\abs{\frac{\partial^j f}{\partial z^j}(a)}
+\leq
+\frac{j! \snorm{f}_{\gamma}}{\rho^{j}} .
+\end{equation*}
+This estimate is one of the key properties of
+holomorphic functions, and the reason why the correct topology for
+the set of holomorphic functions is the same as the topology for continuous functions.
+Consequently,
+obstructions to solving problems in complex analysis are often topological
+in character.
 %\lipsum
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Complex Numbers} \label{sec:FIXME}
-
-FIXME
-
-\subsection{Complex Numbers} \label{subsec:FIXME}
-
-FIXME2
-
-%\lipsum
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Complex Numbers And Other Things in a Long Title} \label{ch:FIXME2}
-%\chapter{Complex Numbers} \label{ch:FIXME2}
-
-%\lipsum
+\chapter{Results from one complex variable} \label{ap:onevarresults}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{FIXME} \label{sec:FIXME2}
+Let us review some results from one complex variable that may be useful for
+reading this book.
+The reader should first look through \sectionref{sec:motivation}
+for basic notation and motivation, although we will review some of the
+results again here.  We start with holomorphic functions.
+Let $U \subset \C$ be open.
+A function
+$f \colon U \to \C$ is \emph{holomorphic} if it is complex
+differentiable at every point, that is
+\begin{equation*}
+f'(z) = \lim_{h \in \C \to 0} \frac{f(z+h) - f(z)}{h}
+\end{equation*}
+exists for all $z \in U$.  For example, polynomials and rational
+functions in $z$ are holomorphic.  One of the most important examples
+is the solution to the differential equation $f'(z) = f(z)$, $f(0) = 1$, that is
+the complex exponential, defined in the entire complex plane:
+\begin{equation*}
+f(z) = e^z = e^{x+iy} = e^x \bigl( \cos y + i \sin(y) \bigr) .
+\end{equation*}
 
 
-%\lipsum
+A piecewise-$C^1$ path (or curve)\index{path}\index{curve} in $\C$
+is a continuous function $\gamma \colon [a,b] \to \C$,
+continuously differentiable except at finitely many points,
+such that one-sided limits of $\gamma'$ exist at all points of $[a,b]$.
+By abuse of notation, when $\gamma$ is used as a set, we mean
+the image
+$\gamma\bigl([a,b]\bigr)$.
+For a continuous function $f \colon \gamma \to \C$, define
+\glsadd{not:pathint}%
+\begin{equation*}
+\int_\gamma f(z) \, dz 
+\overset{\text{def}}{=}
+\int_a^b f\bigl(\gamma(t)\bigr) \gamma'(t) \, dt .
+\end{equation*}
+As $\gamma'$ is defined at all but finitely many points and is otherwise
+continuous, the integral is well-defined.  Similarly, one defines the more general
+path integral in $dz = dx + i\,dy$ and $d\bar{z} = dx - i\, dy$.
+Let
+$z = \gamma(t) = \gamma_1(t) + i \, \gamma_2(t) = x + i\, y$
+parametrize the path.  Then
+\begin{equation*}
+\begin{split}
+\int_\gamma f(z) \, dz + g(z) \, d\bar{z}
+& =
+\int_\gamma
+\Bigl(f\bigl(x+i\, y\bigr) + g\bigl(x+i\, y\bigr) \Bigr) \, dx
++
+i \, \Bigl( f\bigl(x+i\, y\bigr) - g\bigl(x+i\, y\bigr) \Bigr) \, dy
+\\
+& =
+\int_a^b
+\Bigl(
+f\bigl(\gamma(t)\bigr) \gamma'(t)
++
+f\bigl(\gamma(t)\bigr) \overline{\gamma'(t)}
+\Bigr) \, dt
+\\
+& =
+\int_a^b
+\biggl(
+\Bigl(f\bigl(\gamma(t)\bigr) + g\bigl(\gamma(t)\bigr) \Bigr) \,
+\gamma_1'(t)
++
+i \, \Bigl( f\bigl(\gamma(t)\bigr) - g\bigl(\gamma(t)\bigr) \Bigr)
+\gamma_2'(t)
+\biggr)
+\, dt .
+\end{split}
+\end{equation*}
 
-FIXME
+A path is \emph{closed}\index{closed path}
+if $\gamma(a) = \gamma(b)$,
+and a path is \emph{simple}\index{simple path}
+if $\gamma|_{[a,b]}$ is one-to-one
+with the possible exception of $\gamma(a) = \gamma(b)$.
+
+As in the introduction, we have the following version of Cauchy integral
+formula.  An open set has piecewise-$C^1$ boundary if $\partial U$
+is composed of piecewise-$C^1$ paths, and at point $p \in \partial U$,
+every disc $\Delta_\rho(p)$ contains points from $U$ and points from the
+complement of $\overline{U}$.  If 
+at each point where the parametrization of $\partial U$ is differentiable
+the domain is on the left ($\gamma'(t)$ rotated by $\frac{\pi}{2}$ points into the
+domain), then the boundary is \emph{\myindex{positively oriented}}.
+
+\begin{thm}[Cauchy integral formula]
+Let $U \subset \C$ be a bounded open set with piecewise-$C^1$ boundary
+$\partial U$ oriented positively, and let
+$f \colon \overline{U} \to \C$ be a continuous function
+holomorphic in $U$.
+Then for $z \in U$,
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i}
+\int_{\partial U}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta .
+\end{equation*}
+\end{thm}
+
+The theorem follows from Green's theorem, which is the Stokes' theorem
+in two dimensions.  In the versions we state, one needs to
+approximate the open set by smaller open sets from the inside to insure
+the partial derivatives are bounded.  See
+\thmref{thm:generalizedcauchy}.  Let us state Green's theorem using
+the $dz$ and $d\bar{z}$ for completeness.  See \appendixref{ap:diffforms}
+for an overview of differential forms.
+
+\begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
+Let $U \subset \C$ be a bounded open set with piecewise-$C^1$ boundary
+$\partial U$ oriented positively, and let
+$f \colon \overline{U} \to \C$ be a continuous function
+with bounded continuous partial derivatives in $U$.
+Then
+\begin{multline*}
+\int_{\partial U} f(z) \, dz + g(z) \, d\bar{z}
+=
+\int_{U} d \Bigl( f(z) \, dz + g(z) \, d\bar{z} \Bigr)
+=
+\int_{U}
+\left(
+\frac{\partial g}{\partial z}
+-
+\frac{\partial f}{\partial \bar{z}}
+\right)
+\, dz \wedge d\bar{z}
+\\
+=
+(-2i)
+\int_{U}
+\left(
+\frac{\partial g}{\partial z}
+-
+\frac{\partial f}{\partial \bar{z}}
+\right)
+\, dx \wedge dy 
+=
+(-2i)
+\int_{U}
+\left(
+\frac{\partial g}{\partial z}
+-
+\frac{\partial f}{\partial \bar{z}}
+\right)
+\, dA.
+\end{multline*}
+\end{thm}
+
+The Cauchy integral formula is equivalent to
+what is usually called just Cauchy's theorem:
+
+\begin{thm}[Cauchy]
+Let $U \subset \C$ be a bounded open set with piecewise-$C^1$ boundary
+$\partial U$ oriented positively, and let
+$f \colon \overline{U} \to \C$ be a continuous function
+holomorphic in $U$.  Then
+\begin{equation*}
+\int_{\partial U}
+f(z) \, dz = 0 .
+\end{equation*}
+\end{thm}
+
+There is a converse to Cauchy as well.  A triangle $T \subset \C$ is
+the convex hull of the three vertices (we include the inside of the
+triangle), and $\partial T$ is the boundary of the triangle oriented
+counter-clockwise.  Let us state the following theorem as an
+``if and only if,'' even though, usually it is only the reverse direction that
+is called Morera's theorem.
+
+\begin{thm}[Morera] \label{thm:onevarmorera}
+Suppose $U \subset \C$ is an open set, and $f \colon U \to \C$
+is continuous.  Then $f$ is holomorphic
+if and only if
+\begin{equation*}
+\int_{\partial T} f(z) \, dz = 0
+\end{equation*}
+for all triangles $T \subset U$.
+\end{thm}
+
+As we saw in the introduction, a holomorphic function has a power series.
+
+\begin{prop}
+If $U \subset \C$ is an open set, and $f \colon U \to \C$ holomorphic,
+then $f$ is infinitely differentiable, and if $\Delta_\rho(p) \subset \C$
+is a disc, then $f$ has a power series that
+converges absolutely uniformly on compact subsets of $\Delta_\rho(p)$:
+\begin{equation*}
+f(z) = \sum_{k=0}^\infty c_k {(z-p)}^k ,
+\end{equation*}
+where given a $\gamma$ that is a simple closed (piecewise-$C^1$)
+path once counter-clockwise
+around $p$ inside $\Delta_\rho(p)$,
+\begin{equation*}
+c_k = \frac{f^{(k)}(p)}{k!} =
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{{(\zeta-z)}^{k+1}}
+\,
+d \zeta  .
+\end{equation*}
+\end{prop}
+
+\emph{\myindex{Cauchy estimates}} follow:  If $M$
+is the maximum of $\sabs{f}$ on the circle $\partial \Delta_r(p)$, then
+\begin{equation*}
+\sabs{c_k} \leq \frac{M}{r^k} .
+\end{equation*}
+Conversely, if a power series satisfies the Cauchy estimates,
+it converges on $\Delta_r(p)$.
+
+A function $f \colon \C \to \C$ that is holomorphic is
+\emph{\myindex{entire}}.  An immediate application of Cauchy estimates
+is Liouville's theorem:
+
+\begin{thm}[Liouville]\index{Liouville's theorem}
+If $f$ is entire and bounded, then $f$ is constant.
+\end{thm}
+
+And as a holomorphic function has a power series it satisfies the
+identity theorem:
+
+\begin{thm}[Identity]\index{identity theorem}
+If $U \subset \C$ is a domain, and $f \colon U \to \C$ holomorphic
+such that the zero set $f^{-1}(0)$ has a limit point in $U$, then
+$f \equiv 0$.
+\end{thm}
+
+Another consequence  of the Cauchy integral formula is that there is
+a differential equation characterizing holomorphic functions.
+
+\begin{prop}[Cauchy--Riemann equations]
+Given an open set $U \subset \C$,
+a function $f \colon U \to \C$ is holomorphic if and only if
+$f$ is continuously differentiable and
+\begin{equation*}
+\frac{\partial f}{\partial \bar{z}} = 0 \qquad \text{on $U$.}
+\end{equation*}
+\end{prop}
+
+Yet another consequence of the Cauchy formula (and one can make an argument
+that everything in this appendix is a consequence of the Cauchy formula)
+is the open mapping theorem.
+
+\begin{thm}[Open mapping theorem]\index{open mapping theorem}
+Suppose $U \subset \C$ is open and
+$f \colon U \to \C$ is holomorphic.  Then $f$ is an open mapping, that is,
+$f(V)$ is open whenever $V$ is open.
+\end{thm}
+
+The real and imaginary parts $u$ and $v$ of a holomorphic function $f =
+u+iv$ are harmonic, that is
+$\nabla^2 u = \nabla^2 v = 0$, where $\nabla^2$ is the
+Laplacian.
+A domain $U$ is \emph{\myindex{simply connected}} if every simple closed
+path
+is homotopic in $U$ to a constant, in other words, if the domain has no
+holes.  For example a disc is simply connected.
+
+\begin{prop}
+If $U \subset \C$ is a simply connected domain and $u \colon U \to \R$
+is harmonic, then there exists a harmonic function $v \colon U \to \R$
+such that $f = u+iv$ is holomorphic.
+\end{prop}
+
+The function $v$ is called the \emph{\myindex{harmonic conjugate}} of
+$u$.  For further review of harmonic functions see
+\sectionref{sec:harmonic} on harmonic functions.
+We have the following versions of the maximum principle.
+
+\begin{thm}[Maximum principles]\index{maximum principle}
+Suppose $U \subset \C$ is a domain.
+\begin{enumerate}[(i)]
+\item
+If $f \colon U \to \C$ is holomorphic and $\sabs{f}$
+achieves a local maximum in $U$, then $f$ is constant.
+\item
+If $U$ is bounded and $f \colon \overline{U} \to \C$ is holomorphic in $U$
+and continuous, then $\sabs{f}$ achieves its maximum on $\partial U$.
+\item
+If $f \colon U \to \R$ is harmonic 
+achieves a local maximum or a minimum in $U$, then $f$ is constant.
+\item
+If $U$ is bounded and $f \colon \overline{U} \to \R$ is harmonic in $U$
+and continuous, then $f$ achieves its maximum and minimum on $\partial U$.
+\end{enumerate}
+\end{thm}
+
+The maximum principle immediately implies the following lemma.
+
+\pagebreak[2]
+\begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}
+Suppose $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
+then 
+\begin{enumerate}[(i)]
+\item $\sabs{f(z)} \leq \sabs{z}$, and
+\item $\sabs{f'(0)} \leq 1$.
+\end{enumerate}
+Furthermore, if $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus
+\{ 0 \}$
+or $\sabs{f'(0)} = 1$, then
+for some $\theta \in \R$ we have $f(z) =
+e^{i\theta} z$ for all $z \in \D$.
+\end{lemma}
+
+The above theorem is actually quite general.
+
+\begin{thm}[Riemann mapping theorem]\index{Riemann mapping theorem}
+If $U \subset \C$ is a nonempty simply connected domain such that $U \neq \C$,
+then $U$ is biholomorphic to $\D$.  Given $z_0 \in U$
+there exists a unique biholomorphic $f \colon U \to \D$
+such that $f'(z_0) > 0$, and $f$
+maximizes $\sabs{f'(z_0)}$ among all holomorphic maps to $\D$.
+\end{thm}
+
+Schwarz's Lemma can also be used to classify the automorphisms of the disc
+(and hence any simply connected domain).  Let
+$\operatorname{Aut(\D)}$ denote the group of biholomorphic (both $f$ and
+$f^{-1}$ are holomorphic) self maps of the
+disc to itself.
+
+\begin{prop}
+If $f \in \operatorname{Aut}(\D)$ then there exists an $a \in \D$
+and $\theta \in \R$ such that
+\begin{equation*}
+f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} .
+\end{equation*}
+\end{prop}
+
+Speaking of automorphisms.  We have the following
+version of inverse function theorem.
+
+\begin{thm}
+Suppose $U$ and $V$ are open subsets of $\C$.
+\begin{enumerate}[(i)]
+\item
+If $f \colon U \to V$ is holomorphic and bijective (one-to-one and onto),
+then $f'(z) \not= 0$ for all $z \in V$, and $f^{-1} \colon V \to U$
+is holomorphic.  If $f(p) = q$, then
+\begin{equation*}
+\left(f^{-1}\right)(q) = \frac{1}{f'(p)} .
+\end{equation*}
+\item
+If $f \colon U \to V$ is holomorphic, $f(p) = q$,
+and $f'(p) \not= 0$, then there exists a neighborhood $W$ of $q$
+and a holomorphic function $g \colon W \to U$ that is
+one-to-one and $f\bigl(g(z)\bigr) = z$ for all $z \in W$.
+\pagebreak[2]
+\end{enumerate}
+\end{thm}
+
+The Riemann mapping theorem actually follows from the following
+theorem about existence of branches of the logarithm.
+
+\begin{thm}
+Suppose $U \subset \C$ is a simply connected domain, and $f \colon U \to \C$
+is a holomorphic function without zeros in $U$.  Then there exists a
+holomorphic function $L \colon U \to \C$ such that
+\begin{equation*}
+e^L = f .
+\end{equation*}
+In particular, we can take roots:
+for every $k \in \N$, there exists a holomorphic function
+$g \colon U \to \C$ such that
+\begin{equation*}
+g^k = f .
+\end{equation*}
+\end{thm}
+
+In one complex variable, zeros of holomorphic functions
+can be divided out.  Moreover, zeros
+of holomorphic functions are of finite order unless
+the function is identically zero.
+
+\begin{prop}
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \C$ is holomorphic, not identically zero, and $f(p) = 0$
+for some $p \in U$.  There exists a $k \in \N$ and
+a holomorphic function $g \colon U \to \C$,
+such that $g(p) \not= 0$ and
+\begin{equation*}
+f(z) = {(z-p)}^k g(z) \qquad \text{for all $z \in U$.}
+\end{equation*}
+\end{prop}
+
+The number $k$ above is called the \emph{order}\index{order of a zero}
+or \emph{multiplicity}\index{multiplicity of a zero}
+of the zero at $p$.
+We can use this fact and the existence of roots to show that every
+holomorphic function is locally like $z^k$.  The function $\varphi$
+below can be thought of as a local change of coordinates.
+
+\begin{prop}
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \C$ is holomorphic, not identically zero, and $p \in U$.
+Then there exists a $k \in \N$,
+a neighborhood $V \subset U$ of $p$,  and
+a holomorphic function $\varphi \colon V \to \C$ with 
+$\varphi'(p) \not= 0$, such that
+\begin{equation*}
+{\bigl(\varphi(z)\bigr)}^k = f(z) - f(p)
+\qquad \text{for all $z \in V$.}
+\end{equation*}
+\end{prop}
+
+Convergence of holomorphic functions is the same as for continuous
+functions: uniform convergence on compact subsets.
+Sometimes this is called \emph{\myindex{normal convergence}}.
+
+\begin{prop}
+Suppose $U \subset \C$ is an open set, and $f_k \colon U \to \C$
+a sequence of holomorphic functions which converge uniformly
+on compact subsets of $U$ to $f \colon U \to \C$.  Then $f$ is holomorphic,
+and every derivative $f_k^{(\ell)}$ converges uniformly on compact subsets
+to the derivative $f^{(\ell)}$.
+\end{prop}
+
+Holomorphic functions satisfy a Heine--Borel-like property:
+
+\begin{thm}[Montel]\index{Montel's theorem}\label{thm:onevarmontel}
+If $U \subset \C$ is an open set and
+$f_n \subset U \to \C$ is a sequence of holomorphic functions
+that is uniformly bounded on compact subsets of $U$,
+then there exists a subsequence converging uniformly on compact subsets
+of $U$.
+\end{thm}
+
+A sequence of holomorphic functions cannot create or delete zeros out of thin air:
+
+\begin{thm}[Hurwitz]\index{Hurwitz's theorem}\label{thm:onevarhurwitz}
+Suppose $U \subset \C$ is a domain and
+$f_n \subset U \to \C$ is a sequence of holomorphic functions
+converging uniformly on compact subsets of $U$ to $f \colon U \to \C$.
+If $f$ is not identically zero and $z_0$ is a zero of $f$,
+then there exists a disc $\Delta_r(z_0)$ and an $N$, such that
+for all $n \geq N$, $f_n$ has the same number of zeros (counting
+multiplicity) in $\Delta_r(z_0)$ as $f$ (counting multiplicity).
+\end{thm}
+
+A common application, and sometimes the way
+the theorem is stated, is that if $f_n$ have no zeros in $U$, then
+either the limit $f$ is identically zero, or it also has no zeros.
+
+
+\pagebreak[2]
+If $U \subset \C$ is open, $p \in U$, and
+$f \colon U \setminus \{ p \} \to \C$ is holomorphic we say that
+$f$ has an \emph{\myindex{isolated singularity}} at $p$. 
+An isolated singularity is \emph{removable}\index{removable singularity}
+if 
+there exists a holomorphic function $F \colon U \to \C$
+such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
+An isolated singularity is a \emph{\myindex{pole}} if 
+\begin{equation*}
+\lim_{z \to p} f(z) = \infty \qquad \text{(that is
+$\sabs{f(z)} \to \infty$ as $\sabs{z} \to \infty$)}.
+\end{equation*}
+An isolated singularity that is neither removable nor a pole is said to be
+\emph{essential}\index{essential singularity}.
+
+At nonessential isolated singularities
+the function blows up to a finite integral order.
+The first part of the following proposition is
+usually called the \emph{\myindex{Riemann extension theorem}}.
+
+\begin{prop} \label{prop:onevarclassifysing}
+Suppose $U \subset \C$ is an open set, $p \in U$,
+and $f \colon U \setminus \{p\} \to \C$ holomorphic.
+\begin{enumerate}[(i)]
+\item \label{prop:onevarclassifysing:i}
+If $f$ is bounded (near $p$ is enough), then $p$ is a removable singularity.
+\item \label{prop:onevarclassifysing:ii}
+If $p$ is a pole, there exists a $k \in \N$ such that
+\begin{equation*}
+g(z) = {(z-p)}^k f(z)
+\end{equation*}
+is bounded near $p$ and hence $g$ has a removable singularity at $p$.
+\end{enumerate}
+\end{prop}
+
+The number $k$ above is called the \emph{order}\index{order of a pole}
+of the pole.  There is a symmetry between zeros and poles:
+If $f$ has a zero of order $k$, then $\frac{1}{f}$ has a pole of order $k$.
+If $f$ has a pole of order $k$, then $\frac{1}{f}$
+has a removable singularity, and the extended function has a zero of order
+$k$.
+
+Let $\bP^1 = \C \cup \{\infty\}$ be the \emph{\myindex{Riemann sphere}}.
+The topology on $\bP^1$ is given by insisting that
+the function $\frac{1}{z}$ is a homeomorphism
+of $\bP^1$ to itself,
+where $\frac{1}{\infty} = 0$ and $\frac{1}{0} = \infty$.
+A function $f \colon U \to \bP^1$ is called \emph{\myindex{meromorphic}},
+if it is not
+identically $\infty$, is holomorphic on $U \setminus f^{-1}(\infty)$,
+and has poles at $f^{-1}(\infty)$.
+A holomorphic function with poles is meromorphic
+by setting the value to be $\infty$ at the poles.
+A meromorphic function is one that can locally be written as a quotient of
+holomorphic functions.
+
+
+At an isolated singularity we can expand a holomorphic function
+via the so-called
+\emph{\myindex{Laurent series}} by adding all negative powers.
+The Laurent series also characterizes the type of the singularity.
+
+\begin{prop}
+If $\Delta \subset \C$ is a disc centered at $p \in \C$,
+and $f \colon \Delta \setminus \{p\} \to \C$ holomorphic,
+then there exists a double sequence $\{ c_{k} \}_{k = -\infty}^\infty$
+such that
+\begin{equation*}
+f(z) = \sum_{k=-\infty}^\infty c_k {(z-p)}^k ,
+\end{equation*}
+converges absolutely uniformly on compact subsets of $\Delta$.  If $\gamma$
+is a simple closed piecewise-$C^1$ path going once counter-clockwise around
+$p$ in $\Delta$, then
+\begin{equation*}
+c_k = 
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{{(\zeta-z)}^{k+1}}
+\,
+d \zeta  .
+\end{equation*}
+The singularity at $p$ is
+\begin{enumerate}[(i)]
+\item \emph{removable} if $c_k = 0$ for all $k < 0$.
+\item \emph{pole} of order $\ell \in \N$ if $c_k = 0$ for all $k < -\ell$ and $c_{-\ell}
+\not= 0$.
+\item \emph{essential} if for every exist infinitely negative $k$
+such that $c_k \not= 0$.
+\pagebreak[3]
+\end{enumerate}
+\end{prop}
+
+If $p$ is an isolated singularity of $f$, then call the corresponding
+$c_{-1}$ the \emph{\myindex{residue}} of $f$ at $p$, and write it
+as $\operatorname{Res}(f,p)$.  
+The proposition says that for a small $\gamma$ around $p$ in the positive direction,
+\begin{equation*}
+\operatorname{Res}(f,p) = c_{-1} = \frac{1}{2\pi i} \int_\gamma f(z) \, dz
+.
+\end{equation*}
+Combining this equation with Cauchy's theorem tells us that to compute
+integrals of functions with isolated singularities we simply need to find
+the residues,
+which tend to be simpler to
+compute.  For example, if $p$ is a simple pole (of order 1), then 
+\begin{equation*}
+\operatorname{Res}(f,p) = \lim_{z \to p} (z-p)f(z) .
+\end{equation*}
+
+\begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
+Suppose $U \subset \C$ is an open set, and $\gamma$ is a piecewise-$C^1$
+simple closed path in $U$ such that the interior of $\gamma$ is in $U$.
+Suppose that $f \colon U \setminus S \to \C$ is a holomorphic function with isolated
+singularities in a finite set $S$, and suppose $S$ lies in the interior of $\gamma$.
+Then
+\begin{equation*}
+\int_{\gamma} f(z) \, dz = 2\pi i \sum_{p \in S} \operatorname{Res}(f,p) .
+\end{equation*}
+\end{thm}
+
+The identity theorem says that zeros of a nonconstant holomorphic $f$
+have no limit points, and so are isolated points.
+Since $\frac{1}{f}$ is a meromorphic
+function with zeros at the poles of $f$, poles are also
+isolated.  Zeros and poles of  can be counted fairly easily.
+
+\begin{thm}[Argument principle]\index{argument principle}\label{thm:onevarargprinc}
+Suppose $U \subset \C$ is an open set, and $\gamma$ is a piecewise-$C^1$
+simple closed path in $U$ such that the interior of $\gamma$ is in $U$.
+Suppose that $f \colon U \to \bP^1$ is a meromorphic function with no zeros
+or poles on $\gamma$.
+Then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\gamma \frac{f'(z)}{f(z)} \, dz
+= N - P ,
+\end{equation*}
+where $N$ is the number of zeros of $f$ inside $\gamma$ and $P$ is the
+number of poles, both counted with multiplicity.
+
+Furthermore, if $h \colon U \to \C$ is holomorphic, and $\#(p)$ is the order
+(multiplicity) of a zero or pole at $p$, then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\gamma h(z) \frac{f'(z)}{f(z)} \, dz
+=
+\sum_{p \in f^{-1}(0)}
+\#(p) \, h(p)
+\quad
+-
+\quad
+\sum_{p \in f^{-1}(\infty)}
+\#(p) \, h(p) .
+\end{equation*}
+\end{thm}
+
+The proof is an immediate application of the residue theorem.  Simply
+compute the residues at the zeros and poles of $f$.  In particular,
+if $f$ has a zero at $p$, then $h(z) \frac{f'(z)}{f(z)}$ has a simple pole
+at $p$ with residue $\#(p) h(p)$.  Similarly, if $f$ has a pole at $p$,
+then $h(z) \frac{f'(z)}{f(z)}$ has residue $-\#(p) h(p)$ at $p$.
+
+In the above couple of theorems
+we avoided introducing winding numbers by making $\gamma$ a simple closed curve,
+so the above statements may be slightly different from what you have seen in
+your one-variable course.
+
+Another useful way to count zeros is Rouch\`e's theorem.
+
+\begin{thm}[Rouch\`e]\index{Rouch\`e's theorem}\label{thm:onevarrouche}
+Suppose $U \subset \C$ is an open set, and $\gamma$ is a piecewise-$C^1$
+simple closed path in $U$ such that the interior of $\gamma$ is in $U$.
+Suppose that $f \colon U \to \C$ and $g \colon U \to \C$
+are holomorphic functions such that
+\begin{equation*}
+\sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
+\end{equation*}
+for all $z \in \gamma$.  Then $f$ and $g$
+have the same number of zeros
+inside $\gamma$ (up to multiplicity).
+\end{thm}
+
+In the classical statement of the theorem the weaker
+inequality $\sabs{f(z)-g(z)} < \sabs{f(z)}$ is used.
+Notice that either inequality precludes any zeros on $\gamma$ itself.
+
+A holomorphic function with an essential singularity achieves essentially
+every value.  A weak version of this result (and an easy to prove one)
+is the \emph{\myindex{Casorati--Weierstrass theorem}}:
+If a holomorphic $f$ has an essential singularity at $p$,
+then for every neighborhood $W$ of $p$, $f\bigl(W \setminus \{p\}\bigr)$ is dense in
+$\C$.  Let us state the much stronger theorem of Picard:
+A function with an essential singularity is very wild.
+It achieves every value (except possibly one) infinitely often.
+
+\begin{thm}[Picard's big theorem]\index{Picard's big theorem}
+Suppose $U \subset \C$ is open, $f \colon U \setminus \{ p \} \to \C$
+is holomorphic, and $f$ has an essential singularity at $p$.  Then for every
+neighborhood $W$ of $p$, $f\bigl(W \setminus \{ p \}\bigr)$ is either $\C$
+or $\C$ minus a point.
+\end{thm}
+
+For example, $e^{1/z}$ has an essential singularity at the origin
+and the function is never 0.
+Since we stated the big theorem, let us also state the little theorem.
+
+\begin{thm}[Picard's little theorem]\index{Picard's little theorem}
+If $f \colon \C \to \C$ is holomorphic,
+then
+$f(\C)$ is either $\C$ or $\C$ minus a point.
+\end{thm}
+
+
+One theorem from algebra that is important in complex analysis, and becomes
+perhaps even more important in several variables is the fundamental theorem
+of algebra.  It really is a theorem of complex analysis and its standard
+proof is via the maximum principle.
+
+\begin{thm}[Fundamental theorem of algebra]\index{fundamental theorem of algebra}
+\label{thm:fundamentalthmalg}%
+If $P \colon \C \to \C$ is a nonzero polynomial of degree $k$,\linebreak[2]
+then $P$
+has exactly $k$ zeros (roots) in $\C$ counted with multiplicity.
+\end{thm}
+
+The set of rational functions is dense in the space of holomorphic
+functions, and we even have control over where the poles need to be.
+Note that a nonconstant polynomial has a ``pole at infinity'' meaning 
+$P(z) \to \infty$ as $z \to \infty$.  Letting $\bP^1$ again be the Riemann
+sphere, we have Runge's approximation theorem.
+
+\begin{thm}[Runge]\index{Runge's approximation theorem}
+Suppose $U \subset \C$ is an open set and $A \subset \bP^1 \setminus U$
+is a set containing at least one point from each component of
+$\bP^1 \setminus U$.  Suppose $f \colon U \to \C$ is holomorphic.
+Then for any $\epsilon > 0$ and any compact
+$K \subset \subset U$, there exists a rational function $R$ with poles in $A$
+such that
+\begin{equation*}
+\sabs{R(z) - f(z)} < \epsilon \qquad \text{for all $z \in K$}.
+\end{equation*}
+\end{thm}
+
+Perhaps a surprising generalization of the
+classical Weierstrass approximation theorem,
+and one of my favorite one-variable theorems,
+is Mergelyan's theorem.
+It may be good to note that Mergelyan does not follow from Runge.
+
+\begin{thm}[Mergelyan]\index{Mergelyan's theorem} \label{thm:mergelyan}
+Suppose $K \subset \subset \C$ is a compact set such that $\C \setminus K$
+is connected and
+$f \colon K \to \C$ is a continuous function that is
+holomorphic in the interior $K^\circ$.
+Then for any $\epsilon > 0$ and any compact
+$K \subset \subset U$, there exists a polynomial $P$
+such that
+\begin{equation*}
+\sabs{P(z) - f(z)} < \epsilon \qquad \text{for all $z \in K$}.
+\end{equation*}
+\end{thm}
+
+The reason why the theorem is perhaps
+surprising is that $K$ may have only a
+small or no interior.  Using a closed interval $K=[a,b]$ of the real line we
+recover the Weierstrass approximation theorem.
+
+\medskip
+
+Given an open set $U \subset \C$, we say $U$ is
+\emph{\myindex{symmetric with respect to the real axis}} if
+$z \in U$ implies $\bar{z} \in U$.  We divide $U$ into
+three parts
+\begin{equation*}
+U_+ = \{ z \in U : \Im z > 0 \}, \qquad
+U_0 = \{ z \in U : \Im z = 0 \}, \qquad
+U_- = \{ z \in U : \Im z < 0 \}.
+\end{equation*}
+We have the following theorem for extending (reflecting) holomorphic functions past
+boundaries.
+
+\begin{thm}[Schwarz Reflection Principle]
+\index{Schwarz reflection principle}%
+Suppose $U \subset \C$ is a domain symmetric with respect to the real axis, 
+$f \colon U_+ \cup U_0 \to \C$ a continuous function holomorphic on $U_+$
+and real valued on $U_0$.  Then the function $g \colon U \to \C$
+defined by
+\begin{equation*}
+g(z) = f(z) \quad \text{if $z \in U_+ \cup U_0$},
+\qquad
+g(z) = 
+\overline{f(\bar{z})} \quad \text{if $z \in U_-$},
+\end{equation*}
+is holomorphic on $U$.
+\end{thm}
+
+In fact, the reflection is really about harmonic functions.
+
+\begin{thm}[Schwarz reflection principle for harmonic functions]
+% this is probably not needed: \index{Schwarz reflection principle for harmonic functions}%
+Suppose $U \subset \C$ is a domain symmetric with respect to the real axis, 
+$f \colon U_+ \cup U_0 \to \R$ a continuous function harmonic on $U_+$
+and zero on $U_0$.  Then the function $g \colon U \to \R$
+defined by
+\begin{equation*}
+g(z) = f(z) \quad \text{if $z \in U_+ \cup U_0$},
+\qquad
+g(z) = 
+-f(\bar{z}) \quad \text{if $z \in U_-$},
+\end{equation*}
+is harmonic on $U$.
+\end{thm}
+
+Functions may be defined locally, and continued along paths.
+Suppose $p$ is a point and $D$ is a disc with $p \in D$.
+A holomorphic function $f \colon D \to \C$ can be
+\emph{analytically continued}\index{analytic continuation}
+along a path
+$\gamma \colon [0,1] \to \C$, $\gamma(0) = p$,
+if for every $t \in [0,1]$ there exists
+a disc $D_t$ centered at $\gamma(t)$ and a holomorphic function
+$f_t \colon D_t \to \C$ and for each $t_0 \in [0,1]$ there is an
+$\epsilon > 0$ such that if $\sabs{t-t_0} < \epsilon$, then
+$f_t = f_{t_0}$
+in $D_t \cap D_{t_0}$.  The monodromy theorem says that as long as there are
+no holes, analytic continuation defines a function uniquely.
+
+\begin{thm}[Monodromy theorem]\index{Monodromy theorem}
+If $U \subset \C$ is a simply connected domain, $D \subset U$ a disc and
+$f \colon D \to \C$ a holomorphic function that can be analytically
+continued from $p \in D$ to every $q \in U$, then there exists
+a unique holomorphic function $F \colon U \to \C$ such that $F|_D = f$.
+\end{thm}
+
+\medskip
+
+An interesting and useful theorem getting an inequality in the opposite
+direction from
+Schwarz's lemma, and one which is often not covered in a one-variable
+course is the Koebe $\frac{1}{4}$-theorem.
+Think of why no such theorem could possibly hold for just smooth
+functions.  At first glance the theorem should seem quite counterintuitive,
+and at second glance, it should seem outright outrageous.
+
+\begin{thm}[Koebe quarter theorem]\index{Koebe quarter theorem}\index{Koebe
+$\frac{1}{4}$-theorem}
+Suppose $f \colon \D \to \C$ is holomorphic and injective.  Then
+$f(\D)$ contains a disc centered at $f(0)$ and radius $\frac{\sabs{f'(0)}}{4}$.
+\end{thm}
+
+The $\frac{1}{4}$ is sharp, that is, it is the best it can be.
+
+\medskip
+
+Finally, it is useful to factor out all the zeros of a holomorphic function,
+not just finitely many.  Similarly, we can work with poles.
+
+\begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
+Suppose $U \subset \C$ is a domain, $\{ a_k \}$, $\{ b_k \}$ are
+countable sets in $U$
+with no limit points in $U$, and $\{ n_k \}$, $\{ m_k \}$ any countable sets of
+natural numbers.
+Then there exists a meromorphic function $f$ of $U$ whose
+zeros are exactly at $a_k$, with orders given by $n_k$, and
+poles are exactly at $b_k$, with orders given by $m_k$.
+\end{thm}
+
+For a more explicit statement, we need infinite products.  The product
+$\prod_{j=1}^\infty (1+a_j)$
+converges if the sequence partial products
+$\prod_{j=1}^n (1+a_j)$ converges.  We say that it the product converges
+absolutely if
+$\prod_{j=1}^\infty (1+\sabs{a_j})$
+converges, which is equivalent to $\sum_{j=1}^\infty \sabs{a_j}$ converging.
+
+Define
+\begin{equation*}
+E_0(z) = (1-z), \qquad
+E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+.
+\end{equation*}
+The function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
+
+\begin{thm}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
+Let $f$ be an entire function with zeros (with multiplicity) at points of
+the sequence $\{ a_k \}$ except the zero at
+the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
+entire function $g$ and a sequence $p_k$ such that
+\begin{equation*}
+f(z) = z^m e^{g(z)} \prod_{k=1}^\infty E_{p_k}\left(\frac{z}{a_k}\right) ,
+\end{equation*}
+converges absolutely and uniformly on all compact subsets.
+\end{thm}
+
+The $p_k$ are chosen such that
+\begin{equation*}
+\sum_{j=1}^\infty {\abs{\frac{r}{a_k}}}^{1+p_k}
+\end{equation*}
+converges for all $r > 0$.
+
+\begin{center}
+* * *
+\end{center}
+
+There are many other useful theorems in one complex variable, and we could
+spend a lot of time listing them all.
+However, hopefully the above listing is useful
+as a refresher for the reader of the most common results, some of which are
+used in this book, some of which are useful in the exercises, and some of
+which are just too interesting not to mention.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -533,22 +2133,3081 @@ FIXME
 
 \appendix
 
-% No sections in appendixes
-\counterwithin{thm}{chapter}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Basic notation and terminology} \label{ap:basicnotation}
+\chapter{Metric spaces} \label{ap:metric}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Is this overly too nitpicky to include?
+\section{Metric spaces}
+\label{sec:metric}
 
-FIXME
+This chapter is an adapted and shortened version of chapter 7 from
+\cite{ra:book}.
+The main idea in analysis is to take limits and talk about continuity.
+We wish to abstract what this means to be able to take limits in various
+contexts.  The most basic such abstraction is a
+\emph{\myindex{metric space}}.
+While it
+is not sufficient to describe every type of limit we find in modern
+analysis, it gets us very far indeed.
+
+\begin{defn}
+Let $X$ be a set, and let
+$d \colon X \times X \to \R$
+be a function such that for all $x,y,z \in X$
+\begin{enumerate}[(i)]
+%
+\item \label{metric:pos}
+\makebox[2.8in][l]{$d(x,y) \geq 0$}
+(nonnegativity),
+%
+\item \label{metric:zero}
+\makebox[2.8in][l]{$d(x,y) = 0$ if and only if $x = y$,}
+%(identity) FIXME: that's not standard naming and "identity of indiscernibles"
+% is too much useless verbiage
+%
+\item \label{metric:com}
+\makebox[2.8in][l]{$d(x,y) = d(y,x)$} 
+(symmetry),
+%
+\item \label{metric:triang}
+\makebox[2.8in][l]{$d(x,z) \leq d(x,y)+ d(y,z)$}
+(\emph{\myindex{triangle inequality}}).
+\end{enumerate}
+The pair $(X,d)$ is called a \emph{\myindex{metric space}}.  The
+function $d$ is called the \emph{\myindex{metric}} or the
+\emph{\myindex{distance function}}.
+Sometimes we write just $X$ as the metric space instead of $(X,d)$, if the metric is clear from
+context.
+\end{defn}
+
+The geometric idea is that $d$ is the distance between two points. 
+Items \ref{metric:pos}--\ref{metric:com} have obvious geometric
+interpretation: Distance is always nonnegative, the only point that is
+distance 0 away from $x$ is $x$ itself, and finally that the distance from
+$x$ to $y$ is the same as the distance from $y$ to $x$.  The triangle
+inequality \ref{metric:triang} has the interpretation given in
+\figureref{fig:mstriang}.
+\begin{myfig}
+\subimport*{figures/}{ms-triang.pdf_t}
+\caption{Diagram of the triangle inequality in metric spaces.\label{fig:mstriang}}
+\end{myfig}
+
+For the purposes of drawing, it is convenient to draw figures and
+diagrams in the plane with the metric being the euclidean distance.
+However, that is only one particular metric space.  Just because a
+certain fact seems to be clear from drawing a picture does not mean it is
+true.  You might be getting sidetracked by intuition from euclidean
+geometry,
+whereas the concept of a metric space is a lot more general.
+
+\begin{example}
+The set of real numbers $\R$ is a metric space with the metric
+\begin{equation*}
+d(x,y) := \abs{x-y} .
+\end{equation*}
+Items \ref{metric:pos}--\ref{metric:com} of the definition
+are easy to verify.  The
+triangle inequality \ref{metric:triang} follows immediately
+from the standard triangle inequality for real numbers:
+\begin{equation*}
+d(x,z) = \abs{x-z} = 
+\abs{x-y+y-z} \leq
+\abs{x-y}+\abs{y-z} =
+d(x,y)+ d(y,z) .
+\end{equation*}
+This metric is the \emph{\myindex{standard metric on $\R$}}.  If we talk
+about $\R$ as a metric space without mentioning a specific metric, we 
+mean this particular metric.
+\end{example}
+
+An important metric space is the
+$n$-dimensional \emph{\myindex{euclidean space}}
+%\glsadd{not:euclidspace}
+$\R^n = \R \times \R \times \cdots \times \R$.   In this book
+we mostly see $\R^2$, but let us give the example in more generality.
+We use the following
+notation for points: $x =(x_1,x_2,\ldots,x_n) \in \R^n$.
+  %We will not write
+%$\vec{x}$ nor $\mathbf{x}$ for a vector, we simply give it a name such as
+%$x$ and we will remember that $x$ is a vector.
+%We write simply $0 \in \R^n$ to mean the point $(0,0,\ldots,0)$.
+Before making $\R^n$ a metric space, let us prove an important inequality, the
+so-called Cauchy--Schwarz inequality.
+
+\begin{lemma}[\myindex{Cauchy--Schwarz inequality}%
+\footnote{%
+Sometimes it is called the \myindex{Cauchy--Bunyakovsky--Schwarz inequality}.
+\href{https://en.wikipedia.org/wiki/Hermann_Schwarz}{Karl Hermann Amandus
+Schwarz} (1843--1921) was a German mathematician and
+\href{https://en.wikipedia.org/wiki/Viktor_Bunyakovsky}{Viktor Yakovlevich
+Bunyakovsky} (1804--1889) was a Russian mathematician.  What we
+stated should really be called the Cauchy inequality, as
+Bunyakovsky and Schwarz provided proofs for infinite dimensional versions.}]
+If $x =(x_1,x_2,\ldots,x_n) \in \R^n$, $y =(y_1,y_2,\ldots,y_n) \in
+\R^n$, then
+\begin{equation*}
+{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2
+\leq
+\biggl(\sum_{j=1}^n x_j^2 \biggr)
+\biggl(\sum_{j=1}^n y_j^2 \biggr) .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Any square of a real number is nonnegative.  Hence any sum of squares is
+nonnegative:
+\begin{equation*}
+\begin{split}
+0 & \leq 
+\sum_{j=1}^n \sum_{k=1}^n {(x_j y_k - x_k y_j)}^2
+\\
+& =
+\sum_{j=1}^n \sum_{k=1}^n \bigl( x_j^2 y_k^2 + x_k^2 y_j^2 - 2 x_j x_k y_j
+y_k \bigr)
+\\
+& =
+\biggl( \sum_{j=1}^n x_j^2 \biggr)
+\biggl( \sum_{k=1}^n y_k^2 \biggr)
++
+\biggl( \sum_{j=1}^n y_j^2 \biggr)
+\biggl( \sum_{k=1}^n x_k^2 \biggr)
+-
+2
+\biggl( \sum_{j=1}^n x_j y_j \biggr)
+\biggl( \sum_{k=1}^n x_k y_k \biggr)
+\end{split}
+\end{equation*}
+We relabel and divide by 2 to obtain
+\begin{equation*}
+0 \leq 
+\biggl( \sum_{j=1}^n x_j^2 \biggr)
+\biggl( \sum_{j=1}^n y_j^2 \biggr)
+-
+{\biggl( \sum_{j=1}^n x_j y_j \biggr)}^2 ,
+\end{equation*}
+which is precisely what we wanted.
+\end{proof}
+
+\begin{example}
+Let us construct the
+standard metric\index{standard metric on $\R^n$} for $\R^n$.  Define
+\begin{equation*}
+d(x,y) :=
+\sqrt{
+{(x_1-y_1)}^2 + 
+{(x_2-y_2)}^2 + 
+\cdots +
+{(x_n-y_n)}^2
+} =
+\sqrt{
+\sum_{j=1}^n
+{(x_j-y_j)}^2 
+} .
+\end{equation*}
+For $n=1$, the real line, this metric agrees with what we did above.  Again,
+the only tricky part of the definition to check is the triangle inequality.
+It is less messy to work with the square of the metric.  In the
+following, note the use of the Cauchy--Schwarz inequality.
+\begin{equation*}
+\begin{split}
+{\bigl(d(x,z)\bigr)}^2 & =
+\sum_{j=1}^n
+{(x_j-z_j)}^2 
+\\
+& =
+\sum_{j=1}^n
+{(x_j-y_j+y_j-z_j)}^2 
+\\
+& =
+\sum_{j=1}^n
+\Bigl(
+{(x_j-y_j)}^2+{(y_j-z_j)}^2 + 2(x_j-y_j)(y_j-z_j)
+\Bigr)
+\\
+& =
+\sum_{j=1}^n
+{(x_j-y_j)}^2
++
+\sum_{j=1}^n
+{(y_j-z_j)}^2 
++
+2
+\sum_{j=1}^n
+(x_j-y_j)(y_j-z_j)
+\\
+& \leq
+\sum_{j=1}^n
+{(x_j-y_j)}^2
++
+\sum_{j=1}^n
+{(y_j-z_j)}^2 
++
+2
+\sqrt{
+\sum_{j=1}^n
+{(x_j-y_j)}^2
+\sum_{j=1}^n
+{(y_j-z_j)}^2
+}
+\\
+& =
+{\left(
+\sqrt{
+\sum_{j=1}^n
+{(x_j-y_j)}^2
+}
++
+\sqrt{
+\sum_{j=1}^n
+{(y_j-z_j)}^2 
+}
+\right)}^2
+=
+{\bigl( d(x,y) + d(y,z) \bigr)}^2 .
+\end{split}
+\end{equation*}
+Taking the square root of both sides we obtain the correct inequality,
+because the square root is an increasing function.
+\end{example}
+
+\begin{example} \label{example:mscomplex}
+The set of complex numbers $\C$ is a metric space using the standard
+euclidean metric
+by identifying $x+iy \in \C$ with $(x,y) \in \R^2$.
+\end{example}
+
+\begin{example} \label{example:msC01}
+Let $C([a,b],\R)$\glsadd{not:contfuncs} be the set of continuous real-valued functions on the
+interval $[a,b]$.  Define the metric on $C([a,b],\R)$ as
+\begin{equation*}
+d(f,g) := \sup_{x \in [a,b]} \abs{f(x)-g(x)} .
+\end{equation*}
+Let us check the properties.  First, $d(f,g)$ is finite as
+$\abs{f(x)-g(x)}$ is a continuous function on a closed bounded interval
+$[a,b]$, and so is bounded.
+It is clear that $d(f,g) \geq 0$, 
+it is the supremum of nonnegative numbers.  If $f = g$
+then $\abs{f(x)-g(x)} = 0$ for all $x$ and hence $d(f,g) = 0$.  Conversely,
+if $d(f,g) = 0$, then for any $x$ we have $\abs{f(x)-g(x)} \leq d(f,g) = 0$,
+and hence $f(x) = g(x)$ for all $x$ and $f=g$.  That $d(f,g) = d(g,f)$
+is equally trivial.  To show the triangle inequality we use the standard
+triangle inequality.
+\begin{equation*}
+\begin{split}
+d(f,g) & =
+\sup_{x \in [a,b]} \abs{f(x)-g(x)} =
+\sup_{x \in [a,b]} \abs{f(x)-h(x)+h(x)-g(x)}
+\\
+& \leq
+\sup_{x \in [a,b]} ( \abs{f(x)-h(x)}+\abs{h(x)-g(x)} )
+\\
+& \leq
+\sup_{x \in [a,b]} \abs{f(x)-h(x)}+
+\sup_{x \in [a,b]} \abs{h(x)-g(x)} = d(f,h) + d(h,g) .
+\end{split}
+\end{equation*}
+When treating $C([a,b],\R)$ as a metric space without mentioning a metric, we mean this
+particular metric.
+%
+%This example may seem esoteric at first, but it turns out that working with
+%spaces such as $C([a,b],\R)$ is really the meat of a large part of modern 
+%analysis.  Treating sets of functions as metric spaces allows us to
+%abstract away a lot of the grubby detail and prove powerful results such as
+%Picard's theorem with less work.
+\end{example}
+
+\begin{example}
+Another standard and useful example of a metric space is the sphere,
+usually called the \emph{\myindex{great circle distance}}.
+Let $S^2$ be the \myindex{unit sphere}\index{sphere} in $\R^3$,
+that is $S^2 := \{ x \in \R^3 : x_1^2+x_2^2+x_3^2 = 1 \}$.
+Take $x$ and $y$ in $S^2$, draw a line through the origin and $x$,
+and another line through the origin and $y$,
+and let $\theta$ be the angle that the two lines make.
+Then define $d(x,y) := \theta$, see \figureref{fig:spheremetric}.
+The law of cosines from vector calculus says
+$d(x,y) = \arccos(x_1y_1+x_2y_2+x_3y_3)$.
+It is relatively easy to see that this function satisfies the first three
+properties of a metric.
+Triangle inequality is harder to prove, and requires a bit more
+trigonometry and linear algebra than we wish to indulge in right now, so let
+us leave it without proof.
+\begin{myfig}
+\subimport*{figures/}{spheremetric.pdf_t}
+\caption{The great circle distance on the unit sphere.\label{fig:spheremetric}}
+\end{myfig}
+%This distance is the shortest distance between points on a sphere if
+%we are allowed to travel on the sphere only.  It is easy to
+%generalize to arbitrary diameters.  If we take a sphere of radius
+%$r$, you simply take $r \theta$ to find the distance.  This is then the
+%standard distance you would use if you for example compute a distance on the
+%surface of the earth, for example if computing the distance a plane travels from London to
+%Los Angeles.
+\end{example}
+
+Oftentimes it is useful to consider a subset of a larger metric space
+as a metric space itself.  We obtain the following proposition, which has
+a trivial proof.
+
+\begin{prop}
+Let $(X,d)$ be a metric space and $Y \subset X$, then the restriction
+$d|_{Y \times Y}$ is a metric on $Y$.
+\end{prop}
+
+\begin{defn}
+If $(X,d)$ is a metric space, $Y \subset X$, and $d' := d|_{Y \times Y}$,
+then $(Y,d')$ is said to be a \emph{\myindex{subspace}} of $(X,d)$.
+\end{defn}
+
+It is common to simply write $d$ for the metric on $Y$, as it is 
+the restriction of the metric on $X$.  Sometimes we say $d'$ is
+the \emph{\myindex{subspace metric}} and $Y$ has the
+\emph{\myindex{subspace topology}}.
+
+\medskip
+
+A subset of the real
+numbers is bounded whenever all its elements are at most some fixed distance
+from 0.
+When dealing with an arbitrary metric space there may not be some
+natural fixed point 0, but for the purposes of boundedness it does not matter.
+
+\begin{defn}
+Let $(X,d)$ be a metric space.  A subset $S \subset X$ is said to be
+\emph{bounded}\index{bounded set} if there exists a $p \in X$ and a
+$B \in \R$ such that
+\begin{equation*}
+d(p,x) \leq B \quad \text{for all $x \in S$}.
+\end{equation*}
+We say $(X,d)$ is bounded if $X$ itself is a bounded subset.
+\end{defn}
+
+For example, the set of real numbers with the standard metric is not a
+bounded metric space.  It is not hard to see that a
+subset of the real numbers is bounded in the
+sense of \chapterref{rn:chapter} if and only if it is bounded as a subset of the
+metric space of real numbers with the standard metric.
+
+On the other hand, if we take the real numbers with the discrete metric,
+then we obtain a bounded metric space.  In fact, any set with the
+discrete metric is bounded.
+
+There are other equivalent ways we could generalize boundedness,
+and are left as exercises.  Suppose $X$ is nonempty to avoid a technicality.
+Then $S \subset X$ is bounded if and only if
+\begin{enumerate}[(i)]
+\item
+for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
+all $x \in S$.
+\item 
+\glsadd{not:diam}
+$\operatorname{diam}(S) := \sup \{ d(x,y) : x,y \in S \} < \infty$.
+\end{enumerate}
+The quantity $\operatorname{diam}(S)$ is called the
+\emph{\myindex{diameter}} of a set and is usually only defined for
+a nonempty set.
+
+\subsection{Exercises}
+
+\begin{exbox}
+\begin{exercise}
+Show that for any set $X$, the discrete metric ($d(x,y) = 1$ if $x\not=y$ and
+$d(x,x) = 0$) does give a metric space $(X,d)$.
+\end{exercise}
+
+\begin{exercise}
+Let $X := \{ 0 \}$ be a set.  Can you make it into a metric space?
+\end{exercise}
+
+\begin{exercise}
+Let $X := \{ a, b \}$ be a set.  Can you make it into two distinct metric
+spaces?  (define two distinct metrics on it)
+\end{exercise}
+
+%\begin{exercise}
+%Let the set $X := \{ A, B, C \}$ represent 3 buildings on campus.  Suppose we
+%wish our distance to be the time it takes to walk from one building to
+%the other.
+%It takes 5 minutes either way between buildings $A$ and $B$.  However,
+%building $C$ is on a hill and it takes 10 minutes from $A$ and 15 minutes
+%from $B$ to get to $C$.  On the other hand it takes 5 minutes to go
+%from $C$ to $A$ and 7 minutes to go from $C$ to $B$, as we are going
+%downhill.  Do these distances define a metric?  If so, prove it, if not, say
+%why not.
+%\end{exercise}
+
+\begin{exercise}
+Suppose $(X,d)$ is a metric space and
+$\varphi \colon [0,\infty) \to \R$ is
+an increasing function such that 
+$\varphi(t) \geq 0$ for all $t$ and $\varphi(t) = 0$ if and only if
+$t=0$.  Also suppose $\varphi$ is \emph{\myindex{subadditive}},
+that is, $\varphi(s+t) \leq \varphi(s)+\varphi(t)$.
+Show that with $d'(x,y) := \varphi\bigl(d(x,y)\bigr)$, we obtain a new
+metric space $(X,d')$.
+\end{exercise}
+
+\begin{exercise} \label{exercise:mscross}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+\begin{enumerate}[a)]
+\item
+Show that $(X \times Y,d)$ with
+$d\bigl( (x_1,y_1), (x_2,y_2) \bigr) := d_X(x_1,x_2) + d_Y(y_1,y_2)$ is
+a metric space.
+\item
+Show that $(X \times Y,d)$ with
+$d\bigl( (x_1,y_1), (x_2,y_2) \bigr) := \max \{ d_X(x_1,x_2) , d_Y(y_1,y_2) \}$ is
+a metric space.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Let $X$ be the set of continuous functions on $[0,1]$.  Let $\varphi \colon
+[0,1] \to (0,\infty)$ be continuous.  Define
+\begin{equation*}
+d(f,g) := \int_0^1 \abs{f(x)-g(x)}\varphi(x)~dx .
+\end{equation*}
+Show that $(X,d)$ is a metric space.
+\end{exercise}
+
+\begin{exercise} \label{exercise:mshausdorffpseudo}
+Let $(X,d)$ be a metric space.  For nonempty bounded subsets $A$ and $B$ let
+\begin{equation*}
+d(x,B) := \inf \{ d(x,b) : b \in B \}
+\qquad \text{and} \qquad
+d(A,B) := \sup \{ d(a,B) : a \in A \} .
+\end{equation*}
+Now define the \emph{\myindex{Hausdorff metric}} as
+\begin{equation*}
+d_H(A,B) := \max \{ d(A,B) , d(B,A) \} .
+\end{equation*}
+Note: $d_H$ can be defined for arbitrary nonempty subsets if we allow the
+extended reals.
+\begin{enumerate}[a)]
+\item
+Let $Y \subset \sP(X)$ be the set of bounded nonempty subsets.
+Prove that
+$(Y,d_H)$ is a so-called \emph{\myindex{pseudometric space}}:
+$d_H$ satisfies the metric properties
+\ref{metric:pos},
+\ref{metric:com}, 
+\ref{metric:triang}, and further
+$d_H(A,A) = 0$ for all $A \in Y$. 
+\item
+Show by example that $d$ itself is not symmetric, that is $d(A,B) \not=
+d(B,A)$.
+\item
+Find a metric space $X$ and two different
+nonempty bounded subsets $A$ and $B$ such that $d_H(A,B) = 0$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d)$ be a nonempty metric space and $S \subset X$ a subset.  Prove:
+\begin{enumerate}[a)]
+\item
+$S$ is bounded if and only if
+for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
+all $x \in S$.
+\item
+A nonempty $S$ is bounded if and only if
+$\operatorname{diam}(S) := \sup \{ d(x,y) : x,y \in S \} < \infty$.
+\end{enumerate}
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise}
+{\ }
+\begin{enumerate}[a)]
+\item
+Working in $\R$, compute $\operatorname{diam}\bigl([a,b]\bigr)$.
+\item
+Working in $\R^n$, for any $r > 0$, let $B_r := \{ x_1^2+x_2^2+\cdots+x_n^2
+< r^2 \}$.  Compute $\operatorname{diam}\bigl(B_r\bigr)$.
+\item
+Suppose $(X,d)$ is a metric space with at least two points,
+$d$ is the discrete metric, and $p \in X$.
+Compute
+$\operatorname{diam}(\{ p \})$ and $\operatorname{diam}(X)$,
+then conclude that $(X,d)$ is bounded.
+\end{enumerate}
+\end{exercise}
+\end{samepage}
+
+\begin{exercise}
+{\ }
+\begin{enumerate}[a)]
+\item
+Find a metric $d$ on $\N$, such that $\N$ is an unbounded set in $(\N,d)$.
+\item
+Find a metric $d$ on $\N$, such that $\N$ is a bounded set in $(\N,d)$.
+\item
+Find a metric $d$ on $\N$ such that for any $n \in \N$ and any $\epsilon > 0$
+there exists an $m \in \N$ such that $d(n,m) < \epsilon$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{exercise:C1ab}
+Let $C^1([a,b],\R)$\glsadd{not:contdifffuncs} be the set of once continuously differentiable
+functions on $[a,b]$.
+Define
+\begin{equation*}
+d(f,g) := \snorm{f-g}_{[a,b]} + \snorm{f'-g'}_{[a,b]},
+\end{equation*}
+where $\snorm{f}_{X} = \sup_{x\in X} \sabs{f(x)}$ is the uniform norm.  Prove that $d$ is a metric.
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise}
+The set of sequences $\{ x_n \}$
+of real numbers
+such that $\sum_{n=1}^\infty x_n^2 < \infty$ is called $\ell^2$.
+\begin{enumerate}[a)]
+\item
+Prove the \myindex{Cauchy--Schwarz inequality} for two sequences
+$\{x_n \}$ and $\{ y_n \}$ in $\ell^2$:
+\begin{equation*}
+{\biggl( \sum_{j=1}^\infty x_j y_j \biggr)}^2
+\leq
+\biggl(\sum_{j=1}^\infty x_j^2 \biggr)
+\biggl(\sum_{j=1}^\infty y_j^2 \biggr) .
+\end{equation*}
+\item
+Prove that $\ell^2$ is a metric space with the metric
+$d(x,y) := \sqrt{\sum_{j=1}^\infty {(x_j-y_j)}^2}$.
+\end{enumerate}
+\end{exercise}
+\end{samepage}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Open and closed sets}
+\label{sec:mettop}
+
+\subsection{Topology}
+
+Before we get to convergence,
+we define the so-called \emph{\myindex{topology}}.
+That is,
+we define closed and open sets in a metric space.
+Before doing so,
+let us define two special sets.
+
+\begin{defn}
+Let $(X,d)$ be a metric space, $x \in X$ and $\delta > 0$.  Then define
+the \emph{\myindex{open ball}} or simply \emph{\myindex{ball}} of radius $\delta$
+around $x$ as
+\glsadd{not:openball}
+\begin{equation*}
+B(x,\delta) := \{ y \in X : d(x,y) < \delta \} .
+\end{equation*}
+Similarly define the \emph{\myindex{closed ball}} as
+\glsadd{not:closedball}
+\begin{equation*}
+C(x,\delta) := \{ y \in X : d(x,y) \leq \delta \} .
+\end{equation*}
+\end{defn}
+
+When we are dealing with different metric spaces, it is sometimes 
+convenient to emphasize which metric space the ball is in.  We do this by
+writing $B_X(x,\delta) := B(x,\delta)$ or $C_X(x,\delta) := C(x,\delta)$.
+
+\begin{example}
+Take the metric space $\R$ with the standard metric.  For
+$x \in \R$ and $\delta > 0$,
+\begin{equation*}
+B(x,\delta) = (x-\delta,x+\delta) \qquad \text{and} \qquad
+C(x,\delta) = [x-\delta,x+\delta] .
+\end{equation*}
+\end{example}
+
+\begin{example}
+Be careful when working on a subspace.  Suppose we take the
+metric space $[0,1]$ as a subspace of $\R$.  Then in $[0,1]$
+we get
+\begin{equation*}
+B(0,\nicefrac{1}{2}) = B_{[0,1]}(0,\nicefrac{1}{2})
+= \{ y \in [0,1] : \abs{0-y} < \nicefrac{1}{2} \}
+= [0,\nicefrac{1}{2}) .
+\end{equation*}
+This is different from $B_{\R}(0,\nicefrac{1}{2}) =
+(-\nicefrac{1}{2},\nicefrac{1}{2})$.
+The important thing to keep in mind is which metric space we are working
+in.
+\end{example}
+
+\begin{defn}
+Let $(X,d)$ be a metric space.  A subset $V \subset X$
+is \emph{open}\index{open set}
+if for every $x \in V$, there exists a $\delta > 0$ such that
+$B(x,\delta) \subset V$.  See \figureref{fig:msopenset}.  A subset $E \subset X$ is 
+\emph{closed}\index{closed set} if the complement $E^c = X \setminus E$ is open.
+When the ambient space $X$ is not clear from context,
+we say \emph{$V$ is open in $X$} and \emph{$E$ is closed in $X$}.
+
+If $x \in V$ and $V$ is open, then we say 
+$V$ is an \emph{\myindex{open neighborhood}} of $x$ (or
+sometimes just \emph{\myindex{neighborhood}}).
+\end{defn}
+
+\begin{myfig}
+\subimport*{figures/}{msopenset.pdf_t}
+\caption{Open set in a metric space.  Note that $\delta$ depends on $x$.\label{fig:msopenset}}
+\end{myfig}
+
+Intuitively, an open set $V$ is a set that does not include its ``boundary.''
+Wherever we are in $V$,
+we are allowed to ``wiggle'' a little bit and
+stay in $V$.  Similarly, a set $E$ is closed if everything not in $E$
+is some distance away from $E$.
+The open and closed balls are examples of open and closed sets
+(this must still be proved).
+But not every set is either open or closed.  Generally, most subsets are neither.
+
+\begin{example}
+The set $(0,\infty) \subset \R$ is open:  Given any $x \in (0,\infty)$,
+let $\delta := x$.  Then $B(x,\delta) = (0,2x) \subset (0,\infty)$.
+
+The set $[0,\infty) \subset \R$ is closed:  Given $x \in (-\infty,0) =
+[0,\infty)^c$,
+let $\delta := -x$.  Then $B(x,\delta) = (-2x,0) \subset
+(-\infty,0) = [0,\infty)^c$.
+
+The set $[0,1) \subset \R$ is neither open nor closed.  First,
+every ball in $\R$ around $0$, $B(0,\delta) = (-\delta,\delta)$, contains negative
+numbers and hence is not contained in $[0,1)$.  So $[0,1)$ is not open.
+Second, every ball in $\R$ around $1$,
+$B(1,\delta) = (1-\delta,1+\delta)$, contains
+numbers strictly less than 1 and greater than 0
+(e.g.\ $1-\nicefrac{\delta}{2}$ as long as $\delta < 2$).
+Thus $[0,1)^c = \R \setminus
+[0,1)$ is not open, and $[0,1)$ is not closed.
+\end{example}
+
+\begin{prop} \label{prop:topology:open}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[(i)]
+\item \label{topology:openi} $\emptyset$ and $X$ are open.
+\item \label{topology:openii} If $V_1, V_2, \ldots, V_k$ are open then
+\begin{equation*}
+\bigcap_{j=1}^k V_j
+\end{equation*}
+is also open.  That is, a finite intersection of open sets is open.
+\item \label{topology:openiii} If $\{ V_\lambda \}_{\lambda \in I}$ is
+an arbitrary collection of open sets, then
+\begin{equation*}
+\bigcup_{\lambda \in I} V_\lambda
+\end{equation*}
+is also open.  That is, a union of open sets is open.
+\end{enumerate}
+\end{prop}
+
+The index set $I$ in \ref{topology:openiii} can be arbitrarily large.
+By $\bigcup_{\lambda \in I} V_\lambda$ we simply mean the set of
+all $x$ such that $x \in V_\lambda$ for at least one $\lambda \in I$.
+
+\begin{proof}
+The sets $X$ and $\emptyset$ are obviously open in $X$.
+
+Let us prove \ref{topology:openii}.
+If $x \in \bigcap_{j=1}^k V_j$, then $x \in V_j$ for all $j$.
+As $V_j$ are all open, for every $j$ there exists a $\delta_j > 0$ 
+such that $B(x,\delta_j) \subset V_j$.  Take $\delta := \min \{
+\delta_1,\delta_2,\ldots,\delta_k \}$ and notice $\delta > 0$.  We have
+$B(x,\delta) \subset B(x,\delta_j) \subset V_j$ for every $j$ and so
+$B(x,\delta) \subset \bigcap_{j=1}^k V_j$.  Consequently the intersection is open.
+
+Let us prove \ref{topology:openiii}.
+If $x \in \bigcup_{\lambda \in I} V_\lambda$, then $x \in V_\lambda$ for some
+$\lambda \in I$.
+As $V_\lambda$ is open, there exists a $\delta > 0$
+such that $B(x,\delta) \subset V_\lambda$.  But then
+$B(x,\delta) \subset \bigcup_{\lambda \in I} V_\lambda$,
+and so the union is open.
+\end{proof}
+
+\begin{example}
+The main thing to notice is the difference between
+items
+\ref{topology:openii} and \ref{topology:openiii}.
+Item \ref{topology:openii} is not true for an arbitrary intersection,
+for example $\bigcap_{n=1}^\infty (-\nicefrac{1}{n},\nicefrac{1}{n}) = \{ 0
+\}$, which is not open.
+\end{example}
+
+
+The proof of the following analogous proposition for closed sets
+is left as an exercise.
+
+%FIXMEevillayouthack
+\pagebreak[2]
+
+\begin{prop} \label{prop:topology:closed}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[(i)]
+\item \label{topology:closedi} $\emptyset$ and $X$ are closed.
+\item \label{topology:closedii} If $\{ E_\lambda \}_{\lambda \in I}$ is
+an arbitrary collection of closed sets, then
+\begin{equation*}
+\bigcap_{\lambda \in I} E_\lambda
+\end{equation*}
+is also closed.  That is, an intersection of closed sets is closed.
+\item \label{topology:closediii} If $E_1, E_2, \ldots, E_k$ are closed then
+\begin{equation*}
+\bigcup_{j=1}^k E_j
+\end{equation*}
+is also closed.  That is, a finite union of closed sets is closed.
+\end{enumerate}
+\end{prop}
+
+We have not yet shown that the open ball is open and the closed ball is
+closed.  Let us show this fact now to justify the terminology.
+
+\begin{prop} \label{prop:topology:ballsopenclosed}
+Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$.  Then
+$B(x,\delta)$ is open and 
+$C(x,\delta)$ is closed.
+\end{prop}
+
+\begin{proof}
+Let $y \in B(x,\delta)$.  Let $\alpha := \delta-d(x,y)$.  As $\alpha
+> 0$, consider $z \in B(y,\alpha)$.  Then
+\begin{equation*}
+d(x,z) \leq d(x,y) + d(y,z) < d(x,y) + \alpha = d(x,y) + \delta-d(x,y) =
+\delta .
+\end{equation*}
+Therefore, $z \in B(x,\delta)$ for every $z \in B(y,\alpha)$.  So $B(y,\alpha) \subset B(x,\delta)$ and
+$B(x,\delta)$ is open.
+
+\begin{myfig}
+\subimport*{figures/}{ballisopen.pdf_t}
+\caption{Proof that $B(x,\delta)$ is open: $B(y,\alpha) \subset
+B(x,\delta)$ with the triangle inequality illustrated.\label{fig:ballisopen}}
+\end{myfig}
+
+The proof that $C(x,\delta)$ is closed is left as an exercise.
+\end{proof}
+
+Again be careful about what is the metric space we are working in.
+As $[0,\nicefrac{1}{2})$ is
+an open ball in $[0,1]$, this means that $[0,\nicefrac{1}{2})$ is
+an open set in $[0,1]$.  On the other hand $[0,\nicefrac{1}{2})$
+is neither open nor closed in $\R$.
+
+\begin{prop} \label{prop:topology:intervals:openclosed}
+Let $a < b$ be two real numbers.  Then $(a,b)$, $(a,\infty)$,
+and $(-\infty,b)$ are open in $\R$.
+Also $[a,b]$, $[a,\infty)$,
+and $(-\infty,b]$ are closed in $\R$.
+\end{prop}
+
+The proof is left as an exercise.  Keep in mind that
+there are many other open and
+closed sets in the set of real numbers. %$\R$.
+
+\begin{prop} \label{prop:topology:subspaceopen}
+Suppose $(X,d)$ is a metric space, and $Y \subset X$.  Then $U \subset Y$
+is open in $Y$ (i.e., in the subspace topology), if and only if
+there exists an open set $V \subset X$ (so open in $X$), such that
+$V \cap Y = U$.
+\end{prop}
+
+For example, let $X := \R$, $Y:=[0,1]$, $U := [0,\nicefrac{1}{2})$.
+We saw that $U$ is an open set in $Y$.
+We may take $V := (-\nicefrac{1}{2},\nicefrac{1}{2})$.
+
+\begin{proof}
+Suppose $V \subset X$ is open and $x \in V \cap Y$.
+Let $U := V \cap Y$.
+As $V$ is open, there
+exists a $\delta > 0$ such that $B_X(x,\delta) \subset V$.
+Then
+\begin{equation*}
+B_Y(x,\delta) = B_X(x,\delta) \cap Y \subset V \cap Y = U .
+\end{equation*}
+
+The proof of the opposite direction, that is, that if $U \subset Y$
+is open in the subspace topology there exists a $V$ is left as
+\exerciseref{exercise:mssubspace}.
+\end{proof}
+
+A hint for the exercise is that
+a useful way to think about an open set is as a union of open balls.  If $U$ is
+open, then for each $x \in U$, there is a $\delta_x > 0$ (depending on $x$) such that
+$B(x,\delta_x) \subset U$.  Then $U = \bigcup_{x\in U} B(x,\delta_x)$.
+
+In case of an open subset of an open set or a closed subset of a closed
+set, matters are simpler.
+
+\begin{prop} \label{prop:topology:subspacesame}
+Suppose $(X,d)$ is a metric space, $V \subset X$ is open
+and $E \subset X$ is closed.
+\begin{enumerate}[(i)]
+\item \label{prop:topology:subspacesame:i}
+$U \subset V$ is open in the subspace topology if and only if $U$ is open
+in $X$.
+\item \label{prop:topology:subspacesame:ii}
+$F \subset E$ is closed in the subspace topology if and only if $F$ is
+closed in $X$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Let us prove
+\ref{prop:topology:subspacesame:i}
+and leave 
+\ref{prop:topology:subspacesame:ii} to an exercise.
+
+If $U \subset V$ is open in the subspace topology, by
+\propref{prop:topology:subspaceopen}, there exists a set $W \subset X$
+open in $X$, such that $U = W \cap V$.  Intersection of two open sets
+is open so $U$ is open in $X$.
+
+Now suppose $U$ is open in $X$, then $U = U \cap V$. So
+$U$ is open in $V$ again by \propref{prop:topology:subspaceopen}.
+\end{proof}
+
+\subsection{Connected sets}
+
+Let us generalize the idea of an interval to general metric spaces.  One of
+the main features of an interval in $\R$ is that it is
+connected---that we can continuously move from one point of it to
+another point without jumping.
+For example, in $\R$ we usually study functions on intervals,
+and in more general metric spaces we usually study functions on connected sets.
+
+\begin{defn}
+A nonempty%
+\footnote{Some authors do not exclude the empty set from the definition,
+and the empty set would then be connected.
+We avoid the empty set for essentially the same reason why
+1 is neither a prime nor a composite number:  Our connected sets have exactly
+two clopen subsets and disconnected sets have more than two.  The empty set
+has exactly one.}
+metric space $(X,d)$ is \emph{\myindex{connected}} if the
+only subsets of $X$ that are both open and closed (so-called
+\emph{\myindex{clopen}} subsets) are $\emptyset$ and $X$ itself.
+If a nonempty $(X,d)$ is not connected we say it is
+\emph{\myindex{disconnected}}.
+
+When we apply the term \emph{connected} to a nonempty subset $A \subset X$, we 
+mean that $A$ with the subspace topology is connected.
+\end{defn}
+
+In other words, a nonempty $X$ is connected if whenever we write
+$X = X_1 \cup X_2$ where $X_1 \cap X_2 = \emptyset$ and $X_1$ and $X_2$ are
+open, then either $X_1 = \emptyset$ or $X_2 = \emptyset$.
+So to show $X$ is disconnected, we need to find nonempty
+disjoint open sets $X_1$ and
+$X_2$ whose union is $X$.
+For subsets, we state this idea as a proposition.
+The proposition is illustrated in \figureref{fig:disconsubset}.
+
+\begin{prop}
+Let $(X,d)$ be a metric space.
+A nonempty set $S \subset X$ is disconnected if and only if
+there exist open sets $U_1$ and
+$U_2$ in $X$, such that $U_1 \cap U_2 \cap S = \emptyset$,
+$U_1 \cap S \not= \emptyset$,
+$U_2 \cap S \not= \emptyset$, and
+\begin{equation*}
+S = 
+\bigl( U_1 \cap S \bigr)
+\cup
+\bigl( U_2 \cap S \bigr) .
+\end{equation*}
+\end{prop}
+
+\begin{myfig}
+\subimport*{figures/}{disconsubset.pdf_t}
+\caption{Disconnected subset.  Note that $U_1 \cap U_2$ need
+not be empty, but $U_1 \cap U_2 \cap S = \emptyset$.\label{fig:disconsubset}}
+\end{myfig}
+
+
+\begin{proof}
+The proof follows by \propref{prop:topology:subspaceopen}.
+If $U_1$ and $U_2$ as in the statement are open in $X$,
+then $U_1 \cap S$ and $U_2 \cap S$ are open in $S$.
+From the discussion above it follows that $S$ is disconnected.
+
+For the other direction start with nonempty disjoint $S_1$ and $S_2$ that are
+open in $S$ and such that $S = S_1 \cup S_2$.  Then use
+\propref{prop:topology:subspaceopen} again to find $U_1$ and $U_2$
+open in $X$ such that $U_1 \cap S = S_1$ and.
+$U_2 \cap S = S_2$.
+\end{proof}
+
+\begin{example}
+Let $S \subset \R$ be such that $x < z < y$ with $x,y \in S$
+and $z \notin S$.  Claim: \emph{$S$ is disconnected}.  Proof:  Notice
+\begin{equation*}
+\bigl( (-\infty,z) \cap S \bigr)
+\cup
+\bigl( (z,\infty) \cap S \bigr)
+= S .
+\end{equation*}
+\end{example}
+
+\begin{prop}
+A nonempty set $S \subset \R$ is connected if and only if it is
+an interval or a single point.
+\end{prop}
+
+\begin{proof}
+Suppose $S$ is connected.  If $S$ is a single point,
+then we are done.  So suppose $x < y$ and $x,y \in S$.  If $z \in \R$ is such
+that $x < z < y$, then $(-\infty,z) \cap S$ is nonempty and $(z,\infty) \cap
+S$ is nonempty.  The two sets are disjoint.  As
+$S$ is connected, we must have they their union is not $S$, so $z \in S$.
+So $S$ is an interval.
+
+If $S$ is a single point, it is connected.
+Therefore, suppose $S$ is an interval.
+Consider open subsets $U_1$ and $U_2$ of $\R$, such that
+$U_1 \cap S$ and $U_2 \cap S$ are nonempty, and
+$S = 
+\bigl( U_1 \cap S \bigr)
+\cup
+\bigl( U_2 \cap S \bigr)$.  We will show that $U_1 \cap S$
+and $U_2 \cap S$ contain a common point, so they are not disjoint,
+proving that $S$ is connected.
+Suppose $x \in U_1 \cap S$
+and $y \in U_2 \cap S$.  Without loss of generality, assume $x < y$.
+As $S$ is an interval, $[x,y] \subset S$.
+Note that $U_2 \cap [x,y] \not= \emptyset$, and
+let $z := \inf (U_2 \cap [x,y])$.
+We wish to show that $z \in U_1$.
+If $z = x$, then $z \in U_1$.
+If $z > x$,
+then for any $\delta > 0$ the ball $B(z,\delta) =
+(z-\delta,z+\delta)$ contains points of $[x,y]$ not in $U_2$,
+as $z$ is the infimum of such points.
+So $z \notin U_2$ as $U_2$ is open.
+Therefore, $z \in U_1$ as every point of $[x,y]$ is in
+$U_1$ or $U_2$.
+As $U_1$ is open,
+$B(z,\delta) \subset U_1$ for a small enough $\delta > 0$.
+As $z$ is the infimum of the nonempty set $U_2 \cap [x,y]$, 
+there must exist some $w \in U_2 \cap [x,y]$
+such that $w \in [z,z+\delta) \subset B(z,\delta) \subset U_1$.
+Therefore, $w \in U_1 \cap U_2 \cap [x,y]$.
+So $U_1 \cap S$ and $U_2 \cap S$ are not disjoint, and
+$S$ is connected.
+\end{proof}
+
+\begin{myfig}
+\subimport*{figures/}{intervalcon.pdf_t}
+\caption{Proof that an interval is connected.\label{fig:intervalcon}}
+\end{myfig}
+
+\begin{example}
+Oftentimes a ball $B(x,\delta)$ is connected, but this is not
+necessarily true in every metric space.
+For a simplest example, take a two point space $\{ a,
+b\}$ with the discrete metric.  Then $B(a,2) = \{ a , b \}$, which is not
+connected as $B(a,1) = \{ a \}$ and 
+$B(b,1) = \{ b \}$ are open and disjoint.
+\end{example}
+
+\subsection{Closure and boundary}
+
+Sometimes we wish to take a set and throw in everything that we can approach
+from the set.  This concept is called the closure.
+
+\begin{defn}
+Let $(X,d)$ be a metric space and $A \subset X$.  Then
+the \emph{\myindex{closure}} of $A$ is the set
+\glsadd{not:closure}
+\begin{equation*}
+\widebar{A} := \bigcap \{ E \subset X : \text{$E$ is closed and $A \subset
+E$} \} .
+\end{equation*}
+\end{defn}
+
+That is,
+$\widebar{A}$ is the intersection of all closed sets that contain $A$.
+There is at least one closed set containing every $A$, namely $X$ itself.
+And in particular, $A \subset \widebar{A}$.
+
+\begin{prop}
+Let $(X,d)$ be a metric space and $A \subset X$.  The closure $\widebar{A}$
+is closed.  Furthermore if $A$ is closed then $\widebar{A} = A$.
+\end{prop}
+
+\begin{proof}
+The closure is an intersection of closed sets, so $\widebar{A}$ is closed.
+If $A$ is closed, then $A$ is a closed set that contains $A$,
+and so $\widebar{A} \subset A$.  And since $A \subset \widebar{A}$,
+we must have $A = \widebar{A}$.
+\end{proof}
+
+\begin{example}
+The closure of $(0,1)$ in $\R$ is $[0,1]$.  Proof:  If
+$E$ is closed and contains $(0,1)$, then $E$ must contain $0$ and $1$ (why?).
+Thus $[0,1] \subset E$.  But $[0,1]$ is also closed.
+Therefore, the closure $\overline{(0,1)} = [0,1]$.
+\end{example}
+
+\begin{example}
+Be careful to notice what ambient metric space you are working with.
+If $X = (0,\infty)$, then
+the closure of $(0,1)$ in $(0,\infty)$ is $(0,1]$.  Proof:  Similarly as
+above $(0,1]$ is closed in $(0,\infty)$ (why?).  Any closed set $E$
+that contains $(0,1)$ must contain 1 (why?).  Therefore, $(0,1] \subset E$,
+and hence $\overline{(0,1)} = (0,1]$ when working in $(0,\infty)$.
+\end{example}
+
+Let us justify the statement that the closure is everything that we can
+``approach'' from the set.
+
+\begin{prop} \label{prop:msclosureappr}
+Let $(X,d)$ be a metric space and $A \subset X$.  Then $x \in \widebar{A}$
+if and only if for every $\delta > 0$, $B(x,\delta) \cap A \not=\emptyset$.
+\end{prop}
+
+\begin{proof}
+Let us prove the two contrapositives.
+Let us show that $x \notin \widebar{A}$ if and only if there exists
+a $\delta > 0$ such that $B(x,\delta) \cap A = \emptyset$.
+
+First suppose $x \notin \widebar{A}$.  We know $\widebar{A}$ is
+closed.  Thus there is a $\delta > 0$ such that
+$B(x,\delta) \subset \widebar{A}^c$.  As $A \subset \widebar{A}$ we
+see that $B(x,\delta) \subset \widebar{A}^c \subset A^c$ and hence
+$B(x,\delta) \cap A = \emptyset$.
+
+On the other hand, suppose there is a $\delta > 0$, such that
+$B(x,\delta) \cap A = \emptyset$. 
+In other words,
+$A \subset {B(x,\delta)}^c$.
+As 
+${B(x,\delta)}^c$ is a closed set, $x \not \in {B(x,\delta)}^c$,
+and $\widebar{A}$ is the intersection
+of closed sets containing $A$, we have $x \notin \widebar{A}$.
+\end{proof}
+
+We can also talk about the interior of a set
+(points we cannot approach from the complement),
+and the boundary of a set (points we can
+approach both from the set and its complement).
+
+\begin{defn}
+Let $(X,d)$ be a metric space and $A \subset X$, then
+the \emph{\myindex{interior}} of $A$ is the set
+\glsadd{not:interior}
+\begin{equation*}
+A^\circ := \{ x \in A : \text{there exists a $\delta > 0$ such that
+$B(x,\delta) \subset A$} \} .
+\end{equation*}
+The \emph{\myindex{boundary}} of $A$ is the set
+\glsadd{not:boundary}
+\begin{equation*}
+\partial A := \widebar{A}\setminus A^\circ.
+\end{equation*}
+\end{defn}
+
+\begin{example}
+Suppose $A:=(0,1]$ and $X := \R$.  Then it is not hard
+to see that $\widebar{A}=[0,1]$, $A^\circ = (0,1)$,
+and $\partial A = \{ 0, 1 \}$.
+\end{example}
+
+\begin{example}
+Suppose $X := \{ a, b \}$ with the discrete metric.
+Let $A := \{ a \}$, then $\widebar{A} = A^\circ = A$ and $\partial A =
+\emptyset$.
+\end{example}
+
+
+\begin{prop}
+Let $(X,d)$ be a metric space and $A \subset X$.  Then $A^\circ$ is open
+and $\partial A$ is closed.
+\end{prop}
+
+\begin{proof}
+Given $x \in A^\circ$, there is a $\delta > 0$ such that $B(x,\delta)
+\subset A$.  If $z \in B(x,\delta)$, then as open balls are open,
+there is an $\epsilon > 0$ such that $B(z,\epsilon) \subset B(x,\delta)
+\subset A$.  So $z \in A^\circ$.  Therefore, $B(x,\delta) \subset
+A^\circ$, and $A^\circ$ is open.
+
+As $A^\circ$ is open, then
+$\partial A = \widebar{A} \setminus A^\circ = \widebar{A} \cap
+{(A^\circ)}^c$ is closed.
+\end{proof}
+
+The boundary is the set of points that are close to both the set and its
+complement.  See \figureref{fig:msboundary} for the a diagram
+of the next proposition.
+
+\begin{prop}
+Let $(X,d)$ be a metric space and $A \subset X$.  Then $x \in \partial A$
+if and only if for every $\delta > 0$,
+$B(x,\delta) \cap A$ and
+$B(x,\delta) \cap A^c$ are both nonempty.
+\end{prop}
+
+\begin{myfig}
+\subimport*{figures/}{msboundary.pdf_t}
+\caption{Boundary is the set where every ball contains points in the set and
+also its complement.\label{fig:msboundary}}
+\end{myfig}
+
+\begin{proof}
+Suppose $x \in \partial A =  \widebar{A} \setminus A^\circ$ and
+let $\delta > 0$ be arbitrary.
+By \propref{prop:msclosureappr}, $B(x,\delta)$ contains
+a point of $A$.  If $B(x,\delta)$ contained no points of $A^c$,
+then $x$ would be in $A^\circ$.  Hence $B(x,\delta)$ contains a point of
+$A^c$ as well.
+
+Let us prove the other direction by contrapositive.  Suppose
+$x \notin \partial A$.
+If $x \notin \widebar{A}$, then there is some $\delta > 0$ such that
+$B(x,\delta) \subset \widebar{A}^c$ as $\widebar{A}$ is closed.
+So $B(x,\delta)$ contains no points of $A$, because $\widebar{A}^c \subset
+A^c$.
+
+If $x \in A^\circ$, then there exists a $\delta > 0$
+such that $B(x,\delta) \subset A$.  But that means $B(x,\delta)$
+contains no points of $A^c$.
+\end{proof}
+
+We obtain the following immediate corollary about closures of $A$ and $A^c$.  We
+simply apply \propref{prop:msclosureappr}.
+
+\begin{cor}
+Let $(X,d)$ be a metric space and $A \subset X$.
+Then $\partial A = \widebar{A} \cap \widebar{A^c}$.
+\end{cor}
+
+\subsection{Exercises}
+
+\begin{exbox}
+\begin{exercise}
+Prove \propref{prop:topology:closed}.  Hint: Consider the complements of the
+sets and apply \propref{prop:topology:open}.
+\end{exercise}
+
+\begin{exercise}
+Finish the proof of \propref{prop:topology:ballsopenclosed} by
+proving that $C(x,\delta)$ is closed.
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:topology:intervals:openclosed}.
+\end{exercise}
+
+\begin{exercise}
+Suppose $(X,d)$ is a nonempty metric space with the discrete topology.  Show
+that $X$ is connected if and only if it contains exactly one element.
+\end{exercise}
+
+\begin{exercise}
+Take $\Q$ with the standard metric, $d(x,y) = \abs{x-y}$, as our metric space.
+Prove that $\Q$ is
+\emph{\myindex{totally disconnected}}, that is, show 
+that for every $x, y \in \Q$ with $x \not= y$, there exists an
+two open sets $U$ and $V$, such that $x \in U$, $y \in V$,
+$U \cap V = \emptyset$, and $U \cap V = \Q$.
+\end{exercise}
+
+\begin{exercise}
+Show that in any metric space,
+every open set can be written as a union of closed sets.
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise}
+In any metric space, prove:
+\begin{enumerate}[a)]
+\item
+$E$ is closed if and only if $\partial E \subset E$.
+\item
+$U$ is open if and only if $\partial U \cap U = \emptyset$.
+\end{enumerate}
+\end{exercise}
+\end{samepage}
+
+\begin{exercise}
+In any metric space, prove:
+\begin{enumerate}[a)]
+\item
+Show that $A$ is open if and only if $A^\circ = A$.
+\item
+Suppose that $U$ is an open set and $U \subset A$.  Show
+that $U \subset A^\circ$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Let $X$ be a set and $d$, $d'$ be two metrics on $X$.
+Suppose there exists an $\alpha > 0$ and $\beta > 0$
+such that $\alpha d(x,y) \leq d'(x,y) \leq \beta d(x,y)$ for all $x,y \in X$.
+Show that $U$ is open in $(X,d)$ if and only if $U$ is open in $(X,d')$.
+That is, the topologies of $(X,d)$ and $(X,d')$ are the same.
+\end{exercise}
+
+
+\begin{exercise}
+Suppose $\{ S_i \}$, $i \in \N$
+is a collection of connected subsets of a metric space $(X,d)$.  Suppose
+there exists an $x \in X$ such that $x \in S_i$ for all $i \in \N$.
+Show that $\bigcup_{i=1}^\infty S_i$ is connected.
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise}
+Let $A$ be a connected set in a metric space.
+\begin{enumerate}[a)]
+\item
+Is $\widebar{A}$ connected?  Prove or find a counterexample.
+\item
+Is $A^\circ$ connected?  Prove or find a counterexample.
+\end{enumerate}
+Hint: Think of sets in $\R^2$.
+\end{exercise}
+\end{samepage}
+
+\begin{exnote}
+The definition of open sets in the following exercise is usually called the
+\emph{\myindex{subspace topology}}.  You are asked to show that
+we obtain the same topology by considering the subspace metric.
+\end{exnote}
+
+\begin{exercise} \label{exercise:mssubspace}
+Finish the proof of \propref{prop:topology:subspaceopen}.
+Suppose $(X,d)$ is a metric space and $Y \subset X$.  Show that
+with the subspace metric on $Y$, if a set $U \subset Y$
+is open (in $Y$) then there exists an open set $V \subset X$ such
+that $U = V \cap Y$.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[a)]
+\item
+For any $x \in X$ and $\delta > 0$, show
+$\overline{B(x,\delta)} \subset C(x,\delta)$.
+\item
+Is it always true that
+$\overline{B(x,\delta)} = C(x,\delta)$?  Prove or find a counterexample.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space and $A \subset X$.  Show that
+$A^\circ = \bigcup \{ V : V \subset A \text{ is open} \}$.
+\end{exercise}
+
+\begin{exercise}
+Finish the proof of \propref{prop:topology:subspacesame}.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space.  Show that there exists a bounded metric
+$d'$ such that $(X,d')$ has the same open sets, that is, the topology is
+the same.
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[a)]
+\item
+Prove that for every $x \in X$, there either exists a $\delta > 0$ such that
+$B(x,\delta) = \{ x \}$, or $B(x,\delta)$ is infinite for every $\delta >  0$.
+\item
+Find an explicit example of $(X,d)$, $X$ infinite, where
+for every $\delta > 0$ and
+every $x \in X$, the
+ball $B(x,\delta)$ is finite.
+\item
+Find an explicit example of $(X,d)$ where for every $\delta > 0$ and
+every $x \in X$, the
+ball $B(x,\delta)$ is countably infinite.
+\item
+Prove that if $X$ is uncountable, then there exists
+an $x \in X$ and a $\delta > 0$ such that $B(x,\delta)$ is uncountable.
+\end{enumerate}
+\end{exercise}
+\end{samepage}
+
+\begin{exercise}
+For every $x \in \R^n$ and every $\delta > 0$ define the ``rectangle''
+$R(x,\delta) :=
+(x_1-\delta,x_1+\delta) \times
+(x_2-\delta,x_2+\delta) \times \cdots \times
+(x_n-\delta,x_n+\delta)$.  Show that these sets generate the same open
+sets as the balls in standard metric.  That is, show that a set $U \subset \R^n$
+is open in the sense of the standard metric if and only if for every
+point $x \in U$, there exists a $\delta > 0$ such that $R(x,\delta) \subset
+U$.
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\sectionnewpage
+\section{Sequences and convergence}
+\label{sec:metseqs}
+
+\subsection{Sequences}
+
+\begin{defn}
+A \emph{\myindex{sequence}} in a metric space $(X,d)$ is a function
+$x \colon \N \to X$.  We write $x_n$ for the $n$th element in
+the sequence and use the notation $\{ x_n \}$, or more precisely
+\glsadd{not:sequence}
+\begin{equation*}
+\{ x_n \}_{n=1}^\infty .
+\end{equation*}
+
+A sequence $\{ x_n \}$ is \emph{bounded}\index{bounded sequence} if
+there exists a point $p \in X$ and $B \in \R$ such that
+\begin{equation*}
+d(p,x_n) \leq B \qquad \text{for all $n \in \N$.}
+\end{equation*}
+In other words, the sequence $\{x_n\}$ is bounded whenever
+the set $\{ x_n : n \in \N \}$
+is bounded.
+
+If $\{ n_j \}_{j=1}^\infty$ is a sequence of natural numbers
+such that $n_{j+1} > n_j$ for all $j$, then
+the sequence $\{ x_{n_j} \}_{j=1}^\infty$\glsadd{not:subsequence}
+is said to be
+a \emph{\myindex{subsequence}} of $\{x_n \}$.
+\end{defn}
+
+Let us we define convergence.  We cheat a little
+and use the definite article in front of the word \emph{limit}
+before we prove that the limit is unique.
+See \figureref{fig:sequence-convergence-metric}, for an idea of
+the definition.
+
+\begin{defn}
+A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
+to \emph{converge} to a point
+$p \in X$, if for every $\epsilon > 0$, there exists an $M \in \N$ such
+that $d(x_n,p) < \epsilon$ for all $n \geq M$.  The point $p$
+is said to be the \emph{limit}\index{limit!of a sequence in a metric space}
+of $\{ x_n \}$.  We write\glsadd{not:limseq}
+\begin{equation*}
+\lim_{n\to \infty} x_n := p .
+\end{equation*}
+
+A sequence
+that converges is \emph{convergent}\index{convergent!sequence in a metric
+space}.
+Otherwise, the sequence is 
+\emph{divergent}\index{divergent!sequence in a metric space}.
+\begin{myfig}
+\includegraphics{figures/sequence-convergence-metric}
+\caption{Sequence converging to $p$.  The first 10 points 
+are shown and $M=7$ for this $\epsilon$.\label{fig:sequence-convergence-metric}}
+\end{myfig}
+\end{defn}
+
+Let us prove that the limit is unique.  
+
+\begin{prop} \label{prop:mslimisunique}
+A convergent sequence in a metric space has a unique limit.
+\end{prop}
+
+\begin{proof}
+%NOTE: should be word for word the same as 2.1.6
+Suppose the sequence $\{ x_n \}$ has limits $x$ and $y$.
+Take an arbitrary $\epsilon > 0$.
+From the definition find an $M_1$ such that for all $n \geq M_1$,
+$d(x_n,x) < \nicefrac{\epsilon}{2}$.  Similarly find an $M_2$
+such that for all $n \geq M_2$ we have
+$d(x_n,y) < \nicefrac{\epsilon}{2}$.  Now take an $n$ such that
+$n \geq M_1$ and also $n \geq M_2$, and estimate
+\begin{equation*}
+\begin{split}
+d(y,x)
+& \leq
+d(y,x_n) + d(x_n,x) \\
+& <
+\frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon .
+\end{split}
+\end{equation*}
+As $d(y,x) < \epsilon$ for all $\epsilon > 0$, then $d(x,y) = 0$
+and $y=x$.  Hence the limit (if it exists) is unique.
+\end{proof}
+
+The proofs of the following propositions are left as exercises.
+
+\begin{prop} \label{prop:msconvbound}
+A convergent sequence in a metric space is bounded.
+\end{prop}
+
+\begin{prop} \label{prop:msconvifa}
+A sequence $\{ x_n \}$ in a metric space $(X,d)$ converges to $p \in X$
+if and only
+if there exists a sequence $\{ a_n \}$ of real numbers such that
+\begin{equation*}
+d(x_n,p) \leq a_n \quad \text{for all $n \in \N$},
+\qquad \text{and} \qquad
+\lim_{n\to\infty} a_n = 0.
+\end{equation*}
+\end{prop}
+
+\begin{prop} \label{prop:mssubseq}
+Let $\{ x_n \}$ be a sequence in a metric space $(X,d)$.
+\begin{enumerate}[(i)]
+\item If $\{ x_n \}$ converges to $p \in X$, then every subsequence $\{ x_{n_k} \}$
+converges to $p$.
+\item If for some $K \in \N$ the $K$-tail $\{ x_n \}_{n=K+1}^\infty$
+converges to $p \in X$, then
+ $\{ x_n \}$ converges to $p$.
+\end{enumerate}
+\end{prop}
+
+\begin{example}
+Take $C([0,1],\R)$ be the set of continuous functions with the metric being
+the uniform metric.  We saw that we obtain a metric space.
+If we look at the definition of convergence, we notice that it is identical
+to uniform convergence.  That is, $\{ f_n \}$ converges uniformly if and only
+if it converges in the metric space sense.
+\end{example}
+
+%\begin{remark}
+%It is perhaps surprising that on the set of functions $f \colon [a,b] \to
+%\R$ (continuous or not)
+%there is no metric that gives pointwise convergence.  Although the proof of
+%this fact is beyond the scope of this book.
+%\end{remark}
+
+\subsection{Convergence in euclidean space}
+
+In the euclidean space $\R^n$, a sequence converges if and only if every
+component converges:
+
+\begin{prop} \label{prop:msconveuc}
+Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$,
+where $x_j = \bigl(x_{j,1},x_{j,2},\ldots,x_{j,n}\bigr) \in \R^n$.
+Then $\{ x_j \}_{j=1}^\infty$ converges if and only if
+$\{ x_{j,k} \}_{j=1}^\infty$ converges for every $k=1,2,\ldots,n$, in which case
+\begin{equation*}
+\lim_{j\to\infty}
+x_j =
+\Bigl(
+\lim_{j\to\infty} x_{j,1},
+\lim_{j\to\infty} x_{j,2},
+\ldots,
+\lim_{j\to\infty} x_{j,n}
+\Bigr) .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Suppose
+the sequence
+$\{ x_j \}_{j=1}^\infty$ converges to
+$y = (y_1,y_2,\ldots,y_n) \in \R^n$.
+Given $\epsilon > 0$, there exists an $M$, such that for all
+$j \geq M$ we have
+\begin{equation*}
+d(y,x_j) < \epsilon.
+\end{equation*}
+Fix some $k=1,2,\ldots,n$.  For $j \geq M$ we have
+\begin{equation*}
+\bigl\lvert y_k - x_{j,k} \bigr\rvert
+=
+\sqrt{{\bigl(y_k - x_{j,k} \bigr)}^2}
+\leq
+\sqrt{\sum_{\ell=1}^n {\bigl(y_\ell-x_{j,\ell}\bigr)}^2}
+= d(y,x_j) < \epsilon .
+\end{equation*}
+Hence the sequence $\{ x_{j,k} \}_{j=1}^\infty$ converges to $y_k$.
+
+For the other direction, suppose 
+$\{ x_{j,k} \}_{j=1}^\infty$ converges to $y_k$ for every $k=1,2,\ldots,n$.
+Given $\epsilon > 0$, pick an $M$, such that if $j \geq M$ then 
+$\bigl\lvert y_k-x_{j,k} \bigr\rvert < \nicefrac{\epsilon}{\sqrt{n}}$ for all
+$k=1,2,\ldots,n$.  Then
+\begin{equation*}
+d(y,x_j)
+=
+\sqrt{\sum_{k=1}^n {\bigl(y_k-x_{j,k}\bigr)}^2}
+<
+\sqrt{\sum_{k=1}^n {\left(\frac{\epsilon}{\sqrt{n}}\right)}^2}
+=
+\sqrt{\sum_{k=1}^n \frac{{\epsilon^2}}{n}}
+= \epsilon .
+\end{equation*}
+That is, the sequence $\{ x_j \}$ converges to
+$y = (y_1,y_2,\ldots,y_n) \in \R^n$.
+\end{proof}
+
+\begin{example}
+The set $\C$ of complex numbers $z = x+iy$ is considered 
+as the metric space $\R^2$.  The proposition says that the
+sequence $\{ z_j \}_{j=1}^\infty = \{ x_j + iy_j \}_{j=1}^\infty$ converges
+to $z = x+iy$
+if and only if $\{ x_j \}$ converges to $x$ and 
+$\{ y_j \}$ converges to $y$.
+\end{example}
+
+\subsection{Convergence and topology}
+
+The topology, that is, the set of open sets of a space encodes which
+sequences converge.
+
+\begin{prop} \label{prop:msconvtopo}
+Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$.  Then
+$\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
+$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$
+we have $x_n \in U$.
+\end{prop}
+
+\begin{proof}
+First suppose $\{ x_n \}$ converges.  Let $U$ be an open neighborhood
+of $x$, then there exists an $\epsilon > 0$ such that $B(x,\epsilon) \subset
+U$.  As the sequence converges, find an $M \in \N$ such that for all $n \geq
+M$ we have $d(x,x_n) < \epsilon$ or in other words $x_n \in B(x,\epsilon)
+\subset U$.
+
+Let us prove the other direction.  Given $\epsilon > 0$ let $U :=
+B(x,\epsilon)$ be the neighborhood of $x$.  Then there is an $M \in \N$
+such that for $n \geq M$ we have $x_n \in U = B(x,\epsilon)$ or in other
+words, $d(x,x_n) < \epsilon$.
+\end{proof}
+
+A set is closed when it contains the limits of its convergent sequences.
+
+\begin{prop} \label{prop:msclosedlim}
+Let $(X,d)$ be a metric space, $E \subset X$ a closed set,
+and $\{ x_n \}$ a sequence in $E$ that converges to some $x \in X$.
+Then $x \in E$.
+\end{prop}
+
+\begin{proof}
+Let us prove the contrapositive.
+Suppose $\{ x_n \}$ is a sequence in $X$ that converges to $x \in E^c$.
+As $E^c$ is open, \propref{prop:msconvtopo} says that there is
+an $M$ such that for all $n \geq M$,
+$x_n \in E^c$.  So $\{ x_n \}$  is not a sequence in $E$.
+\end{proof}
+
+To take a closure of a set $A$, we take $A$, and we throw in 
+points that are limits of sequences in $A$.
+
+\begin{prop} \label{prop:msclosureapprseq}
+Let $(X,d)$ be a metric space and $A \subset X$.
+Then $x \in \widebar{A}$ if and only if there exists a sequence $\{ x_n \}$ of
+elements in $A$ such that $\lim\, x_n = x$.
+\end{prop}
+
+\begin{proof}
+Let $x \in \widebar{A}$.  For every $n \in \N$,
+by
+\propref{prop:msclosureappr} there
+exists a point $x_n \in B(x,\nicefrac{1}{n}) \cap A$.
+As $d(x,x_n) < \nicefrac{1}{n}$, we have $\lim\, x_n = x$.
+
+For the other direction, see \exerciseref{exercise:reverseclosedseq}.
+\end{proof}
+
+\subsection{Exercises}
+
+\begin{exbox}
+\begin{exercise} \label{exercise:reverseclosedseq}
+Finish the proof of 
+\propref{prop:msclosureapprseq}.
+Let $(X,d)$ be a metric space and
+let $A \subset X$.  Let $E$ be the set of all $x \in X$ such that there
+exists a sequence $\{ x_n \}$ in $A$ that converges to $x$.  Show 
+$E = \widebar{A}$.
+\end{exercise}
+
+\begin{exercise}
+{\ }
+\begin{enumerate}[a)]
+\item
+Show that $d(x,y) := \min \{ 1, \abs{x-y} \}$ defines a metric on $\R$.
+\item
+Show that a sequence converges in $(\R,d)$ if and only if it converges
+in the standard metric.
+\item
+Find a bounded sequence in $(\R,d)$ that
+contains no convergent subsequence.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:msconvbound}.
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:msconvifa}.
+\end{exercise}
+
+\begin{exercise}
+Suppose $\{x_n\}_{n=1}^\infty$ converges to $x$.  Suppose $f \colon \N
+\to \N$ is a one-to-one function.  Show that
+$\{ x_{f(n)} \}_{n=1}^\infty$ converges to $x$.
+\end{exercise}
+
+\begin{exercise}
+If $(X,d)$ is a metric space where $d$ is the discrete metric.  Suppose 
+$\{ x_n \}$ is a convergent sequence in $X$.  Show that there exists
+a $K \in \N$ such that for all $n \geq K$ we have $x_n = x_K$.
+\end{exercise}
+
+\begin{exercise}
+A set $S \subset X$ is said to be \emph{\myindex{dense}} in $X$ if
+$X \subset \widebar{S}$ or in other words if for every $x \in X$,
+there exists a sequence $\{ x_n \}$ in $S$ that converges to $x$.  Prove
+that $\R^n$ contains a countable dense subset.
+\end{exercise}
+
+\begin{exercise}[Tricky]
+Suppose $\{ U_n \}_{n=1}^\infty$ be a decreasing ($U_{n+1} \subset U_n$ for
+all $n$) sequence of open sets in a metric space $(X,d)$ such that
+$\bigcap_{n=1}^\infty U_n = \{ p \}$ for some $p \in X$.  Suppose 
+$\{ x_n \}$ is a sequence of points in $X$ such that $x_n \in U_n$.  Does
+$\{ x_n \}$ necessarily converge to $p$?  Prove or construct a counterexample.
+\end{exercise}
+
+\begin{exercise}
+Let $E \subset X$ be closed and
+let $\{ x_n \}$ be a sequence in $X$ converging to $p \in X$.  Suppose
+$x_n \in E$ for infinitely many $n \in \N$.  Show $p \in E$.
+\end{exercise}
+
+\begin{exercise} \label{exercise:extendedrealsmetric}
+Take $\R^* = \{ -\infty \} \cup \R \cup \{ \infty \}$ be the extended reals.
+Define $d(x,y) := \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
+\bigr\rvert$
+if $x, y \in \R$,
+define $d(\infty,x) := \bigl\lvert 1 - \frac{x}{1+\abs{x}} \bigr\rvert$,
+$d(-\infty,x) := \bigl\lvert 1 + \frac{x}{1+\abs{x}} \bigr\rvert$
+for all $x \in \R$, and
+let $d(\infty,-\infty) := 2$.
+\begin{enumerate}[a)]
+\item
+Show that $(\R^*,d)$ is a metric space.
+\item
+Suppose $\{ x_n \}$ is a sequence of real numbers such that
+for every $M \in \R$, there exists an $N$ such that
+$x_n \geq M$ for all $n \geq N$.  Show that $\lim\, x_n = \infty$ in
+$(\R^*,d)$.
+\item
+Show that a sequence of real numbers converges to a real number
+in $(\R^*,d)$ if and
+only if it converges in $\R$ with the standard metric.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Suppose $\{ V_n \}_{n=1}^\infty$ is a collection of open sets
+in $(X,d)$
+such that $V_{n+1} \supset V_n$.  Let $\{ x_n \}$ be a sequence
+such that $x_n \in V_{n+1} \setminus V_n$ and suppose 
+$\{ x_n \}$ converges to $p \in X$.  Show that $p \in \partial V$
+where $V = \bigcup_{n=1}^\infty V_n$.
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:mssubseq}.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space and $\{ x_n \}$ a sequence in $X$.
+Prove that $\{ x_n \}$ converges to $p \in X$
+if and only if
+every subsequence of $\{ x_n \}$ has a subsequence that
+converges to $p$.
+\end{exercise}
+
+\begin{exercise}
+Consider $\R^n$, and let $d$ be the standard euclidean metric.
+Let $d'(x,y) := \sum_{\ell=1}^n \abs{x_\ell-y_\ell}$
+and $d''(x,y) := \max \{ \abs{x_1-y_1},\abs{x_2-y_2},\cdots,\abs{x_n-y_n}
+\}$.
+\begin{enumerate}[a)]
+\item
+Use \exerciseref{exercise:mscross}, to show that
+$(\R^n,d')$ and
+$(\R^n,d'')$ are metric spaces.
+\item
+Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$ and $p \in \R^n$.
+Prove that the following statements are equivalent:
+\begin{enumerate}[(1)]
+\item
+$\{ x_j \}$ converges to $p$ in $(\R^n,d)$.
+\item
+$\{ x_j \}$ converges to $p$ in $(\R^n,d')$.
+\item
+$\{ x_j \}$ converges to $p$ in $(\R^n,d'')$.
+\end{enumerate}
+\end{enumerate}
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Completeness and compactness}
+\label{sec:metcompact}
+
+\subsection{Cauchy sequences and completeness}
+
+Just like with sequences of real numbers we define Cauchy sequences.
+
+\begin{defn}
+Let $(X,d)$ be a metric space.
+A sequence $\{ x_n \}$ in $X$ is a \emph{\myindex{Cauchy sequence}} if
+for every $\epsilon > 0$ there exists an $M \in \N$ such that
+for all $n \geq M$ and all $k \geq M$ we have
+\begin{equation*}
+d(x_n, x_k) < \epsilon .
+\end{equation*}
+\end{defn}
+
+The definition is again simply a translation of the concept
+from the real numbers to metric spaces.  So a sequence of real
+numbers is Cauchy in the sense of \chapterref{seq:chapter} if and only if
+it is Cauchy in the sense above, provided we equip the real numbers with
+the standard metric $d(x,y) = \abs{x-y}$.
+
+\begin{prop}
+A convergent sequence in a metric space is Cauchy.
+\end{prop}
+
+\begin{proof}
+Suppose $\{ x_n \}$ converges to $x$.
+Given $\epsilon > 0$ there is an $M$ such that for $n \geq M$
+we have $d(x,x_n) < \nicefrac{\epsilon}{2}$.  Hence
+for all $n,k \geq M$ we have
+$d(x_n,x_k) \leq d(x_n,x) + d(x,x_k) < \nicefrac{\epsilon}{2} +
+\nicefrac{\epsilon}{2} = \epsilon$.
+\end{proof}
+
+\begin{defn}
+Let $(X,d)$ be a metric space.  We say $X$ is
+\emph{\myindex{complete}} or \emph{\myindex{Cauchy-complete}}
+if every Cauchy sequence $\{ x_n \}$ in $X$
+converges to an $x \in X$.
+\end{defn}
+
+\begin{prop}
+The space $\R^n$ with the standard metric is a complete metric space.
+\end{prop}
+
+For $\R = \R^1$ completeness was proved in \chapterref{seq:chapter}.  The proof of
+the above proposition is a reduction to the one dimensional case.
+
+\begin{proof}
+Let $\{ x_j \}_{j=1}^\infty$ be a Cauchy sequence
+in $\R^n$, where we write $x_j = \bigl(x_{j,1},x_{j,2},\ldots,x_{j,n}\bigr) \in \R^n$.
+As the sequence is Cauchy, given $\epsilon > 0$, there exists an $M$ such that for all
+$i,j \geq M$ we have
+\begin{equation*}
+d(x_i,x_j) < \epsilon.
+\end{equation*}
+
+Fix some $k=1,2,\ldots,n$, for $i,j \geq M$ we have
+\begin{equation*}
+\bigl\lvert x_{i,k} - x_{j,k} \bigr\rvert
+=
+\sqrt{{\bigl(x_{i,k} - x_{j,k}\bigr)}^2}
+\leq
+\sqrt{\sum_{\ell=1}^n {\bigl(x_{i,\ell}-x_{j,\ell}\bigr)}^2}
+= d(x_i,x_j) < \epsilon .
+\end{equation*}
+Hence the sequence $\{ x_{j,k} \}_{j=1}^\infty$ is Cauchy.  As $\R$ is
+complete the sequence converges; there exists an $y_k \in \R$ such that
+$y_k = \lim_{j\to\infty} x_{j,k}$.
+Write $y = (y_1,y_2,\ldots,y_n) \in \R^n$.
+By \propref{prop:msconveuc}, $\{ x_j \}$ converges
+to $y \in \R^n$ and hence $\R^n$ is complete.
+\end{proof}
+
+A subset of $\R^n$ with the subspace metric need not be
+complete.  For example, $(0,1]$ with the subspace metric is not
+complete as $\{ \nicefrac{1}{n} \}$ is a Cauchy sequence in $(0,1]$
+with no limit in $(0,1]$.  But see also
+\exerciseref{exercise:closedcomplete}.
+
+In the language of metric spaces,
+the results on continuity of \sectionref{sec:liminter},
+say that the metric space
+$C([a,b],\R)$ of \exampleref{example:msC01} is complete.
+The proof follows by ``unrolling the definitions,'' 
+and is left as an exercise.
+
+\begin{prop} \label{prop:CabRcomplete}
+The space of continuous functions $C([a,b],\R)$ with the uniform
+norm as metric is a complete metric space.
+\end{prop}
+
+Once we have one complete metric space, any closed subspace is
+also a complete metric space.  After all, one way
+to think of a closed set is that it contains all points
+that can be reached from the set via a sequence.
+The proof is again an exercise.
+
+\begin{prop} \label{prop:closedcomplete}
+Suppose $(X,d)$ is a complete metric space and $E \subset X$
+is closed, then $E$ is a complete metric space with the subspace topology.
+\end{prop}
+
+\subsection{Compactness}
+
+\begin{defn}
+Let $(X,d)$ be a metric space and $K \subset X$. 
+The set $K$ is said to be \emph{\myindex{compact}}
+if for any collection
+of open sets $\{ U_{\lambda} \}_{\lambda \in I}$ such that
+\begin{equation*}
+K \subset \bigcup_{\lambda \in I} U_\lambda ,
+\end{equation*}
+there exists a finite subset
+$\{ \lambda_1, \lambda_2,\ldots,\lambda_k \} \subset I$
+such that
+\begin{equation*}
+K \subset \bigcup_{j=1}^k U_{\lambda_j} .
+\end{equation*}
+\end{defn}
+
+A collection of open sets $\{ U_{\lambda} \}_{\lambda \in I}$ as above is
+said to be an \emph{\myindex{open cover}} of $K$.  So a way to say that
+$K$ is compact is to say that \emph{every open cover of $K$ has a finite
+\myindex{subcover}}.
+
+\begin{example}
+Let $\R$ be the metric space with the standard metric.
+
+The set $\R$ is not compact.  Proof: Take the sets $U_j := (-j,j)$.
+Any $x \in \R$ is in some $U_j$ (by the
+\hyperref[thm:arch:i]{Archimedean property}), so we have an open cover.
+Suppose we have a finite
+subcover $\R \subset U_{j_1} \cup U_{j_2} \cup \cdots \cup U_{j_k}$,
+and suppose $j_1 < j_2 < \cdots < j_k$.  Then $\R \subset U_{j_k}$, but that is
+a contradiction as $j_k \in \R$ on one hand and $j_k \notin U_{j_k} =
+(-j_k,j_k)$ on the
+other.
+
+The set $(0,1) \subset \R$ is also not compact.  Proof:  Take the 
+sets $U_{j} := (\nicefrac{1}{j},1-\nicefrac{1}{j})$ for $j=3,4,5,\ldots$.
+As above $(0,1) = \bigcup_{j=3}^\infty U_j$.  And similarly as above,
+if there exists a finite subcover, then there is one $U_j$ such that $(0,1)
+\subset U_j$, which again leads to a contradiction.
+
+The set $\{ 0 \} \subset \R$ is compact.  Proof: Given any open cover $\{
+U_{\lambda} \}_{\lambda \in I}$, there must exist a $\lambda_0$ such that $0
+\in U_{\lambda_0}$ as it is a cover.  But then $U_{\lambda_0}$ gives a
+finite subcover.
+
+We will prove below that $[0,1]$, and in fact any closed and bounded
+interval $[a,b]$ is compact.
+\end{example}
+
+\begin{prop}
+Let $(X,d)$ be a metric space.  A compact set $K \subset X$ is closed and
+bounded.
+\end{prop}
+
+\begin{proof}
+First, we prove that a compact set is bounded.
+Fix $p \in X$.  We have the open cover
+\begin{equation*}
+K \subset \bigcup_{n=1}^\infty B(p,n) = X .
+\end{equation*}
+If $K$ is compact, then there exists some set of indices
+$n_1 < n_2 < \ldots < n_k$ such that
+\begin{equation*}
+K \subset \bigcup_{j=1}^k B(p,n_j) = B(p,n_k) .
+\end{equation*}
+As $K$ is contained in a ball, $K$ is bounded.
+See left hand side of \figureref{fig:compactbndclosed}.
+
+Next, we show a set that is not closed is not compact.  Suppose 
+$\widebar{K} \not= K$, that is, there is a point $x \in \widebar{K}
+\setminus K$.
+If $y \not= x$, then
+$y \notin C(x,\nicefrac{1}{n})$
+for $n \in \N$
+such that $\nicefrac{1}{n} < d(x,y)$.
+Furthermore $x \notin K$, so
+\begin{equation*}
+K \subset \bigcup_{n=1}^\infty {C(x,\nicefrac{1}{n})}^c .
+\end{equation*}
+A closed ball is closed, so its complement ${C(x,\nicefrac{1}{n})}^c$ is open, and
+we have an open cover.
+If we take any
+finite collection of indices $n_1 < n_2 < \ldots < n_k$, then 
+\begin{equation*}
+\bigcup_{j=1}^k {C(x,\nicefrac{1}{n_j})}^c 
+=
+{C(x,\nicefrac{1}{n_k})}^c 
+\end{equation*}
+As $x$ is in the closure of $K$,
+then
+$C(x,\nicefrac{1}{n_k}) \cap K \not= \emptyset$.  So there is no
+finite subcover and $K$ is not compact.
+See right hand side of \figureref{fig:compactbndclosed}.
+\end{proof}
+
+\begin{myfig}
+\subimport*{figures/}{compactbnd.pdf_t}
+\qquad \qquad
+\subimport*{figures/}{compactclosed.pdf_t}
+\caption{Proving compact set is bounded (left) and closed (right).\label{fig:compactbndclosed}}
+\end{myfig}
+
+We prove below that 
+in finite dimensional euclidean space
+every closed bounded set is compact.
+So closed bounded sets
+of $\R^n$ are examples of compact sets.
+It is not true that in every metric space, closed and bounded is equivalent
+to compact.  A simple example is an incomplete metric space such as
+$(0,1)$ with the subspace metric from $\R$.
+There are many complete and very useful metric spaces
+where closed and bounded is not
+enough to give compactness: $C([a,b],\R)$ is a complete metric
+space, but the closed unit ball $C(0,1)$ is not compact, see
+\exerciseref{exercise:msclbounnotcompt}.  However, see also
+\exerciseref{exercise:mstotbound}.
+
+A useful property of compact sets in a metric space is that every
+sequence in the set has a convergent subsequence converging
+to a point in the set.
+Such sets are called
+\emph{\myindex{sequentially compact}}.
+Let us prove that in the
+context of metric spaces, a set is compact if and only if it is sequentially
+compact.
+First we prove a lemma.
+
+\begin{lemma}[Lebesgue covering lemma%
+\footnote{Named after the French mathematician
+\href{https://en.wikipedia.org/wiki/Henri_Lebesgue}{Henri L\'eon Lebesgue}
+(1875--1941).
+The number $\delta$ is sometimes called the \myindex{Lebesgue number} of the
+cover.}]\label{ms:lebesgue}
+\index{Lebesgue covering lemma}
+Let $(X,d)$ be a metric space and $K \subset X$.  Suppose 
+every sequence in $K$ has a subsequence convergent in $K$.  Given
+an open cover $\{ U_\lambda \}_{\lambda \in I}$ of $K$, there exists a
+$\delta > 0$ such that for every $x \in K$, there exists a $\lambda \in I$
+with $B(x,\delta) \subset U_\lambda$.
+\end{lemma}
+
+\begin{proof}
+We prove the lemma by contrapositive.
+If the conclusion is not true, then
+there is
+an open cover $\{ U_\lambda \}_{\lambda \in I}$ of $K$ with
+the following property.
+For every $n \in \N$ there exists an $x_n \in K$ such that
+$B(x_n,\nicefrac{1}{n})$ is not a subset of any $U_\lambda$.
+Take any $x \in K$.  There is
+a $\lambda \in I$ such that $x \in U_\lambda$.  As $U_\lambda$ is open,
+there is an $\epsilon > 0$ 
+such that $B(x,\epsilon) \subset U_\lambda$.  Take $M$ such that
+$\nicefrac{1}{M} < \nicefrac{\epsilon}{2}$.  If $y \in 
+B(x,\nicefrac{\epsilon}{2})$ and $n \geq M$, then 
+\begin{equation*}
+B(y,\nicefrac{1}{n}) \subset
+B(y,\nicefrac{1}{M}) \subset
+B(y,\nicefrac{\epsilon}{2}) \subset B(x,\epsilon)
+\subset U_\lambda ,
+\end{equation*}
+where 
+$B(y,\nicefrac{\epsilon}{2}) \subset B(x,\epsilon)$
+follows by triangle inequality.
+See \figureref{fig:lebesguedelta}.
+In other words, for all $n \geq M$, $x_n \notin B(x,\nicefrac{\epsilon}{2})$. 
+The sequence cannot have a subsequence converging to $x$.  As $x \in K$ was
+arbitrary we are done.
+\end{proof}
+
+\begin{myfig}
+\subimport*{figures/}{lebesguedelta.pdf_t}
+\caption{Proof of Lebesgue covering lemma.
+Note that $B(y,\nicefrac{\epsilon}{2}) \subset
+B(x,\epsilon)$ by triangle inequality.\label{fig:lebesguedelta}}
+\end{myfig}
+
+It is important to recognize what the lemma says.  It says that
+if $K$ is sequentially compact, then given any
+cover there is a single $\delta > 0$.  The $\delta$ depends on the cover,
+but of course it does not depend on $x$.
+
+For example, let $K := [-10,10]$ and for $n \in \Z$ let $U_n :=
+(n,n+2)$ define sets in an open cover.
+Take $x \in K$. There is an $n \in \Z$, 
+such that $n \leq x < n+1$.
+If $n \leq x < n+\nicefrac{1}{2}$, then
+$B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n-1}$.  If
+If $n+ \nicefrac{1}{2} \leq x < n+1$, then
+$B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n}$.  So $\delta =
+\nicefrac{1}{2}$.  If instead we let $U'_n :=
+\bigl(\frac{n}{2},\frac{n+2}{2} \bigr)$, then we again obtain an open
+cover, but now the best $\delta$ we can find is $\nicefrac{1}{4}$.
+
+On the other hand, $\N \subset \R$ is not sequentially compact.
+It is an exercise to find a cover for which no $\delta > 0$ works.
+
+
+\begin{thm} \label{thm:mscompactisseqcpt}
+Let $(X,d)$ be a metric space.  Then $K \subset X$ is compact if
+and only if every sequence in $K$ has a subsequence converging to
+a point in $K$.
+\end{thm}
+
+\begin{proof}
+Claim: \emph{Let $K \subset X$ be a subset of $X$ and
+$\{ x_n \}$ a sequence in $K$.  Suppose that for each $x \in K$,
+there is a ball $B(x,\alpha_x)$ for some $\alpha_x > 0$ such that
+$x_n \in B(x,\alpha_x)$ for only finitely many $n \in \N$.
+Then $K$ is not compact.}
+
+Proof of the claim:
+Notice
+\begin{equation*}
+K \subset \bigcup_{x \in K} B(x,\alpha_x) .
+\end{equation*}
+Any finite collection of these balls is going to contain only finitely many
+$x_n$.  Thus for any finite collection of such balls there is an $x_n \in K$
+that is not in the union.  Therefore, $K$ is not compact and the claim is
+proved.
+
+So suppose that $K$ is compact and $\{ x_n \}$ is a sequence in $K$.
+Then there exists an $x \in K$ such that
+for any $\delta > 0$,
+$B(x,\delta)$ contains $x_k$ for infinitely many $k \in \N$.
+We define the subsequence inductively.
+The ball $B(x,1)$ contains some $x_k$ so let $n_1 := k$.
+Suppose $n_{j-1}$ is defined.
+There must exist a $k > n_{j-1}$
+such that $x_k \in B(x,\nicefrac{1}{j})$.  So define
+$n_j := k$.
+We now posses a subsequence $\{ x_{n_j} \}_{j=1}^\infty$.
+Since
+$d(x,x_{n_j}) < \nicefrac{1}{j}$,  \propref{prop:msconvifa} says
+$\lim\, x_{n_j} = x$.
+
+For the other direction, suppose every sequence in $K$
+has a 
+subsequence converging in $K$.
+Take
+an open cover $\{ U_\lambda \}_{\lambda \in I}$ of $K$.
+Using the Lebesgue covering lemma above, find a $\delta > 0$
+such that for every $x \in K$, there is a $\lambda \in I$ with
+$B(x,\delta) \subset U_\lambda$.
+
+Pick $x_1 \in K$ and find $\lambda_1 \in I$ such that $B(x_1,\delta) \subset
+U_{\lambda_1}$.
+If $K \subset U_{\lambda_1}$, we stop as we have found a
+finite subcover.
+Otherwise, there must be
+a point $x_2 \in K \setminus U_{\lambda_1}$.
+Note that $d(x_2,x_1) \geq \delta$.
+There must exist some $\lambda_2 \in I$ such that
+$B(x_2,\delta) \subset U_{\lambda_2}$.
+We work inductively.  Suppose $\lambda_{n-1}$ is defined.
+Either
+$U_{\lambda_1} \cup
+U_{\lambda_2} \cup \cdots \cup
+U_{\lambda_{n-1}}$ is a finite cover of $K$, in which case we
+stop, or
+there must be 
+a point $x_n \in K \setminus \bigl( U_{\lambda_1} \cup
+U_{\lambda_2} \cup \cdots \cup
+U_{\lambda_{n-1}}\bigr)$.
+Note that $d(x_n,x_j) \geq \delta$ for all $j = 1,2,\ldots,n-1$.
+Next, there must be some $\lambda_n \in I$
+such that $B(x_n,\delta) \subset U_{\lambda_n}$.
+See \figureref{fig:seqcompactiscompact}.
+
+\begin{myfig}
+\subimport*{figures/}{seqcompactiscompact.pdf_t}
+\caption{Covering $K$ by $U_{\lambda}$.  The points
+$x_1,x_2,x_3,x_4$, 
+the three sets 
+$U_{\lambda_1}$,
+$U_{\lambda_2}$,
+$U_{\lambda_2}$,
+and 
+the first three balls
+of radius $\delta$ are drawn.\label{fig:seqcompactiscompact}}
+\end{myfig}
+
+Either at some point we obtain a finite subcover of $K$,
+or we obtain an
+infinite
+sequence $\{ x_n \}$ as above.
+For contradiction, suppose that
+there is no finite subcover and we have the sequence $\{ x_n \}$.
+For all $n$ and $k$, $n \not= k$, 
+we have $d(x_n,x_k) \geq \delta$,
+so no subsequence of $\{ x_n \}$ can be
+Cauchy.  Hence no subsequence of $\{ x_n \}$ can be convergent,
+which is a contradiction.
+\end{proof}
+
+\begin{example}
+The Bolzano--Weierstrass theorem for sequences of real numbers
+says that any bounded sequence in $\R$ has a convergent
+subsequence.  Therefore, any sequence in a closed interval $[a,b] \subset \R$ has 
+a convergent subsequence.  The limit must also be in $[a,b]$ as limits
+preserve non-strict inequalities.  Hence a closed bounded interval $[a,b]
+\subset \R$ is compact.
+\end{example}
+
+\begin{prop}
+Let $(X,d)$ be a metric space and let $K \subset X$ be compact.  If
+$E \subset K$ is a closed set, then $E$ is compact.
+\end{prop}
+
+Because $K$ is closed then $E$ is closed in $K$ if
+and only if it is closed in $X$,
+see \propref{prop:topology:subspacesame}.
+
+\begin{proof}
+Let $\{ x_n \}$ be a sequence in $E$.  It is also a sequence in $K$.
+Therefore, it has a convergent subsequence $\{ x_{n_j} \}$ that converges to
+some $x \in K$.  As $E$ is closed the limit of a sequence in $E$ is also in $E$
+and so $x \in E$.  Thus $E$ must be compact.
+\end{proof}
+
+\begin{thm}[Heine--Borel%
+\footnote{Named after the German mathematician 
+\href{https://en.wikipedia.org/wiki/Eduard_Heine}{Heinrich Eduard Heine}
+(1821--1881),
+and the French mathematician
+\href{https://en.wikipedia.org/wiki/\%C3\%89mile_Borel}{F\'elix \'Edouard Justin \'Emile Borel}
+(1871--1956).}]%
+\index{Heine--Borel theorem}
+\label{thm:msbw}
+A closed bounded subset $K \subset \R^n$ is compact.
+\end{thm}
+
+So subsets of $\R^n$ are compact if and only if they are closed and bounded,
+a condition that is much easier to check.
+Let us reiterate that the Heine--Borel theorem only holds for $\R^n$ and not
+for metric spaces in general.  In general, compact implies closed and
+bounded, but not vice-versa.
+
+\begin{proof}
+For $\R = \R^1$ if $K \subset \R$ is closed and bounded, then
+any sequence $\{ x_k \}$ in $K$ is bounded, so it has a convergent
+subsequence by
+Bolzano--Weierstrass theorem (\thmref{thm:bwseq}).
+As $K$ is closed, the limit of the subsequence must be an element of
+$K$.  So $K$ is compact.
+
+Let us carry out the proof for $n=2$ and leave arbitrary $n$ as an exercise.
+As $K \subset \R^2$ is bounded, there exists a set
+$B=[a,b]\times[c,d] \subset \R^2$ such that $K \subset B$.  We will show
+that $B$ is compact.  Then $K$, being a closed subset of a compact $B$, is
+also compact.  
+
+Let $\bigl\{ (x_k,y_k) \bigr\}_{k=1}^\infty$ be a sequence in $B$.  That is,
+$a \leq x_k \leq b$ and
+$c \leq y_k \leq d$ for all $k$.  A bounded sequence of real numbers
+has a convergent
+subsequence so there is a subsequence $\{ x_{k_j} \}_{j=1}^\infty$
+that is convergent.  The subsequence 
+$\{ y_{k_j} \}_{j=1}^\infty$ is also a bounded sequence so there exists
+a subsequence
+$\{ y_{k_{j_i}} \}_{i=1}^\infty$ that is convergent.  A subsequence of a
+convergent sequence is still convergent, so 
+$\{ x_{k_{j_i}} \}_{i=1}^\infty$ is convergent.
+Let
+\begin{equation*}
+x := \lim_{i\to\infty} x_{k_{j_i}}
+\qquad \text{and} \qquad
+y := \lim_{i\to\infty} y_{k_{j_i}} .
+\end{equation*}
+By \propref{prop:msconveuc},
+$\bigl\{ (x_{k_{j_i}},y_{k_{j_i}}) \bigr\}_{i=1}^\infty$ converges to $(x,y)$.
+Furthermore, as $a \leq x_k \leq b$ and
+$c \leq y_k \leq d$ for all $k$, we know that $(x,y) \in B$.
+\end{proof}
+
+\begin{example}
+The discrete metric provides interesting counterexamples again.
+Let $(X,d)$ be a metric space with the discrete metric, that is $d(x,y) = 1$
+if $x \not= y$.  Suppose
+$X$ is an infinite set.  Then:
+\begin{enumerate}[(i)]
+\item $(X,d)$ is a complete metric space.
+\item Any subset $K \subset X$ is closed and bounded.
+\item A subset $K \subset X$ is compact if and only if it is a finite set.
+\item The conclusion of the Lebesgue covering lemma is always satisfied with
+e.g. $\delta = \nicefrac{1}{2}$, even for noncompact $K \subset X$.
+\end{enumerate}
+The proofs
+of the statements above are either trivial or are relegated to the exercises
+below.
+\end{example}
+
+\begin{remark}
+A subtle issue with Cauchy sequences, completeness, compactness,
+and convergence is that compactness and convergence only depend on the
+topology, that is, on which sets are the open sets.  On the other hand,
+Cauchy sequences and completeness depend on the actual metric.
+See \exerciseref{exercise:cauchydepndsonmetric}.
+\end{remark}
+
+\subsection{Exercises}
+
+\begin{exbox}
+\begin{exercise}
+Let $(X,d)$ be a metric space and $A$ a finite subset of $X$.
+Show that $A$ is compact.
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise}
+Let $A = \{ \nicefrac{1}{n} : n \in \N \} \subset \R$.
+\begin{enumerate}[a)]
+\item
+Show that $A$ is
+not compact directly using the definition.
+\item
+Show that $A \cup \{ 0 \}$ is
+compact directly using the definition.
+\end{enumerate}
+\end{exercise}
+\end{samepage}
+
+
+\begin{exercise}
+Let $(X,d)$ be a metric space with the discrete metric.
+\begin{enumerate}[a)]
+\item
+Prove that $X$ is complete.
+\item
+Prove that $X$ is compact if and only if $X$ is a finite set.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+{\ }
+\begin{enumerate}[a)]
+\item
+Show that the union of finitely many compact sets is a compact set.
+\item
+Find an example where the union of infinitely many compact sets is not
+compact.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Prove \thmref{thm:msbw} for arbitrary dimension.
+Hint: The trick is to use the correct notation.
+\end{exercise}
+
+\begin{exercise}
+Show that a compact set $K$ is a complete metric space (using the subspace
+metric).
+\end{exercise}
+
+\begin{exercise} \label{exercise:CabRcomplete}
+Let $C([a,b],\R)$ be the metric space as in \exampleref{example:msC01}.  Show that
+$C([a,b],\R)$ is a complete metric space.
+\end{exercise}
+
+\begin{exercise}[Challenging] \label{exercise:msclbounnotcompt}
+Let $C([0,1],\R)$ be the metric space of \exampleref{example:msC01}.  Let $0$
+denote the zero function.  Then show that the closed ball
+$C(0,1)$ is not compact (even though it is closed and bounded).
+Hints: Construct a sequence of distinct continuous functions $\{ f_n \}$ such that
+$d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \not= k$.  Show that
+the set $\{ f_n : n \in \N \} \subset C(0,1)$ is closed but not compact.
+See \chapterref{fs:chapter} for inspiration.
+\end{exercise}
+
+\begin{exercise}[Challenging]
+Show that there exists a metric on $\R$ that makes $\R$ into a compact set.
+\end{exercise}
+
+\begin{exercise}
+Suppose $(X,d)$ is complete and suppose we have a countably infinite
+collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset
+\cdots$.  Prove $\bigcap_{j=1}^\infty E_j \not= \emptyset$.
+\end{exercise}
+
+\begin{exercise}[Challenging]
+Let $C([0,1],\R)$ be the metric space of \exampleref{example:msC01}.
+Let $K$ be the set of $f \in C([0,1],\R)$ such that
+$f$ is equal to a quadratic polynomial, i.e.\ $f(x) = a+bx+cx^2$, and such that
+$\abs{f(x)} \leq 1$ for all $x \in [0,1]$,
+that is $f \in C(0,1)$.  Show that $K$ is compact.
+\end{exercise}
+
+\begin{exercise}[Challenging] \label{exercise:mstotbound}
+Let $(X,d)$ be a complete metric space.
+Show that $K \subset X$ is compact if and only if $K$ is closed
+and such that for every $\epsilon > 0$
+there exists a finite set of points $x_1,x_2,\ldots,x_n$ with
+$K \subset \bigcup_{j=1}^n B(x_j,\epsilon)$.
+Note: Such a set $K$ is said to be \emph{\myindex{totally bounded}},
+so in a complete metric space a set is compact if and only
+if it is closed and totally bounded.
+\end{exercise}
+
+\begin{exercise}
+Take $\N \subset \R$ using the standard metric.  Find an open cover of $\N$
+such that the conclusion of the Lebesgue covering lemma does not hold.
+\end{exercise}
+
+\begin{exercise}
+Prove the general \myindex{Bolzano--Weierstrass theorem}:
+Any bounded sequence $\{ x_k
+\}$ in $\R^n$ has a convergent subsequence.
+\end{exercise}
+
+\begin{exercise}
+Let $X$ be a metric space and
+$C \subset \sP(X)$ the set of nonempty compact subsets of $X$.
+Using the Hausdorff metric from \exerciseref{exercise:mshausdorffpseudo},
+show that $(C,d_H)$ is a metric space.  That is, show that
+if $L$ and $K$ are nonempty compact subsets then $d_H(L,K) = 0$
+if and only if $L=K$.
+\end{exercise}
+
+\begin{exercise} \label{exercise:closedcomplete}
+Prove \propref{prop:closedcomplete}.  That is,
+let $(X,d)$ be a complete metric space and $E \subset X$ a closed set.
+Show that $E$ with the subspace metric is a complete metric space.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d)$ be an incomplete metric space.  Show that there exists a
+closed and bounded set $E \subset X$ that is not compact.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space and $K \subset X$.
+Prove that $K$ is compact as a subset of $(X,d)$ if and only if $K$ is
+compact as a subset of itself with the subspace metric.
+\end{exercise}
+
+\begin{exercise} \label{exercise:cauchydepndsonmetric}
+Consider two metrics on $\R$.
+Let $d(x,y) := \abs{x-y}$ be the standard metric,
+and let
+$d'(x,y) := \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
+\bigr\rvert$.
+\begin{enumerate}[a)]
+\item
+Show that $(\R,d')$ is a metric space (if you have done
+\exerciseref{exercise:extendedrealsmetric} the computation is the same).
+\item
+Show that the topology is the same, that is, a set is open in
+$(\R,d)$ if and only if it is open in $(\R,d')$.
+\item
+Show that a set is compact in
+$(\R,d)$ if and only if it is compact in $(\R,d')$.
+\item
+Show that a sequence converges in $(\R,d)$ if and only if
+it converges in $(\R,d')$.
+\item
+Find a sequence of real numbers that is Cauchy
+in $(\R,d')$ but not Cauchy in $(\R,d)$.
+\item
+While $(\R,d)$ is complete, show that $(\R,d')$ is not complete.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{exercise:relativelycompactseq}
+Let $(X,d)$ be a complete metric space.
+We say a set $S \subset X$ is \emph{\myindex{relatively compact}}
+if the closure $\widebar{S}$ is compact.
+Prove that $S \subset X$ is relatively compact if and only if
+given any sequence $\{ x_n \}$ in $S$, there exists a subsequence
+$\{ x_{n_k} \}$ that converges (in $X$).
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Continuous functions}
+\label{sec:metcont}
+
+\subsection{Continuity}
+
+\begin{defn}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces and $c \in X$.
+Then $f \colon X \to Y$ is
+\emph{continuous at $c$}\index{continuous at $c$}
+if for every $\epsilon > 0$
+there is a $\delta > 0$ such that whenever $x \in X$ and $d_X(x,c) <
+\delta$, then
+$d_Y\bigl(f(x),f(c)\bigr) < \epsilon$.
+
+\medskip
+
+When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
+that $f$ is a \emph{continuous function}\index{continuous function!in a
+metric space}\index{function!continuous}.
+\end{defn}
+
+\begin{prop} \label{prop:contiscont}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+Then $f \colon X \to Y$ is
+continuous at $c \in X$
+if and only if for every sequence $\{ x_n \}$ in $X$
+converging to $c$, the sequence $\{ f(x_n) \}$ converges
+to $f(c)$.
+\end{prop}
+
+\begin{proof}
+Suppose $f$ is continuous at $c$.  Let $\{ x_n \}$ be a
+sequence in $X$ converging to $c$.  Given $\epsilon > 0$,
+there is a $\delta > 0$ such that $d_X(x,c) < \delta$ implies
+$d_Y\bigl(f(x),f(c)\bigr) < \epsilon$.  So take $M$ such that
+for all $n \geq M$, we have $d_X(x_n,c) < \delta$, then
+$d_Y\bigl(f(x_n),f(c)\bigr) < \epsilon$.  Hence $\{ f(x_n) \}$
+converges to $f(c)$.
+
+On the other hand suppose $f$ is not continuous at $c$.
+Then there exists an $\epsilon > 0$,
+such that for every $n \in \N$ there exists an $x_n \in X$,
+with
+$d_X(x_n,c) < \nicefrac{1}{n}$ such that $d_Y\bigl(f(x_n),f(c)\bigr) \geq
+\epsilon$.  Then $\{ x_n \}$ converges to $c$, but $\{ f(x_n) \}$
+does not converge to $f(c)$.
+\end{proof}
+
+\begin{example}
+Suppose $f \colon \R^2 \to \R$ is a polynomial.  That is,
+\begin{equation*}
+f(x,y) =
+\sum_{j=0}^d
+\sum_{k=0}^{d-j}
+a_{jk}\,x^jy^k =
+a_{0\,0} + a_{1\,0} \, x +
+a_{0\,1} \, y+  
+a_{2\,0} \, x^2+  
+a_{1\,1} \, xy+  
+a_{0\,2} \, y^2+ \cdots +
+a_{0\,d} \, y^d ,
+\end{equation*}
+for some $d \in \N$ (the degree) and $a_{jk} \in \R$.  Then we claim 
+$f$ is continuous.  Let $\{ (x_n,y_n) \}_{n=1}^\infty$ be a sequence
+in $\R^2$ that converges to $(x,y) \in \R^2$.  We proved that this
+means $\lim\, x_n = x$ and $\lim\, y_n = y$.
+By \propref{prop:contalg} we have
+\begin{equation*}
+\lim_{n\to\infty}
+f(x_n,y_n) =
+\lim_{n\to\infty}
+\sum_{j=0}^d
+\sum_{k=0}^{d-j}
+a_{jk} \, x_n^jy_n^k 
+=
+\sum_{j=0}^d
+\sum_{k=0}^{d-j}
+a_{jk} \, x^jy^k
+=
+f(x,y) .
+\end{equation*}
+So $f$ is continuous at $(x,y)$, and as $(x,y)$ was arbitrary $f$ is
+continuous everywhere.  Similarly, a
+polynomial in $n$ variables is continuous.
+\end{example}
+
+Be careful about taking limits separately.  In \exerciseref{exercise:dicontR2}
+you are asked to prove that the function defined by $f(x,y) := \frac{xy}{x^2+y^2}$
+outside the origin and $f(0,0) := 0$, is not continuous at the origin.  See
+\figureref{fig:xyxsqysq}.
+However, for any $y$, the function $g(x) := f(x,y)$ is
+continuous,
+and for any $x$, the function $h(y) := f(x,y)$ is continuous.
+\begin{myfig}
+\includegraphics{figures/xyxsqysq}
+\caption{Graph of $\frac{xy}{x^2+y^2}$.\label{fig:xyxsqysq}}
+\end{myfig}
+
+\begin{example}
+Let $X$ be a metric space and take $f \colon X \to \C$ be a complex-valued
+function.  We write $f(p) = g(p) + i h(p)$, where $g \colon X \to \R$
+and $h \colon X \to \R$ are the real and imaginary parts of $f$.
+Then $f$ is continuous at $c \in X$ if and only its real
+and imaginary parts are continuous at $c$.  
+The proof follows because $\{ f(p_n) = g(p_n) + i h(p_n) \}_{n=1}^\infty$
+converges to $f(p) = g(p) + i h(p)$ if and only if
+$\{ g(p_n) \}$ converges to $g(p)$ and
+$\{ h(p_n) \}$ converges to $h(p)$.
+\end{example}
+
+\subsection{Compactness and continuity}
+
+Continuous maps do not map closed sets to closed sets.  For example,
+$f \colon (0,1) \to \R$ defined by $f(x) := x$ takes the set $(0,1)$, which
+is closed in $(0,1)$, to the set $(0,1)$, which is not closed in $\R$.
+On the other hand continuous maps do preserve compact sets.
+
+\begin{lemma} \label{lemma:continuouscompact}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces
+and $f \colon X \to Y$ a continuous function.  If
+$K \subset X$ is a compact set, then $f(K)$ is a compact set.
+\end{lemma}
+
+\begin{proof}
+A sequence in $f(K)$ can be written as
+$\{ f(x_n) \}_{n=1}^\infty$, where
+$\{ x_n \}_{n=1}^\infty$ is a sequence in $K$.  The set $K$ is compact and
+therefore there is a subsequence
+$\{ x_{n_j} \}_{j=1}^\infty$ that converges to some $x \in K$.
+By continuity,
+\begin{equation*}
+\lim_{j\to\infty} f(x_{n_j}) = f(x) \in f(K) .
+\end{equation*}
+So every sequence in $f(K)$ has a subsequence convergent to 
+a point in $f(K)$, and $f(K)$ is compact by \thmref{thm:mscompactisseqcpt}.
+\end{proof}
+
+As before, $f \colon X \to \R$ achieves an
+\emph{\myindex{absolute minimum}} at $c \in X$ if
+\begin{equation*}
+f(x) \geq f(c) \qquad \text{ for all $x \in X$.}
+\end{equation*}
+On the other hand, $f$ achieves an 
+\emph{\myindex{absolute maximum}} at $c \in X$ if
+\begin{equation*}
+f(x) \leq f(c) \qquad \text{ for all $x \in X$.}
+\end{equation*}
+
+\begin{thm}
+Let $(X,d)$ be a compact metric space
+and $f \colon X \to \R$ a continuous function.  Then
+$f$ is bounded and in fact
+$f$ achieves an absolute minimum and an absolute maximum on $X$.
+\end{thm}
+
+\begin{proof}
+As $X$ is compact and $f$ is continuous, then
+$f(X) \subset \R$ is compact.  Hence $f(X)$ is closed
+and bounded.  In particular,
+$\sup f(X) \in f(X)$ and
+$\inf f(X) \in f(X)$, because both the sup and the inf
+can be achieved by sequences in $f(X)$ and $f(X)$ is closed.
+Therefore, there is some $x \in X$ such that $f(x) = \sup f(X)$
+and some $y \in X$ such that $f(y) = \inf f(X)$.
+\end{proof}
+
+\subsection{Continuity and topology}
+
+Let us see how to define continuity in terms of the topology, that is,
+the open sets.  We have already seen that topology determines which 
+sequences converge, and so it is no wonder that the topology also
+determines continuity of functions.
+
+\begin{lemma} \label{lemma:mstopocontloc}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+A function $f \colon X \to Y$ is continuous at $c \in X$
+if and only if for every open neighborhood $U$ of $f(c)$ in $Y$, the set
+$f^{-1}(U)$ contains an open neighborhood of $c$ in $X$.
+See \figureref{fig:mscontfuncpt}.
+\end{lemma}
+
+\begin{myfig}
+\subimport*{figures/}{mscontfuncpt.pdf_t}
+\caption{For every neighborhood $U$ of $f(c)$, the set $f^{-1}(U)$ contains an open
+neighborhood $W$ of $c$.\label{fig:mscontfuncpt}}
+\end{myfig}
+
+\begin{proof}
+First suppose that $f$ is continuous at $c$.
+Let $U$ be an open neighborhood of $f(c)$
+in $Y$, then $B_Y\bigl(f(c),\epsilon\bigr) \subset U$ for some $\epsilon >
+0$.  By continuity of $f$, there exists a $\delta > 0$
+such that whenever $x$ is such that $d_X(x,c) < \delta$, then
+$d_Y\bigl(f(x),f(c)\bigr) < \epsilon$.  In other words,
+\begin{equation*}
+B_X(c,\delta) \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) \subset
+f^{-1}(U) ,
+\end{equation*}
+and $B_X(c,\delta)$ is an open neighborhood of $c$.
+
+For the other direction,
+let $\epsilon > 0$ be given.  If
+$f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr)$ contains an open
+neighborhood $W$ of $c$, it contains a ball.  That is, there is some $\delta > 0$
+such that
+\begin{equation*}
+B_X(c,\delta) \subset W \subset f^{-1}\bigl(B_Y\bigl(f(c),\epsilon\bigr)\bigr) .
+\end{equation*}
+That means precisely that if $d_X(x,c) < \delta$ then $d_Y\bigl(f(x),f(c)\bigr)
+< \epsilon$, and so $f$ is continuous at $c$.
+\end{proof}
+
+\begin{thm} \label{thm:mstopocont}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.  A function $f \colon X \to Y$
+is continuous if and only if
+for every open $U \subset Y$, $f^{-1}(U)$ is open in $X$.
+\end{thm}
+
+The proof follows from \lemmaref{lemma:mstopocontloc} and is left as
+an exercise.
+
+\begin{example}
+Let $f \colon X \to Y$ be a continuous function.
+\thmref{thm:mstopocont} tells us that if $E \subset Y$ is closed, then 
+$f^{-1}(E) = X \setminus f^{-1}(E^c)$ is also closed.  Therefore, if
+we have a continuous
+function $f \colon X \to \R$, then the
+\emph{\myindex{zero set}} of $f$, that is, 
+$f^{-1}(0) = \{ x \in X :
+f(x) = 0 \}$, is closed.  We have just proved the most basic result in
+\emph{\myindex{algebraic geometry}}, the study of
+zero sets of polynomials:  The zero set of a polynomial is closed.
+
+Similarly the set where $f$ is nonnegative, that is,
+$f^{-1}\bigl( [0,\infty) \bigr) = \{ x \in X :
+f(x) \geq 0 \}$ is closed.  On the other hand the
+set where $f$ is positive,
+$f^{-1}\bigl( (0,\infty) \bigr) = \{ x \in X :
+f(x) > 0 \}$ is open.  
+\end{example}
+
+\subsection{Uniform continuity}
+
+As for continuous
+functions on the real line, in the definition of continuity
+it is sometimes convenient to be able to pick
+one $\delta$ for all points.
+
+\begin{defn}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+Then $f \colon X \to Y$ is
+\emph{uniformly continuous}\index{uniformly continuous!in a metric space}
+if for every $\epsilon > 0$
+there is a $\delta > 0$ such that whenever $p,q \in X$ and $d_X(p,q) <
+\delta$, then
+$d_Y\bigl(f(p),f(q)\bigr) < \epsilon$.
+\end{defn}
+
+A uniformly continuous function is continuous, but not necessarily
+vice-versa as we have seen.
+
+\begin{thm} \label{thm:Xcompactfunifcont}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+Suppose $f \colon X \to Y$ is continuous and $X$ is compact.  Then
+$f$ is uniformly continuous.
+\end{thm}
+
+\begin{proof}
+Let $\epsilon > 0$ be given.  For each $c \in X$, pick $\delta_c > 0$ such that
+$d_Y\bigl(f(x),f(c)\bigr) < \nicefrac{\epsilon}{2}$
+whenever
+$x \in B(c,\delta_c)$.
+%$d_X(x,c) < \delta_c$.
+The balls
+$B(c,\delta_c)$ cover $X$, and the space $X$ is compact.  
+Apply the \hyperref[ms:lebesgue]{Lebesgue covering lemma} to obtain a 
+$\delta > 0$ such that for every $x \in X$, there is a $c \in X$
+for which $B(x,\delta) \subset B(c,\delta_c)$.
+
+If $p, q \in X$ where $d_X(p,q) < \delta$,
+find a $c \in X$ such that $B(p,\delta) \subset B(c,\delta_c)$.
+Then $q \in B(c,\delta_c)$.  By the triangle inequality
+and the definition of $\delta_c$ we have
+\begin{equation*}
+d_Y\bigl(f(p),f(q)\bigr)
+\leq
+d_Y\bigl(f(p),f(c)\bigr)
++
+d_Y\bigl(f(c),f(q)\bigr)
+<
+\nicefrac{\epsilon}{2}+
+\nicefrac{\epsilon}{2} = \epsilon .  \qedhere
+\end{equation*}
+\end{proof}
+
+As an application of uniform continuity, let us prove a useful criterion for
+continuity of functions defined by integrals.  Let $f(x,y)$ be a function of two variables and define
+\begin{equation*}
+g(y) := \int_a^b f(x,y) ~dx .
+\end{equation*}
+Question is, is $g$ is continuous?
+We are really asking when do two limiting operations commute,
+which is not always possible, so some extra hypothesis
+is necessary.  A useful sufficient (but not
+necessary) condition is that $f$ is continuous on a closed rectangle.
+
+\begin{prop} \label{prop:integralcontcont}
+If $f \colon [a,b] \times [c,d] \to \R$ is a continuous function,
+then $g \colon [c,d] \to \R$ defined by
+\begin{equation*}
+g(y) := \int_a^b f(x,y) ~dx  \qquad \text{is continuous}.
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Fix $y \in [c,d]$, and let $\{ y_n \}$ be a sequence in $[c,d]$
+converging to $y$.
+Let $\epsilon > 0$ be given.
+As $f$ is continuous on $[a,b] \times [c,d]$, which is compact, $f$
+is uniformly continuous.  
+In particular, there exists a $\delta > 0$ such that
+whenever $\widetilde{y} \in [c,d]$ and
+$\abs{\widetilde{y}-y} < \delta$ we have
+$\abs{f(x,\widetilde{y})-f(x,y)} < \epsilon$ for all $x \in [a,b]$.
+If we let $h_n(x):= f(x,y_n)$ and $h(x) := f(x,y)$,
+we have just shown that
+$h_n \colon [a,b] \to \R$ converges uniformly 
+to
+$h \colon [a,b] \to \R$ as $n$ goes to $\infty$.
+Uniform convergence implies the limit can be taken underneath the integral.
+So
+\begin{equation*}
+\lim_{n\to \infty}
+g(y_n)
+=
+\lim_{n\to \infty}
+\int_a^b 
+f(x,y_n) ~dx 
+= 
+\int_a^b 
+\lim_{n\to \infty}
+f(x,y_n) ~dx 
+= 
+\int_a^b 
+f(x,y) ~dx = g(y) . \qedhere
+\end{equation*}
+\end{proof}
+
+In applications, if we are interested in continuity at $y_0$, we just
+need to apply the proposition in $[a,b] \times [y_0-\epsilon,y_0+\epsilon]$
+for some small $\epsilon > 0$.  For example, if $f$ is continuous in
+$[a,b] \times \R$, then $g$ is continuous on $\R$.
+
+\begin{example}
+Useful examples of uniformly continuous functions are again the so-called
+\emph{Lipschitz continuous}%
+\index{Lipschitz continuous!in a metric space}%
+\index{function!Lipschitz}
+functions.  That is, if
+$(X,d_X)$ and $(Y,d_Y)$ are metric spaces, then $f \colon X \to Y$
+is called Lipschitz or $K$-Lipschitz if there exists a $K \in \R$ such that
+\begin{equation*}
+d_Y\bigl(f(p),f(q)\bigr) \leq K d_X(p,q)
+\ \ \ \ \text{for all } p,q \in X.
+\end{equation*}
+A Lipschitz function is uniformly continuous:
+Take $\delta = \nicefrac{\epsilon}{K}$.
+A function can be uniformly continuous
+but not Lipschitz,
+as we already saw: $\sqrt{x}$ on $[0,1]$
+is uniformly continuous but not Lipschitz.
+
+It is worth mentioning that,
+if a function is Lipschitz, it tends to be
+easiest to simply show it is Lipschitz even if we are only
+interested in knowing continuity.
+\end{example}
+
+\subsection{Cluster points and limits of functions}
+
+While we haven't started the discussion of continuity with them and we won't
+need them until volume II, let us also
+translate the idea of a limit of a function from the real line to metric
+spaces.
+Again we need to start with cluster points.
+
+\begin{defn}
+Let $(X,d)$ be a metric space and
+$S \subset X$. A point $p \in X$ is called
+a \emph{cluster point}\index{cluster point!in a metric space} of $S$
+if for every $\epsilon > 0$, the set $B(p,\epsilon) \cap S
+\setminus \{ p \}$ is not empty.
+\end{defn}
+
+It is not enough that $p$ is in the closure of $S$,
+it must be in the closure of
+$S \setminus \{ p \}$ (exercise).
+So, $p$ is a cluster point if and only if there exists a sequence in $S \setminus
+\{ p \}$ that converges to $p$.
+
+\begin{defn}
+\index{limit!of a function in a metric space}%
+Let $(X,d_X)$, $(Y,d_Y)$ be metric spaces, $S \subset X$, $p \in X$ a cluster point of $S$,
+and $f \colon S \to Y$ a function.
+Suppose there exists an $L \in Y$ and for every $\epsilon > 0$,
+there exists a $\delta > 0$ such that whenever $x \in S \setminus \{ p \}$
+and $d_X(x,p) < \delta$, then
+\begin{equation*}
+d_Y\bigl(f(x),L\bigr) < \epsilon .
+\end{equation*}
+Then we say $f(x)$
+\emph{converges}\index{converges!function in a metric space} to $L$ as $x$ goes
+to $p$, and $L$ is the \emph{limit} of $f(x)$ as $x$
+goes to $p$.  We write
+\glsadd{not:limfunc}
+\begin{equation*}
+\lim_{x \to p} f(x) := L .
+\end{equation*}
+Otherwise we say $f$
+\emph{diverges}\index{diverges!function in a metric space} at $p$.
+\end{defn}
+
+As usual, we used the definite article without showing that the
+limit is unique.  The proof is a direct translation of the proof
+from \chapterref{lim:chapter}, so we leave it as an exercise.
+
+\begin{prop} \label{prop:mslimitisunique}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces, $S \subset X$, $p \in X$
+a cluster point of $S$, and let $f \colon S \to Y$ be a function
+such that $f(x)$ converges as $x$ goes to $p$.  Then
+the limit of $f(x)$ as $x$ goes to $p$ is unique.
+\end{prop}
+
+In any metric space, just like in $\R$, continuous limits may be
+replaced by sequential limits.  We leave the proof as an
+exercise.  The upshot is that we really only need to prove things for
+sequential limits.
+
+\begin{lemma}\label{ms:seqflimit:lemma}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces, $S \subset X$, $p \in X$
+a cluster point of $S$, and let $f \colon S \to Y$ be a function.
+
+Then
+$f(x)$ converges to $L \in Y$ as $x$ goes to $p$ if and only if for every sequence $\{ x_n \}$
+in $S \setminus \{p\}$
+such that $\lim\, x_n = p$,
+the sequence $\{ f(x_n) \}$ converges to $L$.
+\end{lemma}
+
+By applying \propref{prop:contiscont} or the definition directly we find
+(exercise) that for cluster points $p$ of $S
+\subset X$, the function
+$f \colon S \to Y$ is continuous at $p$ if and only if
+\begin{equation*}
+\lim_{x \to p} f(x) = f(p) .
+\end{equation*}
+
+\subsection{Exercises}
+
+\begin{exbox}
+\begin{exercise}
+Consider $\N \subset \R$ with the standard metric.  Let $(X,d)$ be a
+metric space and $f \colon X \to \N$ a continuous function.
+\begin{enumerate}[a)]
+\item
+Prove that if $X$ is connected,
+then $f$ is constant (the range of $f$ is a single value).
+\item
+Find an example where $X$ is disconnected and $f$ is not constant.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise} \label{exercise:dicontR2}
+Let $f \colon \R^2 \to \R$ be defined by $f(0,0) := 0$, and
+$f(x,y) := \frac{xy}{x^2+y^2}$ if $(x,y) \not= (0,0)$.
+\begin{enumerate}[a)]
+\item
+Show that for any fixed $x$,
+the function that takes $y$ to $f(x,y)$ is continuous.  Similarly
+for any fixed $y$, the function that takes $x$ to $f(x,y)$ is continuous.
+\item
+Show that $f$ is not continuous.
+\end{enumerate}
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise} 
+Suppose $(X,d_X)$, $(Y,d_Y)$ be metric spaces and
+$f \colon X \to Y$ is continuous.
+Let $A \subset X$.
+\begin{enumerate}[a)]
+\item
+Show that $f(\widebar{A}) \subset \overline{f(A)}$.
+\item
+Show that the subset can be proper.
+\end{enumerate}
+\end{exercise}
+\end{samepage}
+
+\begin{exercise}
+Prove \thmref{thm:mstopocont}.  Hint: Use \lemmaref{lemma:mstopocontloc}.
+\end{exercise}
+
+\begin{exercise} \label{exercise:msconnconn}
+Suppose $f \colon X \to Y$ is continuous for metric spaces $(X,d_X)$
+and $(Y,d_Y)$.  Show that if $X$ is connected, then $f(X)$ is connected.
+\end{exercise}
+
+\begin{exercise}
+Prove the following version of the
+\hyperref[IVT:thm]{intermediate value theorem}.  Let $(X,d)$ be a connected
+metric space and $f \colon X \to \R$ a continuous function.  Suppose that
+there exist $x_0,x_1 \in X$ and $y \in \R$ such that $f(x_0) < y < f(x_1)$.
+Then prove that there exists a $z \in X$ such that $f(z) = y$.
+Hint: See \exerciseref{exercise:msconnconn}.
+\end{exercise}
+
+\begin{exercise}
+A continuous function $f \colon X \to Y$ for metric spaces $(X,d_X)$ and
+$(Y,d_Y)$ is said to be \emph{\myindex{proper}}
+if for every compact set $K \subset Y$, the set $f^{-1}(K)$ is compact.
+Suppose a continuous $f \colon (0,1) \to (0,1)$ is proper and $\{ x_n
+\}$ is a sequence in $(0,1)$ that converges to $0$.  Show that
+$\{ f(x_n) \}$ has no subsequence that converges in $(0,1)$.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric space and
+$f \colon X \to Y$ be a one-to-one and onto continuous function.  Suppose
+$X$ is compact.  Prove that the inverse $f^{-1} \colon Y \to X$
+is continuous.
+\end{exercise}
+
+\begin{exercise}
+Take the metric space of continuous functions $C([0,1],\R)$.  Let
+$k \colon [0,1] \times [0,1] \to \R$ be a continuous function.
+Given $f \in C([0,1],\R)$ define
+\begin{equation*}
+\varphi_f(x) := \int_0^1 k(x,y) f(y) ~dy .
+\end{equation*}
+\begin{enumerate}[a)]
+\item
+Show that $T(f) := \varphi_f$ defines a function $T \colon C([0,1],\R) \to
+C([0,1],\R)$.
+\item
+Show that $T$ is continuous.
+\end{enumerate}
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[a)]
+\item
+If $p \in X$,
+show that $f \colon X \to \R$ defined
+by $f(x) := d(x,p)$ is continuous.
+\item
+Define a metric on $X \times X$ as in \exerciseref{exercise:mscross} part
+b, and show that $g \colon X \times X \to \R$ defined by
+$g(x,y) := d(x,y)$ is continuous.
+\item
+Show that if $K_1$ and $K_2$ are compact subsets of $X$, then
+there exists a $p \in K_1$ and $q \in K_2$ such that $d(p,q)$ is minimal,
+that is, $d(p,q) = \inf \{ d(x,y) \colon x \in K_1, y \in K_2 \}$.
+\end{enumerate}
+\end{exercise}
+\end{samepage}
+
+\begin{exercise}
+Let $(X,d)$ be a compact metric space, let $C(X,\R)$ be the set
+of real-valued continuous functions.  Define
+\begin{equation*}
+d(f,g) := \snorm{f-g}_u := \sup_{x \in X} \abs{f(x)-g(x)} .
+\end{equation*}
+\begin{enumerate}[a)]
+\item
+Show that $d$ makes $C(X,\R)$ into a metric space.
+\item
+Show that for any $x \in X$, the evaluation function
+$E_x \colon C(X,\R) \to \R$ defined by $E_x(f) := f(x)$
+is a continuous function.
+\end{enumerate}
+\end{exercise}
+
+\begin{samepage}
+\begin{exercise}
+Let $C([a,b],\R)$ be the set of continuous functions and
+$C^1([a,b],\R)$\glsadd{not:contdifffuncs} the set of once continuously differentiable
+functions on $[a,b]$.
+Define
+\begin{equation*}
+d_{C}(f,g) := \snorm{f-g}_u
+\qquad \text{and} \qquad
+d_{C^1}(f,g) := \snorm{f-g}_u + \snorm{f'-g'}_u,
+\end{equation*}
+where $\snorm{\cdot}_u$ is the uniform norm.
+By \exampleref{example:msC01} and \exerciseref{exercise:C1ab} we know that
+$C([a,b],\R)$ with $d_C$ is a metric space and
+so is
+$C^1([a,b],\R)$ with $d_{C^1}$.
+\begin{enumerate}[a)]
+\item
+Prove that the derivative operator $D \colon 
+C^1([a,b],\R) \to C([a,b],\R)$ defined by
+$D(f) := f'$ is continuous.
+\item
+On the other hand if we consider the metric $d_C$ on $C^1([a,b],\R)$,
+then prove the derivative operator is no longer continuous.  Hint: Consider
+$\sin(n x)$.
+\end{enumerate}
+\end{exercise}
+\end{samepage}
+
+\begin{exercise}
+Let $(X,d)$ be a metric space, $S \subset X$, and $p \in X$.  Prove that
+$p$ is a cluster point of $S$ if and only if $p \in \overline{S \setminus \{
+p \}}$.
+\end{exercise}
+
+\begin{exercise}
+Prove \propref{prop:mslimitisunique}.
+\end{exercise}
+
+\begin{exercise}
+Prove \lemmaref{ms:seqflimit:lemma}.
+\end{exercise}
+
+\begin{exercise}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces, $S \subset X$, $p \in X$
+a cluster point of $S$, and let $f \colon S \to Y$ be a function.
+Prove that
+$f \colon S \to Y$ is continuous at $p$ if and only if
+\begin{equation*}
+\lim_{x \to p} f(x) = f(p) .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Define
+\begin{equation*}
+f(x,y) :=
+\begin{cases}
+\frac{2xy}{x^4+y^2} & \text{if $(x,y) \not= (0,0)$} \\
+0 & \text{if $(x,y) = (0,0)$} .
+\end{cases}
+\end{equation*}
+\begin{enumerate}[a)]
+\item
+Show that for every fixed $y$ the function that takes $x$ to $f(x,y)$
+is continuous and hence Riemann integrable.
+\item
+For every fixed $x$, the function that takes $y$ to $f(x,y)$ is continuous.
+\item
+Show that $f$ is not continuous at $(0,0)$.
+\item
+Now show that $g(y) := \int_0^1 f(x,y)~dx$ is not continuous at $y=0$.
+\end{enumerate}
+Note: Feel free to use what you know about $\arctan$ from calculus,
+in particular that $\frac{d}{ds} \bigl[ \arctan(s) \bigr] = \frac{1}{1+s^2}$.
+\end{exercise}
+
+\begin{exercise} \label{exercise:integralcontcontextra}
+Prove a stronger version of \propref{prop:integralcontcont}:
+If $f \colon (a,b) \times (c,d) \to \R$ is a bounded continuous function,
+then $g \colon [c,d] \to \R$ defined by
+\begin{equation*}
+g(y) := \int_a^b f(x,y) ~dx  \qquad \text{is continuous}.
+\end{equation*}
+Hint: First integrate over $[a+\nicefrac{1}{n},b-\nicefrac{1}{n}]$.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
