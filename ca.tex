@@ -18,6 +18,11 @@
 \usepackage{import}
 \usepackage{vogtwidebar}
 
+% Footnotes should use symbols, not numbers.  Numbered footnotes are
+% evil
+\usepackage[perpage,symbol*]{footmisc}
+
+
 %symmetric for web
 \usepackage[inner=1.2in,outer=1.2in,top=1in,bottom=1in]{geometry}
 %PRINT asymetric for book
@@ -122,10 +127,6 @@
 
 \usepackage[T1]{fontenc}
 
-% Footnotes should use symbols, not numbers.  Numbered footnotes are
-% evil
-\usepackage[perpage,symbol*]{footmisc}
-
 % useful
 \newcommand{\ignore}[1]{}
 
@@ -141,6 +142,7 @@
 \newcommand{\sing}{\operatorname{sing}}
 \newcommand{\ord}{\operatorname{ord}}
 \newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Arg}{\operatorname{Arg}}
 
 % reals
 \newcommand{\esssup}{\operatorname{ess~sup}}
@@ -548,6 +550,8 @@ to solve $z^2+1=0$.  Similarly as what happened when we defined the real
 numbers, the consequences of adding this solution to the mix are much more
 profound than just finding roots of polynomials.
 
+\subsection{The complex numbers as the plane}
+
 You have surely seen the complex number field,
 but let us review how one can define it.
 As a set, let the \emph{\myindex{complex number field}}
@@ -577,12 +581,14 @@ We will actually never write complex numbers as $(x,y)$ from now on.
 When we write a real number $x$ we identify it with the
 complex number $(x,0)$.
 With this identification $\R \subset \C$.
-We define\footnote{Beware of engineers, they think it is called $j$.}%
+We also define the \emph{\myindex{imaginary unit}}%
+\footnote{Beware of engineers, they think it is called $j$, despite there
+being no ``j'' in ``imaginary.''}%
 \glsadd{not:i}
 \begin{equation*}
 i \overset{\text{def}}{=} (0,1) ,
 \end{equation*}
-and we find that with this definition $(x,y) = x+iy$ using the field
+and we find that with this definition $(x,y) = x+iy$, using the field
 structure of $\C$.  So from now on, this is the only way we write
 the complex numbers.  We call the form $x+iy$ the \emph{\myindex{cartesian}}
 form of the complex number.
@@ -592,10 +598,10 @@ The number $i$ has the magical property that
 i^2 = 1 .
 \end{equation*}
 It is the solution to $z^2+1=0$.
-For this reason we sometimes write%
-\footnote{There are those that even always write $\sqrt{-1}$ instead of $i$.
+For this reason we sometimes%
+\footnote{There are those that \emph{always} write $\sqrt{-1}$ instead of $i$.
 Those people also deserve a good whack.}
-$i = \sqrt{-1}$.
+write $i = \sqrt{-1}$.
 We will prove later that complex numbers
 are precisely the field in which every polynomial has roots.
 Note that there is another square root of $-1$, that is $-i$.
@@ -613,6 +619,13 @@ Note that there is another square root of $-1$, that is $-i$.
 %theory, which we could not tell apart from the original.
 %\end{remark}
 
+Given a complex number $z$, its ``evil twin'' is 
+the \emph{\myindex{complex conjugate}} of $z$ and is defined as
+\glsadd{not:conj}%
+\begin{equation*}
+\bar{z} \overset{\text{def}}{=} x-iy.
+\end{equation*}
+
 If $z = x+iy \in \C$ for $x,y \in \R$, then $x$ is called the
 \emph{\myindex{real part}} and $y$ is called the
 \emph{\myindex{imaginary part}}.  We write
@@ -629,13 +642,35 @@ If $z = x+iy \in \C$ for $x,y \in \R$, then $x$ is called the
 =
 y .
 \end{equation*}
-
-Given a complex number $z$, its ``evil twin'' is 
-the \emph{\myindex{complex conjugate}} of $z$ and is defined as
-\glsadd{not:conj}%
+A particularly useful observation one can make is that above we wrote the
+real part and the imaginary part in terms of $z$ and $\bar{z}$.
+Any expression we write in the real and imaginary parts of $z$ we can
+equally well write in terms of $z$ and $\bar{z}$, and vice-versa.
+For example,
 \begin{equation*}
-\bar{z} \overset{\text{def}}{=} x-iy.
+x^3 + y^3 + 3ixy
+=
+{\left( \frac{z+ \bar{z}}{2} \right)}^3 + 
+{\left( \frac{z- \bar{z}}{2i} \right)}^3 + 
+3i {\left( \frac{z+ \bar{z}}{2} \right)} 
+{\left( \frac{z- \bar{z}}{2i} \right)} ,
 \end{equation*}
+or
+\begin{equation*}
+z^2 - i \bar{z}^2 + z \bar{z}
+=
+{(x+iy)}^2 - i {(x-iy)}^2 + 
+(x+iy)(x-iy) .
+\end{equation*}
+It may seem that an expression in terms of $z$ and $\bar{z}$ is more
+complicated.  In particular, $z$ and $\bar{z}$ are not
+``independent variables.''  However, it is particularly powerful to
+think in terms of $z$ and $\bar{z}$ instead of $x$ and $y$, and to pretend
+in many contexts as if $z$ and $\bar{z}$ were actually independent
+variables.
+
+\subsection{The geometry and topology of the plane}
+
 
 The size of $z$ is measured by the so-called \emph{\myindex{modulus}},
 which is just the \emph{\myindex{Euclidean distance}}:
@@ -643,8 +678,8 @@ which is just the \emph{\myindex{Euclidean distance}}:
 \begin{equation*}
 \sabs{z} \overset{\text{def}}{=} \sqrt{z \bar{z}} = \sqrt{x^2+y^2} .
 \end{equation*}
-Perhaps easier equation is that ${\sabs{z}}^2 = z\bar{z}$.
-In particular, notice $\sabs{z} \geq 0$, and $\sabs{z} = 0$
+Perhaps easier and more useful equation is ${\sabs{z}}^2 = z\bar{z}$.
+Notice $\sabs{z} \geq 0$, and $\sabs{z} = 0$
 if and only if $z=0$.
 
 \begin{prop}[Cauchy--Schwarz and the triangle inequality]
@@ -668,8 +703,8 @@ The modulus squared of a complex number is always nonnegative:
   & =    {(2\sabs{z}\sabs{w})}^2 - {(2 \Re z\bar{w})}^2 .
 \end{split}
 \end{equation*}
-This proves Cauchy--Schwarz.  Similarly we prove the triangle inequality
-(using Cauchy--Schwarz):
+This proves Cauchy--Schwarz.  We prove the triangle inequality
+via Cauchy--Schwarz:
 \begin{equation*}
 \begin{split}
 {\sabs{z+w}}^2 & =    (z+w)(\bar{z}+\bar{w}) \\
@@ -712,9 +747,221 @@ A disc centered at the origin of radius 1 is called the
 The unit disc will come up often in this course, as it turns out that
 a lot of complex analysis can be done by looking at just the unit disc.
 
-\section{Complex valued functions}
+\subsection{Complex-valued functions}
 
-FIXME
+It is possible that the analysis you have seen so far in your mathematical
+career has been for real-valued functions $f \colon X \to \R$.  In this
+book, we are concerned with complex-valued functions $f \colon X \to \C$.
+The results for real-valued functions are then applied by thinking of
+either the components of $f$ separately or by thinking of $\C$ as the
+real vector space $\R^2$.
+
+Given a complex-valued function $f \colon X \to \C$ we write $u = \Re f$
+and $v = \Im f$ for real-valued functions $u,v \colon X \to \R$, and then
+\begin{equation*}
+f = u+iv .
+\end{equation*}
+
+If $X \subset \C$, then we can think of $X \subset \R^2$.
+A derivative in $x$ or $y$ (where $z=x+iy$) is then applied to the
+components (as if $f$ was valued in $\R^2$):
+\begin{equation*}
+\frac{\partial f}{\partial x} = 
+\frac{\partial u}{\partial x} + i
+\frac{\partial v}{\partial x}
+\qquad\text{and}\qquad
+\frac{\partial f}{\partial y} = 
+\frac{\partial u}{\partial y} + i
+\frac{\partial v}{\partial y} .
+\end{equation*}
+And similarly if $X \subset \R$, that is if $f$ is a complex-valued
+function of one real variable, $f' = u' + iv'$.
+
+Similarly when integrating.  Suppose that $f \colon [a,b] \to \C$.
+We will say it is (Riemann) integrable if $u$ and $v$ are, and then
+\begin{equation*}
+\int_a^b f(t) \, dt = 
+\int_a^b u(t) \, dt + i \int_a^b v(t) \, dt .
+\end{equation*}
+Again, this is precisely the way one integrates vector-valued functions
+for any vector space.
+
+\section{Other representations of complex numbers}
+
+\subsection{Matrix representation}
+
+As $\C$ is $\R^2$, we can think of
+$\C$ as a real two-dimensional vector space by forgetting about the
+complex multiplication.  A standard basis is then $1$ and $i$.
+To put multiplication back into the picture, we think of an object that
+acts on $\R^2$, that is, a matrix.
+Complex numbers can also be represented by $2 \times 2$ real matrices.
+Represent $x+iy$ as
+\begin{equation*}
+\begin{bmatrix}
+x & -y \\
+y & x
+\end{bmatrix}
+\end{equation*}
+If we think of a complex number $a+ib$ as a matrix and $c+id$ as a column vector
+then the multiplication
+\begin{equation*}
+\begin{bmatrix}
+a & -b \\
+b & a
+\end{bmatrix}
+\begin{bmatrix}
+c \\
+d 
+\end{bmatrix}
+=
+\begin{bmatrix}
+ac-bd \\
+bc+ad .
+\end{bmatrix}
+\end{equation*}
+
+Of course we can also multiply the $2 \times 2$ matrices themselves,
+and this matrix multiplication is also the same as multiplication of complex
+numbers.  Similarly with addition.
+That is, we can view the field of complex numbers as a subring of $M_2(\R)$.
+
+\begin{exbox}
+\begin{exercise}
+Prove that the matrix multiplication on these matrices is commutative
+and reproduces the complex
+number multiplication, and that these matrices form a subring of $M_2(\R)$.
+Prove that the nonzero matrices of this form are
+invertible (the subring is a field).  In particular, notice the
+determinant appearing in the denominator for the multiplicative inverse.
+\end{exercise}
+\end{exbox}
+
+We will see this representation of complex numbers come up when we introduce the
+Cauchy--Riemann equations.  But it comes up quite often in applications.
+This can for example be used to represent an $m \times n$ complex matrix by a
+$2m \times 2n$ real matrix by replacing each entry by a $2 \times 2$ matrix.
+
+For us the application will be understand the derivative of a
+complex-valued function of a complex variable $f \colon \C \to \C$.
+By thinking of the function simply as a mapping $f \colon \R^2 \to \R^2$,
+then the real derivative of this mapping is a $2 \times 2$ matrix.  And the
+object of study of complex analysis, the holomorphic (or analytic)
+functions, are those functions whose real derivative corresponds to a
+multiplication by a complex number.
+
+\subsection{Polar form and the exponential}
+
+Another representation of a complex number is the polar form.  This is just
+a point in the plane given in polar coordinates.  That is,
+$x = r \cos \theta$ and $y= r \sin \theta$.  We write this form as
+\begin{equation*}
+z = x+iy = r e^{i \theta} ,
+\end{equation*}
+where $r = \sabs{z} = \sqrt{x^2+y^2}$ is the \emph{\myindex{modulus}}, and 
+$\theta$ is the angle that $x+iy$ makes with the real axis (the $x$-axis).
+The $\theta$ is called the \emph{\myindex{argument}}.  See
+\figureref{fig:polarcoords}.
+
+\begin{myfig}
+\subimport*{figures/}{polarcoords.pdf_t}
+\caption{Polar coordinates.\label{fig:polarcoords}}
+\end{myfig}
+
+The reason for the notation is the following definition of the
+\emph{\myindex{complex exponential}},
+sometimes called \emph{\myindex{Euler's formula}}:
+\begin{equation*}
+e^{i\theta}
+\overset{\text{def}}{=}
+\cos \theta + i \sin \theta ,
+\end{equation*}
+so
+\begin{equation*}
+z = r e^{i\theta} = r\cos \theta + i r\sin \theta  = x+iy .
+\end{equation*}
+
+The exponential is one of the most useful functions in complex analysis
+(if not all of analysis).  Let us define it for all complex numbers:
+\begin{equation*}
+e^{z} = 
+e^{x+iy}
+\overset{\text{def}}{=}
+e^x e^{iy}
+=
+e^x\cos y + i e^x \sin y .
+\end{equation*}
+
+\begin{exbox}
+\begin{exercise}
+Using the definition and trigonometric identities, prove
+\begin{equation*}
+e^{z+w} = e^z e^w .
+\end{equation*}
+Remark: In fact, $e^z$ is the unique continuous
+function that satisfies the above identity
+and also $e^1 = e$, but let us not worry about this now.
+\end{exercise}
+\end{exbox}
+
+Polar form is particularly nice for multiplication of numbers and powers.
+Suppose $z = r e^{i\theta}$ and $w = s e^{i \psi}$, then
+\begin{equation*}
+zw =
+r e^{i \theta} s e^{i \psi} = 
+rs e^{i (\theta+ \psi)},
+\qquad
+\frac{1}{z} =
+\frac{1}{r e^{i \theta}} =
+\frac{1}{r} e^{-i \theta} ,
+\qquad
+z^n =
+{\bigl(r e^{i \theta}\bigr)}^n =
+r^n e^{i n\theta} .
+\end{equation*}
+On the other hand, the polar form is particularly terrible for addition.
+You win some, you lose some.
+
+We attempt to define the argument as
+\glsadd{not:arg}%
+\begin{equation*}
+\arg z
+\overset{\text{def?}}{=}
+\theta ,
+\end{equation*}
+but we run up against the problem that if $\theta$ is an argument of $z$,
+then so is $\theta+2\pi$ or $\theta + k 2\pi$ for any $k$.  In other words,
+$\arg z$ is not a function in the classical sense, but a
+\emph{\myindex{multivalued function}}%
+\footnote{Non-complex analysts will sometimes claim that a multivalued
+function is nonsense, but you can safely ignore them.}.  The correct
+definition is then
+\begin{equation*}
+\arg z
+\overset{\text{def}}{=}
+\ldots,\theta - 4\pi,
+\theta - 2\pi,
+\theta ,
+\theta + 2\pi,
+\theta + 4\pi, \ldots
+\end{equation*}
+There is one more minor issue left.  If $z=0$, then $z=0=0 e^{i\theta}$ for any
+$\theta$ whatsoever.  Therefore, we only define the argument for nonzero
+$z$.
+
+Sometimes it is useful to nail down a particular number for the argument.
+We thus define the \emph{\myindex{principal branch of $\arg$}} as
+\begin{equation*}
+\Arg z
+\overset{\text{def}}{=}
+\theta, \qquad \text{where $-\pi < \theta \leq \pi$.}
+\end{equation*}
+It may seem like a good solution to the multivaluedness of $\arg$, but
+one's hopes are dashed by the cruel reality of $\Arg$ not being continuous
+on the negative real axis.  The principal branch ends up being somewhat less
+useful than we may think.  There is also the issue that not everyone agrees
+on what ``principal branch'' means; some mathematicians will sacrifice the
+positive real axis and let $\theta$ be in the range $[0,2\pi)$.
 
 \section{The Riemann sphere}
 
@@ -725,6 +972,9 @@ we only add one infinity.
 FIXME
 
 \chapter{FOO}
+
+FIXME: this is simply a dump of things from the SCV book, some of which
+may be useful.
 
 \medskip
 
@@ -1282,6 +1532,9 @@ in character.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Results from one complex variable} \label{ap:onevarresults}
+
+FIXME: this is just a dump of the one-var appendix from the SCV book,
+at best useful as a reference of things we may want to prove.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2169,7 +2422,7 @@ Those two texts are useful to find more details.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Pointwise and uniform convergence and interchange of limits}
+\section{Limits of functions}
 \label{sec:puconv}
 
 \subsection{Pointwise and uniform convergence}
@@ -2334,12 +2587,14 @@ Consequently for all $x$ we get
 And hence $\{ f_n \}$ converges uniformly.
 
 For the other direction, suppose $\{ f_n \}$ converges uniformly to
-$f$.  Given $\epsilon > 0$, find $N$ such that for all $n \geq N$
-we have $\abs{f_n(x)-f(x)} < \nicefrac{\epsilon}{4}$ for all $x \in S$.
-Therefore for all $m, k \geq N$ we have
+$f$.  Given $\epsilon > 0$, find $N$ such that for all $n \geq N$,
+$\abs{f_n(x)-f(x)} < \nicefrac{\epsilon}{4}$ for all $x \in S$.
+Therefore for all $m, k \geq N$,
 \begin{equation*}
-\abs{f_m(x)-f_k(x)} = 
-\abs{f_m(x)-f(x)+f(x)-f_k(x)} \leq
+\abs{f_m(x)-f_k(x)}
+%= 
+%\abs{f_m(x)-f(x)+f(x)-f_k(x)}
+\leq
 \abs{f_m(x)-f(x)}+\abs{f(x)-f_k(x)} < \nicefrac{\epsilon}{4} +
 \nicefrac{\epsilon}{4} .
 \end{equation*}
@@ -2939,11 +3194,11 @@ This argument worked for every $x \in [a,b]$.  Therefore, as a function of
 $x$
 \begin{equation*}
 x \mapsto \frac{f(x,y+h)-f(x,y)}{h}
-\qquad
+\quad
 \text{converges uniformly to}
-\qquad
+\quad
 x \mapsto \frac{\partial f}{\partial y}(x,y)
-\qquad
+\quad
 \text{as $h \to 0$} .
 \end{equation*}
 We defined uniform convergence for sequences although the idea is the
@@ -3159,6 +3414,717 @@ Hint: See also \exerciseref{exercise:integralcontcontextra} and
 \end{exercise}
 \end{samepage}
 \end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The derivative in several real variables}
+
+\subsection{The derivative}
+
+In the following the norm $\snorm{\cdot}$ on a vector in $\R^n$
+is the Euclidean norm $\snorm{x} = \sqrt{x_1^2+\cdots+x_n^2}$.
+When applied to a linear mapping (a matrix) it is the
+\emph{\myindex{operator norm}}:
+\begin{equation*}
+\snorm{A} \overset{\text{def}}{=} \sup_{\snorm{x} = 1} \snorm{Ax} .
+\end{equation*}
+The following key facts about the operator norm follow easily and are left
+as exercises for the reader who has not seen this norm.
+
+\begin{exbox}
+\begin{exercise}
+\begin{exparts} 
+\item
+Prove that if $A$ is a linear mapping between finite dimensional vector
+spaces, then $\snorm{A} < \infty$.
+\item
+Prove that if $A$ is a linear mapping of vector spaces, then
+$\snorm{Ax} \leq \snorm{A} \snorm{x}$.
+\end{exparts} 
+\end{exercise}
+\end{exbox}
+
+For a function $f \colon \R \to \R$, 
+the derivative at $x$ exists if there
+there is a number $a$ (the derivative of $f$ at $x$) such that
+\begin{equation*}
+\lim_{h \to 0} \abs{\frac{f(x+h)-f(x)}{h} - a} =
+\lim_{h \to 0} \frac{\sabs{f(x+h)-f(x) - ah}}{\sabs{h}}
+= 0.
+\end{equation*}
+
+Multiplying by $a$ is a linear map in one dimension:
+$h \mapsto ah$.  Let us extend this idea to more variables.
+
+\begin{defn}
+Let $U \subset \R^n$ be an open subset and $f \colon U \to \R^m$.  We
+say $f$ is \emph{(real) differentiable\index{real differentiable}}
+at $x \in U$ if there exists
+a linear $A \colon \R^n \to \R^m$ such that
+\begin{equation*}
+\lim_{\substack{h \to 0\\h\in \R^n}}
+\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0 .
+\end{equation*}
+We write $Df(x) = A$, or $f'(x) = A$,\glsadd{not:mvder} and
+we say $A$ is the \emph{(real) derivative\index{real derivative}} of $f$ at $x$.
+When $f$ is \emph{(real) differentiable} at
+every $x \in U$, we say that $f$ is (real) differentiable.  See
+\figureref{fig:svder}.
+\end{defn}
+
+\begin{myfig}
+\includegraphics{figures/svder}
+\caption{Illustration of a derivative for a function $f \colon \R^2 \to \R$.  The vector $h$ is shown
+in the $x_1x_2$-plane based at $(x_1,x_2)$, and the vector
+$Ah \in \R^1$ is shown along the $y$ direction.\label{fig:svder}}
+\end{myfig}
+
+We cheated somewhat and said that $A$
+is \emph{the} derivative, let us prove that we were justified.
+
+\begin{prop}
+Let $U \subset \R^n$ be an open subset and $f \colon U \to \R^m$.  Suppose
+$x \in U$ and there exist linear
+$A,B \colon \R^n \to \R^m$ such that
+\begin{equation*}
+\lim_{h \to 0}
+\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0
+\qquad \text{and} \qquad
+\lim_{h \to 0}
+\frac{\snorm{f(x+h)-f(x) - Bh}}{\snorm{h}} = 0 .
+\end{equation*}
+Then $A=B$.
+\end{prop}
+
+\begin{proof}
+Suppose $h \in \R^n$, $h \not= 0$.  Compute
+\begin{equation*}
+\begin{split}
+\frac{\snorm{(A-B)h}}{\snorm{h}} & =
+\frac{\snorm{f(x+h)-f(x) - Ah - (f(x+h)-f(x) - Bh)}}{\snorm{h}} \\
+& \leq
+\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} + \frac{\snorm{f(x+h)-f(x) -
+Bh}}{\snorm{h}} .
+\end{split}
+\end{equation*}
+So 
+$\frac{\snorm{(A-B)h}}{\snorm{h}} = \norm{(A-B)\frac{h}{\snorm{h}}} \to 0$
+as $h \to 0$.  For an arbitrarily small $h$, $\frac{h}{\snorm{h}}$ is
+on the unit sphere, and a linear mapping vanishing on the unit sphere is
+zero everywhere.
+\end{proof}
+
+\begin{example}
+If $f(x) = Ax$ for a linear mapping $A$, then
+$f'(x) = A$:
+\begin{equation*}
+\frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}}
+=
+\frac{\snorm{A(x+h)-Ax - Ah}}{\snorm{h}}
+=
+\frac{0}{\snorm{h}} = 0 .
+\end{equation*}
+\end{example}
+
+\begin{example}
+Let $f \colon \R^2 \to \R^2$ be defined by
+\begin{equation*}
+f(x,y) = \bigl(f_1(x,y),f_2(x,y)\bigr) = (1+x+2y+x^2,2x+3y+xy).
+\end{equation*}
+Let us show that $f$ is differentiable at the origin and let us 
+compute the derivative,
+directly using the definition.  If the
+derivative exists, it can be
+represented by a $2$-by-$2$ matrix
+$\left[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right]$.  Suppose $h =
+(h_1,h_2)$.  We need the following expression to go to zero.
+\begin{multline*}
+\frac{\snorm{
+f(h_1,h_2)-f(0,0)
+-
+(ah_1 +bh_2 , ch_1+dh_2)}
+}{\snorm{(h_1,h_2)}}
+=
+\\
+\frac{\sqrt{
+{\bigl((1-a)h_1 + (2-b)h_2 + h_1^2\bigr)}^2
++
+{\bigl((2-c)h_1 + (3-d)h_2 + h_1h_2\bigr)}^2}}{\sqrt{h_1^2+h_2^2}} .
+\end{multline*}
+If we choose $a=1$, $b=2$, $c=2$, $d=3$, the expression becomes
+\begin{equation*}
+\frac{\sqrt{
+h_1^4 + h_1^2h_2^2}}{\sqrt{h_1^2+h_2^2}}
+=
+\sabs{h_1}
+\frac{\sqrt{
+h_1^2 + h_2^2}}{\sqrt{h_1^2+h_2^2}}
+= \sabs{h_1} .
+\end{equation*}
+And this expression does indeed go to zero as $h \to 0$.  The
+function $f$ is differentiable at the origin and 
+the derivative $f'(0)$ is represented by the matrix
+$\left[\begin{smallmatrix}1&2\\2&3\end{smallmatrix}\right]$.
+\end{example}
+
+\begin{prop}
+Let $U \subset \R^n$ be open and $f \colon U \to \R^m$ be
+differentiable at $p \in U$.  Then $f$ is continuous at $p$.
+\end{prop}
+
+\begin{proof}
+Another way to write the differentiability of $f$ at $p$ is to first write
+\begin{equation*}
+r(h) = f(p+h)-f(p) - f'(p) h ,
+\end{equation*}
+and $\frac{\snorm{r(h)}}{\snorm{h}}$ must go to zero as $h \to 0$.
+So
+$r(h)$ itself must go to zero.  The mapping $h \mapsto f'(p) h$
+is a linear mapping between finite dimensional spaces, it is
+therefore continuous
+and goes to zero as $h \to 0$.  So
+$f(p+h)$ must go to $f(p)$ as $h \to 0$.
+\end{proof}
+
+The derivative is itself a linear operator on the space of differentiable
+functions.
+
+\begin{prop}
+Suppose $U \subset \R^n$ is open,
+$f \colon U \to \R^m$ and
+$g \colon U \to \R^m$ are differentiable at $p$,
+and $\alpha \in \R$.  Then the functions $f+g$ and $\alpha f$
+are differentiable at $p$ and
+\begin{equation*}
+(f+g)'(p) = f'(p) + g'(p) , \qquad \text{and} \qquad (\alpha f)'(p) = \alpha
+f'(p) .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Let $h \in \R^n$, $h \not= 0$.  The proposition follows from the following
+estimates:
+\begin{multline*}
+\frac{\norm{f(p+h)+g(p+h)-\bigl(f(p)+g(p)\bigr) - \bigl(f'(p) + g'(p)\bigr)h}}{\snorm{h}}
+\\
+\leq
+\frac{\norm{f(p+h)-f(p) - f'(p)h}}{\snorm{h}}
++
+\frac{\norm{g(p+h)-g(p) - g'(p)h}}{\snorm{h}} ,
+\end{multline*}
+and
+\begin{equation*}
+\frac{\norm{\alpha f(p+h) - \alpha f(p) - \alpha f'(p)h}}{\snorm{h}}
+=
+\sabs{\alpha} \frac{\norm{f(p+h))-f(p) - f'(p)h}}{\snorm{h}} .
+\qedhere
+\end{equation*}
+\end{proof}
+
+If $A \colon X \to Y$ and $B \colon Y \to Z$ are linear maps, then 
+they are their own derivative.  The composition
+$BA$, a linear map from $X$ to $Z$, is also its own derivative, and
+so the derivative of the composition is the composition
+of the derivatives.  As differentiable maps are ``infinitesimally close''
+to linear maps, they have the same property:
+
+\begin{thm}[Chain rule]
+Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
+differentiable at $p \in U$.  Let $V \subset \R^m$ be open,
+$f(U) \subset V$ and let $g \colon V \to \R^\ell$ be differentiable
+at $f(p)$.  Then
+\begin{equation*}
+F(x) = g\bigl(f(x)\bigr)
+\end{equation*}
+is differentiable at $p$ and
+\begin{equation*}
+F'(p) = g'\bigl(f(p)\bigr) f'(p) .
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Let $A = f'(p)$ and $B = g'\bigl(f(p)\bigr)$.  Take $h \in \R^n$
+and write $q = f(p)$, $k = f(p+h)-f(p)$.  Let
+\begin{equation*}
+r(h) = f(p+h)-f(p) - A h . %= k - Ah.
+\end{equation*}
+Then $r(h) = k-Ah$ or $Ah = k-r(h)$, and $f(p+h) = q+k$.
+\begin{equation*}
+\begin{split}
+\frac{\snorm{F(p+h)-F(p) - BAh}}{\snorm{h}}
+& =
+\frac{\snorm{g\bigl(f(p+h)\bigr)-g\bigl(f(p)\bigr) - BAh}}{\snorm{h}}
+\\
+& =
+\frac{\snorm{g(q+k)-g(q) - B\bigl(k-r(h)\bigr)}}{\snorm{h}}
+\\
+& \leq
+\frac
+{\snorm{g(q+k)-g(q) - Bk}}
+{\snorm{h}}
++
+\snorm{B}
+\frac
+{\snorm{r(h)}}
+{\snorm{h}}
+\\
+& =
+\frac
+{\snorm{g(q+k)-g(q) - Bk}}
+{\snorm{k}}
+\frac
+{\snorm{f(p+h)-f(p)}}
+{\snorm{h}}
++
+\snorm{B}
+\frac
+{\snorm{r(h)}}
+{\snorm{h}} .
+\end{split}
+\end{equation*}
+First, $\snorm{B}$ is constant and $f$ is differentiable at $p$,
+so
+the term $\snorm{B}\frac{\snorm{r(h)}}{\snorm{h}}$ goes to 0.
+Next as $f$ is continuous at $p$, we have that as 
+$h$ goes to 0, then $k$ goes to 0.  Therefore
+$\frac
+{\snorm{g(q+k)-g(q) - Bk}}
+{\snorm{k}}$ goes to 0 because $g$ is differentiable at $q$.
+Finally 
+\begin{equation*}
+\frac
+{\snorm{f(p+h)-f(p)}}
+{\snorm{h}}
+%\leq
+%\frac
+%{\snorm{f(p+h)-f(p)-Ah}}
+%{\snorm{h}}
+%+
+%\frac
+%{\snorm{Ah}}
+%{\snorm{h}}
+\leq
+\frac
+{\snorm{f(p+h)-f(p)-Ah}}
+{\snorm{h}}
++
+\snorm{A} .
+\end{equation*}
+As $f$ is differentiable at $p$,
+for small enough $h$, the quantity
+$\frac{\snorm{f(p+h)-f(p)-Ah}}{\snorm{h}}$ is bounded.  Therefore the
+term
+$
+\frac
+{\snorm{f(p+h)-f(p)}}
+{\snorm{h}}
+$
+stays bounded as $h$ goes to 0.  Therefore, 
+$\frac{\snorm{F(p+h)-F(p) - BAh}}{\snorm{h}}$ goes to zero, and
+$F'(p) = BA$, which is what was claimed.
+\end{proof}
+
+Let us prove a ``mean value theorem'' for vector-valued functions.
+
+\begin{lemma}
+If $\varphi \colon [a,b] \to \R^n$ is differentiable on $(a,b)$ and
+continuous on $[a,b]$, then there exists a $t_0 \in (a,b)$ such that
+\begin{equation*}
+\snorm{\varphi(b)-\varphi(a)} \leq (b-a) \snorm{\varphi'(t_0)} .
+\end{equation*}
+\end{lemma}
+
+Here we think of $\varphi'(t_0)$ as a vector and so $\snorm{\varphi'(t_0)}$
+is the Euclidean norm in $\R^n$.  In this setting it is in fact the same
+as the operator norm.
+
+\begin{proof}
+By mean value theorem on the scalar-valued function
+$t \mapsto \bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi(t)$,
+where the dot is the dot product, we obtain
+that
+there is a $t_0 \in (a,b)$ such that
+\begin{equation*}
+\begin{split}
+\snorm{\varphi(b)-\varphi(a)}^2
+& =
+\bigl( \varphi(b)-\varphi(a) \bigr)
+\cdot
+\bigl( \varphi(b)-\varphi(a) \bigr)
+\\
+& =
+\bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi(b) - 
+\bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi(a)
+\\
+& = 
+(b-a)
+\bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi'(t_0) .
+\end{split}
+\end{equation*}
+By the Cauchy--Schwarz inequality
+\begin{equation*}
+\snorm{\varphi(b)-\varphi(a)}^2
+=
+(b-a)\bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi'(t_0)
+\leq
+(b-a)
+\snorm{\varphi(b)-\varphi(a)} \, \snorm{\varphi'(t_0)} . \qedhere
+\end{equation*}
+\end{proof}
+
+Recall that a set $U$ is convex
+if whenever $x,y \in U$, the line segment from
+$x$ to $y$ lies in $U$.
+
+\begin{prop} \label{mv:prop:convexlip}
+Let $U \subset \R^n$ be a convex open set, $f \colon U \to \R^m$
+a differentiable function, and an $M$ be such that
+\begin{equation*}
+\snorm{f'(x)} \leq M
+\qquad \text{for all $x \in U$.}
+\end{equation*}
+Then $f$ is Lipschitz with constant $M$, that is
+\begin{equation*}
+\snorm{f(x)-f(y)} \leq M \snorm{x-y}
+\qquad
+\text{for all $x,y \in U$.}
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Fix $x,y \in U$ and note that
+$(1-t)x+ty \in U$ for all $t \in [0,1]$
+by convexity.
+Next
+\begin{equation*}
+\frac{d}{dt} \Bigl[f\bigl((1-t)x+ty\bigr)\Bigr]
+=
+f'\bigl((1-t)x+ty\bigr) (y-x) .
+\end{equation*}
+By the mean value theorem above we get for
+some $t_0 \in (0,1)$,
+\begin{equation*}
+\begin{split}
+\snorm{f(x)-f(y)} & \leq
+\norm{\frac{d}{dt} \Big|_{t=t_0} \Bigl[ f\bigl((1-t)x+ty\bigr) \Bigr] }
+\\
+& \leq
+\norm{f'\bigl((1-t_0)x+t_0y\bigr)} \, \snorm{y-x} \leq
+M \snorm{y-x} . \qedhere
+\end{split}
+\end{equation*}
+\end{proof}
+
+Let us solve the differential equation $f' = 0$.
+
+\begin{cor}
+If $U \subset \R^n$ is connected and $f \colon U \to \R^m$ is differentiable
+and $f'(x) = 0$, for all $x \in U$, then $f$ is constant.
+\end{cor}
+
+\begin{proof}
+For any $x \in U$, there is an open ball $B(x,\delta) \subset U$.  The ball
+$B(x,\delta)$ is convex.  Since
+$\snorm{f'(y)} \leq 0$ for all $y \in B(x,\delta)$, then
+$\snorm{f(x)-f(y)} \leq 0 \snorm{x-y} = 0$.
+Thus $f^{-1}(c)$ is open for any $c \in \R^m$.  Suppose
+$f^{-1}(c)$ is nonempty.  
+The two sets
+\begin{equation*}
+U' = f^{-1}(c), \qquad U'' = f^{-1}\bigl(\R^m\setminus\{c\}\bigr)
+\end{equation*}
+are open and disjoint, and further $U = U' \cup U''$.  As $U'$ is nonempty
+and $U$ is connected, then $U'' = \emptyset$.  So $f(x) = c$ for all $x \in U$.
+\end{proof}
+
+\begin{exbox}
+\begin{samepage}
+\begin{exercise}
+Using only the definition of the derivative, show that
+the following $f \colon \R^2 \to \R^2$ are differentiable at the origin and
+find their derivative.
+\begin{exparts}
+\item
+$f(x,y) = (1+x+xy,x)$,
+\item
+$f(x,y) = \bigl(y-y^{10},x \bigr)$,
+\item
+$f(x,y) = \bigl( {(x+y+1)}^2 , {(x-y+2)}^2 \bigr)$.
+\end{exparts}
+\end{exercise}
+\end{samepage}
+
+\begin{exercise}
+Define $f \colon \R^2 \to \R^2$ by $f(x,y) =
+\bigl(x,y+\varphi(x)\bigr)$ for some differentiable function $\varphi$ of one
+variable.  Show $f$ is differentiable and find $f'$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \R^n \to \R$ and $h \colon \R^n \to \R$ are two 
+differentiable functions such that $f'(x) = h'(x)$ for all $x \in \R^n$.
+Prove that
+if $f(0) = h(0)$ then $f(x) = h(x)$ for all $x \in \R^n$.
+\end{exercise}
+\end{exbox}
+
+
+\subsection{The derivative in terms of partial derivatives}
+
+Partial derivatives are easier to compute with all the machinery of
+calculus, and they provide a way to compute the derivative of a
+function.
+
+\begin{prop} \label{mv:prop:jacobianmatrix}
+Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
+differentiable at $p \in U$.  Then all the partial derivatives at $p$
+exist and, in terms of the standard bases of $\R^n$ and $\R^m$,
+$f'(p)$ is represented by the matrix
+\begin{equation*}
+\begin{bmatrix}
+\frac{\partial f_1}{\partial x_1}(p)
+&
+\frac{\partial f_1}{\partial x_2}(p)
+& \ldots &
+\frac{\partial f_1}{\partial x_n}(p)
+\\[6pt]
+\frac{\partial f_2}{\partial x_1}(p)
+&
+\frac{\partial f_2}{\partial x_2}(p)
+& \ldots &
+\frac{\partial f_2}{\partial x_n}(p)
+\\
+\vdots & \vdots & \ddots & \vdots
+\\
+\frac{\partial f_m}{\partial x_1}(p)
+&
+\frac{\partial f_m}{\partial x_2}(p)
+& \ldots &
+\frac{\partial f_m}{\partial x_n}(p)
+\end{bmatrix} .
+\end{equation*}
+\end{prop}
+
+In other words
+\begin{equation*}
+f'(p) \, e_j =
+\sum_{k=1}^m
+\frac{\partial f_k}{\partial x_j}(p) \,e_k ,
+\end{equation*}
+where $e_j$ denote the vectors of the standard basis in the appropriate
+space.
+
+\begin{proof}
+Fix a $j$ and note that
+\begin{equation*}
+\begin{split}
+\norm{\frac{f(p+h e_j)-f(p)}{h} - f'(p) \, e_j} & = 
+\norm{\frac{f(p+h e_j)-f(p) - f'(p) \, h e_j}{h}} \\
+& =
+\frac{\snorm{f(p+h e_j)-f(p) - f'(p) \, h e_j}}{\snorm{h e_j}} .
+\end{split}
+\end{equation*}
+As $h$ goes to 0, the right hand side goes to zero by
+differentiability of $f$, and hence
+\begin{equation*}
+\lim_{h \to 0}
+\frac{f(p+h e_j)-f(p)}{h} = f'(p) \, e_j  .
+\end{equation*}
+Let us represent $f$ by components
+$f = (f_1,f_2,\ldots,f_m)$, since it is vector-valued.
+Taking a limit in $\R^m$
+is the same as taking the limit in each component separately.  
+For any $k$
+\begin{equation*}
+\frac{\partial f_k}{\partial x_j} (p)
+=
+\lim_{h \to 0}
+\frac{f_k(p+h e_j)-f_k(p)}{h}
+\end{equation*}
+exists and 
+is equal to the $k$th component of $f'(p)\, e_j$, and we are done.
+\end{proof}
+
+The converse of the proposition is not true.  Just because the partial
+derivatives exist, does not mean that the function is differentiable.
+However, when the partial derivatives are continuous, the
+converse holds.
+
+
+\begin{defn}
+Let $U \subset \R^n$ be open.
+We say $f \colon U \to \R^m$ is
+\emph{\myindex{continuously differentiable}},
+if all partial derivatives
+$\frac{\partial f_j}{\partial x_k}$ exist and are continuous.
+\end{defn}
+
+\begin{prop} \label{mv:prop:contdiffpartials}
+Let $U \subset \R^n$ be open and
+$f \colon U \to \R^m$.  If the function
+$f$ is continuously differentiable, then
+$f$ is differentiable.
+\end{prop}
+
+\begin{proof}
+Fix $x \in U$.  We do induction on dimension.  The case $n=1$ is left
+as an exercise.
+
+Suppose the conclusion is true for $\R^{n-1}$,
+that is,
+if we restrict to the first $n-1$ variables, the function is differentiable.
+It is easy to see that the first $n-1$
+partial derivatives of $f$ restricted to the set where the last coordinate is
+fixed are the same as those for $f$.
+In the following, by a slight abuse of notation,
+we think of $\R^{n-1}$ as a subset of $\R^n$, that is the set in $\R^n$ where $x_n = 0$.
+In other words, we identify the vectors $(x_1,x_2,\ldots,x_{n-1})$ and
+$(x_1,x_2,\ldots,x_{n-1},0)$.
+Let
+\begin{equation*}
+A = 
+\begin{bmatrix}
+\frac{\partial f_1}{\partial x_1}(x)
+& \ldots &
+\frac{\partial f_1}{\partial x_n}(x)
+\\
+\vdots & \ddots & \vdots
+\\
+\frac{\partial f_m}{\partial x_1}(x)
+& \ldots &
+\frac{\partial f_m}{\partial x_n}(x)
+\end{bmatrix} ,
+\qquad
+A' = 
+\begin{bmatrix}
+\frac{\partial f_1}{\partial x_1}(x)
+& \ldots &
+\frac{\partial f_1}{\partial x_{n-1}}(x)
+\\
+\vdots & \ddots & \vdots
+\\
+\frac{\partial f_m}{\partial x_1}(x)
+& \ldots &
+\frac{\partial f_m}{\partial x_{n-1}}(x)
+\end{bmatrix} ,
+\qquad
+v = 
+\begin{bmatrix}
+\frac{\partial f_1}{\partial x_n}(x)
+\\
+\vdots
+\\
+\frac{\partial f_m}{\partial x_n}(x)
+\end{bmatrix} .
+\end{equation*}
+Let $\epsilon > 0$ be given.  By the induction hypothesis, there
+is a $\delta > 0$ such that
+for any $k \in \R^{n-1}$ with $\snorm{k} < \delta$ we have
+\begin{equation*}
+\frac{\snorm{f(x+k) - f(x) - A' k}}{\snorm{k}} < \epsilon .
+\end{equation*}
+By continuity of the partial derivatives, suppose $\delta$ is small
+enough so that
+\begin{equation*}
+\abs{\frac{\partial f_j}{\partial x_n}(x+h)
+      - \frac{\partial f_j}{\partial x_n}(x)} < \epsilon ,
+\end{equation*}
+for all $j$ and all $h \in \R^n$ with $\snorm{h} < \delta$.
+
+Suppose $h = k + t e_n$ is a vector in $\R^n$, where $k \in \R^{n-1}$, $t
+\in \R$, such that
+$\snorm{h} < \delta$.  Then $\snorm{k} \leq \snorm{h} < \delta$.
+Note that $Ah = A' k + tv$.
+\begin{equation*}
+\begin{split}
+\snorm{f(x+h) - f(x) - Ah}
+& = \snorm{f(x+k + t e_n) - f(x+k) - tv + f(x+k) - f(x) - A' k}
+\\
+& \leq \snorm{f(x+k + t e_n) - f(x+k) -tv} + \snorm{f(x+k) - f(x) -
+A' k}
+\\
+& \leq \snorm{f(x+k + t e_n) - f(x+k) -tv} + \epsilon \snorm{k} .
+\end{split}
+\end{equation*}
+As all the partial derivatives exist, by the mean value theorem,
+for each $j$ there is some $\theta_j \in [0,t]$ (or $[t,0]$ if $t < 0$), such that
+\begin{equation*}
+f_j(x+k + t e_n) - f_j(x+k) =
+t \frac{\partial f_j}{\partial x_n}(x+k+\theta_j e_n).
+\end{equation*}
+Note that if $\snorm{h} < \delta$, then $\snorm{k+\theta_j e_n} \leq \snorm{h}
+< \delta$.
+So to finish,
+\begin{equation*}
+\begin{split}
+\snorm{f(x+h) - f(x) - Ah}
+& \leq \snorm{f(x+k + t e_n) - f(x+k) -tv} + \epsilon \snorm{k}
+\\
+& \leq \sqrt{\sum_{j=1}^m {\left(t\frac{\partial f_j}{\partial
+x_n}(x+k+\theta_j e_n) -
+t \frac{\partial f_j}{\partial x_n}(x)\right)}^2} + \epsilon \snorm{k}
+\\
+& \leq \sqrt{m}\, \epsilon \sabs{t} + \epsilon \snorm{k}
+\\
+& \leq (\sqrt{m}+1)\epsilon \snorm{h} . \qedhere
+\end{split}
+\end{equation*}
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove the assertion about the base case
+in the proof of \propref{mv:prop:contdiffpartials}.  That is, prove that
+if $n=1$ and the
+the partials exist and are continuous, the function is 
+differentiable.
+\end{exercise}
+
+\begin{exercise} \label{exercise:noncontpartialsexist}
+Define a function $f \colon \R^2 \to \R$ by
+(see \figureref{fig:xyxsqysqvol2})
+\begin{equation*}
+f(x,y)
+=
+\begin{cases}
+\frac{xy}{x^2+y^2} & \text{ if $(x,y) \not= (0,0)$}, \\
+0 & \text{ if $(x,y) = (0,0)$}.
+\end{cases}
+\end{equation*}
+\begin{exparts}
+\item
+Show that partial derivatives 
+$\frac{\partial f}{\partial x}$ and
+$\frac{\partial f}{\partial y}$ exist at all points (including the origin).
+\item
+Show that $f$ is not continuous at the origin (and hence not
+differentiable).
+\item
+Show that the partial derivatives are not continuous.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Define $f \colon \R^2 \to \R$ as
+\begin{equation*}
+f(x,y) =
+\begin{cases}
+(x^2+y^2)\sin\bigl({(x^2+y^2)}^{-1}\bigr) & \text{if $(x,y)
+\not= (0,0)$,} \\
+0 & \text{else.}
+\end{cases}
+\end{equation*}
+Show that $f$ is differentiable at the origin, but that it is not 
+continuously differentiable.
+\end{exercise}
+\end{exbox}
+
+\begin{myfig}
+\includegraphics{figures/xyxsqysq}
+\caption{Graph of $\frac{xy}{x^2+y^2}$.\label{fig:xyxsqysqvol2}}
+\end{myfig}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4884,9 +5850,8 @@ d(x_n, x_k) < \epsilon .
 \end{defn}
 
 The definition is again simply a translation of the concept
-from the real numbers to metric spaces.  So a sequence of real
-numbers is Cauchy in the sense of \chapterref{seq:chapter} if and only if
-it is Cauchy in the sense above, provided we equip the real numbers with
+from the real numbers to metric spaces,
+provided we equip the real numbers with
 the standard metric $d(x,y) = \abs{x-y}$.
 
 \begin{prop}
@@ -4913,17 +5878,16 @@ converges to an $x \in X$.
 The space $\R^n$ with the standard metric is a complete metric space.
 \end{prop}
 
-For $\R = \R^1$ completeness was proved in \chapterref{seq:chapter}.  The proof of
-the above proposition is a reduction to the one dimensional case.
+We assume the reader has seen the proof of completeness in $\R = \R^1$,
+and we reduce the completeness in $\R^n$ to the one dimensional case.
 
 \begin{proof}
 Let $\{ x_j \}_{j=1}^\infty$ be a Cauchy sequence
-in $\R^n$, where we write $x_j = \bigl(x_{j,1},x_{j,2},\ldots,x_{j,n}\bigr) \in \R^n$.
-As the sequence is Cauchy, given $\epsilon > 0$, there exists an $M$ such that for all
-$i,j \geq M$ we have
-\begin{equation*}
-d(x_i,x_j) < \epsilon.
-\end{equation*}
+in $\R^n$, where $x_j = \bigl(x_{j,1},x_{j,2},\ldots,x_{j,n}\bigr) \in \R^n$.
+Given $\epsilon > 0$, there exists an $M$ such that
+$d(x_i,x_j) < \epsilon$
+for all
+$i,j \geq M$.
 
 Fix some $k=1,2,\ldots,n$, for $i,j \geq M$ we have
 \begin{equation*}
@@ -4949,8 +5913,8 @@ with no limit in $(0,1]$.  But see also
 \exerciseref{exercise:closedcomplete}.
 
 In the language of metric spaces,
-the results on continuity of \sectionref{sec:liminter},
-say that the metric space
+as uniform limits of continuous functions are continuous,
+the metric space
 $C([a,b],\R)$ of \exampleref{example:msC01} is complete.
 The proof follows by ``unrolling the definitions,'' 
 and is left as an exercise.
@@ -4998,8 +5962,7 @@ $K$ is compact is to say that \emph{every open cover of $K$ has a finite
 Let $\R$ be the metric space with the standard metric.
 
 The set $\R$ is not compact.  Proof: Take the sets $U_j = (-j,j)$.
-Any $x \in \R$ is in some $U_j$ (by the
-\hyperref[thm:arch:i]{Archimedean property}), so we have an open cover.
+Any $x \in \R$ is in some $U_j$, so we have an open cover.
 Suppose we have a finite
 subcover $\R \subset U_{j_1} \cup U_{j_2} \cup \cdots \cup U_{j_k}$,
 and suppose $j_1 < j_2 < \cdots < j_k$.  Then $\R \subset U_{j_k}$, but that is
@@ -5438,7 +6401,6 @@ $C(0,1)$ is not compact (even though it is closed and bounded).
 Hints: Construct a sequence of distinct continuous functions $\{ f_n \}$ such that
 $d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \not= k$.  Show that
 the set $\{ f_n : n \in \N \} \subset C(0,1)$ is closed but not compact.
-See \chapterref{fs:chapter} for inspiration.
 \end{exercise}
 
 \begin{exercise}[Challenging]
@@ -5507,6 +6469,7 @@ Prove that $K$ is compact as a subset of $(X,d)$ if and only if $K$ is
 compact as a subset of itself with the subspace metric.
 \end{exercise}
 
+\begin{samepage}
 \begin{exercise} \label{exercise:cauchydepndsonmetric}
 Consider two metrics on $\R$.
 Let $d(x,y) = \abs{x-y}$ be the standard metric,
@@ -5533,6 +6496,7 @@ in $(\R,d')$ but not Cauchy in $(\R,d)$.
 While $(\R,d)$ is complete, show that $(\R,d')$ is not complete.
 \end{exparts}
 \end{exercise}
+\end{samepage}
 
 \begin{exercise} \label{exercise:relativelycompactseq}
 Let $(X,d)$ be a complete metric space.
@@ -5998,7 +6962,7 @@ and $(Y,d_Y)$.  Show that if $X$ is connected, then $f(X)$ is connected.
 
 \begin{exercise}
 Prove the following version of the
-\hyperref[IVT:thm]{intermediate value theorem}.  Let $(X,d)$ be a connected
+intermediate value theorem.  Let $(X,d)$ be a connected
 metric space and $f \colon X \to \R$ a continuous function.  Suppose that
 there exist $x_0,x_1 \in X$ and $y \in \R$ such that $f(x_0) < y < f(x_1)$.
 Then prove that there exists a $z \in X$ such that $f(z) = y$.
