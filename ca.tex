@@ -722,7 +722,7 @@ The distance between two numbers $z$ and $w$ is measured by
 \sabs{z-w} ,
 \end{equation*}
 and this makes $\C$ into a metric space.  See \Appendixref{ap:metric}
-for an introduction to metric spaces.  The basic neighbourhood (that is, an
+for an introduction to metric spaces.  The basic neighborhood (that is, an
 open ball) in $\C$
 is called a \emph{\myindex{disc}}.
 Given $a \in \C$ and $\rho > 0$, define the disc of radius $\rho$ around
@@ -987,9 +987,249 @@ positive real axis and let $\theta$ be in the range $[0,2\pi)$.
 
 It is sometimes useful to extend the real numbers by adding $\pm \infty$.
 There is a similar concept for the complex plane, although in this case
-we only add one infinity.
+we only add one infinity.  We write:
+\begin{equation*}
+\C_{\infty} = \C \cup \{ \infty \} .
+\end{equation*}
+The trick is giving this set some geometry or at least topology.  We
+definitely want the topology to be the same as that of $\C$ when we stay
+away from infinity.  We define the function $g \colon \C \to \C_\infty$
+\begin{equation*}
+g(z) =
+\begin{cases}
+\frac{1}{z} & \text{if $z \not= 0$,} \\
+\infty & \text{else.}
+\end{cases}
+\end{equation*}
+The function $g$ is one to one, and its image is $\C_{\infty} \setminus
+\{0\}$.
+Any neighborhood of the origin can be taken to a neighborhood of
+$\infty$ and vice versa.  In fact when talking about a neighborhood of
+infinity in $\C_{\infty}$, then we really want to think of this map,
+and think of the corresponding neighborhood of the origin.
+
+More concretely we can give $\C_{\infty}$ a metric space structure.  The way
+we can visualize it is as follows.  Let $S^2$ be the unit sphere in $\R^3$,
+that is, the set described by $x^2 + y^2 + z^2 = 1$ if $(x,y,z)$ are the
+coordinates\footnote{This is one of the very few instances in this book where
+$z$ is a real number.}.  The plane $\R^2$ with coordinates $(x,y)$ can be
+identified with $\C$ with coordinate $\xi$ by taking $x+iy = \xi$.
+Given any point $p \in S^2$ which is not the north pole $(0,0,1) \in S^2$,
+there is a unique line in $\R^3$ through the point $(0,0,1)$ and $p$.
+It is not difficult to prove that this line is never parallel to the
+$xy$-plane, that is, to $\C$, and hence it must intersect $\C$ in a unique
+point $\xi \in \C$ (a plane and a line intersect at a unique point unless
+the two are parallel).  We then define:
+\begin{equation*}
+\Phi(p) = \xi.
+\end{equation*}
+Furthermore we let $\Phi\bigl((0,0,1)\bigr) = \infty$ to find a map
+$\Phi \colon S^2 \to \C_\infty$.  The map we have is the
+\emph{stereographic projection}.  The map is one-to-one and onto (exercise
+below), and so we can assign a distance to $\C_\infty$ by
+using a distance on $S^2$, which we can just take to be the subspace
+metric coming from the euclidean metric on $\R^3$ (another possibility
+could be the great circle distance, \exampleref{ms:greatcircle}).
+
+\begin{exbox}
+\begin{exercise}
+Suppose $(\phi,\theta)$
+are spherical coordinates on $S^2$, where $0 \leq \phi \leq \pi$ is the zenith (angle made
+with the $z$-axis) and $-\pi < \theta \leq \pi$ the azimuth, and we write
+points in $\C$ using polar coordinates $re^{\theta}$.  Then prove that $\Phi$ of
+$(\phi,\theta)$ is $(\cot \nicefrac{\phi}{2})e^{i\theta}$.
+\end{exercise}
+
+\begin{exercise}
+Show that $\Phi$ is one-to-one and onto.
+\end{exercise}
+
+\begin{exercise}
+Show that the topology induced on $\C$ by the topology of $S^2$ using $\Phi$
+as above is equivalent to the standard one.  That is, show that a set $U
+\subset \C$
+is open in the euclidean metric on $\C$ if and only if it is open using the
+metric coming from $S^2$.
+\end{exercise}
+\end{exbox}
+
+The point of the Riemann sphere is to give values of $\infty$ to certain
+limits and to allow limits as $z$ goes to $\infty$.  So if we have a
+function $f \colon U \subset \C_\infty \to \C_\infty$ we define
+\begin{equation*}
+\lim_{z \to z_0} f(z) = L
+\end{equation*}
+as the metric space limit using the metric on the Riemann sphere, this
+includes the cases when $z_0 = \infty$ and when $L = \infty$.
+
+\begin{exbox}
+\begin{exercise}
+Suppose that $L \in \C$ and $z_0 \in \C$.
+Show that $\lim_{z\to z_0} f(z) = L$ in the sense of the Riemann sphere
+if and only if $\lim_{z \to z_0} f(z) = L$ in the usual sense (the euclidean
+metric on $\C$).
+\end{exercise}
+
+\begin{exercise}
+Suppose that $L \in \C$.
+Show that $\lim_{z\to \infty} f(z) = L$ in the sense of the Riemann sphere
+if and only if, for every $\epsilon > 0$ there exists an $M$ such that
+$\sabs{f(z)-L} < \epsilon$ whenever $\sabs{z} > M$.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $z_0 \in \C$.
+Show that $\lim_{z\to \infty} f(z) = \infty$ in the sense of the Riemann sphere
+if and only if, for every $M > 0$ there exists a $\delta > 0$ such that
+$\sabs{f(z)} > <$ whenever $\sabs{z-z_0} < \delta$.
+\end{exercise}
+
+\begin{exercise}
+Show that $\lim_{z\to\infty} f(z) = L$ for some $L \in \C_\infty$ if and only if
+$\lim_{z \to 0} f(\nicefrac{1}{z}) = L$.
+\end{exercise}
+
+\begin{exercise}
+Show that $\lim_{z\to z_0} f(z) = \infty$ for some $z_0 \in \C_\infty$ if and only if
+$\lim_{z \to z_0} \frac{1}{f(z)} = 0$.
+\end{exercise}
+\end{exbox}
+
+It then makes sense to talk about the value of $\frac{1}{z}$ at the origin
+as $\infty$, and the value of $z$ at $\infty$ as $\infty$.
+
+\begin{exbox}
+\begin{exercise}
+Suppose $f(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0$ be
+a polynomial where $a_0,\ldots,a_n \in \C$.  Prove that $\lim_{z \to \infty} f(z) = \infty$.  Hint: Feel
+free to use the similar statement about polynomials of real variables:
+if $p(x) = c_n x^n + c_{n-1} x^{n-1} + \cdots + c_1 x + c_0$ is a monic
+polynomial and $c_{0},\ldots,c_n \in \R$ and $c_n > 0$, then $\lim_{x \to
++\infty} p(x) = +\infty$ (in the standard extended real sense).
+\end{exercise}
+\end{exbox}
+
+In calculus and in basic real analysis, most likely you have encountered
+infinite limits that are really in the sense of the extended reals.
+Despite that the two types of infinite limits, either in the sense of the
+extended reals or in the sense of the Riemann sphere,
+look very similar, and despite using essentially the same notation,
+they are different.
+For example,
+\begin{equation*}
+\lim_{x \to 0} \frac{1}{x} \quad \text{does not exist,} \qquad \text{but} \qquad
+\lim_{z \to 0} \frac{1}{z} = \infty .
+\end{equation*}
+Here on the left hand side we tacitly use the extended real sense and on the
+right hand side we use the Riemann sphere sense.
+This could, obviously, cause confusion.
+In this book, infinite limits are going to be in the Riemann sphere sense
+unless either otherwise noted.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Holomorphic functions} \label{ch:holfusc}
+
+\begin{myquote}
+FIXME
+
+---FIXME H.\ FIXME
+\end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Cauchy--Riemann equations}
+\label{sec:holfuncs}
+
+The types of functions that we wish to study are those that in some sense
+generalize polynomials in $z \in \C$.  That is, we wish to study functions that 
+at least locally behave like $f(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots +
+a_1 z + a_0$.  In particular, we wish to study functions that are
+locally approximated, near some $z_0$, behaves like
+\begin{equation*}
+f(z_0+h) \approx f(z_0) + a h
+\end{equation*}
+for some $a \in \C$.  If we have a differentiable (in the real sense,
+see \sectionref{sec:derinsv} in the appendix) function $f \colon U \to
+\C$ where $U \subset \C$, then if we think of $\C$ as $\R^2$,
+then the real derivative of $f$ is a $2 \times 2$ real matrix $D f$.
+That is, we know that,
+\begin{equation*}
+\lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - (Df|_{z_0}) h}}{\sabs{h}} = 0 .
+\end{equation*}
+Where we think of $h$ as a column vector to be able to apply it to the
+$2 \times 2$ real matrix $Df|_{z_0}$.  A key point here is that $h \in \C$
+so the limit is being taken in $\C$.
+
+Write $f = u+iv$, that is, as a
+mapping into $\R^2$ it is $f = (u,v)$.  Then
+\begin{equation*}
+Df|_{z_0} =
+\begin{bmatrix}
+u_x|_{z_0} & u_y|_{z_0} \\
+v_x|_{z_0} & v_y|_{z_0}
+\end{bmatrix} .
+\end{equation*}
+
+Now comes the tricky bit.  If we think of complex numbers as $2 \times 2$
+matrices, then most often the matrix $Df|_{z_0}$ does not correspond to a
+complex number.  As we have seen in the last chapter, it is
+$\left[ \begin{smallmatrix}
+x & -y \\ y & x
+\end{smallmatrix} \right]$ that corresponds to the complex number $x+iy$.
+In other words, if we wish $Df|_{z_0}$ to correspond to multiplication by
+a complex number then
+\begin{equation*}
+u_x|_{z_0} = v_y|_{z_0} , \qquad  v_x|_{z_0} = -u_y|_{z_0} .
+\end{equation*}
+In this case $Df|_{z_0}$ corresponds to multiplication by the number
+$a = u_x|_{z_0} + i v_x|_{z_0}$, which is equal to
+$v_y|_{z_0} - i u_y|_{z_0}$.
+So we get that
+\begin{equation*}
+0 = \lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - a h}}{\sabs{h}} =
+\lim_{h \to 0} \abs{\frac{f(z_0+h) - f(z_0)}{h} - a h} ,
+\end{equation*}
+or in other words
+\begin{equation*}
+\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = a .
+\end{equation*}
+We will write 
+\begin{equation*}
+f'(z_0) \overset{\text{def}}{=}
+\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = a .
+\end{equation*}
+
+We have prove the following proposition.
+
+\begin{prop}
+Let $U \subset \C$ be open, $z_0 \in U$ and $f = u+iv \colon U \to \C$ be
+differentiable (in the real sense) at $z_0 \in \C$ and 
+\begin{equation*}
+u_x|_{z_0} = v_y|_{z_0} , \qquad  v_x|_{z_0} = -u_y|_{z_0} ,
+\end{equation*}
+Then $Df|_{z_0}$ corresponds to a multiplication by a complex number given
+by the following limit that exists
+\begin{equation*}
+f'(z_0) =
+\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} .
+\end{equation*}
+\end{prop}
 
 FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Power series and analytic functions}
+\label{sec:analfuncs}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{FOO}
 
@@ -3437,7 +3677,7 @@ Hint: See also \exerciseref{exercise:integralcontcontextra} and
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The derivative in several real variables}
+\section{The derivative in several real variables} \label{sec:derinsv}
 
 \subsection{The derivative}
 
@@ -4439,7 +4679,7 @@ particular metric.
 %Picard's theorem with less work.
 \end{example}
 
-\begin{example}
+\begin{example} \label{ms:greatcircle}
 The sphere with the so-called
 \emph{\myindex{great circle distance}} is also a metric space.
 Let $S^2$ be the \myindex{unit sphere}\index{sphere} in $\R^3$,
