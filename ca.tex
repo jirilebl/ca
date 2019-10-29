@@ -247,7 +247,7 @@
     filecolor=mypersianblue,
     linkcolor=mypersianblue,
     urlcolor=mypersianblue,
-    pdftitle={Complex Analysis},
+    pdftitle={Guide to Cultivating Complex Analysis},
     pdfsubject={Complex Analysis},
     pdfkeywords={one complex variable, complex analysis},
     pdfauthor={Jiri Lebl}
@@ -261,7 +261,7 @@
 
 \author{Ji\v{r}\'i Lebl}
 
-\title{One Complex Variable}
+\title{Guide to Cultivating Complex Analysis}
 
 % Don't include subsections
 \setcounter{tocdepth}{1}
@@ -375,9 +375,9 @@
 \vspace*{\stretch{1}}
 \noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
 \flushright
-{\Huge\bfseries \sffamily Complex Analysis}
+{\Huge\bfseries \sffamily Guide to Cultivating Complex Analysis}
 \noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
-\hfill\emph{\Large \sffamily The Breakfast of Champions in One Variable}
+\hfill\emph{\Large \sffamily Indoctrination in One Variable}
 \end{minipage}}
 
 \vspace{\stretch{1}}
@@ -510,20 +510,33 @@ Let us be thankful for the fools. But for them the rest of us could not succeed.
 \end{myquote}
 
 The purpose of this book is to teach a one-semester graduate course in
-complex analysis.  What is assumed is basic knowledge of undergraduate
+complex analysis.
+What is assumed is basic knowledge of undergraduate
 analysis in the real variable, called advanced calculus in some schools.
 The text assumes knowledge of metric spaces
 and differential analysis in several variables, but if the reader is not
 confident on these topics or has not yet seen them, the useful results
 are presented in the appendices.  With that, basic prerequisite for the
 course could be a single semester of undergraduate analysis if the
-appendices are also covered.
+appendices are also covered.  Very basic linear algebra and abstract algebra
+is also useful.
 
 This book takes the view that we do not need to redefine and reprove
 things that we have done in a basic real analysis course, especially with
-regards to functions of the plane.  So we can quite quickly jump to
-holomorphic functions without spending many lectures on redefining the
-basics.
+regards to mappings of the plane.  We can quite quickly jump to
+holomorphic functions without spending lectures on redefining the
+basics.  The connection is to understand multiplication by complex numbers
+as a $2 \times 2$ real matrix.  When we introduce line integrals we connect
+them to the line integrals the student has seen in calculus.
+
+Furthermore, we try not to define any conflicting terminology or notation
+with what the reader has learned before.
+Mainly, the term ``differentiable'' is generally left for the real
+derivative and we use ``complex differentiable'' when needed.  Although
+to be sure, 
+we will generally write ``(real) differentiable'' or
+``differentiable (in the real sense)'' to
+make it clear when we mean real differentiability.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -863,6 +876,8 @@ i \quad ``{}={}'' \quad
 are the identity and the rotation counterclockwise by 90 degrees
 respectively.  Precisely what we expect multiplication by $1$ and $i$
 to do.
+The complex conjugate is represented by the
+matrix transpose, and a symmetric matrix represents a real number.
 
 Of course we can also multiply the $2 \times 2$ matrices themselves,
 and this matrix multiplication is also the same as multiplication of complex
@@ -877,6 +892,13 @@ number multiplication, and that these matrices form a subring of $M_2(\R)$.
 Prove that the nonzero matrices of this form are
 invertible (the subring is a field).  In particular, notice the
 determinant appearing in the denominator for the multiplicative inverse.
+\end{exercise}
+
+\begin{exercise}
+Prove that if the $2 \times 2$ matrix $M$ represents a complex number
+$a+ib$, then $M$ has two eigenvalues: $a \pm i b$ with the corresponding
+eigenvectors $\left[ \begin{smallmatrix} 1 \\ \pm i \end{smallmatrix}
+\right]$.
 \end{exercise}
 \end{exbox}
 
@@ -1106,16 +1128,16 @@ we only add one infinity.  We write:
 \end{equation*}
 The trick is giving this set some geometry or at least topology.  We
 definitely want the topology to be the same as that of $\C$ when we stay
-away from infinity.  We define the function $g \colon \C \to \C_\infty$
+away from infinity.  We define the function $g \colon \C_\infty \to \C_\infty$
 \begin{equation*}
 g(z) =
 \begin{cases}
-\frac{1}{z} & \text{if $z \not= 0$,} \\
-\infty & \text{else.}
+\frac{1}{z} & \text{if $z \not= 0$ and $z \not= \infty$,} \\
+\infty & \text{if $z = 0$,} \\
+0 & \text{if $z = \infty$.}
 \end{cases}
 \end{equation*}
-The function $g$ is one to one, and its image is $\C_{\infty} \setminus
-\{0\}$.
+The function $g$ is one-to-one and onto.
 Any neighborhood of the origin can be taken to a neighborhood of
 $\infty$ and vice versa.  In fact when talking about a neighborhood of
 infinity in $\C_{\infty}$, then we really want to think of this map,
@@ -1347,6 +1369,7 @@ f'(z_0) \overset{\text{def}}{=}
 \lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi ,
 \end{equation*}
 And we will call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
+at $z_0$.  We will say that $f$ is \emph{\myindex{complex differentiable}}
 at $z_0$.
 
 So we proved that if $f$ is differentiable (in the real sense), then 
@@ -1370,7 +1393,7 @@ Then
 \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} , \qquad
 \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
 \end{equation}
-if and only if $f$ the complex derivative exists at all $z_0 \in U$, or in
+if and only if $f$ is complex differentiable at all $z_0 \in U$, or in
 other words, if
 \begin{equation} \label{eq:complexdiff}
 f'(z) =
@@ -1394,7 +1417,7 @@ the set of holomorphic functions defined on $U$ as $\sO(U)$.
 We know that continuously differentiable functions that satisfy
 Cauchy--Riemann equations are holomorphic.
 On the other hand
-a function whose complex derivative exists everywhere, that is,
+a function complex differentiable everywhere, that is,
 a holomorphic function, is clearly differentiable in the real sense
 as the complex derivative $f'(z_0)$ gives the $Df|_{z_0}$, and
 thus the partial derivatives exist and satisfy the Cauchy--Riemann
@@ -1720,7 +1743,37 @@ FIXME:exercises
 \section{Power series and analytic functions}
 \label{sec:analfuncs}
 
-%??perhaps above \subsection{The function $z^n$}
+\subsection{The function $z^n$}
+
+It will turn out that to understand holomorphic functions locally, 
+it is sufficient to understand $z \mapsto z^n$.  We will prove that
+holomorphic functions are just power series and so we can always factor
+a $z^n$ out of any power series, which is, after all, just a sum of such
+terms.
+
+FIXME: $n$-to-1, zero only at zero, multiplies angles by $n$.
+
+\subsection{Power series and radius of convergence}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Simple Cauchy's Theorem and its consequences}
+\label{sec:cauchysimple}
+
+\subsection{Line integrals}
+
+FIXME: set up line integrals and do Cauchy for derivatives
+
+\subsection{Cauchy--Goursat}
+
+FIXME: ``Cauchy for triangles'' and then conclude Cauchy for
+a large number of sets (convex is good enough)
+
+FIXME: Should we do homotopies here?
+
+\subsection{Cauchy's theorem for discs}
 
 FIXME
 
