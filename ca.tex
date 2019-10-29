@@ -6,6 +6,8 @@
 
 \usepackage[shortlabels]{enumitem}
 \usepackage{ifpdf}
+\usepackage[shortalphabetic,msc-links]{amsrefs}
+\usepackage{mathtools}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
@@ -17,11 +19,30 @@
 \usepackage{titlesec}
 \usepackage{import}
 \usepackage{vogtwidebar}
+\usepackage{nicefrac}
+\usepackage{mathdots}
+\usepackage{microtype}
+\usepackage{cancel}
+\usepackage{framed}
+\usepackage{import}
+\usepackage{varioref}
 
-% Footnotes should use symbols, not numbers.  Numbered footnotes are
-% evil
-\usepackage[perpage,symbol*]{footmisc}
+\usepackage{perpage}
 
+\usepackage{tikz}
+\usetikzlibrary{cd}
+\usepackage{rotating}
+
+\usepackage{cellspace}
+\usepackage[toc,nopostdot,sort=use,nomain,automake]{glossaries}
+
+%Palatino
+\usepackage[theoremfont]{newpxtext}
+\usepackage[vvarbb]{newpxmath}
+\linespread{1.05}
+\usepackage[scr=boondoxo]{mathalfa} % but we want the nice fancy script fonts
+
+\usepackage[T1]{fontenc}
 
 %symmetric for web
 \usepackage[inner=1.2in,outer=1.2in,top=1in,bottom=1in]{geometry}
@@ -32,27 +53,6 @@
 %\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter$i$}{20pt}%
 %{\hfill\mytitleparbox}%
 %[\vspace{-1ex}\rule{0.5\textwidth}{0.5pt}\rule{0.5\textwidth}{1pt}]
-
-\definecolor{gray75}{gray}{0.75}
-
-\titleformat{\chapter}[hang]{\Huge\bfseries\filleft}%
-{\thechapter$i$\hspace*{10pt}{\textcolor{gray75}{$\backslash\!\!\backslash$}}}%
-{10pt}%
-{}
-[\vspace{-1ex}\rule{0.5\textwidth}{0.5pt}\rule{0.5\textwidth}{1pt}]
-
-\titleformat{\section}[hang]{\Large\bfseries}%
-{\thesection$i$\hspace*{10pt}{\textcolor{gray75}{$\backslash$}}}%
-{10pt}%
-{}%
-
-\titleformat{\subsection}[hang]{\large\bfseries}%
-{\thesubsection$i$\hspace*{10pt}{\textcolor{gray75}{$\cdot$}}}%
-{10pt}%
-{}%
-
-\assignpagestyle{\chapter}{empty}
-
 
 \usepackage[margin=10pt,font=small,labelfont=bf,labelsep=colon,singlelinecheck=false]{caption}
 
@@ -84,7 +84,6 @@
 
 
 \usepackage{url}
-\usepackage{varioref}
 \usepackage{imakeidx}
 \PassOptionsToPackage{hyphens}{url}
 \usepackage{hyperref} % do NOT set [ocgcolorlinks] here!
@@ -95,14 +94,6 @@
 \usepackage[ocgcolorlinks]{ocgx2} %perhaps run without for lulu/createspace
 
 \usepackage[all]{hypcap}
-\usepackage[shortalphabetic,msc-links]{amsrefs}
-\usepackage{nicefrac}
-\usepackage{mathdots}
-\usepackage{mathtools}
-\usepackage{microtype}
-\usepackage{cancel}
-\usepackage{framed}
-\usepackage{import}
 
 %\usepackage{draftwatermark}
 %\SetWatermarkText{Draft of v3.0 as of \today. May change substantially!}
@@ -111,21 +102,36 @@
 %\SetWatermarkColor[gray]{0.7}
 %\SetWatermarkScale{0.18}
 
+\definecolor{gray75}{gray}{0.75}
 
-\usepackage{tikz}
-\usetikzlibrary{cd}
-\usepackage{rotating}
+\titleformat{\chapter}[hang]{\Huge\bfseries\filleft}%
+{\thechapter$i$\hspace*{10pt}{\textcolor{gray75}{$\backslash\!\!\backslash$}}}%
+{10pt}%
+{}
+[\vspace{-1ex}\rule{0.5\textwidth}{0.5pt}\rule{0.5\textwidth}{1pt}]
 
-\usepackage{cellspace}
-\usepackage[toc,nopostdot,sort=use,nomain,automake]{glossaries}
+\titleformat{\section}[hang]{\Large\bfseries}%
+{\thesection$i$\hspace*{10pt}{\textcolor{gray75}{$\backslash$}}}%
+{10pt}%
+{}%
 
-%Palatino
-\usepackage[theoremfont]{newpxtext}
-\usepackage[vvarbb]{newpxmath}
-\linespread{1.05}
-\usepackage[scr=boondoxo]{mathalfa} % but we want the nice fancy script fonts
+\titleformat{\subsection}[hang]{\large\bfseries}%
+{\thesubsection$i$\hspace*{10pt}{\textcolor{gray75}{$\cdot$}}}%
+{10pt}%
+{}%
 
-\usepackage[T1]{fontenc}
+\assignpagestyle{\chapter}{empty}
+
+
+% Footnotes should use symbols, not numbers.  Numbered footnotes are
+% evil, not using footmisc as it conflicts with hyperref
+%\usepackage[perpage,symbol*]{footmisc}
+
+% The [2] would not use star
+%\MakePerPage[2]{footnote}
+\MakePerPage{footnote}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
 
 % useful
 \newcommand{\ignore}[1]{}
@@ -503,7 +509,21 @@ Let us be thankful for the fools. But for them the rest of us could not succeed.
 ---Mark Twain 
 \end{myquote}
 
-\lipsum[1-2]
+The purpose of this book is to teach a one-semester graduate course in
+complex analysis.  What is assumed is basic knowledge of undergraduate
+analysis in the real variable, called advanced calculus in some schools.
+The text assumes knowledge of metric spaces
+and differential analysis in several variables, but if the reader is not
+confident on these topics or has not yet seen them, the useful results
+are presented in the appendices.  With that, basic prerequisite for the
+course could be a single semester of undergraduate analysis if the
+appendices are also covered.
+
+This book takes the view that we do not need to redefine and reprove
+things that we have done in a basic real analysis course, especially with
+regards to functions of the plane.  So we can quite quickly jump to
+holomorphic functions without spending many lectures on redefining the
+basics.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -747,6 +767,15 @@ A disc centered at the origin of radius 1 is called the
 The unit disc will come up often in this course, as it turns out that
 a lot of complex analysis can be done by looking at just the unit disc.
 
+The following definition is perhaps somewhat unnecessary, but it is so much
+easier to write and say than \emph{open and connected}, and it is commonly
+used in complex analysis.
+
+\begin{defn}
+An open and connected set $U \subset \C$ is called a
+\emph{\myindex{domain}}.
+\end{defn}
+
 \subsection{Complex-valued functions}
 
 It is possible that the analysis you have seen so far in your mathematical
@@ -786,9 +815,7 @@ We say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
 Again, this is precisely the way one integrates vector-valued functions
 for any vector space.
 
-\section{Other representations of complex numbers}
-
-\subsection{Matrix representation}
+\subsection{Matrix representation of complex numbers}
 
 As $\C$ is $\R^2$, we can think of
 $\C$ as a real two-dimensional vector space by forgetting about the
@@ -822,12 +849,12 @@ bc+ad .
 \end{equation*}
 Note that the matrices
 \begin{equation*}
-1 \quad \text{``}=\text{''} \quad
+1 \quad ``{}={}'' \quad
 \begin{bmatrix}
 1 & 0 \\
 0 & 1
 \end{bmatrix} \qquad \text{and} \qquad
-i \quad \text{``}=\text{''} \quad
+i \quad ``{}={}'' \quad
 \begin{bmatrix}
 0 & -1 \\
 1 & 0
@@ -866,11 +893,78 @@ object of study of complex analysis, the holomorphic (or analytic)
 functions, are those functions whose real derivative corresponds to a
 multiplication by a complex number.
 
-\subsection{Polar form and the exponential}
+\section{Polar form and the exponential}
 
-Another representation of a complex number is the polar form.  This is just
-a point in the plane given in polar coordinates.  That is,
-$x = r \cos \theta$ and $y= r \sin \theta$.  We write this form as
+\subsection{The exponential}
+
+The exponential is one of the most useful functions in complex analysis
+(if not all of analysis).  Let us define it for all complex numbers:
+\begin{equation*}
+e^{z} = 
+e^{x+iy}
+\overset{\text{def}}{=}
+e^x e^{iy}
+=
+e^x\cos y + i e^x \sin y .
+\end{equation*}
+This definition agrees with the standard definition for real numbers (when
+$y=0$).  Further note that
+\begin{equation*}
+e^{\bar{z}} = 
+e^{x-iy} =
+e^x\cos y - i e^x \sin y  = \overline{e^{z}} ,
+\end{equation*}
+and
+\begin{equation*}
+\sabs{e^{z}} = 
+\sabs{e^{x-iy}} =
+e^x .
+\end{equation*}
+It is possible to not resort to the real exponentials, sines and cosines
+to define the exponential functions, and we will do so in due course.
+But we want to have something to play around with already.
+
+\begin{exbox}
+\begin{exercise}
+Using the definition and trigonometric identities, prove
+\begin{equation*}
+e^{z+w} = e^z e^w .
+\end{equation*}
+Remark: In fact, $e^z$ is the unique continuous
+function that satisfies the above identity
+and also $e^1 = e$, but let us not worry about this now.
+\end{exercise}
+\end{exbox}
+
+In particular, we have the so-called
+\emph{\myindex{Euler's formula}}.  For real $\theta$, the definition
+of the exponential says:
+\begin{equation*}
+e^{i\theta}
+=
+\cos \theta + i \sin \theta .
+\end{equation*}
+Using this formula we could extend cosine and sine to the complex plane.
+The formula says that for real $\theta$
+\begin{equation*}
+\cos \theta = \Re e^{i\theta} = \frac{e^{i\theta}+e^{-i\theta}}{2} ,
+\qquad
+\sin \theta = \Im e^{i\theta} = \frac{e^{i\theta}-e^{-i\theta}}{2i} .
+\end{equation*}
+We thus simply define cosine and sine for complex numbers by plugging
+into that formula, now that we know how to evaluate the exponential:
+\begin{equation*}
+\cos z \overset{\text{def}}{=} \frac{e^{iz}+e^{-iz}}{2} ,
+\qquad
+\sin z \overset{\text{def}}{=} \frac{e^{iz}-e^{-iz}}{2i} .
+\end{equation*}
+
+
+\subsection{Polar coordinates}
+
+As complex numbers are just the plane, we could also use polar coordinates
+to represent complex numbers.
+That is, $x = r \cos \theta$ and $y= r \sin \theta$.  We write this form as
 \begin{equation*}
 z = x+iy = r e^{i \theta} ,
 \end{equation*}
@@ -884,41 +978,11 @@ The $\theta$ is called the \emph{\myindex{argument}}.  See
 \caption{Polar coordinates.\label{fig:polarcoords}}
 \end{myfig}
 
-The reason for the notation is the following definition of the
-\emph{\myindex{complex exponential}},
-sometimes called \emph{\myindex{Euler's formula}}:
-\begin{equation*}
-e^{i\theta}
-\overset{\text{def}}{=}
-\cos \theta + i \sin \theta ,
-\end{equation*}
-so
+The reason for the notation is the
+Euler's formula, so
 \begin{equation*}
 z = r e^{i\theta} = r\cos \theta + i r\sin \theta  = x+iy .
 \end{equation*}
-
-The exponential is one of the most useful functions in complex analysis
-(if not all of analysis).  Let us define it for all complex numbers:
-\begin{equation*}
-e^{z} = 
-e^{x+iy}
-\overset{\text{def}}{=}
-e^x e^{iy}
-=
-e^x\cos y + i e^x \sin y .
-\end{equation*}
-
-\begin{exbox}
-\begin{exercise}
-Using the definition and trigonometric identities, prove
-\begin{equation*}
-e^{z+w} = e^z e^w .
-\end{equation*}
-Remark: In fact, $e^z$ is the unique continuous
-function that satisfies the above identity
-and also $e^1 = e$, but let us not worry about this now.
-\end{exercise}
-\end{exbox}
 
 Polar form is particularly nice for multiplication of numbers and powers.
 Suppose $z = r e^{i\theta}$ and $w = s e^{i \psi}$, then
@@ -940,7 +1004,7 @@ rotation counterclockwise by 90 degrees.
 On the other hand, the polar form is particularly terrible for addition.
 You win some, you lose some.
 
-\medskip
+\subsection{The argument}
 
 We attempt to define the argument as
 \glsadd{not:arg}%
@@ -982,6 +1046,55 @@ on the negative real axis.  The principal branch ends up being somewhat less
 useful than we may think.  There is also the issue that not everyone agrees
 on what ``principal branch'' means; some mathematicians will sacrifice the
 positive real axis and let $\theta$ be in the range $[0,2\pi)$.
+
+\subsection{Mapping properties of the exponential}
+
+Before we leave the exponential, let us note what it does to the complex
+plane.  First, the identity $e^{z+w} = e^z e^w$ implies that the exponential
+can never be zero (exercise).  From known properties of polar coordinates
+(so properties of real sine and cosine) it follows that the exponential is
+onto $\C \setminus \{ 0 \}$.
+The complex exponential is not one-to-one, it is in fact
+infinitely-many-to-one.  For any integer $k$
+\begin{equation*}
+e^{z+ik2\pi} = 
+e^{z} e^{ik2\pi} =
+e^z .
+\end{equation*}
+
+Let us consider a vertical line given by $x=c$.  As
+\begin{equation*}
+e^{z} = 
+e^{x+iy} =
+e^x e^{iy} ,
+\end{equation*}
+and since $\sabs{e^{iy}} =1$, we find that the vertical line $x=c$ is taken to a
+circle of radius $e^c$.
+
+More generally the exponential takes the strip $a < x < b$ to the
+annulus
+\begin{equation*}
+\bigl\{ z \in \C : e^a < \sabs{z} < e^b \bigr\} .
+\end{equation*}
+
+On the other hand consider a horizontal line $y=c$.  By the above formula it
+is taken to the ray from the origin to infinity where $\theta = c$ in polar
+coordinates.  Hence, more generally,
+the exponential takes the strip $a < y < b$ to the
+sector
+\begin{equation*}
+\bigl\{ z \in \C : ``a < \arg z < b'' \bigr\} .
+\end{equation*}
+The reason for the quotation marks is that the inequality of course makes no
+sense without interpreting it properly.  It means that one of the values
+of $\arg z$ is between $a$ and $b$.
+
+\begin{exbox}
+\begin{exercise}
+Use $e^{z+w} = e^z e^w$ and $e^1 \not= 0$ to show that $e^z \not=0$ for all
+$z \in \C$.
+\end{exercise}
+\end{exbox}
 
 \section{The Riemann sphere}
 
@@ -1290,9 +1403,20 @@ continuously differentiable, and in fact, infinitely differentiable,
 although that result will have to wait.
 
 \begin{prop}
+Let $U \subset \C$ be a domain (open and connected),
+and $f \colon U \to \C$ be holomorphic, and $f'(z) = 0$ for all $z \in U$.
+Then $f$ is a constant.
+\end{prop}
+
+\begin{proof}
+The proof follows immediately from the standard real result,
+see \thmref{thm:svzerodersol} in the appendix.
+\end{proof}
+
+\begin{prop}
 Let $U \subset \C$ and $V \subset \C$ be open, and $f \colon U \to V$, $g
 \colon V \to \C$ be holomorphic.  Then the composition $g \circ f$
-is holomorphic.
+is holomorphic and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)$.
 \end{prop}
 
 \begin{proof}
@@ -1311,16 +1435,48 @@ complex differentiable at $z$.
 \end{proof}
 
 \begin{prop} \label{prop:sumprod}
-The sum and product of any two holomorphic is holomorphic.
+The sum and product of any two holomorphic is holomorphic,
+and in fact $(f+g)'(z) = f'(z) + g'(z)$ and 
+$(fg)'(z) = f'(z)g(z) + f(z)g'(z)$.
 \end{prop}
+
+The proof is left as an exercise. It is no different than the standard proof
+for functions of one real variable, with the only difference that the
+limits taken are complex limits.
+
+Similarly it is easy to see that derivative of a constant is zero, the
+derivative of $z$ is $1$, and in general, derivative of $z^n$ is
+$nz^{n-1}$.
 
 \begin{exbox}
 \begin{exercise}
 Prove \propref{prop:sumprod}.
-(Hint: For the product, mimic the proof of product rule from calculus).
+Hint: 
+$f(z+h)g(z+h) - f(z)g(z) =
+f(z+h)g(z+h) - f(z)g(z+h) +
+f(z)g(z+h) - f(z)g(z)$.
 \end{exercise}
 
-FIXME: more exercises.
+\begin{samepage}
+\begin{exercise}
+\begin{exparts}
+\item
+Prove that the derivative of a constant is zero, $(1)' = 0$.
+\item
+Prove $(z)' = 1$.
+\item
+Prove $(z^n)' = n z^{n-1}$ for positive integers.  Hint: Use product rule
+and induction: $z^n = z^{n-1} z$.
+\item
+Prove $(z^n)' = n z^{n-1}$ for negative integers.
+\end{exparts}
+\end{exercise}
+\end{samepage}
+
+\begin{exercise}
+Show that the complex exponential function, and hence also sine and cosine,
+is holomorphic, and show that $\exp' = \exp$.
+\end{exercise}
 
 \begin{exercise}
 Show that $f(z) = z \bar{z} = \sabs{z}^2$ is complex differentiable
@@ -1330,21 +1486,28 @@ at the origin, but nowhere else.
 
 Perhaps the reader may ask at this point: Is any solution to
 the Cauchy--Riemann equations holomorphic?  Above we saw that the answer
-is affirmative for continuously differentiable functions.  But in general
-the answer is false%
-\footnote{
+is affirmative for continuously differentiable functions.  In fact, we
+really proved the stronger assertion: \emph{If $f$ is differentiable in the
+real sense at every point and satisfies the Cauchy--Riemann equations, then
+it is holomorphic.}
+But in general the answer is false%
+\footnote{%
 A good thorough account of this problem is:
 J.\ D.\ Gray and  S.\ A.\ Morris,
 \emph{When is a Function that Satisfies the Cauchy-Riemann Equations
 Analytic?}  The American Mathematical Monthly, Vol.\ 85, No.\ 4 (Apr.,
-1978), pp. 246--256.},
+1978), pp. 246--256.} if we only assume extistence of partial derivatives,
 as the following exercise shows.
 
 \begin{exbox}
 \begin{exercise}
-Let $f(0) = 0$ and $f(z) = e^{-z^{-4}}$ for $z \not=0$.  Prove that $f$
-satisfies the Cauchy--Riemann equations at every point.  Then prove
-that $f$ is not complex differentiable at the origin.
+Let $f(0) = 0$ and $f(z) = e^{-z^{-4}}$ for $z \not=0$.  Prove that partial
+derivatives exist and $f$
+satisfies the Cauchy--Riemann equations at every point
+(including the origin).
+Then prove
+that $f$ is not complex differentiable at the origin.  In fact, $f$ is not
+even continuous.
 \end{exercise}
 \end{exbox}
 
@@ -1557,6 +1720,8 @@ FIXME:exercises
 \section{Power series and analytic functions}
 \label{sec:analfuncs}
 
+%??perhaps above \subsection{The function $z^n$}
+
 FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1580,8 +1745,12 @@ If you cannot prove a man wrong, don't panic. You can always call him names.
 We assume as a prerequisite a basic knowledge of analysis on the real line.
 Let us however, survey some basic results that the reader might not have
 seen in such a course, and that will be useful in the text.
+We only cover the real case in these appendices.
+Where the complex case is needed in the book, it will be defined or proved
+where needed.
 The text is partly adapted from \cite{ra:book} and \cite{ra:book2}.
 Those two texts are useful to find more details.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2985,7 +3154,7 @@ M \snorm{y-x} . \qedhere
 
 Let us solve the differential equation $Df = 0$.
 
-\begin{cor}
+\begin{cor} \label{thm:svzerodersol}
 If $U \subset \R^n$ is connected and $f \colon U \to \R^m$ is differentiable
 and $Df|_x = 0$, for all $x \in U$, then $f$ is constant.
 \end{cor}
