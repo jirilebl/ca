@@ -241,7 +241,7 @@
     filecolor=mypersianblue,
     linkcolor=mypersianblue,
     urlcolor=mypersianblue,
-    pdftitle={I'd Walk a Mile for Complex Analysis},
+    pdftitle={Complex Analysis},
     pdfsubject={Complex Analysis},
     pdfkeywords={one complex variable, complex analysis},
     pdfauthor={Jiri Lebl}
@@ -369,7 +369,7 @@
 \vspace*{\stretch{1}}
 \noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
 \flushright
-{\Huge\bfseries \sffamily I'd Walk a Mile for Complex Analysis}
+{\Huge\bfseries \sffamily Complex Analysis}
 \noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
 \hfill\emph{\Large \sffamily The Breakfast of Champions in One Variable}
 \end{minipage}}
@@ -778,7 +778,7 @@ And similarly if $X \subset \R$, that is if $f$ is a complex-valued
 function of one real variable, $f' = u' + iv'$.
 
 Similarly when integrating.  Suppose that $f \colon [a,b] \to \C$.
-We will say it is (Riemann) integrable if $u$ and $v$ are, and then
+We say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
 \begin{equation*}
 \int_a^b f(t) \, dt = 
 \int_a^b u(t) \, dt + i \int_a^b v(t) \, dt .
@@ -1130,12 +1130,13 @@ unless either otherwise noted.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Holomorphic functions} \label{ch:holfusc}
+\chapter{Holomorphic Functions} \label{ch:holfusc}
 
 \begin{myquote}
-FIXME
+If you cannot get rid of the family skeleton, you may as well make it
+dance.
 
----FIXME H.\ FIXME
+---George Bernard Shaw
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1143,15 +1144,38 @@ FIXME
 \section{Cauchy--Riemann equations}
 \label{sec:holfuncs}
 
+\subsection{Holomorphic functions}
+
 The types of functions that we wish to study are those that in some sense
 generalize polynomials in $z \in \C$.  That is, we wish to study functions that 
-at least locally behave like $f(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots +
-a_1 z + a_0$.  In particular, we wish to study functions that are
-locally approximated, near some $z_0$, behaves like
+at least locally behave like $P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots +
+a_1 z + a_0$.  Polynomials are very easy to understand and very easy to work
+with.  Unfortunately there aren't that many of them.  For example, there is
+no polynomial that solves the most basic of differential equations: $f' =
+f$.  So we have to enlarge our horizons a bit.
+
+Consider a polynomial $P(z)$ and expand it near some $z_0 \in \C$:
 \begin{equation*}
-f(z_0+h) \approx f(z_0) + a h
+P(z) = c_0 + c_1 (z-z_0) + c_2 {(z-z_0)}^2 + \cdots + c_n {(z-z_0)}^n .
 \end{equation*}
-for some $a \in \C$.  If we have a differentiable (in the real sense,
+So $P(z_0+h) = c_0 + c_1 h + c_2 h^2 + \cdots + c_n h^n$.
+In other words,
+\begin{equation*}
+\lim_{h \to 0} \frac{P(z_0+h) - P(z_0)}{h} =
+\lim_{h \to 0} \frac{P(z_0+h) - c_0}{h} = c_1 .
+\end{equation*}
+So $P(z_0+h)$ is approximated (locally) by $c_0 + c_1 h$.
+We should emphasize that the limits are as a complex $h$ goes to 0.
+
+Therefore, we wish to study functions that are
+locally approximated by $c_0 + c_1 h$.  Or more formally functions
+such that
+\begin{equation*}
+f(z_0+h) = f(z_0) + \xi h + o(\sabs{h})
+\end{equation*}
+for some $\xi \in \C$, where $o(\sabs{h})$ just means any function of $h$
+that goes to zero faster than $\sabs{h}$.
+If we have a differentiable (in the real sense,
 see \sectionref{sec:derinsv} in the appendix) function $f \colon U \to
 \C$ where $U \subset \C$, then if we think of $\C$ as $\R^2$,
 then the real derivative of $f$ is a $2 \times 2$ real matrix $D f$.
@@ -1160,151 +1184,174 @@ That is, we know that,
 \lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - (Df|_{z_0}) h}}{\sabs{h}} = 0 .
 \end{equation*}
 Where we think of $h$ as a column vector to be able to apply it to the
-$2 \times 2$ real matrix $Df|_{z_0}$.  A key point here is that $h \in \C$
-so the limit is being taken in $\C$.
+$2 \times 2$ real matrix $Df|_{z_0}$.
+A key point here is that $h \in \C$ so the limit is being taken in $\C$.
+So $f(z_0+h) - f(z_0) - (Df|_{z_0}) h$ is $o(\sabs{h})$ as needed.
+The trick is when does $(Df|_{z_0}) h$ correspond to $\xi h$ for some $\xi \in
+\C$.
 
 Write $f = u+iv$, that is, as a
 mapping into $\R^2$ it is $f = (u,v)$.  Then
 \begin{equation*}
 Df|_{z_0} =
 \begin{bmatrix}
-u_x|_{z_0} & u_y|_{z_0} \\
-v_x|_{z_0} & v_y|_{z_0}
+\frac{\partial u}{\partial x}\big|_{z_0} & \frac{\partial u}{\partial y}\big|_{z_0} \\
+\frac{\partial v}{\partial x}\big|_{z_0} & \frac{\partial v}{\partial y}\big|_{z_0}
 \end{bmatrix} .
 \end{equation*}
-
-Now comes the tricky bit.  If we think of complex numbers as $2 \times 2$
+If we think of complex numbers as $2 \times 2$
 matrices, then most often the matrix $Df|_{z_0}$ does not correspond to a
 complex number.  As we have seen in the last chapter, it is
 $\left[ \begin{smallmatrix}
-x & -y \\ y & x
-\end{smallmatrix} \right]$ that corresponds to the complex number $x+iy$.
+a & -b \\ b & a
+\end{smallmatrix} \right]$ that corresponds to the complex number $a+ib$.
 In other words, if we wish $Df|_{z_0}$ to correspond to multiplication by
 a complex number then
 \begin{equation*}
-u_x|_{z_0} = v_y|_{z_0} , \qquad  v_x|_{z_0} = -u_y|_{z_0} .
+\frac{\partial u}{\partial x}\Big|_{z_0} =
+\frac{\partial v}{\partial y}\Big|_{z_0}
+, \qquad
+\frac{\partial v}{\partial x}\Big|_{z_0} =
+-\frac{\partial u}{\partial y}\Big|_{z_0} .
 \end{equation*}
 In this case $Df|_{z_0}$ corresponds to multiplication by the number
-$a = u_x|_{z_0} + i v_x|_{z_0}$, which is equal to
-$v_y|_{z_0} - i u_y|_{z_0}$.
+$\xi = \frac{\partial u}{\partial x}\big|_{z_0} + i \frac{\partial v}{\partial
+x}\big|_{z_0}$, which is equal to
+$\frac{\partial v}{\partial y}\big|_{z_0} - i \frac{\partial u}{\partial
+y}\big|_{z_0}$.
 So we get that
 \begin{equation*}
-0 = \lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - a h}}{\sabs{h}} =
-\lim_{h \to 0} \abs{\frac{f(z_0+h) - f(z_0)}{h} - a h} ,
+0 = \lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - \xi h}}{\sabs{h}} =
+\lim_{h \to 0} \abs{\frac{f(z_0+h) - f(z_0)}{h} - \xi h} ,
 \end{equation*}
 or in other words
 \begin{equation*}
-\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = a .
+\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi .
 \end{equation*}
 We will write 
 \begin{equation*}
 f'(z_0) \overset{\text{def}}{=}
-\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = a .
+\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi ,
 \end{equation*}
+And we will call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
+at $z_0$.
 
-We have prove the following proposition.
+So we proved that if $f$ is differentiable (in the real sense), then 
+the complex derivative exists at $z_0$ if and only if 
+$\frac{\partial u}{\partial x}\big|_{z_0} = \frac{\partial v}{\partial
+y}\big|_{z_0}$ and $\frac{\partial v}{\partial x}\big|_{z_0} = -\frac{\partial
+u}{\partial y}\big|_{z_0}$.
+
+Usually we want to do this in many points, not just one.  Using the fact
+from undergraduate analysis (see \sectionref{sec:derinsv} again), that
+if the partial derivatives exist and are continuous then $f$ is
+differentiable we have the following proposition.
 
 \begin{prop}
-Let $U \subset \C$ be open, $z_0 \in U$ and $f = u+iv \colon U \to \C$ be
-differentiable (in the real sense) at $z_0 \in \C$ and 
-\begin{equation*}
-u_x|_{z_0} = v_y|_{z_0} , \qquad  v_x|_{z_0} = -u_y|_{z_0} ,
-\end{equation*}
-Then $Df|_{z_0}$ corresponds to a multiplication by a complex number given
-by the following limit that exists
-\begin{equation*}
-f'(z_0) =
-\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} .
-\end{equation*}
+Let $U \subset \C$ be open, and $f = u+iv \colon U \to \C$ be a function
+such that $\frac{\partial u}{\partial x}$, $\frac{\partial u}{\partial y}$, $\frac{\partial
+v}{\partial x}$, and $\frac{\partial v}{\partial y}$ exist and are continuous (that is,
+$f$ is continuously differentiable).
+Then
+\begin{equation} \label{eq:CReqreal}
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} , \qquad
+\frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
+\end{equation}
+if and only if $f$ the complex derivative exists at all $z_0 \in U$, or in
+other words, if
+\begin{equation} \label{eq:complexdiff}
+f'(z) =
+\lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
+\end{equation}
+exists for all $z \in U$.
 \end{prop}
 
-FIXME
+The equations \eqref{eq:CReqreal} are called the
+\emph{\myindex{Cauchy--Riemann equations}}.  This book is dedicated to their
+solutions.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{defn}
+Let $U \subset \C$ be open.  Then $f \colon U \to \C$ is
+\emph{\myindex{holomorphic}}
+if it is complex differentiable at every point.  That is, if
+\eqref{eq:complexdiff} exists for all $z \in U$.  We will write
+the set of holomorphic functions defined on $U$ as $\sO(U)$.
+\end{defn}
 
-\section{Power series and analytic functions}
-\label{sec:analfuncs}
+We know that continuously differentiable functions that satisfy
+Cauchy--Riemann equations are holomorphic.
+On the other hand
+a function whose complex derivative exists everywhere, that is,
+a holomorphic function, is clearly differentiable in the real sense
+as the complex derivative $f'(z_0)$ gives the $Df|_{z_0}$, and
+thus the partial derivatives exist and satisfy the Cauchy--Riemann
+equations.  We will show that holomorphic functions are in fact
+continuously differentiable, and in fact, infinitely differentiable,
+although that result will have to wait.
 
-FIXME
+\begin{prop}
+Let $U \subset \C$ and $V \subset \C$ be open, and $f \colon U \to V$, $g
+\colon V \to \C$ be holomorphic.  Then the composition $g \circ f$
+is holomorphic.
+\end{prop}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{FOO}
-
-FIXME: this is simply a dump of things from the SCV book, some of which
-may be useful.
-
-\medskip
-
-Complex analysis is the study of holomorphic (or complex-analytic)
-functions.
-Holomorphic functions are a generalization of polynomials,
-and to get there one leaves the land of algebra to arrive in the realm of
-analysis.
-One can do an awful lot with polynomials, but sometimes they are
-just not enough.  For example, there is no nonzero polynomial function that solves
-the simplest of differential equations, $f' = f$.  We need the exponential
-function, which is holomorphic.  
-
-Let us start with polynomials.  In one variable, a polynomial in $z$ is
-an expression of the form
+\begin{proof}
+Since holomorphic functions are differentiable in the real sense,
+the proof follows from the standard real chain rule (\thmref{thm:realchain}).
+That is, let $z \in U$ and $w = f(z) \in V$.
+Then
 \begin{equation*}
-P(z) = \sum_{j=0}^d c_j \, z^j ,
+D(g \circ f)|_z = Dg|_w Df|_z .
 \end{equation*}
-where $c_j \in \C$ and $c_d \not= 0$.  The number $d$ is called the
-\emph{degree}\index{degree of a polynomial}
-of the
-polynomial $P$.  We can plug in some number $z$ and simply compute
-$P(z)$, so we have a function $P \colon \C \to \C$.
+Each of the $2 \times 2$ matrices $Dg|_w$ and $Df|_z$ correspond to complex
+numbers as $f$ and $g$ are both holomorphic.  A product $Dg|_w Df|_z$
+of two such matrices again corresponds to a complex number.  So
+$D(g \circ f)|_z$ corresponds to a complex number and so $g \circ f$
+complex differentiable at $z$.
+\end{proof}
 
-We try to write
-\begin{equation*}
-f(z) = \sum_{j=0}^\infty c_j \, z^j
-\end{equation*}
-and all is very fine until we wish to know what $f(z)$ is for some number
-$z \in \C$.
-We usually mean 
-\begin{equation*}
-\sum_{j=0}^\infty c_j \, z^j
-=
-\lim_{d\to\infty}
-\sum_{j=0}^d c_j \, z^j .
-\end{equation*}
-As long as the limit exists, we have a function.  You know all
-this; it is your one-variable complex analysis.  We usually
-start with the functions and prove that we can expand into series.
+\begin{prop} \label{prop:sumprod}
+The sum and product of any two holomorphic is holomorphic.
+\end{prop}
 
-Let $U \subset \C$ be open.  A function $f \colon U \to \C$
-is \emph{\myindex{holomorphic}}
-(or \emph{\myindex{complex-analytic}}) if it is
-\emph{\myindex{complex-differentiable}} at every point,
-that is, if
-\begin{equation*}
-f'(z)
-%=
-%\lim_{w \in \C \to z} \frac{f(w)-f(z_0)}{w-z} 
-=
-\lim_{\xi \in \C \to 0} \frac{f(z+\xi)-f(z)}{\xi} 
-\qquad \text{exists for all $z \in U$.}
-\end{equation*}
-Importantly, the limit is taken with respect to
-complex %$w$ or
-$\xi$.
-Another vantage point is to start with a continuously 
-differentiable\footnote{Holomorphic functions end up being infinitely
-differentiable anyway, so this hypothesis is not overly restrictive.} $f$,
-and say $f = u + i\, v$ is holomorphic if it satisfies
-the \emph{\myindex{Cauchy--Riemann equations}}:
-\begin{equation*}
-\frac{\partial u}{\partial x} = 
-\frac{\partial v}{\partial y} ,
-\qquad
-\frac{\partial u}{\partial y} = 
--
-\frac{\partial v}{\partial x} .
-\end{equation*}
+\begin{exbox}
+\begin{exercise}
+Prove \propref{prop:sumprod}.
+(Hint: For the product, mimic the proof of product rule from calculus).
+\end{exercise}
+
+FIXME: more exercises.
+
+\begin{exercise}
+Show that $f(z) = z \bar{z} = \sabs{z}^2$ is complex differentiable
+at the origin, but nowhere else.
+\end{exercise}
+\end{exbox}
+
+Perhaps the reader may ask at this point: Is any solution to
+the Cauchy--Riemann equations holomorphic?  Above we saw that the answer
+is affirmative for continuously differentiable functions.  But in general
+the answer is false%
+\footnote{
+A good thorough account of this problem is:
+J.\ D.\ Gray and  S.\ A.\ Morris,
+\emph{When is a Function that Satisfies the Cauchy-Riemann Equations
+Analytic?}  The American Mathematical Monthly, Vol.\ 85, No.\ 4 (Apr.,
+1978), pp. 246--256.},
+as the following exercise shows.
+
+\begin{exbox}
+\begin{exercise}
+Let $f(0) = 0$ and $f(z) = e^{-z^{-4}}$ for $z \not=0$.  Prove that $f$
+satisfies the Cauchy--Riemann equations at every point.  Then prove
+that $f$ is not complex differentiable at the origin.
+\end{exercise}
+\end{exbox}
+
+
+\subsection{Wirtinger operators}
+
+Let us concentrate a bit more on the equations.
 The so-called \emph{\myindex{Wirtinger operators}},
 \begin{equation*}
 \frac{\partial}{\partial z}
@@ -1335,16 +1382,20 @@ These operators are determined by insisting
 \frac{\partial}{\partial \bar{z}} \bar{z} = 1.
 \end{equation*}
 
-The function $f$ is holomorphic if and only if
-\begin{equation*}
+The Cauchy--Riemann equations are then expressed as
+\begin{equation} \label{eq:CReq}
 \frac{\partial f}{\partial \bar{z}} = 0 .
-\end{equation*}
-That seems a far nicer statement of the Cauchy--Riemann equations, and it is
-just one complex equation.  It says
+\end{equation}
+That seems a far nicer statement of the equations than \eqref{eq:CReqreal},
+and it is just one complex equation.  It says
 a function is holomorphic if and only if it depends on $z$ but not on
-$\bar{z}$ (perhaps that might not make a whole lot of sense at first
-glance).
-Let us check:
+$\bar{z}$.  That statement had better make no sense at first glance.
+After all, the Wirtinger operators are not really derivatives with
+respect to actual variables,
+they are simply formal operators, and also, and more importantly,
+how could possibly something depend on $z$ but not not $\bar{z}$.
+
+But let us humor ourselves and check:
 \begin{equation*}
 \frac{\partial f}{\partial \bar{z}} 
 =
@@ -1381,7 +1432,7 @@ Let us check:
 \right) .
 \end{equation*}
 This expression is zero if and only if the real parts and the imaginary
-parts are zero.  In other words %if and only if
+parts are zero.  In other words
 \begin{equation*}
 \frac{\partial u}{\partial x} 
 - \frac{\partial v}{\partial y}
@@ -1395,18 +1446,8 @@ parts are zero.  In other words %if and only if
 \end{equation*}
 That is, the Cauchy--Riemann equations are satisfied.
 
-%Another common way to define a holomorphic function is to say that
-%the complex derivative at each point exists.  If $f'$ exists
-%at every point, it equals the derivative in $z$.
-If $f$ is holomorphic, the derivative in $z$ is the standard complex derivative you know and love:
-\begin{equation*}
-\frac{\partial f}{\partial z} (z_0)
-=
-f'(z_0)
-=
-\lim_{\xi \to 0} \frac{f(z_0+\xi)-f(z_0)}{\xi} .
-\end{equation*}
-That is because 
+The Wirtinger derivative in $z$ computes the holomorphic derivative
+if $f$ is holomorphic.  First:
 \begin{equation*}
 \begin{split}
 \frac{\partial f}{\partial z} 
@@ -1433,18 +1474,53 @@ That is because
 \frac{\partial v}{\partial y} 
 \right)
  =
-\frac{\partial f}{\partial (iy)}
+\frac{1}{i}
+\frac{\partial f}{\partial y}
 .
 \end{split}
 \end{equation*}
+Then we notice that if $f$ is complex differentiable, then we can let $h$
+approach in any direction:
+\begin{equation*}
+f'(z) =
+\lim_{\substack{h \to 0\\h\in\C}}
+\frac{f(z+h)-f(z)}{h}
+=
+\lim_{\substack{t \to 0\\t\in\R}}
+\frac{f(z+t)-f(z)}{t}
+=
+\frac{\partial u}{\partial x} \Big|_z
++ i \frac{\partial v}{\partial x}\Big|_z
+ =
+\frac{\partial f}{\partial x} \Big|_z ,
+\end{equation*}
+and
+\begin{equation*}
+f'(z) =
+\lim_{\substack{h \to 0\\h\in\C}}
+\frac{f(z+h)-f(z)}{h}
+=
+\lim_{\substack{t \to 0\\t\in\R}}
+\frac{f(z+it)-f(z)}{it}
+=
+\frac{1}{i}
+\left(
+\frac{\partial u}{\partial y}  \Big|_z
++ i \frac{\partial v}{\partial y} \Big|_z
+\right)
+ =
+\frac{1}{i}
+\frac{\partial f}{\partial y} \Big|_z ,
+\end{equation*}
+So for a holomorphic function
+\begin{equation*}
+f' =
+\frac{\partial f}{\partial z} .
+\end{equation*}
 
-A function on $\C$ is really a function defined on
-$\R^2$ as identified above and hence it is a function of $x$ and $y$.
-Writing
-$x = \frac{z+\bar{z}}{2}$ and
-$y = \frac{z-\bar{z}}{2i}$, we think of it as a function of two
-complex variables $z$ and $\bar{z}$.  Pretend for a moment as if $\bar{z}$ did not
-depend on $z$.
+Even for functions that are not holomorphic, the Wirtinger operators still
+make sense.  For example, take a polynomial in $x$ and $y$, or equivalently
+in $z$ and $\bar{z}$.
 The Wirtinger operators
 work as if $z$ and $\bar{z}$ really were independent variables.  For example:
 \begin{equation*}
@@ -1462,1199 +1538,26 @@ z^2 ( 3 \bar{z}^2 ) + 0 .
 \end{equation*}
 So a holomorphic function is a function not depending on $\bar{z}$.
 
-The most important theorem in one variable is
-the \emph{\myindex{Cauchy integral formula}}\index{Cauchy formula}.
+\begin{exbox}
+\begin{exercise}
+Justify the statement about Wirtinger operators.  That is consider
+the function $z^m\bar{z}^n$ for any nonnegative integrers $m$ and $n$.
+Compute (and justify of course)
+$\frac{\partial}{\partial z} \left[ z^m\bar{z}^n \right]$
+and
+$\frac{\partial}{\partial \bar{z}} \left[ z^m\bar{z}^n \right]$.
+\end{exercise}
+\end{exbox}
 
-\begin{thm}[Cauchy integral formula]
-Let $U \subset \C$ be a bounded domain where the boundary $\partial U$
-is a piecewise smooth
-simple closed path (a Jordan curve).  Let $f \colon \overline{U} \to \C$ be a continuous function,
-holomorphic in $U$.
-Orient $\partial U$ positively (going around counter-clockwise).
-Then
-\begin{equation*}
-f(z) =
-\frac{1}{2\pi i}
-\int_{\partial U}
-\frac{f(\zeta)}{\zeta-z}
-\,
-d \zeta 
-\qquad \text{for all $z \in U$.}
-\end{equation*}
-\end{thm}
 
-%The path integral for a smooth path $\gamma \colon [a,b] \to \C$ is defined as
-%\begin{equation*}
-%\int_\gamma f(z) \, dz
-%=
-%\int_a^b f\bigl(\gamma(t)\bigr) \gamma'(t) \, dt .
-%\end{equation*}
-
-The Cauchy formula is the essential ingredient we need from 
-one complex variable.  It follows, for example,
-from Green's theorem\footnote{If you wish to feel inadequate,
-note that this theorem, on which all of complex analysis (and all of physics)
-rests, was proved by
-George Green, who was the son of a miller and had one year of formal
-schooling.}  (Stokes' theorem in two
-dimensions).  You can look forward to
-\thmref{thm:generalizedcauchy} for a proof of a more general formula,
-the Cauchy--Pompeiu integral formula.
-
-As a differential form, \glsadd{not:dz}$dz = dx + i \, dy$.  If you are uneasy
-about differential forms, you probably defined the path integral above
-directly using
-the Riemann--Stieltjes integral in your one-complex-variable class.
-Let us write down the formula in terms of the standard Riemann integral
-in a special case.  Take the \emph{\myindex{unit disc}}
-\glsadd{not:D}%
-\begin{equation*}
-\D
-\overset{\text{def}}{=}
-\bigl\{ z \in \C : \sabs{z} < 1 \bigr\} .
-\end{equation*}
-The boundary is the unit circle
-$\partial \D = \bigl\{ z \in \C : \sabs{z} = 1 \bigr\}$ oriented positively,
-that is, counter-clockwise.   Parametrize $\partial \D$
-by $e^{it}$, where $t$ goes from 0 to $2\pi$.  If $\zeta = e^{it}$,
-then $d\zeta = ie^{it}dt$, and
-\begin{equation*}
-f(z) =
-\frac{1}{2\pi i}
-\int_{\partial \D}
-\frac{f(\zeta)}{\zeta-z}
-\,
-d \zeta 
-=
-\frac{1}{2\pi}
-\int_0^{2\pi}
-\frac{f(e^{it}) e^{it} }{e^{it}-z}
-\,
-dt .
-\end{equation*}
-If you are not completely comfortable
-with
-path %or surface
-integrals, try to think about how you would parametrize the path, and
-write the integral as an integral any calculus student would recognize.
-
-I venture a guess that 90\% of what you learned in a one-variable complex analysis
-course (depending on who taught it)
-is more or less a straightforward consequence of the Cauchy
-integral formula.
-An important theorem from one variable that follows from
-the Cauchy formula is the
-\emph{\myindex{maximum modulus principle}} (or just
-the \emph{\myindex{maximum principle})}.
-Let us give its simplest version.
-
-\begin{thm}[Maximum modulus principle]
-Suppose $U \subset \C$ is a domain and $f \colon U \to \C$
-is holomorphic.
-If for some $z_0 \in U$
-\begin{equation*}
-\sup_{z \in U} \, \sabs{f(z)} = \sabs{f(z_0)} ,
-\end{equation*}
-\glsadd{not:identeq}%
-then $f$ is constant, that is, $f \equiv f(z_0)$.
-\end{thm}
-
-That is, if the supremum is attained in the interior of the domain,
-then the function must be constant.  Another way to state the maximum
-principle is to say: if $f$ extends continuously to the boundary of a
-domain, then the supremum of $\sabs{f(z)}$ is attained on the boundary.
-In
-one variable you learned that the maximum principle is really a
-property of harmonic functions.
-
-\begin{thm}[Maximum principle]
-Let $U \subset \C$ be a domain and $h \colon U \to \R$
-harmonic, that is,
-\glsadd{not:laplacian}%
-\begin{equation*}
-\nabla^2 h = \frac{\partial^2 h}{\partial x^2} + \frac{\partial^2 h}{\partial
-y^2} = 0 .
-\end{equation*}
-If for some $z_0 \in U$
-\begin{equation*}
-\sup_{z \in U} \, h(z) = h(z_0)
-\qquad \text{or} \qquad
-\inf_{z \in U} \, h(z) = h(z_0) ,
-\end{equation*}
-then $h$ is constant, that is, $h \equiv h(z_0)$.
-\end{thm}
-
-In one variable, if $f = u+iv$ is holomorphic for real valued $u$ and $v$,
-then $u$ and $v$ are harmonic.  Locally, any harmonic function is
-the real (or imaginary) part of a holomorphic function, so in
-one complex variable, studying 
-harmonic functions is almost equivalent to studying holomorphic
-functions.  Things are decidedly different
-in two or more variables.
-
-\medskip
-
-Holomorphic functions admit a power series representation in $z$
-at each point $a$:
-\begin{equation*}
-f(z) = \sum_{j=0}^\infty c_j {(z-a)}^j .
-\end{equation*}
-No $\bar{z}$ is necessary,
-since $\frac{\partial f}{\partial \bar{z}} = 0$.
-
-Let us see the proof using the Cauchy integral formula as we will
-require this computation in several variables as well.
-Given $a \in \C$ and $\rho > 0$, define the disc of radius $\rho$ around $a$
-\glsadd{not:disc}%
-\begin{equation*}
-\Delta_\rho(a)
-\overset{\text{def}}{=}
-\bigl\{ z \in \C : \sabs{z-a} < \rho \bigr\} .
-\end{equation*}
-Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-$a \in U$, and $\overline{\Delta_\rho(a)} \subset U$ (that is, the closure
-of the disc is in $U$, and so its boundary $\partial \Delta_\rho(a)$ is also in $U$).
-
-For $z \in \Delta_\rho(a)$ and $\zeta \in \partial \Delta_\rho(a)$, 
-\begin{equation*}
-\abs{\frac{z-a}{\zeta-a}} =
-\frac{\sabs{z-a}}{\rho} < 1 .
-\end{equation*}
-In fact, if $\sabs{z-a} \leq \rho' < \rho$, then
-$\abs{\frac{z-a}{\zeta-a}} \leq \frac{\rho'}{\rho} < 1$.  Therefore,
-the geometric series
-\begin{equation*}
-\sum_{j=0}^\infty
-{\left(\frac{z-a}{\zeta-a}\right)}^j
-=
-\frac{1}{1-
-\frac{z-a}{\zeta-a}}
-=
-\frac{\zeta-a}{\zeta-z}
-\end{equation*}
-converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{\rho'}(a)}
-\times \partial \Delta_\rho(a)$ (that is, $\sum_j {\bigl\lvert
-\frac{z-a}{\zeta-a} \bigr\rvert}^j$
-converges uniformly).
-%In particular, the
-%series converges uniformly absolutely in $z$ on compact subsets of $\Delta_{\rho}(a)$. 
-
-Let $\gamma$
-be the path going around 
-$\partial \Delta_\rho(a)$ once in the positive direction.  Compute
-\begin{equation*}
-\begin{split}
-f(z)
-& =
-\frac{1}{2\pi i}
-\int_{\gamma}
-\frac{f(\zeta)}{\zeta-z}
-\,
-d \zeta 
-\\
-& =
-\frac{1}{2\pi i}
-\int_{\gamma}
-\frac{f(\zeta)}{\zeta-a}
-\frac{\zeta-a}{\zeta-z}
-\,
-d \zeta 
-\\
-& =
-\frac{1}{2\pi i}
-\int_{\gamma}
-\frac{f(\zeta)}{\zeta-a}
-\sum_{j=0}^\infty
-{\left(\frac{z-a}{\zeta-a}\right)}^j
-\,
-d \zeta 
-\\
-& =
-\sum_{j=0}^\infty
-\left(
-\frac{1}{2\pi i}
-\int_{\gamma}
-\frac{f(\zeta)}{{(\zeta-a)}^{j+1}}
-\,
-d \zeta 
-\right)
-{(z-a)}^j .
-\end{split}
-\end{equation*}
-In the last equality, we may 
-interchange the limit on the sum with the integral either
-via Fubini's theorem or via uniform convergence:
-$z$ is fixed and if $M$ is the supremum of $\abs{\frac{f(\zeta)}{\zeta-a}} =
-\frac{\sabs{f(\zeta)}}{\rho}$ on $\partial \Delta_\rho(a)$,
-then
-\begin{equation*}
-\abs{
-\frac{f(\zeta)}{\zeta-a}
-{\left(\frac{z-a}{\zeta-a}\right)}^j
-}
-\leq
-M 
-{\left(\frac{\abs{z-a}}{\rho}\right)}^j,
-\qquad \text{and} \qquad
-\frac{\abs{z-a}}{\rho} < 1 .
-\end{equation*}
-
-The key point is writing the \emph{\myindex{Cauchy kernel}}
-$\frac{1}{\zeta-z}$ as
-\begin{equation*}
-\frac{1}{\zeta-z}
-=
-\frac{1}{\zeta-a}
-\frac{\zeta-a}{\zeta-z} ,
-\end{equation*}
-and then using the geometric series.
-
-Not only have we proved that $f$ has a power series, but we computed
-that the radius of convergence is at least $R$, where $R$ is the maximum $R$
-such that $\Delta_R(a) \subset U$.  We also obtained a formula for the
-coefficients
-\begin{equation*}
-c_j = 
-\frac{1}{2\pi i}
-\int_{\gamma}
-\frac{f(\zeta)}{{(\zeta-a)}^{j+1}}
-\,
-d \zeta  .
-\end{equation*}
-
-For a set $K$, denote the \emph{\myindex{supremum norm}}:
-\glsadd{not:supnorm}%
-\begin{equation*}
-\snorm{f}_K
-\overset{\text{def}}{=}
-\sup_{z \in K} \sabs{f(z)} .
-\end{equation*}
-By a brute force estimation, we obtain the very useful
-\emph{\myindex{Cauchy estimates}}:
-\begin{equation*}
-\sabs{c_j} = 
-\abs{
-\frac{1}{2\pi i}
-\int_{\gamma}
-\frac{f(\zeta)}{{(\zeta-a)}^{j+1}}
-\,
-d \zeta 
-}
-\leq
-\frac{1}{2\pi}
-\int_{\gamma}
-\frac{\snorm{f}_{\gamma}}{\rho^{j+1}}
-\,
-\sabs{d \zeta} 
-=
-\frac{\snorm{f}_{\gamma}}{\rho^{j}} .
-\end{equation*}
-
-We differentiate Cauchy's formula $j$ times (using the Wirtinger
-$\frac{\partial}{\partial z}$ operator),
-\begin{equation*}
-f^{(j)}(z)
-=
-\frac{\partial^j f}{\partial z^j} (z)
-=
-\frac{1}{2\pi i}
-\int_{\gamma}
-\frac{j! f(\zeta)}{{(\zeta-z)}^{j+1}}
-\,
-d \zeta  ,
-\end{equation*}
-and therefore
-\begin{equation*}
-j! \, c_j =
-f^{(j)}(a)
-=
-\frac{\partial^j f}{\partial z^j}(a) .
-\end{equation*}
-Hence, we can control derivatives of $f$
-by the size of the function:
-\begin{equation*}
-\babs{f^{(j)}(a)}
-=
-\abs{\frac{\partial^j f}{\partial z^j}(a)}
-\leq
-\frac{j! \snorm{f}_{\gamma}}{\rho^{j}} .
-\end{equation*}
-This estimate is one of the key properties of
-holomorphic functions, and the reason why the correct topology for
-the set of holomorphic functions is the same as the topology for continuous functions.
-Consequently,
-obstructions to solving problems in complex analysis are often topological
-in character.
-%\lipsum
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{Results from one complex variable} \label{ap:onevarresults}
-
-FIXME: this is just a dump of the one-var appendix from the SCV book,
-at best useful as a reference of things we may want to prove.
+FIXME:exercises
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Let us review some results from one complex variable that may be useful for
-reading this book.
-The reader should first look through \sectionref{sec:motivation}
-for basic notation and motivation, although we will review some of the
-results again here.  We start with holomorphic functions.
-Let $U \subset \C$ be open.
-A function
-$f \colon U \to \C$ is \emph{holomorphic} if it is complex
-differentiable at every point, that is
-\begin{equation*}
-f'(z) = \lim_{h \in \C \to 0} \frac{f(z+h) - f(z)}{h}
-\end{equation*}
-exists for all $z \in U$.  For example, polynomials and rational
-functions in $z$ are holomorphic.  One of the most important examples
-is the solution to the differential equation $f'(z) = f(z)$, $f(0) = 1$, that is
-the complex exponential, defined in the entire complex plane:
-\begin{equation*}
-f(z) = e^z = e^{x+iy} = e^x \bigl( \cos y + i \sin(y) \bigr) .
-\end{equation*}
+\section{Power series and analytic functions}
+\label{sec:analfuncs}
 
-
-A piecewise-$C^1$ path (or curve)\index{path}\index{curve} in $\C$
-is a continuous function $\gamma \colon [a,b] \to \C$,
-continuously differentiable except at finitely many points,
-such that one-sided limits of $\gamma'$ exist at all points of $[a,b]$.
-By abuse of notation, when $\gamma$ is used as a set, we mean
-the image
-$\gamma\bigl([a,b]\bigr)$.
-For a continuous function $f \colon \gamma \to \C$, define
-\glsadd{not:pathint}%
-\begin{equation*}
-\int_\gamma f(z) \, dz 
-\overset{\text{def}}{=}
-\int_a^b f\bigl(\gamma(t)\bigr) \gamma'(t) \, dt .
-\end{equation*}
-As $\gamma'$ is defined at all but finitely many points and is otherwise
-continuous, the integral is well-defined.  Similarly, one defines the more general
-path integral in $dz = dx + i\,dy$ and $d\bar{z} = dx - i\, dy$.
-Let
-$z = \gamma(t) = \gamma_1(t) + i \, \gamma_2(t) = x + i\, y$
-parametrize the path.  Then
-\begin{equation*}
-\begin{split}
-\int_\gamma f(z) \, dz + g(z) \, d\bar{z}
-& =
-\int_\gamma
-\Bigl(f\bigl(x+i\, y\bigr) + g\bigl(x+i\, y\bigr) \Bigr) \, dx
-+
-i \, \Bigl( f\bigl(x+i\, y\bigr) - g\bigl(x+i\, y\bigr) \Bigr) \, dy
-\\
-& =
-\int_a^b
-\Bigl(
-f\bigl(\gamma(t)\bigr) \gamma'(t)
-+
-f\bigl(\gamma(t)\bigr) \overline{\gamma'(t)}
-\Bigr) \, dt
-\\
-& =
-\int_a^b
-\biggl(
-\Bigl(f\bigl(\gamma(t)\bigr) + g\bigl(\gamma(t)\bigr) \Bigr) \,
-\gamma_1'(t)
-+
-i \, \Bigl( f\bigl(\gamma(t)\bigr) - g\bigl(\gamma(t)\bigr) \Bigr)
-\gamma_2'(t)
-\biggr)
-\, dt .
-\end{split}
-\end{equation*}
-
-A path is \emph{closed}\index{closed path}
-if $\gamma(a) = \gamma(b)$,
-and a path is \emph{simple}\index{simple path}
-if $\gamma|_{[a,b]}$ is one-to-one
-with the possible exception of $\gamma(a) = \gamma(b)$.
-
-As in the introduction, we have the following version of Cauchy integral
-formula.  An open set has piecewise-$C^1$ boundary if $\partial U$
-is composed of piecewise-$C^1$ paths, and at point $p \in \partial U$,
-every disc $\Delta_\rho(p)$ contains points from $U$ and points from the
-complement of $\overline{U}$.  If 
-at each point where the parametrization of $\partial U$ is differentiable
-the domain is on the left ($\gamma'(t)$ rotated by $\frac{\pi}{2}$ points into the
-domain), then the boundary is \emph{\myindex{positively oriented}}.
-
-\begin{thm}[Cauchy integral formula]
-Let $U \subset \C$ be a bounded open set with piecewise-$C^1$ boundary
-$\partial U$ oriented positively, and let
-$f \colon \overline{U} \to \C$ be a continuous function
-holomorphic in $U$.
-Then for $z \in U$,
-\begin{equation*}
-f(z) =
-\frac{1}{2\pi i}
-\int_{\partial U}
-\frac{f(\zeta)}{\zeta-z}
-\,
-d \zeta .
-\end{equation*}
-\end{thm}
-
-The theorem follows from Green's theorem, which is the Stokes' theorem
-in two dimensions.  In the versions we state, one needs to
-approximate the open set by smaller open sets from the inside to insure
-the partial derivatives are bounded.  See
-\thmref{thm:generalizedcauchy}.  Let us state Green's theorem using
-the $dz$ and $d\bar{z}$ for completeness.  See \appendixref{ap:diffforms}
-for an overview of differential forms.
-
-\begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
-Let $U \subset \C$ be a bounded open set with piecewise-$C^1$ boundary
-$\partial U$ oriented positively, and let
-$f \colon \overline{U} \to \C$ be a continuous function
-with bounded continuous partial derivatives in $U$.
-Then
-\begin{multline*}
-\int_{\partial U} f(z) \, dz + g(z) \, d\bar{z}
-=
-\int_{U} d \Bigl( f(z) \, dz + g(z) \, d\bar{z} \Bigr)
-=
-\int_{U}
-\left(
-\frac{\partial g}{\partial z}
--
-\frac{\partial f}{\partial \bar{z}}
-\right)
-\, dz \wedge d\bar{z}
-\\
-=
-(-2i)
-\int_{U}
-\left(
-\frac{\partial g}{\partial z}
--
-\frac{\partial f}{\partial \bar{z}}
-\right)
-\, dx \wedge dy 
-=
-(-2i)
-\int_{U}
-\left(
-\frac{\partial g}{\partial z}
--
-\frac{\partial f}{\partial \bar{z}}
-\right)
-\, dA.
-\end{multline*}
-\end{thm}
-
-The Cauchy integral formula is equivalent to
-what is usually called just Cauchy's theorem:
-
-\begin{thm}[Cauchy]
-Let $U \subset \C$ be a bounded open set with piecewise-$C^1$ boundary
-$\partial U$ oriented positively, and let
-$f \colon \overline{U} \to \C$ be a continuous function
-holomorphic in $U$.  Then
-\begin{equation*}
-\int_{\partial U}
-f(z) \, dz = 0 .
-\end{equation*}
-\end{thm}
-
-There is a converse to Cauchy as well.  A triangle $T \subset \C$ is
-the convex hull of the three vertices (we include the inside of the
-triangle), and $\partial T$ is the boundary of the triangle oriented
-counter-clockwise.  Let us state the following theorem as an
-``if and only if,'' even though, usually it is only the reverse direction that
-is called Morera's theorem.
-
-\begin{thm}[Morera] \label{thm:onevarmorera}
-Suppose $U \subset \C$ is an open set, and $f \colon U \to \C$
-is continuous.  Then $f$ is holomorphic
-if and only if
-\begin{equation*}
-\int_{\partial T} f(z) \, dz = 0
-\end{equation*}
-for all triangles $T \subset U$.
-\end{thm}
-
-As we saw in the introduction, a holomorphic function has a power series.
-
-\begin{prop}
-If $U \subset \C$ is an open set, and $f \colon U \to \C$ holomorphic,
-then $f$ is infinitely differentiable, and if $\Delta_\rho(p) \subset \C$
-is a disc, then $f$ has a power series that
-converges absolutely uniformly on compact subsets of $\Delta_\rho(p)$:
-\begin{equation*}
-f(z) = \sum_{k=0}^\infty c_k {(z-p)}^k ,
-\end{equation*}
-where given a $\gamma$ that is a simple closed (piecewise-$C^1$)
-path once counter-clockwise
-around $p$ inside $\Delta_\rho(p)$,
-\begin{equation*}
-c_k = \frac{f^{(k)}(p)}{k!} =
-\frac{1}{2\pi i}
-\int_{\gamma}
-\frac{f(\zeta)}{{(\zeta-z)}^{k+1}}
-\,
-d \zeta  .
-\end{equation*}
-\end{prop}
-
-\emph{\myindex{Cauchy estimates}} follow:  If $M$
-is the maximum of $\sabs{f}$ on the circle $\partial \Delta_r(p)$, then
-\begin{equation*}
-\sabs{c_k} \leq \frac{M}{r^k} .
-\end{equation*}
-Conversely, if a power series satisfies the Cauchy estimates,
-it converges on $\Delta_r(p)$.
-
-A function $f \colon \C \to \C$ that is holomorphic is
-\emph{\myindex{entire}}.  An immediate application of Cauchy estimates
-is Liouville's theorem:
-
-\begin{thm}[Liouville]\index{Liouville's theorem}
-If $f$ is entire and bounded, then $f$ is constant.
-\end{thm}
-
-And as a holomorphic function has a power series it satisfies the
-identity theorem:
-
-\begin{thm}[Identity]\index{identity theorem}
-If $U \subset \C$ is a domain, and $f \colon U \to \C$ holomorphic
-such that the zero set $f^{-1}(0)$ has a limit point in $U$, then
-$f \equiv 0$.
-\end{thm}
-
-Another consequence  of the Cauchy integral formula is that there is
-a differential equation characterizing holomorphic functions.
-
-\begin{prop}[Cauchy--Riemann equations]
-Given an open set $U \subset \C$,
-a function $f \colon U \to \C$ is holomorphic if and only if
-$f$ is continuously differentiable and
-\begin{equation*}
-\frac{\partial f}{\partial \bar{z}} = 0 \qquad \text{on $U$.}
-\end{equation*}
-\end{prop}
-
-Yet another consequence of the Cauchy formula (and one can make an argument
-that everything in this appendix is a consequence of the Cauchy formula)
-is the open mapping theorem.
-
-\begin{thm}[Open mapping theorem]\index{open mapping theorem}
-Suppose $U \subset \C$ is open and
-$f \colon U \to \C$ is holomorphic.  Then $f$ is an open mapping, that is,
-$f(V)$ is open whenever $V$ is open.
-\end{thm}
-
-The real and imaginary parts $u$ and $v$ of a holomorphic function $f =
-u+iv$ are harmonic, that is
-$\nabla^2 u = \nabla^2 v = 0$, where $\nabla^2$ is the
-Laplacian.
-A domain $U$ is \emph{\myindex{simply connected}} if every simple closed
-path
-is homotopic in $U$ to a constant, in other words, if the domain has no
-holes.  For example a disc is simply connected.
-
-\begin{prop}
-If $U \subset \C$ is a simply connected domain and $u \colon U \to \R$
-is harmonic, then there exists a harmonic function $v \colon U \to \R$
-such that $f = u+iv$ is holomorphic.
-\end{prop}
-
-The function $v$ is called the \emph{\myindex{harmonic conjugate}} of
-$u$.  For further review of harmonic functions see
-\sectionref{sec:harmonic} on harmonic functions.
-We have the following versions of the maximum principle.
-
-\begin{thm}[Maximum principles]\index{maximum principle}
-Suppose $U \subset \C$ is a domain.
-\begin{enumerate}[(i)]
-\item
-If $f \colon U \to \C$ is holomorphic and $\sabs{f}$
-achieves a local maximum in $U$, then $f$ is constant.
-\item
-If $U$ is bounded and $f \colon \overline{U} \to \C$ is holomorphic in $U$
-and continuous, then $\sabs{f}$ achieves its maximum on $\partial U$.
-\item
-If $f \colon U \to \R$ is harmonic 
-achieves a local maximum or a minimum in $U$, then $f$ is constant.
-\item
-If $U$ is bounded and $f \colon \overline{U} \to \R$ is harmonic in $U$
-and continuous, then $f$ achieves its maximum and minimum on $\partial U$.
-\end{enumerate}
-\end{thm}
-
-The maximum principle immediately implies the following lemma.
-
-\pagebreak[2]
-\begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}
-Suppose $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
-then 
-\begin{enumerate}[(i)]
-\item $\sabs{f(z)} \leq \sabs{z}$, and
-\item $\sabs{f'(0)} \leq 1$.
-\end{enumerate}
-Furthermore, if $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus
-\{ 0 \}$
-or $\sabs{f'(0)} = 1$, then
-for some $\theta \in \R$ we have $f(z) =
-e^{i\theta} z$ for all $z \in \D$.
-\end{lemma}
-
-The above theorem is actually quite general.
-
-\begin{thm}[Riemann mapping theorem]\index{Riemann mapping theorem}
-If $U \subset \C$ is a nonempty simply connected domain such that $U \neq \C$,
-then $U$ is biholomorphic to $\D$.  Given $z_0 \in U$
-there exists a unique biholomorphic $f \colon U \to \D$
-such that $f'(z_0) > 0$, and $f$
-maximizes $\sabs{f'(z_0)}$ among all holomorphic maps to $\D$.
-\end{thm}
-
-Schwarz's Lemma can also be used to classify the automorphisms of the disc
-(and hence any simply connected domain).  Let
-$\operatorname{Aut(\D)}$ denote the group of biholomorphic (both $f$ and
-$f^{-1}$ are holomorphic) self maps of the
-disc to itself.
-
-\begin{prop}
-If $f \in \operatorname{Aut}(\D)$ then there exists an $a \in \D$
-and $\theta \in \R$ such that
-\begin{equation*}
-f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} .
-\end{equation*}
-\end{prop}
-
-Speaking of automorphisms.  We have the following
-version of inverse function theorem.
-
-\begin{thm}
-Suppose $U$ and $V$ are open subsets of $\C$.
-\begin{enumerate}[(i)]
-\item
-If $f \colon U \to V$ is holomorphic and bijective (one-to-one and onto),
-then $f'(z) \not= 0$ for all $z \in V$, and $f^{-1} \colon V \to U$
-is holomorphic.  If $f(p) = q$, then
-\begin{equation*}
-\left(f^{-1}\right)(q) = \frac{1}{f'(p)} .
-\end{equation*}
-\item
-If $f \colon U \to V$ is holomorphic, $f(p) = q$,
-and $f'(p) \not= 0$, then there exists a neighborhood $W$ of $q$
-and a holomorphic function $g \colon W \to U$ that is
-one-to-one and $f\bigl(g(z)\bigr) = z$ for all $z \in W$.
-\pagebreak[2]
-\end{enumerate}
-\end{thm}
-
-The Riemann mapping theorem actually follows from the following
-theorem about existence of branches of the logarithm.
-
-\begin{thm}
-Suppose $U \subset \C$ is a simply connected domain, and $f \colon U \to \C$
-is a holomorphic function without zeros in $U$.  Then there exists a
-holomorphic function $L \colon U \to \C$ such that
-\begin{equation*}
-e^L = f .
-\end{equation*}
-In particular, we can take roots:
-for every $k \in \N$, there exists a holomorphic function
-$g \colon U \to \C$ such that
-\begin{equation*}
-g^k = f .
-\end{equation*}
-\end{thm}
-
-In one complex variable, zeros of holomorphic functions
-can be divided out.  Moreover, zeros
-of holomorphic functions are of finite order unless
-the function is identically zero.
-
-\begin{prop}
-Suppose $U \subset \C$ is a domain and
-$f \colon U \to \C$ is holomorphic, not identically zero, and $f(p) = 0$
-for some $p \in U$.  There exists a $k \in \N$ and
-a holomorphic function $g \colon U \to \C$,
-such that $g(p) \not= 0$ and
-\begin{equation*}
-f(z) = {(z-p)}^k g(z) \qquad \text{for all $z \in U$.}
-\end{equation*}
-\end{prop}
-
-The number $k$ above is called the \emph{order}\index{order of a zero}
-or \emph{multiplicity}\index{multiplicity of a zero}
-of the zero at $p$.
-We can use this fact and the existence of roots to show that every
-holomorphic function is locally like $z^k$.  The function $\varphi$
-below can be thought of as a local change of coordinates.
-
-\begin{prop}
-Suppose $U \subset \C$ is a domain and
-$f \colon U \to \C$ is holomorphic, not identically zero, and $p \in U$.
-Then there exists a $k \in \N$,
-a neighborhood $V \subset U$ of $p$,  and
-a holomorphic function $\varphi \colon V \to \C$ with 
-$\varphi'(p) \not= 0$, such that
-\begin{equation*}
-{\bigl(\varphi(z)\bigr)}^k = f(z) - f(p)
-\qquad \text{for all $z \in V$.}
-\end{equation*}
-\end{prop}
-
-Convergence of holomorphic functions is the same as for continuous
-functions: uniform convergence on compact subsets.
-Sometimes this is called \emph{\myindex{normal convergence}}.
-
-\begin{prop}
-Suppose $U \subset \C$ is an open set, and $f_k \colon U \to \C$
-a sequence of holomorphic functions which converge uniformly
-on compact subsets of $U$ to $f \colon U \to \C$.  Then $f$ is holomorphic,
-and every derivative $f_k^{(\ell)}$ converges uniformly on compact subsets
-to the derivative $f^{(\ell)}$.
-\end{prop}
-
-Holomorphic functions satisfy a Heine--Borel-like property:
-
-\begin{thm}[Montel]\index{Montel's theorem}\label{thm:onevarmontel}
-If $U \subset \C$ is an open set and
-$f_n \subset U \to \C$ is a sequence of holomorphic functions
-that is uniformly bounded on compact subsets of $U$,
-then there exists a subsequence converging uniformly on compact subsets
-of $U$.
-\end{thm}
-
-A sequence of holomorphic functions cannot create or delete zeros out of thin air:
-
-\begin{thm}[Hurwitz]\index{Hurwitz's theorem}\label{thm:onevarhurwitz}
-Suppose $U \subset \C$ is a domain and
-$f_n \subset U \to \C$ is a sequence of holomorphic functions
-converging uniformly on compact subsets of $U$ to $f \colon U \to \C$.
-If $f$ is not identically zero and $z_0$ is a zero of $f$,
-then there exists a disc $\Delta_r(z_0)$ and an $N$, such that
-for all $n \geq N$, $f_n$ has the same number of zeros (counting
-multiplicity) in $\Delta_r(z_0)$ as $f$ (counting multiplicity).
-\end{thm}
-
-A common application, and sometimes the way
-the theorem is stated, is that if $f_n$ have no zeros in $U$, then
-either the limit $f$ is identically zero, or it also has no zeros.
-
-
-\pagebreak[2]
-If $U \subset \C$ is open, $p \in U$, and
-$f \colon U \setminus \{ p \} \to \C$ is holomorphic we say that
-$f$ has an \emph{\myindex{isolated singularity}} at $p$. 
-An isolated singularity is \emph{removable}\index{removable singularity}
-if 
-there exists a holomorphic function $F \colon U \to \C$
-such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
-An isolated singularity is a \emph{\myindex{pole}} if 
-\begin{equation*}
-\lim_{z \to p} f(z) = \infty \qquad \text{(that is
-$\sabs{f(z)} \to \infty$ as $\sabs{z} \to \infty$)}.
-\end{equation*}
-An isolated singularity that is neither removable nor a pole is said to be
-\emph{essential}\index{essential singularity}.
-
-At nonessential isolated singularities
-the function blows up to a finite integral order.
-The first part of the following proposition is
-usually called the \emph{\myindex{Riemann extension theorem}}.
-
-\begin{prop} \label{prop:onevarclassifysing}
-Suppose $U \subset \C$ is an open set, $p \in U$,
-and $f \colon U \setminus \{p\} \to \C$ holomorphic.
-\begin{enumerate}[(i)]
-\item \label{prop:onevarclassifysing:i}
-If $f$ is bounded (near $p$ is enough), then $p$ is a removable singularity.
-\item \label{prop:onevarclassifysing:ii}
-If $p$ is a pole, there exists a $k \in \N$ such that
-\begin{equation*}
-g(z) = {(z-p)}^k f(z)
-\end{equation*}
-is bounded near $p$ and hence $g$ has a removable singularity at $p$.
-\end{enumerate}
-\end{prop}
-
-The number $k$ above is called the \emph{order}\index{order of a pole}
-of the pole.  There is a symmetry between zeros and poles:
-If $f$ has a zero of order $k$, then $\frac{1}{f}$ has a pole of order $k$.
-If $f$ has a pole of order $k$, then $\frac{1}{f}$
-has a removable singularity, and the extended function has a zero of order
-$k$.
-
-Let $\bP^1 = \C \cup \{\infty\}$ be the \emph{\myindex{Riemann sphere}}.
-The topology on $\bP^1$ is given by insisting that
-the function $\frac{1}{z}$ is a homeomorphism
-of $\bP^1$ to itself,
-where $\frac{1}{\infty} = 0$ and $\frac{1}{0} = \infty$.
-A function $f \colon U \to \bP^1$ is called \emph{\myindex{meromorphic}},
-if it is not
-identically $\infty$, is holomorphic on $U \setminus f^{-1}(\infty)$,
-and has poles at $f^{-1}(\infty)$.
-A holomorphic function with poles is meromorphic
-by setting the value to be $\infty$ at the poles.
-A meromorphic function is one that can locally be written as a quotient of
-holomorphic functions.
-
-
-At an isolated singularity we can expand a holomorphic function
-via the so-called
-\emph{\myindex{Laurent series}} by adding all negative powers.
-The Laurent series also characterizes the type of the singularity.
-
-\begin{prop}
-If $\Delta \subset \C$ is a disc centered at $p \in \C$,
-and $f \colon \Delta \setminus \{p\} \to \C$ holomorphic,
-then there exists a double sequence $\{ c_{k} \}_{k = -\infty}^\infty$
-such that
-\begin{equation*}
-f(z) = \sum_{k=-\infty}^\infty c_k {(z-p)}^k ,
-\end{equation*}
-converges absolutely uniformly on compact subsets of $\Delta$.  If $\gamma$
-is a simple closed piecewise-$C^1$ path going once counter-clockwise around
-$p$ in $\Delta$, then
-\begin{equation*}
-c_k = 
-\frac{1}{2\pi i}
-\int_{\gamma}
-\frac{f(\zeta)}{{(\zeta-z)}^{k+1}}
-\,
-d \zeta  .
-\end{equation*}
-The singularity at $p$ is
-\begin{enumerate}[(i)]
-\item \emph{removable} if $c_k = 0$ for all $k < 0$.
-\item \emph{pole} of order $\ell \in \N$ if $c_k = 0$ for all $k < -\ell$ and $c_{-\ell}
-\not= 0$.
-\item \emph{essential} if for every exist infinitely negative $k$
-such that $c_k \not= 0$.
-\pagebreak[3]
-\end{enumerate}
-\end{prop}
-
-If $p$ is an isolated singularity of $f$, then call the corresponding
-$c_{-1}$ the \emph{\myindex{residue}} of $f$ at $p$, and write it
-as $\operatorname{Res}(f,p)$.  
-The proposition says that for a small $\gamma$ around $p$ in the positive direction,
-\begin{equation*}
-\operatorname{Res}(f,p) = c_{-1} = \frac{1}{2\pi i} \int_\gamma f(z) \, dz
-.
-\end{equation*}
-Combining this equation with Cauchy's theorem tells us that to compute
-integrals of functions with isolated singularities we simply need to find
-the residues,
-which tend to be simpler to
-compute.  For example, if $p$ is a simple pole (of order 1), then 
-\begin{equation*}
-\operatorname{Res}(f,p) = \lim_{z \to p} (z-p)f(z) .
-\end{equation*}
-
-\begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
-Suppose $U \subset \C$ is an open set, and $\gamma$ is a piecewise-$C^1$
-simple closed path in $U$ such that the interior of $\gamma$ is in $U$.
-Suppose that $f \colon U \setminus S \to \C$ is a holomorphic function with isolated
-singularities in a finite set $S$, and suppose $S$ lies in the interior of $\gamma$.
-Then
-\begin{equation*}
-\int_{\gamma} f(z) \, dz = 2\pi i \sum_{p \in S} \operatorname{Res}(f,p) .
-\end{equation*}
-\end{thm}
-
-The identity theorem says that zeros of a nonconstant holomorphic $f$
-have no limit points, and so are isolated points.
-Since $\frac{1}{f}$ is a meromorphic
-function with zeros at the poles of $f$, poles are also
-isolated.  Zeros and poles of  can be counted fairly easily.
-
-\begin{thm}[Argument principle]\index{argument principle}\label{thm:onevarargprinc}
-Suppose $U \subset \C$ is an open set, and $\gamma$ is a piecewise-$C^1$
-simple closed path in $U$ such that the interior of $\gamma$ is in $U$.
-Suppose that $f \colon U \to \bP^1$ is a meromorphic function with no zeros
-or poles on $\gamma$.
-Then
-\begin{equation*}
-\frac{1}{2\pi i}
-\int_\gamma \frac{f'(z)}{f(z)} \, dz
-= N - P ,
-\end{equation*}
-where $N$ is the number of zeros of $f$ inside $\gamma$ and $P$ is the
-number of poles, both counted with multiplicity.
-
-Furthermore, if $h \colon U \to \C$ is holomorphic, and $\#(p)$ is the order
-(multiplicity) of a zero or pole at $p$, then
-\begin{equation*}
-\frac{1}{2\pi i}
-\int_\gamma h(z) \frac{f'(z)}{f(z)} \, dz
-=
-\sum_{p \in f^{-1}(0)}
-\#(p) \, h(p)
-\quad
--
-\quad
-\sum_{p \in f^{-1}(\infty)}
-\#(p) \, h(p) .
-\end{equation*}
-\end{thm}
-
-The proof is an immediate application of the residue theorem.  Simply
-compute the residues at the zeros and poles of $f$.  In particular,
-if $f$ has a zero at $p$, then $h(z) \frac{f'(z)}{f(z)}$ has a simple pole
-at $p$ with residue $\#(p) h(p)$.  Similarly, if $f$ has a pole at $p$,
-then $h(z) \frac{f'(z)}{f(z)}$ has residue $-\#(p) h(p)$ at $p$.
-
-In the above couple of theorems
-we avoided introducing winding numbers by making $\gamma$ a simple closed curve,
-so the above statements may be slightly different from what you have seen in
-your one-variable course.
-
-Another useful way to count zeros is Rouch\`e's theorem.
-
-\begin{thm}[Rouch\`e]\index{Rouch\`e's theorem}\label{thm:onevarrouche}
-Suppose $U \subset \C$ is an open set, and $\gamma$ is a piecewise-$C^1$
-simple closed path in $U$ such that the interior of $\gamma$ is in $U$.
-Suppose that $f \colon U \to \C$ and $g \colon U \to \C$
-are holomorphic functions such that
-\begin{equation*}
-\sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
-\end{equation*}
-for all $z \in \gamma$.  Then $f$ and $g$
-have the same number of zeros
-inside $\gamma$ (up to multiplicity).
-\end{thm}
-
-In the classical statement of the theorem the weaker
-inequality $\sabs{f(z)-g(z)} < \sabs{f(z)}$ is used.
-Notice that either inequality precludes any zeros on $\gamma$ itself.
-
-A holomorphic function with an essential singularity achieves essentially
-every value.  A weak version of this result (and an easy to prove one)
-is the \emph{\myindex{Casorati--Weierstrass theorem}}:
-If a holomorphic $f$ has an essential singularity at $p$,
-then for every neighborhood $W$ of $p$, $f\bigl(W \setminus \{p\}\bigr)$ is dense in
-$\C$.  Let us state the much stronger theorem of Picard:
-A function with an essential singularity is very wild.
-It achieves every value (except possibly one) infinitely often.
-
-\begin{thm}[Picard's big theorem]\index{Picard's big theorem}
-Suppose $U \subset \C$ is open, $f \colon U \setminus \{ p \} \to \C$
-is holomorphic, and $f$ has an essential singularity at $p$.  Then for every
-neighborhood $W$ of $p$, $f\bigl(W \setminus \{ p \}\bigr)$ is either $\C$
-or $\C$ minus a point.
-\end{thm}
-
-For example, $e^{1/z}$ has an essential singularity at the origin
-and the function is never 0.
-Since we stated the big theorem, let us also state the little theorem.
-
-\begin{thm}[Picard's little theorem]\index{Picard's little theorem}
-If $f \colon \C \to \C$ is holomorphic,
-then
-$f(\C)$ is either $\C$ or $\C$ minus a point.
-\end{thm}
-
-
-One theorem from algebra that is important in complex analysis, and becomes
-perhaps even more important in several variables is the fundamental theorem
-of algebra.  It really is a theorem of complex analysis and its standard
-proof is via the maximum principle.
-
-\begin{thm}[Fundamental theorem of algebra]\index{fundamental theorem of algebra}
-\label{thm:fundamentalthmalg}%
-If $P \colon \C \to \C$ is a nonzero polynomial of degree $k$,\linebreak[2]
-then $P$
-has exactly $k$ zeros (roots) in $\C$ counted with multiplicity.
-\end{thm}
-
-The set of rational functions is dense in the space of holomorphic
-functions, and we even have control over where the poles need to be.
-Note that a nonconstant polynomial has a ``pole at infinity'' meaning 
-$P(z) \to \infty$ as $z \to \infty$.  Letting $\bP^1$ again be the Riemann
-sphere, we have Runge's approximation theorem.
-
-\begin{thm}[Runge]\index{Runge's approximation theorem}
-Suppose $U \subset \C$ is an open set and $A \subset \bP^1 \setminus U$
-is a set containing at least one point from each component of
-$\bP^1 \setminus U$.  Suppose $f \colon U \to \C$ is holomorphic.
-Then for any $\epsilon > 0$ and any compact
-$K \subset \subset U$, there exists a rational function $R$ with poles in $A$
-such that
-\begin{equation*}
-\sabs{R(z) - f(z)} < \epsilon \qquad \text{for all $z \in K$}.
-\end{equation*}
-\end{thm}
-
-Perhaps a surprising generalization of the
-classical Weierstrass approximation theorem,
-and one of my favorite one-variable theorems,
-is Mergelyan's theorem.
-It may be good to note that Mergelyan does not follow from Runge.
-
-\begin{thm}[Mergelyan]\index{Mergelyan's theorem} \label{thm:mergelyan}
-Suppose $K \subset \subset \C$ is a compact set such that $\C \setminus K$
-is connected and
-$f \colon K \to \C$ is a continuous function that is
-holomorphic in the interior $K^\circ$.
-Then for any $\epsilon > 0$ and any compact
-$K \subset \subset U$, there exists a polynomial $P$
-such that
-\begin{equation*}
-\sabs{P(z) - f(z)} < \epsilon \qquad \text{for all $z \in K$}.
-\end{equation*}
-\end{thm}
-
-The reason why the theorem is perhaps
-surprising is that $K$ may have only a
-small or no interior.  Using a closed interval $K=[a,b]$ of the real line we
-recover the Weierstrass approximation theorem.
-
-\medskip
-
-Given an open set $U \subset \C$, we say $U$ is
-\emph{\myindex{symmetric with respect to the real axis}} if
-$z \in U$ implies $\bar{z} \in U$.  We divide $U$ into
-three parts
-\begin{equation*}
-U_+ = \{ z \in U : \Im z > 0 \}, \qquad
-U_0 = \{ z \in U : \Im z = 0 \}, \qquad
-U_- = \{ z \in U : \Im z < 0 \}.
-\end{equation*}
-We have the following theorem for extending (reflecting) holomorphic functions past
-boundaries.
-
-\begin{thm}[Schwarz Reflection Principle]
-\index{Schwarz reflection principle}%
-Suppose $U \subset \C$ is a domain symmetric with respect to the real axis, 
-$f \colon U_+ \cup U_0 \to \C$ a continuous function holomorphic on $U_+$
-and real valued on $U_0$.  Then the function $g \colon U \to \C$
-defined by
-\begin{equation*}
-g(z) = f(z) \quad \text{if $z \in U_+ \cup U_0$},
-\qquad
-g(z) = 
-\overline{f(\bar{z})} \quad \text{if $z \in U_-$},
-\end{equation*}
-is holomorphic on $U$.
-\end{thm}
-
-In fact, the reflection is really about harmonic functions.
-
-\begin{thm}[Schwarz reflection principle for harmonic functions]
-% this is probably not needed: \index{Schwarz reflection principle for harmonic functions}%
-Suppose $U \subset \C$ is a domain symmetric with respect to the real axis, 
-$f \colon U_+ \cup U_0 \to \R$ a continuous function harmonic on $U_+$
-and zero on $U_0$.  Then the function $g \colon U \to \R$
-defined by
-\begin{equation*}
-g(z) = f(z) \quad \text{if $z \in U_+ \cup U_0$},
-\qquad
-g(z) = 
--f(\bar{z}) \quad \text{if $z \in U_-$},
-\end{equation*}
-is harmonic on $U$.
-\end{thm}
-
-Functions may be defined locally, and continued along paths.
-Suppose $p$ is a point and $D$ is a disc with $p \in D$.
-A holomorphic function $f \colon D \to \C$ can be
-\emph{analytically continued}\index{analytic continuation}
-along a path
-$\gamma \colon [0,1] \to \C$, $\gamma(0) = p$,
-if for every $t \in [0,1]$ there exists
-a disc $D_t$ centered at $\gamma(t)$ and a holomorphic function
-$f_t \colon D_t \to \C$ and for each $t_0 \in [0,1]$ there is an
-$\epsilon > 0$ such that if $\sabs{t-t_0} < \epsilon$, then
-$f_t = f_{t_0}$
-in $D_t \cap D_{t_0}$.  The monodromy theorem says that as long as there are
-no holes, analytic continuation defines a function uniquely.
-
-\begin{thm}[Monodromy theorem]\index{Monodromy theorem}
-If $U \subset \C$ is a simply connected domain, $D \subset U$ a disc and
-$f \colon D \to \C$ a holomorphic function that can be analytically
-continued from $p \in D$ to every $q \in U$, then there exists
-a unique holomorphic function $F \colon U \to \C$ such that $F|_D = f$.
-\end{thm}
-
-\medskip
-
-An interesting and useful theorem getting an inequality in the opposite
-direction from
-Schwarz's lemma, and one which is often not covered in a one-variable
-course is the Koebe $\frac{1}{4}$-theorem.
-Think of why no such theorem could possibly hold for just smooth
-functions.  At first glance the theorem should seem quite counterintuitive,
-and at second glance, it should seem outright outrageous.
-
-\begin{thm}[Koebe quarter theorem]\index{Koebe quarter theorem}\index{Koebe
-$\frac{1}{4}$-theorem}
-Suppose $f \colon \D \to \C$ is holomorphic and injective.  Then
-$f(\D)$ contains a disc centered at $f(0)$ and radius $\frac{\sabs{f'(0)}}{4}$.
-\end{thm}
-
-The $\frac{1}{4}$ is sharp, that is, it is the best it can be.
-
-\medskip
-
-Finally, it is useful to factor out all the zeros of a holomorphic function,
-not just finitely many.  Similarly, we can work with poles.
-
-\begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
-Suppose $U \subset \C$ is a domain, $\{ a_k \}$, $\{ b_k \}$ are
-countable sets in $U$
-with no limit points in $U$, and $\{ n_k \}$, $\{ m_k \}$ any countable sets of
-natural numbers.
-Then there exists a meromorphic function $f$ of $U$ whose
-zeros are exactly at $a_k$, with orders given by $n_k$, and
-poles are exactly at $b_k$, with orders given by $m_k$.
-\end{thm}
-
-For a more explicit statement, we need infinite products.  The product
-$\prod_{j=1}^\infty (1+a_j)$
-converges if the sequence partial products
-$\prod_{j=1}^n (1+a_j)$ converges.  We say that it the product converges
-absolutely if
-$\prod_{j=1}^\infty (1+\sabs{a_j})$
-converges, which is equivalent to $\sum_{j=1}^\infty \sabs{a_j}$ converging.
-
-Define
-\begin{equation*}
-E_0(z) = (1-z), \qquad
-E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
-.
-\end{equation*}
-The function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
-
-\begin{thm}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
-Let $f$ be an entire function with zeros (with multiplicity) at points of
-the sequence $\{ a_k \}$ except the zero at
-the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
-entire function $g$ and a sequence $p_k$ such that
-\begin{equation*}
-f(z) = z^m e^{g(z)} \prod_{k=1}^\infty E_{p_k}\left(\frac{z}{a_k}\right) ,
-\end{equation*}
-converges absolutely and uniformly on all compact subsets.
-\end{thm}
-
-The $p_k$ are chosen such that
-\begin{equation*}
-\sum_{j=1}^\infty {\abs{\frac{r}{a_k}}}^{1+p_k}
-\end{equation*}
-converges for all $r > 0$.
-
-\begin{center}
-* * *
-\end{center}
-
-There are many other useful theorems in one complex variable, and we could
-spend a lot of time listing them all.
-However, hopefully the above listing is useful
-as a refresher for the reader of the most common results, some of which are
-used in this book, some of which are useful in the exercises, and some of
-which are just too interesting not to mention.
-
+FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3725,7 +2628,7 @@ a linear $A \colon \R^n \to \R^m$ such that
 \lim_{\substack{h \to 0\\h\in \R^n}}
 \frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0 .
 \end{equation*}
-We write $Df(x) = A$, or $f'(x) = A$,\glsadd{not:mvder} and
+We write $Df|_x = A$\glsadd{not:mvder} and
 we say $A$ is the \emph{(real) derivative\index{real derivative}} of $f$ at $x$.
 When $f$ is \emph{(real) differentiable} at
 every $x \in U$, we say that $f$ is (real) differentiable.  See
@@ -3776,7 +2679,7 @@ zero everywhere.
 
 \begin{example}
 If $f(x) = Ax$ for a linear mapping $A$, then
-$f'(x) = A$:
+$Df|_x = A$:
 \begin{equation*}
 \frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}}
 =
@@ -3823,7 +2726,7 @@ h_1^2 + h_2^2}}{\sqrt{h_1^2+h_2^2}}
 \end{equation*}
 And this expression does indeed go to zero as $h \to 0$.  The
 function $f$ is differentiable at the origin and 
-the derivative $f'(0)$ is represented by the matrix
+the derivative $Df|_0$ is represented by the matrix
 $\left[\begin{smallmatrix}1&2\\2&3\end{smallmatrix}\right]$.
 \end{example}
 
@@ -3835,11 +2738,11 @@ differentiable at $p \in U$.  Then $f$ is continuous at $p$.
 \begin{proof}
 Another way to write the differentiability of $f$ at $p$ is to first write
 \begin{equation*}
-r(h) = f(p+h)-f(p) - f'(p) h ,
+r(h) = f(p+h)-f(p) - Df|_p h ,
 \end{equation*}
 and $\frac{\snorm{r(h)}}{\snorm{h}}$ must go to zero as $h \to 0$.
 So
-$r(h)$ itself must go to zero.  The mapping $h \mapsto f'(p) h$
+$r(h)$ itself must go to zero.  The mapping $h \mapsto Df|_p h$
 is a linear mapping between finite dimensional spaces, it is
 therefore continuous
 and goes to zero as $h \to 0$.  So
@@ -3856,8 +2759,8 @@ $g \colon U \to \R^m$ are differentiable at $p$,
 and $\alpha \in \R$.  Then the functions $f+g$ and $\alpha f$
 are differentiable at $p$ and
 \begin{equation*}
-(f+g)'(p) = f'(p) + g'(p) , \qquad \text{and} \qquad (\alpha f)'(p) = \alpha
-f'(p) .
+D(f+g)|_p = Df|_p + Dg|_p , \qquad \text{and} \qquad D(\alpha f)|_p = \alpha
+Df|_p .
 \end{equation*}
 \end{prop}
 
@@ -3865,18 +2768,18 @@ f'(p) .
 Let $h \in \R^n$, $h \not= 0$.  The proposition follows from the following
 estimates:
 \begin{multline*}
-\frac{\norm{f(p+h)+g(p+h)-\bigl(f(p)+g(p)\bigr) - \bigl(f'(p) + g'(p)\bigr)h}}{\snorm{h}}
+\frac{\norm{f(p+h)+g(p+h)-\bigl(f(p)+g(p)\bigr) - \bigl(Df|_p + Dg|_p\bigr)h}}{\snorm{h}}
 \\
 \leq
-\frac{\norm{f(p+h)-f(p) - f'(p)h}}{\snorm{h}}
+\frac{\norm{f(p+h)-f(p) - Df|_ph}}{\snorm{h}}
 +
-\frac{\norm{g(p+h)-g(p) - g'(p)h}}{\snorm{h}} ,
+\frac{\norm{g(p+h)-g(p) - Dg|_ph}}{\snorm{h}} ,
 \end{multline*}
 and
 \begin{equation*}
-\frac{\norm{\alpha f(p+h) - \alpha f(p) - \alpha f'(p)h}}{\snorm{h}}
+\frac{\norm{\alpha f(p+h) - \alpha f(p) - \alpha Df|_p h}}{\snorm{h}}
 =
-\sabs{\alpha} \frac{\norm{f(p+h))-f(p) - f'(p)h}}{\snorm{h}} .
+\sabs{\alpha} \frac{\norm{f(p+h))-f(p) - Df|_ph}}{\snorm{h}} .
 \qedhere
 \end{equation*}
 \end{proof}
@@ -3888,7 +2791,7 @@ so the derivative of the composition is the composition
 of the derivatives.  As differentiable maps are ``infinitesimally close''
 to linear maps, they have the same property:
 
-\begin{thm}[Chain rule]
+\begin{thm}[Chain rule] \label{thm:realchain}
 Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
 differentiable at $p \in U$.  Let $V \subset \R^m$ be open,
 $f(U) \subset V$ and let $g \colon V \to \R^\ell$ be differentiable
@@ -3898,12 +2801,12 @@ F(x) = g\bigl(f(x)\bigr)
 \end{equation*}
 is differentiable at $p$ and
 \begin{equation*}
-F'(p) = g'\bigl(f(p)\bigr) f'(p) .
+DF|_p = Dg|_{f(p)} Df|_p .
 \end{equation*}
 \end{thm}
 
 \begin{proof}
-Let $A = f'(p)$ and $B = g'\bigl(f(p)\bigr)$.  Take $h \in \R^n$
+Let $A = Df|_p$ and $B = Dg|_{f(p)}$.  Take $h \in \R^n$
 and write $q = f(p)$, $k = f(p+h)-f(p)$.  Let
 \begin{equation*}
 r(h) = f(p+h)-f(p) - A h . %= k - Ah.
@@ -3981,10 +2884,19 @@ $
 $
 stays bounded as $h$ goes to 0.  Therefore, 
 $\frac{\snorm{F(p+h)-F(p) - BAh}}{\snorm{h}}$ goes to zero, and
-$F'(p) = BA$, which is what was claimed.
+$DF|_p = BA$, which is what was claimed.
 \end{proof}
 
 Let us prove a ``mean value theorem'' for vector-valued functions.
+For a function $\varphi \colon [a,b] \to \R^n$, we think of the derivative
+$D\varphi|_{t_0}$ as a vector, and so 
+it is often just written as $\varphi'(t_0)$, it is not hard to check that
+the components of $D\varphi|_{t_0}$ are just the derivatives of the
+components of $\varphi$, and $D\varphi|_{t_0} h = \varphi'(t_0) \cdot h$,
+where $h$ is the dot product.  Then
+$\snorm{\varphi'(t_0)}$
+is the Euclidean norm in $\R^n$.  And in fact, in this setting it is the same
+as the operator norm.
 
 \begin{lemma}
 If $\varphi \colon [a,b] \to \R^n$ is differentiable on $(a,b)$ and
@@ -3993,10 +2905,6 @@ continuous on $[a,b]$, then there exists a $t_0 \in (a,b)$ such that
 \snorm{\varphi(b)-\varphi(a)} \leq (b-a) \snorm{\varphi'(t_0)} .
 \end{equation*}
 \end{lemma}
-
-Here we think of $\varphi'(t_0)$ as a vector and so $\snorm{\varphi'(t_0)}$
-is the Euclidean norm in $\R^n$.  In this setting it is in fact the same
-as the operator norm.
 
 \begin{proof}
 By mean value theorem on the scalar-valued function
@@ -4040,7 +2948,7 @@ $x$ to $y$ lies in $U$.
 Let $U \subset \R^n$ be a convex open set, $f \colon U \to \R^m$
 a differentiable function, and an $M$ be such that
 \begin{equation*}
-\snorm{f'(x)} \leq M
+\snorm{Df|_x} \leq M
 \qquad \text{for all $x \in U$.}
 \end{equation*}
 Then $f$ is Lipschitz with constant $M$, that is
@@ -4059,7 +2967,7 @@ Next
 \begin{equation*}
 \frac{d}{dt} \Bigl[f\bigl((1-t)x+ty\bigr)\Bigr]
 =
-f'\bigl((1-t)x+ty\bigr) (y-x) .
+Df|_{((1-t)x+ty)} (y-x) .
 \end{equation*}
 By the mean value theorem above we get for
 some $t_0 \in (0,1)$,
@@ -4069,23 +2977,23 @@ some $t_0 \in (0,1)$,
 \norm{\frac{d}{dt} \Big|_{t=t_0} \Bigl[ f\bigl((1-t)x+ty\bigr) \Bigr] }
 \\
 & \leq
-\norm{f'\bigl((1-t_0)x+t_0y\bigr)} \, \snorm{y-x} \leq
+\norm{Df|_{((1-t_0)x+t_0y)}} \, \snorm{y-x} \leq
 M \snorm{y-x} . \qedhere
 \end{split}
 \end{equation*}
 \end{proof}
 
-Let us solve the differential equation $f' = 0$.
+Let us solve the differential equation $Df = 0$.
 
 \begin{cor}
 If $U \subset \R^n$ is connected and $f \colon U \to \R^m$ is differentiable
-and $f'(x) = 0$, for all $x \in U$, then $f$ is constant.
+and $Df|_x = 0$, for all $x \in U$, then $f$ is constant.
 \end{cor}
 
 \begin{proof}
 For any $x \in U$, there is an open ball $B(x,\delta) \subset U$.  The ball
 $B(x,\delta)$ is convex.  Since
-$\snorm{f'(y)} \leq 0$ for all $y \in B(x,\delta)$, then
+$\snorm{Df|_y} \leq 0$ for all $y \in B(x,\delta)$, then
 $\snorm{f(x)-f(y)} \leq 0 \snorm{x-y} = 0$.
 Thus $f^{-1}(c)$ is open for any $c \in \R^m$.  Suppose
 $f^{-1}(c)$ is nonempty.  
@@ -4117,12 +3025,12 @@ $f(x,y) = \bigl( {(x+y+1)}^2 , {(x-y+2)}^2 \bigr)$.
 \begin{exercise}
 Define $f \colon \R^2 \to \R^2$ by $f(x,y) =
 \bigl(x,y+\varphi(x)\bigr)$ for some differentiable function $\varphi$ of one
-variable.  Show $f$ is differentiable and find $f'$.
+variable.  Show $f$ is differentiable and find $Df$.
 \end{exercise}
 
 \begin{exercise}
 Suppose $f \colon \R^n \to \R$ and $h \colon \R^n \to \R$ are two 
-differentiable functions such that $f'(x) = h'(x)$ for all $x \in \R^n$.
+differentiable functions such that $Df|_x = Dh|_x$ for all $x \in \R^n$.
 Prove that
 if $f(0) = h(0)$ then $f(x) = h(x)$ for all $x \in \R^n$.
 \end{exercise}
@@ -4139,37 +3047,37 @@ function.
 Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
 differentiable at $p \in U$.  Then all the partial derivatives at $p$
 exist and, in terms of the standard bases of $\R^n$ and $\R^m$,
-$f'(p)$ is represented by the matrix
+$Df|_p$ is represented by the matrix
 \begin{equation*}
 \begin{bmatrix}
-\frac{\partial f_1}{\partial x_1}(p)
+\frac{\partial f_1}{\partial x_1}\big|_p
 &
-\frac{\partial f_1}{\partial x_2}(p)
+\frac{\partial f_1}{\partial x_2}\big|_p
 & \ldots &
-\frac{\partial f_1}{\partial x_n}(p)
+\frac{\partial f_1}{\partial x_n}\big|_p
 \\[6pt]
-\frac{\partial f_2}{\partial x_1}(p)
+\frac{\partial f_2}{\partial x_1}\big|_p
 &
-\frac{\partial f_2}{\partial x_2}(p)
+\frac{\partial f_2}{\partial x_2}\big|_p
 & \ldots &
-\frac{\partial f_2}{\partial x_n}(p)
+\frac{\partial f_2}{\partial x_n}\big|_p
 \\
 \vdots & \vdots & \ddots & \vdots
 \\
-\frac{\partial f_m}{\partial x_1}(p)
+\frac{\partial f_m}{\partial x_1}\big|_p
 &
-\frac{\partial f_m}{\partial x_2}(p)
+\frac{\partial f_m}{\partial x_2}\big|_p
 & \ldots &
-\frac{\partial f_m}{\partial x_n}(p)
+\frac{\partial f_m}{\partial x_n}\big|_p
 \end{bmatrix} .
 \end{equation*}
 \end{prop}
 
 In other words
 \begin{equation*}
-f'(p) \, e_j =
+Df|_p \, e_j =
 \sum_{k=1}^m
-\frac{\partial f_k}{\partial x_j}(p) \,e_k ,
+\frac{\partial f_k}{\partial x_j}\Big|_p \,e_k ,
 \end{equation*}
 where $e_j$ denote the vectors of the standard basis in the appropriate
 space.
@@ -4178,17 +3086,17 @@ space.
 Fix a $j$ and note that
 \begin{equation*}
 \begin{split}
-\norm{\frac{f(p+h e_j)-f(p)}{h} - f'(p) \, e_j} & = 
-\norm{\frac{f(p+h e_j)-f(p) - f'(p) \, h e_j}{h}} \\
+\norm{\frac{f(p+h e_j)-f(p)}{h} - Df|_p \, e_j} & = 
+\norm{\frac{f(p+h e_j)-f(p) - Df|_p \, h e_j}{h}} \\
 & =
-\frac{\snorm{f(p+h e_j)-f(p) - f'(p) \, h e_j}}{\snorm{h e_j}} .
+\frac{\snorm{f(p+h e_j)-f(p) - Df|_p \, h e_j}}{\snorm{h e_j}} .
 \end{split}
 \end{equation*}
 As $h$ goes to 0, the right hand side goes to zero by
 differentiability of $f$, and hence
 \begin{equation*}
 \lim_{h \to 0}
-\frac{f(p+h e_j)-f(p)}{h} = f'(p) \, e_j  .
+\frac{f(p+h e_j)-f(p)}{h} = Df|_p \, e_j  .
 \end{equation*}
 Let us represent $f$ by components
 $f = (f_1,f_2,\ldots,f_m)$, since it is vector-valued.
@@ -4196,13 +3104,13 @@ Taking a limit in $\R^m$
 is the same as taking the limit in each component separately.  
 For any $k$
 \begin{equation*}
-\frac{\partial f_k}{\partial x_j} (p)
+\frac{\partial f_k}{\partial x_j} \Big|_p
 =
 \lim_{h \to 0}
 \frac{f_k(p+h e_j)-f_k(p)}{h}
 \end{equation*}
 exists and 
-is equal to the $k$th component of $f'(p)\, e_j$, and we are done.
+is equal to the $k$th component of $Df|_p\, e_j$, and we are done.
 \end{proof}
 
 The converse of the proposition is not true.  Just because the partial
@@ -4244,37 +3152,37 @@ Let
 \begin{equation*}
 A = 
 \begin{bmatrix}
-\frac{\partial f_1}{\partial x_1}(x)
+\frac{\partial f_1}{\partial x_1}\big|_x
 & \ldots &
-\frac{\partial f_1}{\partial x_n}(x)
+\frac{\partial f_1}{\partial x_n}\big|_x
 \\
 \vdots & \ddots & \vdots
 \\
-\frac{\partial f_m}{\partial x_1}(x)
+\frac{\partial f_m}{\partial x_1}\big|_x
 & \ldots &
-\frac{\partial f_m}{\partial x_n}(x)
+\frac{\partial f_m}{\partial x_n}\big|_x
 \end{bmatrix} ,
 \qquad
 A' = 
 \begin{bmatrix}
-\frac{\partial f_1}{\partial x_1}(x)
+\frac{\partial f_1}{\partial x_1}\big|_x
 & \ldots &
-\frac{\partial f_1}{\partial x_{n-1}}(x)
+\frac{\partial f_1}{\partial x_{n-1}}\big|_x
 \\
 \vdots & \ddots & \vdots
 \\
-\frac{\partial f_m}{\partial x_1}(x)
+\frac{\partial f_m}{\partial x_1}\big|_x
 & \ldots &
-\frac{\partial f_m}{\partial x_{n-1}}(x)
+\frac{\partial f_m}{\partial x_{n-1}}\big|_x
 \end{bmatrix} ,
 \qquad
 v = 
 \begin{bmatrix}
-\frac{\partial f_1}{\partial x_n}(x)
+\frac{\partial f_1}{\partial x_n}\big|_x
 \\
 \vdots
 \\
-\frac{\partial f_m}{\partial x_n}(x)
+\frac{\partial f_m}{\partial x_n}\big|_x
 \end{bmatrix} .
 \end{equation*}
 Let $\epsilon > 0$ be given.  By the induction hypothesis, there
@@ -4286,8 +3194,8 @@ for any $k \in \R^{n-1}$ with $\snorm{k} < \delta$ we have
 By continuity of the partial derivatives, suppose $\delta$ is small
 enough so that
 \begin{equation*}
-\abs{\frac{\partial f_j}{\partial x_n}(x+h)
-      - \frac{\partial f_j}{\partial x_n}(x)} < \epsilon ,
+\abs{\frac{\partial f_j}{\partial x_n}\Big|_{x+h}
+      - \frac{\partial f_j}{\partial x_n}\Big|_{x}} < \epsilon ,
 \end{equation*}
 for all $j$ and all $h \in \R^n$ with $\snorm{h} < \delta$.
 
@@ -4310,7 +3218,7 @@ As all the partial derivatives exist, by the mean value theorem,
 for each $j$ there is some $\theta_j \in [0,t]$ (or $[t,0]$ if $t < 0$), such that
 \begin{equation*}
 f_j(x+k + t e_n) - f_j(x+k) =
-t \frac{\partial f_j}{\partial x_n}(x+k+\theta_j e_n).
+t \frac{\partial f_j}{\partial x_n}\Big|_{(x+k+\theta_j e_n)}.
 \end{equation*}
 Note that if $\snorm{h} < \delta$, then $\snorm{k+\theta_j e_n} \leq \snorm{h}
 < \delta$.
@@ -4320,9 +3228,9 @@ So to finish,
 \snorm{f(x+h) - f(x) - Ah}
 & \leq \snorm{f(x+k + t e_n) - f(x+k) -tv} + \epsilon \snorm{k}
 \\
-& \leq \sqrt{\sum_{j=1}^m {\left(t\frac{\partial f_j}{\partial
-x_n}(x+k+\theta_j e_n) -
-t \frac{\partial f_j}{\partial x_n}(x)\right)}^2} + \epsilon \snorm{k}
+& \leq \sqrt{\sum_{j=1}^m
+{\left(t\frac{\partial f_j}{\partial x_n}\Big|_{(x+k+\theta_j e_n)} -
+t \frac{\partial f_j}{\partial x_n}\Big|_{x}\right)}^2} + \epsilon \snorm{k}
 \\
 & \leq \sqrt{m}\, \epsilon \sabs{t} + \epsilon \snorm{k}
 \\
@@ -4390,7 +3298,7 @@ continuously differentiable.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Metric spaces} \label{ap:metric}
+\chapter{Metric Spaces} \label{ap:metric}
 
 \begin{myquote}
 Except in mathematics, the shortest distance between point A and point B is seldom a straight line. I don't believe in mathematics.
@@ -5179,12 +4087,12 @@ is open in the subspace topology there exists a $V$ is left as
 \exerciseref{exercise:mssubspace}.
 \end{proof}
 
-A hint for the exercise is that
-a useful way to think about an open set is as a union of open balls.  If $U$ is
-open, then for each $x \in U$, there is a $\delta_x > 0$ (depending on $x$) such that
-$B(x,\delta_x) \subset U$.  Then $U = \bigcup_{x\in U} B(x,\delta_x)$.
+%A hint for the exercise is that
+%a useful way to think about an open set is as a union of open balls.  If $U$ is
+%open, then for each $x \in U$, there is a $\delta_x > 0$ (depending on $x$) such that
+%$B(x,\delta_x) \subset U$.  Then $U = \bigcup_{x\in U} B(x,\delta_x)$.
 
-In case of an open subset of an open set or a closed subset of a closed
+For an open subset of an open set or a closed subset of a closed
 set, matters are simpler.
 
 \begin{prop} \label{prop:topology:subspacesame}
@@ -5387,8 +4295,8 @@ is closed.  Furthermore if $A$ is closed then $\widebar{A} = A$.
 \begin{proof}
 The closure is an intersection of closed sets, so $\widebar{A}$ is closed.
 If $A$ is closed, then $A$ is a closed set that contains $A$,
-and so $\widebar{A} \subset A$.  And since $A \subset \widebar{A}$,
-we must have $A = \widebar{A}$.
+and so $\widebar{A} \subset A$.  And as $A \subset \widebar{A}$, then
+$A = \widebar{A}$.
 \end{proof}
 
 \begin{example}
@@ -5399,7 +4307,7 @@ Therefore, the closure $\overline{(0,1)} = [0,1]$.
 \end{example}
 
 \begin{example}
-Be careful to notice what ambient metric space you are working with.
+Always notice what ambient metric space you are working with.
 If $X = (0,\infty)$, then
 the closure of $(0,1)$ in $(0,\infty)$ is $(0,1]$.  Proof:  Similarly as
 above $(0,1]$ is closed in $(0,\infty)$ (why?).  Any closed set $E$
@@ -5442,8 +4350,8 @@ and the boundary of a set (points we can
 approach both from the set and its complement).
 
 \begin{defn}
-Let $(X,d)$ be a metric space and $A \subset X$, then
-the \emph{\myindex{interior}} of $A$ is the set
+Let $(X,d)$ be a metric space and $A \subset X$.
+Then the \emph{\myindex{interior}} of $A$ is the set
 \glsadd{not:interior}
 \begin{equation*}
 A^\circ \overset{\text{def}}{=} \{ x \in A : \text{there exists a $\delta > 0$ such that
@@ -5523,16 +4431,19 @@ such that $B(x,\delta) \subset A$.  But that means $B(x,\delta)$
 contains no points of $A^c$.
 \end{proof}
 
-We obtain the following immediate corollary about closures of $A$ and $A^c$.  We
-simply apply \propref{prop:msclosureappr}.
+The above proposition and \propref{prop:msclosureappr} give the following
+corollary.
 
 \begin{cor}
 Let $(X,d)$ be a metric space and $A \subset X$.
 Then $\partial A = \widebar{A} \cap \widebar{A^c}$.
 \end{cor}
 
+\pagebreak[3]
 \subsection{Exercises}
+\nopagebreak
 
+\nopagebreak
 \begin{exbox}
 \begin{exercise}
 Prove \propref{prop:topology:closed}.  Hint: Consider the complements of the
@@ -6809,12 +5720,12 @@ for all $n \geq M$, we have $d_X(x_n,c) < \delta$, then
 $d_Y\bigl(f(x_n),f(c)\bigr) < \epsilon$.  Hence $\{ f(x_n) \}$
 converges to $f(c)$.
 
-On the other hand suppose $f$ is not continuous at $c$.
+Now suppose $f$ is not continuous at $c$.
 Then there exists an $\epsilon > 0$,
-such that for every $n \in \N$ there exists an $x_n \in X$,
+such that for every $n \in \N$ there is an $x_n \in X$,
 with
 $d_X(x_n,c) < \nicefrac{1}{n}$ such that $d_Y\bigl(f(x_n),f(c)\bigr) \geq
-\epsilon$.  Then $\{ x_n \}$ converges to $c$, but $\{ f(x_n) \}$
+\epsilon$.  So $\{ x_n \}$ converges to $c$, but $\{ f(x_n) \}$
 does not converge to $f(c)$.
 \end{proof}
 
