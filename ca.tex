@@ -528,6 +528,8 @@ holomorphic functions without spending lectures on redefining the
 basics.  The connection is to understand multiplication by complex numbers
 as a $2 \times 2$ real matrix.  When we introduce line integrals we connect
 them to the line integrals the student has seen in calculus.
+This is not a time saving measure.  The point is to stress that we are
+not defining some totally new and different world.
 
 Furthermore, we try not to define any conflicting terminology or notation
 with what the reader has learned before.
@@ -1310,17 +1312,20 @@ f(z_0+h) = f(z_0) + \xi h + o(\sabs{h})
 \end{equation*}
 for some $\xi \in \C$, where $o(\sabs{h})$ just means any function of $h$
 that goes to zero faster than $\sabs{h}$.
-If we have a differentiable (in the real sense,
+For a differentiable (in the real sense
+and as a function of two real variables,
 see \sectionref{sec:derinsv} in the appendix) function $f \colon U \to
-\C$ where $U \subset \C$, then if we think of $\C$ as $\R^2$,
+\C$ where $U \subset \C$, if we think of $\C$ as $\R^2$,
 then the real derivative of $f$ is a $2 \times 2$ real matrix $D f$.
-That is, we know that,
+That is, $f$ is real differentiable at $z_0$ if there exists
+a $2 \times 2$ real matrix $Df|_{z_0}$ such that
 \begin{equation*}
 \lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - (Df|_{z_0}) h}}{\sabs{h}} = 0 .
 \end{equation*}
-Where we think of $h$ as a column vector to be able to apply it to the
+Here we think of $h$ as a column vector to be able to apply it to the
 $2 \times 2$ real matrix $Df|_{z_0}$.
-A key point here is that $h \in \C$ so the limit is being taken in $\C$.
+A key point here is that $h \in \C$ (or $\R^2$ if you wish)
+so the limit is being taken in $\C$.
 So $f(z_0+h) - f(z_0) - (Df|_{z_0}) h$ is $o(\sabs{h})$ as needed.
 The trick is when does $(Df|_{z_0}) h$ correspond to $\xi h$ for some $\xi \in
 \C$.
@@ -1340,7 +1345,7 @@ complex number.  As we have seen in the last chapter, it is
 $\left[ \begin{smallmatrix}
 a & -b \\ b & a
 \end{smallmatrix} \right]$ that corresponds to the complex number $a+ib$.
-In other words, if we wish $Df|_{z_0}$ to correspond to multiplication by
+If we wish $Df|_{z_0}$ to correspond to multiplication by
 a complex number then
 \begin{equation*}
 \frac{\partial u}{\partial x}\Big|_{z_0} =
@@ -1363,27 +1368,29 @@ or in other words
 \begin{equation*}
 \lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi .
 \end{equation*}
-We will write 
+We write 
 \begin{equation*}
 f'(z_0) \overset{\text{def}}{=}
 \lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi ,
 \end{equation*}
-And we will call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
-at $z_0$.  We will say that $f$ is \emph{\myindex{complex differentiable}}
+We call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
+at $z_0$.  We say $f$ is \emph{\myindex{complex differentiable}}
 at $z_0$.
 
-So we proved that if $f$ is differentiable (in the real sense), then 
+We proved that if $f$ is differentiable (in the real sense), then 
 the complex derivative exists at $z_0$ if and only if 
 $\frac{\partial u}{\partial x}\big|_{z_0} = \frac{\partial v}{\partial
 y}\big|_{z_0}$ and $\frac{\partial v}{\partial x}\big|_{z_0} = -\frac{\partial
 u}{\partial y}\big|_{z_0}$.
+We usually want to do this at all points, not just one.
 
-Usually we want to do this in many points, not just one.  Using the fact
+Using the fact
 from undergraduate analysis (see \sectionref{sec:derinsv} again), that
 if the partial derivatives exist and are continuous then $f$ is
 differentiable we have the following proposition.
 
 \begin{prop}
+\pagebreak[2]
 Let $U \subset \C$ be open, and $f = u+iv \colon U \to \C$ be a function
 such that $\frac{\partial u}{\partial x}$, $\frac{\partial u}{\partial y}$, $\frac{\partial
 v}{\partial x}$, and $\frac{\partial v}{\partial y}$ exist and are continuous (that is,
@@ -1437,16 +1444,16 @@ see \thmref{thm:svzerodersol} in the appendix.
 \end{proof}
 
 \begin{prop}
-Let $U \subset \C$ and $V \subset \C$ be open, and $f \colon U \to V$, $g
-\colon V \to \C$ be holomorphic.  Then the composition $g \circ f$
-is holomorphic and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)$.
+Let $U \subset \C$ and $V \subset \C$ be open, and $f \colon U \to V$
+complex differentiable at $z$, $g \colon V \to \C$ complex differentiable
+at $f(z)$.  Then the composition $g \circ f$
+is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)$.
 \end{prop}
 
 \begin{proof}
-Since holomorphic functions are differentiable in the real sense,
+Since complex differentiable functions are differentiable in the real sense,
 the proof follows from the standard real chain rule (\thmref{thm:realchain}).
-That is, let $z \in U$ and $w = f(z) \in V$.
-Then
+Let $w = f(z) \in V$.  Then
 \begin{equation*}
 D(g \circ f)|_z = Dg|_w Df|_z .
 \end{equation*}
@@ -1455,6 +1462,33 @@ numbers as $f$ and $g$ are both holomorphic.  A product $Dg|_w Df|_z$
 of two such matrices again corresponds to a complex number.  So
 $D(g \circ f)|_z$ corresponds to a complex number and so $g \circ f$
 complex differentiable at $z$.
+\end{proof}
+
+In fact, we can to some degree mix holomorphic functions and functions of a
+single real variable (as long as it makes sense).  If $\gamma \colon (a,b)
+\to \C$ is a differentiable functions, we write $\gamma = \alpha + i \beta$
+and then we write the derivative as $\gamma' = \alpha' + i \beta'$.  We can
+as usual think of $\gamma'$ as a vector in $\R^2$.
+
+\begin{prop}
+Let $U \subset \C$ be open,
+$\gamma (a,b) \to U$ be real differentiable at $t_0 \in (a,b)$,
+and $f \colon U \to \C$ be complex differentiable at $\gamma(t_0)$.
+Then the composition $f \circ \gamma$ is real differentiable
+at $t_0$ and $(f \circ \gamma)'(t_0) = f'\bigl(\gamma(t_0)\bigr) \gamma'(t_0)$.
+\end{prop}
+
+\begin{proof}
+Let $z = \gamma(t_0)$.  Then in terms of real derivatives
+\begin{equation*}
+D(f \circ \gamma)|_{t_0} =
+Df|_z D\gamma|_{t_0} .
+\end{equation*}
+That is as an equation of real linear operators.  Now $Df|_z$ corresponds
+to the multiplication by the complex number $f'(z)$, and $D\gamma|_{t_0}$
+is the $2 \times 1$ matrix represented by $\gamma'(t_0)$.  Therefore
+the (real) derivative of $f \circ \gamma$ is represented by multiplication
+of the complex number $f'(z) \gamma'(t_0)$.
 \end{proof}
 
 \begin{prop} \label{prop:sumprod}
@@ -1499,6 +1533,12 @@ Prove $(z^n)' = n z^{n-1}$ for negative integers.
 \begin{exercise}
 Show that the complex exponential function, and hence also sine and cosine,
 is holomorphic, and show that $\exp' = \exp$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain (open and connected),
+and $f \colon U \to \R$ be a real-valued function that is holomorphic.
+Prove that $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
