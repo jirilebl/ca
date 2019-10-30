@@ -750,6 +750,14 @@ via Cauchy--Schwarz:
 \end{equation*}
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+Prove the polarization identity
+$4 z\bar{w} =
+{\sabs{z+w}}^2-{\sabs{z-w}}^2 +i \bigl( {\sabs{z+iw}}^2 - {\sabs{z-iw}}^2 \bigr)$.
+\end{exercise}
+\end{exbox}
+
 The distance between two numbers $z$ and $w$ is measured by
 \begin{equation*}
 %\dist(z,w)
@@ -818,8 +826,12 @@ components (as if $f$ was valued in $\R^2$):
 \frac{\partial u}{\partial y} + i
 \frac{\partial v}{\partial y} .
 \end{equation*}
-And similarly if $X \subset \R$, that is if $f$ is a complex-valued
+
+If $X \subset \R$, that is if $f$ is a complex-valued
 function of one real variable, $f' = u' + iv'$.
+This is equivalent to treating $f$ as a function from $\R$ to $\R^2$
+and hence $f'$ is a $2 \times 1$ matrix---a column vector, or in other words
+representing a complex number if we are identifying $\C$ and $\R^2$.
 
 Similarly when integrating.  Suppose that $f \colon [a,b] \to \C$.
 We say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
@@ -901,6 +913,13 @@ Prove that if the $2 \times 2$ matrix $M$ represents a complex number
 $a+ib$, then $M$ has two eigenvalues: $a \pm i b$ with the corresponding
 eigenvectors $\left[ \begin{smallmatrix} 1 \\ \pm i \end{smallmatrix}
 \right]$.
+\end{exercise}
+
+\begin{exercise}
+Prove that
+in terms of the complex notation an arbitrary $2 \times 2$ real matrix $M$
+can be represented by two complex numbers $\xi$ and $\zeta$, and the formula
+$z \mapsto \xi z + \zeta \bar{z}$.
 \end{exercise}
 \end{exbox}
 
@@ -1443,7 +1462,7 @@ The proof follows immediately from the standard real result,
 see \thmref{thm:svzerodersol} in the appendix.
 \end{proof}
 
-\begin{prop}
+\begin{prop}[Chain rule]
 Let $U \subset \C$ and $V \subset \C$ be open, and $f \colon U \to V$
 complex differentiable at $z$, $g \colon V \to \C$ complex differentiable
 at $f(z)$.  Then the composition $g \circ f$
@@ -1465,12 +1484,12 @@ complex differentiable at $z$.
 \end{proof}
 
 In fact, we can to some degree mix holomorphic functions and functions of a
-single real variable (as long as it makes sense).  If $\gamma \colon (a,b)
-\to \C$ is a differentiable functions, we write $\gamma = \alpha + i \beta$
-and then we write the derivative as $\gamma' = \alpha' + i \beta'$.  We can
-as usual think of $\gamma'$ as a vector in $\R^2$.
+single real variable (as long as it makes sense).  If $\gamma = \alpha + i
+\beta \colon (a,b)
+\to \C$ is a differentiable function,
+then write $\gamma' = \alpha' + i \beta'$.
 
-\begin{prop}
+\begin{prop}[Chain rule]
 Let $U \subset \C$ be open,
 $\gamma (a,b) \to U$ be real differentiable at $t_0 \in (a,b)$,
 and $f \colon U \to \C$ be complex differentiable at $\gamma(t_0)$.
@@ -1487,8 +1506,8 @@ Df|_z D\gamma|_{t_0} .
 That is as an equation of real linear operators.  Now $Df|_z$ corresponds
 to the multiplication by the complex number $f'(z)$, and $D\gamma|_{t_0}$
 is the $2 \times 1$ matrix represented by $\gamma'(t_0)$.  Therefore
-the (real) derivative of $f \circ \gamma$ is represented by multiplication
-of the complex number $f'(z) \gamma'(t_0)$.
+the (real) derivative of $f \circ \gamma$ is represented via multiplication
+by the complex number $f'(z) \gamma'(t_0)$.
 \end{proof}
 
 \begin{prop} \label{prop:sumprod}
@@ -1514,8 +1533,8 @@ f(z+h)g(z+h) - f(z)g(z+h) +
 f(z)g(z+h) - f(z)g(z)$.
 \end{exercise}
 
-\begin{samepage}
 \begin{exercise}
+\begin{samepage}
 \begin{exparts}
 \item
 Prove that the derivative of a constant is zero, $(1)' = 0$.
@@ -1527,8 +1546,14 @@ and induction: $z^n = z^{n-1} z$.
 \item
 Prove $(z^n)' = n z^{n-1}$ for negative integers.
 \end{exparts}
-\end{exercise}
+Note: In this problem you are both proving that the derivatives exist and
+computing the derivative.
 \end{samepage}
+\end{exercise}
+
+\begin{exercise}
+Prove that any polynomial $P(z)$ is holomorphic.
+\end{exercise}
 
 \begin{exercise}
 Show that the complex exponential function, and hence also sine and cosine,
@@ -1587,7 +1612,7 @@ The so-called \emph{\myindex{Wirtinger operators}},
 \frac{\partial}{\partial x} - i
 \frac{\partial}{\partial y}
 \right),
-~ ~ ~ ~ ~
+\qquad
 \frac{\partial}{\partial \bar{z}}
 \overset{\text{def}}{=}
 \frac{1}{2}
@@ -1773,10 +1798,46 @@ $\frac{\partial}{\partial z} \left[ z^m\bar{z}^n \right]$
 and
 $\frac{\partial}{\partial \bar{z}} \left[ z^m\bar{z}^n \right]$.
 \end{exercise}
+
+\begin{exercise}
+Prove that $ix^2 - 2xy -iy^2 + 3x + 3iy + i$ is a holomorphic function of
+$z = x+iy$, not by
+differentiating, but by writing as a polynomial in $z$ and not $\bar{z}$.
+That is, write $x$ and $y$ in terms of $z$ and $\bar{z}$, and then show
+that $\bar{z}$ cancels.
+\end{exercise}
+
+\begin{exercise}
+Prove a Wirtinger operator version of the chain rule for real differentiable
+functions:  Let $U \subset \C$ and $V \subset \C$ be open, and $f \colon U \to V$
+(real) differentiable at $z$, $g \colon V \to \C$ (real) differentiable
+at $f(z)$.  Write $\bar{f}$ for the function that is the complex conjugate
+of $f$.  Then the composition $g \circ f$
+is (real) differentiable at $z$ and
+\begin{equation*}
+\frac{\partial (g \circ f)}{\partial z}\Big|_z
+=
+\frac{\partial g}{\partial z}\Big|_{f(z)}
+\frac{\partial f}{\partial z}\Big|_z
++
+\frac{\partial g}{\partial \bar{z}}\Big|_{f(z)}
+\frac{\partial \bar{f}}{\partial z}\Big|_z ,
+\end{equation*}
+and
+\begin{equation*}
+\frac{\partial (g \circ f)}{\partial \bar{z}}\Big|_z
+=
+\frac{\partial g}{\partial z}\Big|_{f(z)}
+\frac{\partial f}{\partial \bar{z}}\Big|_z
++
+\frac{\partial g}{\partial \bar{z}}\Big|_{f(z)}
+\frac{\partial \bar{f}}{\partial \bar{z}}\Big|_z .
+\end{equation*}
+Remark: This almost makes it seem like a nonholomorphic function is a
+function of not just $z$, but two ``independent'' variables $z$ and
+$\bar{z}$.
+\end{exercise}
 \end{exbox}
-
-
-FIXME:exercises
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
