@@ -511,6 +511,8 @@ Let us be thankful for the fools. But for them the rest of us could not succeed.
 
 The purpose of this book is to teach a one-semester graduate course in
 complex analysis.
+It is a natural first semester in a two semester sequence where the second
+semester could be several complex variables or perhaps harmonic analysis.
 What is assumed is basic knowledge of undergraduate
 analysis in the real variable, called advanced calculus in some schools.
 The text assumes knowledge of metric spaces
@@ -524,12 +526,18 @@ is also useful.
 This book takes the view that we do not need to redefine and reprove
 things that we have done in a basic real analysis course, especially with
 regards to mappings of the plane.  We can quite quickly jump to
-holomorphic functions without spending lectures on redefining the
-basics.  The connection is to understand multiplication by complex numbers
-as a $2 \times 2$ real matrix.  When we introduce line integrals we connect
+holomorphic functions as solutions of the Cauchy--Riemann equations for
+example.
+The connection is to understand multiplication by complex numbers
+as a $2 \times 2$ real matrix.
+Similarly, when we introduce line integrals we connect
 them to the line integrals the student has seen in calculus.
-This is not a time saving measure.  The point is to stress that we are
-not defining some totally new and different world.
+This is not simply a time saving measure.
+The point is to stress that we are not defining some totally new and different world.
+
+We also want to take a more of the $z,\bar{z}$ approach and less the
+$x,y$ approach.  It is really a better way to think about complex variables,
+although perhaps initially less intuitive.
 
 Furthermore, we try not to define any conflicting terminology or notation
 with what the reader has learned before.
@@ -1129,6 +1137,14 @@ e^{z} e^{ik2\pi} =
 e^z .
 \end{equation*}
 
+\begin{exbox}
+\begin{exercise}
+Then prove that those are really the only such identities by
+showing that if $2ki\pi < \Im z \leq 2(k+1)i\pi$ and
+$2ki\pi < \Im w \leq 2(k+1)i\pi$, then $e^z=e^w$ implies $z=w$.
+\end{exercise}
+\end{exbox}
+
 Let us consider a vertical line given by $x=c$.  As
 \begin{equation*}
 e^{z} = 
@@ -1155,6 +1171,10 @@ sector
 The reason for the quotation marks is that the inequality of course makes no
 sense without interpreting it properly.  It means that one of the values
 of $\arg z$ is between $a$ and $b$.
+
+In particular, the exponential $e^z$ takes the set given by
+$2ki\pi < \Im z \leq 2(k+1)i\pi$ in a one-to-one (see the exercise above)
+way onto $\C \setminus \{ 0 \}$.
 
 \begin{exbox}
 \begin{exercise}
@@ -1643,9 +1663,8 @@ as the following exercise shows.
 \begin{exbox}
 \begin{exercise}
 Let $f(0) = 0$ and $f(z) = e^{-z^{-4}}$ for $z \not=0$.  Prove that partial
-derivatives exist and $f$
-satisfies the Cauchy--Riemann equations at every point
-(including the origin).
+derivatives exist at every point (including the origin) and $f$
+satisfies the Cauchy--Riemann equations at every point.
 Then prove
 that $f$ is not complex differentiable at the origin.  In fact, $f$ is not
 even continuous.
@@ -1751,7 +1770,8 @@ parts are zero.  In other words
 That is, the Cauchy--Riemann equations are satisfied.
 
 The Wirtinger derivative in $z$ computes the holomorphic derivative
-if $f$ is holomorphic.  First:
+if $f$ is holomorphic.  We can write
+the $z$ derivative in two different ways:
 \begin{equation*}
 \begin{split}
 \frac{\partial f}{\partial z} 
@@ -1783,6 +1803,9 @@ if $f$ is holomorphic.  First:
 .
 \end{split}
 \end{equation*}
+In the second form, notice that really we want to think of the derivative in
+the imaginary direction as a derivative in $iy$ and not the partial
+derivative in $y$.  That is why the $\frac{1}{i}$ is there.
 Then we notice that if $f$ is complex differentiable, then we can let $h$
 approach in any direction:
 \begin{equation*}
@@ -1814,7 +1837,7 @@ f'(z) =
 \right)
  =
 \frac{1}{i}
-\frac{\partial f}{\partial y} \Big|_z ,
+\frac{\partial f}{\partial y} \Big|_z .
 \end{equation*}
 So for a holomorphic function
 \begin{equation*}
@@ -1905,9 +1928,112 @@ holomorphic functions are just power series and so we can always factor
 a $z^n$ out of any power series, which is, after all, just a sum of such
 terms.
 
-FIXME: $n$-to-1, zero only at zero, multiplies angles by $n$.
+A key point about the function $z \mapsto z^n$ is that it is $n$-to-1.
+That is, there are $n$ distinct roots of any complex number except 0,
+which has in some sense also $n$ roots but they are all 0.  For any nonzero
+number write $w = re^{i\theta}$.  Then the $n$ roots are easily seen
+(using the polar form) as
+\begin{equation*}
+r^{1/n} e^{i\theta/n}
+,
+r^{1/n} e^{i\theta/n + 2\pi i /n}
+,\ldots,
+r^{1/n} e^{i\theta/n + 2\pi i (n-1)/n} .
+\end{equation*}
+So those are the $n$ different $z$s that go to $w$.
+
+Another important thing about what $z^n$ does is what it does to angles.
+If now $z = re^{i\theta}$, then
+\begin{equation*}
+z^n = r^n e^{i n\theta} .
+\end{equation*}
+So $z^n$ takes sectors with vertex at the origin and doubles their angle.
+For example, it takes the first quadrant:
+$\{ z \in \C : \Re z \geq 0, \Im z \geq 0 \}$
+to the upper half plane $\{ z \in \C : \Im z \geq 0 \}$.
+Similarly, it takes the second quadrant
+$\{ z \in \C : \Re z \leq 0, \Im z \geq 0 \}$
+to the lower half plane $\{ z \in \C : \Im z \leq 0 \}$.
 
 \subsection{Power series and radius of convergence}
+
+A \emph{\myindex{power series}} around $a \in \C$ is simply the series
+\begin{equation*}
+\sum_{n=0}^\infty c_n {(z-a)}^n ,
+\end{equation*}
+where $c_n$ are some complex numbers.  Where it converges it defines a
+function of $z$.  As the series clearly converges at $z=a$, we worry about
+convergence at other points.  So we say the series is
+\emph{convergent}\index{convergent power series}, if there is
+some $z \not= a$ where the series converges.
+
+The series converges absolutely if
+\begin{equation*}
+\sum_{n=0}^\infty \sabs{c_n} \sabs{z-a}^n ,
+\end{equation*}
+converges.  Suppose $N < M$:
+\begin{equation*}
+\abs{\sum_{n=N+1}^M c_n {(z-a)}^n}
+\leq
+\sum_{n=N+1}^M \sabs{c_n} \sabs{(z-a)}^n
+\end{equation*}
+In particular, if the sequence of partial sums of 
+$\sum \sabs{c_n} \sabs{z-a}^n$ is Cauchy, so is the sequence
+of partial sums of $\sum c_n {(z-a)}^n$.  In particular,
+the series actually converges.
+
+Let $r = \sabs{z-a}$, then we have the real series $\sum \sabs{c_n} r^n$.  Define
+\begin{equation*}
+\rho = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
+\end{equation*}
+where we interpret $\frac{1}{\infty} = 0$ and $\frac{1}{0} = \infty$.
+
+By the standard root test the series $\sum \sabs{c_n} r^n$
+converges if
+\begin{equation*}
+\limsup_{n \to \infty} \sqrt[n]{\sabs{c_n} r^n} = 
+r \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n}} = r \frac{1}{\rho} < 1 ,
+\end{equation*}
+and it diverges if $r \frac{1}{\rho} < 1$.  In other words,
+In particular, the series converges if
+\begin{equation*}
+r < \rho
+\end{equation*}
+and diverges if
+\begin{equation*}
+r > \rho .
+\end{equation*}
+The number $\rho$ is called the \emph{\myindex{radius of convergence}}
+and we find that the given power series converges absolutely
+in the disc $\Delta_\rho(a)$ (radius $\rho$ and centered $a$), and diverges
+in the complement of the closure $\overline{\Delta_\rho(a)}$.
+Convergence on the boundary circle $\partial \Delta_\rho(a)$ is a tricky
+matter.
+
+
+FIXME: uniform convergence.
+%There is something more.  Suppose $r_1 < r$.  Then
+%Notice something else from the above computation.  As functions, the
+%sequence of partial sums functions
+
+The most important series, and in some sense the only one that we really
+know how to sum is the \emph{\myindex{geometric series}}.
+
+FIXME: geometric series.
+
+\begin{exbox}
+\begin{exercise}
+Show that the geometric series diverges on the boundary of the unit disc.
+\end{exercise}
+
+\begin{exercise}
+Show that the series $\sum_{k=0} z^{-2k}$ has radius of convergence 1, and
+show that it converges absolutely on the boundary of the unit disc.  Hence
+it actually converges uniformly on the entire closed unit disc.
+\end{exercise}
+\end{exbox}
+
+FIXME: some examples
 
 FIXME
 
