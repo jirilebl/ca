@@ -765,7 +765,31 @@ The distance between two numbers $z$ and $w$ is measured by
 \sabs{z-w} ,
 \end{equation*}
 and this makes $\C$ into a metric space.  See \Appendixref{ap:metric}
-for an introduction to metric spaces.  The basic neighborhood (that is, an
+for an introduction to metric spaces.
+
+\begin{exbox}
+\begin{exercise}
+Prove that complex addition, multiplication, and division is continuous.
+That is, suppose $\{ a_n \}$ and $\{ b_n \}$ are two convergent sequences
+of complex numbers.  Prove (including the existence of the limits)
+\begin{exparts}
+\item
+$\lim\limits_{n\to\infty} (a_n + b_n) = 
+\left(\lim\limits_{n\to\infty} a_n \right) +
+\left(\lim\limits_{n\to\infty} b_n \right)$.
+\item
+$\lim\limits_{n\to\infty} a_n b_n = 
+\left(\lim\limits_{n\to\infty} a_n \right)
+\left(\lim\limits_{n\to\infty} b_n \right)$.
+\item
+If $\lim\limits_{n\to\infty} a_n \not= 0$, then
+$\lim\limits_{n\to\infty} \frac{1}{a_n} = \frac{1}{\lim\limits_{n\to\infty}
+a_n}$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
+The basic neighborhood (that is, an
 open ball) in $\C$
 is called a \emph{\myindex{disc}}.
 Given $a \in \C$ and $\rho > 0$, define the disc of radius $\rho$ around
@@ -1390,11 +1414,13 @@ or in other words
 We write 
 \begin{equation*}
 f'(z_0) \overset{\text{def}}{=}
-\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi ,
+\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi .
 \end{equation*}
 We call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
 at $z_0$.  We say $f$ is \emph{\myindex{complex differentiable}}
-at $z_0$.
+at $z_0$ if this limit exists.  By working backwards, it is immediate
+that if $f$ is complex differentiable at $z_0$, then it is real
+differentiable at $z_0$.
 
 We proved that if $f$ is differentiable (in the real sense), then 
 the complex derivative exists at $z_0$ if and only if 
@@ -1470,6 +1496,28 @@ is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)
 \end{prop}
 
 \begin{proof}
+We offer two proves of this.  First one only works for holomorphic
+functions, and the second is generalizable to nonholomorphic functions
+with the Wirtinger operators in the next section (an exercise).
+
+Let $h \not= 0$, and let $k = f(z+h) -f(z)$.  Then
+\begin{equation*}
+\begin{split}
+\frac{(g \circ f)(z+h) - (g \circ f)(z)}{h}
+& =
+\frac{g \bigl( f(z+h) \bigr) - g\bigl( f(z) \bigr)}{f(z+h)-f(z)}
+\frac{f(z+h)-f(z)}{h}
+\\
+& =
+\frac{g \bigl( f(z) + k \bigr) - g\bigl( f(z) \bigr)}{k}
+\frac{f(z+h)-f(z)}{h} .
+\end{split}
+\end{equation*}
+A differentiable function is continuous, so as $h \to 0$, then $k \to 0$.
+The proof then follows by continuity of complex multiplication and taking
+the limit as $h \to 0$.
+
+Let's see the second proof.
 Since complex differentiable functions are differentiable in the real sense,
 the proof follows from the standard real chain rule (\thmref{thm:realchain}).
 Let $w = f(z) \in V$.  Then
@@ -1483,9 +1531,9 @@ $D(g \circ f)|_z$ corresponds to a complex number and so $g \circ f$
 complex differentiable at $z$.
 \end{proof}
 
-In fact, we can to some degree mix holomorphic functions and functions of a
-single real variable (as long as it makes sense).  If $\gamma = \alpha + i
-\beta \colon (a,b)
+In fact, we still get this simple statement of the chain rule
+if we plug in a real differentiable function into a complex differentiable
+one.  If $\gamma = \alpha + i \beta \colon (a,b)
 \to \C$ is a differentiable function,
 then write $\gamma' = \alpha' + i \beta'$.
 
@@ -1498,16 +1546,20 @@ at $t_0$ and $(f \circ \gamma)'(t_0) = f'\bigl(\gamma(t_0)\bigr) \gamma'(t_0)$.
 \end{prop}
 
 \begin{proof}
-Let $z = \gamma(t_0)$.  Then in terms of real derivatives
+The first proof follows almost in the same way.  But it may be useful to see
+how we think of it in terms of real derivatives.
+Let $z = \gamma(t_0)$.  Then 
 \begin{equation*}
 D(f \circ \gamma)|_{t_0} =
 Df|_z D\gamma|_{t_0} .
 \end{equation*}
 That is as an equation of real linear operators.  Now $Df|_z$ corresponds
 to the multiplication by the complex number $f'(z)$, and $D\gamma|_{t_0}$
-is the $2 \times 1$ matrix represented by $\gamma'(t_0)$.  Therefore
-the (real) derivative of $f \circ \gamma$ is represented via multiplication
-by the complex number $f'(z) \gamma'(t_0)$.
+is the $2 \times 1$ matrix represented by $\gamma'(t_0)$.
+The result follows.
+%  Therefore
+%the (real) derivative of $f \circ \gamma$ is represented via multiplication
+%by the complex number $f'(z) \gamma'(t_0)$.
 \end{proof}
 
 \begin{prop} \label{prop:sumprod}
@@ -1516,13 +1568,14 @@ and in fact $(f+g)'(z) = f'(z) + g'(z)$ and
 $(fg)'(z) = f'(z)g(z) + f(z)g'(z)$.
 \end{prop}
 
-The proof is left as an exercise. It is no different than the standard proof
-for functions of one real variable, with the only difference that the
-limits taken are complex limits.
-
-Similarly it is easy to see that derivative of a constant is zero, the
-derivative of $z$ is $1$, and in general, derivative of $z^n$ is
-$nz^{n-1}$.
+The proof is left as an exercise.  There are again several ways
+to do it, and way is almost identical to the
+proof for functions of one real variable. %  It is again no different than the standard proof
+%for functions of one real variable, with the only difference that the
+%limits taken are complex limits.
+Similarly (and also left as an exercise) it is easy to see that derivative
+of a constant is zero, the derivative of $z$ is $1$, and in general,
+derivative of $z^n$ is $nz^{n-1}$.
 
 \begin{exbox}
 \begin{exercise}
