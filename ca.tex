@@ -1,6 +1,6 @@
 \documentclass[12pt,openany]{book}
 
-%FIXME: for PRINT run for lulu or createspace, search for %PRINT
+%FIXME: for PRINT run for lulu or kdp, search for %PRINT
 
 %\usepackage{pdf14}
 
@@ -91,7 +91,7 @@
 %If you have an older tex installation you might need
 %to comment out the next line:
 %PRINT (COMMENT OUT FOR PRINT)
-\usepackage[ocgcolorlinks]{ocgx2} %perhaps run without for lulu/createspace
+\usepackage[ocgcolorlinks]{ocgx2} %perhaps run without for lulu/kdp
 
 \usepackage[all]{hypcap}
 
@@ -1309,7 +1309,7 @@ polynomial and $c_{0},\ldots,c_n \in \R$ and $c_n > 0$, then $\lim_{x \to
 \end{exercise}
 \end{exbox}
 
-In calculus and in basic real analysis, most likely you have encountered
+In calculus and in basic real analysis, you most likely encountered
 infinite limits that are really in the sense of the extended reals.
 Despite that the two types of infinite limits, either in the sense of the
 extended reals or in the sense of the Riemann sphere,
@@ -1619,7 +1619,7 @@ and induction: $z^n = z^{n-1} z$.
 \item
 Prove $(z^n)' = n z^{n-1}$ for negative integers.
 \end{exparts}
-Note: In this problem you are both proving that the derivatives exist and
+Note: You are proving both that the derivatives exist and
 computing the derivative.
 \end{samepage}
 \end{exercise}
@@ -1806,8 +1806,8 @@ the $z$ derivative in two different ways:
 In the second form, notice that really we want to think of the derivative in
 the imaginary direction as a derivative in $iy$ and not the partial
 derivative in $y$.  That is why the $\frac{1}{i}$ is there.
-Then we notice that if $f$ is complex differentiable, then we can let $h$
-approach in any direction:
+If $f$ is complex differentiable, $h$ can
+approach zero from any direction:
 \begin{equation*}
 f'(z) =
 \lim_{\substack{h \to 0\\h\in\C}}
@@ -1845,7 +1845,8 @@ f' =
 \frac{\partial f}{\partial z} .
 \end{equation*}
 
-Even for functions that are not holomorphic, the Wirtinger operators still
+Even for functions that are not holomorphic, and so the complex derivative
+does not exist, the Wirtinger operators still
 make sense.  For example, take a polynomial in $x$ and $y$, or equivalently
 in $z$ and $\bar{z}$.
 The Wirtinger operators
@@ -1912,6 +1913,24 @@ and
 Remark: This almost makes it seem like a nonholomorphic function is a
 function of not just $z$, but two ``independent'' variables $z$ and
 $\bar{z}$.
+\end{exercise}
+
+\begin{exercise}
+A function satisfying $\frac{\partial f}{\partial z} = 0$ is called
+\emph{\myindex{antiholomorphic}}.
+Suppose $U \subset \C$ is a domain and $f \colon U \to \C$.
+Prove that if the following
+limit exists
+\begin{equation*}
+g(z) = 
+\lim_{h \to 0}
+\frac{f(z+h)-f(z)}{\bar{h}}
+\end{equation*}
+for all $z \in U$ (note the bar on the $h$), then $f$ is real differentiable, and satisfies
+\begin{equation*}
+\frac{\partial f}{\partial z} = 0, \qquad \text{and} \qquad
+\frac{\partial f}{\partial \bar{z}}\Big|_{z} = g(z).
+\end{equation*}
 \end{exercise}
 \end{exbox}
 
