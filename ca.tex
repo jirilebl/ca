@@ -587,7 +587,7 @@ From \glsadd{not:Z}$\Z$, we define the rational numbers
 \glsadd{not:Z}$\Q$ to solve equations such as $2x=1$.  We extend
 \glsadd{not:Z}$\Q$ to the real numbers \glsadd{not:R}$\R$
 to solve equations such as $x^2=2$.  Really we want the real numbers to
-have things like the intermediate value theorem, Bolzano--Weierstrass,
+have things like the Intermediate Value Theorem, Bolzano--Weierstrass,
 etc.  It is then not much of a stretch to do the same thing when trying
 to solve $z^2+1=0$.  Similarly as what happened when we defined the real
 numbers, the consequences of adding this solution to the mix are much more
@@ -1986,7 +1986,56 @@ convergence at other points.  So we say the series is
 \emph{convergent}\index{convergent power series}, if there is
 some $z \not= a$ where the series converges.
 
-The series converges absolutely if
+The most important series, and in some sense the only one that we really
+know how to sum is the \emph{\myindex{geometric series}}.
+
+\begin{prop}[Geometric series]
+\leavevmode
+\begin{enumerate}[(i)]
+\item For $z \in \D$,
+\begin{equation*}
+\frac{1}{1-z} = \sum_{n=0}^\infty z^n .
+\end{equation*}
+\item For $z \not\in \D$,
+\begin{equation*}
+\sum_{n=0}^\infty z^n \quad \text{diverges.}
+\end{equation*}
+\item
+Given $0 < r < 1$, then for all $z \in \overline{\Delta_r(0)}$ ($\sabs{z}
+\leq r$)
+\begin{equation*}
+\abs{\frac{1}{1-z} - \sum_{n=0}^m z^n}
+\leq \frac{r^{m+1}}{1-r} .
+\end{equation*}
+In particular,
+as $\frac{r^{m+1}}{1-r} \to 0$,
+the geometric series converges uniformly
+on $\overline{\Delta_r(0)}$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+All three items follow from
+\begin{equation*}
+1+z+z^2+\cdots+z^m = \frac{1-z^{m+1}}{1-z} ,
+\end{equation*}
+for all $z \not= 1$, which follows by summing 
+$(1-z)(1+z+z^2+\cdots+z^m)$.  Details are left as exercises.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove that if $z \not= 1$ is such that $\sabs{z}=1$, then $z^m$ diverges as $m \to
+\infty$.
+\end{exercise}
+
+\begin{exercise}
+Fill in the details of the proof of the proposition above.  Do not forget
+about the boundary of the disc.
+\end{exercise}
+\end{exbox}
+
+A power series converges absolutely if
 \begin{equation*}
 \sum_{n=0}^\infty \sabs{c_n} \sabs{z-a}^n ,
 \end{equation*}
@@ -2002,9 +2051,9 @@ of partial sums of $\sum c_n {(z-a)}^n$.  In particular,
 the series actually converges.
 
 Let $r = \sabs{z-a}$, then we have the real series $\sum \sabs{c_n} r^n$.  Define
-\begin{equation*}
+\begin{equation} \label{eq:rhodef}
 \rho = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
-\end{equation*}
+\end{equation}
 where we interpret $\frac{1}{\infty} = 0$ and $\frac{1}{0} = \infty$.
 
 By the standard root test the series $\sum \sabs{c_n} r^n$
@@ -2014,29 +2063,60 @@ converges if
 r \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n}} = r \frac{1}{\rho} < 1 ,
 \end{equation*}
 and it diverges if $r \frac{1}{\rho} < 1$.  In other words,
-In particular, the series converges if
-\begin{equation*}
-r < \rho
-\end{equation*}
+the series converges if
+$r < \rho$
 and diverges if
-\begin{equation*}
-r > \rho .
-\end{equation*}
+$r > \rho$.  We have proved the following proposition:
+
+\begin{prop}[Cauchy--Hadamard Theorem]
+\index{Cauchy--Hadamard Theorem}
+A power series $\sum c_n {(z-a)}^n$ converges absolutely if
+$\sabs{z-a} < \rho$ and diverges if
+$\sabs{z-a} > \rho$, where $\rho$ is defined by \eqref{eq:rhodef}.
+\end{prop}
+
 The number $\rho$ is called the \emph{\myindex{radius of convergence}}
 and we find that the given power series converges absolutely
 in the disc $\Delta_\rho(a)$ (radius $\rho$ and centered $a$), and diverges
 in the complement of the closure $\overline{\Delta_\rho(a)}$.
-Convergence on the boundary circle $\partial \Delta_\rho(a)$ is a tricky
-matter.
+Convergence (or divergence) on the boundary circle $\partial \Delta_\rho(a)$
+is a tricky matter.
+
+The convergence inside the radius of convergence is even nicer than just absolute.
+Let $K \subset \C$ be a set.
+A power series $\sum c_n z^n$
+\emph{\myindex{converges uniformly absolutely}}
+\index{uniform absolute convergence}
+for $z \in K$ when $\sum \sabs{c_n z^n}$
+converges uniformly for $z \in K$.
+Since
+\begin{equation*}
+\abs{\sum_{n=m}^\infty c_n z^n} \leq
+\sum_{n=m}^\infty \sabs{c_n z^n} ,
+\end{equation*}
+we find that a uniformly absolutely convergent series also converges
+uniformly, so the name fits the crime.
+
+\begin{prop}
+Let $\sum c_n {(z-a)}^n$ be a power series with radius of convergence $\rho
+> 0$.  If $0 < r < \rho$, then the power series converges uniformly absolutely
+in $\overline{\Delta_r(a)}$.  Furthermore, if $K \subset \Delta_{\rho}(a)$
+(where $\Delta_{\infty}(a) = \C$)
+is any compact subset, then the series converges uniformly absolutely on
+$K$.
+\end{prop}
+
+
+
+
+
+
 
 
 FIXME: uniform convergence.
 %There is something more.  Suppose $r_1 < r$.  Then
 %Notice something else from the computation above.  As functions, the
 %sequence of partial sums functions
-
-The most important series, and in some sense the only one that we really
-know how to sum is the \emph{\myindex{geometric series}}.
 
 FIXME: geometric series.
 
@@ -2072,7 +2152,7 @@ a large number of sets (convex is good enough)
 
 FIXME: Should we do homotopies here?
 
-\subsection{Cauchy's theorem for discs}
+\subsection{Cauchy's Theorem for discs}
 
 FIXME
 
@@ -2572,7 +2652,7 @@ calculus as $\sin(nx^2)$ has no closed-form antiderivative.
 \begin{remark}
 While we will not require the Lebesgue integral in this book, note that
 for Lebesgue integral a much stronger convergence theorem holds.  In
-particular, the dominated convergence theorem implies that if
+particular, the Dominated Convergence Theorem implies that if
 $\{ f_n \}$ is a sequence of measurable functions on $[a,b]$,
 converging pointwise to $f \colon [a,b] \to \R$, and such that
 $\{ f_n \}$ is uniformly bounded (there is a single $B \in \R$ such that
@@ -2641,7 +2721,7 @@ a continuously differentiable function $f \colon I \to \R$, and $f' = g$.
 Define $f(c) = \lim_{n\to \infty} f_n(c)$.
 As $f_n'$ are continuous and hence Riemann integrable,
 then
-via the fundamental theorem of calculus, we find that for $x \in I$,
+via the Fundamental Theorem of Calculus, we find that for $x \in I$,
 \begin{equation*}
 f_n(x) = f_n(c) + \int_c^x f_n' (t)\, dt.
 \end{equation*}
@@ -2819,7 +2899,7 @@ fixed $y$.
 
 Let us prove a simple, but perhaps the most useful version of this theorem.
 
-\begin{thm}[\myindex{Leibniz integral rule}]
+\begin{thm}[\myindex{Leibniz Integral Rule}]
 Suppose $f \colon [a,b] \times [c,d] \to \R$ is a continuous function,
 such that $\frac{\partial f}{\partial y}$ exists for all $(x,y) \in [a,b]
 \times [c,d]$ and is continuous.  Define
@@ -2853,7 +2933,7 @@ $\abs{y_1-y} < \delta$ and all $x \in [a,b]$ we have
 
 Suppose $h$ is such that $y+h \in [c,d]$ and $\abs{h} < \delta$.
 Fix $x$ for a moment
-and apply the mean value theorem to find a $y_1$ between $y$ and $y+h$ such that
+and apply the Mean Value Theorem to find a $y_1$ between $y$ and $y+h$ such that
 \begin{equation*}
 \frac{f(x,y+h)-f(x,y)}{h}
 =
@@ -3428,7 +3508,7 @@ continuous on $[a,b]$, then there exists a $t_0 \in (a,b)$ such that
 \end{lemma}
 
 \begin{proof}
-By mean value theorem on the scalar-valued function
+By the Mean Value Theorem on the scalar-valued function
 $t \mapsto \bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi(t)$,
 where the dot is the dot product, we obtain
 that
@@ -3490,7 +3570,7 @@ Next
 =
 Df|_{((1-t)x+ty)} (y-x) .
 \end{equation*}
-By the mean value theorem above we get for
+By the Mean Value Theorem above we get for
 some $t_0 \in (0,1)$,
 \begin{equation*}
 \begin{split}
@@ -3735,7 +3815,7 @@ A' k}
 & \leq \snorm{f(x+k + t e_n) - f(x+k) -tv} + \epsilon \snorm{k} .
 \end{split}
 \end{equation*}
-As all the partial derivatives exist, by the mean value theorem,
+As all the partial derivatives exist, by the Mean Value Theorem,
 for each $j$ there is some $\theta_j \in [0,t]$ (or $[t,0]$ if $t < 0$), such that
 \begin{equation*}
 f_j(x+k + t e_n) - f_j(x+k) =
@@ -4100,12 +4180,6 @@ d(f,g) & =
 \end{equation*}
 When treating $C([a,b],\R)$ as a metric space without mentioning a metric, we mean this
 particular metric.
-%
-%This example may seem esoteric at first, but it turns out that working with
-%spaces such as $C([a,b],\R)$ is really the meat of a large part of modern 
-%analysis.  Treating sets of functions as metric spaces allows us to
-%abstract away a lot of the grubby detail and prove powerful results such as
-%Picard's theorem with less work.
 \end{example}
 
 \begin{example} \label{ms:greatcircle}
@@ -5924,7 +5998,7 @@ which is a contradiction.
 \end{proof}
 
 \begin{example}
-The Bolzano--Weierstrass theorem for sequences of real numbers
+The Bolzano--Weierstrass Theorem for sequences of real numbers
 says that any bounded sequence in $\R$ has a convergent
 subsequence.  Therefore, any sequence in a closed interval $[a,b] \subset \R$ has 
 a convergent subsequence.  The limit must also be in $[a,b]$ as limits
@@ -5955,14 +6029,14 @@ and so $x \in E$.  Thus $E$ must be compact.
 and the French mathematician
 \href{https://en.wikipedia.org/wiki/\%C3\%89mile_Borel}{F\'elix \'Edouard Justin \'Emile Borel}
 (1871--1956).}]%
-\index{Heine--Borel theorem}
+\index{Heine--Borel Theorem}
 \label{thm:msbw}
 A closed bounded subset $K \subset \R^n$ is compact.
 \end{thm}
 
 So subsets of $\R^n$ are compact if and only if they are closed and bounded,
 a condition that is much easier to check.
-Let us reiterate that the Heine--Borel theorem only holds for $\R^n$ and not
+Let us reiterate that the Heine--Borel Theorem only holds for $\R^n$ and not
 for metric spaces in general.  In general, compact implies closed and
 bounded, but not vice-versa.
 
@@ -5970,7 +6044,7 @@ bounded, but not vice-versa.
 For $\R = \R^1$ if $K \subset \R$ is closed and bounded, then
 any sequence $\{ x_k \}$ in $K$ is bounded, so it has a convergent
 subsequence by
-the Bolzano--Weierstrass theorem.
+the Bolzano--Weierstrass Theorem.
 As $K$ is closed, the limit of the subsequence must be an element of
 $K$.  So $K$ is compact.
 
@@ -6130,7 +6204,7 @@ such that the conclusion of the Lebesgue covering lemma does not hold.
 \end{exercise}
 
 \begin{exercise}
-Prove the general \myindex{Bolzano--Weierstrass theorem}:
+Prove the general \myindex{Bolzano--Weierstrass Theorem}:
 Any bounded sequence $\{ x_k
 \}$ in $\R^n$ has a convergent subsequence.
 \end{exercise}
@@ -6654,7 +6728,7 @@ and $(Y,d_Y)$.  Show that if $X$ is connected, then $f(X)$ is connected.
 
 \begin{exercise}
 Prove the following version of the
-intermediate value theorem.  Let $(X,d)$ be a connected
+Intermediate Value Theorem.  Let $(X,d)$ be a connected
 metric space and $f \colon X \to \R$ a continuous function.  Suppose that
 there exist $x_0,x_1 \in X$ and $y \in \R$ such that $f(x_0) < y < f(x_1)$.
 Then prove that there exists a $z \in X$ such that $f(z) = y$.
