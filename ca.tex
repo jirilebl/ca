@@ -1079,6 +1079,18 @@ rotation counterclockwise by 90 degrees.
 On the other hand, the polar form is particularly terrible for addition.
 You win some, you lose some.
 
+\begin{exbox}
+\begin{exercise}
+Let $z,w$ be two nonzero complex numbers and let
+$\ell_z$ and $\ell_w$ be the lines through the origin and
+$z$ and $w$ respectively.  Write $\theta$ for the angle between $\ell_z$ and
+$\ell_w$.  Then prove that
+$\Re z\bar{w} = \sabs{z} \sabs{w} \cos \theta$.
+Note that $\Re z\bar{w}$ is the standard real dot product in $\R^2$, and so
+this is the formula for the dot product from calculus.
+\end{exercise}
+\end{exbox}
+
 \subsection{The argument}
 
 We attempt to define the argument as
@@ -1557,7 +1569,7 @@ one.  If $\gamma = \alpha + i \beta \colon (a,b)
 \to \C$ is a differentiable function,
 then write $\gamma' = \alpha' + i \beta'$.
 
-\begin{prop}[Chain rule]
+\begin{prop}[Chain rule] \label{prop:chainrule2}
 Let $U \subset \C$ be open,
 $\gamma (a,b) \to U$ be real differentiable at $t_0 \in (a,b)$,
 and $f \colon U \to \C$ be complex differentiable at $\gamma(t_0)$.
@@ -1944,8 +1956,9 @@ for all $z \in U$ (note the bar on the $h$), then $f$ is real differentiable, an
 It will turn out that to understand holomorphic functions locally, 
 it is sufficient to understand $z \mapsto z^n$.  We will prove that
 holomorphic functions are just power series and so we can always factor
-a $z^n$ out of any power series, which is, after all, just a sum of such
-terms.
+a $z^n$ for some $n$ out of a power series that vanishes at the origin, which is,
+after all, just a sum of such terms.  This means that any holomorphic
+function really behaves like $z^n$ behaves near the origin for some $n$.
 
 A key point about the function $z \mapsto z^n$ is that it is $n$-to-1.
 That is, there are $n$ distinct roots of any complex number except 0,
@@ -1973,6 +1986,21 @@ to the upper half plane $\{ z \in \C : \Im z \geq 0 \}$.
 Similarly, it takes the second quadrant
 $\{ z \in \C : \Re z \leq 0, \Im z \geq 0 \}$
 to the lower half plane $\{ z \in \C : \Im z \leq 0 \}$.
+
+\begin{exbox}
+\begin{exercise}
+Prove that
+\begin{exparts}
+\item
+If $\sabs{z}<1$, then $\lim_{n\to \infty} z^n = 0$.
+\item
+If $\sabs{z}>1$, then $\lim_{n\to \infty} z^n = \infty$.
+\item
+If $z \not= 1$ is such that $\sabs{z}=1$, then $z^n$ diverges as $n \to
+\infty$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
 
 \subsection{Power series and radius of convergence}
 
@@ -2020,15 +2048,10 @@ All three items follow from
 1+z+z^2+\cdots+z^m = \frac{1-z^{m+1}}{1-z} ,
 \end{equation*}
 for all $z \not= 1$, which follows by summing 
-$(1-z)(1+z+z^2+\cdots+z^m)$.  Details are left as exercises.
+$(1-z)(1+z+z^2+\cdots+z^m)$.  Details are left as an exercise.
 \end{proof}
 
 \begin{exbox}
-\begin{exercise}
-Prove that if $z \not= 1$ is such that $\sabs{z}=1$, then $z^m$ diverges as $m \to
-\infty$.
-\end{exercise}
-
 \begin{exercise}
 Fill in the details of the proof of the proposition above.  Do not forget
 about the boundary of the disc.
@@ -2290,9 +2313,6 @@ expanded about a different point in $\Delta_r(a)$.  It will however be
 convenient to postpone this proof for later, after we have Cauchy's theorem.
 \end{remark}
 
-FIXME
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Simple Cauchy's Theorem and its consequences}
@@ -2300,7 +2320,151 @@ FIXME
 
 \subsection{Line integrals}
 
-FIXME: set up line integrals and do Cauchy for derivatives
+A complex-valued function piecewise continuously
+differentiable (piecewise-$C^1$) function $\varphi \colon [a,b] \to \C$ 
+is called a \emph{\myindex{path}} or a \emph{\myindex{piecewise $C^1$ path}}.
+All of our paths will be piecewise $C^1$, so we may forget to mention it
+sometime.
+By piecewise $C^1$ we mean that there exist numbers $t_0 = a < t_1 < \cdots
+< t_k = b$ for some $k$ such that $\varphi|_{[t_{\ell-1},t_\ell]}$ is
+continuously differentiable ($C^1$) up to
+the boundary for every $\ell$.
+In other words, $\varphi$ is continuously differentiable inside all the
+subintervals $(t_{\ell-1},t_\ell)$ and the one sided limits
+\begin{equation*}
+\lim_{t \uparrow t_\ell} \varphi'(t) \qquad
+\lim_{t \downarrow t_\ell} \varphi'(t)
+\end{equation*}
+exist for all $\ell$ (except of course only one exists at $a$ or $b$).
+Another way to say it is that $\varphi'(t)$ extends to a continuous
+function on each closed interval $[t_{\ell-1},t_{\ell}]$.
+The reason for allowing these corners is that we want to easily add
+together paths and trying to do that with just smooth paths is difficult,
+furthermore, finitely many corners like this will make no difference on the
+calculations.
+
+FIXME: I suppose we should assume $\varphi'(t) \not= 0$ for simplicity
+
+When we say that $\varphi$ is a path in $U \subset \C$, we will mean that
+$\varphi \colon [a,b] \to U$ is a path.
+
+Given a piecewise $C^1$ path $\varphi \colon [a,b] \to \C$ and a continuous
+function $f$ defined on the image
+$\varphi\bigl([a,b]\bigr)$, 
+we define the \myindex{line integral}
+\begin{equation*}
+\int_{\varphi} f(z) \, dz
+\overset{\text{def}}{=}
+\int_a^b f\bigl(\varphi(t)\bigr) \varphi'(t) \, dt .
+\end{equation*}
+The definition makes sense despite $\varphi'(t)$ not existing at possibly
+finitely many points.  The integrand is undefined
+at finitely many points but is piecewise continuous, and this is enough
+to be Riemann integrable: On each closed interval
+$[t_{\ell-1},t_\ell]$, the integrand extends to a continuous
+function of the whole closed integral.
+
+Note that this line integral definition is equivalent to the definition you
+have seen in multivariable calculus.
+Let $\varphi(t) = \bigl( x(t), y(t) \bigr)$,
+and let $dz = dx + i\, dy$.
+Then
+\begin{equation*}
+\begin{split}
+\int_{\varphi} f(z) \, dz
+& =
+\int_{\varphi} f(z) \, (dx + i\, dy)
+\\
+& =
+\int_{\varphi} f(z) \, dx + i f(z) \, dy
+=
+\int_{\varphi} \bigl( f(z) x'(t) + i f(z) y'(t) \bigr) \, dt .
+\end{split}
+\end{equation*}
+Here in the second line you recognize the definition of a line integral
+$\int_\varphi P\,dx + Q \, dy$ from calculus.
+
+\begin{prop}[Reparametrization]
+Suppose $\varphi \colon [a,b] \to \C$ and $\gamma \colon [c,d] \to \C$ are
+piecewise $C^1$ paths such that $\varphi|_{[a,b)}$ and $\gamma|_{[c,d)}$
+are one-to-one
+
+FIXME: ...
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the reparametrization proposition.  First assume that both paths
+are actually $C^1$.
+
+FIXME: ...
+\end{exercise}
+
+
+\begin{exercise}
+Let $dz = dx + i \, dy$ and 
+$d\bar{z} = dx - i \, dy$.  Show that for every (real- or complex-valued) continuous $P$ and $Q$,
+there exist continuous (complex-valued) $F$ and $G$ such that
+\begin{equation*}
+\int_{\varphi} P \, dx + Q \, dy
+=
+\int_{\varphi} F \, dz + G \, d\bar{z} .
+\end{equation*}
+In other words, the line integral we defined above is just the $dz$ part of
+the general line integral in $\R^2$.
+\end{exercise}
+\end{exbox}
+
+Let us compute the most important example of a line integral.
+
+\begin{example}
+Let $\varphi \colon [0,2\pi]$
+
+\end{example}
+
+\begin{prop}[Fundamental Theorem of Calculus for Paths]
+Suppose $U \subset \C$ is open and $F \colon U \to \C$ is holomorphic.
+Let $\varphi \colon [a,b] \to U$ be a piecewise $C^1$ path.  Then
+\begin{equation*}
+\int_\varphi F'(z) \, dz =
+F\bigl( \varphi(b) \bigr) - F\bigl( \varphi(a)
+\bigr) .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+We have
+\begin{equation*}
+\int_\varphi F'(z) \, dz
+=
+\int_a^b F'\bigl(\varphi(t)\bigr) \varphi'(t) \, dt 
+=
+\int_a^b \frac{d}{dt} \bigl( F\bigl(\varphi(t)\bigr) \bigr) \, dt 
+=
+F\bigl( \varphi(b) \bigr) - F\bigl( \varphi(a) \bigr) .
+\end{equation*}
+The computation uses the chain rule (\propref{prop:chainrule2})
+and the fundamental theorem of calculus, where of course the
+standard fundamental theorem of calculus is applied to the real and imaginary parts
+of the expression.
+\end{proof}
+
+A path $\varphi \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if 
+$\varphi(a) = \varphi(b)$.  The fundamental theorem above has the following
+immediate corollary.
+%It is said to be a \emph{simple} path if
+%$\varphi|_{[a,b)}$ is one-to-one (a simple closed path is not
+
+\begin{cor}[Cauchy's Theorem for Derivatives]
+Suppose $U \subset \C$ is open and $F \colon U \to \C$ is holomorphic.
+Let $\varphi \colon [a,b] \to U$ be a closed piecewise $C^1$ path.  Then
+\begin{equation*}
+\int_\varphi F'(z) \, dz = 0 .
+\end{equation*}
+\end{cor}
+
+
+
 
 \subsection{Cauchy--Goursat}
 
