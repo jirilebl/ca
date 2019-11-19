@@ -1954,9 +1954,9 @@ number write $w = re^{i\theta}$.  Then the $n$ roots are easily seen
 (using the polar form) as
 \begin{equation*}
 r^{1/n} e^{i\theta/n}
-,
+, \quad
 r^{1/n} e^{i\theta/n + 2\pi i /n}
-,\ldots,
+, \quad \ldots, \quad
 r^{1/n} e^{i\theta/n + 2\pi i (n-1)/n} .
 \end{equation*}
 So those are the $n$ different $z$s that go to $w$.
@@ -2062,7 +2062,7 @@ converges if
 \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n} r^n} = 
 r \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n}} = r \frac{1}{\rho} < 1 ,
 \end{equation*}
-and it diverges if $r \frac{1}{\rho} < 1$.  In other words,
+and it diverges if $r \frac{1}{\rho} > 1$.  In other words,
 the series converges if
 $r < \rho$
 and diverges if
@@ -2082,20 +2082,53 @@ in the complement of the closure $\overline{\Delta_\rho(a)}$.
 Convergence (or divergence) on the boundary circle $\partial \Delta_\rho(a)$
 is a tricky matter.
 
+A useful criterion for convergence is that $\sabs{c_n} r^n$ is bounded for
+all $r < \rho$.
+
+\begin{prop}
+The series $\sum c_n {(z-a)}^n$ converges in $\Delta_{\rho}(a)$ for some
+$\rho > 0$, if and only if
+for any $r < \rho$ there exists an $M > 0$ such that for all $n$,
+\begin{equation*}
+\sabs{c_n} r^n \leq M .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+Suppose the series converges, then the terms of the series are bounded.
+Conversely, if 
+$\sabs{c_n} r^n \leq M$ for all $n$ and $s < r$, then
+\begin{equation*}
+\sqrt[n]{\sabs{c_n} s^n}=
+\frac{s}{r}\sqrt[n]{\sabs{c_n} r^n} \leq \frac{s}{r} \sqrt[n]{M} .
+\end{equation*}
+The limsup of the right hand side is 0, so the series converges in
+$\Delta_s(a)$.  As $r < \rho$ and $s < r$ were arbitrary,
+the series converges in $\Delta_\rho(a)$.
+\end{proof}
+
 The convergence inside the radius of convergence is even nicer than just absolute.
 Let $K \subset \C$ be a set.
-A power series $\sum c_n z^n$
+A power series $\sum c_n {(z-a)}^n$
 \emph{\myindex{converges uniformly absolutely}}
 \index{uniform absolute convergence}
-for $z \in K$ when $\sum \sabs{c_n z^n}$
+for $z \in K$ when $\sum \sabs{c_n {(z-a)}^n}$
 converges uniformly for $z \in K$.
-Since
+Suppose a series converges uniformly absolutely.  Then,
 \begin{equation*}
-\abs{\sum_{n=m}^\infty c_n z^n} \leq
-\sum_{n=m}^\infty \sabs{c_n z^n} ,
+\abs{
+\sum_{n=0}^\infty c_n {(z-a)}^n
+-
+\sum_{n=0}^{m} c_n {(z-a)}^n
+}
+=
+\abs{\sum_{n=m+1}^\infty c_n {(z-a)}^n} \leq
+\sum_{n=m+1}^\infty \sabs{c_n {(z-a)}^n} .
 \end{equation*}
-we find that a uniformly absolutely convergent series also converges
-uniformly, so the name fits the crime.
+The right hand side goes to zero uniformly in $z$,
+and so
+a uniformly absolutely convergent series also converges
+uniformly.  So the name fits the crime.
 
 \begin{prop}
 Let $\sum c_n {(z-a)}^n$ be a power series with radius of convergence $\rho
@@ -2106,35 +2139,159 @@ is any compact subset, then the series converges uniformly absolutely on
 $K$.
 \end{prop}
 
+Note that generally we do not call $\Delta_{\infty}(a)$ a \emph{disc} even
+if we use the same notation here for convenience.
 
+\begin{proof}
+%Let $s$ be such that $r < s < \rho$.  Then there exists an $M$ such that
+%$\sabs{c_n} s^n \leq M$.
+Suppose $0 < r < \rho$.  Then as $\sum c_n {(z-a)}^n$ converges absolutely
+on $\Delta_\rho(a)$, we have
+$\sum \sabs{c_n} r^n$ converges (and in particular any tail of
+the series converges).  Thus
+\begin{equation*}
+\sum_{n=0}^\infty \abs{c_n {(z-a)}^n}
+-
+\sum_{n=0}^{m} \abs{c_n {(z-a)}^n}
+\leq
+\sum_{n=m+1}^\infty \sabs{c_n} r^n
+\end{equation*}
+As $m \to \infty$ the right hand side goes to zero, and hence 
+the series converges uniformly in $\overline{\Delta_r(a)}$.
 
-
-
-
-
-
-FIXME: uniform convergence.
-%There is something more.  Suppose $r_1 < r$.  Then
-%Notice something else from the computation above.  As functions, the
-%sequence of partial sums functions
-
-FIXME: geometric series.
+If $K \subset \Delta_{\rho}(a)$ is compact, then there exists some $r <
+\rho$ such that $K \subset \Delta_r(a)$ (consider an open cover of
+$K$ by discs $\Delta_r(a)$).  The result follows.
+\end{proof}
 
 \begin{exbox}
 \begin{exercise}
-Show that the geometric series diverges on the boundary of the unit disc.
-\end{exercise}
-
-\begin{exercise}
-Show that the series $\sum_{k=0} z^{-2k}$ has radius of convergence 1, and
+Show that the series $\sum_{n=0}^\infty \frac{1}{n^2} z^{n}$ has radius of convergence 1, and
 show that it converges absolutely on the boundary of the unit disc.  Hence
 it actually converges uniformly on the entire closed unit disc.
 \end{exercise}
+
+\begin{exercise}
+Show that
+$\sum_{n=0}^\infty n^n z^{n^n}$ has radius of convergence 1,
+while
+$\sum_{n=0}^\infty n^n z^{n}$ is not convergent at all.
+\end{exercise}
 \end{exbox}
 
-FIXME: some examples
+\subsection{Analytic functions and differentiating the power series}
+
+\begin{defn}
+Let $U \subset \C$ be open.  A function $f \colon U \to \C$
+is called \emph{\myindex{analytic}} if for every $a \in U$, there exists 
+an $r > 0$ and a
+power series $\sum c_n {(z-a)}^n$ converging to $f$ on $\Delta_r(a) \subset
+\C$.
+\end{defn}
+
+Eventually we will see that analytic functions and holomorphic functions are
+one and the same.  Let us start by proving that
+analytic functions are holomorphic, that is, they are complex
+differentiable.
+
+\begin{prop}
+Let $f \colon \Delta_r(a) \to \C$ be defined by a convergent power series
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty c_n {(z-a)}^n .
+\end{equation*}
+Then $f$ is complex differentiable at every $z \in \Delta_r(a)$ and
+\begin{equation*}
+f'(z) = \sum_{n=1}^\infty n c_n {(z-a)}^{n-1}
+\end{equation*}
+converges in $\Delta_r(a)$.
+\end{prop}
+
+\begin{proof}
+Without loss of generality, let $a=0$.
+Fix $z_0$.
+We look at how we differentiate $z^n$ at $z_0$,
+we consider the limit of
+\begin{equation*}
+\frac{z_0^n-z^n}{z_0-z}
+=
+\sum_{k=0}^{n-1}
+z_0^k z^{n-1-k}
+\end{equation*}
+as $z \to z_0$, which is $n z_0^{n-1}$.
+
+With that out of the way, let us try to apply it to $f$
+term-wise:
+\begin{equation*}
+\frac{f(z_0) - f(z)}{z_0-z}
+=
+\sum_{n=0}^\infty c_n \frac{z_0^n-z^n}{z_0-z}
+=
+\sum_{n=0}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} .
+\end{equation*}
+The right hand side is defined even if $z_0 = z$.
+We must show that the above expression is continuous at $z_0$.
+We can do this if the series converges uniformly for $z$ in a
+neighborhood of $z_0$.  Suppose $s < r$ and $z_0$ and $z$ are
+in $\Delta_s(0)$.
+\begin{equation*}
+%\abs{c_n \frac{z_0^n-z^n}{z_0-z}}
+%=
+\abs{c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k}}
+\leq
+\sum_{k=0}^{n-1} 
+\sabs{c_n} s^{n-1}
+=
+n
+\sabs{c_n} s^{n-1}
+=
+n
+\sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1} .
+\end{equation*}
+The expression
+$\sabs{c_n} r^{n-1}$ is bounded because the series for $f$ converges,
+and as $\frac{s}{r} < 1$ we have that
+\begin{equation*}
+\sum_{n=1}^\infty n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1} 
+\end{equation*}
+converges (root test, or ratio test will do).
+Hence the series for the difference quotient,
+\begin{equation*}
+\sum_{n=0}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} ,
+\end{equation*}
+converges uniformly, and
+defines a continuous function of $\Delta_s(a)$.  Thus
+\begin{equation*}
+\lim_{z \to z_0}
+\frac{f(z_0)-f(z)}{z_0-z}
+=
+\sum_{n=0}^\infty c_n \sum_{k=0}^{n-1} z_0^k z_0^{n-1-k}
+=
+\sum_{n=0}^\infty n c_n z_0^{n-1} .
+\qedhere
+\end{equation*}
+\end{proof}
+
+We notice that the derivative is again given by a power series.
+By induction, it follows that a power series is infinitely complex
+differentiable.
+And thus analytic functions are infinitely complex differentiable.
+
+\begin{cor}
+An analytic function is infinitely complex differentiable.
+\end{cor}
+
+\begin{remark}
+A subtle issue is that while we have proved that analytic functions are
+complex differentiable because they have a power series representation,
+we have not yet proved that a convergent power series defines an analytic
+function.  What would be left to prove is that a power series convergent
+in $\Delta_r(a)$ can be
+expanded about a different point in $\Delta_r(a)$.  It will however be
+convenient to postpone this proof for later, after we have Cauchy's theorem.
+\end{remark}
 
 FIXME
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
