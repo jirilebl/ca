@@ -2338,13 +2338,14 @@ subintervals $(t_{\ell-1},t_\ell)$ and the one sided limits
 exist for all $\ell$ (except of course only one exists at $a$ or $b$).
 Another way to say it is that $\varphi'(t)$ extends to a continuous
 function on each closed interval $[t_{\ell-1},t_{\ell}]$.
-The reason for allowing these corners is that we want to easily add
+The reason for allowing these ``corners'' is that we want to easily add
 together paths and trying to do that with just smooth paths is difficult,
 furthermore, finitely many corners like this will make no difference on the
 calculations.
-
 When we say that $\varphi$ is a path in $U \subset \C$, we will mean that
-$\varphi \colon [a,b] \to U$ is a path.
+$\varphi \colon [a,b] \to U$ is a path.  Another common abuse of language we
+will freely and shamelessly commit is that if we refer to $\varphi$
+as if it were a set we will mean the image $\varphi\bigl([a,b]\bigr)$.
 
 Given a piecewise $C^1$ path $\varphi \colon [a,b] \to \C$ and a continuous
 function $f$ defined on the image
@@ -2432,15 +2433,14 @@ the general line integral in $\R^2$.
 
 The value of the integral does not depend on how we parametrize the image of
 the path, except it does depend on orientation.  As this result, while
-morally important is actually more of a technicality so that we only have
+morally important, is actually more of a technicality so that we only have
 to refer to the image rather than the actual path parametrization, we will
 leave its proof as an exercise.
 
 \begin{prop}[Reparametrization]
 Suppose $\varphi \colon [a,b] \to \C$ and $\gamma \colon [c,d] \to \C$ are
-piecewise $C^1$ paths such that the restrictions
-$\varphi|_{[a,b)}$ and $\gamma|_{[c,d)}$ are one-to-one and
-$\varphi\bigl([a,b]\bigr) = \gamma\bigl([c,d]\bigr)$.  Then
+piecewise $C^1$ paths that are one-to-one and
+$\varphi\bigl([a,b]\bigr) = \gamma\bigl([c,d]\bigr)$.
 \begin{enumerate}[(i)]
 \item
 There exists a strictly monotone continuous $h \colon [c,d] \to [a,b]$ such
@@ -2463,27 +2463,134 @@ If $h$ is decreasing, then for every $f$ continuous on the path,
 Prove the reparametrization proposition:
 \begin{exparts}
 \item
-Prove the existence of $h$, and its monotonicity and continuity.
+Prove the existence of $h$, its monotonicity, and continuity.
+Hint: First prove $\varphi^{-1}$ is a continuous function on
+$\varphi\bigl([a,b]\bigr)$ using that closed subsets of $[a,b]$
+are compact.
 \item
 Assume that $f=1$.  Prove the next two items first for $C^1$ paths,
 then for piecewise $C^1$ paths.  Hint: Fundamental Theorem of Calculus.
 \item
-Now for general $f$, cut the path into small enough pieces so that
+For general $f$, cut the path into small enough pieces so that
 on each piece you can approximate $f$ by a constant and apply the
 last part.
 \end{exparts}
 \end{exercise}
+
+\begin{exercise}
+Any one-to-one piecewise $C^1$ path $\varphi \colon [a,b] \to \C$
+can be reparametrized
+to a $C^1$ path.  That is, there exists a strictly increasing
+continuous $h \colon [a,b] \to [a,b]$ such that
+$\varphi \circ h$ is $C^1$.  Hint: Make the derivative at the endpoints
+zero.
+\end{exercise}
 \end{exbox}
+
+We can also integrate with respect to arclength, the $ds$ from calculus.
+We will write $ds$ as $\sabs{dz}$.  That is, for an $f$ continuous on
+a piecewise $C^1$ path $\varphi \colon [a,b] \to \C$,
+we define
+\begin{equation*}
+\int_\varphi f(z) \, \sabs{dz}
+\overset{\text{def}}{=}
+\int_a^b f\bigl( \varphi(t) \bigr) \sabs{\varphi'(t)} \, dt
+\end{equation*}
+
+With this definition we can do some estimates on path integrals.
+
+\begin{prop}[Triangle Inequality for Paths]
+Suppose $\varphi \colon [a,b] \to \C$ is 
+a piecewise $C^1$ path and $f$ is a continuous function on
+$\varphi$.  Then
+\begin{equation*}
+\abs{\int_\varphi f(z) \, dz} \leq \int_\varphi \sabs{f(z)} \, \sabs{dz} .
+\end{equation*}
+In particular, if $\sabs{f(z)} \leq M$ on $\varphi$ and $L = \int_\varphi ds
+= \int_{\varphi} \sabs{dz}$ is the length of $\varphi$, then
+\begin{equation*}
+\abs{\int_\varphi f(z) \, dz} \leq ML .
+\end{equation*}
+\end{prop} 
+
+\begin{proof}
+\begin{equation*}
+\abs{\int_\varphi f(z) \, dz}
+=
+\abs{\int_a^b f\bigl( \varphi(t) \bigr) \varphi'(t) \, dt}
+\leq
+\int_a^b \sabs{ f\bigl( \varphi(t) \bigr) } \sabs{ \varphi'(t) } \, dt .
+\end{equation*}
+The statement follows.
+\end{proof}
+
+It is useful to combine paths, we have an almost arithmetic of paths.
+The resulting objects are called \emph{chains}\index{chain}, and they
+are just formal combinations of paths.  For example, if $\varphi$
+and $\gamma$ are piecewise $C^1$ paths, then the chain  $\varphi+\gamma$
+is an object over which we can integrate functions that are continuous
+on the image of both:
+\begin{equation*}
+\int_{\varphi + \gamma} f(z) \, dz
+\overset{\text{def}}{=}
+\int_{\varphi} f(z) \, dz +
+\int_{\gamma} f(z) \, dz .
+\end{equation*}
+In general, a chain is an expression
+\begin{equation*}
+\Gamma = a_1 \varphi_1 + \cdots + a_n \varphi_n ,
+\end{equation*}
+where $a_1,\ldots,a_n$ are numbers and $\varphi_1,\ldots,\varphi_n$
+are paths.  We integrate over such a chain as
+\begin{equation*}
+\int_{\Gamma} f(z) \, dz
+=
+\int_{a_1 \varphi_1 + \cdots + a_n \varphi_n} f(z) \, dz
+\overset{\text{def}}{=}
+a_1 \int_{\varphi_1} f(z) \, dz +
+\cdots
++
+a_n \int_{\varphi} f(z) \, dz .
+\end{equation*}
+
+\begin{exbox}
+\begin{exercise}
+Let $\varphi_1 \colon [a,b] \to \C$ and $\varphi_2 \colon [b,c] \to \C$
+be two piecewise $C^1$ paths.  Prove that the function $\varphi \colon [a,c] \to
+\C$ defined by $\varphi(t) = \varphi_1(t)$ if $t \in [a,b]$ and $\varphi(t)
+= \varphi_2(t)$ if $t \in [b,c]$ is a piecewise $C^1$ path and
+\begin{equation*}
+\int_{\varphi} f(z)\,dz = \int_{\varphi_1 + \varphi_2} f(z) \, dz
+\end{equation*}
+for all $f$ continuous on the image of $\varphi$.
+\end{exercise}
+\end{exbox}
+
+Using the exercise above, we can assume that any chain that is put together
+from connecting paths can be converted and integrated as a single path,
+and so in the sequel we may do this procedure implicitly.
+
+\subsection{Cauchy for derivatives}
 
 \begin{prop}[Fundamental Theorem of Calculus for Paths]
 Suppose $U \subset \C$ is open and $F \colon U \to \C$ is holomorphic.
-Let $\varphi \colon [a,b] \to U$ be a piecewise $C^1$ path.  Then
+Let $\varphi \colon [a,b] \to U$ be a piecewise $C^1$ path.
+Suppose $F'$ is continuous.  Then
 \begin{equation*}
 \int_\varphi F'(z) \, dz =
 F\bigl( \varphi(b) \bigr) - F\bigl( \varphi(a)
 \bigr) .
 \end{equation*}
 \end{prop}
+
+Note that the hypothesis that $F'$ is continuous is extraneous, we will
+prove later that it $F'$ is always continuous for a holomorphic $F$.
+In fact, we will prove that $F'$ is holomorphic.  But we do not yet
+have this fact, and
+without it, we wouldn't be able to integrate\footnote{%
+A real derivative is only integrable
+by a so-called gauge or Henstock--Kurzweil integral, Riemann or
+Lebesgue are not enough, so integrability is not an idle concern.}.
 
 \begin{proof}
 We have
@@ -2510,16 +2617,56 @@ immediate corollary.
 
 \begin{cor}[Cauchy's Theorem for Derivatives]
 Suppose $U \subset \C$ is open and $F \colon U \to \C$ is holomorphic.
-Let $\varphi \colon [a,b] \to U$ be a closed piecewise $C^1$ path.  Then
+Let $\varphi \colon [a,b] \to U$ be a closed piecewise $C^1$ path.
+Suppose $F'$ is continuous.  Then
 \begin{equation*}
 \int_\varphi F'(z) \, dz = 0 .
 \end{equation*}
 \end{cor}
 
+We will prove several versions of Cauchy's Theorem, although this one is
+somewhat different from the others.  Usually there will be a restriction on
+the $U$ rather than on the function being integrated.
+A version of Cauchy's theorem can be taken as an ``independence of path''
+type of result saying we can define a function at $z$ by a line integral
+from some fixed point to $z$.  This will imply that such a function has an
+antiderivative.  So the other versions of Cauchy's Theorem will generally
+be about what kind of $U$ guarantee that every holomorphic function has an
+antiderivative.
+
+\subsection{Cauchy--Goursat, the ``Cauchy for triangles''}
+
+Given two points $a,b \in \C$, the \emph{\myindex{segment}} $[a,b]$ is the path
+$\varphi \colon [0,1] \to \C$ given by $\varphi(t) = (1-t)a + tb$.
+If we do chain arithmetic, note that $-[a,b] = [b,a]$.
+
+A set $X$ is \emph{\myindex{convex}} if $[a,b] \subset X$ for all $a,b \in
+X$.
+
+Let $a,b,c \in C$ be distinct points in $\C$ that do not lie on a
+straight line, a \emph{\myindex{triangle}} $T$
+with vertices $a,b,c$ is the convex hull
+of $\{ a,b,c \}$, that is
+the set of all points
+\begin{equation*}
+t_1 a + t_2 b + t_3 c ,
+\end{equation*}
+where $t_1,t_2,t_3 \in [0,1]$ and $t_1+t_2+t_3 = 1$.  Another way to define
+the convex hull is the intersection of all convex sets containing $\{ a,b,c
+\}$.  In particular, $T$ is the smallest convex set containing the vertices.
+
+We order the vertices so that any triangle $T$ has the positive orientation,
+that is as we travel from $a$ to $b$ to $c$ the inside of the triangle 
+is on the left.  More precisely if we translate so that $a$ is
+at the origin and rotate so that $b$ is on the positive real line, then $c$
+should have positive imaginary part.  Then we define the boundary chain of
+$T$ as
+\begin{equation*}
+\partial T = [a,b] + [b,c] + [c,a] .
+\end{equation*}
 
 
 
-\subsection{Cauchy--Goursat}
 
 FIXME: ``Cauchy for triangles'' and then conclude Cauchy for
 a large number of sets (convex is good enough)
