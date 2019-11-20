@@ -1494,8 +1494,10 @@ solutions.
 Let $U \subset \C$ be open.  Then $f \colon U \to \C$ is
 \emph{\myindex{holomorphic}}
 if it is complex differentiable at every point.  That is, if
-\eqref{eq:complexdiff} exists for all $z \in U$.  We will write
-the set of holomorphic functions defined on $U$ as $\sO(U)$.
+\eqref{eq:complexdiff} exists for all $z \in U$.
+%We will write
+%the set of holomorphic functions defined on $U$ as $\sO(U)$.
+%FIXME: do we every really use $\sO(U)$
 \end{defn}
 
 We know that continuously differentiable functions that satisfy
@@ -2346,6 +2348,8 @@ When we say that $\varphi$ is a path in $U \subset \C$, we will mean that
 $\varphi \colon [a,b] \to U$ is a path.  Another common abuse of language we
 will freely and shamelessly commit is that if we refer to $\varphi$
 as if it were a set we will mean the image $\varphi\bigl([a,b]\bigr)$.
+As you will see in the exercises,
+we should also morally require that $\varphi'(t) \not= 0$ for all $t$.
 
 Given a piecewise $C^1$ path $\varphi \colon [a,b] \to \C$ and a continuous
 function $f$ defined on the image
@@ -2485,7 +2489,23 @@ continuous $h \colon [a,b] \to [a,b]$ such that
 $\varphi \circ h$ is $C^1$.  Hint: Make the derivative at the endpoints
 zero.
 \end{exercise}
+
+\begin{exercise}[Tricky]
+Consider infinitely many nested circles all touching at one point
+and let that point be the origin: Suppose $r_n$ be the radius of the $n$th
+circle and the $n$th circle is given by $r_n e^{i\theta} - r_n$, for $0 \leq
+\theta \leq 2\pi$.  If $\sum r_n < \infty$, then you can find a $C^1$ path $\varphi \colon
+[0,1] \to \C$ that traverses all the circles.  If $\sum r_n = \infty$, then
+you can find a continuous $\varphi \colon [0,1] \to \C$ that is $C^1$ on
+$(0,1]$, but necessarily $\lim_{t \to 0} \varphi'(t)$ does not exist.
+\end{exercise}
 \end{exbox}
+
+The last two exercises above really show why we should morally think of only those
+paths where $\varphi'(t) \not= 0$ as those that are piecewise $C^1$.  And in
+practical terms, we would not lose much.
+
+\medskip
 
 We can also integrate with respect to arclength, the $ds$ from calculus.
 We will write $ds$ as $\sabs{dz}$.  That is, for an $f$ continuous on
@@ -2570,6 +2590,28 @@ Using the exercise above, we can assume that any chain that is put together
 from connecting paths can be converted and integrated as a single path,
 and so in the sequel we may do this procedure implicitly.
 
+The paths that come up in applications are often constructed out of straight
+line segments or arcs.
+Given two points $a,b \in \C$, the \emph{\myindex{segment}} $[a,b]$ is the path
+$\varphi \colon [0,1] \to \C$ given by $\varphi(t) = (1-t)a + tb$.
+If we do chain arithmetic, note that $-[a,b] = [b,a]$.
+A path is \emph{\myindex{polygonal}} if it can be written as a chain
+as $[a_1,a_2] + [a_2,a_3] + \cdots + [a_{k-1},a_k]$ for some complex numbers
+$a_1,\ldots,a_k$.  As the following exercise shows, we can in fact get by
+with just polygonal path for most practical purposes.
+
+\begin{exbox}
+\begin{exercise}
+Suppose $U \subset \C$ is open, $\varphi \colon [a,b] \to \C$ is a piecewise
+$C^1$ path, and $f \colon U \to \C$ is continuous.  Then for every $\epsilon
+> 0$, there exists a polygonal path (or chain) $\gamma$ with the same
+beginning and end point, such that
+\begin{equation*}
+\abs{\int_\gamma f(z)\, dz - \int_{\varphi} f(z) \, dz} < \epsilon .
+\end{equation*}
+\end{exercise}
+\end{exbox}
+
 \subsection{Cauchy for derivatives}
 
 \begin{prop}[Fundamental Theorem of Calculus for Paths]
@@ -2590,7 +2632,10 @@ have this fact, and
 without it, we wouldn't be able to integrate\footnote{%
 A real derivative is only integrable
 by a so-called gauge or Henstock--Kurzweil integral, Riemann or
-Lebesgue are not enough, so integrability is not an idle concern.}.
+Lebesgue are not enough, so integrability is not an idle concern.
+If you are willing to hunt ants with a sledgehammer, then
+the statement and proof of the proposition is perfectly fine at this stage
+if you use the gauge integral even without the hypothesis of continuity.}.
 
 \begin{proof}
 We have
@@ -2636,13 +2681,8 @@ antiderivative.
 
 \subsection{Cauchy--Goursat, the ``Cauchy for triangles''}
 
-Given two points $a,b \in \C$, the \emph{\myindex{segment}} $[a,b]$ is the path
-$\varphi \colon [0,1] \to \C$ given by $\varphi(t) = (1-t)a + tb$.
-If we do chain arithmetic, note that $-[a,b] = [b,a]$.
-
-A set $X$ is \emph{\myindex{convex}} if $[a,b] \subset X$ for all $a,b \in
+A set $X$ is \emph{\myindex{convex}} if the segment $[a,b] \subset X$ for all $a,b \in
 X$.
-
 Let $a,b,c \in C$ be distinct points in $\C$ that do not lie on a
 straight line, a \emph{\myindex{triangle}} $T$
 with vertices $a,b,c$ is the convex hull
@@ -2652,30 +2692,42 @@ the set of all points
 t_1 a + t_2 b + t_3 c ,
 \end{equation*}
 where $t_1,t_2,t_3 \in [0,1]$ and $t_1+t_2+t_3 = 1$.  Another way to define
-the convex hull is the intersection of all convex sets containing $\{ a,b,c
-\}$.  In particular, $T$ is the smallest convex set containing the vertices.
+the convex hull is the intersection of all convex sets containing $\{ a,b,c \}$.
+In particular, $T$ is the smallest convex set containing the vertices.
+Do note, that we have defined a triangle as the solid triangle, including
+the inside.
 
 We order the vertices so that any triangle $T$ has the positive orientation,
 that is as we travel from $a$ to $b$ to $c$ the inside of the triangle 
 is on the left.  More precisely if we translate so that $a$ is
 at the origin and rotate so that $b$ is on the positive real line, then $c$
-should have positive imaginary part.  Then we define the boundary chain of
-$T$ as
+should have positive imaginary part.  Then we define the boundary chain
+(since it is closed it is often called a cycle) of $T$ as
 \begin{equation*}
 \partial T = [a,b] + [b,c] + [c,a] .
 \end{equation*}
 
+\begin{thm}[Cauchy--Goursat]
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+and $T \subset U$ is a triangle.  Then
+\begin{equation*}
+\int_{\partial T} f(z) \, dz = 0 .
+\end{equation*}
+\end{thm}
+
+Let us remark that it is important that $T \subset U$ means that the inside
+of the triangle is inside $U$, not just the boundary.  Otherwise the theorem
+would not be true.
+
+FIXME: proof
 
 
-
-FIXME: ``Cauchy for triangles'' and then conclude Cauchy for
-a large number of sets (convex is good enough)
-
-FIXME: Should we do homotopies here?
 
 \subsection{Cauchy's Theorem for discs}
 
 FIXME
+
+FIXME: Should we do homotopies?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
