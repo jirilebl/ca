@@ -1309,15 +1309,17 @@ $\lim_{z \to z_0} \frac{1}{f(z)} = 0$.
 
 It then makes sense to talk about the value of $\frac{1}{z}$ at the origin
 as $\infty$, and the value of $z$ at $\infty$ as $\infty$.
+In fact, any polynomial is $\infty$ at $\infty$.
 
 \begin{exbox}
-\begin{exercise}
-Suppose $f(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0$ be
-a polynomial where $a_0,\ldots,a_n \in \C$.  Prove that $\lim_{z \to \infty} f(z) = \infty$.  Hint: Feel
-free to use the similar statement about polynomials of real variables:
-if $p(x) = c_n x^n + c_{n-1} x^{n-1} + \cdots + c_1 x + c_0$ is a monic
-polynomial and $c_{0},\ldots,c_n \in \R$ and $c_n > 0$, then $\lim_{x \to
-+\infty} p(x) = +\infty$ (in the standard extended real sense).
+\begin{exercise} \label{exercise:polygoesinf}
+Suppose $P(z) = a_d z^d + a_{d-1} z^{d-1} + \cdots + a_1 z + a_0$ be
+a polynomial where $a_0,\ldots,a_d \in \C$.  Prove that if $d \geq 1$
+and $a_d \not=0$ ($P$ is nonconstant),
+then $\lim_{z \to \infty} P(z) = \infty$.
+Hint: Assume $a_d = 1$, then study
+$\abs{\frac{a_{d-1} z^{d-1} + \cdots + a_1 z + a_0}{z^d}}$ to show that
+$\abs{P(z)} \geq \frac{1}{2} \sabs{z}^d$.
 \end{exercise}
 \end{exbox}
 
@@ -1463,8 +1465,8 @@ We usually want to do this at all points, not just one.
 
 Using the fact
 from undergraduate analysis (see \sectionref{sec:derinsv} again), that
-if the partial derivatives exist and are continuous then $f$ is
-differentiable we have the following proposition.
+if the partial derivatives exist and are continuous, then $f$ is
+differentiable, we have the following proposition.
 
 \begin{prop}
 \pagebreak[2]
@@ -2119,13 +2121,14 @@ in the complement of the closure $\overline{\Delta_\rho(a)}$.
 Convergence (or divergence) on the boundary circle $\partial \Delta_\rho(a)$
 is a tricky matter.
 
-A useful criterion for convergence is that $\sabs{c_n} r^n$ is bounded for
-all $r < \rho$.
+A useful criterion for the radius of convergence is that $\sabs{c_n} r^n$ is
+bounded whenever $0 < r < \rho$.
 
 \begin{prop}
 The series $\sum c_n {(z-a)}^n$ converges in $\Delta_{\rho}(a)$ for some
 $\rho > 0$, if and only if
-for any $r < \rho$ there exists an $M > 0$ such that for all $n$,
+for every $r$ with
+$0 < r < \rho$ there exists an $M > 0$ such that for all $n$,
 \begin{equation*}
 \sabs{c_n} \leq \frac{M}{r^n} .
 \end{equation*}
@@ -2357,6 +2360,45 @@ once we prove that holomorphic functions are analytic.
 \subsection{The identity theorem}
 
 FIXME:
+
+\begin{thm}[Identity]
+Suppose $U \subset \C$ is a domain, 
+and $f \colon U \to \C$ analytic.  If $Z_f = \{ z \in U : f(z) = 0 \}$
+has a limit point in $U$, then $f$ is identically zero.
+In other words, all points of $Z_f$ are isolated.
+\end{thm}
+
+\begin{proof}
+Suppose $f$ is not identically zero.
+The set $Z_f$ is closed as $f$ is continuous.  So we have to show
+that points of $Z_f$ are isolated.
+Without loss of generality suppose that $0 \in U$ and $0 \in Z_f$,
+and suppose $0$ is not in the interior of $Z_f$.
+Write $f$ near $0$ as
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty c_n z^n .
+\end{equation*}
+As $f(0) = 0$, $c_0 =0$.  Let $k$ be the first $k$ such that $c_k \not=0$,
+such a $k$ exists as otherwise $f$ would be identically zero near $0$
+and we assumed $0$ is not in the interior of $Z_f$.  Then
+\begin{equation*}
+f(z) = z^k \sum_{n=k}^\infty c_n z^{n-k} = z^k g(z) .
+\end{equation*}
+The series $g(z)$ above is a convergent power series and $g(0) = c_k \not=
+0$.  A power series is continuous, and hence $g(z) \not= 0$ near $0$.
+As $z^k$ is only zero at $0$, we find that $0$ is an isolated zero of $f$.
+
+So the only points of $Z_f$ that are not isolated are those that are in the
+interior of $Z_f$.  Let $Z_f' \subset Z_f$ be the closure (in the subspace
+topology of $U$)
+of the interior of $Z_f$.
+The set $Z_f'$ must have empty boundary, as those points are not isolated.
+But then $Z_f'$ is both open and closed.  As $U$ is connected, and we know
+that $Z_f' \not= U$, we conclude $Z_f' = \emptyset$.
+Thus all points of $Z_f$ are isolated.
+\end{proof}
+
+FIXME
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2794,7 +2836,61 @@ such that $F' = f$.
 \end{prop}
 
 \begin{proof}
-FIXME
+Pick $z_0 \in U$.  Define
+\begin{equation*}
+F(z) = \int_{[z_0,z]} f(\zeta) \, d\zeta .
+\end{equation*}
+%Let us try to compute $F'$:
+%\begin{equation*}
+%\frac{F(z+h)-F(z)}{h} =
+%\frac{1}{h}
+%\int_{[z_0,z+h]-[z_0,z]} f(\zeta) \, d\zeta .
+%\end{equation*}
+By Cauchy--Goursat, 
+\begin{equation*}
+\int_{[z_0,z]+[z,z+h]-[z_0,z+h]} f(\zeta) \, d\zeta = 0
+\end{equation*}
+so
+\begin{equation*}
+\begin{split}
+\frac{F(z+h)-F(z)}{h} &=
+\frac{1}{h}
+\int_{[z_0,z+h]-[z_0,z]} f(\zeta) \, d\zeta
+\\
+& =
+\frac{1}{h}
+\int_{[z,z+h]} f(\zeta) \, d\zeta
+=
+\frac{1}{h}
+\int_0^1 f(z+th) h \, dt .
+\end{split}
+\end{equation*}
+In other words
+\begin{equation*}
+\begin{split}
+\abs{
+\frac{F(z+h)-F(z)}{h} 
+-
+f(z)
+}
+& =
+\abs{
+\int_0^1 f(z+th) \, dt
+-
+\int_0^1 f(z) \, dt
+}
+\\
+& \leq
+\int_0^1 \abs{f(z+th)-f(z)} \, dt .
+\end{split}
+\end{equation*}
+By continuity of $f$ at $z$ we find
+\begin{equation*}
+\lim_{h \to 0}
+\frac{F(z+h)-F(z)}{h} 
+=
+f(z) . \qedhere
+\end{equation*}
 \end{proof}
 
 \begin{thm}[Cauchy's Theorem for convex sets]
@@ -2811,17 +2907,141 @@ a primitive $F \colon U \to \C$, and
 \corref{cor:cauchyforders} then implies that the integral is zero.
 \end{proof}
 
-\subsection{Cauchy's Formula in a disc and the maximum principle}
+\subsection{Cauchy's formula in a disc and the maximum principle}
 
-FIXME:
+Perhaps the most fundamental theorem in complex analysis in one variable,
+and the root cause of all the amazing properties of holomorphic functions
+is the Cauchy Integral Formula.  Let us state it for a disc, and leave
+more general statements for later.
 
-\begin{thm}[Cauchy's Formula in a disc]
-FIXME:
+\begin{thm}[Cauchy Integral Formula in a disc]
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+and $\overline{\Delta_r(a)} \subset U$.
+If $\varphi$ is the boundary of $\Delta_r(a)$ oriented counterclockwise,
+then for all $z \in \Delta_r(a)$
+\begin{equation*}
+f(z)
+=
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+\end{equation*}
 \end{thm}
 
-\begin{thm}[Maximum principle]
-FIXME:
+What should be surprising about this theorem is that the values of a
+holomorphic function inside the disc (a large set) are determined by their
+values on the circle (a relatively small set).
+
+\begin{proof}
+FIXME
+\end{proof}
+
+A consequence of Cauchy's formula is the so called maximum principle, which
+has several different versions.  We give the basic statement and leave
+other versions as exercises.
+
+\begin{thm}[Maximum Principle]
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \C$ is holomorphic.
+If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
 \end{thm}
+
+\begin{proof}
+Suppose $\sabs{f(z)}$ achieves a (local) maximum at $z_0$.
+Without loss of generality suppose $z_0 = 0$.  By multiplying by some
+$e^{i\theta}$ we also assume that $f(0)$ is positive and real, we will write
+that as $f(0) > 0$ (if $f(0) = 0$ then we are done).
+
+Let $\varphi_r$ be a small circle of radius $r$ traversed counterclockwise
+centered at $0$.  Suppose that $r$ is small enough so that
+$\sabs{f(z)} \leq \sabs{f(0)}$ whenever $\sabs{z} \leq r$.
+%Suppose for contradiction that for some $z$ on the circle $\sabs{z} = r$
+%we have $\sabs{f(z)} < \sabs{f(0)} = f(0)$.  By continuity,
+%$\sabs{f(re^{it})} < \sabs{f(0)} = f(0)$ for $t$ in a small interval.
+Then Cauchy's formula says
+\begin{equation*}
+\begin{split}
+f(0) = \sabs{f(0)} & =
+\abs{\frac{1}{2\pi i}
+\int_{\varphi_r}
+\frac{f(z)}{z} \, dz
+}
+\\
+& =
+\frac{1}{2\pi}
+\abs{
+\int_0^{2\pi}
+\frac{f(re^{it})}{e^{it}} \, i e^{it} \, dt
+}
+\\
+& \leq
+\frac{1}{2\pi}
+\int_0^{2\pi}
+\sabs{f(re^{it})}\, dt
+\\
+&
+\leq
+\frac{1}{2\pi}
+\int_0^{2\pi}
+f(0)\, dt = f(0) .
+\end{split}
+\end{equation*}
+%And that is a contradiction.  Hence $\sabs{f(z)} = f(0)$ for
+%all $z$ near 0, and the inequalities (including the strict inequality)
+%in the computation above are all equalities.
+So all the inequalities above are equalities.
+In addition, $f(0)-\sabs{f(re^{it})} \geq 0$ and
+\begin{equation*}
+\int_0^{2\pi}\Bigl( f(0)-\sabs{f(re^{it})} \Bigr) \ dt = 0 ,
+\end{equation*}
+so $\sabs{f(re^{it})} = f(0)$ for all $t$.
+By applying Cauchy's formula
+again we find
+\begin{equation*}
+\frac{1}{2\pi}
+\int_0^{2\pi}
+\sabs{f(re^{it})}\, dt
+=
+f(0)
+=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+f(re^{it})\, dt
+\end{equation*}
+or
+\begin{equation*}
+0 =
+\Re \int_0^{2\pi}
+\Bigl(\sabs{f(re^{it})}-f(re^{it})\Bigr)\, dt
+=
+\int_0^{2\pi}
+\Bigl(\sabs{f(re^{it})}-\Re f(re^{it})\Bigr)\, dt .
+\end{equation*}
+For any complex number $w$ we have $\sabs{w} - \Re w \geq 0$, so
+$\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence
+$\sabs{f(re^{it})}=\Re f(re^{it})$, and thus $\Im f(re^{it}) = 0$,
+and so 
+$\sabs{f(re^{it})}=f(re^{it})$.
+\end{proof}
+
+
+\begin{exbox}
+\begin{exercise}
+Suppose $U \subset \C$ is open and $\overline{U}$ is compact.
+If $f \colon \overline{U} \to \C$ is continuous, and the restriction $f|_{U}$
+is holomorphic, then show that $\sabs{f(z)}$ achieves a maximum on $\partial U$.
+\end{exercise}
+
+\begin{exercise}[Minimum Principle]\index{Minimum Principle}
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \C$ is holomorphic.
+If $\sabs{f(z)}$ achieves a minimum at $z_0 \in U$ and $f(z_0) \not= 0$,
+then $f$ is constant.  Also show by example that the hypothesis $f(z_0)
+\not= 0$ is necessary.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2845,9 +3065,9 @@ Furthermore,
 c_n = 
 \frac{1}{2\pi i}
 \int_{\varphi}
-\frac{f(\zeta)}{{(\zeta-a)}^{n+1}}
+\frac{f(z)}{{(z-a)}^{n+1}}
 \,
-d \zeta  ,
+dz  ,
 \end{equation*}
 where $\varphi$ is any circle of radius $s$, $0 < s < r$ centered at
 $a$ oriented counterclockwise.
@@ -2882,7 +3102,8 @@ converges uniformly).
 
 Let $\varphi(t) = s e^{i t}$
 be the path going around 
-$\partial \Delta_r(a)$ once in the counterclockwise direction.  Compute
+$\partial \Delta_r(a)$ once in the counterclockwise direction.
+We start with the Cauchy Integral Formula,
 \begin{equation*}
 \begin{split}
 f(z)
@@ -3031,7 +3252,7 @@ As $f$ converges in a disc of an arbitrary radius $r$ we have that
 \sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(a)}}{r^n} \leq
 \frac{M}{r^n} .
 \end{equation*}
-For $n \geq 1$, we find that $c_n = 0$ by letting $r \to \infty$.  In other
+Letting $r \to \infty$ shows that $c_n = 0$ for $n \geq 1$.  In other
 words, $f(z) = c_0$ for all $z$.
 \end{proof}
 
@@ -3042,7 +3263,51 @@ If $P(z)$ is a nonconstant polynomial, then $P$ has a root.
 \end{thm}
 
 \begin{proof}
-FIXME:
+If $P(z)$ does not have a root, then $R(z) = \frac{1}{P(z)}$ is
+an entire holomorphic function.
+In \exerciseref{exercise:polygoesinf} you proved that
+$\lim_{z \to \infty} P(z) = \infty$ and so
+$\lim_{z \to \infty} R(z) = 0$.  In other words, $R(z)$ is bounded, but then
+it would be constant (a contradiction).
+%
+%Without loss of generality we can assume that that $P$ is monic, that is,
+%the leading coefficient is 1.  So
+%Let $P(z) = z^d + c_{d-1} z^{d-1} + \cdots c_1 z + c_0$.
+%Then as long as $\sabs{z} \geq 1$,
+%\begin{equation*}
+%\begin{split}
+%\abs{\frac{c_{d-1} z^{d-1} + \cdots + b_1 z + b_0}{z^d}}
+%& \leq
+%\frac{\sabs{c_{d-1}} \sabs{z}^{d-1} + \cdots + \sabs{c_1} \sabs{z} + \sabs{c_0}}{\sabs{z}^d}
+%\\
+%& \leq
+%\frac{\sabs{c_{d-1}} \sabs{z}^{d-1} + \cdots + \sabs{c_1} \sabs{z}^{d-1} +
+%\sabs{c_0}\sabs{z}^{d-1}}{\sabs{z}^d}
+%\\
+%& =
+%\frac{\sabs{c_{d-1}} + \cdots + \sabs{c_1} + \sabs{c_0}}{\sabs{z}} .
+%\end{split}
+%\end{equation*}
+%In other words, for large enough $z$ we have
+%\begin{equation}
+%\abs{c_{d-1} z^{d-1} + \cdots + b_1 z + b_0} \leq \frac{1}{2} \sabs{z^d}
+%=\frac{1}{2} \sabs{z}^d .
+%\end{equation}
+%And so as 
+%\begin{equation*}
+%\sabs{P(z)} = 
+%\abs{z^d + c_{d-1} z^{d-1} + \cdots + b_1 z + b_0} 
+%\geq
+%\abs{z^d} - \abs{c_{d-1} z^{d-1} + \cdots + b_1 z + b_0} 
+%\geq \frac{1}{2} \sabs{z}^d .
+%\end{equation*}
+%We have $\sabs{P(z)}
+%
+%Therefore
+%\begin{equation*}
+%\lim_{n\to\infty} \frac{b_{d-1} n^{d-1} + \cdots + b_1 n + b_0}{n^d}
+%= 0 .
+%\end{equation*}
 \end{proof}
 
 % This should go later
@@ -4103,15 +4368,15 @@ Hint: See also \exerciseref{exercise:integralcontcontextra} and
 
 \subsection{The derivative}
 
-In the following the norm $\snorm{\cdot}$ on a vector in $\R^n$
+In the following, the norm $\snorm{\cdot}$ of a vector in $\R^n$
 is the Euclidean norm $\snorm{x} = \sqrt{x_1^2+\cdots+x_n^2}$.
 When applied to a linear mapping (a matrix) it is the
 \emph{\myindex{operator norm}}:
 \begin{equation*}
 \snorm{A} \overset{\text{def}}{=} \sup_{\snorm{x} = 1} \snorm{Ax} .
 \end{equation*}
-The following key facts about the operator norm follow easily and are left
-as exercises for the reader who has not seen this norm.
+The following exercise collects some key facts about the operator norm
+for the reader who has not seen this norm yet.
 
 \begin{exbox}
 \begin{exercise}
