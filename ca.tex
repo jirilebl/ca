@@ -1596,14 +1596,24 @@ The result follows.
 %by the complex number $f'(z) \gamma'(t_0)$.
 \end{proof}
 
-\begin{prop} \label{prop:sumprod}
-The sum and product of any two holomorphic is holomorphic,
-and in fact $(f+g)'(z) = f'(z) + g'(z)$ and 
-$(fg)'(z) = f'(z)g(z) + f(z)g'(z)$.
+\begin{prop} \label{prop:sumproddiv}
+Let $U \subset \C$ be open, and $f \colon U \to \C$ and
+$g \colon U \to \C$ holomorphic.
+\begin{enumerate}[(i)]
+\item
+$f+g$ is holomorphic, and in fact, $(f+g)'(z) = f'(z) + g'(z)$.
+\item
+$fg$ is holomorphic, and in fact, $(fg)'(z) = f'(z)g(z) + f(z)g'(z)$.
+\item
+$\frac{1}{g}$ is holomorphic on $\{ z \in U : g(z) \not= 0 \}$, and in fact
+${\left(\frac{1}{g}\right)}'(z) = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
+\end{enumerate}
 \end{prop}
 
+Do note that a holomorphic function is continuous and so the set
+$\{ z \in U : g(z) \not= 0 \}$ is open.
 The proof is left as an exercise.  There are again several ways
-to do it, and way is almost identical to the
+to do it.  One way is almost identical to the
 proof for functions of one real variable. %  It is again no different than the standard proof
 %for functions of one real variable, with the only difference that the
 %limits taken are complex limits.
@@ -1613,8 +1623,8 @@ derivative of $z^n$ is $nz^{n-1}$.
 
 \begin{exbox}
 \begin{exercise}
-Prove \propref{prop:sumprod}.
-Hint: 
+Prove \propref{prop:sumproddiv}.
+Hint for product: 
 $f(z+h)g(z+h) - f(z)g(z) =
 f(z+h)g(z+h) - f(z)g(z+h) +
 f(z)g(z+h) - f(z)g(z)$.
@@ -1639,7 +1649,9 @@ computing the derivative.
 \end{exercise}
 
 \begin{exercise}
-Prove that any polynomial $P(z)$ is holomorphic.
+Prove that any polynomial $P(z)$ is holomorphic.  And more generally
+rational function $\frac{P(z)}{Q(z)}$ is holomorphic wherever $Q$ is
+nonzero.
 \end{exercise}
 
 \begin{exercise}
@@ -2115,7 +2127,7 @@ The series $\sum c_n {(z-a)}^n$ converges in $\Delta_{\rho}(a)$ for some
 $\rho > 0$, if and only if
 for any $r < \rho$ there exists an $M > 0$ such that for all $n$,
 \begin{equation*}
-\sabs{c_n} r^n \leq M .
+\sabs{c_n} \leq \frac{M}{r^n} .
 \end{equation*}
 \end{prop}
 
@@ -2299,7 +2311,34 @@ defines a continuous function of $\Delta_s(a)$.  Thus
 We notice that the derivative is again given by a power series.
 By induction, it follows that a power series is infinitely complex
 differentiable.
-And thus analytic functions are infinitely complex differentiable.
+
+\begin{cor}
+Let $f \colon \Delta_r(a) \to \C$ be defined by a convergent power series
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty c_n {(z-a)}^n .
+\end{equation*}
+Then $f$ is infinitely complex complex differentiable in $\Delta_r(a)$.
+Furthermore,
+\begin{equation*}
+c_n =
+\frac{f^{(n)}(a)}{n!} .
+\end{equation*}
+\end{cor}
+
+\begin{exbox}
+\begin{exercise}
+Fill in the details of the proof of this corollary.
+\end{exercise}
+\end{exbox}
+
+Perhaps a subtle consequence of
+this corollary that should be
+noted is that if $f$ is given by the convergent power series in
+$\Delta_r(a)$ as above, then the power series is unique.  This conclusion
+follows from the formula for the coefficients $c_n$.
+
+In particular we have just noticed that
+analytic functions are infinitely complex differentiable.
 
 \begin{cor}
 An analytic function is infinitely complex differentiable.
@@ -2311,23 +2350,29 @@ complex differentiable because they have a power series representation,
 we have not yet proved that a convergent power series defines an analytic
 function.  What would be left to prove is that a power series convergent
 in $\Delta_r(a)$ can be
-expanded about a different point in $\Delta_r(a)$.  It will however be
-convenient to postpone this proof for later, after we have Cauchy's theorem.
+expanded about a different point in $\Delta_r(a)$.  It will follow
+once we prove that holomorphic functions are analytic.
 \end{remark}
+
+\subsection{The identity theorem}
+
+FIXME:
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Simple Cauchy's Theorem and its consequences}
+\section{Line integrals and a starter Cauchy's Theorem}
 \label{sec:cauchysimple}
 
 \subsection{Line integrals}
 
-A complex-valued function piecewise continuously
+A continuous complex-valued piecewise continuously
 differentiable (piecewise-$C^1$) function $\varphi \colon [a,b] \to \C$ 
 is called a \emph{\myindex{path}} or a \emph{\myindex{piecewise $C^1$ path}}.
 All of our paths will be piecewise $C^1$, so we may forget to mention it
 sometime.
-By piecewise $C^1$ we mean that there exist numbers $t_0 = a < t_1 < \cdots
+By continuous piecewise $C^1$,
+we mean that there exist numbers $t_0 = a < t_1 < \cdots
 < t_k = b$ for some $k$ such that $\varphi|_{[t_{\ell-1},t_\ell]}$ is
 continuously differentiable ($C^1$) up to
 the boundary for every $\ell$.
@@ -2356,9 +2401,9 @@ function $f$ defined on the image
 $\varphi\bigl([a,b]\bigr)$, 
 we define the \emph{\myindex{line integral}}\footnote{%
 This integral is also called
-\emph{\myindex{path integral}}, 
-\emph{\myindex{curve integral}}, or
-\emph{\myindex{contour integral}}.}
+a \emph{\myindex{path integral}}, 
+a \emph{\myindex{curve integral}}, or
+a \emph{\myindex{contour integral}}.}
 \begin{equation*}
 \int_{\varphi} f(z) \, dz
 \overset{\text{def}}{=}
@@ -2501,9 +2546,14 @@ $(0,1]$, but necessarily $\lim_{t \to 0} \varphi'(t)$ does not exist.
 \end{exercise}
 \end{exbox}
 
-The last two exercises above really show why we should morally think of only those
-paths where $\varphi'(t) \not= 0$ as those that are piecewise $C^1$.  And in
-practical terms, we would not lose much.
+\begin{remark}
+The last two exercises above show why we should morally
+require that $\varphi'(t)$ never vanishes (including the one sided limits)
+for piecewise $C^1$ paths.  The point is, are we thinking of the path
+as the parametrization $\varphi$ or as the set $\varphi\bigl([a,b]\bigr)$.
+In practical terms, we lose nothing of real value by the extra requirement,
+and the reader is free to assume so.
+\end{remark}
 
 \medskip
 
@@ -2615,27 +2665,18 @@ beginning and end point, such that
 \subsection{Cauchy for derivatives}
 
 \begin{prop}[Fundamental Theorem of Calculus for Paths]
-Suppose $U \subset \C$ is open and $F \colon U \to \C$ is holomorphic.
+Suppose $U \subset \C$ is open and $f \colon U \to \C$
+is holomorphic, such that there exists
+a holomorphic $F \colon U \to \C$ with $f = F'$ ($F$ is called
+a \emph{\myindex{primitive}} of $f$).
 Let $\varphi \colon [a,b] \to U$ be a piecewise $C^1$ path.
-Suppose $F'$ is continuous.  Then
+Then
 \begin{equation*}
-\int_\varphi F'(z) \, dz =
+\int_\varphi f(z) \, dz =
 F\bigl( \varphi(b) \bigr) - F\bigl( \varphi(a)
 \bigr) .
 \end{equation*}
 \end{prop}
-
-Note that the hypothesis that $F'$ is continuous is extraneous, we will
-prove later that it $F'$ is always continuous for a holomorphic $F$.
-In fact, we will prove that $F'$ is holomorphic.  But we do not yet
-have this fact, and
-without it, we wouldn't be able to integrate\footnote{%
-A real derivative is only integrable
-by a so-called gauge or Henstock--Kurzweil integral, Riemann or
-Lebesgue are not enough, so integrability is not an idle concern.
-If you are willing to hunt ants with a sledgehammer, then
-the statement and proof of the proposition is perfectly fine at this stage
-if you use the gauge integral even without the hypothesis of continuity.}.
 
 \begin{proof}
 We have
@@ -2654,24 +2695,41 @@ standard fundamental theorem of calculus is applied to the real and imaginary pa
 of the expression.
 \end{proof}
 
+\begin{remark}
+The hypothesis that $f=F'$ is holomorphic is extraneous,
+we will soon prove that a derivative of a holomorphic function is
+holomorphic.  As that is not yet proved, we need $F'$ to be at least
+continuous so that the integral makes sense\footnote{%
+A real derivative is only integrable
+by a so-called gauge or Henstock--Kurzweil integral, Riemann or
+Lebesgue are not enough, so integrability is not an idle concern.
+If the reader is willing to hunt ants with a sledgehammer, then
+the statement and proof of the proposition is perfectly fine at this stage
+if one uses the gauge integral even without any hypothesis on $f$.}.
+\end{remark}
+
+
 A path $\varphi \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if 
 $\varphi(a) = \varphi(b)$.  The fundamental theorem above has the following
 immediate corollary.
 %It is said to be a \emph{simple} path if
 %$\varphi|_{[a,b)}$ is one-to-one (a simple closed path is not
 
-\begin{cor}[Cauchy's Theorem for Derivatives]
-Suppose $U \subset \C$ is open and $F \colon U \to \C$ is holomorphic.
-Let $\varphi \colon [a,b] \to U$ be a closed piecewise $C^1$ path.
-Suppose $F'$ is continuous.  Then
+\begin{cor}[Cauchy's Theorem for Derivatives] \label{cor:cauchyforders}
+Suppose $U \subset \C$ is open and $f \colon U \to \C$
+is holomorphic, such that there exists
+a holomorphic $F \colon U \to \C$ with $f = F'$.
+Let $\varphi \colon [a,b] \to U$ be a piecewise $C^1$ path.
+Then
 \begin{equation*}
-\int_\varphi F'(z) \, dz = 0 .
+\int_\varphi f(z) \, dz = 0 .
 \end{equation*}
 \end{cor}
 
 We will prove several versions of Cauchy's Theorem, although this one is
 somewhat different from the others.  Usually there will be a restriction on
-the $U$ rather than on the function being integrated.
+the $U$ or perhaps the path $\varphi$ rather
+than on the function being integrated.
 A version of Cauchy's theorem can be taken as an ``independence of path''
 type of result saying we can define a function at $z$ by a line integral
 from some fixed point to $z$.  This will imply that such a function has an
@@ -2719,15 +2777,302 @@ Let us remark that it is important that $T \subset U$ means that the inside
 of the triangle is inside $U$, not just the boundary.  Otherwise the theorem
 would not be true.
 
+\begin{proof}
 FIXME: proof
+\end{proof}
 
+\subsection{Cauchy's Theorem for convex sets}
 
+FIXME:
 
-\subsection{Cauchy's Theorem for discs}
+\begin{prop} \label{prop:primitiveinconvex}
+Suppose $U \subset \C$ is open and convex,
+and $f \colon U \to \C$ is holomorphic.
+Then $f$ has a primitive, that is,
+there exists a holomorphic $F \colon U \to \C$
+such that $F' = f$.
+\end{prop}
+
+\begin{proof}
+FIXME
+\end{proof}
+
+\begin{thm}[Cauchy's Theorem for convex sets]
+Suppose $U \subset \C$ is open and convex, $f \colon U \to \C$ is holomorphic,
+and $\varphi$ is a closed piecewise $C^1$ path in $U$.  Then
+\begin{equation*}
+\int_{\varphi} f(z) \, dz = 0 .
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+\propref{prop:primitiveinconvex} implies that there is
+a primitive $F \colon U \to \C$, and
+\corref{cor:cauchyforders} then implies that the integral is zero.
+\end{proof}
+
+\subsection{Cauchy's Formula in a disc and the maximum principle}
+
+FIXME:
+
+\begin{thm}[Cauchy's Formula in a disc]
+FIXME:
+\end{thm}
+
+\begin{thm}[Maximum principle]
+FIXME:
+\end{thm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Holomorphic functions are analytic}
+\label{sec:holoanal}
+
+\subsection{Existence of power series}
+
+\begin{thm}
+Let $U \subset \C$ be open, $f \colon U \to \C$ be
+holomorphic, and $a \in U$, and $\Delta_r(a) \subset U$
+is a disc.
+Then there exists a power series $\sum c_n {(z-a)}^n$
+such that
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty c_n {(z-a)}^n ,
+\end{equation*}
+for all $z \in \Delta_r(a)$.
+Furthermore,
+\begin{equation*}
+c_n = 
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(\zeta)}{{(\zeta-a)}^{n+1}}
+\,
+d \zeta  ,
+\end{equation*}
+where $\varphi$ is any circle of radius $s$, $0 < s < r$ centered at
+$a$ oriented counterclockwise.
+\end{thm}
+
+\begin{proof}
+First fix a particular $s$ such that $0 < s < r$.
+We have $\overline{\Delta_s(a)} \subset U$,
+the boundary of the disc of radius $s$ is in $U$.
+
+For $z \in \Delta_r(a)$ and $\zeta \in \partial \Delta_r(a)$, 
+\begin{equation*}
+\abs{\frac{z-a}{\zeta-a}} =
+\frac{\sabs{z-a}}{s} < 1 .
+\end{equation*}
+If $\sabs{z-a} \leq s' < s$, then
+$\abs{\frac{z-a}{\zeta-a}} \leq \frac{s'}{s} < 1$.  Therefore,
+the geometric series
+\begin{equation*}
+\sum_{n=0}^\infty
+{\left(\frac{z-a}{\zeta-a}\right)}^n
+=
+\frac{1}{1-
+\frac{z-a}{\zeta-a}}
+=
+\frac{\zeta-a}{\zeta-z}
+\end{equation*}
+converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{s'}(a)}
+\times \partial \Delta_r(a)$ (that is, $\sum_j {\bigl\lvert
+\frac{z-a}{\zeta-a} \bigr\rvert}^n$
+converges uniformly).
+
+Let $\varphi(t) = s e^{i t}$
+be the path going around 
+$\partial \Delta_r(a)$ once in the counterclockwise direction.  Compute
+\begin{equation*}
+\begin{split}
+f(z)
+& =
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta 
+\\
+& =
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(\zeta)}{\zeta-a}
+\frac{\zeta-a}{\zeta-z}
+\,
+d \zeta 
+\\
+& =
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(\zeta)}{\zeta-a}
+\sum_{j=0}^\infty
+{\left(\frac{z-a}{\zeta-a}\right)}^j
+\,
+d \zeta 
+\\
+& =
+\sum_{j=0}^\infty
+\left(
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(\zeta)}{{(\zeta-a)}^{j+1}}
+\,
+d \zeta 
+\right)
+{(z-a)}^j .
+\end{split}
+\end{equation*}
+In the last equality, we were allowed to 
+interchange the limit on the sum with the integral
+%either
+%via Fubini's theorem or
+via uniform convergence (uniform in the $\zeta \in \partial \Delta_r(a)$):
+$z$ is fixed and if $M$ is the supremum of $\abs{\frac{f(\zeta)}{\zeta-a}} =
+\frac{\sabs{f(\zeta)}}{s}$ on $\partial \Delta_r(a)$,
+then
+\begin{equation*}
+\abs{
+\frac{f(\zeta)}{\zeta-a}
+{\left(\frac{z-a}{\zeta-a}\right)}^n
+}
+\leq
+M 
+{\left(\frac{\abs{z-a}}{s}\right)}^n,
+\qquad \text{and} \qquad
+\frac{\abs{z-a}}{s} < 1 .
+\end{equation*}
+
+We proved convergence in $\Delta_s(a)$.
+By the uniqueness of the power series (see \corref{FIXME}),
+the $c_n$ we computed are the same for every $s < r$, and hence
+we get convergence in $\Delta_r(a)$.
+\end{proof}
+
+Not only have we proved that $f$ has a power series, but we computed
+that the radius of convergence is at least $r$, where $r$ is the maximum $r$
+such that $\Delta_r(a) \subset U$.
+
+The key point in the proof is writing the \emph{\myindex{Cauchy kernel}}
+$\frac{1}{\zeta-z}$ as
+\begin{equation*}
+\frac{1}{\zeta-z}
+=
+\frac{1}{\zeta-a}
+\frac{\zeta-a}{\zeta-z}
+\end{equation*}
+and then using the geometric series.
+
+\subsection{Cauchy estimates, Liouville, and the Fundamental Theorem of
+Algebra}
+
+For a set $K$, denote the \emph{\myindex{supremum norm}}:
+\glsadd{not:supnorm}%
+\begin{equation*}
+\snorm{f}_K
+\overset{\text{def}}{=}
+\sup_{z \in K} \sabs{f(z)} .
+\end{equation*}
+
+\begin{thm}[Cauchy estimates]\index{Cauchy estimates}
+Let $U \subset \C$ be open, $f \colon U \to \C$ be
+holomorphic, and $a \in U$, and $\overline{\Delta_r(a)} \subset U$
+a disc.
+Then for all $n$
+\begin{equation*}
+\sabs{c_n} =
+\abs{\frac{f^{(n)}(a)}{n!}}
+\leq
+\frac{\snorm{f}_{\partial \Delta_r(a)}}{r^{n}} .
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+The proof is a brute force estimation.  Let $\varphi$ be
+the circle $\partial \Delta_r(a)$ parametrized once in the counterclockwise
+direction.  Then
+\begin{equation*}
+\sabs{c_n} = 
+\abs{
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(\zeta)}{{(\zeta-a)}^{n+1}}
+\,
+d \zeta 
+}
+\leq
+\frac{1}{2\pi}
+\int_{\varphi}
+\frac{\snorm{f}_{\gamma}}{\rho^{n+1}}
+\,
+\sabs{d \zeta} 
+=
+\frac{\snorm{f}_{\gamma}}{\rho^{n}} .
+\qedhere
+\end{equation*}
+\end{proof}
 
 FIXME
 
-FIXME: Should we do homotopies?
+A holomorphic function $f \colon \C \to \C$ is called
+\emph{entire}\index{entire function}.
+
+\begin{thm}[Liouville]
+A bounded entire holomorphic function is constant.
+\end{thm}
+
+\begin{proof}
+Let $f$ be entire and suppose $\sabs{f(z)} \leq M$ for all $z \in \C$.
+Expand $f$ at the origin.
+\begin{equation*}
+f(z) = \sum_{n=0} c_n z^n .
+\end{equation*}
+As $f$ converges in a disc of an arbitrary radius $r$ we have that
+\begin{equation*}
+\sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(a)}}{r^n} \leq
+\frac{M}{r^n} .
+\end{equation*}
+For $n \geq 1$, we find that $c_n = 0$ by letting $r \to \infty$.  In other
+words, $f(z) = c_0$ for all $z$.
+\end{proof}
+
+FIXME:
+
+\begin{thm}[Fundamental Theorem of Algebra]
+If $P(z)$ is a nonconstant polynomial, then $P$ has a root.
+\end{thm}
+
+\begin{proof}
+FIXME:
+\end{proof}
+
+% This should go later
+%This estimate is one of the key properties of
+%holomorphic functions, and the reason why the correct topology for
+%the set of holomorphic functions is the same as the topology for continuous functions.
+%Consequently,
+%obstructions to solving problems in complex analysis are often topological
+%in character.
+
+
+
+%FIXME: (for later) definition of homotopy
+%
+%\begin{thm}[???]
+%FIXME: homotopic curves
+%\end{thm}
+%
+%FIXME: definition of simply connected
+%
+%\begin{lemma
+%
+%\begin{thm}[Cauchy's Theorem]
+%\end{thm}
+%
+%
+%
+%FIXME
+%
+%FIXME: Should we do homotopies?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
