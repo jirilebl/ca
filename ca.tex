@@ -2221,9 +2221,19 @@ $\sum_{n=0}^\infty n^n z^{n}$ is not convergent at all.
 
 \subsection{Analytic functions and differentiating the power series}
 
+Functions that possess a convergent power series are called analytic.
+There exist both complex and real analytic functions depending on if the
+variables are real or complex, and they may be in one or several variables,
+but here we are interested in complex analytic functions of one variable. 
+As there is little chance of confusion, we say just ``analytic'' instead of
+``complex analytic.''  Until the 19\textsuperscript{th} century, 
+when people considered a ``function'' they really meant ``analytic function''
+in modern language.
+
 \begin{defn}
 Let $U \subset \C$ be open.  A function $f \colon U \to \C$
-is called \emph{\myindex{analytic}} if for every $a \in U$, there exists 
+is called \emph{\myindex{analytic}}\index{complex analytic}
+if for every $a \in U$, there exists 
 an $r > 0$ and a
 power series $\sum c_n {(z-a)}^n$ converging to $f$ on $\Delta_r(a) \subset
 \C$.
@@ -2315,7 +2325,7 @@ We notice that the derivative is again given by a power series.
 By induction, it follows that a power series is infinitely complex
 differentiable.
 
-\begin{cor}
+\begin{cor} \label{cor:convpowserinfdif}
 Let $f \colon \Delta_r(a) \to \C$ be defined by a convergent power series
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n {(z-a)}^n .
@@ -2359,7 +2369,9 @@ once we prove that holomorphic functions are analytic.
 
 \subsection{The identity theorem}
 
-FIXME:
+One of the main properties of analytic functions is that once you know them
+in a neighborhood you know them everywhere.  In fact, much more general
+statement is true.
 
 \begin{thm}[Identity]
 Suppose $U \subset \C$ is a domain, 
@@ -2367,6 +2379,9 @@ and $f \colon U \to \C$ analytic.  If $Z_f = \{ z \in U : f(z) = 0 \}$
 has a limit point in $U$, then $f$ is identically zero.
 In other words, all points of $Z_f$ are isolated.
 \end{thm}
+
+A common application of this theorem is the following weaker statement: ``If $Z_f$
+contains an open subset, then $f \equiv 0$.''
 
 \begin{proof}
 Suppose $f$ is not identically zero.
@@ -2397,6 +2412,15 @@ But then $Z_f'$ is both open and closed.  As $U$ is connected, and we know
 that $Z_f' \not= U$, we conclude $Z_f' = \emptyset$.
 Thus all points of $Z_f$ are isolated.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+If $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
+\C$
+holomorphic such that the set $\{ z \in U : f(z) = g(z) \}$ has a limit
+point in $U$, then $f = g$ everywhere.
+\end{exercise}
+\end{exbox}
 
 FIXME
 
@@ -3164,7 +3188,7 @@ M
 \end{equation*}
 
 We proved convergence in $\Delta_s(a)$.
-By the uniqueness of the power series (see \corref{FIXME}),
+By the uniqueness of the power series (see \corref{cor:convpowserinfdif}),
 the $c_n$ we computed are the same for every $s < r$, and hence
 we get convergence in $\Delta_r(a)$.
 \end{proof}
@@ -3185,6 +3209,21 @@ and then using the geometric series.
 
 \subsection{Cauchy estimates, Liouville, and the Fundamental Theorem of
 Algebra}
+
+It may seem like we are cramming quite a bit into one subsection, but
+we have all the tools making three very fundamental results just pop out
+with very little work.  First, using the triangle inequality on
+the Cauchy Integral Formula obtains an estimate on the size of the
+coefficients of the series.  Then these estimates immediately give
+Liouville's Theorem on entire holomorphic functions which at once gives the
+Fundamental Theorem of Algebra.
+
+Some analysts like to make fun of algebraists at this stage, saying that the
+standard proof of their fundamental theorem uses analysis.  I wish to take
+this a bit further.  It is not a theorem of algebra at all!  It is a theorem
+in complex analysis.
+If the reader will go on to several complex variables, this theorem will
+take on a much more prominent role.
 
 For a set $K$, denote the \emph{\myindex{supremum norm}}:
 \glsadd{not:supnorm}%
@@ -3232,8 +3271,6 @@ d \zeta
 \end{equation*}
 \end{proof}
 
-FIXME
-
 A holomorphic function $f \colon \C \to \C$ is called
 \emph{entire}\index{entire function}.
 
@@ -3255,8 +3292,6 @@ As $f$ converges in a disc of an arbitrary radius $r$ we have that
 Letting $r \to \infty$ shows that $c_n = 0$ for $n \geq 1$.  In other
 words, $f(z) = c_0$ for all $z$.
 \end{proof}
-
-FIXME:
 
 \begin{thm}[Fundamental Theorem of Algebra]
 If $P(z)$ is a nonconstant polynomial, then $P$ has a root.
@@ -3309,6 +3344,97 @@ it would be constant (a contradiction).
 %= 0 .
 %\end{equation*}
 \end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Schwarz's Lemma and automorphisms of the disc}
+\label{sec:schwarz}
+
+\subsection{Schwarz's Lemma}
+
+Recall $\D = \Delta_1(0)$ is the unit disc.  The following statement may
+seem very technical and specialized, but surprisingly it is incredibly
+powerful\footnote{In my first year of graduate school, on an exam in complex
+analysis I solved all the problems with a combination of
+Schwarz's Lemma and
+the Riemann
+Mapping Theorem (which we will see later).  My advisor
+felt compelled to remind me that there do exist other theorems in complex
+analysis.}.
+
+\begin{lemma}[Schwarz's Lemma]\index{Schwarz's Lemma}
+Suppose $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
+then 
+\begin{enumerate}[(i)]
+\item $\sabs{f(z)} \leq \sabs{z}$, and
+\item $\sabs{f'(0)} \leq 1$.
+\end{enumerate}
+Furthermore, if $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus
+\{ 0 \}$
+or $\sabs{f'(0)} = 1$, then
+for some $\theta \in \R$ we have $f(z) =
+e^{i\theta} z$ for all $z \in \D$.
+\end{lemma}
+
+FIXME
+
+\subsection{Automorphisms of the disc}
+
+Schwarz's lemma can also be used to classify the automorphisms of the disc.
+A holomorphic function $f \colon U \to V$ that is one-to-one, onto, and
+such that the inverse $f^{-1}$ is also holomorphic is called a
+\emph{\myindex{biholomorphism}}.  If $U = V$, then $f$ is called an
+\emph{\myindex{automorphism}}\footnote{%
+The word automorphism is used in other contexts as well, it always means
+that it is the right sort of equivalence in whatever context you are in.
+In topology it may mean homeomorphism, in differential geometry a
+diffeomorphism, in group theory it may mean a bijective homomorphism.}.
+Let
+$\operatorname{Aut(U)}$ denote the set of all automorphisms of $U$.
+The reader can check that this is a group under composition,
+although perhaps we are
+not too worried about the group structure at this point.
+
+\begin{exbox}
+\begin{exercise}
+Check that
+$\operatorname{Aut(U)}$ satisfies the begin a group under composition:
+composition of two automorphisms is an automorphism,
+there is an identity element,
+composition is associative,
+and there exists an inverse for every element.
+\end{exercise}
+\end{exbox}
+
+\begin{prop}
+If $f \in \operatorname{Aut}(\D)$, then there exists an $a \in \D$
+and $\theta \in \R$ such that
+\begin{equation*}
+f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} .
+\end{equation*}
+\end{prop}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{The logarithm and singularities} \label{ch:FIXME}
+
+\begin{myquote}
+I became insane, with long intervals of horrible sanity.
+
+---Edgar Allan Poe
+\end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The logarithm}
+\label{sec:log}
+
+FIXME
+
 
 % This should go later
 %This estimate is one of the key properties of
