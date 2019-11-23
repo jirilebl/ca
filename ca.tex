@@ -2274,9 +2274,9 @@ term-wise:
 \begin{equation*}
 \frac{f(z_0) - f(z)}{z_0-z}
 =
-\sum_{n=0}^\infty c_n \frac{z_0^n-z^n}{z_0-z}
+\sum_{n=1}^\infty c_n \frac{z_0^n-z^n}{z_0-z}
 =
-\sum_{n=0}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} .
+\sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} .
 \end{equation*}
 The right hand side is defined even if $z_0 = z$.
 We must show that the above expression is continuous at $z_0$.
@@ -2306,7 +2306,7 @@ and as $\frac{s}{r} < 1$ we have that
 converges (root test, or ratio test will do).
 Hence the series for the difference quotient,
 \begin{equation*}
-\sum_{n=0}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} ,
+\sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} ,
 \end{equation*}
 converges uniformly, and
 defines a continuous function of $\Delta_s(a)$.  Thus
@@ -2314,9 +2314,9 @@ defines a continuous function of $\Delta_s(a)$.  Thus
 \lim_{z \to z_0}
 \frac{f(z_0)-f(z)}{z_0-z}
 =
-\sum_{n=0}^\infty c_n \sum_{k=0}^{n-1} z_0^k z_0^{n-1-k}
+\sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z_0^{n-1-k}
 =
-\sum_{n=0}^\infty n c_n z_0^{n-1} .
+\sum_{n=1}^\infty n c_n z_0^{n-1} .
 \qedhere
 \end{equation*}
 \end{proof}
@@ -2330,7 +2330,12 @@ Let $f \colon \Delta_r(a) \to \C$ be defined by a convergent power series
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n {(z-a)}^n .
 \end{equation*}
-Then $f$ is infinitely complex complex differentiable in $\Delta_r(a)$.
+Then $f$ is infinitely complex complex differentiable in $\Delta_r(a)$,
+and the $n$\textsuperscript{th} derivative is given by
+\begin{equation*}
+f^{(k)}(z) = \sum_{n=k}^\infty n(n-1)\cdots(n-k+1) c_n {(z-a)}^{n-k} ,
+\end{equation*}
+which converges in $\Delta_r(a)$.
 Furthermore,
 \begin{equation*}
 c_n =
@@ -2353,8 +2358,9 @@ follows from the formula for the coefficients $c_n$.
 In particular we have just noticed that
 analytic functions are infinitely complex differentiable.
 
-\begin{cor}
-An analytic function is infinitely complex differentiable.
+\begin{cor} \label{cor:analinfdif}
+An analytic function is infinitely complex differentiable, and each
+derivative is analytic.
 \end{cor}
 
 \begin{remark}
@@ -2603,8 +2609,9 @@ zero.
 
 \begin{exercise}[Tricky]
 Consider infinitely many nested circles all touching at one point
-and let that point be the origin: Suppose $r_n$ be the radius of the $n$th
-circle and the $n$th circle is given by $r_n e^{i\theta} - r_n$, for $0 \leq
+and let that point be the origin: Suppose $r_n$ be the radius of the
+$n$\textsuperscript{th}
+circle and the $n$\textsuperscript{th} circle is given by $r_n e^{i\theta} - r_n$, for $0 \leq
 \theta \leq 2\pi$.  If $\sum r_n < \infty$, then you can find a $C^1$ path $\varphi \colon
 [0,1] \to \C$ that traverses all the circles.  If $\sum r_n = \infty$, then
 you can find a continuous $\varphi \colon [0,1] \to \C$ that is $C^1$ on
@@ -2778,14 +2785,12 @@ if one uses the gauge integral even without any hypothesis on $f$.}.
 A path $\varphi \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if 
 $\varphi(a) = \varphi(b)$.  The fundamental theorem above has the following
 immediate corollary.
-%It is said to be a \emph{simple} path if
-%$\varphi|_{[a,b)}$ is one-to-one (a simple closed path is not
 
 \begin{cor}[Cauchy's Theorem for Derivatives] \label{cor:cauchyforders}
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is holomorphic, such that there exists
 a holomorphic $F \colon U \to \C$ with $f = F'$.
-Let $\varphi \colon [a,b] \to U$ be a piecewise $C^1$ path.
+Let $\varphi \colon [a,b] \to U$ be a closed piecewise $C^1$ path.
 Then
 \begin{equation*}
 \int_\varphi f(z) \, dz = 0 .
@@ -2802,6 +2807,22 @@ from some fixed point to $z$.  This will imply that such a function has an
 antiderivative.  So the other versions of Cauchy's Theorem will generally
 be about what kind of $U$ guarantee that every holomorphic function has an
 antiderivative.
+
+The above corollary has another useful corollary.
+
+\begin{cor}[Cauchy's Theorem for Polynomials]
+Suppose $P(z)$ is a polynomial and $\varphi \colon [a,b] \to \C$ is a closed
+piecewise $C^1$ path.  Then
+\begin{equation*}
+\int_\varphi P(z) \, dz = 0 .
+\end{equation*}
+\end{cor}
+
+\begin{exbox}
+\begin{exercise}
+Prove Cauchy's Theorem for Polynomials.
+\end{exercise}
+\end{exbox}
 
 \subsection{Cauchy--Goursat, the ``Cauchy for triangles''}
 
@@ -2844,16 +2865,82 @@ of the triangle is inside $U$, not just the boundary.  Otherwise the theorem
 would not be true.
 
 \begin{proof}
+We prove the theorem by contrapositive.  That is, we will suppose there is
+some triangle over which the integral is not zero, and we will find a point
+where $f$ is not complex differentiable.  So suppose that $T$ is such
+that
+\begin{equation*}
+\abs{\int_{\partial T} f(z) \, dz} = c \not= 0 .
+\end{equation*}
+Let $\ell$ be the sum of the length of the sides of $T$.
+
+Cut $T$ into 4 triangles by cutting each side in half.
+
+FIXME: describe
+
+\begin{equation*}
+x = 
+\abs{\int_{\partial T} f(z) \, dz }
+=
+\abs{\int_{\partial T_1} f(z) \, dz 
++
+\int_{\partial T_2} f(z) \, dz 
++
+\int_{\partial T_3} f(z) \, dz 
++
+\int_{\partial T_4} f(z) \, dz }
+\end{equation*}
+So one of the integrals must have modulus at least $\frac{c}{4}$.  Let $T^1$
+be that triangle.
+\begin{equation*}
+\abs{\int_{\partial T^1} f(z) \, dz } \geq \frac{c}{4} .
+\end{equation*}
+Now cut $T^1$ into subtriangles
+$T_1^1$, $T_2^1$, $T_3^1$, $T_4^1$ as above and repeat the procedure.  There
+is one of these four whose integral is at least $\frac{c}{4^2}$ let that be
+$T^2$.  All in all, for the $k$\textsuperscript{th} triangle $T^k$ we have
+\begin{equation*}
+\abs{\int_{\partial T^k} f(z) \, dz } \geq \frac{c}{4^k} .
+\end{equation*}
+We have $T^k \subset T^{k-1} \subset \cdots \subset T$.
+The subtriangles are all similar triangles, but of exactly half the size.
+In particular,
+the largest possible distance for two points in the triangle must
+get halved each iteration.  In more formal language:
+\begin{equation*}
+\operatorname{diam}(T^k) =
+\frac{1}{2} \operatorname{diam}(T^{k-1})
+=
+\frac{1}{2^k} \operatorname{diam}(T) .
+\end{equation*}
+As $T$ is compact, the nested intersection of the $T^k$ must be nonempty.
+And as the diameter goes to zero, it must be a single point:
+\begin{equation*}
+\{ z_0 \} = \bigcap_{k=1}^\infty T^k .
+\end{equation*}
+
+Let us write
+\begin{equation*}
+f(z) = f(z_0) + \alpha (z-z_0) + g(z) .
+\end{equation*}
+If $f$ was differentiable, we could choose an $\alpha$ such that
+$\frac{g(z)}{z-z_0}$ goes to zero.
+
+FIXME
+
+
 FIXME: proof
 \end{proof}
 
 \subsection{Cauchy's Theorem for convex sets}
 
-FIXME:
-
-\begin{prop} \label{prop:primitiveinconvex}
+\begin{prop} \label{prop:primitiveinconvex1}
 Suppose $U \subset \C$ is open and convex,
-and $f \colon U \to \C$ is holomorphic.
+and $f \colon U \to \C$ is continuous such that
+\begin{equation*}
+\int_{\partial T} f(z) \, dz = 0
+\end{equation*}
+for every triangle $T \subset U$.
 Then $f$ has a primitive, that is,
 there exists a holomorphic $F \colon U \to \C$
 such that $F' = f$.
@@ -2870,11 +2957,14 @@ F(z) = \int_{[z_0,z]} f(\zeta) \, d\zeta .
 %\frac{1}{h}
 %\int_{[z_0,z+h]-[z_0,z]} f(\zeta) \, d\zeta .
 %\end{equation*}
-By Cauchy--Goursat, 
+%By Cauchy--Goursat, 
+As $U$ is convex, given three points $z_0$, $z$, and $z+h$,
+the entire triangle with those vertices is in $U$, and the
+hypothesis then says
 \begin{equation*}
-\int_{[z_0,z]+[z,z+h]-[z_0,z+h]} f(\zeta) \, d\zeta = 0
+\int_{[z_0,z]+[z,z+h]-[z_0,z+h]} f(\zeta) \, d\zeta = 0 .
 \end{equation*}
-so
+So
 \begin{equation*}
 \begin{split}
 \frac{F(z+h)-F(z)}{h} &=
@@ -2917,6 +3007,21 @@ f(z) . \qedhere
 \end{equation*}
 \end{proof}
 
+Cauchy--Goursat says that the integral around
+triangles is always zero if $f$ is holomorphic.  Thus we get
+the following immediate corollary.
+
+\begin{cor} \label{cor:primitiveinconvex}
+Suppose $U \subset \C$ is open and convex,
+and $f \colon U \to \C$ is holomorphic.
+Then $f$ has a primitive, that is,
+there exists a holomorphic $F \colon U \to \C$
+such that $F' = f$.
+\end{cor}
+
+And we get another corollary, which we will rather state
+as a theorem, as it is one of the fundamental results.
+
 \begin{thm}[Cauchy's Theorem for convex sets]
 Suppose $U \subset \C$ is open and convex, $f \colon U \to \C$ is holomorphic,
 and $\varphi$ is a closed piecewise $C^1$ path in $U$.  Then
@@ -2926,12 +3031,12 @@ and $\varphi$ is a closed piecewise $C^1$ path in $U$.  Then
 \end{thm}
 
 \begin{proof}
-\propref{prop:primitiveinconvex} implies that there is
+\corref{cor:primitiveinconvex} implies that there is
 a primitive $F \colon U \to \C$, and
-\corref{cor:cauchyforders} then implies that the integral is zero.
+Cauchy's Theorem for derivatives (\corref{cor:cauchyforders}) then implies that the integral is zero.
 \end{proof}
 
-\subsection{Cauchy's formula in a disc and the maximum principle}
+\subsection{Cauchy's formula in a disc and the Maximum Principle}
 
 Perhaps the most fundamental theorem in complex analysis in one variable,
 and the root cause of all the amazing properties of holomorphic functions
@@ -3344,6 +3449,45 @@ it would be constant (a contradiction).
 %= 0 .
 %\end{equation*}
 \end{proof}
+
+\subsection{Complex derivative is holomorphic}
+
+It may be useful to state other consequences of the fact that holomorphic
+functions are analytic.  Firstly we restate \corref{cor:analinfdif} in terms of
+holomorphic functions, now that we know that holomorphic functions are
+analytic.
+
+\begin{thm}
+Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.  Then
+$f$ is infinitely complex differentiable.  In particular, $f'$ is
+holomorphic.
+\end{thm}
+
+The ``in particular'' is an important consequence.  Let us close the circle
+of the various simple versions of Cauchy by giving a converse to Cauchy due
+to Morera.  Morera's Theorem is quite a useful tool for showing
+holomorphicity as it is often a lot easier to integrate a continuous
+function than to compute a derivative.
+
+\begin{thm}[Morera]
+Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
+Suppose that
+\begin{equation*}
+\int_{\partial T} f(z) \, dz = 0
+\end{equation*}
+for every triangle such that $T \subset U$.  Then $f$ is holomorphic.
+\end{thm}
+
+\begin{proof}
+As holomorphicity is a local property we can assume that $U$ is a disc.
+We then apply \propref{prop:primitiveinconvex1} to show that $f$ has
+a primitive $F$ in the disc $U$.
+\end{proof}
+
+Let us remark that the reduction to a disc (or some other simpler set)
+is important.  It is not true
+that every function satisfying the hypotheses of Morera's theorem has a
+primitive in $U$ for a general $U$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -5020,7 +5164,7 @@ For any $k$
 \frac{f_k(p+h e_j)-f_k(p)}{h}
 \end{equation*}
 exists and 
-is equal to the $k$th component of $Df|_p\, e_j$, and we are done.
+is equal to the $k$\textsuperscript{th} component of $Df|_p\, e_j$, and we are done.
 \end{proof}
 
 The converse of the proposition is not true.  Just because the partial
@@ -5559,20 +5703,20 @@ $d(x,y) = 1$ if $x\not=y$, and $d(x,x) = 0$,
 then we obtain a bounded metric space.  Any set with the
 discrete metric is bounded.
 
-%There are other equivalent ways we could generalize boundedness,
-%and are left as exercises.  Suppose $X$ is nonempty to avoid a technicality.
-%Then $S \subset X$ is bounded if and only if
-%\begin{enumerate}[(i)]
-%\item
-%for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
-%all $x \in S$.
-%\item 
-%\glsadd{not:diam}
-%$\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
-%\end{enumerate}
-%The quantity $\operatorname{diam}(S)$ is called the
-%\emph{\myindex{diameter}} of a set and is usually only defined for
-%a nonempty set.
+There are other equivalent ways we could generalize boundedness,
+and are left as exercises.  Suppose $X$ is nonempty to avoid a technicality.
+Then $S \subset X$ is bounded if and only if
+\begin{enumerate}[(i)]
+\item
+for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
+all $x \in S$.
+\item 
+\glsadd{not:diam}
+$\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
+\end{enumerate}
+The quantity $\operatorname{diam}(S)$ is called the
+\emph{\myindex{diameter}} of a set and is usually only defined for
+a nonempty set.
 
 \subsection{Exercises}
 
@@ -5669,19 +5813,19 @@ nonempty bounded subsets $A$ and $B$ such that $d_H(A,B) = 0$.
 \end{exparts}
 \end{exercise}
 
-%\begin{exercise}
-%Let $(X,d)$ be a nonempty metric space and $S \subset X$ a subset.  Prove:
-%\begin{exparts}
-%\item
-%$S$ is bounded if and only if
-%for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
-%all $x \in S$.
-%\item
-%A nonempty $S$ is bounded if and only if
-%$\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
-%\end{exparts}
-%\end{exercise}
-%
+\begin{exercise}
+Let $(X,d)$ be a nonempty metric space and $S \subset X$ a subset.  Prove:
+\begin{exparts}
+\item
+$S$ is bounded if and only if
+for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
+all $x \in S$.
+\item
+A nonempty $S$ is bounded if and only if
+$\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
+\end{exparts}
+\end{exercise}
+
 %\begin{samepage}
 %\begin{exercise}
 %\begin{exparts}
@@ -6520,7 +6664,7 @@ U$.
 
 \begin{defn}
 A \emph{\myindex{sequence}} in a metric space $(X,d)$ is a function
-$x \colon \N \to X$.  We write $x_n$ for the $n$th element in
+$x \colon \N \to X$.  We write $x_n$ for the $n$\textsuperscript{th} element in
 the sequence and use the notation $\{ x_n \}$, or more precisely
 \glsadd{not:sequence}
 \begin{equation*}
