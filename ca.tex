@@ -1412,7 +1412,8 @@ mapping into $\R^2$ it is $f = (u,v)$.  Then
 \begin{equation*}
 Df|_{z_0} =
 \begin{bmatrix}
-\frac{\partial u}{\partial x}\big|_{z_0} & \frac{\partial u}{\partial y}\big|_{z_0} \\
+\frac{\partial u}{\partial x}\big|_{z_0} & \frac{\partial u}{\partial
+y}\big|_{z_0} \\[5pt]
 \frac{\partial v}{\partial x}\big|_{z_0} & \frac{\partial v}{\partial y}\big|_{z_0}
 \end{bmatrix} .
 \end{equation*}
@@ -1512,6 +1513,8 @@ thus the partial derivatives exist and satisfy the Cauchy--Riemann
 equations.  We will show that holomorphic functions are in fact
 continuously differentiable, and in fact, infinitely differentiable,
 although that result will have to wait.
+However, one thing we do get immediately is that a holomorphic function is
+continuous, as it is real differentiable.
 
 \begin{prop}
 Let $U \subset \C$ be a domain (open and connected),
@@ -2423,12 +2426,14 @@ Thus all points of $Z_f$ are isolated.
 \begin{exercise}
 If $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
 \C$
-holomorphic such that the set $\{ z \in U : f(z) = g(z) \}$ has a limit
+analytic such that the set $\{ z \in U : f(z) = g(z) \}$ has a limit
 point in $U$, then $f = g$ everywhere.
 \end{exercise}
 \end{exbox}
 
-FIXME
+Think of the implications.  If $f \colon U \to \C$ is analytic, and we know
+$f$ in a small disc $\Delta_r(a)$ for an arbitrarily small $r$, then
+we know $f$ on all of $U$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2695,6 +2700,13 @@ a_1 \int_{\varphi_1} f(z) \, dz +
 +
 a_n \int_{\varphi} f(z) \, dz .
 \end{equation*}
+We consider two chains $\Gamma_1$ and $\Gamma_2$ equal if
+\begin{equation*}
+\int_{\Gamma_1} f(z) \, dz = 
+\int_{\Gamma_2} f(z) \, dz ,
+\end{equation*}
+for all continuous functions $f$ (continuous on the image of both $\Gamma_1$
+and $\Gamma_2$).
 
 \begin{exbox}
 \begin{exercise}
@@ -2763,8 +2775,8 @@ We have
 F\bigl( \varphi(b) \bigr) - F\bigl( \varphi(a) \bigr) .
 \end{equation*}
 The computation uses the chain rule (\propref{prop:chainrule2})
-and the fundamental theorem of calculus, where of course the
-standard fundamental theorem of calculus is applied to the real and imaginary parts
+and the Fundamental Theorem of Calculus, where of course the
+standard Fundamental Theorem of Calculus is applied to the real and imaginary parts
 of the expression.
 \end{proof}
 
@@ -2874,12 +2886,21 @@ that
 \end{equation*}
 Let $\ell$ be the sum of the length of the sides of $T$.
 
-Cut $T$ into 4 triangles by cutting each side in half.
+Cut $T$ into 4 subtriangles
+$T_1$, $T_2$, $T_3$, $T_4$ by cutting each side in half.  See
+\figureref{fig:trianggoursat}.
+\begin{myfig}
+\subimport*{figures/}{trianggoursat.pdf_t}
+\caption{Cutting a triangle into 4 triangles of half the size.%
+\label{fig:trianggoursat}}
+\end{myfig}
 
-FIXME: describe
-
+Each $T_k$ is positively oriented.
+Note that the sides of the inner $T_4$ triangle have the opposite
+orientation as the inner sides of $T_1$ through $T_3$, and
+so the path integral over these sides cancels.  Therefore,
 \begin{equation*}
-x = 
+c = 
 \abs{\int_{\partial T} f(z) \, dz }
 =
 \abs{\int_{\partial T_1} f(z) \, dz 
@@ -2888,7 +2909,7 @@ x =
 +
 \int_{\partial T_3} f(z) \, dz 
 +
-\int_{\partial T_4} f(z) \, dz }
+\int_{\partial T_4} f(z) \, dz } .
 \end{equation*}
 So one of the integrals must have modulus at least $\frac{c}{4}$.  Let $T^1$
 be that triangle.
@@ -2925,14 +2946,53 @@ f(z) = f(z_0) + \alpha (z-z_0) + g(z) .
 \end{equation*}
 If $f$ was differentiable, we could choose an $\alpha$ such that
 $\frac{g(z)}{z-z_0}$ goes to zero.
-
-FIXME
-
-
-FIXME: proof
+So let us prove that it doesn't for any $\alpha$.  If $g(z_0) \not= 0$,
+then we are done, so assume $g(z_0) = 0$.
+Cauchy's Theorem for Polynomials says
+\begin{equation*}
+\int_{\partial T^k} f(z) \, dz =
+\int_{\partial T^k} f(z_0) + \alpha (z-z_0) + g(z) \, dz =
+\int_{\partial T^k} g(z) \, dz .
+\end{equation*}
+And so
+\begin{equation*}
+\frac{c}{4^k} \leq
+\abs{
+\int_{\partial T^k} f(z) \, dz
+} =
+\abs{
+\int_{\partial T^k} g(z) \, dz 
+}
+\leq
+\int_{\partial T^k} \sabs{g(z)} \, \sabs{dz} .
+\end{equation*}
+The length of the sides of $k$\textsupscript{th} triangle is
+$\frac{\ell}{2^k}$, so
+by Mean Value Theorem for integrals we can choose a $z_k$ on $T^k$ such that
+\begin{equation*}
+\sabs{g(z_k)} = 
+\frac{2^k}{\ell}
+\int_{\partial T^k} \sabs{g(z)} \, \sabs{dz} .
+\end{equation*}
+We have $z_k \not= z_0$ as $g(z_0)=0$.
+Let $d = \operatorname{diam}(T)$.  Then
+$\sabs{z_k-z_0} \leq \frac{d}{2^k}$ and
+\begin{equation*}
+\abs{\frac{g(z_k)}{z_k-z_0}}
+\geq
+\frac{2^k\sabs{g(z_k)}}{d}
+=
+\frac{4^k}{d \ell}
+\int_{\partial T^k} \sabs{g(z)} \, \sabs{dz}
+\geq
+\frac{4^k}{d \ell}
+\frac{c}{4^k} = \frac{c}{d \ell} .
+\end{equation*}
+As $z_k \to z_0$, we find that $\frac{g(z)}{z-z_0}$ does not 
+go to zero, so $f$ is not complex differentiable at $z_0$.
 \end{proof}
 
-\subsection{Cauchy's Theorem for convex sets}
+\subsection{Cauchy for convex sets}
 
 \begin{prop} \label{prop:primitiveinconvex1}
 Suppose $U \subset \C$ is open and convex,
@@ -2979,7 +3039,7 @@ So
 \int_0^1 f(z+th) h \, dt .
 \end{split}
 \end{equation*}
-In other words
+In other words,
 \begin{equation*}
 \begin{split}
 \abs{
@@ -3022,7 +3082,7 @@ such that $F' = f$.
 And we get another corollary, which we will rather state
 as a theorem, as it is one of the fundamental results.
 
-\begin{thm}[Cauchy's Theorem for convex sets]
+\begin{thm}[Cauchy's Theorem for Convex Sets]
 Suppose $U \subset \C$ is open and convex, $f \colon U \to \C$ is holomorphic,
 and $\varphi$ is a closed piecewise $C^1$ path in $U$.  Then
 \begin{equation*}
@@ -3043,7 +3103,7 @@ and the root cause of all the amazing properties of holomorphic functions
 is the Cauchy Integral Formula.  Let us state it for a disc, and leave
 more general statements for later.
 
-\begin{thm}[Cauchy Integral Formula in a disc]
+\begin{thm}[Cauchy Integral Formula in a Disc]
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 and $\overline{\Delta_r(a)} \subset U$.
 If $\varphi$ is the boundary of $\Delta_r(a)$ oriented counterclockwise,
@@ -3064,11 +3124,83 @@ holomorphic function inside the disc (a large set) are determined by their
 values on the circle (a relatively small set).
 
 \begin{proof}
-FIXME
+Fix $z \in \Delta_r(a)$.
+Let $\Delta_s(z)$ be a small disc with $\overline{\Delta_s(z)} \subset
+\Delta_r(a)$.
+Let $\gamma(t) = z+s e^{i t}$,
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+=
+\frac{1}{2\pi i}
+\int_0^{2\pi} \frac{f(z+se^{it})}{z + se^{it} - z} s i e^{it} \, dt
+=
+\frac{1}{2\pi}
+\int_0^{2\pi} f(z+se^{it}) \, dt .
+\end{equation*}
+By continuity of $f$ at $z$,
+\begin{equation*}
+\lim_{s \to 0}
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+%=
+%\lim_{s \to 0}
+%\frac{1}{2\pi}
+%\int_0^{2\pi} f(p+se^{it}) \, dt
+=
+f(z) .
+\end{equation*}
+
+Now fix $\gamma$.
+We connect $\gamma$ to $\varphi$
+via three straight lines as in \figureref{fig:disccauchy}.
+The three resulting regions between $\gamma$ and $\varphi$
+give paths $c_1$, $c_2$, $c_3$, with the counterclockwise
+orientations marked in the figure.
+\begin{myfig}
+\subimport*{figures/}{disccauchy.pdf_t}
+\caption{Connecting $\varphi$ and $\gamma$.%
+\label{fig:disccauchy}}
+\end{myfig}
+
+As chains $c_1+c_2+c_3 = \varphi - \gamma$.  Further, each
+$c_j$ lies in a convex domain (marked by dashed lines in the figure),
+where $\frac{f(\zeta)}{\zeta-z}$ is holomorphic
+as a function of $\zeta$ (since $z$ is outside each of these domains).
+So by Cauchy's Theorem for Convex Sets
+\begin{equation*}
+\int_{\varphi} \frac{f(\zeta)}{\zeta-z} \, d\zeta -
+\int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
+\int_{c_1} \frac{f(\zeta)}{\zeta-z} \, d\zeta + 
+\int_{c_2} \frac{f(\zeta)}{\zeta-z} \, d\zeta + 
+\int_{c_3} \frac{f(\zeta)}{\zeta-z} \, d\zeta = 0 .
+\end{equation*}
+So
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_{\varphi} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
+\frac{1}{2\pi i}
+\int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta .
+\end{equation*}
+Now let $s$ go to zero
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_{\varphi} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
+\lim_{s \to 0}
+\frac{1}{2\pi i}
+\int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
+= f(z) .  \qedhere
+\end{equation*}
 \end{proof}
 
-A consequence of Cauchy's formula is the so called maximum principle, which
-has several different versions.  We give the basic statement and leave
+A consequence of Cauchy's formula is the so-called Maximum Principle, which
+has several different versions.  We prove the basic statement and leave
 other versions as exercises.
 
 \begin{thm}[Maximum Principle]
@@ -3155,12 +3287,22 @@ and so
 $\sabs{f(re^{it})}=f(re^{it})$.
 \end{proof}
 
+\begin{cor}[Maximum Principle, Part Deux]
+Suppose $U \subset \C$ is open and bounded (so $\overline{U}$ is compact).
+If $f \colon \overline{U} \to \C$ is continuous, and the restriction $f|_{U}$
+is holomorphic, then $\sabs{f(z)}$ achieves a maximum on $\partial U$.  In
+other words,
+\begin{equation*}
+\sup_{z \in U} \sabs{f(z)} \leq
+\sup_{z \in \partial U} \sabs{f(z)} .
+\end{equation*}
+\end{cor}
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is open and $\overline{U}$ is compact.
-If $f \colon \overline{U} \to \C$ is continuous, and the restriction $f|_{U}$
-is holomorphic, then show that $\sabs{f(z)}$ achieves a maximum on $\partial U$.
+Prove the second version of the maximum principle above.
+That is for a bounded $U$ a holomorphic $f$ continuous
+on $\overline{U}$ achieves a maximum on $\partial U$.
 \end{exercise}
 
 \begin{exercise}[Minimum Principle]\index{Minimum Principle}
@@ -3225,7 +3367,7 @@ the geometric series
 \frac{\zeta-a}{\zeta-z}
 \end{equation*}
 converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{s'}(a)}
-\times \partial \Delta_r(a)$ (that is, $\sum_j {\bigl\lvert
+\times \partial \Delta_r(a)$ (that is, $\sum_n {\bigl\lvert
 \frac{z-a}{\zeta-a} \bigr\rvert}^n$
 converges uniformly).
 
@@ -3255,21 +3397,21 @@ d \zeta
 \frac{1}{2\pi i}
 \int_{\varphi}
 \frac{f(\zeta)}{\zeta-a}
-\sum_{j=0}^\infty
-{\left(\frac{z-a}{\zeta-a}\right)}^j
+\sum_{n=0}^\infty
+{\left(\frac{z-a}{\zeta-a}\right)}^n
 \,
 d \zeta 
 \\
 & =
-\sum_{j=0}^\infty
+\sum_{n=0}^\infty
 \left(
 \frac{1}{2\pi i}
 \int_{\varphi}
-\frac{f(\zeta)}{{(\zeta-a)}^{j+1}}
+\frac{f(\zeta)}{{(\zeta-a)}^{n+1}}
 \,
 d \zeta 
 \right)
-{(z-a)}^j .
+{(z-a)}^n .
 \end{split}
 \end{equation*}
 In the last equality, we were allowed to 
@@ -3302,7 +3444,7 @@ Not only have we proved that $f$ has a power series, but we computed
 that the radius of convergence is at least $r$, where $r$ is the maximum $r$
 such that $\Delta_r(a) \subset U$.
 
-The key point in the proof is writing the \emph{\myindex{Cauchy kernel}}
+The key point in the proof is writing the \emph{\myindex{Cauchy Kernel}}
 $\frac{1}{\zeta-z}$ as
 \begin{equation*}
 \frac{1}{\zeta-z}
@@ -3320,7 +3462,7 @@ we have all the tools making three very fundamental results just pop out
 with very little work.  First, using the triangle inequality on
 the Cauchy Integral Formula obtains an estimate on the size of the
 coefficients of the series.  Then these estimates immediately give
-Liouville's Theorem on entire holomorphic functions which at once gives the
+Liouville's Theorem on entire holomorphic functions, which at once gives the
 Fundamental Theorem of Algebra.
 
 Some analysts like to make fun of algebraists at this stage, saying that the
@@ -3338,7 +3480,7 @@ For a set $K$, denote the \emph{\myindex{supremum norm}}:
 \sup_{z \in K} \sabs{f(z)} .
 \end{equation*}
 
-\begin{thm}[Cauchy estimates]\index{Cauchy estimates}
+\begin{thm}[Cauchy Estimates]\index{Cauchy Estimates}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
 holomorphic, and $a \in U$, and $\overline{\Delta_r(a)} \subset U$
 a disc.
@@ -3484,7 +3626,8 @@ We then apply \propref{prop:primitiveinconvex1} to show that $f$ has
 a primitive $F$ in the disc $U$.
 \end{proof}
 
-Let us remark that the reduction to a disc (or some other simpler set)
+Let us remark that in the proof,
+the reduction to a disc (or some other simpler set)
 is important.  It is not true
 that every function satisfying the hypotheses of Morera's theorem has a
 primitive in $U$ for a general $U$.
@@ -3519,6 +3662,34 @@ or $\sabs{f'(0)} = 1$, then
 for some $\theta \in \R$ we have $f(z) =
 e^{i\theta} z$ for all $z \in \D$.
 \end{lemma}
+
+\begin{proof}
+As $f(0) = 0$, the constant term is zero when $f$ is expanded about the
+origin, and hence
+\begin{equation*}
+f(z) = \sum_{n=1} c_n z^n = z \sum_{n=1} c_n z^{n-1} z g(z) .
+\end{equation*}
+where $g(z)$ is a holomorphic function of $\D$.  For $z \in \partial \Delta_r(0)$
+where $r < 1$, we have
+\begin{equation*}
+\sabs{g(z)} \leq \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r}
+\end{equation*}
+The Maximum Principle says that the inequality also holds in $\Delta_r(0)$.
+Taking limit as $r \to 1$ shows that $\sabs{f(z)} \leq \sabs{z}$ for all $z
+\in \D$.  Then
+\begin{equation*}
+\sabs{f'(0)}
+=
+\abs{\lim_{z \to 0} \frac{f(z)}{z}} = \sabs{g(0)} \leq 1 .
+\end{equation*}
+
+If $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus \{ 0 \}$,
+then $g$ attains a maximum inside $\D$ and hence is constant.
+It must be that $f(z) = e^{i \theta} z$.
+
+As $g(0) = f'(0)$, the same conclusion, for the same reason,
+holds if $\sabs{f'(0)} = 1$.
+\end{proof}
 
 FIXME
 
