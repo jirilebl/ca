@@ -3093,7 +3093,7 @@ and $\varphi$ is a closed piecewise $C^1$ path in $U$.  Then
 \begin{proof}
 \corref{cor:primitiveinconvex} implies that there is
 a primitive $F \colon U \to \C$, and
-Cauchy's Theorem for derivatives (\corref{cor:cauchyforders}) then implies that the integral is zero.
+Cauchy's Theorem for Derivatives (\corref{cor:cauchyforders}) then implies that the integral is zero.
 \end{proof}
 
 \subsection{Cauchy's formula in a disc and the Maximum Principle}
@@ -4149,7 +4149,7 @@ Then $S \subset X$ is bounded if and only if
 for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
 all $x \in S$.
 \item 
-\glsadd{not:diam}
+\glsadd{not:diam}%
 $\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
 \end{enumerate}
 The quantity $\operatorname{diam}(S)$ is called the
@@ -4164,14 +4164,14 @@ Show that for any set $X$, the discrete metric ($d(x,y) = 1$ if $x\not=y$ and
 $d(x,x) = 0$) does give a metric space $(X,d)$.
 \end{exercise}
 
-\begin{exercise}
-Let $X = \{ 0 \}$ be a set.  Can you make it into a metric space?
-\end{exercise}
-
-\begin{exercise}
-Let $X = \{ a, b \}$ be a set.  Can you make it into two distinct metric
-spaces?  (define two distinct metrics on it)
-\end{exercise}
+%\begin{exercise}
+%Let $X = \{ 0 \}$ be a set.  Can you make it into a metric space?
+%\end{exercise}
+%
+%\begin{exercise}
+%Let $X = \{ a, b \}$ be a set.  Can you make it into two distinct metric
+%spaces?  (define two distinct metrics on it)
+%\end{exercise}
 
 %\begin{exercise}
 %Let the set $X = \{ A, B, C \}$ represent 3 buildings on campus.  Suppose we
@@ -4197,6 +4197,7 @@ metric space $(X,d')$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:mscross}
+\begin{samepage}
 Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
 \begin{exparts}
 \item
@@ -4208,6 +4209,7 @@ Show that $(X \times Y,d)$ with
 $d\bigl( (x_1,y_1), (x_2,y_2) \bigr) = \max \{ d_X(x_1,x_2) , d_Y(y_1,y_2) \}$ is
 a metric space.
 \end{exparts}
+\end{samepage}
 \end{exercise}
 
 \begin{exercise}
@@ -5057,28 +5059,28 @@ $d'$ such that $(X,d')$ has the same open sets, that is, the topology is
 the same.
 \end{exercise}
 
-\begin{samepage}
-\begin{exercise}
-Let $(X,d)$ be a metric space.
-\begin{exparts}
-\item
-Prove that for every $x \in X$, there either exists a $\delta > 0$ such that
-$B(x,\delta) = \{ x \}$, or $B(x,\delta)$ is infinite for every $\delta >  0$.
-\item
-Find an explicit example of $(X,d)$, $X$ infinite, where
-for every $\delta > 0$ and
-every $x \in X$, the
-ball $B(x,\delta)$ is finite.
-\item
-Find an explicit example of $(X,d)$ where for every $\delta > 0$ and
-every $x \in X$, the
-ball $B(x,\delta)$ is countably infinite.
-\item
-Prove that if $X$ is uncountable, then there exists
-an $x \in X$ and a $\delta > 0$ such that $B(x,\delta)$ is uncountable.
-\end{exparts}
-\end{exercise}
-\end{samepage}
+%\begin{samepage}
+%\begin{exercise}
+%Let $(X,d)$ be a metric space.
+%\begin{exparts}
+%\item
+%Prove that for every $x \in X$, there either exists a $\delta > 0$ such that
+%$B(x,\delta) = \{ x \}$, or $B(x,\delta)$ is infinite for every $\delta >  0$.
+%\item
+%Find an explicit example of $(X,d)$, $X$ infinite, where
+%for every $\delta > 0$ and
+%every $x \in X$, the
+%ball $B(x,\delta)$ is finite.
+%\item
+%Find an explicit example of $(X,d)$ where for every $\delta > 0$ and
+%every $x \in X$, the
+%ball $B(x,\delta)$ is countably infinite.
+%\item
+%Prove that if $X$ is uncountable, then there exists
+%an $x \in X$ and a $\delta > 0$ such that $B(x,\delta)$ is uncountable.
+%\end{exparts}
+%\end{exercise}
+%\end{samepage}
 
 \begin{exercise}
 For every $x \in \R^n$ and every $\delta > 0$ define the ``rectangle''
@@ -5384,11 +5386,11 @@ Prove \propref{prop:msconvbound}.
 Prove \propref{prop:msconvifa}.
 \end{exercise}
 
-\begin{exercise}
-Suppose $\{x_n\}_{n=1}^\infty$ converges to $x$.  Suppose $f \colon \N
-\to \N$ is a one-to-one function.  Show that
-$\{ x_{f(n)} \}_{n=1}^\infty$ converges to $x$.
-\end{exercise}
+%\begin{exercise}
+%Suppose $\{x_n\}_{n=1}^\infty$ converges to $x$.  Suppose $f \colon \N
+%\to \N$ is a one-to-one function.  Show that
+%$\{ x_{f(n)} \}_{n=1}^\infty$ converges to $x$.
+%\end{exercise}
 
 \begin{exercise}
 If $(X,d)$ is a metric space where $d$ is the discrete metric.  Suppose 
@@ -5403,7 +5405,7 @@ there exists a sequence $\{ x_n \}$ in $S$ that converges to $x$.  Prove
 that $\R^n$ contains a countable dense subset.
 \end{exercise}
 
-\begin{exercise}[Tricky]
+\begin{exercise}
 Suppose $\{ U_n \}_{n=1}^\infty$ be a decreasing ($U_{n+1} \subset U_n$ for
 all $n$) sequence of open sets in a metric space $(X,d)$ such that
 $\bigcap_{n=1}^\infty U_n = \{ p \}$ for some $p \in X$.  Suppose 
@@ -5462,29 +5464,29 @@ every subsequence of $\{ x_n \}$ has a subsequence that
 converges to $p$.
 \end{exercise}
 
-\begin{exercise}
-Consider $\R^n$, and let $d$ be the standard euclidean metric.
-Let $d'(x,y) = \sum_{\ell=1}^n \abs{x_\ell-y_\ell}$
-and $d''(x,y) = \max \{ \abs{x_1-y_1},\abs{x_2-y_2},\cdots,\abs{x_n-y_n}
-\}$.
-\begin{exparts}
-\item
-Use \exerciseref{exercise:mscross}, to show that
-$(\R^n,d')$ and
-$(\R^n,d'')$ are metric spaces.
-\item
-Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$ and $p \in \R^n$.
-Prove that the following statements are equivalent:
-\begin{exnumparts}
-\item
-$\{ x_j \}$ converges to $p$ in $(\R^n,d)$.
-\item
-$\{ x_j \}$ converges to $p$ in $(\R^n,d')$.
-\item
-$\{ x_j \}$ converges to $p$ in $(\R^n,d'')$.
-\end{exnumparts}
-\end{exparts}
-\end{exercise}
+%\begin{exercise}
+%Consider $\R^n$, and let $d$ be the standard euclidean metric.
+%Let $d'(x,y) = \sum_{\ell=1}^n \abs{x_\ell-y_\ell}$
+%and $d''(x,y) = \max \{ \abs{x_1-y_1},\abs{x_2-y_2},\cdots,\abs{x_n-y_n}
+%\}$.
+%\begin{exparts}
+%\item
+%Use \exerciseref{exercise:mscross}, to show that
+%$(\R^n,d')$ and
+%$(\R^n,d'')$ are metric spaces.
+%\item
+%Let $\{ x_j \}_{j=1}^\infty$ be a sequence in $\R^n$ and $p \in \R^n$.
+%Prove that the following statements are equivalent:
+%\begin{exnumparts}
+%\item
+%$\{ x_j \}$ converges to $p$ in $(\R^n,d)$.
+%\item
+%$\{ x_j \}$ converges to $p$ in $(\R^n,d')$.
+%\item
+%$\{ x_j \}$ converges to $p$ in $(\R^n,d'')$.
+%\end{exnumparts}
+%\end{exparts}
+%\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5969,16 +5971,23 @@ $c \leq y_k \leq d$ for all $k$, we know that $(x,y) \in B$.
 \end{proof}
 
 \begin{prop}
-Suppose $(X,d)$ is a complete metric space
-and suppose we have a countably infinite
-collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset
-\cdots$.  Then
+Suppose $(X,d)$ is a metric space
+and $E_1$, $E_2$, \ldots, are
+nonempty compact subsets of $X$ such that
+$E_1 \supset E_2 \supset E_3 \supset \cdots$.  Then
 \begin{equation*}
 \bigcap_{j=1}^\infty E_j \not= \emptyset .
 \end{equation*}
 \end{prop}
 
-The proof is left as an exercise below.
+\begin{proof}
+Compact sets are closed so their complement is open.  Consider
+$U_k = X \setminus E_k$.  If the intersection would be empty,
+then $\{ U_k \}$ would be an open cover of $E_1$, which is compact,
+and hence there would be a finite subcover, in particular
+as $U_k \subset U_{k+1}$, $E_1 \subset U_k$ for some $k$, which would imply
+that $E_k$ is empty.
+\end{proof}
 
 \begin{example}
 The discrete metric provides interesting counterexamples again.
@@ -6002,7 +6011,7 @@ A subtle issue with Cauchy sequences, completeness, compactness,
 and convergence is that compactness and convergence only depend on the
 topology, that is, on which sets are the open sets.  On the other hand,
 Cauchy sequences and completeness depend on the actual metric.
-See \exerciseref{exercise:cauchydepndsonmetric}.
+%See \exerciseref{exercise:cauchydepndsonmetric}.
 \end{remark}
 
 \subsection{Exercises}
@@ -6063,7 +6072,7 @@ Let $C([a,b],\R)$ be the metric space as in \exampleref{example:msC01}.  Show th
 $C([a,b],\R)$ is a complete metric space.
 \end{exercise}
 
-\begin{exercise}[Challenging] \label{exercise:msclbounnotcompt}
+\begin{exercise} \label{exercise:msclbounnotcompt}
 Let $C([0,1],\R)$ be the metric space of \exampleref{example:msC01}.  Let $0$
 denote the zero function.  Then show that the closed ball
 $C(0,1)$ is not compact (even though it is closed and bounded).
@@ -6072,17 +6081,17 @@ $d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \not= k$.  Show that
 the set $\{ f_n : n \in \N \} \subset C(0,1)$ is closed but not compact.
 \end{exercise}
 
-\begin{exercise}[Challenging]
-Show that there exists a metric on $\R$ that makes $\R$ into a compact set.
-\end{exercise}
+%\begin{exercise}[Challenging]
+%Show that there exists a metric on $\R$ that makes $\R$ into a compact set.
+%\end{exercise}
+
+%\begin{exercise}
+%Suppose $(X,d)$ is complete and suppose we have a countably infinite
+%collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset
+%\cdots$.  Prove $\bigcap_{j=1}^\infty E_j \not= \emptyset$.
+%\end{exercise}
 
 \begin{exercise}
-Suppose $(X,d)$ is complete and suppose we have a countably infinite
-collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset
-\cdots$.  Prove $\bigcap_{j=1}^\infty E_j \not= \emptyset$.
-\end{exercise}
-
-\begin{exercise}[Challenging]
 Let $C([0,1],\R)$ be the metric space of \exampleref{example:msC01}.
 Let $K$ be the set of $f \in C([0,1],\R)$ such that
 $f$ is equal to a quadratic polynomial, i.e.\ $f(x) = a+bx+cx^2$, and such that
@@ -6090,7 +6099,7 @@ $\abs{f(x)} \leq 1$ for all $x \in [0,1]$,
 that is $f \in C(0,1)$.  Show that $K$ is compact.
 \end{exercise}
 
-\begin{exercise}[Challenging] \label{exercise:mstotbound}
+\begin{exercise} \label{exercise:mstotbound}
 Let $(X,d)$ be a complete metric space.
 Show that $K \subset X$ is compact if and only if $K$ is closed
 and such that for every $\epsilon > 0$
@@ -6138,34 +6147,34 @@ Prove that $K$ is compact as a subset of $(X,d)$ if and only if $K$ is
 compact as a subset of itself with the subspace metric.
 \end{exercise}
 
-\begin{samepage}
-\begin{exercise} \label{exercise:cauchydepndsonmetric}
-Consider two metrics on $\R$.
-Let $d(x,y) = \abs{x-y}$ be the standard metric,
-and let
-$d'(x,y) = \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
-\bigr\rvert$.
-\begin{exparts}
-\item
-Show that $(\R,d')$ is a metric space (if you have done
-\exerciseref{exercise:extendedrealsmetric} the computation is the same).
-\item
-Show that the topology is the same, that is, a set is open in
-$(\R,d)$ if and only if it is open in $(\R,d')$.
-\item
-Show that a set is compact in
-$(\R,d)$ if and only if it is compact in $(\R,d')$.
-\item
-Show that a sequence converges in $(\R,d)$ if and only if
-it converges in $(\R,d')$.
-\item
-Find a sequence of real numbers that is Cauchy
-in $(\R,d')$ but not Cauchy in $(\R,d)$.
-\item
-While $(\R,d)$ is complete, show that $(\R,d')$ is not complete.
-\end{exparts}
-\end{exercise}
-\end{samepage}
+%\begin{samepage}
+%\begin{exercise} \label{exercise:cauchydepndsonmetric}
+%Consider two metrics on $\R$.
+%Let $d(x,y) = \abs{x-y}$ be the standard metric,
+%and let
+%$d'(x,y) = \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
+%\bigr\rvert$.
+%\begin{exparts}
+%\item
+%Show that $(\R,d')$ is a metric space (if you have done
+%\exerciseref{exercise:extendedrealsmetric} the computation is the same).
+%\item
+%Show that the topology is the same, that is, a set is open in
+%$(\R,d)$ if and only if it is open in $(\R,d')$.
+%\item
+%Show that a set is compact in
+%$(\R,d)$ if and only if it is compact in $(\R,d')$.
+%\item
+%Show that a sequence converges in $(\R,d)$ if and only if
+%it converges in $(\R,d')$.
+%\item
+%Find a sequence of real numbers that is Cauchy
+%in $(\R,d')$ but not Cauchy in $(\R,d)$.
+%\item
+%While $(\R,d)$ is complete, show that $(\R,d')$ is not complete.
+%\end{exparts}
+%\end{exercise}
+%\end{samepage}
 
 \begin{exercise} \label{exercise:relativelycompactseq}
 Let $(X,d)$ be a complete metric space.
@@ -6405,9 +6414,10 @@ an exercise.
 \begin{example}
 Let $f \colon X \to Y$ be a continuous function.
 \thmref{thm:mstopocont} tells us that if $E \subset Y$ is closed, then 
-$f^{-1}(E) = X \setminus f^{-1}(E^c)$ is also closed.  Therefore, if
-we have a continuous
-function $f \colon X \to \R$, then the
+$f^{-1}(E) = X \setminus f^{-1}(E^c)$ is also closed.  Therefore,
+given
+a continuous
+function $f \colon X \to \R$, the
 \emph{\myindex{zero set}} of $f$, that is, 
 $f^{-1}(0) = \{ x \in X :
 f(x) = 0 \}$, is closed.
@@ -6502,12 +6512,6 @@ interested in knowing continuity.
 
 \subsection{Cluster points and limits of functions}
 
-While we haven't started the discussion of continuity with them and we won't
-need them until volume II, let us also
-translate the idea of a limit of a function from the real line to metric
-spaces.
-Again we need to start with cluster points.
-
 \begin{defn}
 Let $(X,d)$ be a metric space and
 $S \subset X$. A point $p \in X$ is called
@@ -6516,11 +6520,11 @@ if for every $\epsilon > 0$, the set $B(p,\epsilon) \cap S
 \setminus \{ p \}$ is not empty.
 \end{defn}
 
-It is not enough that $p$ is in the closure of $S$,
-it must be in the closure of
-$S \setminus \{ p \}$ (exercise).
-So, $p$ is a cluster point if and only if there exists a sequence in $S \setminus
-\{ p \}$ that converges to $p$.
+%It is not enough that $p$ is in the closure of $S$,
+%it must be in the closure of
+%$S \setminus \{ p \}$ (exercise).
+%So, $p$ is a cluster point if and only if there exists a sequence in $S \setminus
+%\{ p \}$ that converges to $p$.
 
 \begin{defn}
 \index{limit!of a function in a metric space}%
@@ -6554,7 +6558,7 @@ such that $f(x)$ converges as $x$ goes to $p$.  Then
 the limit of $f(x)$ as $x$ goes to $p$ is unique.
 \end{prop}
 
-In any metric space, just like in $\R$, continuous limits may be
+Continuous limits may be
 replaced by sequential limits.  We leave the proof as an
 exercise.  The upshot is that we really only need to prove things for
 sequential limits.
@@ -6582,6 +6586,7 @@ $f \colon S \to Y$ is continuous at $p$ if and only if
 
 \begin{exbox}
 \begin{exercise}
+\begin{samepage}
 Consider $\N \subset \R$ with the standard metric.  Let $(X,d)$ be a
 metric space and $f \colon X \to \N$ a continuous function.
 \begin{exparts}
@@ -6591,9 +6596,11 @@ then $f$ is constant (the range of $f$ is a single value).
 \item
 Find an example where $X$ is disconnected and $f$ is not constant.
 \end{exparts}
+\end{samepage}
 \end{exercise}
 
 \begin{exercise} \label{exercise:dicontR2}
+\begin{samepage}
 Let $f \colon \R^2 \to \R$ be defined by $f(0,0) = 0$, and
 $f(x,y) = \frac{xy}{x^2+y^2}$ if $(x,y) \not= (0,0)$.
 \begin{exparts}
@@ -6604,6 +6611,7 @@ for any fixed $y$, the function that takes $x$ to $f(x,y)$ is continuous.
 \item
 Show that $f$ is not continuous.
 \end{exparts}
+\end{samepage}
 \end{exercise}
 
 \begin{samepage}
@@ -6638,14 +6646,14 @@ Then prove that there exists a $z \in X$ such that $f(z) = y$.
 Hint: See \exerciseref{exercise:msconnconn}.
 \end{exercise}
 
-\begin{exercise}
-A continuous function $f \colon X \to Y$ for metric spaces $(X,d_X)$ and
-$(Y,d_Y)$ is said to be \emph{\myindex{proper}}
-if for every compact set $K \subset Y$, the set $f^{-1}(K)$ is compact.
-Suppose a continuous $f \colon (0,1) \to (0,1)$ is proper and $\{ x_n
-\}$ is a sequence in $(0,1)$ that converges to $0$.  Show that
-$\{ f(x_n) \}$ has no subsequence that converges in $(0,1)$.
-\end{exercise}
+%\begin{exercise}
+%A continuous function $f \colon X \to Y$ for metric spaces $(X,d_X)$ and
+%$(Y,d_Y)$ is said to be \emph{\myindex{proper}}
+%if for every compact set $K \subset Y$, the set $f^{-1}(K)$ is compact.
+%Suppose a continuous $f \colon (0,1) \to (0,1)$ is proper and $\{ x_n
+%\}$ is a sequence in $(0,1)$ that converges to $0$.  Show that
+%$\{ f(x_n) \}$ has no subsequence that converges in $(0,1)$.
+%\end{exercise}
 
 \begin{exercise}
 Let $(X,d_X)$ and $(Y,d_Y)$ be metric space and
@@ -6691,6 +6699,7 @@ that is, $d(p,q) = \inf \{ d(x,y) \colon x \in K_1, y \in K_2 \}$.
 \end{samepage}
 
 \begin{exercise}
+\begin{samepage}
 Let $(X,d)$ be a compact metric space, let $C(X,\R)$ be the set
 of real-valued continuous functions.  Define
 \begin{equation*}
@@ -6704,6 +6713,7 @@ Show that for any $x \in X$, the evaluation function
 $E_x \colon C(X,\R) \to \R$ defined by $E_x(f) = f(x)$
 is a continuous function.
 \end{exparts}
+\end{samepage}
 \end{exercise}
 
 \begin{samepage}
@@ -6807,9 +6817,6 @@ are essentially the same it is worth it to put them down.
 The text is partly adapted from \cite{ra:book} and \cite{ra:book2}.
 Those two texts are useful to find more details.
 
-FIXME: state some of these for metric spaces!
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Limits of functions}
@@ -6848,18 +6855,18 @@ a discontinuous function.
 \end{exercise}
 \end{exbox}
 
-\begin{example} \label{example:geomsumptconv}
-We write
-\begin{equation*}
-\sum_{k=0}^\infty x^k
-\end{equation*}
-to denote the limit of the functions
-\begin{equation*}
-f_n(x) = \sum_{k=0}^n x^k .
-\end{equation*}
-You surely remember that $f_n$ converges pointwise on $(-1,1)$ to
-$\frac{1}{1-x}$.
-\end{example}
+%\begin{example} \label{example:geomsumptconv}
+%We write
+%\begin{equation*}
+%\sum_{k=0}^\infty x^k
+%\end{equation*}
+%to denote the limit of the functions
+%\begin{equation*}
+%f_n(x) = \sum_{k=0}^n x^k .
+%\end{equation*}
+%You surely remember that $f_n$ converges pointwise on $(-1,1)$ to
+%$\frac{1}{1-x}$.
+%\end{example}
 
 \begin{defn}
 \index{uniform convergence}
@@ -6901,7 +6908,7 @@ Let $f \colon S \to \R$ be a bounded function.  Define
 \begin{equation*}
 \norm{f}_S
 \overset{\text{def}}{=}
-\sup \bigl\{ \abs{f(x)} : x \in S \bigr\} .
+\sup \bigl\{ \sabs{f(x)} : x \in S \bigr\} .
 \end{equation*}
 $\norm{\cdot}_S$ is called the \emph{\myindex{uniform norm}}.
 \end{defn}
@@ -7002,16 +7009,16 @@ Let $f$ and $g$ be bounded functions on $[a,b]$.  Prove
 \end{equation*}
 \end{exercise}
 
-\begin{exercise}
-\begin{exparts}
-\item
-Find the pointwise limit $\dfrac{e^{x/n}}{n}$ for $x \in \R$.
-\item
-Is the limit uniform on $\R$?
-\item
-Is the limit uniform on $[0,1]$?
-\end{exparts}
-\end{exercise}
+%\begin{exercise}
+%\begin{exparts}
+%\item
+%Find the pointwise limit $\dfrac{e^{x/n}}{n}$ for $x \in \R$.
+%\item
+%Is the limit uniform on $\R$?
+%\item
+%Is the limit uniform on $[0,1]$?
+%\end{exparts}
+%\end{exercise}
 
 \begin{exercise}
 Suppose $f_n \colon S \to \R$ are functions that converge uniformly
@@ -7054,17 +7061,17 @@ $f \colon [a,b] \to \R$ and suppose $f_n(x) \leq g_n(x) \leq h_n(x)$
 for all $x \in [a,b]$.  Show that $\{ g_n \}$ converges uniformly to $f$.
 \end{exercise}
 
-\begin{exercise}
-Fix a continuous $h \colon [a,b] \to \R$.
-Let $f(x) = h(x)$ for $x \in [a,b]$,
-$f(x) = h(a)$ for $x < a$ and $f(x) = h(b)$ for all $x > b$.  First show
-that $f \colon \R \to \R$ is continuous.
-Let
-\begin{equation*}
-f_n(x) = \frac{n}{2} \int_{x-1/n}^{x+1/n} f(t) \, dt .
-\end{equation*}
-Show that $\{ f_n \}$ converges uniformly to $h$ on $[a,b]$.
-\end{exercise}
+%\begin{exercise}
+%Fix a continuous $h \colon [a,b] \to \R$.
+%Let $f(x) = h(x)$ for $x \in [a,b]$,
+%$f(x) = h(a)$ for $x < a$ and $f(x) = h(b)$ for all $x > b$.  First show
+%that $f \colon \R \to \R$ is continuous.
+%Let
+%\begin{equation*}
+%f_n(x) = \frac{n}{2} \int_{x-1/n}^{x+1/n} f(t) \, dt .
+%\end{equation*}
+%Show that $\{ f_n \}$ converges uniformly to $h$ on $[a,b]$.
+%\end{exercise}
 
 
 \begin{exercise}
@@ -7075,19 +7082,19 @@ then there exists an $N$ such that for all $n \geq N$, the $f_n$
 are bounded.
 \end{exercise}
 
-\begin{exercise}
-In \exampleref{example:geomsumptconv} we saw
-$\sum_{k=0}^\infty x^k$ converges pointwise to $\frac{1}{1-x}$ on
-$(-1,1)$.
-\begin{exparts}
-\item
-Show that for any $0 \leq c < 1$, the series
-$\sum_{k=0}^\infty x^k$ converges uniformly on $[-c,c]$.
-\item
-Show that the series $\sum_{k=0}^\infty x^k$ does not converge uniformly
-on $(-1,1)$.
-\end{exparts}
-\end{exercise}
+%\begin{exercise}
+%In \exampleref{example:geomsumptconv} we saw
+%$\sum_{k=0}^\infty x^k$ converges pointwise to $\frac{1}{1-x}$ on
+%$(-1,1)$.
+%\begin{exparts}
+%\item
+%Show that for any $0 \leq c < 1$, the series
+%$\sum_{k=0}^\infty x^k$ converges uniformly on $[-c,c]$.
+%\item
+%Show that the series $\sum_{k=0}^\infty x^k$ does not converge uniformly
+%on $(-1,1)$.
+%\end{exparts}
+%\end{exercise}
 \end{exbox}
 
 \subsection{Continuity of the limit}
@@ -7099,6 +7106,7 @@ If we, however, require the convergence to be uniform, the limits can
 be interchanged.
 
 \begin{thm}
+Let $S$ be a metric space.
 Let $\{ f_n \}$ be 
 a sequence of continuous functions $f_n \colon S \to \R$ converging
 uniformly to  $f \colon S \to \R$.  Then $f$ is continuous.
@@ -7142,25 +7150,22 @@ Therefore $\{ f(x_m) \}$ converges to $f(x)$ and hence $f$ is continuous at
 $x$.  As $x$ was arbitrary, $f$ is continuous everywhere.
 \end{proof}
 
-\begin{exbox}
-\begin{exercise}
-We say that a sequence of functions $f_n \colon \R \to \R$
+We say that a sequence of functions $f_n \colon S \to \R$
 \emph{\myindex{converges uniformly on compact subsets}}
 \index{uniform convergence on compact subsets}
-if for every $k \in \N$,
-the sequence $\{ f_n \}$ converges uniformly on $[-k,k]$.
-\begin{exparts}
-\item
-Prove that if $f_n \colon \R \to \R$ is a sequence of
+if for every compact $K \subset S$
+the sequence $\{ f_n \}$ converges uniformly on $K$.
+
+\begin{cor}
+Let $S$ be a metric space.
+If $f_n \colon S \to \R$ is a sequence of
 continuous functions converging uniformly on compact subsets, then
 the limit is continuous.
-\item 
-Prove that if $f_n \colon \R \to \R$ is a sequence of
-functions Riemann integrable on any closed and bounded interval $[a,b]$,
-and converging uniformly on compact subsets to an $f \colon \R \to \R$,
-then for any interval $[a,b]$, we have $f \in \sR[a,b]$, and
-$\int_a^b f = \lim_{n\to\infty} \int_a^b f_n$.
-\end{exparts}
+\end{cor}
+
+\begin{exbox}
+\begin{exercise}
+Prove the corollary.
 \end{exercise}
 \end{exbox}
 
@@ -7211,8 +7216,7 @@ $\abs{f(x)} < \frac{\epsilon}{2(b-a)} + \abs{f_n(x)}$ for all $x$,
 hence $f$ is bounded
 as $f_n$ is bounded.
 Note that $f_n$ is integrable and compute
-\begin{equation*}
-\begin{split}
+\begin{align*}
 \overline{\int_a^b} & f(x) \, dx
 -
 \underline{\int_a^b} f(x) \, dx
@@ -7221,19 +7225,19 @@ Note that $f_n$ is integrable and compute
 \overline{\int_a^b} \bigl( f(x) - f_n(x) + f_n(x) \bigr) \, dx
 -
 \underline{\int_a^b} \bigl( f(x) - f_n(x) + f_n(x) \bigr) \, dx
-\\
+\displaybreak[0]\\
 & \leq
 \overline{\int_a^b} \bigl( f(x) - f_n(x) \bigr) \, dx +  \overline{\int_a^b}
 f_n(x) \, dx
 -
 \underline{\int_a^b} \bigl( f(x) - f_n(x) \bigr) \, dx -
 \underline{\int_a^b} f_n(x) \, dx
-\\
+\displaybreak[0]\\
 & =
 \overline{\int_a^b} \bigl( f(x) - f_n(x) \bigr)\, dx +  \int_a^b f_n(x) \, dx
 -
 \underline{\int_a^b} \bigl( f(x) - f_n(x) \bigr)\, dx -  \int_a^b f_n(x) \, dx
-\\
+\displaybreak[0]\\
 & =
 \overline{\int_a^b} \bigl( f(x) - f_n(x) \bigr)\, dx
 -
@@ -7242,8 +7246,7 @@ f_n(x) \, dx
 & \leq
 \frac{\epsilon}{2(b-a)} (b-a) + 
 \frac{\epsilon}{2(b-a)} (b-a) = \epsilon .
-\end{split}
-\end{equation*}
+\end{align*}
 The second inequality follows from
 the fact that for all $x \in [a,b]$ we have
 $\frac{-\epsilon}{2(b-a)} < f(x)-f_n(x) < \frac{\epsilon}{2(b-a)}$.
@@ -7263,17 +7266,17 @@ For $n \geq M$ ($M$ is the same as above),
 Therefore $\bigl\{ \int_a^b f_n(x) \,dx \bigr\}$ converges to $\int_a^b f(x) \,dx$.
 \end{proof}
 
-\begin{example}
-Using \thmref{integralinterchange:thm}, we compute
-\begin{equation*}
-\lim_{n\to\infty} \int_0^1 \frac{nx+ \sin(nx^2)}{n} \,dx
-=
-\int_0^1
-x \,dx = \nicefrac{1}{2} .
-\end{equation*}
-It is impossible to compute the integrals for any particular $n$ using 
-calculus as $\sin(nx^2)$ has no closed-form antiderivative.
-\end{example}
+%\begin{example}
+%Using \thmref{integralinterchange:thm}, we compute
+%\begin{equation*}
+%\lim_{n\to\infty} \int_0^1 \frac{nx+ \sin(nx^2)}{n} \,dx
+%=
+%\int_0^1
+%x \,dx = \nicefrac{1}{2} .
+%\end{equation*}
+%It is impossible to compute the integrals for any particular $n$ using 
+%calculus as $\sin(nx^2)$ has no closed-form antiderivative.
+%\end{example}
 
 \begin{remark}
 While we will not require the Lebesgue integral in this book, note that
@@ -7693,6 +7696,7 @@ Show that $f$ is differentiable.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Suppose $f \colon \R \to \R$ is an infinitely differentiable function (all derivatives exist)
 such that $f(0) = 0$.  Then show that there exists an infinitely
 differentiable function $g \colon \R \to \R$ such that $f(x) = x\,g(x)$.  Finally show that
@@ -7718,7 +7722,8 @@ F(y_1,y_2,\ldots,y_n) =
 f(x,y_1,y_2,\ldots,y_n)
 \, dx
 \end{equation*}
-is continuously differentiable.
+is continuously differentiable (the partial derivatives exist and are
+continuous).
 \end{exercise}
 
 \begin{exercise}
