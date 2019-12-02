@@ -968,6 +968,8 @@ object of study of complex analysis, the holomorphic (or analytic)
 functions, are those functions whose real derivative corresponds to a
 multiplication by a complex number.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Polar form and the exponential}
 
 \subsection{The exponential}
@@ -1195,6 +1197,8 @@ $z \in \C$.
 \end{exercise}
 \end{exbox}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{The Riemann sphere}
 
 It is sometimes useful to extend the real numbers by adding $\pm \infty$.
@@ -1339,6 +1343,12 @@ right hand side we use the Riemann sphere sense.
 This could, obviously, cause confusion.
 In this book, infinite limits are going to be in the Riemann sphere sense
 unless either otherwise noted.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Linear fractional transformations}
+
+FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2924,10 +2934,12 @@ $T^2$.  All in all, for the $k$\textsuperscript{th} triangle $T^k$ we have
 \abs{\int_{\partial T^k} f(z) \, dz } \geq \frac{c}{4^k} .
 \end{equation*}
 We have $T^k \subset T^{k-1} \subset \cdots \subset T$.
-The subtriangles are all similar triangles, but of exactly half the size.
+The subtriangles are all similar triangles (same angles),
+but of exactly half the size.
 In particular,
 the largest possible distance for two points in the triangle must
-get halved each iteration.  In more formal language:
+get halved each iteration.
+In more formal language:
 \begin{equation*}
 \operatorname{diam}(T^k) =
 \frac{1}{2} \operatorname{diam}(T^{k-1})
@@ -2992,10 +3004,60 @@ As $z_k \to z_0$, we find that $\frac{g(z)}{z-z_0}$ does not
 go to zero, so $f$ is not complex differentiable at $z_0$.
 \end{proof}
 
-\subsection{Cauchy for convex sets}
+A triangle is one type of convex sets, but as these kind of sets come up
+often, let us give some basic properties of convex sets as exercises.
+They may be good to do in order and possibly use previous ones in the next
+ones.
 
-\begin{prop} \label{prop:primitiveinconvex1}
-Suppose $U \subset \C$ is open and convex,
+\begin{exbox}
+\begin{exercise}
+Prove:
+\begin{exparts}
+\item
+An arbitrary intersection of convex sets is convex.
+\item
+The interior of a convex set is convex.
+\item
+The closure of a convex set is convex.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Let $X \subset \C$ be a convex set and $\xi \in \partial X$, then prove that
+there exists a nonzero $w$ such that for all $z \in X$ we have
+\begin{equation*}
+\Re z\bar{w} \geq \Re \xi\bar{w} .
+\end{equation*}
+In other words, $X$ is in the closed half-space
+given by $w$ with $\xi$ on the boundary of that half-space.
+Remember that $\Re z\bar{w}$ is the standard dot product from
+vector calculus in $\R^2$.
+\end{exercise}
+
+\begin{exercise}
+Let $X \subset \C$ be a closed convex set and $\xi \in \partial X$.
+Prove that $X$ is an intersection of closed half-spaces (see previous
+exercise).
+\end{exercise}
+\end{exbox}
+
+\subsection{Cauchy for star-like sets}
+
+A set $U \subset \C$ is called \emph{\myindex{star-like}} (or more precisely
+\emph{star-like with respect to $z_0$} if there exists a
+point $z_0 \in U$ such that the segment $[z_0,z] \subset U$ for every
+$z \in U$.  A convex set is star-like, but not vice-versa.
+
+\begin{exbox}
+\begin{exercise}
+Prove that if $U \subset \C$ is star-like with respect to $z_0$ and $a,b \in
+U$, then the triangle $T$ with vertices $z_0$, $a$, and $b$ is entirely
+contained in $U$.  Hint: An exercise in the previous section may be useful.
+\end{exercise}
+\end{exbox}
+
+\begin{prop} \label{prop:primitiveinstarlike1}
+Suppose $U \subset \C$ is open and star-like,
 and $f \colon U \to \C$ is continuous such that
 \begin{equation*}
 \int_{\partial T} f(z) \, dz = 0
@@ -3007,7 +3069,7 @@ such that $F' = f$.
 \end{prop}
 
 \begin{proof}
-Pick $z_0 \in U$.  Define
+Suppose $U$ is star-like with respect to $z_0 \in U$.  Define
 \begin{equation*}
 F(z) = \int_{[z_0,z]} f(\zeta) \, d\zeta .
 \end{equation*}
@@ -3018,8 +3080,10 @@ F(z) = \int_{[z_0,z]} f(\zeta) \, d\zeta .
 %\int_{[z_0,z+h]-[z_0,z]} f(\zeta) \, d\zeta .
 %\end{equation*}
 %By Cauchy--Goursat, 
-As $U$ is convex, given three points $z_0$, $z$, and $z+h$,
-the entire triangle with those vertices is in $U$, and the
+As $U$ is star-like with respect to $z_0$, 
+the entire triangle with
+vertices $z_0$, $z$, and $z+h$,
+is in $U$, and the
 hypothesis then says
 \begin{equation*}
 \int_{[z_0,z]+[z,z+h]-[z_0,z+h]} f(\zeta) \, d\zeta = 0 .
@@ -3071,8 +3135,8 @@ Cauchy--Goursat says that the integral around
 triangles is always zero if $f$ is holomorphic.  Thus we get
 the following immediate corollary.
 
-\begin{cor} \label{cor:primitiveinconvex}
-Suppose $U \subset \C$ is open and convex,
+\begin{cor} \label{cor:primitiveinstarlike}
+Suppose $U \subset \C$ is open and star-like,
 and $f \colon U \to \C$ is holomorphic.
 Then $f$ has a primitive, that is,
 there exists a holomorphic $F \colon U \to \C$
@@ -3082,8 +3146,8 @@ such that $F' = f$.
 And we get another corollary, which we will rather state
 as a theorem, as it is one of the fundamental results.
 
-\begin{thm}[Cauchy's Theorem for Convex Sets]
-Suppose $U \subset \C$ is open and convex, $f \colon U \to \C$ is holomorphic,
+\begin{thm}[Cauchy's Theorem for Star-like Sets]
+Suppose $U \subset \C$ is open and star-like, $f \colon U \to \C$ is holomorphic,
 and $\varphi$ is a closed piecewise $C^1$ path in $U$.  Then
 \begin{equation*}
 \int_{\varphi} f(z) \, dz = 0 .
@@ -3091,7 +3155,7 @@ and $\varphi$ is a closed piecewise $C^1$ path in $U$.  Then
 \end{thm}
 
 \begin{proof}
-\corref{cor:primitiveinconvex} implies that there is
+\corref{cor:primitiveinstarlike} implies that there is
 a primitive $F \colon U \to \C$, and
 Cauchy's Theorem for Derivatives (\corref{cor:cauchyforders}) then implies that the integral is zero.
 \end{proof}
@@ -3159,9 +3223,9 @@ f(z) .
 
 Now fix $\gamma$.
 We connect $\gamma$ to $\varphi$
-via three straight lines as in \figureref{fig:disccauchy}.
-The three resulting regions between $\gamma$ and $\varphi$
-give paths $c_1$, $c_2$, $c_3$, with the counterclockwise
+via two straight lines as in \figureref{fig:disccauchy}.
+The two resulting regions between $\gamma$ and $\varphi$
+give paths $c_1$ and $c_2$ with the counterclockwise
 orientations marked in the figure.
 \begin{myfig}
 \subimport*{figures/}{disccauchy.pdf_t}
@@ -3169,17 +3233,16 @@ orientations marked in the figure.
 \label{fig:disccauchy}}
 \end{myfig}
 
-As chains $c_1+c_2+c_3 = \varphi - \gamma$.  Further, each
-$c_j$ lies in a convex domain (marked by dashed lines in the figure),
+As chains $c_1+c_2 = \varphi - \gamma$.  Further, each
+$c_j$ lies in a star-like domain (marked by dashed lines in the figure),
 where $\frac{f(\zeta)}{\zeta-z}$ is holomorphic
 as a function of $\zeta$ (since $z$ is outside each of these domains).
-So by Cauchy's Theorem for Convex Sets
+So by Cauchy's Theorem for Star-like Sets
 \begin{equation*}
 \int_{\varphi} \frac{f(\zeta)}{\zeta-z} \, d\zeta -
 \int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
 \int_{c_1} \frac{f(\zeta)}{\zeta-z} \, d\zeta + 
-\int_{c_2} \frac{f(\zeta)}{\zeta-z} \, d\zeta + 
-\int_{c_3} \frac{f(\zeta)}{\zeta-z} \, d\zeta = 0 .
+\int_{c_2} \frac{f(\zeta)}{\zeta-z} \, d\zeta = 0 .
 \end{equation*}
 So
 \begin{equation*}
@@ -3622,7 +3685,7 @@ for every triangle such that $T \subset U$.  Then $f$ is holomorphic.
 
 \begin{proof}
 As holomorphicity is a local property we can assume that $U$ is a disc.
-We then apply \propref{prop:primitiveinconvex1} to show that $f$ has
+We then apply \propref{prop:primitiveinstarlike1} to show that $f$ has
 a primitive $F$ in the disc $U$.
 \end{proof}
 
@@ -3667,7 +3730,7 @@ e^{i\theta} z$ for all $z \in \D$.
 As $f(0) = 0$, the constant term is zero when $f$ is expanded about the
 origin, and hence
 \begin{equation*}
-f(z) = \sum_{n=1} c_n z^n = z \sum_{n=1} c_n z^{n-1} z g(z) .
+f(z) = \sum_{n=1}^\infty c_n z^n = z \sum_{n=1}^\infty c_n z^{n-1} = z g(z) .
 \end{equation*}
 where $g(z)$ is a holomorphic function of $\D$.  For $z \in \partial \Delta_r(0)$
 where $r < 1$, we have
@@ -3721,15 +3784,56 @@ and there exists an inverse for every element.
 \end{exercise}
 \end{exbox}
 
+Let us start with certain specific automorphisms.  Let $a \in \D$, and let
+\begin{equation*}
+\varphi_a(z) \overset{\text{def}}{=} \frac{z-a}{1-\bar{a}z}.
+\end{equation*}
+
+\begin{exbox}
+\begin{exercise}
+Show that for every $\varphi_a(z)$ is a biholomorphism.
+In particular, show that
+\begin{equation*}
+\varphi_a^{-1} = \varphi_{-a} .
+\end{equation*}
+\end{exercise}
+\end{exbox}
+
 \begin{prop}
 If $f \in \operatorname{Aut}(\D)$, then there exists an $a \in \D$
 and $\theta \in \R$ such that
 \begin{equation*}
-f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} .
+f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} = e^{i\theta} \varphi_a(z).
 \end{equation*}
 \end{prop}
 
-FIXME
+\begin{proof}
+Suppose $f(0) = a$.  Note that $\varphi_a(a) = 0$, so
+consider
+$g = \varphi_a \circ f$.  As $\varphi_a$ and $f$ are biholomorphisms, so is
+$g$, and $g(0) = 0$.
+
+In a similar way as in Schwarz's Lemma we find that $g(z) = z h(z)$ for some
+holomorphic $h(z)$ and by Schwarz's Lemma,
+\begin{equation*}
+\sabs{h(z)} = \frac{\sabs{g(z)}}{\sabs{z}} \leq 1 .
+\end{equation*}
+In particular $h$ is a map of the disc to the disc.
+
+But $h$ can have no zeros.
+$h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is one-to-one,
+and $h(0) = g'(0) \not= 0$.  As $\sabs{g(z)}$ must get close to 1 as $z$
+approaches the boundary $\partial \D$, so must $\sabs{h(z)}$.  In
+particular, $\sabs{h(z)}$ must approach a minimum inside $\D$ or in other
+words $\abs{\frac{1}{h(z)}}$ must approach a maximum inside $\D$.  So $h(z)$
+is a constant, and $g(z) = \alpha z$ for some constant $\alpha$.  It is not
+difficult to see that as $g$ is a biholomorphism of the disc, then
+$\sabs{\alpha} = 1$ or $\alpha = e^{i\theta}$.  Applying
+$\varphi_{-a}$ to both sides of $e^{i\theta} z = \varphi_a \circ f$
+we obtain $f(z) = e^{-i\theta} \varphi_{-a}(z)$.
+\end{proof}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
