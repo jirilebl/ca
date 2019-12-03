@@ -1348,6 +1348,42 @@ unless either otherwise noted.
 
 \section{Linear fractional transformations}
 
+A convenient set of transformations of the complex plane or the Riemann
+sphere are the \emph{\myindex{linear fractional transformations}} (LFT)\index{LFT}
+(sometimes called the \emph{\myindex{M\"obius transformations}}).
+A function
+\begin{equation*}
+f(z) = \frac{a z + b}{c z + d}
+\end{equation*}
+is a linear fractional transformation if $ad \not= bc$.  The requirement on
+$a$, $b$, $c$, $d$ guarantees that the ratio does not simplify and that the
+function is nonconstant.
+
+If $c\not=0$,
+the expression is normally defined only on
+$\C \setminus \bigl\{ \frac{-d}{c} \bigr\}$,
+however, as in the last section, we write
+\begin{equation*}
+f\left(\frac{-d}{c}\right) = \infty, \qquad \text{and} \qquad
+f(\infty) = \frac{a}{c} .
+\end{equation*}
+If $c=0$, then just set $f(\infty) = \infty$.  Then $f$ is a map of
+the Riemann sphere to itself.
+
+\begin{exbox}
+\begin{exercise}
+Prove that an LFT is a bijective mapping of the Riemann sphere to itself.
+\end{exercise}
+
+\begin{exercise}
+Prove that an LFT extended to the Riemann sphere as above is continuous.
+\end{exercise}
+\end{exbox}
+
+
+
+
+
 FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3754,8 +3790,6 @@ As $g(0) = f'(0)$, the same conclusion, for the same reason,
 holds if $\sabs{f'(0)} = 1$.
 \end{proof}
 
-FIXME
-
 \subsection{Automorphisms of the disc}
 
 Schwarz's lemma can also be used to classify the automorphisms of the disc.
@@ -3784,20 +3818,42 @@ and there exists an inverse for every element.
 \end{exercise}
 \end{exbox}
 
-Let us start with certain specific automorphisms.  Let $a \in \D$, and let
+A biholomorphism $f$ has the property that $f'(z) \not= 0$ for any $z$.  To
+see this note that $f^{-1}\bigl(f(z)\bigr) = z$ and both $f$ and $f^{-1}$
+are holomorphic.  Thus differentiate using the chain rule to see
+that $(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$, so if $w = f(z)$ then
+\begin{equation*}
+(f^{-1})'(w) = \frac{1}{f'(z)}
+\qquad \text{or} \qquad
+f'(z) =
+\frac{1}{(f^{-1})'(w)} .
+\end{equation*}
+
+Let us start with certain specific automorphisms of the disc.  Let $a \in \D$, and let
 \begin{equation*}
 \varphi_a(z) \overset{\text{def}}{=} \frac{z-a}{1-\bar{a}z}.
 \end{equation*}
 
 \begin{exbox}
 \begin{exercise}
-Show that for every $\varphi_a(z)$ is a biholomorphism.
+Show that for every $a \in \D$, the map $\varphi_a(z)$ is a biholomorphism.
 In particular, show that
 \begin{equation*}
 \varphi_a^{-1} = \varphi_{-a} .
 \end{equation*}
 \end{exercise}
+
+\begin{exercise}
+Show that $\varphi_a$ takes $\partial \D$ to $\partial \D$.
+\end{exercise}
 \end{exbox}
+
+It is easy to see that
+\begin{equation*}
+\varphi_a(a) = 0, \qquad
+\varphi_a'(0) = 1 - \sabs{a}^2, \qquad
+\varphi_a'(a) = \frac{1}{1 - \sabs{a}^2} .
+\end{equation*}
 
 \begin{prop}
 If $f \in \operatorname{Aut}(\D)$, then there exists an $a \in \D$
@@ -3820,20 +3876,35 @@ holomorphic $h(z)$ and by Schwarz's Lemma,
 \end{equation*}
 In particular $h$ is a map of the disc to the disc.
 
-But $h$ can have no zeros.
+But $h$ can have no zeros:
 $h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is one-to-one,
-and $h(0) = g'(0) \not= 0$.  As $\sabs{g(z)}$ must get close to 1 as $z$
-approaches the boundary $\partial \D$, so must $\sabs{h(z)}$.  In
-particular, $\sabs{h(z)}$ must approach a minimum inside $\D$ or in other
-words $\abs{\frac{1}{h(z)}}$ must approach a maximum inside $\D$.  So $h(z)$
-is a constant, and $g(z) = \alpha z$ for some constant $\alpha$.  It is not
-difficult to see that as $g$ is a biholomorphism of the disc, then
+and $h(0) = g'(0) \not= 0$.  As $g$ is a biholomorphism, then $g^{-1}$ is
+continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
+In other words, $\sabs{g(z)}$ must get close to 1 as $z$
+approaches the boundary $\partial \D$.  Then so must $\sabs{h(z)}$.
+The function
+$\sabs{h(z)}$ must attain a minimum inside $\D$, or in other
+words $\abs{\frac{1}{h(z)}}$ must attain a maximum inside $\D$.  So $h(z)$
+is a constant, and $g(z) = \alpha z$ for some constant $\alpha$.
+Clearly, 
 $\sabs{\alpha} = 1$ or $\alpha = e^{i\theta}$.  Applying
 $\varphi_{-a}$ to both sides of $e^{i\theta} z = \varphi_a \circ f$
 we obtain $f(z) = e^{-i\theta} \varphi_{-a}(z)$.
 \end{proof}
 
-
+\begin{exbox}
+\begin{exercise}
+Using $\varphi_a$ prove a variation of Schwarz's Lemma:  Suppose
+that $f \colon \D \to \D$ is holomorphic, nonconstant, and $f(a) = b$.
+Then
+\begin{equation*}
+\sabs{f'(a)} \leq
+\frac{1-\sabs{b}^2}{1-\sabs{a}^2} .
+\end{equation*}
+If equality holds, then $f(z) = \varphi_{-b}\bigl( e^{i\theta} \varphi_a(z)
+\bigr)$ for some $\theta \in \R$.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
