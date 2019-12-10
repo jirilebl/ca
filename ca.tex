@@ -26,6 +26,7 @@
 \usepackage{framed}
 \usepackage{import}
 \usepackage{varioref}
+\usepackage{faktor}
 
 \usepackage{perpage}
 
@@ -822,6 +823,18 @@ A disc centered at the origin of radius 1 is called the
 The unit disc will come up often in this course, as it turns out that
 a lot of complex analysis can be done by looking at just the unit disc.
 
+A useful ``version'' of the unit disc, is the \emph{\myindex{upper half plane}}:
+\begin{equation*}
+\bH 
+\overset{\text{def}}{=}
+\bigl\{
+z \in \C : \Im z > 0
+\bigr\} .
+\end{equation*}
+Things done on the unit disc can just as well be done on the upper half
+plane.   We will see in a moment that $\bD$ and $\bH$ are equivalent in a
+very nice way.
+
 The following definition is perhaps somewhat unnecessary, but it is so much
 easier to write and say than \emph{open and connected}, and it is commonly
 used in complex analysis.
@@ -1127,7 +1140,7 @@ We thus define the \emph{\myindex{principal branch of $\arg$}} as
 \begin{equation*}
 \Arg z
 \overset{\text{def}}{=}
-\theta, \qquad \text{where $-\pi < \theta \leq \pi$.}
+\theta, \qquad \text{where } -\pi < \theta \leq \pi.
 \end{equation*}
 It may seem like a good solution to the multivaluedness of $\arg$, but
 one's hopes are dashed by the cruel reality of $\Arg$ not being continuous
@@ -1213,9 +1226,9 @@ away from infinity.  We define the function $g \colon \C_\infty \to \C_\infty$
 \begin{equation*}
 g(z) =
 \begin{cases}
-\frac{1}{z} & \text{if $z \not= 0$ and $z \not= \infty$,} \\
-\infty & \text{if $z = 0$,} \\
-0 & \text{if $z = \infty$.}
+\frac{1}{z} & \text{if } z \not= 0 \text{ and } z \not= \infty, \\
+\infty & \text{if } z = 0, \\
+0 & \text{if } z = \infty.
 \end{cases}
 \end{equation*}
 The function $g$ is one-to-one and onto.
@@ -1380,11 +1393,126 @@ Prove that an LFT extended to the Riemann sphere as above is continuous.
 \end{exercise}
 \end{exbox}
 
+Let us include straight lines in the set of circles.  After all, a straight
+line is just a circle through infinity: Think about the circle of radius $r$
+centered at $ir$ as $r \to \infty$.  Then an LFT takes circles to circles.
+We leave this fact as an exercise.
 
+\begin{exbox}
+\begin{exercise}
+Prove that if we include straight lines in the set of ``circles'', then
+an LFT takes circles to circles.
+\end{exercise}
+\end{exbox}
 
+One way to view an LFT is as a $2 \times 2$ matrix.  For this purpose
+we need to view the Riemann sphere as the so-called one-dimensional
+\emph{\myindex{projective space}}.  The one-dimensional complex projective
+space is defined by
+\begin{equation*}
+\C \bP^1
+\overset{\text{def}}{=}
+\faktor{\C^2 \setminus \{ 0\}}{\sim} \ ,
+\end{equation*}
+where the equivalence relation $\sim$ is defined by
+$u \sim v$ if and only if $u = \lambda v$ for some $\lambda \in \C$.
 
+In other words, $\C \bP^1$ is the set of ``complex lines through the
+origin'' in $\C^2$, or yet in other words, the set of one-dimensional vector
+subspaces of $\C^2$.  We identify $\C\bP^1$ with $\C_\infty$ in the following
+way.  Suppose $[z,w]$ denotes the equivalence class of vectors in $C^2$.
+Then define the map $\Phi \colon \C_\infty \to \C \bP^1$ as
+\begin{equation*}
+\Phi(z) =
+\begin{cases}
+[z,1] & \text{if } z \in \C , \\
+[1,0] & \text{if } z=\infty .
+\end{cases}
+\end{equation*}
 
-FIXME
+\begin{exbox}
+\begin{exercise}
+Prove that $\Phi$ above is bijective.
+\end{exercise}
+\end{exbox}
+
+Now we can check that the function
+\begin{equation*}
+f(z) = \frac{a z + b}{c z + d}
+\end{equation*}
+corresponds to the linear map given by the matrix
+\begin{equation*}
+M =
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix} .
+\end{equation*}
+First $\Phi \circ f$ for $z \in \C$ is equal to
+\begin{equation*}
+\Phi \circ f(z) =
+\left[\frac{a z + b}{c z + d}, 1 \right]
+=
+\left[a z + b, c z + d \right] ,
+\end{equation*}
+where the second inequality follows by definition of $\sim$.
+Next notice that (again noting the definition of $\sim$
+and the fact that $(z,w) \mapsto M(z,w) = (a z + b w, c z + d w)$ is
+linear):
+\begin{equation*}
+\Phi \circ f \circ \Phi^{-1} ([z,w]) =
+\left[a z + b w, c z + d w \right] .
+\end{equation*}
+
+In other words, $f$ corresponds to the linear map $v \mapsto Mv$ on $\C^2$.
+The requirement that $ad \not= bc$ corresponds to determinant of $M$ being
+nonzero, or in other words, to $M$ being invertible.
+So every LFT is represented by a (not unique) $2 \times 2$ matrix $M$, and
+conversely every $2 \times 2$ matrix $M$ corresponds to an LFT.
+
+\medskip
+
+A very useful LFT that comes up all the time is the
+\emph{\myindex{Cayley map}}
+\begin{equation*}
+C(z)
+=
+\frac{z - i}{z + i} .
+\end{equation*}
+The map is an LFT, and it
+takes the upper half plane $\bH = \{ z \in \C : \Im z > 0 \}$ to the
+unit disc.  Let us see why.  A $z$ goes to the unit disc if
+\begin{equation*}
+1 > \abs{\frac{z - i}{z + i} }
+=
+\frac{\sabs{z - i}}{\sabs{z + i}} .
+\end{equation*}
+In other words, $\sabs{z+i} > \sabs{z - i}$.  That is, the distance of $z$
+to $-i$ is bigger than the distance of $z$ to $i$.  It is straightforward
+to see this means that $z \in \bH$.
+
+Any LFT is bijective if thought of as a map from $\C_\infty$
+to itself, so $C^{-1}$ exists, and it is also a very useful map.  We leave
+it as an exercise to figure out the inverse.
+
+\begin{exbox}
+\begin{exercise}
+Figure out what $C^{-1}$ is.  Hint: Think of $\C_\infty$ as $\C \bP^1$
+and $C$ as a matrix.  It is really easy to invert $2 \times 2$ matrices.
+\end{exercise}
+
+\begin{exercise}
+For any LFT $f(z) = \frac{az+b}{cz+d}$ find $f^{-1}$.
+Hint: Same hint as above.
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Cross ratio$^*$}
+
+FIXME: star means optional, not needed later, put that somewhere
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2548,7 +2676,7 @@ the unit circle oriented counterclockwise.  Then for $n \in \Z$ we claim that
 \int_\varphi z^n \, dz
 =
 \begin{cases}
-2\pi i & \text{if $n=-1$,} \\
+2\pi i & \text{if } n=-1, \\
 0 & \text{otherwise.}
 \end{cases}
 \end{equation*}
@@ -4303,7 +4431,7 @@ Let $(X,d)$ be a metric space.  A subset $S \subset X$ is said to be
 \emph{bounded}\index{bounded set} if there exists a $p \in X$ and a
 $B \in \R$ such that
 \begin{equation*}
-d(p,x) \leq B \quad \text{for all $x \in S$}.
+d(p,x) \leq B \quad \text{for all } x \in S.
 \end{equation*}
 We say $(X,d)$ is bounded if $X$ itself is a bounded subset.
 \end{defn}
@@ -4939,8 +5067,8 @@ Let $(X,d)$ be a metric space and $A \subset X$.  Then
 the \emph{\myindex{closure}} of $A$ is the set
 \glsadd{not:closure}
 \begin{equation*}
-\widebar{A} \overset{\text{def}}{=} \bigcap \{ E \subset X : \text{$E$ is closed and $A \subset
-E$} \} .
+\widebar{A} \overset{\text{def}}{=} \bigcap \{ E \subset X : E
+\text{ is closed and } A \subset E \} .
 \end{equation*}
 We say $A$ is \emph{\myindex{dense}} in $X$ if $\widebar{A} = X$.
 \end{defn}
@@ -5017,8 +5145,8 @@ Let $(X,d)$ be a metric space and $A \subset X$.
 Then the \emph{\myindex{interior}} of $A$ is the set
 \glsadd{not:interior}
 \begin{equation*}
-A^\circ \overset{\text{def}}{=} \{ x \in A : \text{there exists a $\delta > 0$ such that
-$B(x,\delta) \subset A$} \} .
+A^\circ \overset{\text{def}}{=} \{ x \in A : \text{there exists a } \delta > 0
+\text{ such that } B(x,\delta) \subset A \} .
 \end{equation*}
 The \emph{\myindex{boundary}} of $A$ is the set
 \glsadd{not:boundary}
@@ -5289,7 +5417,7 @@ the sequence and use the notation $\{ x_n \}$, or more precisely
 A sequence $\{ x_n \}$ is \emph{bounded}\index{bounded sequence} if
 there exists a point $p \in X$ and $B \in \R$ such that
 \begin{equation*}
-d(p,x_n) \leq B \qquad \text{for all $n \in \N$.}
+d(p,x_n) \leq B \qquad \text{for all } n \in \N.
 \end{equation*}
 In other words, the sequence $\{x_n\}$ is bounded whenever
 the set $\{ x_n : n \in \N \}$
@@ -5365,7 +5493,7 @@ A sequence $\{ x_n \}$ in a metric space $(X,d)$ converges to $p \in X$
 if and only
 if there exists a sequence $\{ a_n \}$ of real numbers such that
 \begin{equation*}
-d(x_n,p) \leq a_n \quad \text{for all $n \in \N$},
+d(x_n,p) \leq a_n \quad \text{for all } n \in \N,
 \qquad \text{and} \qquad
 \lim_{n\to\infty} a_n = 0.
 \end{equation*}
@@ -6505,12 +6633,12 @@ a point in $f(K)$, and $f(K)$ is compact by \thmref{thm:mscompactisseqcpt}.
 As before, $f \colon X \to \R$ achieves an
 \emph{\myindex{absolute minimum}} at $c \in X$ if
 \begin{equation*}
-f(x) \geq f(c) \qquad \text{ for all $x \in X$.}
+f(x) \geq f(c) \qquad \text{for all } x \in X.
 \end{equation*}
 On the other hand, $f$ achieves an 
 \emph{\myindex{absolute maximum}} at $c \in X$ if
 \begin{equation*}
-f(x) \leq f(c) \qquad \text{ for all $x \in X$.}
+f(x) \leq f(c) \qquad \text{for all } x \in X.
 \end{equation*}
 
 \begin{thm}
@@ -6670,7 +6798,7 @@ $(X,d_X)$ and $(Y,d_Y)$ are metric spaces, then $f \colon X \to Y$
 is called Lipschitz or $K$-Lipschitz if there exists a $K \in \R$ such that
 \begin{equation*}
 d_Y\bigl(f(p),f(q)\bigr) \leq K d_X(p,q)
-\ \ \ \ \text{for all } p,q \in X.
+\qquad \text{for all } p,q \in X.
 \end{equation*}
 A Lipschitz function is uniformly continuous:
 Take $\delta = \nicefrac{\epsilon}{K}$.
@@ -6949,8 +7077,8 @@ Define
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-\frac{2xy}{x^4+y^2} & \text{if $(x,y) \not= (0,0)$} \\
-0 & \text{if $(x,y) = (0,0)$} .
+\frac{2xy}{x^4+y^2} & \text{if } (x,y) \not= (0,0) \\
+0 & \text{if } (x,y) = (0,0) .
 \end{cases}
 \end{equation*}
 \begin{exparts}
@@ -7052,7 +7180,7 @@ be functions.  The sequence $\{ f_n \}$
 every $\epsilon > 0$ there exists an $N \in \N$ such that 
 for all $n \geq N$ we have
 \begin{equation*}
-\abs{f_n(x) - f(x)} < \epsilon \qquad \text{for all $x \in S$.}
+\abs{f_n(x) - f(x)} < \epsilon \qquad \text{for all } x \in S.
 \end{equation*}
 \end{defn}
 
@@ -7767,7 +7895,7 @@ x \mapsto \frac{f(x,y+h)-f(x,y)}{h}
 \quad
 x \mapsto \frac{\partial f}{\partial y}(x,y)
 \quad
-\text{as $h \to 0$} .
+\text{as } h \to 0 .
 \end{equation*}
 We defined uniform convergence for sequences although the idea is the
 same.  You may replace $h$ with a sequence of nonzero 
@@ -7906,8 +8034,8 @@ Work out the following counterexample:  Let
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-\frac{xy^3}{{(x^2+y^2)}^2} & \text{if $x\not=0$ or $y\not= 0$,}\\
-0 & \text{if $x=0$ and $y=0$.}
+\frac{xy^3}{{(x^2+y^2)}^2} & \text{if } x\not=0 \text{ or  } y\not= 0,\\
+0 & \text{if } x=0 \text{ and } y=0.
 \end{cases}
 \end{equation*}
 \begin{exparts}
@@ -7942,8 +8070,8 @@ Work out the following counterexample:  Let
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-x \,\sin \left(\frac{y}{x^2+y^2}\right) & \text{if $(x,y) \not= (0,0)$,}\\
-0 & \text{if $(x,y)=(0,0)$.}
+x \,\sin \left(\frac{y}{x^2+y^2}\right) & \text{if } (x,y) \not= (0,0),\\
+0 & \text{if } (x,y)=(0,0).
 \end{cases}
 \end{equation*}
 \begin{exparts}
@@ -8356,13 +8484,13 @@ Let $U \subset \R^n$ be a convex open set, $f \colon U \to \R^m$
 a differentiable function, and an $M$ be such that
 \begin{equation*}
 \snorm{Df|_x} \leq M
-\qquad \text{for all $x \in U$.}
+\qquad \text{for all } x \in U.
 \end{equation*}
 Then $f$ is Lipschitz with constant $M$, that is
 \begin{equation*}
 \snorm{f(x)-f(y)} \leq M \snorm{x-y}
 \qquad
-\text{for all $x,y \in U$.}
+\text{for all } x,y \in U.
 \end{equation*}
 \end{prop}
 
@@ -8662,8 +8790,8 @@ Define a function $f \colon \R^2 \to \R$ by
 f(x,y)
 =
 \begin{cases}
-\frac{xy}{x^2+y^2} & \text{ if $(x,y) \not= (0,0)$}, \\
-0 & \text{ if $(x,y) = (0,0)$}.
+\frac{xy}{x^2+y^2} & \text{if } (x,y) \not= (0,0), \\
+0 & \text{if } (x,y) = (0,0).
 \end{cases}
 \end{equation*}
 \begin{exparts}
@@ -8684,8 +8812,7 @@ Define $f \colon \R^2 \to \R$ as
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-(x^2+y^2)\sin\bigl({(x^2+y^2)}^{-1}\bigr) & \text{if $(x,y)
-\not= (0,0)$,} \\
+(x^2+y^2)\sin\bigl({(x^2+y^2)}^{-1}\bigr) & \text{if } (x,y) \not= (0,0), \\
 0 & \text{else.}
 \end{cases}
 \end{equation*}
