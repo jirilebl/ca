@@ -1506,8 +1506,9 @@ linear):
 In other words, $f$ corresponds to the linear map $v \mapsto Mv$ on $\C^2$.
 The requirement that $ad \not= bc$ corresponds to determinant of $M$ being
 nonzero, or in other words, to $M$ being invertible.
-So every LFT is represented by a (not unique) $2 \times 2$ matrix $M$, and
-conversely every $2 \times 2$ matrix $M$ corresponds to an LFT.
+So every LFT is represented by an invertible $2 \times 2$ matrix $M$
+(not unique), and
+conversely every invertible $2 \times 2$ matrix $M$ corresponds to an LFT.
 
 \medskip
 
@@ -1623,6 +1624,24 @@ is an LFT such that $f(z_2) = 1$, $f(z_3)=0$ and $f(z_4) = \infty$.
 In other words,
 $(z,z_2;z_3,z_4) = 
 \bigl(f(z),1;0,\infty\bigr)$.
+
+\begin{exbox}
+\begin{exercise}
+Given two sets of distinct points $z_1,z_2,z_3 \in \C_\infty$
+and $w_1,w_2,w_3 \in \C_\infty$, explicitly find an LFT $f$,
+such that
+$f(z_1) = w_1$,
+$f(z_2) = w_2$, and
+$f(z_3) = w_3$.
+\end{exercise}
+
+\begin{exercise}
+Given distinct points $z_1,z_2,z_3 \in \C$ and
+using the cross ratio definition of an LFT, explicitly find
+the equation of a circle (or the straight line) through through the three points.
+Hint: Inverse image of the real line is a circle or a straight line.
+\end{exercise}
+\end{exbox}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1944,7 +1963,7 @@ rational function $\frac{P(z)}{Q(z)}$ is holomorphic wherever $Q$ is
 nonzero.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:exponentialholomorphic}
 Show that the complex exponential function, and hence also sine and cosine,
 is holomorphic, and show that $\exp' = \exp$.
 \end{exercise}
@@ -3550,7 +3569,11 @@ If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
 \begin{proof}
 Suppose $\sabs{f(z)}$ achieves a (local) maximum at $z_0$.
 Without loss of generality suppose $z_0 = 0$.  By multiplying by some
-$e^{i\theta}$ we also assume that $f(0)$ is positive and real, we will write
+$e^{i\theta}$, also assume that $f(0)$ is positive and real.
+We write\footnote{%
+Perhaps you're thinking to yourself: Of course we write that $\xi$ is
+positive by writing $\xi > 0$.  But we mean that ``$\xi > 0$''
+is a shortcut to ``$\xi \in \R$ and $\xi > 0$.''}
 that as $f(0) > 0$ (if $f(0) = 0$ then we are done).
 
 Let $\varphi_r$ be a small circle of radius $r$ traversed counterclockwise
@@ -3791,6 +3814,50 @@ $\frac{1}{\zeta-z}$ as
 \frac{\zeta-a}{\zeta-z}
 \end{equation*}
 and then using the geometric series.
+
+\subsection{The exponential}
+
+We have met the complex exponential $e^z$ before, and we have proved
+that it is holomorphic and it is its own derivative
+(\exerciseref{exercise:exponentialholomorphic}).  We can now see this fact
+from a different vantage point.  We could rather have defined the exponential
+using a power series:
+\begin{equation*}
+e^z = \exp(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n .
+\end{equation*}
+It is not hard to compute that our previous definition and the results
+of this section give us the above series.  It is also not hard to check
+directly that the series converges in all of $\C$.
+
+Let us note that the series is the unique holomorphic function $f \colon \C
+\to \C$, such that $f(0)=1$ and $f' = f$.  If $f$ were such a function, than
+it would have a power series
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty c_n z^n ,
+\end{equation*}
+which would converge uniformly in any disc.  Obviously, $c_0 = 1$
+as $f(0) = 1$.  The trick is to figure out the rest.
+We now know how to
+differentiate such a series, we just do it term-by-term, ``formally.''
+So
+\begin{equation*}
+f'(z) =
+\sum_{n=1}^\infty n c_n z^{n-1} =
+\sum_{n=0}^\infty (n+1) c_{n+1} z^{n} .
+\end{equation*}
+As the coefficients of the power series at zero are unique, we get
+$c_n = (n+1) c_{n+1}$.  By induction we see that $c_n = \frac{1}{n!}$.
+
+\begin{exbox}
+\begin{exercise}
+For any $a,b \in \C$, show that there exists a holomorphic $f \colon \C \to
+\C$ such that $f''(z) = z f(z)$, and $f(0) = a$ and $f'(0) = b$.
+Hint: Define formally and show convergence.
+Note: These are the \emph{\myindex{Airy functions}}, and they have some
+interesting behavior; on the real line they oscillate like sine and cosine
+for negative $z$ and behave like an exponential for positive $z$.
+\end{exercise}
+\end{exbox}
 
 \subsection{Cauchy estimates, Liouville, and the Fundamental Theorem of
 Algebra}
