@@ -4259,7 +4259,7 @@ have at least something more complicated than what we did above.  Perhaps
 we should skip this entirely and just do it in terms of winding numbers?
 Hmmmmm...
 
-Perhaps it should come later?  I want to get to logarithms, zeros and
+FIXME: Perhaps it should come later?  I want to get to logarithms, zeros and
 singularities sooner, no?
 
 
@@ -4328,106 +4328,196 @@ FIXME
 \section{Harmonic functions}
 \label{sec:FIXME}
 
+\subsection{Real parts of holomorphic functions}
+
 \begin{defn}
-Let $U \subset \R^n$ be an open set.
-A $C^2$-smooth
-function $f \colon U \to \R$ is
+Let $U \subset \C$ be an open set.
+A twice differentiable function $f \colon U \to \R$ is
 \emph{\myindex{harmonic}} if
 \begin{equation*}
 \nabla^2 f =
-\frac{\partial^2 f}{\partial x_1^2} +
-\cdots +
-\frac{\partial^2 f}{\partial x_n^2} = 0
+\frac{\partial^2 f}{\partial x^2} +
+\frac{\partial^2 f}{\partial y^2} = 0
 \quad \text{ on $U$.}
 \end{equation*}
 \end{defn}
 
 The operator $\nabla^2$, sometimes also written $\Delta$,
 is the \emph{\myindex{Laplacian}}.
-It is the trace of the Hessian matrix.
+It is the trace of the Hessian matrix.  It is a very convenient thing
+to note that
+\begin{equation*}
+4
+\frac{\partial^2}{\partial \bar{z}\partial z} f =
+4
+\left[
+\frac{1}{2}
+\left(
+\frac{\partial}{\partial x} + i
+\frac{\partial}{\partial y}
+\right)
+\right]
+\left[
+\frac{1}{2}
+\left(
+\frac{\partial}{\partial x} - i
+\frac{\partial}{\partial y}
+\right)
+\right]
+f
+=
+\left[
+\frac{\partial^2}{\partial x^2} +
+\frac{\partial}{\partial y^2}
+\right]
+f
+=
+\nabla^2 f .
+\end{equation*}
+
+
+
+
+
+
+In other words, $f$ is harmonic if and only if $\frac{\partial f}{\partial
+z}$ is holomorphic.  Locally (in some neighborhood) we can find an
+antiderivative, and we write
+\begin{equation*}
+f(z) = g(z) + c(z) ,
+\end{equation*}
+where $g$ is holomorphic and $\frac{\partial c}{\partial z} \equiv 0$.
+Let $h = \bar{c}$ be the complex conjugate of $c$.  Then note that
+As
+\begin{equation*}
+\frac{\partial h}{\partial \bar{z}}
+=
+\frac{\partial \bar{c}}{\partial \bar{z}}
+=
+\overline{
+\frac{\partial c}{\partial z}
+}
+=
+0 ,
+\end{equation*}
+we have that $h$ is holomorphic.  Thus
+\begin{equation*}
+f(z) = g(z) + \overline{h(z)} ,
+\end{equation*}
+where $g$ and $h$ are holomorphic.  This is all only true in some
+neighborhood.  We cannot necessarily find a single $g$ and $h$ in the entire
+domain $U$ of $f$ unless $U$ was simply connected.
+
+Let us continue.  As we are assuming that $f$ is real-valued we have
+\begin{equation*}
+g(z) + \overline{h(z)} = f(z) = \overline{f(z)} = \overline{g(z)} + h(z).
+\end{equation*}
+Apply the Wirtinger derivative $\frac{\partial}{\partial z}$ to find
+$g'(z) = h'(z)$.  In other words, $g$ and $h$ are equal up to a constant,
+say $g(z) = h(z) + C$.  Take $\varphi(z) = 2 g(z) + C$, then
+\begin{equation*}
+f(z) = \frac{1}{2} \bigl( \varphi(z) + \overline{\varphi(z)} \bigr) 
+= \Re \varphi(z).
+\end{equation*}
+So any holomorphic function is locally the real part of a holomorphic
+function.  Similarly it is locally the imaginary part of a holomorphic
+function.
+
+Conversely,
+suppose that $f$ is the real-part of a holomorphic function $\varphi$:
+\begin{equation*}
+f(z) = \Re \varphi(z) =
+\frac{1}{2}\bigl( \varphi(z) + \overline{\varphi(z)} \bigr) .
+\end{equation*}
+Notice that
+\begin{equation*}
+\nabla^2 =
+4 \frac{\partial^2}{\partial \bar{z} \partial z}
+=
+4 \frac{\partial^2}{\partial \bar{z} \partial z} .
+\end{equation*}
+Then
+\begin{equation*}
+\nabla^2 f =
+4 \frac{\partial^2}{\partial \bar{z} \partial z}
+\left(
+\frac{1}{2}\bigl( \varphi(z) + \overline{\varphi(z)} \bigr)
+\right)
+=
+2
+\left(
+\frac{\partial^2}{\partial z \partial \bar{z}}
+\varphi(z) +
+\frac{\partial^2}{\partial \bar{z} \partial z}
+\overline{\varphi(z)}
+\right)
+=
+0 .
+\end{equation*}
+
+We have thus proved the following porposition.
+
+%FIXME: need simply connected somewhere and the derivative in a simply
+%connected domain
+
+\begin{prop}
+Let $U \subset \C$ be a domain and $f \colon U \to \R$ a function.
+\begin{enumerate}[(i)]
+\item
+If $f$ is harmonic,
+then for every point $p$ there exists a neighborhood $V$ of $p$ and a
+holomorphic function $\varphi \colon V \to \C$ such that $f = \Re \varphi$
+on $V$.
+\item
+If $f$ is harmonic, then it is infinitely (real) differentiable.  In fact,
+%it
+%is so-called real-analytic
+for every $p \in U$, there exists a power series expansion
+\begin{equation*}
+f(z) =
+\sum_{n=0}^\infty c_n {(z-p)}^n + \bar{c}_n {\overline{(z-p)}}^n .
+\end{equation*}
+converging uniformly absolutely
+on any $\Delta_r(p)$ if $\overline{\Delta_r(p)} \subset U$.
+\end{enumerate}
+\end{prop}
+
+The key point above was the integration.  That is given a harmonic $f$ we wanted to
+find the holomorphic antiderivative to the holomorphic function
+$\frac{\partial f}{\partial z}$.  In a simply connected domain we always
+have such an antiderivative.
+
+\begin{prop}
+Let $U \subset \C$ be a simply connected domain and $f \colon U \to \R$ a
+harmonic function.  Then there exists a holomorphic function $\varphi \colon
+U \to \C$ such that $f = \Re \varphi$.
+\end{prop}
+
+FIXME: define harmonic conjuagate.
+
 
 FIXME:
 
-\section{Subharmonic functions}
-\label{sec:FIXME}
 
-\begin{defn}
-Let $U \subset \R^n$ be an open set.
-A function $f \colon U \to \R \cup \{ -\infty \}$ is 
-\emph{\myindex{subharmonic}} if it is upper-semicontinuous%
-\footnote{Recall $f$ is \emph{\myindex{upper-semicontinuous}}
-if $\limsup_{t\to x} f(t) \leq f(x)$ for all $x \in U$.}
-and for every
-ball $B_r(a)$ with $\overline{B_r(a)} \subset U$,
-and every function $g$
-continuous on $\overline{B_r(a)}$ and
-harmonic on $B_r(a)$,
-such that $f(x) \leq g(x)$ for $x \in
-\partial B_r(a)$, we have
-\begin{equation*}
-f(x) \leq g(x), \quad \text{ for all } x \in
-B_r(a) .
-\end{equation*}
-\end{defn}
+A consequence of the above propositions is the identity theorem
+for harmonic functions.  For harmonic functions, the zero set is allowed to
+have limit points. For example, $\Re z$ is zero on the entire imaginary
+axis.  However, we are still not allowed open sets.
 
-In other words, a subharmonic function is a function that is less than every
-harmonic function on every ball.
-We remark that when $n=1$ in the definition of a subharmonic function,
-it is the same as the standard definition of a
-convex function of one real variable, where affine linear functions play the role of harmonic
-functions: A function of one real variable is
-\emph{convex}\index{convex function} if 
-for every interval it is less than the affine linear function with the same
-end points.
-After all, a function of one real variable is harmonic if the second
-derivative vanishes, and it is therefore affine linear.
-In one real dimension it is also easier to picture.
-The function $f$ is convex if on
-every interval $[\alpha,\beta]$, $f \leq g$ for every affine linear $g$
-bigger than $f$ at the endpoints $\alpha$ and $\beta$.  In particular, we can
-take the $g$ that is equal to $f$ at the endpoints.
-The picture is analogous for subharmonic functions for $n > 1$,
-but it is harder to draw.
+\begin{prop}
+Let $U \subset \C$ be a domain and $f \colon U \to \R$ a harmonic function.
+Suppose $V \subset U$ is a nonempty open subset and $f = 0$ on $V$.  Then $f
+\equiv 0$.
+\end{prop}
 
-\begin{myfig}
-\subimport*{figures/}{convexfunc.pdf_t}
-\caption{Convex function.\label{fig:convexfunc}}
-\end{myfig}
+\begin{proof}
+FIXME:
+\end{proof}
 
-We will consider harmonic and subharmonic functions in $\C \cong
-\R^2$.
-Let us go through some basic results on harmonic and subharmonic
-functions in $\C$ that you have seen in detail in your one-variable class.
-Consequently, we leave some of these results as exercises.
-In this section (and not just here)
-we often write $f(z)$ for a function
-even if it is not holomorphic.
+FIXME:
 
-\begin{exbox}
-\begin{exercise}
-An upper-semicontinuous function achieves a maximum on compact sets.
-\end{exercise}
+\subsection{Dirichlet problem and the Poisson kernel}
 
-\begin{exercise}
-Let $U \subset \C$ be open.
-Show that for a $C^2$ function $f \colon U \to \R$,
-\begin{equation*}
-\frac{\partial^2}{\partial \bar{z}\partial z} f = \frac{1}{4} \nabla^2 f .
-\end{equation*}
-Use this to show that $f$ is harmonic if and only if it is
-(locally) the real or imaginary part
-of a holomorphic function.
-Hint: The key is finding an antiderivative of a holomorphic function.
-\end{exercise}
-
-\begin{exercise}
-Prove the identity theorem.  Let $U \subset \C$ be a domain
-and $f \colon U \to \R$ harmonic such that $f=0$ on a nonempty open subset
-of $U$.  Then $f\equiv 0$.
-\end{exercise}
-\end{exbox}
-
-It follows from the exercise that a harmonic function is infinitely differentiable.
 It is useful to find a harmonic function given boundary values.
 This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
 solvable for many (though not all) domains.
@@ -4445,27 +4535,27 @@ P_r(\theta)
 \end{equation*}
 
 \begin{thm} \label{thm:dirichsol}
-Let $u \colon \partial \D \to \C$ be a continuous function.
+Let $u \colon \partial \D \to \R$ be a continuous function.
 The function
-$Pu \colon \overline{\D} \to \C$, defined by
+$Pu \colon \overline{\D} \to \R$, defined by
 \begin{equation*}
 Pu(re^{i\theta})
 =
-\int_{-\pi}^\pi u(e^{i\varphi}) P_r(\theta-\varphi) \, d\varphi
+\int_{-\pi}^\pi u(e^{it}) P_r(\theta-t) \, dt
 \quad \text{if $r < 1$} \qquad \text{and} \qquad
 Pu(e^{i\theta}) = u(e^{i\theta}),
 \end{equation*}
 is harmonic in $\D$ and continuous on $\overline{\D}$.
 \end{thm}
 
-\pagebreak[2]
 In the proof, it is useful to consider how
 the graph of $P_r$ as a function of $\theta$ looks for a fixed $r$.
-The following are the graphs of $P_r$ for $r=0.5$,
-$r=0.7$, and $r=0.85$ on $[-\pi,\pi]$:
+See \figureref{fig:poissongraph}.
 
 \begin{myfig}
 \includegraphics[width=0.5\textwidth]{figures/poisson-kernel.pdf}
+\caption{The graph of $P_r$ as a function of $\theta$ on $[-\pi,\pi]$ for
+$r=0.5$, $r=0.7$, and $r=0.85$.\label{fig:poissongraph}}
 \end{myfig}
 
 \begin{exbox}
@@ -4522,14 +4612,10 @@ analogous properties.
 The solution to the Dirichlet problem using the Poisson kernel leads to
 the following proposition.
 
-\pagebreak[2]
-\begin{prop}[Mean-value property and sub-mean-value property]
-\label{prop:meansubmeanprop}
+\begin{prop}[Mean-value property]
+\label{prop:meanprop}
 \index{mean-value property}
-\index{sub-mean-value property}
 Let $U \subset \C$ be an open set.
-\begin{enumerate}[(i)]
-\item
 A continuous function
 $f \colon U \to \R$
 is harmonic if and only if 
@@ -4538,7 +4624,93 @@ f(a) = \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta
 \qquad \text{whenever} \quad
 \overline{\Delta_r(a)} \subset U .
 \end{equation*}
-\item
+\end{prop}
+
+FIXME:
+
+\begin{prop}[Maximum principle]
+\index{maximum principle!harmonic functions}
+Suppose $U \subset \C$ is a domain and $f \colon U \to \R$
+is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $f$ is constant.
+\end{prop}
+
+\begin{proof}
+Without loss of generality, suppose that the maximum is global
+Suppose $f$ attains a maximum at $a \in U$.
+If
+$\overline{\Delta_r(a)} \subset U$, then
+\begin{equation*}
+f(a) = \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta
+.
+\end{equation*}
+As $f(z) \leq f(a)$ for all $z \in \partial \Delta_r(a)$, and $f$ is
+continuous then $f(z) = f(a)$ on
+$z \in \partial \Delta_r(a)$.  This was true for any $r$, so
+$f(z) = f(a)$ on $\Delta_s(a)$ for $s$ where
+$\overline{\Delta_s(a)} \subset U$.  By the identity theorem $f=f(a)$ in
+$U$.
+\end{proof}
+
+FIXME
+
+\section{Subharmonic functions}
+\label{sec:FIXME}
+
+\begin{defn}
+Let $U \subset \R^n$ be an open set.
+A function $f \colon U \to \R \cup \{ -\infty \}$ is 
+\emph{\myindex{subharmonic}} if it is upper-semicontinuous%
+\footnote{Recall $f$ is \emph{\myindex{upper-semicontinuous}}
+if $\limsup_{t\to x} f(t) \leq f(x)$ for all $x \in U$.}
+and for every
+ball $B_r(a)$ with $\overline{B_r(a)} \subset U$,
+and every function $g$
+continuous on $\overline{B_r(a)}$ and
+harmonic on $B_r(a)$,
+such that $f(x) \leq g(x)$ for $x \in
+\partial B_r(a)$, we have
+\begin{equation*}
+f(x) \leq g(x), \quad \text{ for all } x \in
+B_r(a) .
+\end{equation*}
+\end{defn}
+
+In other words, a subharmonic function is a function that is less than every
+harmonic function on every ball.
+We remark that when $n=1$ in the definition of a subharmonic function,
+it is the same as the standard definition of a
+convex function of one real variable, where affine linear functions play the role of harmonic
+functions: A function of one real variable is
+\emph{convex}\index{convex function} if 
+for every interval it is less than the affine linear function with the same
+end points.
+After all, a function of one real variable is harmonic if the second
+derivative vanishes, and it is therefore affine linear.
+In one real dimension it is also easier to picture.
+The function $f$ is convex if on
+every interval $[\alpha,\beta]$, $f \leq g$ for every affine linear $g$
+bigger than $f$ at the endpoints $\alpha$ and $\beta$.  In particular, we can
+take the $g$ that is equal to $f$ at the endpoints.
+The picture is analogous for subharmonic functions for $n > 1$,
+but it is harder to draw.
+
+\begin{myfig}
+\subimport*{figures/}{convexfunc.pdf_t}
+\caption{Convex function.\label{fig:convexfunc}}
+\end{myfig}
+
+\begin{exbox}
+\begin{exercise}
+An upper-semicontinuous function achieves a maximum on compact sets.
+\end{exercise}
+\end{exbox}
+
+FIXME:
+
+\begin{prop}[Sub-mean-value Property]
+\label{prop:submeanprop}
+\index{sub-mean-value property}
+Let $U \subset \C$ be an open set.
 An upper-semicontinuous function $f \colon U \to \R \cup \{ -\infty \}$
 is subharmonic if and only if
 \begin{equation*}
@@ -4546,7 +4718,6 @@ f(a) \leq \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta
 \qquad \text{whenever} \quad
 \overline{\Delta_r(a)} \subset U .
 \end{equation*}
-\end{enumerate}
 \end{prop}
 
 For the sub-mean-value property you may have to use 
@@ -4558,7 +4729,7 @@ functions and not too much will be lost.
 
 \begin{exbox}
 \begin{exercise}
-Fill in the details of the proof of \propref{prop:meansubmeanprop}.
+Fill in the details of the proof of \propref{prop:submeanprop}.
 \end{exercise}
 
 \begin{exercise}
