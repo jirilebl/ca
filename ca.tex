@@ -3675,6 +3675,38 @@ then $f$ is constant.  Also show by example that the hypothesis $f(z_0)
 \end{exercise}
 \end{exbox}
 
+\subsection{The open mapping theorem}
+
+A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
+sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
+is surprisingly famous\footnote{%
+It is called a ``blow-up'' and it is used in obtaining a Fields medal.
+Unfortunately, it has already been obtained by Hironaka, and you
+have to find your own map if you want your own medal.},
+takes all of $\R^2$, which is both an open and a closed set, to the
+set $\{ (x,y) : x \not= 0 \text{ or } y=0 \}$, which is neither open nor
+closed.
+
+Holomorphic functions are always nice to your topology.
+Remember that for a continuous map, $f^{-1}(V)$ is open whenever
+$V$ is open.  Nonconstant holomorphic functions have this property also in
+reverse.  So while not every holomorphic function is invertible, at least it
+behaves as if it were as far as the topology is concerned.
+
+
+\begin{thm}[Open Mapping]
+Let $U \subset \C$ be a domain and $f \colon U \to \C$ be
+holomorphic and nonconstant.  Then $f(V)$ is an open set for every open set
+$V \subset U$.
+\end{thm}
+
+\begin{proof}
+FIXME
+\end{proof}
+
+
+FIXME:
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Holomorphic functions are analytic}
@@ -4216,7 +4248,40 @@ If equality holds, then $f(z) = \varphi_{-b}\bigl( e^{i\theta} \varphi_a(z)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{The logarithm and singularities} \label{ch:FIXME}
+\chapter{Homotopic version of Cauchy} \label{ch:FIXME}
+
+\begin{myquote}
+FIXME
+\end{myquote}
+
+FIXME: Perhaps this chapter could have other versions of Cauchy.  We should
+have at least something more complicated than what we did above.  Perhaps
+we should skip this entirely and just do it in terms of winding numbers?
+Hmmmmm...
+
+Perhaps it should come later?  I want to get to logarithms, zeros and
+singularities sooner, no?
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Homotopies}
+\label{sec:homotopy}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Homotopic version of Cauchy}
+\label{sec:homotopy}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{The logarithm, zeros, and singularities} \label{ch:FIXME}
 
 \begin{myquote}
 I became insane, with long intervals of horrible sanity.
@@ -4231,35 +4296,470 @@ I became insane, with long intervals of horrible sanity.
 
 FIXME
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% This should go later
-%This estimate is one of the key properties of
-%holomorphic functions, and the reason why the correct topology for
-%the set of holomorphic functions is the same as the topology for continuous functions.
-%Consequently,
-%obstructions to solving problems in complex analysis are often topological
-%in character.
+\chapter{Montel and Riemann} \label{ch:FIXME}
 
+\begin{myquote}
+FIXME
+\end{myquote}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%FIXME: (for later) definition of homotopy
-%
-%\begin{thm}[???]
-%FIXME: homotopic curves
-%\end{thm}
-%
-%FIXME: definition of simply connected
-%
-%\begin{lemma
-%
-%\begin{thm}[Cauchy's Theorem]
-%\end{thm}
-%
-%
-%
-%FIXME
-%
-%FIXME: Should we do homotopies?
+\section{FIXME}
+\label{sec:log}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Harmonic functions} \label{ch:FIXME}
+
+\begin{myquote}
+FIXME
+\end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Harmonic functions}
+\label{sec:FIXME}
+
+\begin{defn}
+Let $U \subset \R^n$ be an open set.
+A $C^2$-smooth
+function $f \colon U \to \R$ is
+\emph{\myindex{harmonic}} if
+\begin{equation*}
+\nabla^2 f =
+\frac{\partial^2 f}{\partial x_1^2} +
+\cdots +
+\frac{\partial^2 f}{\partial x_n^2} = 0
+\quad \text{ on $U$.}
+\end{equation*}
+\end{defn}
+
+The operator $\nabla^2$, sometimes also written $\Delta$,
+is the \emph{\myindex{Laplacian}}.
+It is the trace of the Hessian matrix.
+
+FIXME:
+
+\section{Subharmonic functions}
+\label{sec:FIXME}
+
+\begin{defn}
+Let $U \subset \R^n$ be an open set.
+A function $f \colon U \to \R \cup \{ -\infty \}$ is 
+\emph{\myindex{subharmonic}} if it is upper-semicontinuous%
+\footnote{Recall $f$ is \emph{\myindex{upper-semicontinuous}}
+if $\limsup_{t\to x} f(t) \leq f(x)$ for all $x \in U$.}
+and for every
+ball $B_r(a)$ with $\overline{B_r(a)} \subset U$,
+and every function $g$
+continuous on $\overline{B_r(a)}$ and
+harmonic on $B_r(a)$,
+such that $f(x) \leq g(x)$ for $x \in
+\partial B_r(a)$, we have
+\begin{equation*}
+f(x) \leq g(x), \quad \text{ for all } x \in
+B_r(a) .
+\end{equation*}
+\end{defn}
+
+In other words, a subharmonic function is a function that is less than every
+harmonic function on every ball.
+We remark that when $n=1$ in the definition of a subharmonic function,
+it is the same as the standard definition of a
+convex function of one real variable, where affine linear functions play the role of harmonic
+functions: A function of one real variable is
+\emph{convex}\index{convex function} if 
+for every interval it is less than the affine linear function with the same
+end points.
+After all, a function of one real variable is harmonic if the second
+derivative vanishes, and it is therefore affine linear.
+In one real dimension it is also easier to picture.
+The function $f$ is convex if on
+every interval $[\alpha,\beta]$, $f \leq g$ for every affine linear $g$
+bigger than $f$ at the endpoints $\alpha$ and $\beta$.  In particular, we can
+take the $g$ that is equal to $f$ at the endpoints.
+The picture is analogous for subharmonic functions for $n > 1$,
+but it is harder to draw.
+
+\begin{myfig}
+\subimport*{figures/}{convexfunc.pdf_t}
+\caption{Convex function.\label{fig:convexfunc}}
+\end{myfig}
+
+We will consider harmonic and subharmonic functions in $\C \cong
+\R^2$.
+Let us go through some basic results on harmonic and subharmonic
+functions in $\C$ that you have seen in detail in your one-variable class.
+Consequently, we leave some of these results as exercises.
+In this section (and not just here)
+we often write $f(z)$ for a function
+even if it is not holomorphic.
+
+\begin{exbox}
+\begin{exercise}
+An upper-semicontinuous function achieves a maximum on compact sets.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be open.
+Show that for a $C^2$ function $f \colon U \to \R$,
+\begin{equation*}
+\frac{\partial^2}{\partial \bar{z}\partial z} f = \frac{1}{4} \nabla^2 f .
+\end{equation*}
+Use this to show that $f$ is harmonic if and only if it is
+(locally) the real or imaginary part
+of a holomorphic function.
+Hint: The key is finding an antiderivative of a holomorphic function.
+\end{exercise}
+
+\begin{exercise}
+Prove the identity theorem.  Let $U \subset \C$ be a domain
+and $f \colon U \to \R$ harmonic such that $f=0$ on a nonempty open subset
+of $U$.  Then $f\equiv 0$.
+\end{exercise}
+\end{exbox}
+
+It follows from the exercise that a harmonic function is infinitely differentiable.
+It is useful to find a harmonic function given boundary values.
+This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
+solvable for many (though not all) domains.
+The proof of the following special case is contained in the exercises
+following the theorem.
+The
+\emph{\myindex{Poisson kernel}} for the unit disc $\D \subset \C$ is
+\glsadd{not:Pr}%
+\begin{equation*}
+P_r(\theta)
+= \frac{1}{2\pi} \frac{1-r^2}{1+r^2-2r \cos \theta}
+= \frac{1}{2\pi}
+\operatorname{Re} \left( \frac{1+re^{i\theta}}{1-re^{i\theta}}\right) ,
+\qquad \text{for $0 \leq r < 1$.}
+\end{equation*}
+
+\begin{thm} \label{thm:dirichsol}
+Let $u \colon \partial \D \to \C$ be a continuous function.
+The function
+$Pu \colon \overline{\D} \to \C$, defined by
+\begin{equation*}
+Pu(re^{i\theta})
+=
+\int_{-\pi}^\pi u(e^{i\varphi}) P_r(\theta-\varphi) \, d\varphi
+\quad \text{if $r < 1$} \qquad \text{and} \qquad
+Pu(e^{i\theta}) = u(e^{i\theta}),
+\end{equation*}
+is harmonic in $\D$ and continuous on $\overline{\D}$.
+\end{thm}
+
+\pagebreak[2]
+In the proof, it is useful to consider how
+the graph of $P_r$ as a function of $\theta$ looks for a fixed $r$.
+The following are the graphs of $P_r$ for $r=0.5$,
+$r=0.7$, and $r=0.85$ on $[-\pi,\pi]$:
+
+\begin{myfig}
+\includegraphics[width=0.5\textwidth]{figures/poisson-kernel.pdf}
+\end{myfig}
+
+\begin{exbox}
+\begin{exercise}
+\begin{exparts}
+\item
+Prove $P_r(\theta) > 0$ for all $0 \leq r < 1$ and all $\theta$.
+\item
+Prove $\int_{-\pi}^{\pi} P_r(\theta) \, d\theta = 1$.
+\item
+Prove for any given $\delta > 0$,
+$\sup \{P_r(\theta) : \delta \leq \abs{\theta} \leq \pi \} \to 0$ as
+$r \to 1$.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+\pagebreak[1]%
+Prove \thmref{thm:dirichsol} using the following guideline:
+\begin{exparts}
+\item
+Poisson kernel is harmonic
+as a function of $z=re^{i\theta} \in \D$, and hence
+$Pu$ is harmonic.
+\item
+$P$ acts like an
+approximate identity: Prove that
+$Pu(re^{i\theta}) \to u(e^{i\theta})$ uniformly as
+$r \to 1$ (Hint: Split the integral to $[-\delta,\delta]$ and the rest
+and use the previous exercise).
+\item
+Prove that $Pu(z)$ tends to $u(z_0)$ as
+$z \in \D \to z_0 \in \partial \D$.
+\pagebreak[2]
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+State and prove a version of \thmref{thm:dirichsol} for an arbitrary disc
+$\Delta_r(a)$.
+\end{exercise}
+
+\begin{exercise}
+Prove that the Dirichlet problem is not solvable in the punctured disc $\D
+\setminus \{ 0 \}$.
+\end{exercise}
+\end{exbox}
+
+The Poisson kernel is also used as a reproducing kernel for
+holomorphic functions, as holomorphic functions are harmonic (their real and
+imaginary parts are).
+A Poisson kernel also exists for higher dimensions, and has
+analogous properties.
+The solution to the Dirichlet problem using the Poisson kernel leads to
+the following proposition.
+
+\pagebreak[2]
+\begin{prop}[Mean-value property and sub-mean-value property]
+\label{prop:meansubmeanprop}
+\index{mean-value property}
+\index{sub-mean-value property}
+Let $U \subset \C$ be an open set.
+\begin{enumerate}[(i)]
+\item
+A continuous function
+$f \colon U \to \R$
+is harmonic if and only if 
+\begin{equation*}
+f(a) = \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta
+\qquad \text{whenever} \quad
+\overline{\Delta_r(a)} \subset U .
+\end{equation*}
+\item
+An upper-semicontinuous function $f \colon U \to \R \cup \{ -\infty \}$
+is subharmonic if and only if
+\begin{equation*}
+f(a) \leq \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta
+\qquad \text{whenever} \quad
+\overline{\Delta_r(a)} \subset U .
+\end{equation*}
+\end{enumerate}
+\end{prop}
+
+For the sub-mean-value property you may have to use 
+the Lebesgue integral to integrate an upper-semicontinuous function,
+and to use the version of the Poisson integral above, you need to
+approximate by continuous functions on the boundary in the right way.
+On first reading, feel free to think of continuous subharmonic
+functions and not too much will be lost.
+
+\begin{exbox}
+\begin{exercise}
+Fill in the details of the proof of \propref{prop:meansubmeanprop}.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be open.
+Show that if $f \colon U \to \R \cup\{- \infty \}$ is subharmonic,
+then 
+\begin{equation*}
+\limsup_{w \to z} f(w) = f(z) 
+\qquad \text{for all $z \in U$.}
+\end{equation*}
+\end{exercise}
+
+\begin{exercise} \label{exercise:fminusgsubharmonic}
+Suppose $U \subset \C$ is open and $g \colon U \to \R$ is harmonic.
+Then $f \colon U \to \R \cup \{ -\infty \}$ is subharmonic if and only if $f-g$
+is subharmonic.
+\end{exercise}
+\end{exbox}
+
+\begin{prop}[Maximum principle]
+\index{maximum principle!subharmonic functions}
+Suppose $U \subset \C$ is a domain and $f \colon U \to \R \cup \{ -\infty \}$
+is subharmonic.  If $f$ attains a maximum in $U$, then $f$ is constant.
+\end{prop}
+
+\begin{proof}
+Suppose $f$ attains a maximum at $a \in U$.
+If
+$\overline{\Delta_r(a)} \subset U$, then
+\begin{equation*}
+f(a) \leq \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta \leq f(a)
+.
+\end{equation*}
+Hence, $f = f(a)$ almost everywhere on $\partial \Delta_r(a)$.
+By upper-semicontinuity, $f = f(a)$ everywhere on $\partial \Delta_r(a)$.
+This was true for all $r$
+with $\overline{\Delta_r(a)} \subset U$, so $f=f(a)$ on $\Delta_r(a)$,
+and so the set where $f=f(a)$ is open.  The set where an upper-semicontinuous
+function attains a maximum is closed.  So $f=f(a)$ on $U$ as $U$ is
+connected.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove that subharmonicity is a local property.  That is, given an open set
+$U \subset \C$, a function $f \colon U \to \R \cup \{ -\infty \}$ is subharmonic if
+and only if for every $p \in U$ there exists a neighborhood $W$ of $p$,
+$W \subset U$, such that $f|_{W}$ is subharmonic.  Hint: Perhaps try to use
+the maximum principle and \exerciseref{exercise:fminusgsubharmonic}.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a bounded open set, $f \colon \overline{U} \to \R
+\setminus \{-\infty\}$ is an upper-semicontinuous function, such that $f|_U$
+is subharmonic, $g \colon \overline{U} \to \R$ is a continuous function
+such that $g|_U$ is harmonic and
+$f(z) \leq g(z)$ for all $z \in \partial U$.  Prove that
+$f(z) \leq g(z)$ for all $z \in U$.
+\end{exercise}
+
+\begin{exercise} \label{exercise:onlyniceuneededforsubharmonic}
+Let $g$ be a function
+harmonic on a disc $\Delta \subset \C$ and continuous on
+$\overline{\Delta}$.  Prove that for every $\epsilon > 0$ there exists
+a function $g_\epsilon$, harmonic in a neighborhood of $\overline{\Delta}$,
+such that $g(z) \leq g_\epsilon(z) \leq g(z)+\epsilon$ for all $z \in
+\overline{\Delta}$.
+In particular, to test subharmonicity, we only need to consider those
+$g$ that are harmonic a bit past the boundary of the disc.
+\end{exercise}
+\end{exbox}
+
+\begin{prop}
+Suppose $U \subset \C$ is an open set and $f \colon U \to \R$ is a $C^2$ function.
+The function $f$ is subharmonic if and only if
+$\nabla^2 f \geq 0$.
+\end{prop}
+
+\begin{proof}
+Suppose $f$ is a $C^2$-smooth function on a subset of $\C \cong \R^2$
+with $\nabla^2 f \geq 0$.  We wish to show that $f$ is subharmonic.
+Take a disc $\Delta$ such that $\overline{\Delta} \subset U$.
+Consider a function
+$g$ continuous on $\overline{\Delta}$,
+harmonic on $\Delta$, and such that
+$f \leq g$ on the boundary $\partial \Delta$.  Because
+$\nabla^2 (f-g) = \nabla^2 f \geq 0$, we assume $g = 0$ and $f \leq 0$
+on the boundary $\partial \Delta$. 
+
+Suppose $\nabla^2 f > 0$ at all points on $\Delta$.
+Suppose $f$ attains a maximum in $\Delta$,
+call this point $p$.  
+The Laplacian $\nabla^2 f$ is the trace of the Hessian matrix, but for $f$ to have a
+maximum, the Hessian must have only nonpositive eigenvalues at the critical
+points, which is a
+contradiction as the trace is the sum of the eigenvalues.  So $f$ has no
+maximum inside, and therefore $f \leq 0$ on all of
+$\overline{\Delta}$.
+
+Next suppose $\nabla^2 f \geq 0$.
+Let $M$ be the maximum of $x^2+y^2$ on $\overline{\Delta}$.
+Take $f_n(x,y) = f(x,y) + \frac{1}{n}
+( x^2+y^2 ) - \frac{1}{n}M$.  Clearly $\nabla^2 f_n > 0$ everywhere on
+$\Delta$ and
+$f_n \leq 0$ on the boundary, so $f_n \leq 0$ 
+on all of $\overline{\Delta}$.  As $f_n \to f$, we obtain that
+$f \leq 0$ on all of $\overline{\Delta}$.
+
+The other direction is left as an exercise.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Finish the proof of the proposition above.
+\end{exercise}
+\end{exbox}
+
+In analogy to convex functions, a $C^2$-smooth function $f$ of one
+real variable is convex if and only if $f''(x) \geq 0$ for all $x$.
+
+\pagebreak[2]
+\begin{prop}
+Suppose $U \subset \C$ is an open set and $f_\alpha \colon U \to \R \cup \{ -\infty \}$
+is a family of subharmonic functions.  Let
+\begin{equation*}
+\varphi(z) = \sup_\alpha\, f_\alpha(z) .
+\end{equation*}
+If the family is finite, then $\varphi$ is subharmonic.
+If the family is infinite, $\varphi(z) \not= \infty$ for
+all $z$, and $\varphi$
+is upper-semicontinuous, then $\varphi$ is subharmonic.
+\end{prop}
+
+\begin{proof}
+Suppose $\overline{\Delta_r(a)} \subset U$.  For any $\alpha$,
+\begin{equation*}
+\frac{1}{2\pi} \int_0^{2\pi} \varphi (a+re^{i\theta})\, d\theta 
+\geq
+\frac{1}{2\pi} \int_0^{2\pi} f_\alpha (a+re^{i\theta})\, d\theta 
+\geq f_\alpha(a) .
+\end{equation*}
+Taking the supremum on the right over $\alpha$ obtains the results.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove that if $\varphi \colon \R \to \R$ is a monotonically increasing
+convex function, $U \subset \C$ is an open set, and $f \colon U \to \R$
+is subharmonic, then $\varphi \circ f$ is subharmonic.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be open, $\{ f_n \}$ a sequence of 
+subharmonic functions uniformly bounded above on compact subsets, and 
+$\{ c_n \}$ a sequence of positive real numbers such that
+$\sum_{n=1}^\infty c_n < \infty$.
+Prove that $f = \sum_{n=1}^\infty c_n f_n$ is subharmonic.  Make sure to prove
+the function is upper-semicontinuous.
+\end{exercise}
+
+\begin{exercise}
+\pagebreak[2]
+Suppose $U \subset \C$ is a bounded open set, and $\{ p_n \}$ a sequence of points in
+$U$. For $z \in U$, define
+$f(z) = \sum_{n=1}^\infty 2^{-n} \log \sabs{z-p_n}$, possibly taking on the
+value $-\infty$.
+\begin{exparts}
+\item
+Show that $f$ is a subharmonic function in $U$.
+\item
+If $U = \D$ and $p_n = \frac{1}{n}$, show that $f$ is discontinuous at 0
+(the natural topology on $\R \cup \{ -\infty \}$).
+\item
+If $\{ p_n \}$ is dense in $U$, show that $f$ 
+is nowhere continuous.
+Hint: Prove that $f^{-1}(-\infty)$ is a small (but dense) set.  Another
+hint: Integrate the partial sums, and use polar coordinates.
+\pagebreak[2]
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Rational approximation} \label{ch:FIXME}
+
+\begin{myquote}
+FIXME
+\end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{FIXME}
+\label{sec:FIXME}
+
+FIXME
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
