@@ -150,6 +150,7 @@
 \newcommand{\ord}{\operatorname{ord}}
 \newcommand{\dist}{\operatorname{dist}}
 \newcommand{\Arg}{\operatorname{Arg}}
+\newcommand{\Log}{\operatorname{Log}}
 
 % reals
 \newcommand{\esssup}{\operatorname{ess~sup}}
@@ -2801,7 +2802,7 @@ Let us compute the most important example of a line integral.
 
 \begin{example}
 Let $\varphi \colon [0,2\pi] \to \C$ be given by $\varphi(t) = e^{it}$ be
-the unit circle oriented counterclockwise.  Then for $n \in \Z$ we claim that
+the unit circle oriented counterclockwise.  For $n \in \Z$, we claim that
 \begin{equation*}
 \int_\varphi z^n \, dz
 =
@@ -2810,8 +2811,8 @@ the unit circle oriented counterclockwise.  Then for $n \in \Z$ we claim that
 0 & \text{otherwise.}
 \end{cases}
 \end{equation*}
-First we find that $\varphi'(t) = i e^{it}$.
-To prove the claim we simply compute
+First, $\varphi'(t) = i e^{it}$.
+To prove the claim we compute
 \begin{equation*}
 \int_\varphi z^n \, dz
 =
@@ -2828,7 +2829,7 @@ cosines) unless $n+1 = 0$, in which case, the integral is $2\pi$.
 
 We remark that our line integral definition is equivalent to the definition you
 have seen in multivariable calculus.
-Let $\varphi(t) = \bigl( x(t), y(t) \bigr)$,
+Let $\varphi(t) = \bigl( x(t), y(t) \bigr)$, for $t \in [a,b]$, be a path,
 and let $dz = dx + i\, dy$.
 Then
 \begin{equation*}
@@ -2840,10 +2841,10 @@ Then
 & =
 \int_{\varphi} f(z) \, dx + i f(z) \, dy
 =
-\int_{\varphi} \bigl( f(z) x'(t) + i f(z) y'(t) \bigr) \, dt .
+\int_a^b \bigl( f(z) x'(t) + i f(z) y'(t) \bigr) \, dt .
 \end{split}
 \end{equation*}
-Here in the second line you recognize the definition of a line integral
+In the second line you should recognize the definition of a line integral
 $\int_\varphi P\,dx + Q \, dy$ from calculus.
 
 \begin{exbox}
@@ -3091,7 +3092,7 @@ holomorphic.  As that is not yet proved, we need $F'$ to be at least
 continuous so that the integral makes sense\footnote{%
 A real derivative is only integrable
 by a so-called gauge or Henstock--Kurzweil integral, Riemann or
-Lebesgue are not enough, so integrability is not an idle concern.
+even Lebesgue are not enough, so integrability is not an idle concern.
 If the reader is willing to hunt ants with a sledgehammer, then
 the statement and proof of the proposition is perfectly fine at this stage
 if one uses the gauge integral even without any hypothesis on $f$.}.
@@ -4248,39 +4249,6 @@ If equality holds, then $f(z) = \varphi_{-b}\bigl( e^{i\theta} \varphi_a(z)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Homotopic version of Cauchy} \label{ch:FIXME}
-
-\begin{myquote}
-FIXME
-\end{myquote}
-
-FIXME: Perhaps this chapter could have other versions of Cauchy.  We should
-have at least something more complicated than what we did above.  Perhaps
-we should skip this entirely and just do it in terms of winding numbers?
-Hmmmmm...
-
-FIXME: Perhaps it should come later?  I want to get to logarithms, zeros and
-singularities sooner, no?
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Homotopies}
-\label{sec:homotopy}
-
-FIXME
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Homotopic version of Cauchy}
-\label{sec:homotopy}
-
-FIXME
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \chapter{The logarithm, zeros, and singularities} \label{ch:FIXME}
 
 \begin{myquote}
@@ -4294,7 +4262,107 @@ I became insane, with long intervals of horrible sanity.
 \section{The logarithm}
 \label{sec:log}
 
+Let us look at the function $z^n$ for $n \in \Z$.  When $n \geq 0$, 
+then $z^n$ is defined in the entire plane, and an antiderivative is
+simply $\frac{z^{n+1}}{n+1}$.  If $n < -1$, then $z^n$ is defined
+in the punctured plane $\C \setminus \{0\}$, but again
+an antiderivative is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
+\frac{1}{z}$.  It turns out it has an antiderivative, but never defined in
+the entire punctured plane.
+
+We proved that in any star-like domain, a holomorphic function has an
+antiderivative.  So if we take say the set
+\begin{equation*}
+U = \C \setminus \{ \Re z \leq 0 , \Im z = 0 \},
+\end{equation*}
+the so-called \emph{\myindex{slit plane}}.  It is a star-like domain and
+so there exists an
+antiderivative for $\frac{1}{z}$ in $U$.
+We could require that this antiderivative is 0 at 1,
+and from this we get a function
+\begin{equation*}
+\operatorname{Log} \colon U \to \C ,
+\end{equation*}
+called the \emph{\myindex{principal branch}} of the logarithm.  You should
+recall that we had before another thing called the principal branch, 
+the principal branch of the argument.  Let us show that
+\begin{equation*}
+\Log z = \log \sabs{z} + i \Arg z ,
+\end{equation*}
+where $\log \sabs{z}$ is just the standard real logarithm.  So first let
+$L(z) = \log \sabs{z} + i \Arg z$ and let us show that $L = \Log$.  We see
+\begin{equation*}
+e^{L(z)}
+=
+e^{\log \sabs{z}} e^{i \Arg z}
+=
+\sabs{z} e^{i \Arg z} = z .
+\end{equation*}
+So $L$ is the inverse of the exponential, at least for $z \in U$.
+Now take the derivative of both sides of $z = e^{L(z)}$
+\begin{equation*}
+1 = L'(z) e^{L(z)} = L'(z) z .
+\end{equation*}
+Et voil\`a!  We have $L'(z) = \frac{1}{z}$.
+
+If you notice we could have used any branch of the argument.  So we will
+make the definition
+\begin{equation*}
+\log z \overset{\text{def}}{=} \log \sabs{z} + i \arg z .
+\end{equation*}
+This definition is totally wrong at first glance.  First, the log on the
+left, is a different log than the log on the right.  On the right it is the
+standard real log, that is, $\log \colon (0,\infty) \to \R$,
+where $\log 0 = 1$.
+But the log on the left
+is now not even a function, it has infinitely many values since the argument
+on the right hand side has infinitely many values.  The value of $\log -1$ is
+$\pi i$, but also $-\pi i$ or $3\pi i$.
+
+The double duty of ``log'' is a small price to pay.  It is almost never a
+problem and it is generally clear which log one is talking about based on
+what sort of things are being plugged into it.
+
+While the log is not really a function, it is a multivalued function,
+it is really the definition that we want.  The principal branch, while 
+useful when one wants to get some actual numbers, is not always what we
+want.  It is not as useful as one would think.
+And beware that computers like to give back the principal branch even 
+when it doesn't make any sense.
+
 FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Homotopic version of Cauchy} \label{ch:FIXME}
+
+\begin{myquote}
+FIXME
+\end{myquote}
+
+FIXME: Perhaps this chapter could have other versions of Cauchy.  We should
+have at least something more complicated than what we did above.  Perhaps
+we should skip this entirely and just do it in terms of winding numbers?
+Hmmmmm...
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Homotopies}
+\label{sec:homotopy}
+
+
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Homotopic version of Cauchy}
+\label{sec:homotopy}
+
+FIXME
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
