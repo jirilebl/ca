@@ -577,8 +577,8 @@ mathematics
 is taking a false statement such as ``all
 polynomials have a root'' and redefining what we mean by a ``number,''
 so that the statement is true.  In this case we arrive at the complex
-numbers.  Surprisingly, while this technique
-just feels like cheating, it has been very productive in giving us
+numbers.  Surprisingly, while this technique (moving the goalposts)
+just feels like cheating, it has been highly productive in giving us
 essentially all the mathematics we know, both pure and applied.  It is this same
 technique that starts with the natural numbers
 \glsadd{not:N}$\N = \{ 1,2,3,\ldots \}$, which are the only
@@ -1241,7 +1241,7 @@ and think of the corresponding neighborhood of the origin.
 More concretely we can give $\C_{\infty}$ a metric space structure.  The way
 we can visualize it is as follows.  Let $S^2$ be the unit sphere in $\R^3$,
 that is, the set described by $x^2 + y^2 + z^2 = 1$ if $(x,y,z)$ are the
-coordinates\footnote{This is one of the very few instances in this book where
+coordinates\footnote{This is one of the few instances in this book where
 $z$ is a real number.}.  The plane $\R^2$ with coordinates $(x,y)$ can be
 identified with $\C$ with coordinate $\xi$ by taking $x+iy = \xi$.
 Given any point $p \in S^2$ which is not the north pole $(0,0,1) \in S^2$,
@@ -1345,7 +1345,7 @@ In calculus and in basic real analysis, you most likely encountered
 infinite limits that are really in the sense of the extended reals.
 Despite that the two types of infinite limits, either in the sense of the
 extended reals or in the sense of the Riemann sphere,
-look very similar, and despite using essentially the same notation,
+look similar, and despite using essentially the same notation,
 they are different.
 For example,
 \begin{equation*}
@@ -1424,7 +1424,7 @@ so $f(z) = az + b$, and so clearly
 f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
 \end{equation*}
 
-This sort of decomposition is very useful since to prove some fact about
+This sort of decomposition is quite useful since to prove some fact about
 LFTs, one only needs to prove it for $T_a$, $D_a$, and $I$.  This technique
 will come in handy in just the next exercise.
 
@@ -1513,7 +1513,7 @@ conversely every invertible $2 \times 2$ matrix $M$ corresponds to an LFT.
 
 \medskip
 
-A very useful LFT that comes up all the time is the
+A useful LFT that comes up all the time is the
 \emph{\myindex{Cayley map}}
 \begin{equation*}
 C(z)
@@ -1533,7 +1533,7 @@ to $-i$ is bigger than the distance of $z$ to $i$.  It is straightforward
 to see this means that $z \in \bH$.
 
 Any LFT is bijective if thought of as a map from $\C_\infty$
-to itself, so $C^{-1}$ exists, and it is also a very useful map.  We leave
+to itself, so $C^{-1}$ exists, and it is also a useful map.  We leave
 it as an exercise to figure out the inverse.
 
 \begin{exbox}
@@ -1596,7 +1596,7 @@ is really equal to $z_4-\infty$ and thus they cancel.
 \frac{z_3-z_1}{z_3-z_2} .
 \end{align*}
 
-By preserved by LFTs we mean that if $f(z)$ is an LFT then
+By ``preserved by LFTs'' we mean that if $f(z)$ is an LFT then
 \begin{equation*}
 (z_1,z_2;z_3,z_4) =
 \bigl(f(z_1),f(z_2);f(z_3),f(z_4)\bigr) .
@@ -1668,7 +1668,7 @@ dance.
 The types of functions that we wish to study are those that in some sense
 generalize polynomials in $z \in \C$.  That is, we wish to study functions that 
 at least locally behave like $P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots +
-a_1 z + a_0$.  Polynomials are very easy to understand and very easy to work
+a_1 z + a_0$.  Polynomials are easy to understand and easy to work
 with.  Unfortunately there aren't that many of them.  For example, there is
 no polynomial that solves the most basic of differential equations: $f' =
 f$.  So we have to enlarge our horizons a bit.
@@ -3884,8 +3884,8 @@ for negative $z$ and behave like an exponential for positive $z$.
 Algebra}
 
 It may seem like we are cramming quite a bit into one subsection, but
-we have all the tools making three very fundamental results just pop out
-with very little work.  First, using the triangle inequality on
+we have all the tools making three fundamental results just pop out
+with little work.  First, using the triangle inequality on
 the Cauchy Integral Formula obtains an estimate on the size of the
 coefficients of the series.  Then these estimates immediately give
 Liouville's Theorem on entire holomorphic functions, which at once gives the
@@ -4066,7 +4066,7 @@ primitive in $U$ for a general $U$.
 \subsection{Schwarz's Lemma}
 
 Recall $\D = \Delta_1(0)$ is the unit disc.  The following statement may
-seem very technical and specialized, but surprisingly it is incredibly
+seem technical and specialized, but surprisingly it is incredibly
 powerful\footnote{In my first year of graduate school, on an exam in complex
 analysis I solved all the problems with a combination of
 Schwarz's Lemma and
@@ -4317,7 +4317,7 @@ While the log is not really a function---it is a multivalued
 function\footnote{%
 And countless insufferable smartypants on the internet will try to convince
 you that a ``multivalued function'' isn't a thing.}---it is really
-the definition that we want.  In fact, it is very rarely what we want.
+the definition that we want.  In fact, it is rarely what we want.
 The principal branch, while 
 useful when one wants to get some actual numbers, is not always what we
 want.  It is not as useful as one would think.
@@ -4542,7 +4542,7 @@ d \zeta .
 \end{equation*}
 \end{thm}
 
-Before we prove the theorem, let us prove a very useful lemma.
+Before we prove the theorem, let us prove a useful lemma.
 
 \begin{lemma} \label{lemma:holfuncbyintegral}
 Suppose $U \subset \C$ is a domain, $\varphi$ is a closed
@@ -4903,7 +4903,7 @@ A twice differentiable function $f \colon U \to \R$ is
 
 The operator $\nabla^2$, sometimes also written $\Delta$,
 is the \emph{\myindex{Laplacian}}.
-It is the trace of the Hessian matrix.  It is a very convenient thing
+It is the trace of the Hessian matrix.  It is a convenient thing
 to note that
 \begin{equation*}
 4
