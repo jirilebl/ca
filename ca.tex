@@ -2749,7 +2749,7 @@ we know $f$ on all of $U$.
 \subsection{Line integrals}
 
 A continuous complex-valued piecewise continuously
-differentiable (piecewise-$C^1$) function $\varphi \colon [a,b] \to \C$ 
+differentiable (piecewise $C^1$) function $\varphi \colon [a,b] \to \C$ 
 is called a \emph{\myindex{path}} or a \emph{\myindex{piecewise $C^1$ path}}.
 All of our paths will be piecewise $C^1$, so we may forget to mention it
 sometime.
@@ -4259,7 +4259,7 @@ I became insane, with long intervals of horrible sanity.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The logarithm}
+\section{The logarithm and the winding number}
 \label{sec:log}
 
 Let us look at the function $z^n$ for $n \in \Z$.  When $n \geq 0$, 
@@ -4303,32 +4303,167 @@ Now take the derivative of both sides of $z = e^{L(z)}$
 \begin{equation*}
 1 = L'(z) e^{L(z)} = L'(z) z .
 \end{equation*}
-Et voil\`a!  We have $L'(z) = \frac{1}{z}$.
+Et voil\`a!  We have $L'(z) = \frac{1}{z}$, so $L = \Log$.
 
-If you notice we could have used any branch of the argument.  So we will
+We could have used any branch of the argument.  So we 
 make the definition
 \begin{equation*}
 \log z \overset{\text{def}}{=} \log \sabs{z} + i \arg z .
 \end{equation*}
-This definition is totally wrong at first glance.  First, the log on the
-left, is a different log than the log on the right.  On the right it is the
+This definition is totally bonkers at first glance.  First, the log on the
+left, is a different log than the log on the right.  On the right, it is the
 standard real log, that is, $\log \colon (0,\infty) \to \R$,
 where $\log 0 = 1$.
 But the log on the left
-is now not even a function, it has infinitely many values since the argument
-on the right hand side has infinitely many values.  The value of $\log -1$ is
-$\pi i$, but also $-\pi i$ or $3\pi i$.
+is now not even a function, it has infinitely many values for every $z$,
+since the arg on the right hand side has infinitely many values.
+The value of $\log -1$ is $\pi i$, but also $-\pi i$, $3\pi i$,
+or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So log is a function just as much
+as arg is a function.
 
 The double duty of ``log'' is a small price to pay.  It is almost never a
 problem and it is generally clear which log one is talking about based on
 what sort of things are being plugged into it.
 
-While the log is not really a function, it is a multivalued function,
-it is really the definition that we want.  The principal branch, while 
+While the log is not really a function---it is a multivalued
+function\footnote{%
+And countless insufferable smartypants on the internet will try to convince
+you that a ``multivalued function'' isn't a thing.}---it is really
+the definition that we want.  In fact, it is very rarely what we want.
+The principal branch, while 
 useful when one wants to get some actual numbers, is not always what we
 want.  It is not as useful as one would think.
 And beware that computers like to give back the principal branch even 
 when it doesn't make any sense.
+
+So how do we use log?  Well it comes up in line integrals, which are used
+to count and classify zeros and/or singularities of functions, or vice
+versa.  Let us compute the integral of $\frac{1}{z}$ around the unit
+circle $\partial \D$, oriented counterclockwise as usual (parametrized
+by, say, $e^{it}$).  Let's suppose we start and end the integration at the
+point $1$:
+\begin{equation*}
+\int_{\partial D} \frac{1}{z} \, dz
+= \log 1 - \log 1 = 2\pi i.
+\end{equation*}
+That makes no sense, no?  Well, it should really only be done
+with quotation marks:
+\begin{equation*}
+\int_{\partial D} \frac{1}{z} \, dz
+\enspace
+\text{``$=$''}
+\enspace
+\log 1 - \log 1
+\enspace
+\text{``$=$''}
+\enspace
+2\pi i.
+\end{equation*}
+That's a lot better, no?  The equalities are only true morally.  But
+interpreted correctly, it is exactly what is happening.  You do subtract
+one of the values of $\log 1$ from another value of $\log 1$.  And to figure
+out which, you start with say $\log 1 = 0$, and you follow the function
+along the circle slowly and notice that the $i \arg z$ grows from $0$ to
+$2\pi i$, so the $\log 1$ at the end is $2 \pi i$.
+
+To make working with the log easier we usually talk about a
+\emph{\myindex{branch of the log}}.  So $L \colon U \to \C$ is a branch
+of the log if $L$ is holomorphic, $L'(z) = \frac{1}{z}$, and $L(z)$ is equal
+to some value of $\log z$ for every $z \in U$.  It is not possible to define
+a branch of the log in every $U$, but for example we can do it in every
+star-like $U$ where $0 \notin U$.  In general, one can define a branch of
+the log in every simply connected domain, that is, a domain without holes,
+that does not contain zero.
+More on this later.  Similarly we can define branches of $\log (z-a)$, which
+should be an antiderivative of $\frac{1}{z-a}$, in which case the domain
+should not contain $a$.
+
+We may also talk about branches more loosely, and talk
+about following them along a path.  That doesn't mean that we really define
+a single branch, it means that we define a branch in some small open set,
+follow its values for a while, then switch to another branch that 
+happens to agree with the first branch at least at the point where we are
+at.  See \figureref{fig:followabranch}.  This is really what we did in the
+``computation'' above.  We followed the log from 1 along the circle until we
+ended up at 1 again, and our branches that we followed ended up $2\pi i$
+off.  We will see an example of this briefly.
+
+\begin{myfig}
+FIXME: follow a branch.
+\caption{FIXME:\label{fig:followabranch}}
+\end{myfig}
+
+OK.  Let's get more rigorous.  First a definition.
+
+\begin{defn}
+Let $\varphi$ be a closed piecewise $C^1$ path and $a \notin \varphi$.  Then
+\begin{equation*}
+n(\varphi;a)
+\overset{\text{def}}{=}
+\frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz
+\end{equation*}
+is called the
+\emph{\myindex{winding number}} of $\varphi$ around $a$, or
+sometimes the 
+\emph{\myindex{index}} of $\varphi$ with respect to $a$.
+\end{defn}
+
+Intuitively, the winding number is the number of times that $\varphi$ winds
+around $a$.  This intuition is confirmed by trying to integrate
+$\frac{1}{z}$ for the path $e^{it}$ for $t \in [0,2\pi]$, that gets you 
+a winding number 1, as it goes once counterclockwise direction around zero.  If we do
+the integral with $e^{2it}$, we go around zero twice in the
+counterclockwise direction, and the winding number really is $2$.  Similarly
+if we use $e^{-it}$, then we go around zero once in the
+clockwise direction, and the winding number is $-1$.
+
+The first thing to prove is to show that the winding number is an integer.
+
+\begin{prop}
+Suppose $\varphi$ is a closed piecewise $C^1$ path and $a \notin \varphi$.  Then
+\begin{equation*}
+n(\varphi;a) = \frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz
+\end{equation*}
+is an integer.
+\end{prop}
+
+Intuitively the proof is to follow a branch of $\log$ around $\varphi$, and
+see by how much it changes.  Since we really just follow the argument
+and we have gone some number of times around $a$ along $\varphi$, the
+argument has changed by some multiple of $2\pi$.  One could make that
+proof rigorous, but there is an easier version.
+
+\begin{proof}
+Let $\varphi \colon [0,1] \to \C$ be our path.
+The path $\varphi$ as a set is compact.  It can be covered by finitely many
+discs $D_1,\ldots,D_n$, none of which contain $a$, and such that there is a
+partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ such that
+$\varphi\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
+so in each one there exists a branch of $\log (z-a)$, call it $L_j$
+such that $L_j(t_j) = L_{j-1}(t_j)$.  Call $z_0 = \varphi(0) = \varphi(1)$.  So
+\begin{equation*}
+\begin{split}
+n(\varphi;a) & =
+\frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz
+\\
+& =
+\frac{1}{2\pi i} \int_0^1 \frac{\varphi'(t)}{\varphi(t)-a} \, dt
+\\
+& =
+\frac{1}{2\pi i} \sum_{j=1}^n \int_{t_{j-1}}^{t_j} \frac{\varphi'(t)}{\varphi(t)-a} \, dt
+\\
+& =
+\frac{1}{2\pi i} \sum_{j=1}^n L_j\bigl(\varphi(t_j)\bigr) -
+L_j\bigl(\varphi(t_{j-1})\bigr)
+\\
+& =
+\frac{1}{2\pi i} \bigl( L_n(z_0) - L_1(z_0) \Bigr) .
+\end{split}
+\end{equation*}
+As $L_n$ and $L_1$ are both branches of the log, their difference is
+$2\pi k i$ for some $k \in \Z$, as each is $\log\sabs{z_0} + i \arg z_0$ for some value of
+$\arg$.
+\end{proof}
 
 FIXME
 
