@@ -506,9 +506,9 @@ at github: \url{https://github.com/jirilebl/ca}
 \markboth{INTRODUCTION}{INTRODUCTION}
 
 \begin{myquote}
-Let us be thankful for the fools. But for them the rest of us could not succeed.
+If you cannot prove a man wrong, don't panic. You can always call him names.
 
----Mark Twain 
+---Oscar Wilde 
 \end{myquote}
 
 The purpose of this book is to teach a one-semester graduate course in
@@ -2046,7 +2046,8 @@ The Cauchy--Riemann equations are then expressed as
 \frac{\partial f}{\partial \bar{z}} = 0 .
 \end{equation}
 That seems a far nicer statement of the equations than \eqref{eq:CReqreal},
-and it is just one complex equation.  It says
+and it is just one complex equation.  
+It says
 a function is holomorphic if and only if it depends on $z$ but not on
 $\bar{z}$.  That statement had better make no sense at first glance.
 After all, the Wirtinger operators are not really derivatives with
@@ -2103,7 +2104,26 @@ parts are zero.  In other words
 + \frac{\partial u}{\partial y} = 0
 .
 \end{equation*}
-That is, the Cauchy--Riemann equations are satisfied.
+That is, the Cauchy--Riemann equations are satisfied.  Just for emphasis
+let us state this result as a porposition.
+
+\begin{prop}
+\label{prop:WirtCR}
+Let $U \subset \C$ be open, and $f \colon U \to \C$ be a (real) continuously
+differentiable function.
+Then
+\begin{equation*}
+\frac{\partial f}{\partial \bar{z}} \equiv 0
+\qquad
+\text{if and only if}
+\qquad
+f \text{ is holomorphic.}
+\end{equation*}
+\end{prop}
+
+
+\medskip
+
 
 The Wirtinger derivative in $z$ computes the holomorphic derivative
 if $f$ is holomorphic.  We can write
@@ -3927,7 +3947,7 @@ d \zeta
 A holomorphic function $f \colon \C \to \C$ is called
 \emph{entire}\index{entire function}.
 
-\begin{thm}[Liouville]
+\begin{thm}[Liouville] \label{thm:Liouville}
 A bounded entire holomorphic function is constant.
 \end{thm}
 
@@ -4017,7 +4037,7 @@ to Morera.  Morera's Theorem is quite a useful tool for showing
 holomorphicity as it is often a lot easier to integrate a continuous
 function than to compute a derivative.
 
-\begin{thm}[Morera]
+\begin{thm}[Morera] \label{thm:Morera}
 Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
 Suppose that
 \begin{equation*}
@@ -4217,7 +4237,7 @@ If equality holds, then $f(z) = \varphi_{-b}\bigl( e^{i\theta} \varphi_a(z)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{The Logarithm, Zeros, and Singularities} \label{ch:FIXME}
+\chapter{The Logarithm and Cauchy} \label{ch:FIXME}
 
 \begin{myquote}
 I became insane, with long intervals of horrible sanity.
@@ -4437,6 +4457,15 @@ $2\pi k i$ for some $k \in \Z$, as each is $\log\sabs{z_0} + i \arg z_0$ for som
 $\arg$.
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+Let $\partial \Delta_r(a)$ be the path oriented counterclockwise.
+Show that $n(\partial \Delta_r(a);z) = 0$ if $z \notin
+\overline{\Delta_r(a)}$ and 
+$n(\partial \Delta_r(a);z) = 1$ if $z \in \Delta_r(a)$.
+\end{exercise}
+\end{exbox}
+
 \begin{prop}
 Given a piecewise $C^1$ path (or a cycle) $\varphi$ then
 the function $a \mapsto n(\varphi;a)$ is constant on the
@@ -4458,11 +4487,11 @@ Consider the function
 \begin{equation}
 a \mapsto n(\varphi;a) = \frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz .
 \end{equation}
-Fix $a_0 \in \C \setminus \varphi$, and let $d_0$ be the distance from 
-$a_0$ to $\varphi$, that is $d_0 = \inf \{ \sabs{z-a_0} : z \in \varphi \}$.
-As $\varphi$ is compact, $d_0 > 0$.  Suppose $a$ is
-such that $\sabs{a-a_0} < \frac{d_0}{2}$, so $\sabs{z-a} \geq
-\frac{d_0}{2}$ for every $z \in \varphi$.  Let $\ell$ be the length of
+Fix $a_0 \in \C \setminus \varphi$, and let $d(a_0,\varphi)$ be the distance from 
+$a_0$ to $\varphi$, that is $d(a_0,\varphi) = \inf \{ \sabs{z-a_0} : z \in \varphi \}$.
+As $\varphi$ is compact, $d(a_0,\varphi) > 0$.  Suppose $a$ is
+such that $\sabs{a-a_0} < \frac{d(a_0,\varphi)}{2}$, so $\sabs{z-a} \geq
+\frac{d(a_0,\varphi)}{2}$ for every $z \in \varphi$.  Let $\ell$ be the length of
 $\varphi$, that is $\ell = \int_\varphi \sabs{dz}$.  Then
 \begin{equation*}
 \begin{split}
@@ -4473,7 +4502,7 @@ $\varphi$, that is $\ell = \int_\varphi \sabs{dz}$.  Then
 \frac{1}{2\pi} \int_\varphi \frac{\sabs{a_0-a}}{\sabs{z-a_0}\sabs{z-a}} \, \sabs{dz}
 \\
 & \leq 
-\frac{1}{2\pi} \frac{2\ell}{d_0^2} \sabs{a_0-a} .
+\frac{1}{2\pi} \frac{2\ell}{d(a_0,\varphi)^2} \sabs{a_0-a} .
 \end{split}
 \end{equation*}
 In other words, $n(\varphi;a)$ is a continuous function of $a$.
@@ -4481,27 +4510,218 @@ As it is continuous
 and integer valued, it is constant on any connected component of
 $\C \setminus \varphi$ (the set where it is defined).
 
-Now let $d_a$ be the distance of $a$ to $\varphi$.  Then
+Next,
 \begin{equation*}
 \sabs{n(\varphi;a)} \leq \frac{1}{2\pi} \int_\varphi \frac{1}{\sabs{z-a}} \,
-\sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d_a} .
+\sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d(a,\varphi)} .
 \end{equation*}
 On the unbounded component as $\varphi$ is compact we can find $a$
-with $d_a$ arbitrarily large, meaning $n(\varphi;a)$ is arbitrarily small
+with $d(a,\varphi)$ arbitrarily large, meaning $n(\varphi;a)$ is arbitrarily small
 on this component, and as it is constant, it must be zero.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Cauchy's Theorem and Cauchy's Integral Formula}
+\section{Homology versions of Cauchy}
 
-A domain is simply connected if you cannot go around any point in the
-complement.
+\begin{thm}[Cauchy Integral Formula (homology version)]
+\label{thm:CIFhomology}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$\varphi$ a closed piecewise $C^1$ path (or a cycle) in $U$
+such that $n(\varphi;a) = 0$ for all $a \in \C \setminus U$.
+Then for $z \in U \setminus \varphi$,
+\begin{equation*}
+n(\varphi;z)
+f(z)
+=
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta .
+\end{equation*}
+\end{thm}
 
-\begin{defn}
-A domain $U \subset \C$ is simply connected if $n(\varphi;a) = 0$ for every
-piecewise $C^1$ path $\varphi$ in $U$ and every $a \in \C \setminus U$.
-\end{defn}
+Before we prove the theorem, let us prove a very useful lemma.
+
+\begin{lemma} \label{lemma:holfuncbyintegral}
+Suppose $U \subset \C$ is a domain, $\varphi$ is a closed
+piecewise $C^1$ path (or a cycle) in $U$, and
+$\psi \colon \varphi \times U \to \C$ is a continuous function such that
+for each fixed $z \in \varphi$, the function $w \mapsto \psi(z,w)$ is
+holomorphic.  Then
+\begin{equation}
+h(w) =
+\int_\varphi \psi(z,w) \, dz
+\end{equation}
+is a holomorphic function $U$.
+\end{lemma}
+
+There are two ways to do this,
+and as they are both useful in other places, let us do both of them.
+
+\begin{proof}[Proof A]
+One is to use Morera's Theorem (\thmref{thm:Morera}) and Fubini's Theorem.
+Let $T$ be a triangle inside this small neighborhood.  Suppose $w \in U$
+first.  Then
+\begin{equation*}
+\int_{\partial T}
+h(w)
+\, dw
+=
+\int_{\partial T}
+\int_\varphi \psi(z,w) \, dz
+\, dw
+=
+\int_\varphi
+\int_{\partial T}
+\psi(z,w)
+\, dw
+\, dz
+= \int_\varphi 0 \, dz = 0.
+\end{equation*}
+For this of course you need Fubini's Theorem, which applies because both
+$\partial T$ and $\varphi$ are compact and so parametrized by a finite
+interval, and the integrand is continuous, and hence bounded,
+on $\partial T \times \varphi$.
+Morera's Theorem now says that $h(w)$ is
+holomorphic.
+\end{proof}
+
+\begin{proof}[Proof B]
+Another way to do this\footnote{%
+For no good rational reason, this is the one us several complex variables
+(SCV) people seems to prefer, possibly because SCV people are often PDE
+people and we rather differentiate than integrate.}
+is to apply Wirtinger derivatives and differentiation under the integral:
+\begin{equation*}
+\frac{\partial}{\partial \bar{w}}
+\bigl[
+h(w)
+\bigr]
+=
+\frac{\partial}{\partial \bar{w}}
+\int_\varphi \psi(z,w) \, dz
+=
+\int_\varphi
+\frac{\partial}{\partial \bar{w}}
+\bigl[
+\psi(z,w)
+\bigr]
+\, dz
+= \int_\varphi 0 \, dz = 0.
+\end{equation*}
+Here, you are really passing the partial derivatives in the real and
+imaginary parts under the integral, which can be done by 
+the Leibniz Integral Rule, \thmref{thm:Leibnizrule}, for example.
+Actually it requires \exerciseref{exercise:severalvariableLiebniz},
+but that is a simple generalization.  The Cauchy--Riemann equations
+(\propref{prop:WirtCR}) now
+say that $h(w)$ is holomorphic.
+\end{proof}
+
+In either case, the idea is to swap some limits, which is not always true,
+and the two techniques above are the two kinds of swaps that come up most
+often (Fubini, and differentiating under the integral).
+
+OK.  Now we are ready to prove the theorem.  Before we do let us note a
+rather strange fact that what we will do in the proof is to define an entire
+function (even though $U$ might be only a small subset) and then we will use
+Liouville's Theorem (\thmref{thm:Liouville}).
+
+\begin{proof}[Proof of \thmref{thm:CIFhomology}]
+We begin with an expression you have probably seen in the development of the real
+derivative, so it is not a surprise it appears in the development of
+holomorphic functions.
+Define
+\begin{equation*}
+g(z,w) =
+\begin{cases}
+\frac{f(z)-f(w)}{z-w} & \text{if } z \not= w , \\
+f'(z)                 & \text{if } z = w .
+\end{cases}
+\end{equation*}
+
+\begin{exbox}
+\begin{exercise}
+Prove that $g(z,w)$ is continuous in $U \times U$, and 
+the function $g_z(w) = g(z,w)$ is holomorphic for every fixed $z \in U$.
+Hint: The only mildly tricky piece of this proof is showing that $g_z$ is
+holomorphic at $w=z$.
+\end{exercise}
+\end{exbox}
+
+Define
+\begin{equation*}
+h(w) = 
+\begin{cases}
+\int_\varphi g(z,w) \, dz & \text{if } w \in U , \\
+\int_\varphi \frac{f(z)}{z-w} \, dz & \text{if } n(\varphi;w) = 0 .
+\end{cases}
+\end{equation*}
+As $n(\varphi;w) = 0$ for all $w \in \C \setminus U$ we have at least
+defined $h(w)$ for every $w \in \C$.  Unfortunately, at some points
+we have two definitions.
+To show that $h(w)$ is well defined, we must show that if
+$n(\varphi;w) = 0$ and $w \in U$, that we get the same number.
+Suppose
+we have such a $w$ (in particular $w \notin \varphi$).
+\begin{equation*}
+\int_\varphi g(z,w) \, dz
+=
+\int_\varphi \frac{f(z)-f(w)}{z-w} \, dz
+=
+\int_\varphi \frac{f(z)}{z-w} \, dz
+-
+f(w) n(\varphi;w)
+=
+\int_\varphi \frac{f(z)}{z-w} \, dz .
+\end{equation*}
+So $h \colon \C \to \C$ is well-defined.
+
+Next we show that $h$ is
+holomorphic.
+Holomorphicity is a local property, so we only need to prove it 
+in a neighborhood of any point.
+The set where $n(\varphi;w) = 0$ is open as $n(\varphi;w)$ is
+continuous, and so each point has a neighborhood where $h$ is defined
+entirely by one or the other expression above.  Given any point,
+take a neighborhood where one of the expressions defines
+$h$ and then apply \lemmaref{lemma:holfuncbyintegral}.
+
+The unbounded component of $\C \setminus \varphi$ is contained in the
+set where $n(\varphi;w) = 0$, so on this component, $h$ is defined by the
+second expression, so take such a $w$.
+Suppose $M$ is a bound on $f$ on $\varphi$, let $\ell$ be the length of
+$\varphi$, and let $d(w,\varphi)$ be the distance of $w$ from $\varphi$.
+\begin{equation*}
+\sabs{h(w)}
+=
+\abs{
+\int_\varphi \frac{f(z)}{z-w} \, dz
+}
+\leq
+\int_\varphi \abs{\frac{f(z)}{z-w}} \, \sabs{dz}
+%\leq
+%\int_\varphi \frac{M}{\sabs{z-w}} \, \sabs{dz}
+\leq
+\frac{M \ell}{d(w,\varphi)} .
+\end{equation*}
+So as $w \to \infty$, so does $d(w,\varphi) \to \infty$ and so $h(w) \to 0$.
+In particular, $h$ is an entire bounded function and
+Liouville says that $h$ is constant, and that constant must be zero.
+So suppose that $w \in U \setminus \varphi$.  Then
+\begin{equation*}
+0 = h(w) =
+\int_\varphi \frac{f(z)-f(w)}{z-w} \, dz
+=
+\int_\varphi \frac{f(z)}{z-w} \, dz
+-
+f(w) n(\varphi;w) . \qedhere
+\end{equation*}
+\end{proof}
+
+Cauchy's Theorem actually follows immediately using the Integral Formula.
 
 \begin{thm}[Cauchy's Theorem (homology version)]
 Let $U \subset \C$ be a domain and $f \colon U \to \C$ holomorphic.  If $\varphi$ is a
@@ -4511,33 +4731,72 @@ every $a \in \C \setminus U$, then
 \begin{equation*}
 \int_\varphi f(z) \, dz = 0 .
 \end{equation*}
-If $U$ is simply connected,
-then $\int_\varphi f(z) \, dz = 0$
-for every closed path (cycle) $\varphi$.
 \end{thm}
 
 \begin{proof}
-FIXME
+Fix $z \in \C \setminus \varphi$.  Apply 
+the Cauchy Integral Formula for the function $\zeta \mapsto
+(\zeta-z)f(\zeta)$ at $\zeta=z$:
+\begin{equation*}
+0 = n(\varphi;z) (z-z)f(z) =
+\frac{1}{2\pi i} \int_\varphi \frac{(\zeta-z)f(\zeta)}{\zeta-z} \, d\zeta
+=
+\frac{1}{2\pi i} \int_\varphi f(\zeta) \, d\zeta . \qedhere
+\end{equation*}
 \end{proof}
 
-FIXME
+\begin{exbox}
+\begin{exercise}
+Prove that the two theorems are equivalent logically, that is, one follows
+from the other.  We have already proved that Cauchy Integral Formula
+implies Cauchy's Theorem.  So prove that
+Cauchy's Theorem implies the Cauchy Integral Formula.
+\end{exercise}
+\end{exbox}
 
-\begin{thm}[Cauchy Integral Formula (homology version)]
-Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-$\varphi$ a closed piecewise $C^1$ path (or a cycle) in $U$,
-and $z \in U \setminus \varphi$.
-Then
-\begin{equation*}
-f(z)
-=
-n(\varphi;z)
-\frac{1}{2\pi i}
-\int_{\varphi}
-\frac{f(\zeta)}{\zeta-z}
-\,
-d \zeta .
-\end{equation*}
-\end{thm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Homotopy version of Cauchy}
+
+\begin{defn}
+A domain $U \subset \C$ is \emph{\myindex{simply connected}}
+... FIXME FIXME
+%
+%if $n(\varphi;a) = 0$ for every
+%piecewise $C^1$ path $\varphi$ in $U$ and every $a \in \C \setminus U$.
+\end{defn}
+
+\begin{exbox}
+\begin{exercise}
+Prove that $\C$ and $\D$ are simply connected, and $\C \setminus \{ 0 \}$
+is not simply connected.
+\end{exercise}
+
+\begin{exercise}
+Prove that any star-shaped domain is simply connected.
+\end{exercise}
+\end{exbox}
+
+FIXME: homotopy version here!
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Counting Zeros and Singularities} \label{ch:FIXME}
+
+\begin{myquote}
+The people who cast the votes don't decide an election, the people who count
+the votes do.
+
+---Joseph Stalin
+\end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The Residue Theorem}
+
+FIXME:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4587,7 +4846,7 @@ FIXME:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Isolated singularities}
+\section{Classifying isolated singularities}
 
 FIXME:
 
@@ -4598,9 +4857,10 @@ FIXME:
 \chapter{Montel and Riemann} \label{ch:FIXME}
 
 \begin{myquote}
-If you don't know where you're going, you will probably end up somewhere else.
+A round man cannot be expected to fit in a square hole right away. He must
+have time to modify his shape.
 
---Laurence J.\ Peter
+---Mark Twain
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4619,7 +4879,7 @@ FIXME
 \begin{myquote}
 If this is coffee, please bring me some tea; but if this is tea, please bring me some coffee.
 
---Abraham Lincoln
+---Abraham Lincoln
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5222,7 +5482,7 @@ FIXME
 \begin{myquote}
 It has been said that man is a rational animal. All my life I have been searching for evidence which could support this.
 
---Bertrand Russell
+---Bertrand Russell
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -8254,9 +8514,10 @@ in particular that $\frac{d}{ds} \bigl[ \arctan(s) \bigr] = \frac{1}{1+s^2}$.
 \chapter{Results From Basic Analysis} \label{ap:basicanal}
 
 \begin{myquote}
-If you cannot prove a man wrong, don't panic. You can always call him names.
+I refuse to answer that question on the grounds that I don't know the
+answer.
 
----Oscar Wilde 
+---Douglas Adams
 \end{myquote}
 
 We assume as a prerequisite a basic knowledge of analysis on the real line.
@@ -8982,6 +9243,7 @@ fixed $y$.
 Let us prove a simple, but perhaps the most useful version of this theorem.
 
 \begin{thm}[\myindex{Leibniz Integral Rule}]
+\label{thm:Leibnizrule}
 Suppose $f \colon [a,b] \times [c,d] \to \R$ is a continuous function,
 such that $\frac{\partial f}{\partial y}$ exists for all $(x,y) \in [a,b]
 \times [c,d]$ and is continuous.  Define
@@ -9159,7 +9421,7 @@ $f(x) = \int_0^x f'(s) \,ds$ and then rewrite the integral to go
 from $0$ to $1$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:severalvariableLiebniz}
 Let $U \subset \R^n$ be an open set and suppose
 $f(x,y_1,y_2,\ldots,y_n)$ is a continuous
 function defined on $[0,1] \times U \subset \R^{n+1}$.
