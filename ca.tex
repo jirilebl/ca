@@ -3676,38 +3676,6 @@ then $f$ is constant.  Also show by example that the hypothesis $f(z_0)
 \end{exercise}
 \end{exbox}
 
-\subsection{The open mapping theorem}
-
-A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
-sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
-is surprisingly famous\footnote{%
-It is called a ``blow-up'' and it is used in obtaining a Fields medal.
-Unfortunately, it has already been obtained by Hironaka, and you
-have to find your own map if you want your own medal.},
-takes all of $\R^2$, which is both an open and a closed set, to the
-set $\{ (x,y) : x \not= 0 \text{ or } y=0 \}$, which is neither open nor
-closed.
-
-Holomorphic functions are always nice to your topology.
-Remember that for a continuous map, $f^{-1}(V)$ is open whenever
-$V$ is open.  Nonconstant holomorphic functions have this property also in
-reverse.  So while not every holomorphic function is invertible, at least it
-behaves as if it were as far as the topology is concerned.
-
-
-\begin{thm}[Open Mapping]
-Let $U \subset \C$ be a domain and $f \colon U \to \C$ be
-holomorphic and nonconstant.  Then $f(V)$ is an open set for every open set
-$V \subset U$.
-\end{thm}
-
-\begin{proof}
-FIXME
-\end{proof}
-
-
-FIXME:
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Holomorphic functions are analytic}
@@ -4393,10 +4361,14 @@ FIXME: follow a branch.
 \caption{FIXME:\label{fig:followabranch}}
 \end{myfig}
 
-OK.  Let's get more rigorous.  First a definition.
+OK.  Let's get more rigorous.  In the following, it is enough
+to consider closed paths, although everything automatically works
+also for cycles (chains that can be written as sums of closed paths,
+or in other words, chains with empty boundary).
 
 \begin{defn}
-Let $\varphi$ be a closed piecewise $C^1$ path and $a \notin \varphi$.  Then
+Let $\varphi$ be a closed piecewise $C^1$ path, or more generally a cycle,
+and $a \notin \varphi$.  Then
 \begin{equation*}
 n(\varphi;a)
 \overset{\text{def}}{=}
@@ -4420,27 +4392,27 @@ clockwise direction, and the winding number is $-1$.
 The first thing to prove is to show that the winding number is an integer.
 
 \begin{prop}
-Suppose $\varphi$ is a closed piecewise $C^1$ path and $a \notin \varphi$.  Then
+Suppose $\varphi$ is a closed piecewise $C^1$ path (or a cycle)
+and $a \notin \varphi$.  Then
 \begin{equation*}
 n(\varphi;a) = \frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz
 \end{equation*}
 is an integer.
 \end{prop}
 
-Intuitively the proof is to follow a branch of $\log$ around $\varphi$, and
+Intuitively, the proof is to follow a branch of $\log$ around $\varphi$, and
 see by how much it changes.  Since we really just follow the argument
 and we have gone some number of times around $a$ along $\varphi$, the
-argument has changed by some multiple of $2\pi$.  One could make that
-proof rigorous, but there is an easier version.
+argument has changed by some multiple of $2\pi$.
 
 \begin{proof}
-Let $\varphi \colon [0,1] \to \C$ be our path.
+Let $\varphi \colon [0,1] \to \C$ be the path.
 The path $\varphi$ as a set is compact.  It can be covered by finitely many
 discs $D_1,\ldots,D_n$, none of which contain $a$, and such that there is a
 partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ such that
 $\varphi\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
 so in each one there exists a branch of $\log (z-a)$, call it $L_j$
-such that $L_j(t_j) = L_{j-1}(t_j)$.  Call $z_0 = \varphi(0) = \varphi(1)$.  So
+such that $L_j\bigl(\varphi(t_j)\bigr) = L_{j-1}\bigl(\varphi(t_j)\bigr)$.  Call $z_0 = \varphi(0) = \varphi(1)$.  So
 \begin{equation*}
 \begin{split}
 n(\varphi;a) & =
@@ -4465,39 +4437,159 @@ $2\pi k i$ for some $k \in \Z$, as each is $\log\sabs{z_0} + i \arg z_0$ for som
 $\arg$.
 \end{proof}
 
+\begin{prop}
+Given a piecewise $C^1$ path (or a cycle) $\varphi$ then
+the function $a \mapsto n(\varphi;a)$ is constant on the
+topological components of $\C \setminus \varphi$.
+Furthermore, $n(\varphi;a) = 0$ for $a$ on the unbounded component
+of $\C \setminus \varphi$.
+\end{prop}
+
+As $\varphi$ is compact, there must be a unique unbounded component.
+See \figureref{fig:indexconstant} for example.
+
+\begin{myfig}
+FIXME: index constant
+\caption{FIXME:\label{fig:indexconstant}}
+\end{myfig}
+
+\begin{proof}
+Consider the function
+\begin{equation}
+a \mapsto n(\varphi;a) = \frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz .
+\end{equation}
+Fix $a_0 \in \C \setminus \varphi$, and let $d_0$ be the distance from 
+$a_0$ to $\varphi$, that is $d_0 = \inf \{ \sabs{z-a_0} : z \in \varphi \}$.
+As $\varphi$ is compact, $d_0 > 0$.  Suppose $a$ is
+such that $\sabs{a-a_0} < \frac{d_0}{2}$, so $\sabs{z-a} \geq
+\frac{d_0}{2}$ for every $z \in \varphi$.  Let $\ell$ be the length of
+$\varphi$, that is $\ell = \int_\varphi \sabs{dz}$.  Then
+\begin{equation*}
+\begin{split}
+\abs{n(\varphi;a_0)-n(\varphi;a)}
+=
+\abs{\frac{1}{2\pi i} \int_\varphi \frac{a_0-a}{(z-a_0)(z-a)} \, dz}
+& \leq
+\frac{1}{2\pi} \int_\varphi \frac{\sabs{a_0-a}}{\sabs{z-a_0}\sabs{z-a}} \, \sabs{dz}
+\\
+& \leq 
+\frac{1}{2\pi} \frac{2\ell}{d_0^2} \sabs{a_0-a} .
+\end{split}
+\end{equation*}
+In other words, $n(\varphi;a)$ is a continuous function of $a$.
+As it is continuous
+and integer valued, it is constant on any connected component of
+$\C \setminus \varphi$ (the set where it is defined).
+
+Now let $d_a$ be the distance of $a$ to $\varphi$.  Then
+\begin{equation*}
+\sabs{n(\varphi;a)} \leq \frac{1}{2\pi} \int_\varphi \frac{1}{\sabs{z-a}} \,
+\sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d_a} .
+\end{equation*}
+On the unbounded component as $\varphi$ is compact we can find $a$
+with $d_a$ arbitrarily large, meaning $n(\varphi;a)$ is arbitrarily small
+on this component, and as it is constant, it must be zero.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Cauchy's Theorem and Cauchy's Integral Formula}
+
+A domain is simply connected if you cannot go around any point in the
+complement.
+
+\begin{defn}
+A domain $U \subset \C$ is simply connected if $n(\varphi;a) = 0$ for every
+piecewise $C^1$ path $\varphi$ in $U$ and every $a \in \C \setminus U$.
+\end{defn}
+
+\begin{thm}[Cauchy's Theorem (homology version)]
+Let $U \subset \C$ be a domain and $f \colon U \to \C$ holomorphic.  If $\varphi$ is a
+closed
+piecewise $C^1$ path (or a cycle) in $U$ such that $n(\varphi;a) = 0$ for
+every $a \in \C \setminus U$, then
+\begin{equation*}
+\int_\varphi f(z) \, dz = 0 .
+\end{equation*}
+If $U$ is simply connected,
+then $\int_\varphi f(z) \, dz = 0$
+for every closed path (cycle) $\varphi$.
+\end{thm}
+
+\begin{proof}
+FIXME
+\end{proof}
+
 FIXME
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thm}[Cauchy Integral Formula (homology version)]
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$\varphi$ a closed piecewise $C^1$ path (or a cycle) in $U$,
+and $z \in U \setminus \varphi$.
+Then
+\begin{equation*}
+f(z)
+=
+n(\varphi;z)
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta .
+\end{equation*}
+\end{thm}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Homotopic version of Cauchy} \label{ch:FIXME}
+\section{Counting zeros}
 
-\begin{myquote}
+\subsection{The Argument Principle}
+
+FIXME:
+
+\subsection{Rouch\`e's Theorem}
+
+FIXME:
+
+
+\subsection{The open mapping theorem}
+
+A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
+sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
+is surprisingly famous\footnote{%
+It is called a ``blow-up'' and it is used in obtaining a Fields medal.
+Unfortunately, it has already been obtained by Hironaka, and you
+have to find your own map if you want your own medal.},
+takes all of $\R^2$, which is both an open and a closed set, to the
+set $\{ (x,y) : x \not= 0 \text{ or } y=0 \}$, which is neither open nor
+closed.
+
+Holomorphic functions are always nice to your topology.
+Remember that for a continuous map, $f^{-1}(V)$ is open whenever
+$V$ is open.  Nonconstant holomorphic functions have this property also in
+reverse.  So while not every holomorphic function is invertible, at least it
+behaves as if it were as far as the topology is concerned.
+
+
+\begin{thm}[Open Mapping]
+Let $U \subset \C$ be a domain and $f \colon U \to \C$ be
+holomorphic and nonconstant.  Then $f(V)$ is an open set for every open set
+$V \subset U$.
+\end{thm}
+
+\begin{proof}
 FIXME
-\end{myquote}
+\end{proof}
 
-FIXME: Perhaps this chapter could have other versions of Cauchy.  We should
-have at least something more complicated than what we did above.  Perhaps
-we should skip this entirely and just do it in terms of winding numbers?
-Hmmmmm...
+
+FIXME:
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Homotopies}
-\label{sec:homotopy}
+\section{Isolated singularities}
 
-
-
-FIXME
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Homotopic version of Cauchy}
-\label{sec:homotopy}
-
-FIXME
-
+FIXME:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4506,7 +4598,9 @@ FIXME
 \chapter{Montel and Riemann} \label{ch:FIXME}
 
 \begin{myquote}
-FIXME
+If you don't know where you're going, you will probably end up somewhere else.
+
+--Laurence J.\ Peter
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4523,7 +4617,9 @@ FIXME
 \chapter{Harmonic functions} \label{ch:FIXME}
 
 \begin{myquote}
-FIXME
+If this is coffee, please bring me some tea; but if this is tea, please bring me some coffee.
+
+--Abraham Lincoln
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5124,7 +5220,9 @@ FIXME
 \chapter{Rational approximation} \label{ch:FIXME}
 
 \begin{myquote}
-FIXME
+It has been said that man is a rational animal. All my life I have been searching for evidence which could support this.
+
+--Bertrand Russell
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,12 +1,12 @@
-One Complex Variable (FIXME: better title needed)
--------------------------------------------------
+Guide to Cultivating Complex Analysis: Indoctrination in One Variable
+---------------------------------------------------------------------
 
-**Note:** This is not finished.  It is still being written, these are early days.
+**Note:** Work in progress.  It is still being written; these are early
+days, do not expect anything too useful yet.
 
 One-semester graduate level mathematics textbook on basic complex analysis in
-one variable.  A free online textbook based on class notes for the graduate
-course at Oklahoma State University.
-See http://www.jirka.org/ca/
+one variable.  Written for the graduate complex analysis course at
+at Oklahoma State University.
 
 * ca.tex is the LaTeX file
 * notations.tex is the list of notations
