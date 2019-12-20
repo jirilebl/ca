@@ -802,14 +802,14 @@ a_n}$.
 The basic neighborhood (that is, an
 open ball) in $\C$
 is called a \emph{\myindex{disc}}.
-Given $a \in \C$ and $\rho > 0$, define the disc of radius $\rho$ around
-$a$
+Given $p \in \C$ and $r > 0$, define the disc of radius $r$ around
+$p$
 as
 \glsadd{not:disc}%
 \begin{equation*}
-\Delta_\rho(a)
+\Delta_r(p)
 \overset{\text{def}}{=}
-\bigl\{ z \in \C : \sabs{z-a} < \rho \bigr\} .
+\bigl\{ z \in \C : \sabs{z-p} < r \bigr\} .
 \end{equation*}
 A disc centered at the origin of radius 1 is called the
 \emph{\myindex{unit disc}}
@@ -2105,7 +2105,7 @@ parts are zero.  In other words
 .
 \end{equation*}
 That is, the Cauchy--Riemann equations are satisfied.  Just for emphasis
-let us state this result as a porposition.
+let us state this result as a proposition.
 
 \begin{prop}
 \label{prop:WirtCR}
@@ -2348,15 +2348,15 @@ If $z \not= 1$ is such that $\sabs{z}=1$, then $z^n$ diverges as $n \to
 
 \subsection{Power series and radius of convergence}
 
-A \emph{\myindex{power series}} around $a \in \C$ is simply the series
+A \emph{\myindex{power series}} around $p \in \C$ is simply the series
 \begin{equation*}
-\sum_{n=0}^\infty c_n {(z-a)}^n ,
+\sum_{n=0}^\infty c_n {(z-p)}^n ,
 \end{equation*}
 where $c_n$ are some complex numbers.  Where it converges it defines a
-function of $z$.  As the series clearly converges at $z=a$, we worry about
+function of $z$.  As the series clearly converges at $z=p$, we worry about
 convergence at other points.  So we say the series is
 \emph{convergent}\index{convergent power series}, if there is
-some $z \not= a$ where the series converges.
+some $z \not= p$ where the series converges.
 
 The most important series, and in some sense the only one that we really
 know how to sum is the \emph{\myindex{geometric series}}.
@@ -2404,20 +2404,20 @@ about the boundary of the disc.
 
 A power series converges absolutely if
 \begin{equation*}
-\sum_{n=0}^\infty \sabs{c_n} \sabs{z-a}^n ,
+\sum_{n=0}^\infty \sabs{c_n} \sabs{z-p}^n ,
 \end{equation*}
 converges.  Suppose $N < M$:
 \begin{equation*}
-\abs{\sum_{n=N+1}^M c_n {(z-a)}^n}
+\abs{\sum_{n=N+1}^M c_n {(z-p)}^n}
 \leq
-\sum_{n=N+1}^M \sabs{c_n} \sabs{(z-a)}^n
+\sum_{n=N+1}^M \sabs{c_n} \sabs{(z-p)}^n
 \end{equation*}
 In particular, if the sequence of partial sums of 
-$\sum \sabs{c_n} \sabs{z-a}^n$ is Cauchy, so is the sequence
-of partial sums of $\sum c_n {(z-a)}^n$.  In particular,
+$\sum \sabs{c_n} \sabs{z-p}^n$ is Cauchy, so is the sequence
+of partial sums of $\sum c_n {(z-p)}^n$.  In particular,
 the series actually converges.
 
-Let $r = \sabs{z-a}$, then we have the real series $\sum \sabs{c_n} r^n$.  Define
+Let $r = \sabs{z-p}$, then we have the real series $\sum \sabs{c_n} r^n$.  Define
 \begin{equation} \label{eq:rhodef}
 \rho = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
 \end{equation}
@@ -2437,23 +2437,23 @@ $r > \rho$.  We have proved the following proposition:
 
 \begin{prop}[Cauchy--Hadamard Theorem]
 \index{Cauchy--Hadamard Theorem}
-A power series $\sum c_n {(z-a)}^n$ converges absolutely if
-$\sabs{z-a} < \rho$ and diverges if
-$\sabs{z-a} > \rho$, where $\rho$ is defined by \eqref{eq:rhodef}.
+A power series $\sum c_n {(z-p)}^n$ converges absolutely if
+$\sabs{z-p} < \rho$ and diverges if
+$\sabs{z-p} > \rho$, where $\rho$ is defined by \eqref{eq:rhodef}.
 \end{prop}
 
 The number $\rho$ is called the \emph{\myindex{radius of convergence}}
 and we find that the given power series converges absolutely
-in the disc $\Delta_\rho(a)$ (radius $\rho$ and centered $a$), and diverges
-in the complement of the closure $\overline{\Delta_\rho(a)}$.
-Convergence (or divergence) on the boundary circle $\partial \Delta_\rho(a)$
+in the disc $\Delta_\rho(p)$ (radius $\rho$ and centered $p$), and diverges
+in the complement of the closure $\overline{\Delta_\rho(p)}$.
+Convergence (or divergence) on the boundary circle $\partial \Delta_\rho(p)$
 is a tricky matter.
 
 A useful criterion for the radius of convergence is that $\sabs{c_n} r^n$ is
 bounded whenever $0 < r < \rho$.
 
 \begin{prop}
-The series $\sum c_n {(z-a)}^n$ converges in $\Delta_{\rho}(a)$ for some
+The series $\sum c_n {(z-p)}^n$ converges in $\Delta_{\rho}(p)$ for some
 $\rho > 0$, if and only if
 for every $r$ with
 $0 < r < \rho$ there exists an $M > 0$ such that for all $n$,
@@ -2471,27 +2471,27 @@ $\sabs{c_n} r^n \leq M$ for all $n$ and $s < r$, then
 \frac{s}{r}\sqrt[n]{\sabs{c_n} r^n} \leq \frac{s}{r} \sqrt[n]{M} .
 \end{equation*}
 The limsup of the right hand side is 0, so the series converges in
-$\Delta_s(a)$.  As $r < \rho$ and $s < r$ were arbitrary,
-the series converges in $\Delta_\rho(a)$.
+$\Delta_s(p)$.  As $r < \rho$ and $s < r$ were arbitrary,
+the series converges in $\Delta_\rho(p)$.
 \end{proof}
 
 The convergence inside the radius of convergence is even nicer than just absolute.
 Let $K \subset \C$ be a set.
-A power series $\sum c_n {(z-a)}^n$
+A power series $\sum c_n {(z-p)}^n$
 \emph{\myindex{converges uniformly absolutely}}
 \index{uniform absolute convergence}
-for $z \in K$ when $\sum \sabs{c_n {(z-a)}^n}$
+for $z \in K$ when $\sum \sabs{c_n {(z-p)}^n}$
 converges uniformly for $z \in K$.
 Suppose a series converges uniformly absolutely.  Then,
 \begin{equation*}
 \abs{
-\sum_{n=0}^\infty c_n {(z-a)}^n
+\sum_{n=0}^\infty c_n {(z-p)}^n
 -
-\sum_{n=0}^{m} c_n {(z-a)}^n
+\sum_{n=0}^{m} c_n {(z-p)}^n
 }
 =
-\abs{\sum_{n=m+1}^\infty c_n {(z-a)}^n} \leq
-\sum_{n=m+1}^\infty \sabs{c_n {(z-a)}^n} .
+\abs{\sum_{n=m+1}^\infty c_n {(z-p)}^n} \leq
+\sum_{n=m+1}^\infty \sabs{c_n {(z-p)}^n} .
 \end{equation*}
 The right hand side goes to zero uniformly in $z$,
 and so
@@ -2499,37 +2499,37 @@ a uniformly absolutely convergent series also converges
 uniformly.  So the name fits the crime.
 
 \begin{prop}
-Let $\sum c_n {(z-a)}^n$ be a power series with radius of convergence $\rho
+Let $\sum c_n {(z-p)}^n$ be a power series with radius of convergence $\rho
 > 0$.  If $0 < r < \rho$, then the power series converges uniformly absolutely
-in $\overline{\Delta_r(a)}$.  Furthermore, if $K \subset \Delta_{\rho}(a)$
-(where $\Delta_{\infty}(a) = \C$)
+in $\overline{\Delta_r(p)}$.  Furthermore, if $K \subset \Delta_{\rho}(p)$
+(where $\Delta_{\infty}(p) = \C$)
 is any compact subset, then the series converges uniformly absolutely on
 $K$.
 \end{prop}
 
-Note that generally we do not call $\Delta_{\infty}(a)$ a \emph{disc} even
+Note that generally we do not call $\Delta_{\infty}(p)$ a \emph{disc} even
 if we use the same notation here for convenience.
 
 \begin{proof}
 %Let $s$ be such that $r < s < \rho$.  Then there exists an $M$ such that
 %$\sabs{c_n} s^n \leq M$.
-Suppose $0 < r < \rho$.  Then as $\sum c_n {(z-a)}^n$ converges absolutely
-on $\Delta_\rho(a)$, we have
+Suppose $0 < r < \rho$.  Then as $\sum c_n {(z-p)}^n$ converges absolutely
+on $\Delta_\rho(p)$, we have
 $\sum \sabs{c_n} r^n$ converges (and in particular any tail of
 the series converges).  Thus
 \begin{equation*}
-\sum_{n=0}^\infty \abs{c_n {(z-a)}^n}
+\sum_{n=0}^\infty \abs{c_n {(z-p)}^n}
 -
-\sum_{n=0}^{m} \abs{c_n {(z-a)}^n}
+\sum_{n=0}^{m} \abs{c_n {(z-p)}^n}
 \leq
 \sum_{n=m+1}^\infty \sabs{c_n} r^n
 \end{equation*}
 As $m \to \infty$ the right hand side goes to zero, and hence 
-the series converges uniformly in $\overline{\Delta_r(a)}$.
+the series converges uniformly in $\overline{\Delta_r(p)}$.
 
-If $K \subset \Delta_{\rho}(a)$ is compact, then there exists some $r <
-\rho$ such that $K \subset \Delta_r(a)$ (consider an open cover of
-$K$ by discs $\Delta_r(a)$).  The result follows.
+If $K \subset \Delta_{\rho}(p)$ is compact, then there exists some $r <
+\rho$ such that $K \subset \Delta_r(p)$ (consider an open cover of
+$K$ by discs $\Delta_r(p)$).  The result follows.
 \end{proof}
 
 \begin{exbox}
@@ -2561,9 +2561,9 @@ in modern language.
 \begin{defn}
 Let $U \subset \C$ be open.  A function $f \colon U \to \C$
 is called \emph{\myindex{analytic}}\index{complex analytic}
-if for every $a \in U$, there exists 
+if for every $p \in U$, there exists 
 an $r > 0$ and a
-power series $\sum c_n {(z-a)}^n$ converging to $f$ on $\Delta_r(a) \subset
+power series $\sum c_n {(z-p)}^n$ converging to $f$ on $\Delta_r(p) \subset
 \C$.
 \end{defn}
 
@@ -2573,19 +2573,19 @@ analytic functions are holomorphic, that is, they are complex
 differentiable.
 
 \begin{prop}
-Let $f \colon \Delta_r(a) \to \C$ be defined by a convergent power series
+Let $f \colon \Delta_r(p) \to \C$ be defined by a convergent power series
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n {(z-a)}^n .
+f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
 \end{equation*}
-Then $f$ is complex differentiable at every $z \in \Delta_r(a)$ and
+Then $f$ is complex differentiable at every $z \in \Delta_r(p)$ and
 \begin{equation*}
-f'(z) = \sum_{n=1}^\infty n c_n {(z-a)}^{n-1}
+f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1}
 \end{equation*}
-converges in $\Delta_r(a)$.
+converges in $\Delta_r(p)$.
 \end{prop}
 
 \begin{proof}
-Without loss of generality, let $a=0$.
+Without loss of generality, let $p=0$.
 Fix $z_0$.
 We look at how we differentiate $z^n$ at $z_0$,
 we consider the limit of
@@ -2637,7 +2637,7 @@ Hence the series for the difference quotient,
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} ,
 \end{equation*}
 converges uniformly, and
-defines a continuous function of $\Delta_s(a)$.  Thus
+defines a continuous function of $\Delta_s(p)$.  Thus
 \begin{equation*}
 \lim_{z \to z_0}
 \frac{f(z_0)-f(z)}{z_0-z}
@@ -2654,20 +2654,20 @@ By induction, it follows that a power series is infinitely complex
 differentiable.
 
 \begin{cor} \label{cor:convpowserinfdif}
-Let $f \colon \Delta_r(a) \to \C$ be defined by a convergent power series
+Let $f \colon \Delta_r(p) \to \C$ be defined by a convergent power series
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n {(z-a)}^n .
+f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
 \end{equation*}
-Then $f$ is infinitely complex complex differentiable in $\Delta_r(a)$,
+Then $f$ is infinitely complex complex differentiable in $\Delta_r(p)$,
 and the $n$\textsuperscript{th} derivative is given by
 \begin{equation*}
-f^{(k)}(z) = \sum_{n=k}^\infty n(n-1)\cdots(n-k+1) c_n {(z-a)}^{n-k} ,
+f^{(k)}(z) = \sum_{n=k}^\infty n(n-1)\cdots(n-k+1) c_n {(z-p)}^{n-k} ,
 \end{equation*}
-which converges in $\Delta_r(a)$.
+which converges in $\Delta_r(p)$.
 Furthermore,
 \begin{equation*}
 c_n =
-\frac{f^{(n)}(a)}{n!} .
+\frac{f^{(n)}(p)}{n!} .
 \end{equation*}
 \end{cor}
 
@@ -2680,7 +2680,7 @@ Fill in the details of the proof of this corollary.
 Perhaps a subtle consequence of
 this corollary that should be
 noted is that if $f$ is given by the convergent power series in
-$\Delta_r(a)$ as above, then the power series is unique.  This conclusion
+$\Delta_r(p)$ as above, then the power series is unique.  This conclusion
 follows from the formula for the coefficients $c_n$.
 
 In particular we have just noticed that
@@ -2696,8 +2696,8 @@ A subtle issue is that while we have proved that analytic functions are
 complex differentiable because they have a power series representation,
 we have not yet proved that a convergent power series defines an analytic
 function.  What would be left to prove is that a power series convergent
-in $\Delta_r(a)$ can be
-expanded about a different point in $\Delta_r(a)$.  It will follow
+in $\Delta_r(p)$ can be
+expanded about a different point in $\Delta_r(p)$.  It will follow
 once we prove that holomorphic functions are analytic.
 \end{remark}
 
@@ -2757,7 +2757,7 @@ point in $U$, then $f = g$ everywhere.
 \end{exbox}
 
 Think of the implications.  If $f \colon U \to \C$ is analytic, and we know
-$f$ in a small disc $\Delta_r(a)$ for an arbitrarily small $r$, then
+$f$ in a small disc $\Delta_r(p)$ for an arbitrarily small $r$, then
 we know $f$ on all of $U$.
 
 
@@ -3484,9 +3484,9 @@ more general statements for later.
 
 \begin{thm}[Cauchy Integral Formula in a Disc]
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-and $\overline{\Delta_r(a)} \subset U$.
-If $\varphi$ is the boundary of $\Delta_r(a)$ oriented counterclockwise,
-then for all $z \in \Delta_r(a)$
+and $\overline{\Delta_r(p)} \subset U$.
+If $\varphi$ is the boundary of $\Delta_r(p)$ oriented counterclockwise,
+then for all $z \in \Delta_r(p)$
 \begin{equation*}
 f(z)
 =
@@ -3503,9 +3503,9 @@ holomorphic function inside the disc (a large set) are determined by their
 values on the circle (a relatively small set).
 
 \begin{proof}
-Fix $z \in \Delta_r(a)$.
+Fix $z \in \Delta_r(p)$.
 Let $\Delta_s(z)$ be a small disc with $\overline{\Delta_s(z)} \subset
-\Delta_r(a)$.
+\Delta_r(p)$.
 Let $\gamma(t) = z+s e^{i t}$,
 \begin{equation*}
 \frac{1}{2\pi i}
@@ -3705,57 +3705,57 @@ then $f$ is constant.  Also show by example that the hypothesis $f(z_0)
 
 \begin{thm}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
-holomorphic, and $a \in U$, and $\Delta_r(a) \subset U$
+holomorphic, and $p \in U$, and $\Delta_r(p) \subset U$
 is a disc.
-Then there exists a power series $\sum c_n {(z-a)}^n$
+Then there exists a power series $\sum c_n {(z-p)}^n$
 such that
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n {(z-a)}^n ,
+f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n ,
 \end{equation*}
-for all $z \in \Delta_r(a)$.
+for all $z \in \Delta_r(p)$.
 Furthermore,
 \begin{equation*}
 c_n = 
 \frac{1}{2\pi i}
 \int_{\varphi}
-\frac{f(z)}{{(z-a)}^{n+1}}
+\frac{f(z)}{{(z-p)}^{n+1}}
 \,
 dz  ,
 \end{equation*}
 where $\varphi$ is any circle of radius $s$, $0 < s < r$ centered at
-$a$ oriented counterclockwise.
+$p$ oriented counterclockwise.
 \end{thm}
 
 \begin{proof}
 First fix a particular $s$ such that $0 < s < r$.
-We have $\overline{\Delta_s(a)} \subset U$,
+We have $\overline{\Delta_s(p)} \subset U$,
 the boundary of the disc of radius $s$ is in $U$.
 
-For $z \in \Delta_r(a)$ and $\zeta \in \partial \Delta_r(a)$, 
+For $z \in \Delta_r(p)$ and $\zeta \in \partial \Delta_r(p)$, 
 \begin{equation*}
-\abs{\frac{z-a}{\zeta-a}} =
-\frac{\sabs{z-a}}{s} < 1 .
+\abs{\frac{z-p}{\zeta-p}} =
+\frac{\sabs{z-p}}{s} < 1 .
 \end{equation*}
-If $\sabs{z-a} \leq s' < s$, then
-$\abs{\frac{z-a}{\zeta-a}} \leq \frac{s'}{s} < 1$.  Therefore,
+If $\sabs{z-p} \leq s' < s$, then
+$\abs{\frac{z-p}{\zeta-p}} \leq \frac{s'}{s} < 1$.  Therefore,
 the geometric series
 \begin{equation*}
 \sum_{n=0}^\infty
-{\left(\frac{z-a}{\zeta-a}\right)}^n
+{\left(\frac{z-p}{\zeta-p}\right)}^n
 =
 \frac{1}{1-
-\frac{z-a}{\zeta-a}}
+\frac{z-p}{\zeta-p}}
 =
-\frac{\zeta-a}{\zeta-z}
+\frac{\zeta-p}{\zeta-z}
 \end{equation*}
-converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{s'}(a)}
-\times \partial \Delta_r(a)$ (that is, $\sum_n {\bigl\lvert
-\frac{z-a}{\zeta-a} \bigr\rvert}^n$
+converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{s'}(p)}
+\times \partial \Delta_r(p)$ (that is, $\sum_n {\bigl\lvert
+\frac{z-p}{\zeta-p} \bigr\rvert}^n$
 converges uniformly).
 
 Let $\varphi(t) = s e^{i t}$
 be the path going around 
-$\partial \Delta_r(a)$ once in the counterclockwise direction.
+$\partial \Delta_r(p)$ once in the counterclockwise direction.
 We start with the Cauchy Integral Formula,
 \begin{equation*}
 \begin{split}
@@ -3770,17 +3770,17 @@ d \zeta
 & =
 \frac{1}{2\pi i}
 \int_{\varphi}
-\frac{f(\zeta)}{\zeta-a}
-\frac{\zeta-a}{\zeta-z}
+\frac{f(\zeta)}{\zeta-p}
+\frac{\zeta-p}{\zeta-z}
 \,
 d \zeta 
 \\
 & =
 \frac{1}{2\pi i}
 \int_{\varphi}
-\frac{f(\zeta)}{\zeta-a}
+\frac{f(\zeta)}{\zeta-p}
 \sum_{n=0}^\infty
-{\left(\frac{z-a}{\zeta-a}\right)}^n
+{\left(\frac{z-p}{\zeta-p}\right)}^n
 \,
 d \zeta 
 \\
@@ -3789,50 +3789,50 @@ d \zeta
 \left(
 \frac{1}{2\pi i}
 \int_{\varphi}
-\frac{f(\zeta)}{{(\zeta-a)}^{n+1}}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
 \,
 d \zeta 
 \right)
-{(z-a)}^n .
+{(z-p)}^n .
 \end{split}
 \end{equation*}
 In the last equality, we were allowed to 
 interchange the limit on the sum with the integral
 %either
 %via Fubini's theorem or
-via uniform convergence (uniform in the $\zeta \in \partial \Delta_r(a)$):
-$z$ is fixed and if $M$ is the supremum of $\abs{\frac{f(\zeta)}{\zeta-a}} =
-\frac{\sabs{f(\zeta)}}{s}$ on $\partial \Delta_r(a)$,
+via uniform convergence (uniform in the $\zeta \in \partial \Delta_r(p)$):
+$z$ is fixed and if $M$ is the supremum of $\abs{\frac{f(\zeta)}{\zeta-p}} =
+\frac{\sabs{f(\zeta)}}{s}$ on $\partial \Delta_r(p)$,
 then
 \begin{equation*}
 \abs{
-\frac{f(\zeta)}{\zeta-a}
-{\left(\frac{z-a}{\zeta-a}\right)}^n
+\frac{f(\zeta)}{\zeta-p}
+{\left(\frac{z-p}{\zeta-p}\right)}^n
 }
 \leq
 M 
-{\left(\frac{\abs{z-a}}{s}\right)}^n,
+{\left(\frac{\abs{z-p}}{s}\right)}^n,
 \qquad \text{and} \qquad
-\frac{\abs{z-a}}{s} < 1 .
+\frac{\abs{z-p}}{s} < 1 .
 \end{equation*}
 
-We proved convergence in $\Delta_s(a)$.
+We proved convergence in $\Delta_s(p)$.
 By the uniqueness of the power series (see \corref{cor:convpowserinfdif}),
 the $c_n$ we computed are the same for every $s < r$, and hence
-we get convergence in $\Delta_r(a)$.
+we get convergence in $\Delta_r(p)$.
 \end{proof}
 
 Not only have we proved that $f$ has a power series, but we computed
 that the radius of convergence is at least $r$, where $r$ is the maximum $r$
-such that $\Delta_r(a) \subset U$.
+such that $\Delta_r(p) \subset U$.
 
 The key point in the proof is writing the \emph{\myindex{Cauchy Kernel}}
 $\frac{1}{\zeta-z}$ as
 \begin{equation*}
 \frac{1}{\zeta-z}
 =
-\frac{1}{\zeta-a}
-\frac{\zeta-a}{\zeta-z}
+\frac{1}{\zeta-p}
+\frac{\zeta-p}{\zeta-z}
 \end{equation*}
 and then using the geometric series.
 
@@ -3908,27 +3908,27 @@ For a set $K$, denote the \emph{\myindex{supremum norm}}:
 
 \begin{thm}[Cauchy Estimates]\index{Cauchy Estimates}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
-holomorphic, and $a \in U$, and $\overline{\Delta_r(a)} \subset U$
+holomorphic, and $p \in U$, and $\overline{\Delta_r(p)} \subset U$
 a disc.
 Then for all $n$
 \begin{equation*}
 \sabs{c_n} =
-\abs{\frac{f^{(n)}(a)}{n!}}
+\abs{\frac{f^{(n)}(p)}{n!}}
 \leq
-\frac{\snorm{f}_{\partial \Delta_r(a)}}{r^{n}} .
+\frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n}} .
 \end{equation*}
 \end{thm}
 
 \begin{proof}
 The proof is a brute force estimation.  Let $\varphi$ be
-the circle $\partial \Delta_r(a)$ parametrized once in the counterclockwise
+the circle $\partial \Delta_r(p)$ parametrized once in the counterclockwise
 direction.  Then
 \begin{equation*}
 \sabs{c_n} = 
 \abs{
 \frac{1}{2\pi i}
 \int_{\varphi}
-\frac{f(\zeta)}{{(\zeta-a)}^{n+1}}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
 \,
 d \zeta 
 }
@@ -3959,7 +3959,7 @@ f(z) = \sum_{n=0} c_n z^n .
 \end{equation*}
 As $f$ converges in a disc of an arbitrary radius $r$ we have that
 \begin{equation*}
-\sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(a)}}{r^n} \leq
+\sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^n} \leq
 \frac{M}{r^n} .
 \end{equation*}
 Letting $r \to \infty$ shows that $c_n = 0$ for $n \geq 1$.  In other
@@ -4362,9 +4362,9 @@ a branch of the log in every $U$, but for example we can do it in every
 star-like $U$ where $0 \notin U$.  In general, one can define a branch of
 the log in every simply connected domain, that is, a domain without holes,
 that does not contain zero.
-More on this later.  Similarly we can define branches of $\log (z-a)$, which
-should be an antiderivative of $\frac{1}{z-a}$, in which case the domain
-should not contain $a$.
+More on this later.  Similarly we can define branches of $\log (z-p)$, which
+should be an antiderivative of $\frac{1}{z-p}$, in which case the domain
+should not contain $p$.
 
 We may also talk about branches more loosely, and talk
 about following them along a path.  That doesn't mean that we really define
@@ -4388,20 +4388,20 @@ or in other words, chains with empty boundary).
 
 \begin{defn}
 Let $\varphi$ be a closed piecewise $C^1$ path, or more generally a cycle,
-and $a \notin \varphi$.  Then
+and $p \notin \varphi$.  Then
 \begin{equation*}
-n(\varphi;a)
+n(\varphi;p)
 \overset{\text{def}}{=}
-\frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz
+\frac{1}{2\pi i} \int_\varphi \frac{1}{z-p} \, dz
 \end{equation*}
 is called the
-\emph{\myindex{winding number}} of $\varphi$ around $a$, or
+\emph{\myindex{winding number}} of $\varphi$ around $p$, or
 sometimes the 
-\emph{\myindex{index}} of $\varphi$ with respect to $a$.
+\emph{\myindex{index}} of $\varphi$ with respect to $p$.
 \end{defn}
 
 Intuitively, the winding number is the number of times that $\varphi$ winds
-around $a$.  This intuition is confirmed by trying to integrate
+around $p$.  This intuition is confirmed by trying to integrate
 $\frac{1}{z}$ for the path $e^{it}$ for $t \in [0,2\pi]$, that gets you 
 a winding number 1, as it goes once counterclockwise direction around zero.  If we do
 the integral with $e^{2it}$, we go around zero twice in the
@@ -4413,36 +4413,36 @@ The first thing to prove is to show that the winding number is an integer.
 
 \begin{prop}
 Suppose $\varphi$ is a closed piecewise $C^1$ path (or a cycle)
-and $a \notin \varphi$.  Then
+and $p \notin \varphi$.  Then
 \begin{equation*}
-n(\varphi;a) = \frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz
+n(\varphi;p) = \frac{1}{2\pi i} \int_\varphi \frac{1}{z-p} \, dz
 \end{equation*}
 is an integer.
 \end{prop}
 
 Intuitively, the proof is to follow a branch of $\log$ around $\varphi$, and
 see by how much it changes.  Since we really just follow the argument
-and we have gone some number of times around $a$ along $\varphi$, the
+and we have gone some number of times around $p$ along $\varphi$, the
 argument has changed by some multiple of $2\pi$.
 
 \begin{proof}
 Let $\varphi \colon [0,1] \to \C$ be the path.
 The path $\varphi$ as a set is compact.  It can be covered by finitely many
-discs $D_1,\ldots,D_n$, none of which contain $a$, and such that there is a
+discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
 partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ such that
 $\varphi\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
-so in each one there exists a branch of $\log (z-a)$, call it $L_j$
+so in each one there exists a branch of $\log (z-p)$, call it $L_j$
 such that $L_j\bigl(\varphi(t_j)\bigr) = L_{j-1}\bigl(\varphi(t_j)\bigr)$.  Call $z_0 = \varphi(0) = \varphi(1)$.  So
 \begin{equation*}
 \begin{split}
-n(\varphi;a) & =
-\frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz
+n(\varphi;p) & =
+\frac{1}{2\pi i} \int_\varphi \frac{1}{z-p} \, dz
 \\
 & =
-\frac{1}{2\pi i} \int_0^1 \frac{\varphi'(t)}{\varphi(t)-a} \, dt
+\frac{1}{2\pi i} \int_0^1 \frac{\varphi'(t)}{\varphi(t)-p} \, dt
 \\
 & =
-\frac{1}{2\pi i} \sum_{j=1}^n \int_{t_{j-1}}^{t_j} \frac{\varphi'(t)}{\varphi(t)-a} \, dt
+\frac{1}{2\pi i} \sum_{j=1}^n \int_{t_{j-1}}^{t_j} \frac{\varphi'(t)}{\varphi(t)-p} \, dt
 \\
 & =
 \frac{1}{2\pi i} \sum_{j=1}^n L_j\bigl(\varphi(t_j)\bigr) -
@@ -4459,18 +4459,18 @@ $\arg$.
 
 \begin{exbox}
 \begin{exercise}
-Let $\partial \Delta_r(a)$ be the path oriented counterclockwise.
-Show that $n(\partial \Delta_r(a);z) = 0$ if $z \notin
-\overline{\Delta_r(a)}$ and 
-$n(\partial \Delta_r(a);z) = 1$ if $z \in \Delta_r(a)$.
+Let $\partial \Delta_r(p)$ be the path oriented counterclockwise.
+Show that $n(\partial \Delta_r(p);z) = 0$ if $z \notin
+\overline{\Delta_r(p)}$ and 
+$n(\partial \Delta_r(p);z) = 1$ if $z \in \Delta_r(p)$.
 \end{exercise}
 \end{exbox}
 
 \begin{prop}
 Given a piecewise $C^1$ path (or a cycle) $\varphi$ then
-the function $a \mapsto n(\varphi;a)$ is constant on the
+the function $z \mapsto n(\varphi;z)$ is constant on the
 topological components of $\C \setminus \varphi$.
-Furthermore, $n(\varphi;a) = 0$ for $a$ on the unbounded component
+Furthermore, $n(\varphi;z) = 0$ for $z$ on the unbounded component
 of $\C \setminus \varphi$.
 \end{prop}
 
@@ -4485,38 +4485,38 @@ FIXME: index constant
 \begin{proof}
 Consider the function
 \begin{equation}
-a \mapsto n(\varphi;a) = \frac{1}{2\pi i} \int_\varphi \frac{1}{z-a} \, dz .
+p \mapsto n(\varphi;p) = \frac{1}{2\pi i} \int_\varphi \frac{1}{z-p} \, dz .
 \end{equation}
-Fix $a_0 \in \C \setminus \varphi$, and let $d(a_0,\varphi)$ be the distance from 
-$a_0$ to $\varphi$, that is $d(a_0,\varphi) = \inf \{ \sabs{z-a_0} : z \in \varphi \}$.
-As $\varphi$ is compact, $d(a_0,\varphi) > 0$.  Suppose $a$ is
-such that $\sabs{a-a_0} < \frac{d(a_0,\varphi)}{2}$, so $\sabs{z-a} \geq
-\frac{d(a_0,\varphi)}{2}$ for every $z \in \varphi$.  Let $\ell$ be the length of
+Fix $p_0 \in \C \setminus \varphi$, and let $d(p_0,\varphi)$ be the distance from 
+$p_0$ to $\varphi$, that is $d(p_0,\varphi) = \inf \{ \sabs{z-p_0} : z \in \varphi \}$.
+As $\varphi$ is compact, $d(p_0,\varphi) > 0$.  Suppose $p$ is
+such that $\sabs{p-p_0} < \frac{d(p_0,\varphi)}{2}$, so $\sabs{z-p} \geq
+\frac{d(p_0,\varphi)}{2}$ for every $z \in \varphi$.  Let $\ell$ be the length of
 $\varphi$, that is $\ell = \int_\varphi \sabs{dz}$.  Then
 \begin{equation*}
 \begin{split}
-\abs{n(\varphi;a_0)-n(\varphi;a)}
+\abs{n(\varphi;p_0)-n(\varphi;p)}
 =
-\abs{\frac{1}{2\pi i} \int_\varphi \frac{a_0-a}{(z-a_0)(z-a)} \, dz}
+\abs{\frac{1}{2\pi i} \int_\varphi \frac{p_0-p}{(z-p_0)(z-p)} \, dz}
 & \leq
-\frac{1}{2\pi} \int_\varphi \frac{\sabs{a_0-a}}{\sabs{z-a_0}\sabs{z-a}} \, \sabs{dz}
+\frac{1}{2\pi} \int_\varphi \frac{\sabs{p_0-p}}{\sabs{z-p_0}\sabs{z-p}} \, \sabs{dz}
 \\
 & \leq 
-\frac{1}{2\pi} \frac{2\ell}{d(a_0,\varphi)^2} \sabs{a_0-a} .
+\frac{1}{2\pi} \frac{2\ell}{d(p_0,\varphi)^2} \sabs{p_0-p} .
 \end{split}
 \end{equation*}
-In other words, $n(\varphi;a)$ is a continuous function of $a$.
+In other words, $n(\varphi;p)$ is a continuous function of $p$.
 As it is continuous
 and integer valued, it is constant on any connected component of
 $\C \setminus \varphi$ (the set where it is defined).
 
 Next,
 \begin{equation*}
-\sabs{n(\varphi;a)} \leq \frac{1}{2\pi} \int_\varphi \frac{1}{\sabs{z-a}} \,
-\sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d(a,\varphi)} .
+\sabs{n(\varphi;p)} \leq \frac{1}{2\pi} \int_\varphi \frac{1}{\sabs{z-p}} \,
+\sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d(p,\varphi)} .
 \end{equation*}
-On the unbounded component as $\varphi$ is compact we can find $a$
-with $d(a,\varphi)$ arbitrarily large, meaning $n(\varphi;a)$ is arbitrarily small
+On the unbounded component as $\varphi$ is compact we can find $p$
+with $d(p,\varphi)$ arbitrarily large, meaning $n(\varphi;p)$ is arbitrarily small
 on this component, and as it is constant, it must be zero.
 \end{proof}
 
@@ -4528,7 +4528,7 @@ on this component, and as it is constant, it must be zero.
 \label{thm:CIFhomology}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 $\varphi$ a closed piecewise $C^1$ path (or a cycle) in $U$
-such that $n(\varphi;a) = 0$ for all $a \in \C \setminus U$.
+such that $n(\varphi;p) = 0$ for all $p \in \C \setminus U$.
 Then for $z \in U \setminus \varphi$,
 \begin{equation*}
 n(\varphi;z)
@@ -4726,8 +4726,8 @@ Cauchy's Theorem actually follows immediately using the Integral Formula.
 \begin{thm}[Cauchy's Theorem (homology version)]
 Let $U \subset \C$ be a domain and $f \colon U \to \C$ holomorphic.  If $\varphi$ is a
 closed
-piecewise $C^1$ path (or a cycle) in $U$ such that $n(\varphi;a) = 0$ for
-every $a \in \C \setminus U$, then
+piecewise $C^1$ path (or a cycle) in $U$ such that $n(\varphi;p) = 0$ for
+every $p \in \C \setminus U$, then
 \begin{equation*}
 \int_\varphi f(z) \, dz = 0 .
 \end{equation*}
@@ -4761,9 +4761,9 @@ Cauchy's Theorem implies the Cauchy Integral Formula.
 FIXME:
 
 \begin{defn}
-Given two numbers $0 \leq r_1 < r_2 < \infty$ and $a \in \C$, the set
+Given two numbers $0 \leq r_1 < r_2 < \infty$ and $p \in \C$, the set
 \begin{equation*}
-\ann(a,r_1,r_2) = \{ z \in \C : r_1 < \sabs{z - a} < r_2 \}
+\ann(p,r_1,r_2) = \{ z \in \C : r_1 < \sabs{z - p} < r_2 \}
 \end{equation*}
 is called the \emph{\myindex{annulus}}.
 \end{defn}
@@ -4771,19 +4771,19 @@ is called the \emph{\myindex{annulus}}.
 A common case we will see often is when $r_1 = 0$, that is
 the punctured disc
 \begin{equation*}
-\ann(a,0,r) = \Delta_r(a) \setminus \{ a \} .
+\ann(p,0,r) = \Delta_r(p) \setminus \{ p \} .
 \end{equation*}
 Sometimes $r_2 = \infty$ is also allowed, in which case
-$\ann(a,r,\infty) = \C \setminus \overline{\Delta_{r}(a)}$.  
+$\ann(p,r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  
 
 \begin{thm}[\myindex{Laurent Series}]
-Suppose $f \colon \ann(a,r_1,r_2) \to \C$ is holomorphic.
+Suppose $f \colon \ann(p,r_1,r_2) \to \C$ is holomorphic.
 Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
 \begin{equation*}
-f(z) = \sum_{n=-\infty}^{\infty} c_n {(z-a)}^n ,
+f(z) = \sum_{n=-\infty}^{\infty} c_n {(z-p)}^n ,
 \end{equation*}
 where the convergence is uniformly absolute on every compact subset of
-$\ann(a,r_1,r_2)$.
+$\ann(p,r_1,r_2)$.
 \end{thm}
 
 \begin{proof}
@@ -4800,8 +4800,8 @@ FIXME: should it be here?
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
 ... FIXME FIXME
 %
-%if $n(\varphi;a) = 0$ for every
-%piecewise $C^1$ path $\varphi$ in $U$ and every $a \in \C \setminus U$.
+%if $n(\varphi;p) = 0$ for every
+%piecewise $C^1$ path $\varphi$ in $U$ and every $p \in \C \setminus U$.
 \end{defn}
 
 \begin{exbox}
@@ -4837,34 +4837,34 @@ the votes do.
 \begin{defn}
 Suppose $U \subset \C$ is open.
 A holomorphic function $f \colon U \to \C$ is said to have
-an \emph{\myindex{isolated singularity}} at $a \notin U$ if
-there is a disc $\Delta_r(a)$ such that $U \cap \Delta_r(a) =
-\Delta_r(a) \setminus \{ a \}$ (so $U = V \setminus \{ a \}$ for an open set
+an \emph{\myindex{isolated singularity}} at $p \notin U$ if
+there is a disc $\Delta_r(p)$ such that $U \cap \Delta_r(p) =
+\Delta_r(p) \setminus \{ p \}$ (so $U = V \setminus \{ p \}$ for an open set
 $V$).
 \end{defn}
 
-In other words, $f$ has an isolated singularity at $a$ if it is defined
+In other words, $f$ has an isolated singularity at $p$ if it is defined
 and holomorphic in a punctured neighborhood
-$\Delta_r(a) \setminus \{ a \}$.  We expand
-$f$ in the Laurent Series on $\Delta_r(a) \setminus \{ a \}$:
+$\Delta_r(p) \setminus \{ p \}$.  We expand
+$f$ in the Laurent Series on $\Delta_r(p) \setminus \{ p \}$:
 \begin{equation*}
-f(z) = \sum_{n=-\infty}^\infty c_n {(z-a)}^n .
+f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 \end{equation*}
-As we saw the only power ${(z-a)}^n$ that does not have an antiderivative in
-$\Delta_r(a) \setminus \{ a \}$ is when $n=-1$.  This will be the only one
+As we saw the only power ${(z-p)}^n$ that does not have an antiderivative in
+$\Delta_r(p) \setminus \{ p \}$ is when $n=-1$.  This will be the only one
 that a line integral of $f$ will ``see,'' or in other words, it will be
 what's left, or the ``residue'' of integrating $f(z)$ around a closed path.
 With this in mind, we make the
 following definition.
 
 \begin{defn}
-Let $f$ be a holomorphic function $f$ with an isolated singularity at $a$.
-The \emph{\myindex{residue}} of $f$ at $a$ is the number
+Let $f$ be a holomorphic function $f$ with an isolated singularity at $p$.
+The \emph{\myindex{residue}} of $f$ at $p$ is the number
 \begin{equation*}
-\operatorname{Res}(f,a) = c_{-1}
+\operatorname{Res}(f,p) = c_{-1}
 \end{equation*}
-where $c_{-1}$ is the coefficient of ${(z-a)}^{-1}$ in the Laurent Series
-expansion in the punctured disc $\Delta_r(a) \setminus \{ a \}$.
+where $c_{-1}$ is the coefficient of ${(z-p)}^{-1}$ in the Laurent Series
+expansion in the punctured disc $\Delta_r(p) \setminus \{ p \}$.
 \end{defn}
 
 \begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
@@ -4875,7 +4875,7 @@ Suppose $f \colon U \setminus S \to \C$ is a holomorphic function (with isolated
 singularities on $S$).
 Then
 \begin{equation*}
-\frac{1}{2\pi i} \int_{\varphi} f(z) \, dz = \sum_{a \in S} n(\varphi;a) \operatorname{Res}(f,a) .
+\frac{1}{2\pi i} \int_{\varphi} f(z) \, dz = \sum_{p \in S} n(\varphi;p) \operatorname{Res}(f,p) .
 \end{equation*}
 \end{thm}
 
@@ -4896,6 +4896,25 @@ FIXME:
 \subsection{Rouch\`e's Theorem}
 
 FIXME:
+
+\begin{thm}[Rouch\`e]\index{Rouch\`e's theorem}\label{thm:rouche}
+Suppose $U \subset \C$ is an open set, and $\varphi$ is a piecewise-$C^1$
+simple closed path in $U$ such that the interior of $\varphi$ is in $U$.
+Suppose that $f \colon U \to \C$ and $g \colon U \to \C$
+are holomorphic functions such that
+\begin{equation*}
+\sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
+\end{equation*}
+for all $z \in \varphi$.  Then $f$ and $g$
+have the same number of zeros
+inside $\varphi$ (up to multiplicity).
+\end{thm}
+
+In the classical statement of the theorem the weaker
+inequality
+$\sabs{f(z)-g(z)} < \sabs{f(z)}$
+is used.
+Notice that either inequality precludes any zeros on $\varphi$ itself.
 
 
 \subsection{The open mapping theorem}
@@ -4936,17 +4955,17 @@ FIXME:
 \section{Classifying isolated singularities}
 
 \begin{defn}
-Suppose $V \subset \C$ is open, $f \colon V \setminus \{a\} \to \C$ is holomorphic with
-an isolated singularity at $a$.
+Suppose $V \subset \C$ is open, $f \colon V \setminus \{p\} \to \C$ is holomorphic with
+an isolated singularity at $p$.
 
 An isolated singularity is \emph{removable}\index{removable singularity}
 if 
 there exists a holomorphic function $F \colon U \to \C$
-such that $f(z) = F(z)$ for all $z \in U \setminus \{ a \}$.
+such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
 
-An isolated singularity $a$ is a \emph{\myindex{pole}} if 
+An isolated singularity $p$ is a \emph{\myindex{pole}} if 
 \begin{equation*}
-\lim_{z \to a} f(z) = \infty.
+\lim_{z \to p} f(z) = \infty.
 \end{equation*}
 
 An isolated singularity that is neither removable nor a pole is said to be
@@ -4955,8 +4974,8 @@ An isolated singularity that is neither removable nor a pole is said to be
 
 %\begin{thm}[Riemann Extension Theorem]
 %Suppose $U \subset \C$ is open and
-%$f \colon U \setminus \{ a \} \to \C$ is holomorphic such that for some $r >
-%0$, $f$ is bounded on $\Delta_r(a)$.  Then $a$ is a removable singularity.
+%$f \colon U \setminus \{ p \} \to \C$ is holomorphic such that for some $r >
+%0$, $f$ is bounded on $\Delta_r(p)$.  Then $p$ is a removable singularity.
 %\end{thm}
 %
 %\begin{proof}
@@ -4969,11 +4988,11 @@ The first part of the following proposition is
 usually called the \emph{\myindex{Riemann Extension Theorem}}.
 
 \begin{thm} \label{thm:classifysing}
-Suppose $U \subset \C$ is an open set, $a \in U$,
-and $f \colon U \setminus \{a\} \to \C$ holomorphic.
+Suppose $U \subset \C$ is an open set, $p \in U$,
+and $f \colon U \setminus \{p\} \to \C$ holomorphic.
 \begin{enumerate}[(i)]
 \item \label{thm:classifysing:i}
-If $f$ is bounded (near $a$ is enough), then $a$ is a removable singularity.
+If $f$ is bounded (near $p$ is enough), then $p$ is a removable singularity.
 \item \label{thm:classifysing:ii}
 If $p$ is a pole, there exists a $k \in \N$ such that
 \begin{equation*}
@@ -4991,13 +5010,13 @@ has a removable singularity, and the extended function has a zero of order
 $k$.
 
 \begin{prop}
-Suppose $f \colon \Delta_r(a) \setminus \{a\} \to \C$ is holomorphic,
+Suppose $f \colon \Delta_r(p) \setminus \{p\} \to \C$ is holomorphic,
 and
 \begin{equation*}
-f(z) = \sum_{n=-\infty}^\infty c_n {(z-a)}^n ,
+f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
 \end{equation*}
 is the corresponding Laurent Series.
-The singularity at $a$ is
+The singularity at $p$ is
 \begin{enumerate}[(i)]
 \item \emph{removable} if $c_n = 0$ for all $n < 0$.
 \item \emph{pole} of order $k \in \N$ if $c_n = 0$ for all $n < -k$ and
@@ -5174,7 +5193,7 @@ Then
 0 .
 \end{equation*}
 
-We have thus proved the following porposition.
+We have thus proved the following proposition.
 
 %FIXME: need simply connected somewhere and the derivative in a simply
 %connected domain
@@ -5314,7 +5333,7 @@ $z \in \D \to z_0 \in \partial \D$.
 
 \begin{exercise}
 State and prove a version of \thmref{thm:dirichsol} for an arbitrary disc
-$\Delta_r(a)$.
+$\Delta_r(p)$.
 \end{exercise}
 
 \begin{exercise}
@@ -5339,9 +5358,9 @@ A continuous function
 $f \colon U \to \R$
 is harmonic if and only if 
 \begin{equation*}
-f(a) = \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta
+f(p) = \frac{1}{2\pi} \int_0^{2\pi} f(p+re^{i\theta})\, d\theta
 \qquad \text{whenever} \quad
-\overline{\Delta_r(a)} \subset U .
+\overline{\Delta_r(p)} \subset U .
 \end{equation*}
 \end{prop}
 
@@ -5355,18 +5374,18 @@ is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $
 
 \begin{proof}
 Without loss of generality, suppose that the maximum is global
-Suppose $f$ attains a maximum at $a \in U$.
+Suppose $f$ attains a maximum at $p \in U$.
 If
-$\overline{\Delta_r(a)} \subset U$, then
+$\overline{\Delta_r(p)} \subset U$, then
 \begin{equation*}
-f(a) = \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta
+f(p) = \frac{1}{2\pi} \int_0^{2\pi} f(p+re^{i\theta})\, d\theta
 .
 \end{equation*}
-As $f(z) \leq f(a)$ for all $z \in \partial \Delta_r(a)$, and $f$ is
-continuous then $f(z) = f(a)$ on
-$z \in \partial \Delta_r(a)$.  This was true for any $r$, so
-$f(z) = f(a)$ on $\Delta_s(a)$ for $s$ where
-$\overline{\Delta_s(a)} \subset U$.  By the identity theorem $f=f(a)$ in
+As $f(z) \leq f(p)$ for all $z \in \partial \Delta_r(p)$, and $f$ is
+continuous then $f(z) = f(p)$ on
+$z \in \partial \Delta_r(p)$.  This was true for any $r$, so
+$f(z) = f(p)$ on $\Delta_s(p)$ for $s$ where
+$\overline{\Delta_s(p)} \subset U$.  By the identity theorem $f=f(p)$ in
 $U$.
 \end{proof}
 
@@ -5382,15 +5401,15 @@ A function $f \colon U \to \R \cup \{ -\infty \}$ is
 \footnote{Recall $f$ is \emph{\myindex{upper-semicontinuous}}
 if $\limsup_{t\to x} f(t) \leq f(x)$ for all $x \in U$.}
 and for every
-ball $B_r(a)$ with $\overline{B_r(a)} \subset U$,
+ball $B_r(p)$ with $\overline{B_r(p)} \subset U$,
 and every function $g$
-continuous on $\overline{B_r(a)}$ and
-harmonic on $B_r(a)$,
+continuous on $\overline{B_r(p)}$ and
+harmonic on $B_r(p)$,
 such that $f(x) \leq g(x)$ for $x \in
-\partial B_r(a)$, we have
+\partial B_r(p)$, we have
 \begin{equation*}
 f(x) \leq g(x), \quad \text{ for all } x \in
-B_r(a) .
+B_r(p) .
 \end{equation*}
 \end{defn}
 
@@ -5433,9 +5452,9 @@ Let $U \subset \C$ be an open set.
 An upper-semicontinuous function $f \colon U \to \R \cup \{ -\infty \}$
 is subharmonic if and only if
 \begin{equation*}
-f(a) \leq \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta
+f(p) \leq \frac{1}{2\pi} \int_0^{2\pi} f(p+re^{i\theta})\, d\theta
 \qquad \text{whenever} \quad
-\overline{\Delta_r(a)} \subset U .
+\overline{\Delta_r(p)} \subset U .
 \end{equation*}
 \end{prop}
 
@@ -5475,19 +5494,19 @@ is subharmonic.  If $f$ attains a maximum in $U$, then $f$ is constant.
 \end{prop}
 
 \begin{proof}
-Suppose $f$ attains a maximum at $a \in U$.
+Suppose $f$ attains a maximum at $p \in U$.
 If
-$\overline{\Delta_r(a)} \subset U$, then
+$\overline{\Delta_r(p)} \subset U$, then
 \begin{equation*}
-f(a) \leq \frac{1}{2\pi} \int_0^{2\pi} f(a+re^{i\theta})\, d\theta \leq f(a)
+f(p) \leq \frac{1}{2\pi} \int_0^{2\pi} f(p+re^{i\theta})\, d\theta \leq f(p)
 .
 \end{equation*}
-Hence, $f = f(a)$ almost everywhere on $\partial \Delta_r(a)$.
-By upper-semicontinuity, $f = f(a)$ everywhere on $\partial \Delta_r(a)$.
+Hence, $f = f(p)$ almost everywhere on $\partial \Delta_r(p)$.
+By upper-semicontinuity, $f = f(p)$ everywhere on $\partial \Delta_r(p)$.
 This was true for all $r$
-with $\overline{\Delta_r(a)} \subset U$, so $f=f(a)$ on $\Delta_r(a)$,
-and so the set where $f=f(a)$ is open.  The set where an upper-semicontinuous
-function attains a maximum is closed.  So $f=f(a)$ on $U$ as $U$ is
+with $\overline{\Delta_r(p)} \subset U$, so $f=f(p)$ on $\Delta_r(p)$,
+and so the set where $f=f(p)$ is open.  The set where an upper-semicontinuous
+function attains a maximum is closed.  So $f=f(p)$ on $U$ as $U$ is
 connected.
 \end{proof}
 
@@ -5583,12 +5602,12 @@ is upper-semicontinuous, then $\varphi$ is subharmonic.
 \end{prop}
 
 \begin{proof}
-Suppose $\overline{\Delta_r(a)} \subset U$.  For any $\alpha$,
+Suppose $\overline{\Delta_r(p)} \subset U$.  For any $\alpha$,
 \begin{equation*}
-\frac{1}{2\pi} \int_0^{2\pi} \varphi (a+re^{i\theta})\, d\theta 
+\frac{1}{2\pi} \int_0^{2\pi} \varphi (p+re^{i\theta})\, d\theta 
 \geq
-\frac{1}{2\pi} \int_0^{2\pi} f_\alpha (a+re^{i\theta})\, d\theta 
-\geq f_\alpha(a) .
+\frac{1}{2\pi} \int_0^{2\pi} f_\alpha (p+re^{i\theta})\, d\theta 
+\geq f_\alpha(p) .
 \end{equation*}
 Taking the supremum on the right over $\alpha$ obtains the results.
 \end{proof}
