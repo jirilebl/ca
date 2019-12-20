@@ -4885,70 +4885,7 @@ FIXME:
 
 FIXME:
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Counting zeros}
-
-\subsection{The Argument Principle}
-
-FIXME:
-
-\subsection{Rouch\`e's Theorem}
-
-FIXME:
-
-\begin{thm}[Rouch\`e]\index{Rouch\`e's theorem}\label{thm:rouche}
-Suppose $U \subset \C$ is an open set, and $\varphi$ is a piecewise-$C^1$
-simple closed path in $U$ such that the interior of $\varphi$ is in $U$.
-Suppose that $f \colon U \to \C$ and $g \colon U \to \C$
-are holomorphic functions such that
-\begin{equation*}
-\sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
-\end{equation*}
-for all $z \in \varphi$.  Then $f$ and $g$
-have the same number of zeros
-inside $\varphi$ (up to multiplicity).
-\end{thm}
-
-In the classical statement of the theorem the weaker
-inequality
-$\sabs{f(z)-g(z)} < \sabs{f(z)}$
-is used.
-Notice that either inequality precludes any zeros on $\varphi$ itself.
-
-
-\subsection{The open mapping theorem}
-
-A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
-sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
-is surprisingly famous\footnote{%
-It is called a ``blow-up'' and it is used in obtaining a Fields medal.
-Unfortunately, it has already been obtained by Hironaka, and you
-have to find your own map if you want your own medal.},
-takes all of $\R^2$, which is both an open and a closed set, to the
-set $\{ (x,y) : x \not= 0 \text{ or } y=0 \}$, which is neither open nor
-closed.
-
-Holomorphic functions are always nice to your topology.
-Remember that for a continuous map, $f^{-1}(V)$ is open whenever
-$V$ is open.  Nonconstant holomorphic functions have this property also in
-reverse.  So while not every holomorphic function is invertible, at least it
-behaves as if it were as far as the topology is concerned.
-
-
-\begin{thm}[Open Mapping]
-Let $U \subset \C$ be a domain and $f \colon U \to \C$ be
-holomorphic and nonconstant.  Then $f(V)$ is an open set for every open set
-$V \subset U$.
-\end{thm}
-
-\begin{proof}
-FIXME
-\end{proof}
-
-
-FIXME:
-
+FIXME: move classification of singularities here I think
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -5028,6 +4965,141 @@ such that $c_n \not= 0$.
 \end{prop}
 
 FIXME:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Counting zeros and poles}
+
+\subsection{The Argument Principle}
+
+FIXME:
+
+\begin{thm}[Argument principle]\index{argument principle}\label{thm:argprinc}
+Suppose $U \subset \C$ is an open set, and $\varphi$ is a closed piecewise $C^1$
+path (or a cycle) in $U$ such that $n(\varphi;z) = 0$ for all $z \in \C
+\setminus U$.
+FIXME:
+Suppose that $f \colon U \to \bP^1$ is a meromorphic function with no zeros
+or poles on $\varphi$.
+Then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\gamma \frac{f'(z)}{f(z)} \, dz
+= N - P ,
+\end{equation*}
+where $N$ is the number of zeros of $f$ inside $\varphi$ and $P$ is the
+number of poles, both counted with multiplicity.
+
+Furthermore, if $h \colon U \to \C$ is holomorphic, and $\#(p)$ is the order
+(multiplicity) of a zero or pole at $p$, then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\gamma h(z) \frac{f'(z)}{f(z)} \, dz
+=
+\sum_{p \in f^{-1}(0)}
+\#(p) \, h(p)
+\quad
+-
+\quad
+\sum_{p \in f^{-1}(\infty)}
+\#(p) \, h(p) .
+\end{equation*}
+\end{thm}
+
+FIXME:
+
+\subsection{Rouch\`e's Theorem}
+
+
+FIXME:
+
+\begin{thm}[Rouch\`e]\index{Rouch\`e's theorem}\label{thm:rouche}
+Suppose $U \subset \C$ is an open set, and $\varphi$ is a closed piecewise $C^1$
+path in $U$ such that $n(\varphi;z) = 0$ for all $z \in \C \setminus U$
+and $n(\varphi;z)$ is either $1$ or $0$ for $z \in U$.  Let $V = \{ z \in U
+: n(\varphi;z) = 1 \}$.
+
+Suppose that $f \colon U \to \C$ and $g \colon U \to \C$
+are holomorphic functions such that
+\begin{equation*}
+\sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
+\end{equation*}
+for all $z \in \varphi$.  Then $f$ and $g$
+have the same number of zeros in $V$
+(up to multiplicity).
+\end{thm}
+
+The condition on $\varphi$ means that the
+path that is simple in the sense
+that only goes around any particular point either once or not at all.
+We then want to count the number of zeros inside the path.
+
+The classical statement of the theorem use the weaker
+inequality
+\begin{equation*}
+\sabs{f(z)-g(z)} < \sabs{f(z)}
+\end{equation*}
+as hypothesis.
+Notice that either inequality precludes any zeros on $\varphi$ itself.
+The weaker statement is enough for vast majority of
+applications, and has a more geometric meaning.  The number of zeros of $f$
+inside $\varphi$ corresponds to the number times $f(z)$ winds around zero
+as $z$ traverses $\varphi$.  The theorem says that if $f$ is modified a
+little this does not change.  The classical visual proof is a dog on a leash
+with the master going around a tree.  The master is at $f(z)$, the tree is
+at the origin, and the dog is at $g(z)$, so the length of the leash is
+$\sabs{f(z)-g(z)}$ and the distance of the master from the tree is
+$\sabs{f(z)}$.  So the ``proof'' of the theorem is to notice that if the
+master walks around a tree $k$ times, and the dog is never further from the
+master than the distance of the master to the tree, then the dog also walked
+around the tree $k$ times.  See \figureref{fig:dogtree}.
+
+\begin{myfig}
+FIXME: Dog and tree
+\caption{FIXME:\label{fig:dogtree}}
+\end{myfig}
+
+Let us get to the rigorous proof of the theorem.
+
+\begin{proof}[Proof of Rouch\`e]
+FIXME:
+\end{proof}
+
+FIXME:
+
+\subsection{The Open Mapping Theorem}
+
+A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
+sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
+is surprisingly famous\footnote{%
+It is called a ``blow-up'' and it is used in obtaining a Fields medal.
+Unfortunately, it has already been obtained by Hironaka, and you
+have to find your own map if you want your own medal.},
+takes all of $\R^2$, which is both an open and a closed set, to the
+set $\{ (x,y) : x \not= 0 \text{ or } y=0 \}$, which is neither open nor
+closed.
+
+Holomorphic functions are always nice to your topology.
+Remember that for a continuous map, $f^{-1}(V)$ is open whenever
+$V$ is open.  Nonconstant holomorphic functions have this property also in
+reverse.  So while not every holomorphic function is invertible, at least it
+behaves as if it were as far as the topology is concerned.
+
+
+\begin{thm}[Open Mapping]
+Let $U \subset \C$ be a domain and $f \colon U \to \C$ be
+holomorphic and nonconstant.  Then $f(V)$ is an open set for every open set
+$V \subset U$.
+\end{thm}
+
+\begin{proof}
+FIXME
+\end{proof}
+
+
+FIXME:
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5272,6 +5344,90 @@ P_r(\theta)
 \qquad \text{for $0 \leq r < 1$.}
 \end{equation*}
 
+\begin{prop}
+\leavevmode
+\begin{enumerate}[(i)]
+\item
+$P_r(\theta) > 0$ for all $0 \leq r < 1$ and all $\theta$.
+\item
+$\int_{-\pi}^{\pi} P_r(\theta) \, d\theta = 1$.
+\item
+For any given $\delta > 0$,
+$\sup \{P_r(\theta) : \delta \leq \abs{\theta} \leq \pi \} \to 0$ as
+$r \to 1$.
+\end{enumerate}
+\end{prop}
+
+In the proof, it is useful to consider how
+the graph of $P_r$ as a function of $\theta$ looks for a fixed $r$.
+See \figureref{fig:poissongraph}.
+
+\begin{myfig}
+\includegraphics[width=0.5\textwidth]{figures/poisson-kernel.pdf}
+\caption{The graph of $P_r$ as a function of $\theta$ on $[-\pi,\pi]$ for
+$r=0.5$, $r=0.7$, and $r=0.85$.\label{fig:poissongraph}}
+\end{myfig}
+
+\begin{proof}
+The first item follows because $1-r^2$ is always positive if $0 \leq r < 1$,
+and similarly
+\begin{equation*}
+1+r^2-2r \cos\theta \geq 1+r^2-2r = {(1-r)}^2 > 0 .
+\end{equation*}
+Next, denote by $r\D$ the disc of radius $r$ around 0,
+\begin{equation*}
+\begin{split}
+\int_{-\pi}^{\pi}
+P_r(\theta) \, d\theta
+& =
+\Re
+\frac{1}{2\pi}
+\int_{-\pi}^{\pi}
+\Re
+\left(
+\frac{1+re^{i\theta}}{1-re^{i\theta}}
+\right)
+\, d\theta
+\\
+& =
+\Re
+\frac{1}{2\pi i}
+\int_{-\pi}^{\pi}
+\frac{1+re^{i\theta}}{1-re^{i\theta}} \frac{1}{re^{i\theta}} \, ire^i\theta
+\, d\theta
+\\
+& = 
+\Re
+\frac{1}{2\pi i}
+\int_{\partial r\D}
+\frac{(1+z)/(1-z)}{z} \, dz
+=
+\Re \frac{1+0}{1-0} = 1 .
+\end{split}
+\end{equation*}
+The last equality follows by the Cauchy Integral Formula
+using the function $\frac{1+z}{1-z}$ evaluated at 0.
+
+For the third item, notice that we only need to prove the
+theory for $\delta \leq \theta \leq \pi$ by symmetry ($P_r$ is even).
+On $(0,\pi)$, $P_r$ is strictly decreasing as $\cos \theta$ is strictly
+increasing.  So we only need to show that $P_r(\delta)$ goes to 0
+as $r \to 1$ if $\delta > 0$.
+This follows by noting that $r \mapsto
+\frac{1+re^{i\delta}}{1-re^{i\delta}}$
+is continuous at $r=1$ and
+\begin{equation*}
+\frac{1+e^{i\delta}}{1-e^{i\delta}}
+=
+\frac{(1+e^{i\delta})(1-e^{-i\delta})}{(1-e^{i\delta})(1-e^{-i\delta})}
+=
+\frac{e^{i\delta}-e^{i\delta}}{\sabs{1-e^{i\delta}}^2}
+=
+i \frac{2\Im e^{i\delta}}{\sabs{1-e^{i\delta}}^2}
+\end{equation*}
+is purely imaginary.
+\end{proof}
+
 \begin{thm} \label{thm:dirichsol}
 Let $u \colon \partial \D \to \R$ be a continuous function.
 The function
@@ -5286,32 +5442,8 @@ Pu(e^{i\theta}) = u(e^{i\theta}),
 is harmonic in $\D$ and continuous on $\overline{\D}$.
 \end{thm}
 
-In the proof, it is useful to consider how
-the graph of $P_r$ as a function of $\theta$ looks for a fixed $r$.
-See \figureref{fig:poissongraph}.
-
-\begin{myfig}
-\includegraphics[width=0.5\textwidth]{figures/poisson-kernel.pdf}
-\caption{The graph of $P_r$ as a function of $\theta$ on $[-\pi,\pi]$ for
-$r=0.5$, $r=0.7$, and $r=0.85$.\label{fig:poissongraph}}
-\end{myfig}
-
 \begin{exbox}
 \begin{exercise}
-\begin{exparts}
-\item
-Prove $P_r(\theta) > 0$ for all $0 \leq r < 1$ and all $\theta$.
-\item
-Prove $\int_{-\pi}^{\pi} P_r(\theta) \, d\theta = 1$.
-\item
-Prove for any given $\delta > 0$,
-$\sup \{P_r(\theta) : \delta \leq \abs{\theta} \leq \pi \} \to 0$ as
-$r \to 1$.
-\end{exparts}
-\end{exercise}
-
-\begin{exercise}
-\pagebreak[1]%
 Prove \thmref{thm:dirichsol} using the following guideline:
 \begin{exparts}
 \item
