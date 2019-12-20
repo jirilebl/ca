@@ -4756,6 +4756,44 @@ Cauchy's Theorem implies the Cauchy Integral Formula.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{Laurent series}
+
+FIXME:
+
+\begin{defn}
+Given two numbers $0 \leq r_1 < r_2 < \infty$ and $a \in \C$, the set
+\begin{equation*}
+\ann(a,r_1,r_2) = \{ z \in \C : r_1 < \sabs{z - a} < r_2 \}
+\end{equation*}
+is called the \emph{\myindex{annulus}}.
+\end{defn}
+
+A common case we will see often is when $r_1 = 0$, that is
+the punctured disc
+\begin{equation*}
+\ann(a,0,r) = \Delta_r(a) \setminus \{ a \} .
+\end{equation*}
+Sometimes $r_2 = \infty$ is also allowed, in which case
+$\ann(a,r,\infty) = \C \setminus \overline{\Delta_{r}(a)}$.  
+
+\begin{thm}[\myindex{Laurent Series}]
+Suppose $f \colon \ann(a,r_1,r_2) \to \C$ is holomorphic.
+Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
+\begin{equation*}
+f(z) = \sum_{n=-\infty}^{\infty} c_n {(z-a)}^n ,
+\end{equation*}
+where the convergence is uniformly absolute on every compact subset of
+$\ann(a,r_1,r_2)$.
+\end{thm}
+
+\begin{proof}
+FIXME:
+\end{proof}
+
+FIXME: should it be here?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Homotopy version of Cauchy}
 
 \begin{defn}
@@ -4794,7 +4832,56 @@ the votes do.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The Residue Theorem}
+\section{Isolated singularities and the Residue Theorem}
+
+\begin{defn}
+Suppose $U \subset \C$ is open.
+A holomorphic function $f \colon U \to \C$ is said to have
+an \emph{\myindex{isolated singularity}} at $a \notin U$ if
+there is a disc $\Delta_r(a)$ such that $U \cap \Delta_r(a) =
+\Delta_r(a) \setminus \{ a \}$ (so $U = V \setminus \{ a \}$ for an open set
+$V$).
+\end{defn}
+
+In other words, $f$ has an isolated singularity at $a$ if it is defined
+and holomorphic in a punctured neighborhood
+$\Delta_r(a) \setminus \{ a \}$.  We expand
+$f$ in the Laurent Series on $\Delta_r(a) \setminus \{ a \}$:
+\begin{equation*}
+f(z) = \sum_{n=-\infty}^\infty c_n {(z-a)}^n .
+\end{equation*}
+As we saw the only power ${(z-a)}^n$ that does not have an antiderivative in
+$\Delta_r(a) \setminus \{ a \}$ is when $n=-1$.  This will be the only one
+that a line integral of $f$ will ``see,'' or in other words, it will be
+what's left, or the ``residue'' of integrating $f(z)$ around a closed path.
+With this in mind, we make the
+following definition.
+
+\begin{defn}
+Let $f$ be a holomorphic function $f$ with an isolated singularity at $a$.
+The \emph{\myindex{residue}} of $f$ at $a$ is the number
+\begin{equation*}
+\operatorname{Res}(f,a) = c_{-1}
+\end{equation*}
+where $c_{-1}$ is the coefficient of ${(z-a)}^{-1}$ in the Laurent Series
+expansion in the punctured disc $\Delta_r(a) \setminus \{ a \}$.
+\end{defn}
+
+\begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
+Suppose $U \subset \C$ is an open set, $S \subset U$ is a finite subset,
+and $\varphi$ is a closed piecewise $C^1$ path (or cycle) in $U \setminus S$
+such that $n(\varphi;w) = 0$ for all $w \in \C \setminus U$.
+Suppose $f \colon U \setminus S \to \C$ is a holomorphic function (with isolated
+singularities on $S$).
+Then
+\begin{equation*}
+\frac{1}{2\pi i} \int_{\varphi} f(z) \, dz = \sum_{a \in S} n(\varphi;a) \operatorname{Res}(f,a) .
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+FIXME:
+\end{proof}
 
 FIXME:
 
@@ -4847,6 +4934,79 @@ FIXME:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Classifying isolated singularities}
+
+\begin{defn}
+Suppose $V \subset \C$ is open, $f \colon V \setminus \{a\} \to \C$ is holomorphic with
+an isolated singularity at $a$.
+
+An isolated singularity is \emph{removable}\index{removable singularity}
+if 
+there exists a holomorphic function $F \colon U \to \C$
+such that $f(z) = F(z)$ for all $z \in U \setminus \{ a \}$.
+
+An isolated singularity $a$ is a \emph{\myindex{pole}} if 
+\begin{equation*}
+\lim_{z \to a} f(z) = \infty.
+\end{equation*}
+
+An isolated singularity that is neither removable nor a pole is said to be
+\emph{essential}\index{essential singularity}.
+\end{defn}
+
+%\begin{thm}[Riemann Extension Theorem]
+%Suppose $U \subset \C$ is open and
+%$f \colon U \setminus \{ a \} \to \C$ is holomorphic such that for some $r >
+%0$, $f$ is bounded on $\Delta_r(a)$.  Then $a$ is a removable singularity.
+%\end{thm}
+%
+%\begin{proof}
+%FIXME:
+%\end{proof}
+
+At nonessential isolated singularities
+the function blows up to a finite integral order.
+The first part of the following proposition is
+usually called the \emph{\myindex{Riemann Extension Theorem}}.
+
+\begin{thm} \label{thm:classifysing}
+Suppose $U \subset \C$ is an open set, $a \in U$,
+and $f \colon U \setminus \{a\} \to \C$ holomorphic.
+\begin{enumerate}[(i)]
+\item \label{thm:classifysing:i}
+If $f$ is bounded (near $a$ is enough), then $a$ is a removable singularity.
+\item \label{thm:classifysing:ii}
+If $p$ is a pole, there exists a $k \in \N$ such that
+\begin{equation*}
+g(z) = {(z-p)}^k f(z)
+\end{equation*}
+is bounded near $p$ and hence $g$ has a removable singularity at $p$.
+\end{enumerate}
+\end{thm}
+
+The number $k$ above is called the \emph{order}\index{order of a pole}
+of the pole.  There is a symmetry between zeros and poles:
+If $f$ has a zero of order $k$, then $\frac{1}{f}$ has a pole of order $k$.
+If $f$ has a pole of order $k$, then $\frac{1}{f}$
+has a removable singularity, and the extended function has a zero of order
+$k$.
+
+\begin{prop}
+Suppose $f \colon \Delta_r(a) \setminus \{a\} \to \C$ is holomorphic,
+and
+\begin{equation*}
+f(z) = \sum_{n=-\infty}^\infty c_n {(z-a)}^n ,
+\end{equation*}
+is the corresponding Laurent Series.
+The singularity at $a$ is
+\begin{enumerate}[(i)]
+\item \emph{removable} if $c_n = 0$ for all $n < 0$.
+\item \emph{pole} of order $k \in \N$ if $c_n = 0$ for all $n < -k$ and
+$c_{-k}
+\not= 0$.
+\item \emph{essential} if for every exist infinitely negative $n$
+such that $c_n \not= 0$.
+\end{enumerate}
+\end{prop}
 
 FIXME:
 
