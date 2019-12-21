@@ -4524,6 +4524,8 @@ on this component, and as it is constant, it must be zero.
 
 \section{Homology versions of Cauchy}
 
+\subsection{Cauchy theorems}
+
 \begin{thm}[Cauchy Integral Formula (homology version)]
 \label{thm:CIFhomology}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
@@ -4754,6 +4756,33 @@ Cauchy's Theorem implies the Cauchy Integral Formula.
 \end{exercise}
 \end{exbox}
 
+\subsection{Simply connected domains}
+
+A simply connected domain is one without any holes.  The following is
+perhaps not the standard definition, but for domains (connected open sets)
+it is sufficient.  We will define the term ``properly'' once we get 
+to homotopy.
+
+\begin{defn}
+A domain $U \subset \C$ is \emph{\myindex{simply connected}}
+if $n(\varphi;p) = 0$ for every
+piecewise $C^1$ path $\varphi$ in $U$ and every $p \in \C \setminus U$.
+\end{defn}
+
+\begin{exbox}
+\begin{exercise}
+Prove that $\C$ and $\D$ are simply connected, and $\C \setminus \{ 0 \}$
+is not simply connected.
+\end{exercise}
+
+\begin{exercise}
+Prove that any star-shaped domain is simply connected.
+\end{exercise}
+\end{exbox}
+
+
+FIXME: results for simply connected.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Laurent series}
@@ -4794,7 +4823,9 @@ FIXME: should it be here?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Homotopy version of Cauchy}
+\section{Homotopy version of Cauchy *}
+
+FIXME: define homotopy
 
 \begin{defn}
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
@@ -4803,17 +4834,6 @@ A domain $U \subset \C$ is \emph{\myindex{simply connected}}
 %if $n(\varphi;p) = 0$ for every
 %piecewise $C^1$ path $\varphi$ in $U$ and every $p \in \C \setminus U$.
 \end{defn}
-
-\begin{exbox}
-\begin{exercise}
-Prove that $\C$ and $\D$ are simply connected, and $\C \setminus \{ 0 \}$
-is not simply connected.
-\end{exercise}
-
-\begin{exercise}
-Prove that any star-shaped domain is simply connected.
-\end{exercise}
-\end{exbox}
 
 FIXME: homotopy version here!
 
@@ -4829,6 +4849,14 @@ the votes do.
 
 ---Joseph Stalin
 \end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Zeros of holomorphic functions}
+
+FIXME: all functions are $z^k$ really (or does that go elsewhere?)
+
+FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -5326,15 +5354,15 @@ FIXME:
 
 FIXME:
 
-\subsection{Dirichlet problem and the Poisson kernel}
+\subsection{Dirichlet Problem and the Poisson Kernel}
 
 It is useful to find a harmonic function given boundary values.
-This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
+This problem is called the \emph{\myindex{Dirichlet Problem}}, and it is
 solvable for many (though not all) domains.
 The proof of the following special case is contained in the exercises
 following the theorem.
 The
-\emph{\myindex{Poisson kernel}} for the unit disc $\D \subset \C$ is
+\emph{\myindex{Poisson Kernel}} for the unit disc $\D \subset \C$ is
 \glsadd{not:Pr}%
 \begin{equation*}
 P_r(\theta)
@@ -5525,6 +5553,8 @@ FIXME
 
 \section{Subharmonic functions}
 \label{sec:FIXME}
+
+\subsection{Basic properties}
 
 \begin{defn}
 Let $U \subset \R^n$ be an open set.
@@ -5782,7 +5812,110 @@ hint: Integrate the partial sums, and use polar coordinates.
 \end{exercise}
 \end{exbox}
 
+\subsection{Applications, Rad\'o's Theorem}
+
+We are often really interested in proving results for harmonic functions,
+as we are interested in proving results for holomorphic functions.
+However, harmonic functions are very rigid, they cannot be ``put together''
+easily.  Furthermore there aren't that many of them.  There are a lot of
+subharmonic functions.
+%Analogously linear affine functions are way too rigid , once you
+%make one locally you are stuck with it everywhere.  Convex functions on the
+%other hand, you can piece together.  Perhaps it is difficult to
+
+As an example of the use of subharmonic functions for
+complex analysis,
+let us prove the theorem of 
+Rad\'o, which is a complementary result to the Riemann extension theorem.
+Here on the one hand the function is
+continuous and vanishes on the set you wish to extend across, but on the
+other hand you know nothing about this set.
+
+\begin{thm}[Rad\'o]\index{Rad\'o's Theorem}\label{thm:rado}
+Let $U \subset \C$ be open and $f \colon U \to \C$ a continuous
+function that is holomorphic on the set where it is nonzero,
+\begin{equation*}
+U' = \bigl\{ z \in U : f(z) \not= 0 \bigr\} .
+\end{equation*}
+Then $f$ is holomorphic.
+\end{thm}
+
+\begin{proof}
+Holomorphicity is local, so
+it is enough to prove the theorem for a small disc $\Delta$
+such that $f$ is continuous
+on the closure $\overline{\Delta}$, let $\Delta'$ be the part of the disc
+where $f$ is nonzero.  If $\Delta'$ is empty, then we are done as
+$f$ is just identically zero and hence holomorphic.
+
+Let $u$ be the real part of $f$.  On $\Delta'$, $u$ is a harmonic function.
+Let $Pu$ be the Poisson integral of $u$ on $\Delta$.  Hence $Pu$
+equals $u$ on $\partial \Delta$, and $Pu$ is harmonic in all of $\Delta$.
+Consider the function
+$Pu(z) - u(z)$ on $\overline{\Delta}$.  The function is zero
+on $\partial \Delta$ and it is harmonic on $\Delta'$.  By rescaling $f$
+we can without loss of generality assume that $\abs{f(z)} < 1$ for all $z
+\in \overline{\Delta}$.  For any $t >0$, the function 
+$z \mapsto t \log \abs{f(z)}$ is subharmonic on $\Delta'$ and
+upper-semicontinuous on $\overline{\Delta'}$.  Further, it is negative
+on $\partial \Delta$.  The function $z \mapsto -t \log \abs{f(z)}$ is
+superharmonic (minus a subharmonic function) on $\Delta'$,
+lower-semicontinuous on $\overline{\Delta'}$ and positive on $\partial
+\Delta$.  On the set $\Delta \setminus \Delta'$ where $f$ is zero, the two functions are $-\infty$ and
+$\infty$ respectively.
+See \figureref{fig:radosthm}.
+Therefore, for all $t > 0$ and 
+$z \in \partial \Delta \cup (\Delta \setminus \Delta')$,
+we have
+\begin{equation} \label{eq:radobound}
+t \log \abs{f(z)} \leq Pu(z)-u(z) \leq -t \log \abs{f(z)}  .
+\end{equation}
+Applying the maximum principle to the subharmonic functions
+$z \mapsto t \log \abs{f(z)} - \bigl(Pu(z)-u(z)\bigr)$
+and
+$z \mapsto t \log \abs{f(z)} - \bigl(u(z)-Pu(z)\bigr)$
+shows that 
+\eqref{eq:radobound} holds for all $z \in \Delta'$ and all $t > 0$.
+
+\begin{myfig}
+\subimport*{figures/}{radosthm.pdf_t}
+\caption{Proof of Rad\'o's Theorem.\label{fig:radosthm}}
+\end{myfig}
+
+Taking the limit
+$t \to 0$ shows that $Pu = u$ on $\Delta'$.
+Let $W = \Delta \setminus \overline{\Delta'}$.
+On $W$, $u=0$ and so $Pu-u$ is harmonic on $W$
+and continuous on $\overline{W}$.  Furthermore,
+$Pu-u=0$ on $\overline{\Delta'} \cup \partial \Delta$,
+and so $Pu-u=0$ on $\partial W$.  By the maximum principle, $Pu=u$ on $W$
+and therefore on all of $\overline{\Delta}$.
+Similarly, if $v$ is the imaginary part of $f$, then $Pv = v$ on
+$\overline{\Delta}$.
+In other words, $u$ and $v$ are harmonic on $\Delta$.
+As $\Delta$ is simply connected,
+let $\tilde{v}$ be the harmonic conjugate of $u$ that equals $v$ at
+some point of $\Delta'$.  As $f$ is holomorphic on $\Delta'$,
+the harmonic functions $\tilde{v}$ and $v$
+are equal the nonempty open subset $\Delta'$ of $\Delta$ and so
+they are equal everywhere.  Consequently, $f = u +iv$ is holomorphic on
+$\Delta$.
+\end{proof}
+
 FIXME
+
+Another example of the use subharmonic functions is another solution
+to the Dirichlet Problem.  A solution can be had by considering all the
+subharmonic functions that are less than the function given on the boundary.
+Then one takes a supremum to obtain a harmonic function.  We will not go
+through this technique which is called the \emph{\myindex{Perron Method}}.
+Clearly that technique would work far better than the Poisson Kernel on
+more complicated domains.  For example, the Poisson Kernel can be computed
+on simply connected domains provided we know the Riemann map.  However,
+the kernel is difficult to compute in general, and it requires a very nice
+boundary to be able to integrate.  The Perron method works much more
+generally provided you can construct enough subharmonic functions (which can
+afterall be pieced together unlike harmonic functions).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
