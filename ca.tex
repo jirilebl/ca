@@ -4650,7 +4650,7 @@ holomorphic.
 \begin{proof}[Proof B]
 Another way to do this\footnote{%
 For no good rational reason, this is the one us several complex variables
-(SCV) people seems to prefer, possibly because SCV people are often PDE
+(SCV) people seem to prefer, possibly because SCV people are often PDE
 people and we rather differentiate than integrate.}
 is to apply Wirtinger derivatives and differentiation under the integral:
 \begin{equation*}
@@ -5026,9 +5026,7 @@ And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Laurent series}
-
-FIXME:
+\section{Laurent Series}
 
 \begin{defn}
 Given two numbers $0 \leq r_1 < r_2 < \infty$ and $p \in \C$, the set
@@ -5044,17 +5042,46 @@ the punctured disc
 \ann(p,0,r) = \Delta_r(p) \setminus \{ p \} .
 \end{equation*}
 Sometimes $r_2 = \infty$ is also allowed, in which case
-$\ann(p,r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  
+$\ann(p,r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  We will
+avoid calling $\ann(p,r,\infty)$ an annulus for clarity.
 
 \begin{thm}[\myindex{Laurent Series}]
-Suppose $f \colon \ann(p,r_1,r_2) \to \C$ is holomorphic.
+Suppose $0 \leq r_1 < r_2 < \infty$ and
+$f \colon \ann(p,r_1,r_2) \to \C$ is holomorphic.
 Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^{\infty} c_n {(z-p)}^n ,
 \end{equation*}
 where the convergence is uniformly absolute on every compact subset of
-$\ann(p,r_1,r_2)$.
+$\ann(p,r_1,r_2)$.  The numbers $c_n$ are given by
+\begin{equation*}
+c_n = 
+\frac{1}{2\pi i}
+\int_{\varphi}
+\frac{f(z)}{{(z-p)}^{n+1}}
+\,
+dz  ,
+\end{equation*}
+where $\varphi$ is any circle of radius $s$, $r_1 < s < r_1$, centered at
+$p$ oriented counterclockwise.
 \end{thm}
+
+Recall that convergence of a double series such as
+\begin{equation*}
+\sum_{n=-\infty}^{\infty} a_n
+\end{equation*}
+means
+\begin{equation*}
+\sum_{n=-\infty}^{\infty} a_n
+=
+\lim_{N\to -\infty}
+\sum_{n=N}^{-1} a_n
++
+\lim_{M\to \infty}
+\sum_{n=0}^{M} a_n .
+\end{equation*}
+That is, the limits are taken independently.  However, as we are talking
+about absolute convergence, the limit may be taken in any way, in any order.
 
 \begin{proof}
 FIXME:
@@ -5075,6 +5102,49 @@ A domain $U \subset \C$ is \emph{\myindex{simply connected}}
 %if $n(\varphi;p) = 0$ for every
 %piecewise $C^1$ path $\varphi$ in $U$ and every $p \in \C \setminus U$.
 \end{defn}
+
+FIXME:
+
+\begin{lemma}
+Suppose $\varphi \colon [a,b] \to \C$ is continuous and $p \notin
+\varphi$.  Given any $\theta_0$ such that
+$\varphi(a)-p = \sabs{\varphi(a)-p} e^{i\theta_0}$, that is $\theta_0$ is
+an argument of $\varphi(a)-p$.
+Then there exists a continuous function
+$\theta \colon [a,b] \to \R$ with $\theta(a) = \theta_0$ such that
+\begin{equation*}
+\varphi(t)-p = \sabs{\varphi(t)-p} e^{i\theta(t)}
+\end{equation*}
+for all $t \in [a,b]$, that is $\theta(t)$ is an argument of $\varphi(t)-p$.
+
+Furthermore, if $\varphi$ is a piecewise $C^1$ path then
+\begin{equation*}
+\frac{1}{2\pi i} \int_\varphi \frac{1}{z-p} \, dz =
+\frac{\theta(b)-\theta(a)}{2\pi} .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+FIXME
+\end{proof}
+
+\begin{lemma}
+Suppose $\varphi \colon [a,b] \to \C$ and $\theta \colon [a,b] \to \C$
+are continuous, $p \notin \varphi$,
+and $\varphi(t)-p = \sabs{\varphi(t)-p} e^{i\theta(t)}$ for all $t$.
+For every $\epsilon > 0$ there is a $\delta > 0$ such that
+if $\widetilde{\varphi} \colon [a,b] \to \C$ is continuous,
+$p \notin \widetilde{\varphi}$, and
+$\sabs{\varphi(t)-\widetilde{\varphi}(t)} < \delta$ for all $t \in [a,b]$,
+there exists a $\widetilde{\theta} \colon [a,b] \to \R$ such that
+$\sabs{\theta(t)-\widetilde{\theta}(t)} < \epsilon$ for all $t \in [a,b]$
+and $\widetilde{\varphi}(t)-p = \sabs{\widetilde{\varphi}(t)-p}
+e^{i\widetilde{\theta}(t)}$.
+\end{lemma}
+
+\begin{proof}
+FIXME
+\end{proof}
 
 FIXME: homotopy version here!
 
@@ -5107,13 +5177,14 @@ lemma.  We can now give a more complete statement.
 \begin{lemma}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be holomorphic, $p \in U$,
 and $f(p) = 0$.
-Then there exists a 
-$f(p) = 0$.  Then there exists a unique $k \in \N$ and a holomorphic $g \colon U
+Then there exists a unique $k \in \N$ and a holomorphic $g \colon U
 \to \C$ such that
 \begin{equation*}
 f(z) = (z-p)^k g(z)
 \end{equation*}
 and $g(p) \not= 0$.
+Furthermore, $k$ is the smallest integer such that the $k$\textsuperscript{th}
+derivative $f^{(k)}(p) \not= 0$.
 \end{lemma}
 
 \begin{defn}
@@ -5138,7 +5209,8 @@ f(z) =
 = {(z-p)}^k
 \sum_{n=0}^\infty c_{n+k} {(z-p)}^{n} ,
 \end{equation*}
-where $k$ is the smallest $n$ such that $c_n \not= 0$, and clearly $k > 0$.
+where $k$ is the smallest $n$ such that $c_n \not= 0$, and clearly $k > 0$
+(Hence also the ``Furthermore'').
 The series on the right is equal to $\frac{f(z)}{z-p}$ on
 some punctured disc $\Delta_r(p)\setminus \{ p \}$ where the series
 converged.
@@ -5229,12 +5301,68 @@ Then
 \end{thm}
 
 \begin{proof}
-FIXME:
+Let $w_1,\ldots,w_\ell$ denote the elements of $S$.
+Let $r_1,\ldots,r_\ell$ be positive numbers such that
+the closed discs
+$\overline{\Delta_{r_1}(w_1)},\ldots, \overline{\Delta_{r_\ell}(w_\ell)}$
+are mutually disjoint (no pair of them intersects),
+$\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$, and
+$\overline{\Delta_{r_j}(w_j)} \cap \varphi = \emptyset$ for all $j$.
+
+Define the cycle
+\begin{equation*}
+\Gamma = \varphi \,
+- \, n(\varphi;w_1) \, \partial \Delta_{r_1} (w_1)
+\, -
+\cdots
+- \, n(\varphi;w_\ell) \, \partial \Delta_{r_\ell} (w_\ell) .
+\end{equation*}
+We claim that
+\begin{equation*}
+n(\Gamma;p) = 0
+\end{equation*}
+for all $p \notin U \setminus S$.
+By definition,
+\begin{equation*}
+n(\Gamma;p) = n(\varphi;p)
+- n(\varphi;w_1) \, n(\partial \Delta_{r_1} (w_1) ; p)
+-
+\cdots
+- n(\varphi;w_\ell) \, n(\partial \Delta_{r_\ell} (w_\ell) ; p) .
+\end{equation*}
+If $p \notin U$, then as 
+$\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$ we get
+$n( \partial \Delta_{r_j}(w_j) ; p) = 0$, and the claim follows.
+If $p = w_k \in S$, then 
+$n( \partial \Delta_{r_j}(w_j) ; p) = 0$ if $j \not= k$,
+and
+$n( \partial \Delta_{r_k}(w_k) ; p) = 1$.  The claim follows.
+
+By the homology version of the Cauchy Theorem, we find
+\begin{equation*}
+0 = 
+\frac{1}{2 \pi i}
+\int_\Gamma f(z) \, dz
+=
+\frac{1}{2 \pi i}
+\int_\varphi f(z) \, dz
+-
+\sum_{j=1}^\ell
+n(\varphi;w_j)
+\frac{1}{2 \pi i}
+\int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz .
+\end{equation*}
+
+Now we recognize
+\begin{equation*}
+\frac{1}{2 \pi i}
+\int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz
+\end{equation*}
+as the formula for the $c_{-1}$ term in the Laurent Series
+for $f$ at $w_j$.  In other words, the residue of $f$ at $w_j$.
 \end{proof}
 
 FIXME:
-
-FIXME: move classification of singularities here I think
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -5273,27 +5401,85 @@ the function blows up to a finite integral order.
 The first part of the following proposition is
 usually called the \emph{\myindex{Riemann Extension Theorem}}.
 
-\begin{thm} \label{thm:classifysing}
+\begin{prop} \label{prop:classifysing}
 Suppose $U \subset \C$ is an open set, $p \in U$,
 and $f \colon U \setminus \{p\} \to \C$ holomorphic.
 \begin{enumerate}[(i)]
-\item \label{thm:classifysing:i}
+\item \label{prop:classifysing:i}
 If $f$ is bounded (near $p$ is enough), then $p$ is a removable singularity.
-\item \label{thm:classifysing:ii}
-If $p$ is a pole, there exists a $k \in \N$ such that
+\item \label{prop:classifysing:ii}
+If $p$ is a pole, then there exists a $k \in \N$ such that
 \begin{equation*}
 g(z) = {(z-p)}^k f(z)
 \end{equation*}
 is bounded near $p$ and hence $g$ has a removable singularity at $p$.
 \end{enumerate}
-\end{thm}
+Conversely, if there exists a $k \in \N$ such that
+$g(z) = {(z-p)}^k f(z)$ has a removable singularity at $p$,
+then $f(z)$ has a pole or a
+removable singularity at $p$
+\end{prop}
 
-The number $k$ above is called the \emph{order}\index{order of a pole}
-of the pole.  There is a symmetry between zeros and poles:
+\begin{proof}
+Let us start with
+\ref{prop:classifysing:i}.
+Define
+$g(z) = (z-p)^2 f(z)$ for $z \not= p$ near $p$ and $g(p) = 0$.
+$g$ is holomorphic for $z \not= p$.  Consider the 
+difference quotient
+$\frac{g(z)-g(p)}{z-p} = (z-p) f(z)$.
+As $f$ is bounded, we have that
+\begin{equation*}
+\lim_{z\to p} \frac{g(z)-g(p)}{z-p} = \lim_{z\to p} (z-p) f(z) = 0 .
+\end{equation*}
+So $g$ is complex differentiable at $p$ and so holomorphic near $p$.
+The order $k$ of the zero of $g$ at $p$ is at least $2$.  Write
+$g(z) = {(z-p)}^k h(z)$ where $h$ is holomorphic near $p$,
+then $f(z) = {(z-p)}^{k-2}h(z)$, or in other words, $p$ is a removable 
+singularity.
+
+For
+\ref{prop:classifysing:ii}, notice that $f$ cannot be zero in some
+punctured neighborhood $\Delta_r(p) \setminus \{p\}$.  The function
+$\frac{1}{f(z)}$ in $\Delta_r(p) \setminus \{p\}$ is holomorphic
+and has a removable singularity at $p$ by part
+\ref{prop:classifysing:i}.  Let $h$ be holomorphic in $\Delta_r(p)$
+such that $h(z) = \frac{1}{f(z)}$ for $z \not= p$.  By continuity $h(p) =
+0$.  Hence $h(z) = {(z-p)}^k q(z)$ for some holomorphic $q$ and $k \in \N$,
+where $q(p) \not= 0$.  By continuity, $q$ is nonzero near $p$.
+So for $z \not= p$ near $p$,
+\begin{equation*}
+{(z-p)}^k f(z)
+=
+{(z-p)}^k \frac{1}{{(z-p)}^k q(z)}
+=
+\frac{1}{q(z)} .
+\end{equation*}
+
+The converse statement follows by noting that if $g(z)$ has a removable
+singularity, then we can write $g(z) = {(z-p)}^\ell h(z)$ where $h(p) \not= 0$.
+Then
+\begin{equation*}
+f(z) = {(z-p)}^{\ell-k} h(z) ,
+\end{equation*}
+and this either goes to $\infty$ if $k > \ell$ or is bounded if $k \leq
+\ell$.
+\end{proof}
+
+\begin{defn}
+Given a holomorphic function $f$ with a pole, the smallest $k \in \N$
+such that ${(z-p)}^k f(z)$ is bounded is called the
+\emph{order}\index{order of a pole} of the pole.
+\end{defn}
+
+As can be seen from the proof of the proposition,
+there is a symmetry between zeros and poles:
 If $f$ has a zero of order $k$, then $\frac{1}{f}$ has a pole of order $k$.
 If $f$ has a pole of order $k$, then $\frac{1}{f}$
 has a removable singularity, and the extended function has a zero of order
 $k$.
+
+Another way of classifying a singularity is in terms of the Laurent Series.
 
 \begin{prop}
 Suppose $f \colon \Delta_r(p) \setminus \{p\} \to \C$ is holomorphic,
@@ -5313,8 +5499,17 @@ such that $c_n \not= 0$.
 \end{enumerate}
 \end{prop}
 
-FIXME:
+\begin{proof}
+FIXME
+\end{proof}
 
+Given an isolated singularity, the negative part of the series
+\begin{equation*}
+\sum_{n=-\infty}^{-1} c_n {(z-p)}^n 
+\end{equation*}
+is called the \emph{\myindex{principal part}}.  So a singularity is
+removable if the principal part is zero, it is a pole if the principle part
+is a finite series, and it is essential if the principal part is infinite.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
