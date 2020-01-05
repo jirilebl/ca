@@ -1639,7 +1639,7 @@ $f(z_3) = w_3$.
 \begin{exercise}
 Given distinct points $z_1,z_2,z_3 \in \C$ and
 using the cross ratio definition of an LFT, explicitly find
-the equation of a circle (or the straight line) through through the three points.
+the equation of a circle (or the straight line) through the three points.
 Hint: Inverse image of the real line is a circle or a straight line.
 \end{exercise}
 \end{exbox}
@@ -1821,7 +1821,7 @@ although that result will have to wait.
 However, one thing we do get immediately is that a holomorphic function is
 continuous, as it is real differentiable.
 
-\begin{prop}
+\begin{prop} \label{prop:zeroder}
 Let $U \subset \C$ be a domain (open and connected),
 and $f \colon U \to \C$ be holomorphic, and $f'(z) = 0$ for all $z \in U$.
 Then $f$ is a constant.
@@ -1993,7 +1993,7 @@ A good thorough account of this problem is:
 J.\ D.\ Gray and  S.\ A.\ Morris,
 \emph{When is a Function that Satisfies the Cauchy-Riemann Equations
 Analytic?}  The American Mathematical Monthly, Vol.\ 85, No.\ 4 (Apr.,
-1978), pp. 246--256.} if we only assume extistence of partial derivatives,
+1978), pp. 246--256.} if we only assume existence of partial derivatives,
 as the following exercise shows.
 
 \begin{exbox}
@@ -2053,7 +2053,7 @@ $\bar{z}$.  That statement had better make no sense at first glance.
 After all, the Wirtinger operators are not really derivatives with
 respect to actual variables,
 they are simply formal operators, and also, and more importantly,
-how could possibly something depend on $z$ but not not $\bar{z}$.
+how could possibly something depend on $z$ but not $\bar{z}$.
 
 But let us humor ourselves and check:
 \begin{equation*}
@@ -2567,6 +2567,19 @@ power series $\sum c_n {(z-p)}^n$ converging to $f$ on $\Delta_r(p) \subset
 \C$.
 \end{defn}
 
+\begin{exbox}
+\begin{exercise}[Easy]
+Prove that polynomials $P(z)$ are analytic.
+\end{exercise}
+
+\begin{exercise}
+Prove that $\frac{1}{z}$ is analytic in $\C \setminus \{ 0 \}$
+by explicitly writing down 
+a power series at any $z_0 \in \C \setminus \{ 0 \}$
+using the geometric series.
+\end{exercise}
+\end{exbox}
+
 Eventually we will see that analytic functions and holomorphic functions are
 one and the same.  Let us start by proving that
 analytic functions are holomorphic, that is, they are complex
@@ -2579,16 +2592,15 @@ f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
 \end{equation*}
 Then $f$ is complex differentiable at every $z \in \Delta_r(p)$ and
 \begin{equation*}
-f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1}
+f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1} ,
 \end{equation*}
-converges in $\Delta_r(p)$.
+which converges in $\Delta_r(p)$.
 \end{prop}
 
 \begin{proof}
 Without loss of generality, let $p=0$.
-Fix $z_0$.
-We look at how we differentiate $z^n$ at $z_0$,
-we consider the limit of
+Fix $z_0 \in \Delta_r(0)$.
+We look at how we differentiate $z^n$ at $z_0$; we consider the limit of
 \begin{equation*}
 \frac{z_0^n-z^n}{z_0-z}
 =
@@ -2608,7 +2620,9 @@ term-wise:
 \end{equation*}
 The right hand side is defined even if $z_0 = z$.
 We must show that the above expression is continuous at $z_0$.
-We can do this if the series converges uniformly for $z$ in a
+It is continuous provided that the series above
+%(the series whose terms are $c_n z_0^k z^{n-1-k}$)
+converges uniformly for $z$ in a
 neighborhood of $z_0$.  Suppose $s < r$ and $z_0$ and $z$ are
 in $\Delta_s(0)$.
 \begin{equation*}
@@ -2658,7 +2672,7 @@ Let $f \colon \Delta_r(p) \to \C$ be defined by a convergent power series
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
 \end{equation*}
-Then $f$ is infinitely complex complex differentiable in $\Delta_r(p)$,
+Then $f$ is infinitely complex differentiable in $\Delta_r(p)$,
 and the $n$\textsuperscript{th} derivative is given by
 \begin{equation*}
 f^{(k)}(z) = \sum_{n=k}^\infty n(n-1)\cdots(n-k+1) c_n {(z-p)}^{n-k} ,
@@ -2701,7 +2715,7 @@ expanded about a different point in $\Delta_r(p)$.  It will follow
 once we prove that holomorphic functions are analytic.
 \end{remark}
 
-\subsection{The identity theorem}
+\subsection{The Identity Theorem}
 
 One of the main properties of analytic functions is that once you know them
 in a neighborhood you know them everywhere.  In fact, much more general
@@ -2992,7 +3006,7 @@ In particular, if $\sabs{f(z)} \leq M$ on $\varphi$ and $L = \int_\varphi ds
 =
 \abs{\int_a^b f\bigl( \varphi(t) \bigr) \varphi'(t) \, dt}
 \leq
-\int_a^b \sabs{ f\bigl( \varphi(t) \bigr) } \sabs{ \varphi'(t) } \, dt .
+\int_a^b \abs{ f\bigl( \varphi(t) \bigr) }  \sabs{ \varphi'(t) } \, dt .
 \end{equation*}
 The statement follows.
 \end{proof}
@@ -3072,13 +3086,40 @@ beginning and end point, such that
 \end{exercise}
 \end{exbox}
 
-\subsection{Cauchy for derivatives}
+\subsection{Primitives and Cauchy for derivatives}
+
+\begin{defn}
+Suppose $U \subset \C$ is open and $f \colon U \to \C$
+is holomorphic.  A holomorphic $F \colon U \to \C$ with $f = F'$
+is called a \emph{\myindex{primitive}} (or \emph{\myindex{antiderivative}})
+of $f$.
+\end{defn}
+
+First, let us note the ``uniqueness'' of primitives.
+
+\begin{prop} \label{prop:primunique}
+Suppose $U \subset \C$ is a domain, and
+holomorphic functions
+$F \colon U \to \C$ and
+$G \colon U \to \C$, such that $F' = G'$.  Then
+there is a constant $C$ such that
+$F(z) = G(z) + C$.
+\end{prop}
+
+The proof is left as an exercise.  Be careful to somewhere use that $U$ is a
+domain.
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
+
+And now the FTC.
 
 \begin{prop}[Fundamental Theorem of Calculus for Paths]
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
-is holomorphic, such that there exists
-a holomorphic $F \colon U \to \C$ with $f = F'$ ($F$ is called
-a \emph{\myindex{primitive}} of $f$).
+is holomorphic with a primitive $F \colon U \to \C$.
 Let $\varphi \colon [a,b] \to U$ be a piecewise $C^1$ path.
 Then
 \begin{equation*}
@@ -3118,7 +3159,6 @@ the statement and proof of the proposition is perfectly fine at this stage
 if one uses the gauge integral even without any hypothesis on $f$.}.
 \end{remark}
 
-
 A path $\varphi \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if 
 $\varphi(a) = \varphi(b)$.  The fundamental theorem above has the following
 immediate corollary.
@@ -3140,10 +3180,10 @@ the $U$ or perhaps the path $\varphi$ rather
 than on the function being integrated.
 A version of Cauchy's theorem can be taken as an ``independence of path''
 type of result saying we can define a function at $z$ by a line integral
-from some fixed point to $z$.  This will imply that such a function has an
-antiderivative.  So the other versions of Cauchy's Theorem will generally
-be about what kind of $U$ guarantee that every holomorphic function has an
-antiderivative.
+from some fixed point to $z$.  This will imply that such a function has a
+primitive.  So the other versions of Cauchy's Theorem will generally
+either restrict which $\varphi$ can be taken or
+restrict to only those $U$ where every holomorphic function has a primitive.
 
 The above corollary has another useful corollary.
 
@@ -3344,7 +3384,8 @@ there exists a nonzero $w$ such that for all $z \in X$ we have
 \Re z\bar{w} \geq \Re \xi\bar{w} .
 \end{equation*}
 In other words, $X$ is in the closed half-space
-given by $w$ with $\xi$ on the boundary of that half-space.
+bounded by a straight line containing $\xi$ and
+orthogonal to $w$.
 Remember that $\Re z\bar{w}$ is the standard dot product from
 vector calculus in $\R^2$.
 \end{exercise}
@@ -3461,7 +3502,7 @@ such that $F' = f$.
 And we get another corollary, which we will rather state
 as a theorem, as it is one of the fundamental results.
 
-\begin{thm}[Cauchy's Theorem for Star-like Sets]
+\begin{thm}[Cauchy's Theorem for Star-like Domains]
 Suppose $U \subset \C$ is open and star-like, $f \colon U \to \C$ is holomorphic,
 and $\varphi$ is a closed piecewise $C^1$ path in $U$.  Then
 \begin{equation*}
@@ -3880,7 +3921,7 @@ for negative $z$ and behave like an exponential for positive $z$.
 \end{exercise}
 \end{exbox}
 
-\subsection{Cauchy estimates, Liouville, and the Fundamental Theorem of
+\subsection{Cauchy Estimates, Liouville, and the Fundamental Theorem of
 Algebra}
 
 It may seem like we are cramming quite a bit into one subsection, but
@@ -3892,11 +3933,11 @@ Liouville's Theorem on entire holomorphic functions, which at once gives the
 Fundamental Theorem of Algebra.
 
 Some analysts like to make fun of algebraists at this stage, saying that the
-standard proof of their fundamental theorem uses analysis.  I wish to take
-this a bit further.  It is not a theorem of algebra at all!  It is a theorem
-in complex analysis.
-If the reader will go on to several complex variables, this theorem will
-take on a much more prominent role.
+standard proof of their fundamental theorem uses analysis.
+One can take this even further.
+It is not a theorem of algebra at all!
+It is a theorem in
+complex analysis\footnote{There! It's ours now and you can't have it back.}.
 
 For a set $K$, denote the \emph{\myindex{supremum norm}}:
 \glsadd{not:supnorm}%
@@ -3978,7 +4019,7 @@ $\lim_{z \to \infty} P(z) = \infty$ and so
 $\lim_{z \to \infty} R(z) = 0$.  In other words, $R(z)$ is bounded, but then
 it would be constant (a contradiction).
 %
-%Without loss of generality we can assume that that $P$ is monic, that is,
+%Without loss of generality we can assume that $P$ is monic, that is,
 %the leading coefficient is 1.  So
 %Let $P(z) = z^d + c_{d-1} z^{d-1} + \cdots c_1 z + c_0$.
 %Then as long as $\sabs{z} \geq 1$,
@@ -4018,6 +4059,18 @@ it would be constant (a contradiction).
 %\end{equation*}
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+Prove that a polynomial $P(z)$ of degree $d$ can be written as
+\begin{equation*}
+P(z) = a \prod_{j=1}^d (z-z_j) ,
+\end{equation*}
+for some $a \in \C$ and $z_1,\ldots,z_d \in \C$.
+Hint: Prove that $P(z_0) = 0$ implies $P(z) = Q(z) (z-z_0)$ for some
+polynomial $Q$ of degree $d-1$.
+\end{exercise}
+\end{exbox}
+
 \subsection{Complex derivative is holomorphic}
 
 It may be useful to state other consequences of the fact that holomorphic
@@ -4056,7 +4109,11 @@ Let us remark that in the proof,
 the reduction to a disc (or some other simpler set)
 is important.  It is not true
 that every function satisfying the hypotheses of Morera's theorem has a
-primitive in $U$ for a general $U$.
+primitive in $U$ for a general $U$.  For example, $\frac{1}{z}$ is
+holomorphic in $U = \C \setminus \{ 0 \}$ and satisfies the hypotheses of
+Morera's theorem, however, it does not have a primitive
+in $\C \setminus \{ 0 \}$.  We will see much
+more of its (nonexistent) primitive, the logarithm, shortly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4237,7 +4294,7 @@ If equality holds, then $f(z) = \varphi_{-b}\bigl( e^{i\theta} \varphi_a(z)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{The Logarithm and Cauchy} \label{ch:FIXME}
+\chapter{The Logarithm and Cauchy} \label{ch:log}
 
 \begin{myquote}
 I became insane, with long intervals of horrible sanity.
@@ -4251,22 +4308,22 @@ I became insane, with long intervals of horrible sanity.
 \label{sec:log}
 
 Let us look at the function $z^n$ for $n \in \Z$.  When $n \geq 0$, 
-then $z^n$ is defined in the entire plane, and an antiderivative is
+then $z^n$ is defined in the entire plane, and a primitive is
 simply $\frac{z^{n+1}}{n+1}$.  If $n < -1$, then $z^n$ is defined
 in the punctured plane $\C \setminus \{0\}$, but again
-an antiderivative is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
-\frac{1}{z}$.  It turns out it has an antiderivative, but never defined in
+a primitive is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
+\frac{1}{z}$.  It turns out it has a primitive, but never defined in
 the entire punctured plane.
 
-We proved that in any star-like domain, a holomorphic function has an
-antiderivative.  So if we take say the set
+We proved that in any star-like domain, a holomorphic function has a
+primitive.  So if we take say the set
 \begin{equation*}
 U = \C \setminus \{ \Re z \leq 0 , \Im z = 0 \},
 \end{equation*}
 the so-called \emph{\myindex{slit plane}}.  It is a star-like domain and
-so there exists an
-antiderivative for $\frac{1}{z}$ in $U$.
-We could require that this antiderivative is 0 at 1,
+so there exists a
+primitive for $\frac{1}{z}$ in $U$.
+We could require that this primitive is 0 at 1,
 and from this we get a function
 \begin{equation*}
 \operatorname{Log} \colon U \to \C ,
@@ -4363,7 +4420,7 @@ star-like $U$ where $0 \notin U$.  In general, one can define a branch of
 the log in every simply connected domain, that is, a domain without holes,
 that does not contain zero.
 More on this later.  Similarly we can define branches of $\log (z-p)$, which
-should be an antiderivative of $\frac{1}{z-p}$, in which case the domain
+should be a primitive of $\frac{1}{z-p}$, in which case the domain
 should not contain $p$.
 
 We may also talk about branches more loosely, and talk
@@ -4726,6 +4783,7 @@ f(w) n(\varphi;w) . \qedhere
 Cauchy's Theorem actually follows immediately using the Integral Formula.
 
 \begin{thm}[Cauchy's Theorem (homology version)]
+\label{thm:CThomology}
 Let $U \subset \C$ be a domain and $f \colon U \to \C$ holomorphic.  If $\varphi$ is a
 closed
 piecewise $C^1$ path (or a cycle) in $U$ such that $n(\varphi;p) = 0$ for
@@ -4756,14 +4814,16 @@ Cauchy's Theorem implies the Cauchy Integral Formula.
 \end{exercise}
 \end{exbox}
 
-\subsection{Simply connected domains}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Simply connected domains}
 
 A simply connected domain is one without any holes.  The following is
 perhaps not the standard definition, but for domains (connected open sets)
 it is sufficient.  We will define the term ``properly'' once we get 
 to homotopy.
 
-\begin{defn}
+\begin{defn} \label{defn:simplyconnected:homology}
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
 if $n(\varphi;p) = 0$ for every
 piecewise $C^1$ path $\varphi$ in $U$ and every $p \in \C \setminus U$.
@@ -4780,8 +4840,189 @@ Prove that any star-shaped domain is simply connected.
 \end{exercise}
 \end{exbox}
 
+A special case of the holomogy version of Cauchy,
+\thmref{thm:CThomology}, can be stated as follows.
 
-FIXME: results for simply connected.
+\begin{thm}[Cauchy's Theorem (simply connected version)]
+Let $U \subset \C$ be a simply connected domain and $f \colon U \to \C$ holomorphic.  If $\varphi$ is a
+closed
+piecewise $C^1$ path (or a cycle) in $U$, then
+\begin{equation*}
+\int_\varphi f(z) \, dz = 0 .
+\end{equation*}
+\end{thm}
+
+The proof is trivial since for a simply connected $U$, $n(\varphi;p) = 0$
+for every $\varphi$.  Now having Cauchy's Theorem in simply connected
+domains, we have primitives (antiderivatives).
+
+\begin{thm}
+Let $U \subset \C$ be open and simply connected and
+let $f \colon U \to \C$ be holomorphic.  Then $f$ has a
+primitive in $U$.
+\end{thm}
+
+\begin{proof}
+Fix some $p \in U$, then for any $z \in U$ we pick
+some piecewise $C^1$ path $\varphi$ from $p$ to $z$
+and define
+\begin{equation*}
+F(z) = \int_\varphi f(\xi) \, d\xi .
+\end{equation*}
+A priory, the function $F$ depends on $\varphi$, but Cauchy's
+Theorem says that if $\psi$ is another such path then
+\begin{equation*}
+\int_\varphi f(\xi) \, d\xi -
+\int_\psi f(\xi) \, d\xi 
+=
+\int_{\varphi-\psi} f(\xi) \, d\xi  =  0 .
+\end{equation*}
+So $F$ is well-defined without specifying the path.
+
+The rest of the proof can be done very analogous to the proof for star-like
+domains (\propref{prop:primitiveinstarlike1} and
+\corref{cor:primitiveinstarlike}) .  Let us just reduce it to that case.
+Let $z_0 \in U$ be a point and consider a disc $\Delta_r(z_0) \subset U$
+(which is star-like with respect to $z_0$ in particular).
+We take $\varphi$ to be the path from $p$ to $z_0$.
+As $F$ does not depend on the path taken, for $z \in \Delta_r(z_0)$,
+then
+\begin{equation*}
+F(z) =
+\int_{\varphi+[z_0,\xi]} f(\xi) \, d\xi
+=
+\int_{\varphi} f(\xi) \, d\xi
++
+\int_{[z_0,\xi]} f(\xi) \, d\xi .
+\end{equation*}
+Now note that the first term is a constant, and the second term is precisely
+the primitive of $f$ for star-like domains.
+\end{proof}
+
+\begin{cor}
+Let $U \subset \C$ be open and simply connected and
+let $f \colon U \to \C \setminus \{ 0 \}$ be a nowhere zero holomorphic
+function.  Then there exists a holomorphic function $g \colon U \to \C$
+such that
+\begin{equation*}
+e^{g(z)} = f(z) .
+\end{equation*}
+\end{cor}
+
+In particular, using $f(z) = z$ we find that if
+$U \subset \C \setminus \{ 0 \}$ is open and simply connected, then
+there exists a holomorphic function $L \colon U \to \C$ such that
+\begin{equation*}
+e^{L(z)} = z .
+\end{equation*}
+
+\begin{proof}
+The function $\frac{f'(z)}{f(z)}$ is holomorphic on $U$.
+Find a primitive $g(z)$.  Compute
+\begin{equation*}
+\frac{d}{dz} \left[ \frac{e^{g(z)}}{f(z)} \right] =
+\frac{ e^{g(z)} g'(z) f(z) - e^{g(z)} f'(z) }{{\bigl(f(z)\bigr)}^2}
+=
+\frac{ e^{g(z)} f'(z) - e^{g(z)} f'(z) }{{\bigl(f(z)\bigr)}^2}
+=
+0 .
+\end{equation*}
+In other words, $\frac{e^{g(z)}}{f(z)}$ is constant
+(\propref{prop:zeroder}).  It follows that
+\begin{equation*}
+e^{g(z) + C} = f(z)
+\end{equation*}
+for some $C \in \C$.
+\end{proof}
+
+If we have the log, we can take roots.
+
+\begin{cor}
+Let $U \subset \C$ be open and simply connected,
+let $f \colon U \to \C$ be a nowhere zero holomorphic
+function, and let $k \in \N$.
+Then there exists a holomorphic function $g \colon U \to \C$
+such that
+\begin{equation*}
+{\bigl(g(z)\bigr)}^k = f(z) .
+\end{equation*}
+\end{cor}
+
+\begin{proof}
+Find a $\psi \colon U \to \C$ such that $e^{\psi(z)} = f(z)$.  Let
+$g(z) = e^{\frac{1}{k} \psi(z)}$.  Check:
+\begin{equation*}
+{\bigl(g(z)\bigr)}^k
+=
+{\left( e^{\frac{1}{k} \psi(z)} \right)}^k
+e^{\psi(z)} = f(z) . \qedhere
+\end{equation*}
+\end{proof}
+
+On the other hand, the existence of primitives or
+Cauchy's Theorem without restriction on $\varphi$ guarantees simply
+connectedness.  In particular, we have the following set of equivalent
+versions of simply connectedness for domains.
+
+\begin{thm}
+\pagebreak[2]
+Let $U \subset \C$ be a domain.  The following are equivalent:
+\begin{enumerate}[(i)]
+\item \label{thm:simplyconnected:i}
+$U$ is simply connected.
+\item \label{thm:simplyconnected:ii}
+Every holomorphic $f \colon U \to \C$ has a primitive.
+\item \label{thm:simplyconnected:iii}
+$\frac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
+\item \label{thm:simplyconnected:iv}
+For every holomorphic function $f \colon U \to \C$ and every
+closed
+piecewise $C^1$ path (or a cycle) $\varphi$ in $U$, we have
+\begin{equation*}
+\int_\varphi f(z) \, dz = 0 .
+\end{equation*}
+\item \label{thm:simplyconnected:v}
+For every $p \in \C \setminus U$ and every
+closed
+piecewise $C^1$ path (or a cycle) $\varphi$ in $U$, we have
+\begin{equation*}
+\int_\varphi \frac{1}{z-p} \, dz = 0 .
+\end{equation*}
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+We proved
+\ref{thm:simplyconnected:i} $\Rightarrow$
+\ref{thm:simplyconnected:ii} above,
+and
+\ref{thm:simplyconnected:ii} $\Rightarrow$
+\ref{thm:simplyconnected:iii} is immediate.
+
+Using Cauchy's Theorem for Derivatives,
+\ref{thm:simplyconnected:iii} implies
+\begin{equation*}
+\int_\varphi \frac{1}{z-p} \, dz = 0 
+\end{equation*}
+for every $p \in \C \setminus U$,
+and hence 
+\ref{thm:simplyconnected:v} is true.
+
+As 
+\begin{equation*}
+n(\varphi;p) = 
+\frac{1}{2\pi i}
+\int_\varphi \frac{1}{z-p} \, dz ,
+\end{equation*}
+\ref{thm:simplyconnected:v} is simply a restatement of
+\ref{thm:simplyconnected:i}.
+
+Again Cauchy's Theorem for Derivatives,
+\ref{thm:simplyconnected:ii} $\Rightarrow$
+\ref{thm:simplyconnected:iv}.
+And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
+\ref{thm:simplyconnected:v} is immediate.
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4837,11 +5078,17 @@ A domain $U \subset \C$ is \emph{\myindex{simply connected}}
 
 FIXME: homotopy version here!
 
+\begin{prop}
+A domain $U \subset \C$ is simply connected (in the sense of this section)
+if and only if it is simply connected
+(in the sense of \defnref{defn:simplyconnected:homology}).
+\end{prop}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Counting Zeros and Singularities} \label{ch:FIXME}
+\chapter{Counting Zeros and Singularities} \label{ch:counting}
 
 \begin{myquote}
 The people who cast the votes don't decide an election, the people who count
@@ -4854,9 +5101,83 @@ the votes do.
 
 \section{Zeros of holomorphic functions}
 
-FIXME: all functions are $z^k$ really (or does that go elsewhere?)
+At several times before we have used parts of the following rather simple
+lemma.  We can now give a more complete statement.  
 
-FIXME
+\begin{lemma}
+Let $U \subset \C$ be open, $f \colon U \to \C$ be holomorphic, $p \in U$,
+and $f(p) = 0$.
+Then there exists a 
+$f(p) = 0$.  Then there exists a unique $k \in \N$ and a holomorphic $g \colon U
+\to \C$ such that
+\begin{equation*}
+f(z) = (z-p)^k g(z)
+\end{equation*}
+and $g(p) \not= 0$.
+\end{lemma}
+
+\begin{defn}
+We call the point $p$ such that $f(p) = 0$ a \emph{\myindex{zero}} of
+$f$.
+The $k$ from the lemma is called the \emph{order}\index{order of a zero}
+of the zero at $p$.
+\end{defn}
+
+For completeness, the lemma holds also when $f(p) \not= 0$, in which case
+$k=0$ and $g = f$.  So we can say that when $f(p) \not= 0$, then $p$ is
+a zero of order 0, which sounds somewhat idiotic, but it all fits a general
+picture, and we will see negative orders a couple of sections from now.
+
+\begin{proof}
+On $U \setminus \{ p \}$ the function $g(z) = \frac{f(z)}{z-p}$ is
+holomorphic, so the trick is only near $p$.  We expand $f$ at $p$
+\begin{equation*}
+f(z) =
+\sum_{n=0}^\infty c_n {(z-p)}^n =
+\sum_{n=k}^\infty c_n {(z-p)}^n 
+= {(z-p)}^k
+\sum_{n=0}^\infty c_{n+k} {(z-p)}^{n} ,
+\end{equation*}
+where $k$ is the smallest $n$ such that $c_n \not= 0$, and clearly $k > 0$.
+The series on the right is equal to $\frac{f(z)}{z-p}$ on
+some punctured disc $\Delta_r(p)\setminus \{ p \}$ where the series
+converged.
+So it can define the $g$ near $p$.  Uniqueness follows rather easily:
+If $(z-p)^{k_1} g_1(z) = (z-p)^{k_2} g_2(z)$, where without loss of generality
+$k_1 \leq k_2$ and $g_1(p) \not= 0$ and $g_2(p) \not= 0$, then 
+$g_1(z) = (z-p)^{k_2-k_1} g_2(z)$.  Plug in $z=p$ to see that $k_2 =
+k_1$.
+\end{proof}
+
+Next, near a zero of order $k$, a holomorphic function really acts like the
+function $z^k$ acts near the origin.
+
+\begin{thm}
+Suppose $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic.
+Suppose $p \in U$ is a zero\footnote{In this theorem, do note
+that $k \in \N$, in particular $k > 0$, and so this really is an actual zero
+of $f$.} of $f$ of order $k \in \N$.  Then there exists a neighborhood $V$
+of $p$ and a holomorphic function $g \colon V \to \C$ such that
+\begin{equation*}
+f(z) = {\bigl( g(z) \bigr)}^k
+\end{equation*}
+where $g(p) = 0$ and $g'(p) \not= 0$.
+\end{thm}
+
+In more fancy language, $g$ is a biholomorphic change of variables near
+$p$ that makes $p$ into the origin, and it makes $f$ into $z^k$.
+
+\begin{proof}
+Let $V = \Delta_r(p)$ be a disc such that $f(z) \not= 0$ for any $z \in
+\Delta_r(p) \setminus \{ p \}$.  Use the lemma to get a function $h$ holomorphic
+on $\Delta_r(p)$ such that $h(p) \not= 0$ and $f(z) = {(z-p)}^k h(z)$.  In particular,
+$h(z) \not= 0$ for any $z \in \Delta_r(p)$.
+
+Now $h$ is nowhere zero on $\Delta_r(p)$, which is simply connected,
+and so there exists a holomorphic function $q$ on $\Delta_r(p)$ such that
+$q^k = h$.  Then let $g(z) = (z-p)q(z)$.  As
+$g'(z) = (z-p) q'(z) + q(z)$, we have $g'(p) = q(p) \not= 0$.
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4878,7 +5199,7 @@ $f$ in the Laurent Series on $\Delta_r(p) \setminus \{ p \}$:
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 \end{equation*}
-As we saw the only power ${(z-p)}^n$ that does not have an antiderivative in
+As we saw the only power ${(z-p)}^n$ that does not have a primitive in
 $\Delta_r(p) \setminus \{ p \}$ is when $n=-1$.  This will be the only one
 that a line integral of $f$ will ``see,'' or in other words, it will be
 what's left, or the ``residue'' of integrating $f(z)$ around a closed path.
@@ -5133,7 +5454,7 @@ FIXME:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Montel and Riemann} \label{ch:FIXME}
+\chapter{Montel and Riemann} \label{ch:montelriemann}
 
 \begin{myquote}
 A round man cannot be expected to fit in a square hole right away. He must
@@ -5145,7 +5466,7 @@ have time to modify his shape.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{FIXME}
-\label{sec:log}
+\label{sec:FIXME 1}
 
 FIXME
 
@@ -5153,7 +5474,7 @@ FIXME
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Harmonic functions} \label{ch:FIXME}
+\chapter{Harmonic functions} \label{ch:harmonic}
 
 \begin{myquote}
 If this is coffee, please bring me some tea; but if this is tea, please bring me some coffee.
@@ -5164,7 +5485,7 @@ If this is coffee, please bring me some tea; but if this is tea, please bring me
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Harmonic functions}
-\label{sec:FIXME}
+\label{sec:harmonic}
 
 \subsection{Real parts of holomorphic functions}
 
@@ -5213,14 +5534,9 @@ f
 \nabla^2 f .
 \end{equation*}
 
-
-
-
-
-
 In other words, $f$ is harmonic if and only if $\frac{\partial f}{\partial
-z}$ is holomorphic.  Locally (in some neighborhood) we can find an
-antiderivative, and we write
+z}$ is holomorphic.  Locally (in some neighborhood) we can find a
+primitive, and we write
 \begin{equation*}
 f(z) = g(z) + c(z) ,
 \end{equation*}
@@ -5321,9 +5637,9 @@ on any $\Delta_r(p)$ if $\overline{\Delta_r(p)} \subset U$.
 \end{prop}
 
 The key point above was the integration.  That is given a harmonic $f$ we wanted to
-find the holomorphic antiderivative to the holomorphic function
+find the holomorphic primitive to the holomorphic function
 $\frac{\partial f}{\partial z}$.  In a simply connected domain we always
-have such an antiderivative.
+have such a primitive.
 
 \begin{prop}
 Let $U \subset \C$ be a simply connected domain and $f \colon U \to \R$ a
@@ -5551,8 +5867,10 @@ $U$.
 
 FIXME
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Subharmonic functions}
-\label{sec:FIXME}
+\label{sec:subharmonic}
 
 \subsection{Basic properties}
 
@@ -5921,7 +6239,7 @@ afterall be pieced together unlike harmonic functions).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Rational approximation} \label{ch:FIXME}
+\chapter{Rational Approximation} \label{ch:runge}
 
 \begin{myquote}
 It has been said that man is a rational animal. All my life I have been searching for evidence which could support this.
@@ -6126,8 +6444,8 @@ d(x,y) =
 \end{equation*}
 For $n=1$, the real line, this metric agrees with what we did above.  Again,
 the only tricky part of the definition to check is the triangle inequality.
-The trick is to work with the
- the square of the metric and apply
+The trick is to work with 
+the square of the metric and apply
 the Cauchy--Schwarz inequality.
 \begin{equation*}
 \begin{split}
@@ -7939,7 +8257,7 @@ For example, let $K = [-10,10]$ and for $n \in \Z$ let $U_n =
 Take $x \in K$. There is an $n \in \Z$, 
 such that $n \leq x < n+1$.
 If $n \leq x < n+\nicefrac{1}{2}$, then
-$B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n-1}$.  If
+$B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n-1}$.
 If $n+ \nicefrac{1}{2} \leq x < n+1$, then
 $B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n}$.  So $\delta =
 \nicefrac{1}{2}$.  If instead we let $U'_n =
@@ -9338,7 +9656,7 @@ Let $\chi_{T}$ be the characteristic function of a set $T$, that is $\chi_T(x) =
 1$ if $x \in T$ and $\chi_T(x) = 0$ otherwise.
 The functions $n \chi_{(0,\nicefrac{1}{n})}$ all integrate (on the interval
 $[0,1]$) to 1.  Their
-pointwise limit limit is 0 (whose integral is 0).
+pointwise limit is 0 (whose integral is 0).
 \end{example}
 
 If we require the convergence to be uniform, the limits can
@@ -9999,7 +10317,7 @@ $\snorm{Ax} \leq \snorm{A} \snorm{x}$.
 \end{exbox}
 
 For a function $f \colon \R \to \R$, 
-the derivative at $x$ exists if there
+the derivative at $x$ exists if 
 there is a number $a$ (the derivative of $f$ at $x$) such that
 \begin{equation*}
 \lim_{h \to 0} \abs{\frac{f(x+h)-f(x)}{h} - a} =
@@ -10634,7 +10952,7 @@ t \frac{\partial f_j}{\partial x_n}\Big|_{x}\right)}^2} + \epsilon \snorm{k}
 \begin{exercise}
 Prove the assertion about the base case
 in the proof of \propref{mv:prop:contdiffpartials}.  That is, prove that
-if $n=1$ and the
+if $n=1$ and 
 the partials exist and are continuous, the function is 
 differentiable.
 \end{exercise}
