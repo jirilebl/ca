@@ -2725,7 +2725,7 @@ One of the main properties of analytic functions is that once you know them
 in a neighborhood you know them everywhere.  In fact, much more general
 statement is true.
 
-\begin{thm}[Identity]
+\begin{thm}[Identity]\index{Identity Theorem!holomorphic functions}
 Suppose $U \subset \C$ is a domain, 
 and $f \colon U \to \C$ analytic.  If $Z_f = \{ z \in U : f(z) = 0 \}$
 has a limit point in $U$, then $f$ is identically zero.
@@ -5678,7 +5678,7 @@ reverse.  So while not every holomorphic function is invertible, at least it
 behaves as if it were as far as the topology is concerned.
 
 
-\begin{thm}[Open Mapping]
+\begin{thm}[Open Mapping]\index{Open Mapping Theorem}\label{thm:OMT}
 Let $U \subset \C$ be a domain and $f \colon U \to \C$ be
 holomorphic and nonconstant.  Then $f(V)$ is an open set for every open set
 $V \subset U$.
@@ -5688,8 +5688,11 @@ $V \subset U$.
 FIXME
 \end{proof}
 
-
-FIXME:
+The Open Mapping Theorem is really a stronger version of the Maximum
+Principle.
+If for any $p$,
+$f(p)$ is always in the interior of $f(V)$ for any neighbourhood $V$ of
+$p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5729,11 +5732,21 @@ If this is coffee, please bring me some tea; but if this is tea, please bring me
 \section{Harmonic functions}
 \label{sec:harmonic}
 
-\subsection{Real parts of holomorphic functions}
+We have so far studied holomorphic functions as complex valued functions.
+However, to do analysis one needs inequalities, and complex numbers are not
+ordered.  Hence let us study the real and imaginary parts of holomorphic
+functions, the so-called harmonic functions.  Interestingly harmonic
+functions come up often in applied mathematics as for example steady state
+heat or the distribution of electrostatic potential in a region without
+charge.  It then turns out then that harmonic functions are used to study
+holomorphic functions and vice-versa, holomorphic functions are used to
+study harmonic functions.
+
+\subsection{Real and imaginary parts of holomorphic functions}
 
 \begin{defn}
 Let $U \subset \C$ be an open set.
-A twice differentiable function $f \colon U \to \R$ is
+A $C^2$ (a twice continuously differentiable) function $f \colon U \to \R$ is
 \emph{\myindex{harmonic}} if
 \begin{equation*}
 \nabla^2 f =
@@ -5908,12 +5921,36 @@ then $\psi_1 = \psi_2 + C$ for some $C \in \R$.
 The proof is trivial: The hypothesis implies that $\psi_1-\psi_2$ is
 holomorphic and it is real valued on $U$, and thus constant.
 
+The real and imaginary parts of a holomorphic function are harmonic,
+however, the modulus $\sabs{f(z)}$ is not however.  Not to fear,
+$\log \sabs{f(z)}$ is harmonic, at least where $f$ is nonzero.
+The fact that $\log \sabs{f(z)}$ is harmonic is just as useful
+as that the real and imaginary parts of $f$ are.
+
+\begin{exbox}
+\begin{exercise}
+Let $U \subset \C$ be open and
+$f \colon U \to \C$ holomorphic.  Prove that $\log \sabs{f(z)}$ is harmonic
+outside the zero set of $f$, that is on $U \setminus f^{-1}(0)$.
+\end{exercise}
+
+\begin{exercise}
+Prove the Lioville Theorem\index{Liouville Theorem!harmonic functions} for
+harmonic functions.  That is, suppose that $f \colon \C \to \R$ is harmonic
+and bounded from above, then $f$ is constant.
+\end{exercise}
+\end{exbox}
+
+
+
+\subsection{Identity and the Maximum Principle}
+
 A consequence of the above propositions is the identity theorem
 for harmonic functions.  For harmonic functions, the zero set is allowed to
 have limit points. For example, $\Re z$ is zero on the entire imaginary
 axis.  However, we are still not allowed open sets.
 
-\begin{prop}
+\begin{prop}[Identity]\index{Identity Theorem!harmonic functions}
 Let $U \subset \C$ be a domain and $f \colon U \to \R$ a harmonic function.
 Suppose $V \subset U$ is a nonempty open subset and $f = 0$ on $V$.  Then $f
 \equiv 0$.
@@ -5929,21 +5966,75 @@ open set and hence constant.  Thus $f$ is zero on $\Delta_r(p)$.  Thus $Z$
 is open, $Z$ is also closed, so $Z=U$ as $U$ is connected.
 \end{proof}
 
+The maximum principle is really a theorem about harmonic functions rather
+than holomorphic functions.  We will prove it using holomorphic functions
+and the Open Mapping Theorem (\thmref{thm:OMT})\footnote{I mentioned that
+the Open Mapping Theorem is a strong version of the Maximum Principle.}
+although it follows more directly from the Mean-value Property we will see
+later.
+
+\begin{thm}[Maximum Principle]
+\index{Maximum Principle!harmonic functions}
+Suppose $U \subset \C$ is a domain and $f \colon U \to \R$
+is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $f$ is constant.
+\end{thm}
+
+\begin{proof}
+The statement for a minimum follows by considering $-f$.  So suppose that
+$f$ attains a local maximum at $p \in U$, suppose it is the (global)
+maximum on some disc $\Delta_r(p)$.  Let $g$ be the harmonic conjugate on
+$\Delta_r(p)$.  The holomorphic function $h = f+ig$ takes the disc
+$\Delta_r(p)$ to the set $X = \{ z \in \C : \Re z \leq f(p) \}$.  The
+point $h(p)$ is on the boundary of $X$ as $\Re h(p)= f(p)$, and hence
+$h\bigl(\Delta_r(p)\bigr)$ is not open, which can only happen if $h$ is
+constant.  As $f$ is constant on $\Delta_r(p)$, it is constant on $U$ by the
+Identity Theorem.
+\end{proof}
+
 \begin{exbox}
 \begin{exercise}
-FIXME
+Assume the Maximum Principle for harmonic functions.  Prove the Maximum
+Principle for holomorphic functions by noting that if $f$ is holomorphic
+then $\log \sabs{f(z)}$ is harmonic.
+\end{exercise}
+
+\begin{exercise}
+Prove the second version of the Maximum Principle: If $U \subset \C$
+is a bounded domain and $f \colon \overline{U}
+\to \R$ is continuous and harmonic on $U$, then $f$ achieves a maximum
+on the boundary $\partial U$.
 \end{exercise}
 \end{exbox}
 
-\subsection{Dirichlet Problem and the Poisson Kernel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Schwarz Reflection Principle}
+
+FIXME:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Dirichlet Problem and the Poisson Kernel}
 
 It is useful to find a harmonic function given boundary values.
 This problem is called the \emph{\myindex{Dirichlet Problem}}, and it is
-solvable for many (though not all) domains.
-The proof of the following special case is contained in the exercises
-following the theorem.
+solvable for many (though not all) domains.  If the solution exists on a
+bounded domain, then it is unique.
+
+\begin{prop}
+Suppose $U \subset \C$ is a bounded domain, $f,g \colon \overline{U} \to \R$
+are continuous functions harmonic on $U$,
+such that $f = g$ on $\partial U$.
+Then $f=g$ on $U$.
+\end{prop}
+
+The proof is simply the Maximum Principle applied to $f-g$.
+
+The solution of the problem in a disc is rather useful, and rather explicit.
+It is achieved by integration against the so-called
+\emph{\myindex{Poisson Kernel}}.
 The
-\emph{\myindex{Poisson Kernel}} for the unit disc $\D \subset \C$ is
+Poisson Kernel for the unit disc $\D \subset \C$ is
 \glsadd{not:Pr}%
 \begin{equation*}
 P_r(\theta)
@@ -5989,7 +6080,6 @@ Next, denote by $r\D$ the disc of radius $r$ around 0,
 \int_{-\pi}^{\pi}
 P_r(\theta) \, d\theta
 & =
-\Re
 \frac{1}{2\pi}
 \int_{-\pi}^{\pi}
 \Re
@@ -6002,7 +6092,8 @@ P_r(\theta) \, d\theta
 \Re
 \frac{1}{2\pi i}
 \int_{-\pi}^{\pi}
-\frac{1+re^{i\theta}}{1-re^{i\theta}} \frac{1}{re^{i\theta}} \, ire^i\theta
+\frac{1+re^{i\theta}}{1-re^{i\theta}} \frac{1}{re^{i\theta}} \,
+ire^{i\theta}
 \, d\theta
 \\
 & = 
@@ -6051,36 +6142,104 @@ Pu(e^{i\theta}) = u(e^{i\theta}),
 is harmonic in $\D$ and continuous on $\overline{\D}$.
 \end{thm}
 
-FIXME: actually prove this theorem, it shouldn't be an exercise here
+\begin{proof}
+Let $z = re^{i\theta}$.
+Then for any fixed $t$,
+\begin{equation*}
+P_r(\theta-t)
+=
+\frac{1}{2\pi}
+\Re
+\left(
+\frac{1+re^{i(\theta-t)}}{1-re^{i(\theta-t)}}
+\right) 
+%=
+%\frac{1}{2\pi}
+%\Re
+%\left(
+%\frac{1+re^{i\theta}e^{-it}}{1-re^{i\theta}e^{-it}}
+%\right)
+=
+\frac{1}{2\pi}
+\Re
+\left(
+\frac{1+ze^{-it}}{1-ze^{-it}}
+\right)
+\end{equation*}
+is harmonic as a function of $z=re^{i\theta}$.
+By differentiating under the integral,
+\begin{equation*}
+Pu(z)
+=
+Pu(re^{i\theta})
+=
+\int_{-\pi}^\pi u(e^{it}) P_r(\theta-t) \, dt
+=
+\frac{1}{2\pi}
+\int_{-\pi}^\pi u(e^{it}) 
+\Re
+\left(
+\frac{1+z e^{-it}}{1-z e^{-it}}
+\right) 
+\, dt
+\end{equation*}
+is harmonic for $z = re^{i\theta} \in \D$.
 
-\begin{exbox}
-\begin{exercise}
-Prove \thmref{thm:dirichsol} using the following guideline:
-\begin{exparts}
-\item
-Poisson kernel is harmonic
-as a function of $z=re^{i\theta} \in \D$, and hence
-$Pu$ is harmonic.
-\item
+FIXME: steps:
+
+FIXME: (step2)
 $P$ acts like an
 approximate identity: Prove that
 $Pu(re^{i\theta}) \to u(e^{i\theta})$ uniformly as
-$r \to 1$ (Hint: Split the integral to $[-\delta,\delta]$ and the rest
-and use the previous exercise).
-\item
+$r \to 1$ (Split the integral to $[-\delta,\delta]$ and the rest
+and use the proposition)
+
+FIXME: (step3)
 Prove that $Pu(z)$ tends to $u(z_0)$ as
 $z \in \D \to z_0 \in \partial \D$.
-\pagebreak[2]
-\end{exparts}
-\end{exercise}
+\end{proof}
 
+A particularly useful to notice is that
+\begin{equation*}
+Pu(0) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(e^{it}) \, dt ,
+\end{equation*}
+that is $Pu(0)$ is the average value of of $u$.  In general, by applying
+a scaling and a translation, we find a $Pu$ for a function $u \colon
+\partial \Delta_\rho(p) \to \R$.  We
+leave the exact form of the Poisson Kernel for $\Delta_\rho(p)$ as an
+exercise, but the averaging phenomenon still holds.  That is
+\begin{equation} \label{eq:averageofPu}
+Pu(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(p + \rho e^{it}) \, dt .
+\end{equation}
+
+\begin{exbox}
 \begin{exercise}
 State and prove a version of \thmref{thm:dirichsol} for an arbitrary disc
-$\Delta_r(p)$.
+$\Delta_r(p)$.  Evaluate at $p$ to prove the averaging identity above.
 \end{exercise}
 
 \begin{exercise}
-FIXME
+State and prove a version of \thmref{thm:dirichsol} for a function that is
+bounded on $\partial \D$, and continuous at all but finitely many points on
+$\partial \D$.  The conclusion should of course be then that $Pu(z)$ ($z \in
+\D$) tends
+to $u(z_0)$ ($z_0 \in \D$) only if $u$ is continuous at $z_0$.
+Note: More advanced students should note that one does not need boundedness,
+just $L^1(\partial \D)$ with continuity of $Pu$ wherever $u$ is continuous.
+\end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item (Easy)
+Dirichlet problem on the upper half plane $\bH = \{ z \in \C : \Im z > 0 \}$
+does not have a unique solution.  Show that $f(z) = c \Im z$ is harmonic for
+any $c \in \R$ and $f = 0$ on the real line $\R = \partial \bH$.
+\item 
+Use the previous exercise to show that the Dirichlet problem has a unique
+solution on $\bH$ for a bounded continuous $u$ on $\partial \bH$.
+Note: Again, less than bounded is
+necessary, but it is sufficient for the exercise.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -6102,36 +6261,97 @@ A continuous function
 $f \colon U \to \R$
 is harmonic if and only if 
 \begin{equation*}
-f(p) = \frac{1}{2\pi} \int_0^{2\pi} f(p+re^{i\theta})\, d\theta
+f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
 \qquad \text{whenever} \quad
 \overline{\Delta_r(p)} \subset U .
 \end{equation*}
 \end{thm}
 
-FIXME:
-
-\begin{thm}[Maximum Principle]
-\index{Maximum Principle!harmonic functions}
-Suppose $U \subset \C$ is a domain and $f \colon U \to \R$
-is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $f$ is constant.
-\end{thm}
-
 \begin{proof}
-Without loss of generality, suppose that the maximum is global
-Suppose $f$ attains a maximum at $p \in U$.
-If
-$\overline{\Delta_r(p)} \subset U$, then
+One direction is simple.  Suppose that $f$ is harmonic and
+$\overline{\Delta_r(p)} \subset U$.  Solve
+Dirichlet Problem in $\Delta_r(p)$ using the Poisson Kernel
+given the boundary values
+$f|_{\partial \Delta_r(p)}$.  Using \eqref{eq:averageofPu} and the
+uniqueness of the solution of the Dirichlet Problem, we find
 \begin{equation*}
-f(p) = \frac{1}{2\pi} \int_0^{2\pi} f(p+re^{i\theta})\, d\theta
-.
+f(p) = P\bigl[f|_{\partial \Delta_r(p)}\big](p) =
+\frac{1}{2\pi} \int_{-\pi}^{\pi}f(p + r e^{it}) \, dt .
 \end{equation*}
-As $f(z) \leq f(p)$ for all $z \in \partial \Delta_r(p)$, and $f$ is
-continuous then $f(z) = f(p)$ on
-$z \in \partial \Delta_r(p)$.  This was true for any $r$, so
-$f(z) = f(p)$ on $\Delta_s(p)$ for $s$ where
-$\overline{\Delta_s(p)} \subset U$.  By the identity theorem $f=f(p)$ in
-$U$.
+
+For the other direction, suppose $f$ is continuous and satisfies the
+Mean-value property.  Let $\overline{\Delta_r(p)} \subset U$ be an
+arbitrary closed disc.  Let $h = P\bigl[f|_{\partial \Delta_r(p)}\big]$
+be the solution of the Dirichlet Problem in $\Delta_r(p)$ with boundary
+values given by $f$.  Consider $\varphi = f-h$ which is continuous, identically zero
+on $\partial \Delta_r(p)$ and still satisfies the Mean-value property
+on every closed disc in $U$.  Suppose for contradiction that $\varphi$ is positive
+somewhere on $\Delta_r(p)$, let $\varphi$ achieve a maximum at $q \in
+\Delta_r(p)$.
+The set $S \subset \overline{\Delta_r(p)}$ where $\varphi(z) = \varphi(q)$ is compact.
+We could thus assume that $q$ is the point closest to
+$\partial \Delta_r(p)$.  In this case for some small $\rho$ the circle
+$\partial \Delta_\rho(q) \subset \Delta_r(q)$ and for some neighborhood
+of $\partial \Delta_\rho(q)$ the function $\varphi$ must be less than some fixed
+negative constant.  See \figureref{fig:meanvalue}.
+
+\begin{myfig}
+%Note this figure is used later as well
+FIXME:
+\caption{The discs $\Delta_r(p)$ and $\Delta_\rho(q)$ and the set
+$S$.\label{fig:meanvalue}}
+\end{myfig}
+
+In particular, we obtain the strict inequality
+\begin{equation*}
+\frac{1}{2\pi} \int_{-\pi}^{\pi} \varphi(p+re^{i\theta})\, d\theta <
+\varphi(q) ,
+\end{equation*}
+Which is a contradiction as $\varphi$ was still supposed to satisfy the
+Mean-value Property.
+
+We have proved that $\varphi \leq 0$ on $\Delta_r(p)$.  By applying the same
+logic to $-\varphi$ we find that $\varphi = 0$ on $\Delta_r(p)$.  In
+particular, we find that $f=h$ and $h$ is harmonic, so $f$ is harmonic.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove the Maximum Principle for harmonic functions directly from the
+Mean-value Property.
+\end{exercise}
+
+\begin{exercise}
+It is not necessary to assume the Mean-value Property for all discs.  Prove
+that given a continuous $f$ as in the theorem such that for every $p \in U$
+there is an $s > 0$ (depending on $p$) such that $f$ satisfies the Mean-value
+Property on all discs $\Delta_r(p)$ for every $r < s$, then $f$ is
+harmonic.
+\end{exercise}
+\end{exbox}
+
+%\begin{thm}[Maximum Principle]
+%\index{Maximum Principle!harmonic functions}
+%Suppose $U \subset \C$ is a domain and $f \colon U \to \R$
+%is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $f$ is constant.
+%\end{thm}
+%
+%\begin{proof}
+%Without loss of generality, suppose that the maximum is global
+%Suppose $f$ attains a maximum at $p \in U$.
+%If
+%$\overline{\Delta_r(p)} \subset U$, then
+%\begin{equation*}
+%f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
+%.
+%\end{equation*}
+%As $f(z) \leq f(p)$ for all $z \in \partial \Delta_r(p)$, and $f$ is
+%continuous then $f(z) = f(p)$ on
+%$z \in \partial \Delta_r(p)$.  This was true for any $r$, so
+%$f(z) = f(p)$ on $\Delta_s(p)$ for $s$ where
+%$\overline{\Delta_s(p)} \subset U$.  By the identity theorem $f=f(p)$ in
+%$U$.
+%\end{proof}
 
 \subsection{Removable isolated singularities}
 
@@ -6194,58 +6414,111 @@ Prove that the Dirichlet problem is not solvable in the punctured disc $\D
 \section{Subharmonic functions}
 \label{sec:subharmonic}
 
+Holomorphic, and hence harmonic, functions are very rigid.
+There is a less restrictive (and much larger) set of functions that allows
+us to study harmonic functions.  In essence, we replace equalities, which are
+hard to solve, by inequalities, which are much easier to work with.
+
 \subsection{Basic properties}
 
 \begin{defn}
-Let $U \subset \R^n$ be an open set.
+Let $U \subset \C$ be open.
 A function $f \colon U \to \R \cup \{ -\infty \}$ is 
-\emph{\myindex{subharmonic}} if it is upper-semicontinuous%
-\footnote{Recall $f$ is \emph{\myindex{upper-semicontinuous}}
-if $\limsup_{t\to x} f(t) \leq f(x)$ for all $x \in U$.}
+\emph{\myindex{subharmonic}} if it is upper-semicontinuous (see below)
 and for every
-ball $B_r(p)$ with $\overline{B_r(p)} \subset U$,
-and every function $g$
-continuous on $\overline{B_r(p)}$ and
-harmonic on $B_r(p)$,
-such that $f(x) \leq g(x)$ for $x \in
-\partial B_r(p)$, we have
+disc $\Delta_r(p)$ with $\overline{\Delta_r(p)} \subset U$,
+and every continuous $g \colon \overline{\Delta_r(p)} \to \R$,
+harmonic on $\Delta_r(p)$,
+such that $f(z) \leq g(z)$ for $z \in \partial \Delta_r(p)$, we have
 \begin{equation*}
-f(x) \leq g(x), \quad \text{ for all } x \in
-B_r(p) .
+f(z) \leq g(z) \quad \text{ for all } z \in \Delta_r(p) .
+\end{equation*}
+
+Recall that $f \colon U \to \R \cup \{ -\infty \}$
+is \emph{\myindex{upper-semicontinuous}}
+if 
+\begin{equation*}
+\limsup_{\zeta \to z} f(\zeta) \leq f(z) \quad \text{ for all } z \in U.
 \end{equation*}
 \end{defn}
 
 In other words, a subharmonic function is a function that is less than every
-harmonic function on every ball.
-We remark that when $n=1$ in the definition of a subharmonic function,
-it is the same as the standard definition of a
-convex function of one real variable, where affine linear functions play the role of harmonic
-functions: A function of one real variable is
+harmonic function on every disc.
+
+The best way to think about subharmonic functions is an analogy to convex
+functions.
+We could make similar definitions of harmonic and subharmonic
+in $\R$ rather than $\C$ (in fact one can and often does make these
+definitions in $\R^n$ for any $n$).
+In this case (in $\R$ that is), a function $g$ is harmonic if
+$\frac{\partial^2}{\partial x^2} g = 0$, that is, $g(x) = Ax+B$, an affine
+linear function.
+A function of one real variable is
 \emph{convex}\index{convex function} if 
 for every interval it is less than the affine linear function with the same
 end points.
-After all, a function of one real variable is harmonic if the second
-derivative vanishes, and it is therefore affine linear.
-In one real dimension it is also easier to picture.
-The function $f$ is convex if on
+That is,
+the function $f$ is convex if on
 every interval $[\alpha,\beta]$, $f \leq g$ for every affine linear $g$
-bigger than $f$ at the endpoints $\alpha$ and $\beta$.  In particular, we can
-take the $g$ that is equal to $f$ at the endpoints.
-The picture is analogous for subharmonic functions for $n > 1$,
-but it is harder to draw.
+bigger than $f$ at the endpoints $\alpha$ and $\beta$.
+An interval $[\alpha,\beta]$ plays the role of a closed disc in $\R$.
+In particular, we can take the $g$ that is equal to $f$ at the endpoints.
+
+So \emph{convex} is the same as \emph{subharmonic} in
+$\R$.
+Graphs of real valued functions of one real variable
+are also much easier to draw than functions on $\C$, see
+\figureref{fig:convexfunc}.
 
 \begin{myfig}
 \subimport*{figures/}{convexfunc.pdf_t}
-\caption{Convex function.\label{fig:convexfunc}}
+\caption{A convex function.\label{fig:convexfunc}}
 \end{myfig}
 
 \begin{exbox}
 \begin{exercise}
-An upper-semicontinuous function achieves a maximum on compact sets.
+%FIXME: mark needed/used exercises
+Prove that given an upper-semicontinuous function $f \colon U \to \R \cup
+\{-\infty\}$,
+the set $S = f^{-1}\bigl([a,\infty)\bigr) = \{ z \in U : f(z) \geq a \}$
+is closed (in the subspace topology of $U$).
+\end{exercise}
+
+\begin{exercise}
+%FIXME: mark needed/used exercises
+Prove that an upper-semicontinuous function achieves a maximum on compact sets.
+\end{exercise}
+
+\begin{exercise}
+Prove that if $f \colon U \to \R$ is upper-semicontinuous and $-f$ is also
+upper-semicontinuous (that is $f$ is also lower-semicontinuous), then $f$
+is continuous.
 \end{exercise}
 \end{exbox}
 
-FIXME:
+A useful property that we will use often is that adding or subtracting 
+harmonic functions does not kill subharmonicity.  The proof is rather simple
+as a sum or difference of harmonic functions is harmonic and we leave it as
+an exercise.
+
+\begin{prop} \label{prop:fplushsubharmonic}
+If $f \colon U \to \R \cup \{ - \infty \}$ is subharmonic and $h \colon U
+\to \R$ is harmonic, then $f+h$ is subharmonic.
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
+
+Suharmonic functions are also classified by a mean value like property,
+although it is an inequality rather than an equality.  There is a subtle
+issue of integrability however.
+We will only prove this for the upper Darboux integral.
+The proof is 
+similar for the Lebesgue integral if the reader knows that, although
+the statement with the Darboux integral is sufficient for us.
 
 \begin{prop}[Sub-mean-value Property]
 \label{prop:submeanprop}
@@ -6254,24 +6527,87 @@ Let $U \subset \C$ be an open set.
 An upper-semicontinuous function $f \colon U \to \R \cup \{ -\infty \}$
 is subharmonic if and only if
 \begin{equation*}
-f(p) \leq \frac{1}{2\pi} \int_0^{2\pi} f(p+re^{i\theta})\, d\theta
+f(p) \leq \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
 \qquad \text{whenever} \quad
 \overline{\Delta_r(p)} \subset U .
 \end{equation*}
+The integral is either the Lebesgue integral or the upper Darboux integral,
+the function need not be Riemann integrable.
 \end{prop}
 
-For the sub-mean-value property you may have to use 
-the Lebesgue integral to integrate an upper-semicontinuous function,
-and to use the version of the Poisson integral above, you need to
-approximate by continuous functions on the boundary in the right way.
-On first reading, feel free to think of continuous subharmonic
-functions and not too much will be lost.
+\pagebreak[2]
+As $\partial \Delta_r(p)$ is compact and $f$ is upper-semicontinuous, then
+$f$ is bounded from above and hence the upper Darboux integral is defined
+and finite.
+The upper Darboux integral of a function $f$ on $[a,b]$ bounded above is normally defined as
+\begin{equation*}
+\overline{\int_a^b} f(t) \,dt
+\overset{\text{def}}{=}
+\inf \left\{ \int_a^b s(t) \, dt : s
+\text{ is a step function and } s(t) \geq f(t) \text{ for } t \in
+[a,b] \right\}
+\end{equation*}
+A step function is a finite sum of characteristic functions of intervals and
+hence Riemann integrable.
+Since continuous functions are Riemann integrable we can approximate from
+above by continuous functions $g$ such that
+$\int_a^b g(t)\,dt$
+approximates
+$\int_a^b s(t)\,dt$.  In other words, in the definition we could replace
+step functions with continuous functions, and that is what we will use in
+the proof.
+
+\begin{proof}
+First suppose that $f$ is subharmonic and fix a closed disc
+$\overline{\Delta_r(p)} \subset U$.
+Fix $\epsilon > 0$.
+Find a continuous function $g \colon \partial \Delta_r(p) \to \R$
+such that $f(p+ re^{i\theta}) \leq g(p+re^{i\theta})$ for all $\theta$
+and such that
+\begin{equation*}
+\frac{1}{2\pi} \int_{-\pi}^{\pi} g(p+re^{i\theta})\, d\theta <
+\frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} f(p+re^{i\theta})\, d\theta + \epsilon .
+\end{equation*}
+Solve the Dirichlet problem in the disc $\Delta_r(p)$ for $g$ and
+in a slight abuse of notation call the solution on $\overline{\Delta_r(p)}$
+also $g$.  As $g$ is harmonic and bigger than $f$ we have by
+definition of subharmonicity and the Mean-value Property of harmonic
+functions
+\begin{equation*}
+f(p) \leq g(p) =
+\frac{1}{2\pi} \int_{-\pi}^{\pi} g(p+re^{i\theta})\, d\theta <
+\frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} f(p+re^{i\theta})\, d\theta + \epsilon .
+\end{equation*}
+
+Now suppose conversely that the estimate always holds and $f$ is upper
+semicontinuous.  We will prove the contrapositive.  Suppose that $f$ is not
+subharmonic.  Then there exists a closed disc 
+$\overline{\Delta_r(p)} \subset U$ and a continuous
+$h \colon \overline{\Delta_r(p)} \to \R$, harmonic in $\Delta_r(p)$,
+such that $f(z) \leq h(z)$ on $\partial \Delta_r(p)$ and
+$h(q) < f(q)$ at some point $q \in \Delta_r(p)$.
+Let $\varphi = f-h$, then $\varphi(q) > 0$ and $\varphi(z) \leq 0$
+for all $z \in \partial \Delta_r(p)$.  The set
+$S \subset \overline{\Delta_r(p)}$ where $\varphi(z) = \varphi(q)$ is closed and so
+compact (via an exercise above).
+We could thus assume that $q$ is the point closest to
+$\partial \Delta_r(p)$.  In this case for some small $\rho$ the circle
+$\partial \Delta_\rho(q) \subset \Delta_r(q)$ and for some neighborhood
+of $\partial \Delta_\rho(q)$ the function $\varphi$ must be less than some fixed
+nnegative constant.  The setup is the same as in \figureref{fig:meanvalue}.
+
+In particular we obtain the strict inequality
+\begin{equation*}
+\frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} \varphi(p+re^{i\theta})\, d\theta <
+\varphi(q) . \qedhere
+\end{equation*}
+\end{proof}
+
+From now on, when we apply the property we simply write the integral and
+the reader substitutes the upper Darboux integral or the Lebesgue integral
+according to the reader's taste.
 
 \begin{exbox}
-\begin{exercise}
-Fill in the details of the proof of \propref{prop:submeanprop}.
-\end{exercise}
-
 \begin{exercise}
 Let $U \subset \C$ be open.
 Show that if $f \colon U \to \R \cup\{- \infty \}$ is subharmonic,
@@ -6280,12 +6616,6 @@ then
 \limsup_{w \to z} f(w) = f(z) 
 \qquad \text{for all $z \in U$.}
 \end{equation*}
-\end{exercise}
-
-\begin{exercise} \label{exercise:fminusgsubharmonic}
-Suppose $U \subset \C$ is open and $g \colon U \to \R$ is harmonic.
-Then $f \colon U \to \R \cup \{ -\infty \}$ is subharmonic if and only if $f-g$
-is subharmonic.
 \end{exercise}
 \end{exbox}
 
@@ -6300,7 +6630,7 @@ Suppose $f$ attains a maximum at $p \in U$.
 If
 $\overline{\Delta_r(p)} \subset U$, then
 \begin{equation*}
-f(p) \leq \frac{1}{2\pi} \int_0^{2\pi} f(p+re^{i\theta})\, d\theta \leq f(p)
+f(p) \leq \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta \leq f(p)
 .
 \end{equation*}
 Hence, $f = f(p)$ almost everywhere on $\partial \Delta_r(p)$.
@@ -6318,7 +6648,7 @@ Prove that subharmonicity is a local property.  That is, given an open set
 $U \subset \C$, a function $f \colon U \to \R \cup \{ -\infty \}$ is subharmonic if
 and only if for every $p \in U$ there exists a neighborhood $W$ of $p$,
 $W \subset U$, such that $f|_{W}$ is subharmonic.  Hint: Perhaps try to use
-the maximum principle and \exerciseref{exercise:fminusgsubharmonic}.
+the maximum principle and \propref{prop:fplushsubharmonic}.
 \end{exercise}
 
 \begin{exercise}
@@ -6343,7 +6673,8 @@ $g$ that are harmonic a bit past the boundary of the disc.
 \end{exbox}
 
 \begin{prop}
-Suppose $U \subset \C$ is an open set and $f \colon U \to \R$ is a $C^2$ function.
+Suppose $U \subset \C$ is an open set and $f \colon U \to \R$ is a $C^2$
+(twice continuously differentiable) function.
 The function $f$ is subharmonic if and only if
 $\nabla^2 f \geq 0$.
 \end{prop}
@@ -6387,8 +6718,10 @@ Finish the proof of the proposition above.
 \end{exercise}
 \end{exbox}
 
-In analogy to convex functions, a $C^2$-smooth function $f$ of one
+In analogy to convex functions, a $C^2$ function $f$ of one
 real variable is convex if and only if $f''(x) \geq 0$ for all $x$.
+
+We can also approximate subharmonic functions from above.
 
 \pagebreak[2]
 \begin{prop}
@@ -6406,9 +6739,9 @@ is upper-semicontinuous, then $\varphi$ is subharmonic.
 \begin{proof}
 Suppose $\overline{\Delta_r(p)} \subset U$.  For any $\alpha$,
 \begin{equation*}
-\frac{1}{2\pi} \int_0^{2\pi} \varphi (p+re^{i\theta})\, d\theta 
+\frac{1}{2\pi} \int_{-\pi}^{\pi} \varphi (p+re^{i\theta})\, d\theta 
 \geq
-\frac{1}{2\pi} \int_0^{2\pi} f_\alpha (p+re^{i\theta})\, d\theta 
+\frac{1}{2\pi} \int_{-\pi}^{\pi} f_\alpha (p+re^{i\theta})\, d\theta 
 \geq f_\alpha(p) .
 \end{equation*}
 Taking the supremum on the right over $\alpha$ obtains the results.
@@ -6542,8 +6875,6 @@ they are equal everywhere.  Consequently, $f = u +iv$ is holomorphic on
 $\Delta$.
 \end{proof}
 
-FIXME
-
 Another example of the use subharmonic functions is another solution
 to the Dirichlet Problem.  A solution can be had by considering all the
 subharmonic functions that are less than the function given on the boundary.
@@ -6556,6 +6887,22 @@ the kernel is difficult to compute in general, and it requires a very nice
 boundary to be able to integrate.  The Perron method works much more
 generally provided you can construct enough subharmonic functions (which can
 afterall be pieced together unlike harmonic functions).
+
+If a solution exists, it clearly must equal to the Perron solution.
+
+\begin{exbox}
+\begin{exercise}
+Suppose $U \subset \C$ is a domain and
+$u \colon \overline{U} \to \R$ is continuous and
+harmonic on $U$, then
+\begin{equation*}
+u(p) = \sup_{v} v(p)
+\end{equation*}
+where $v$ range over all upper-semicontinuous functions on $\overline{U}$
+subharmonic on $U$,
+such that $v|_{\partial U} \leq u|_{\partial U}$.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
