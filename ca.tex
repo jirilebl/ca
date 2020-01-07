@@ -348,6 +348,7 @@
 \newcommand{\tableref}[1]{\hyperref[#1]{Table~\ref*{#1}}}
 \newcommand{\chapterref}[1]{\hyperref[#1]{chapter~\ref*{#1}}}
 \newcommand{\Chapterref}[1]{\hyperref[#1]{Chapter~\ref*{#1}}}
+\newcommand{\Chdotref}[1]{\hyperref[#1]{Ch.~\ref*{#1}}}
 \newcommand{\appendixref}[1]{\hyperref[#1]{appendix~\ref*{#1}}}
 \newcommand{\Appendixref}[1]{\hyperref[#1]{Appendix~\ref*{#1}}}
 \newcommand{\sectionref}[1]{\hyperref[#1]{section~\ref*{#1}}}
@@ -553,7 +554,29 @@ make it clear when we mean real differentiability.
 
 Finally, certain sections are marked with a * and those can be easily
 skipped on first reading (though it does not mean they are not important,
-just not necessary for what follows).
+just not necessary for what follows).  Skipping some may make it possible
+to cover other later topics.
+
+The general dependence of the non-appendix chapters is the following.
+My plan for a semester is to go through chapters
+\ref{ch:complexplane}--\ref{ch:counting}, skipping the homotopy versions of
+Cauchy, to get through basic theory of holomorphic functions,
+then getting to \ref{ch:montelriemann} (Montel and Riemann),
+\ref{ch:harmonic} (harmonic functions),
+\ref{ch:runge} (Runge).
+\begin{equation*}
+\begin{tikzcd}[cramped, row sep=small]
+& & {\text{\Chdotref{ch:complexplane}}} \arrow[d] \\
+& & {\text{\Chdotref{ch:holfusc}}} \arrow[d] \\
+& & {\text{\Chdotref{ch:log}}} \arrow[d] \\
+& & {\text{\Chdotref{ch:counting}}} \arrow[dll] \arrow[dl] \arrow[d] \arrow[dr] \arrow[drr] \\
+{\text{\Chdotref{ch:montelriemann}}} &
+{\text{\Chdotref{ch:harmonic}}} &
+{\text{\Chdotref{ch:runge}}} &
+{\text{\Chdotref{ch:weier}}} &
+{\text{\Chdotref{ch:analcont}}}
+\end{tikzcd}
+\end{equation*}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -576,7 +599,7 @@ It's clearly a budget. It's got a lot of numbers in it.
 %instead of trying to see when the equation has a solution with
 %the numbers we have, we define new numbers that solve the equation.
 
-Modern\footnote{In this context \emph{modern}
+Modern\footnote{In this context, \emph{modern}
 means ``later than the middle ages.''}
 mathematics
 is taking a false statement such as ``all
@@ -5056,6 +5079,8 @@ And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
 
 \section{Laurent Series}
 
+One can also define a series for a holomorphic function around a hole, or a singularity.
+
 \begin{defn}
 Given two numbers $0 \leq r_1 < r_2 < \infty$ and $p \in \C$, the set
 \begin{equation*}
@@ -5694,6 +5719,36 @@ Principle.
 If for any $p$,
 $f(p)$ is always in the interior of $f(V)$ for any neighbourhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
+
+\subsection{Inverses of holomorphic functions}
+
+A function with nonzero derivative can be inverted (at least locally).
+We now have enough machinery to show that an invertible (one-to-one)
+holomorphic function has nonzero derivative, and the inverse is holomorphic.
+A priory this makes no
+sense at all.  A function $f \colon \R \to \R$ such as $f(x) = x^3$
+is one-to-one, but its derivative is zero at $x=0$, and $f^{-1}(x) =
+\sqrt[3]{x}$ is not differentiable at $x=0$.
+So the following theorem is quite surprising.
+Note
+
+\begin{thm}
+If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
+one-to-one, then $f(U)$ is open, $f'$ is never zero on $U$, and $f^{-1}
+\colon f(U) \to U$ is holomorphic.
+\end{thm}
+
+\begin{proof}
+If $f$ is one-to-one, then it is not constant, and so $f(U)$ is open by
+the open mapping theorem.
+
+Next suppose that $f'(p) = 0$ for some $p \in U$.
+
+FIXME
+\end{proof}
+
+FIXME
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6451,8 +6506,8 @@ functions.
 We could make similar definitions of harmonic and subharmonic
 in $\R$ rather than $\C$ (in fact one can and often does make these
 definitions in $\R^n$ for any $n$).
-In this case (in $\R$ that is), a function $g$ is harmonic if
-$\frac{\partial^2}{\partial x^2} g = 0$, that is, $g(x) = Ax+B$, an affine
+In this case (in $\R$ that is), a function $g(x)$ is harmonic if
+$\frac{\partial^2}{\partial x^2} g = g'' = 0$, that is, $g(x) = Ax+B$, an affine
 linear function.
 A function of one real variable is
 \emph{convex}\index{convex function} if 
@@ -6920,9 +6975,50 @@ It has been said that man is a rational animal. All my life I have been searchin
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{FIXME}
-\label{sec:FIXME}
+\label{sec:ratFIXME}
 
 FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Weierstrass Factorization} \label{ch:weier}
+
+\begin{myquote}
+May the forces of evil become confused on the way to your house.
+
+---George Carlin
+\end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{FIXME}
+\label{sec:FIXMEweier}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Analytic Continuation} \label{ch:analcont}
+
+\begin{myquote}
+I read part of it all the way through.
+
+---Samuel Goldwyn
+\end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{FIXME}
+\label{sec:FIXMEanalcont}
+
+FIXME
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
