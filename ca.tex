@@ -3564,7 +3564,7 @@ a primitive $F \colon U \to \C$, and
 Cauchy's Theorem for Derivatives (\corref{cor:cauchyforders}) then implies that the integral is zero.
 \end{proof}
 
-\subsection{Cauchy's formula in a disc and the Maximum Principle}
+\subsection{Cauchy's formula in a disc}
 
 Perhaps the most fundamental theorem in complex analysis in one variable,
 and the root cause of all the amazing properties of holomorphic functions
@@ -3665,6 +3665,8 @@ Now let $s$ go to zero
 = f(z) .  \qedhere
 \end{equation*}
 \end{proof}
+
+\subsection{The Maximum Principle}
 
 A consequence of Cauchy's formula is the so-called Maximum Principle, which
 has several different versions.  We prove the basic statement and leave
@@ -4164,6 +4166,238 @@ more of its (nonexistent) primitive, the logarithm, shortly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\section{The Cauchy Transform and convergence}
+
+\subsection{Holomorphic functions via integrals}
+
+It is common to define functions using line integrals.  For example,
+the Cauchy integral itself (usually called the Cauchy transform).
+First, a general lemma about holomorphicity of functions defined by integrals.
+
+\begin{lemma} \label{lemma:holfuncbyintegral}
+Suppose $U \subset \C$ is a domain, $\gamma$ is a closed
+piecewise $C^1$ path (or a cycle) in $U$, and
+$\psi \colon \gamma \times U \to \C$ is a continuous function such that
+for each fixed $z \in \gamma$, the function $w \mapsto \psi(z,w)$ is
+holomorphic.  Then
+\begin{equation}
+h(w) =
+\int_\gamma \psi(z,w) \, dz
+\end{equation}
+is a holomorphic function $U$.
+\end{lemma}
+
+There are two ways to do this,
+and as they are both useful in other places, let us do both of them.
+
+\begin{proof}[Proof A]
+One is to use Morera's Theorem (\thmref{thm:Morera}) and Fubini's Theorem.
+Let $T$ be a triangle inside this small neighborhood.  Suppose $w \in U$
+first.  Then
+\begin{equation*}
+\int_{\partial T}
+h(w)
+\, dw
+=
+\int_{\partial T}
+\int_\gamma \psi(z,w) \, dz
+\, dw
+=
+\int_\gamma
+\int_{\partial T}
+\psi(z,w)
+\, dw
+\, dz
+= \int_\gamma 0 \, dz = 0.
+\end{equation*}
+For this of course you need Fubini's Theorem, which applies because both
+$\partial T$ and $\gamma$ are compact and so parametrized by a finite
+interval, and the integrand is continuous, and hence bounded,
+on $\partial T \times \gamma$.
+Morera's Theorem now says that $h(w)$ is
+holomorphic.
+\end{proof}
+
+\begin{proof}[Proof B]
+Another way to do this\footnote{%
+For no good rational reason, this is the one us several complex variables
+(SCV) people seem to prefer, possibly because SCV people are often PDE
+people and we rather differentiate than integrate.}
+is to apply Wirtinger derivatives and differentiation under the integral:
+\begin{equation*}
+\frac{\partial}{\partial \bar{w}}
+\bigl[
+h(w)
+\bigr]
+=
+\frac{\partial}{\partial \bar{w}}
+\int_\gamma \psi(z,w) \, dz
+=
+\int_\gamma
+\frac{\partial}{\partial \bar{w}}
+\bigl[
+\psi(z,w)
+\bigr]
+\, dz
+= \int_\gamma 0 \, dz = 0.
+\end{equation*}
+Here, you are really passing the partial derivatives in the real and
+imaginary parts under the integral, which can be done by 
+the Leibniz Integral Rule, \thmref{thm:Leibnizrule}, for example.
+Actually it requires \exerciseref{exercise:severalvariableLiebniz},
+but that is a simple generalization.  The Cauchy--Riemann equations
+(\propref{prop:WirtCR}) now
+say that $h(w)$ is holomorphic.
+\end{proof}
+
+In either case, the idea is to swap some limits, which is not always true,
+and the two techniques above are the two kinds of swaps that come up most
+often (Fubini, and differentiating under the integral).
+
+Given any continuous $u \colon \partial \Delta_r(p) \to \C$ define
+the \emph{\myindex{Cauchy Transform}} $Cu \colon \Delta_r(p) \to \C$ is defined by
+\begin{equation*}
+Cu(z)
+\overset{\text{def}}{=}
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{\zeta-z}\, d\zeta .
+\end{equation*}
+
+\begin{cor}
+Given any continuous $u \colon \partial \Delta_r(p) \to \C$ the
+Cauchy transform $Cu \colon \Delta_r(p) \to \C$ is holomorphic.
+\end{cor}
+
+It is not necessarily true that $Cu$ tends to $u$ unless $u$ came from 
+a holomorphic function to begin with.
+
+\begin{exbox}
+\begin{exercise}
+Compute explicitly
+the Cauchy Transform $Cu$ on $\D$ for $u \colon \partial \D \to \C$
+given by $u(z) = \bar{z}$.
+\end{exercise}
+\end{exbox}
+
+\subsection{Convergence of sequences holomorphic functions}
+
+When dealing with a class of functions, any analyst worth their
+salt will ask\footnote{Apparently the salt thing
+comes from Roman times, soldiers were
+paid partly with salt to preserve their meats.  So if you didn't ask,
+your meats will not be salty.} about the correct topology for this class of
+functions.
+
+Another consequence of Cauchy's formula is that the correct topology for
+holomorphic functions is the same as that for continuous functions: uniform
+convergence on compact subsets.
+
+\begin{defn}
+A sequence of functions $f_n \colon U \to \C$ converges
+\emph{\myindex{uniformly on compact subsets}}%
+\index{convergence!uniformly on compact subsets}
+to $f \colon U \to \C$ if for every compact $K \subset U$,
+$f_n|_K$ converges uniformly to $f|_K$.
+\end{defn}
+
+It is rather surprising that this is the right topology for holomorphic
+functions, since for real
+differentiable functions nothing like that holds: $\sabs{x}^{1+1/n}$
+is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$
+which is not differentiable.
+
+\begin{thm}
+Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
+of holomorphic functions converging uniformly on compact subsets to
+$f \colon U \to \C$.  Then $f$ is holomorphic.
+Furthermore, for any $k$, the $k$\textsuperscript{th} derivative
+$f_n^{(k)}$ converges uniformly on compact subsets to $f^{(k)}$.
+\end{thm}
+
+\begin{proof}
+Let $p \in U$ be fixed.  Take closed disc $\overline{\Delta_r(p)} \subset
+U$.  For any fixed $z \in \Delta_r(p)$ we have
+\begin{equation*}
+f_n(z) = \frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)} \frac{f_n(\zeta)}{\zeta-z} \, d\zeta .
+\end{equation*}
+The set $\partial \Delta_r(p)$ is compact.  If the distance of $z$ to
+$\partial \Delta_r(p)$ is $\delta > 0$, then for $\zeta \in \partial
+\Delta_r(p)$ we have
+\begin{equation*}
+\abs{\frac{f_n(\zeta)}{\zeta-z}
+-
+\frac{f(\zeta)}{\zeta-z}
+}
+\leq
+\frac{\sabs{f_n(\zeta)-f(\zeta)}}{\sabs{\zeta-z}}
+\leq
+\frac{1}{\delta}
+\sabs{f_n(\zeta)-f(\zeta)} .
+\end{equation*}
+In other words,
+$\zeta \mapsto \frac{f_n(\zeta)}{\zeta-z}$ converges uniformly to 
+$\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ on $\partial \Delta_r(p)$.
+
+We can therefore take the limit as $n \to \infty$ underneath the integral
+to obtain
+\begin{equation*}
+f(z) = \frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta .
+\end{equation*}
+And this formula holds for all $z \in \Delta_r(p)$.  So $f$ is equal to
+its Cauchy Transform
+$C[f|_{\partial \Delta_r(p)}]$, which is holomorphic.  In other words,
+$f$ is holomorphic.
+
+Suppose $K \subset U$ is compact.  Then the distance the distance of
+$K$ and $\partial U$ is positive, say $d > 0$.  Consider 
+\begin{equation*}
+K' = \bigcup_{p \in K} \overline{\Delta_{d/2}(p)} .
+\end{equation*}
+Clearly $K' \subset U$.  The set $K'$ is also compact: It is clearly
+bounded, let us show it is closed.  Suppose that $p$ is not in $K'$,
+then $p$ is strictly further than
+$\frac{d}{2}$ from $K$, and thus so is every point in some neighborhood of
+$p$, so complement of $K'$ is open.
+
+As $\{ f_n \}$ converges uniformly on compact subsets it converges uniformly
+on $K'$.  Now for any $p \in K$, write
+\begin{equation*}
+f_n^{(k)}(p) =
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f_n(\zeta)}{{(\zeta-z)}^{k+1}} \, d\zeta .
+\end{equation*}
+As before, 
+$\zeta \mapsto \frac{f_n(\zeta)}{{(\zeta-z)}^{k+1}}$ converges uniformly
+on $\partial \Delta_r(p)$, and so we can take the limit of the right hand
+side under the integral:
+\begin{equation*}
+\begin{split}
+\lim_{n\to\infty}
+f_n^{(k)}(p) 
+& =
+\lim_{n\to\infty}
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f_n(\zeta)}{{(\zeta-z)}^{k+1}} \, d\zeta .
+\\
+& =
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{{(\zeta-z)}^{k+1}} \, d\zeta 
+=
+f^{(k)}(p) . \qedhere
+\end{split}
+\end{equation*}
+\end{proof}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Schwarz's Lemma and automorphisms of the disc}
 \label{sec:schwarz}
 
@@ -4344,9 +4578,9 @@ If equality holds, then $f(z) = \varphi_{-b}\bigl( e^{i\theta} \varphi_a(z)
 \chapter{The Logarithm and Cauchy} \label{ch:log}
 
 \begin{myquote}
-I became insane, with long intervals of horrible sanity.
+Never doubt the courage of the French. They were the ones who discovered that snails are edible.
 
----Edgar Allan Poe
+---Doug Larson
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -4650,94 +4884,13 @@ d \zeta .
 \end{equation*}
 \end{thm}
 
-Before we prove the theorem, let us prove a useful lemma.
-
-\begin{lemma} \label{lemma:holfuncbyintegral}
-Suppose $U \subset \C$ is a domain, $\gamma$ is a closed
-piecewise $C^1$ path (or a cycle) in $U$, and
-$\psi \colon \gamma \times U \to \C$ is a continuous function such that
-for each fixed $z \in \gamma$, the function $w \mapsto \psi(z,w)$ is
-holomorphic.  Then
-\begin{equation}
-h(w) =
-\int_\gamma \psi(z,w) \, dz
-\end{equation}
-is a holomorphic function $U$.
-\end{lemma}
-
-There are two ways to do this,
-and as they are both useful in other places, let us do both of them.
-
-\begin{proof}[Proof A]
-One is to use Morera's Theorem (\thmref{thm:Morera}) and Fubini's Theorem.
-Let $T$ be a triangle inside this small neighborhood.  Suppose $w \in U$
-first.  Then
-\begin{equation*}
-\int_{\partial T}
-h(w)
-\, dw
-=
-\int_{\partial T}
-\int_\gamma \psi(z,w) \, dz
-\, dw
-=
-\int_\gamma
-\int_{\partial T}
-\psi(z,w)
-\, dw
-\, dz
-= \int_\gamma 0 \, dz = 0.
-\end{equation*}
-For this of course you need Fubini's Theorem, which applies because both
-$\partial T$ and $\gamma$ are compact and so parametrized by a finite
-interval, and the integrand is continuous, and hence bounded,
-on $\partial T \times \gamma$.
-Morera's Theorem now says that $h(w)$ is
-holomorphic.
-\end{proof}
-
-\begin{proof}[Proof B]
-Another way to do this\footnote{%
-For no good rational reason, this is the one us several complex variables
-(SCV) people seem to prefer, possibly because SCV people are often PDE
-people and we rather differentiate than integrate.}
-is to apply Wirtinger derivatives and differentiation under the integral:
-\begin{equation*}
-\frac{\partial}{\partial \bar{w}}
-\bigl[
-h(w)
-\bigr]
-=
-\frac{\partial}{\partial \bar{w}}
-\int_\gamma \psi(z,w) \, dz
-=
-\int_\gamma
-\frac{\partial}{\partial \bar{w}}
-\bigl[
-\psi(z,w)
-\bigr]
-\, dz
-= \int_\gamma 0 \, dz = 0.
-\end{equation*}
-Here, you are really passing the partial derivatives in the real and
-imaginary parts under the integral, which can be done by 
-the Leibniz Integral Rule, \thmref{thm:Leibnizrule}, for example.
-Actually it requires \exerciseref{exercise:severalvariableLiebniz},
-but that is a simple generalization.  The Cauchy--Riemann equations
-(\propref{prop:WirtCR}) now
-say that $h(w)$ is holomorphic.
-\end{proof}
-
-In either case, the idea is to swap some limits, which is not always true,
-and the two techniques above are the two kinds of swaps that come up most
-often (Fubini, and differentiating under the integral).
-
-OK.  Now we are ready to prove the theorem.  Before we do let us note a
+Before we prove the theorem let us note a
 rather strange fact that what we will do in the proof is to define an entire
 function (even though $U$ might be only a small subset) and then we will use
 Liouville's Theorem (\thmref{thm:Liouville}).
 
-\begin{proof}[Proof of \thmref{thm:CIFhomology}]
+\begin{proof}
+%[Proof of \thmref{thm:CIFhomology}]
 We begin with an expression you have probably seen in the development of the real
 derivative, so it is not a surprise it appears in the development of
 holomorphic functions.
@@ -5685,7 +5838,30 @@ FIXME:
 
 FIXME:
 
-\subsection{The Open Mapping Theorem}
+\subsection{Hurwitz's Theorem}
+
+Often we approximate one function by other functions and we would like to
+count the zeros of the limit.
+
+\begin{thm}[Hurwitz]\index{Hurwitz's Theorem}
+Let $U \subset \C$ be a domain and $f_n \colon U \to \C$ is a sequence of
+holomorphic functions converging uniformly on compact subsets
+to a holomorphic $f \colon U \to \C$.  Suppose that for some closed
+disc $\overline{\Delta_r(p)} \subset U$, $f$ has no zeros on $\partial
+\Delta_r(p)$ and has $k$ zeros (counting multiplicity) in $\Delta_r(p)$.
+Then there exists an $N$ such that for all $n \geq N$,
+$f_n$ has $k$ zeros (counting multiplicity) in $\Delta_r(p)$.
+\end{thm}
+
+\begin{proof}
+FIXME
+\end{proof}
+
+FIXME: some applications
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{The Open Mapping Theorem}
 
 A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
 sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
@@ -5720,7 +5896,9 @@ If for any $p$,
 $f(p)$ is always in the interior of $f(V)$ for any neighbourhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
 
-\subsection{Inverses of holomorphic functions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Inverses of holomorphic functions}
 
 A function with nonzero derivative can be inverted (at least locally).
 We now have enough machinery to show that an invertible (one-to-one)
@@ -5728,9 +5906,49 @@ holomorphic function has nonzero derivative, and the inverse is holomorphic.
 A priory this makes no
 sense at all.  A function $f \colon \R \to \R$ such as $f(x) = x^3$
 is one-to-one, but its derivative is zero at $x=0$, and $f^{-1}(x) =
-\sqrt[3]{x}$ is not differentiable at $x=0$.
-So the following theorem is quite surprising.
-Note
+\sqrt[3]{x}$ is not differentiable at $x=0$.  The main result (the second
+theorem) of this subsection
+is therefore quite surprising.
+
+The standard relationship between derivative and one-to-one-ness of a
+function is the Inverse Function Theorem (\thmref{thm:inverse})
+for continuously differentiable
+functions of $\R^2$ to $\R^2$.
+It says that if $Df$ is invertible at some point $p$, then $f$ takes a
+neighborhood $V$ of $p$ bijectively into another neighborhood $f(V)$
+of $f(p)$ and the inverse on that neighborhood is differentiable with
+$D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
+
+In terms of holomorphic functions the inverse function theorem is restated
+as follows.
+
+\begin{thm}[Inverse Function Theorem] \index{Inverse Function Theorem}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$p \in U$, and $f'(p) \not= 0$.  Then there exist neighborhoods $V$ of $p$
+and $W$ of $f(p)$ such that $f(V) = W$, $f$ is one-to-one on $V$, and
+the inverse $g \colon W \to V$ (a function such that $g\bigl(f(z)\bigr)=z$
+for all $z \in V$) is holomorphic, with
+\begin{equation*}
+g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
+\end{equation*}
+\end{thm}
+
+We leave it as an exercise to complete the following outline
+to prove the theorem directly in the holomorphic case.
+
+\begin{exbox}
+\begin{exercise}
+Prove the Inverse Function Theorem using the following outline.
+\begin{exparts}
+\item FIXME 1
+\item FIXME 2
+\item FIXME 3
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
+So far, nothing really new for holomorphic functions.  But it turns out that
+being one-to-one is sufficient for being invertible.
 
 \begin{thm}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
@@ -5740,7 +5958,7 @@ one-to-one, then $f(U)$ is open, $f'$ is never zero on $U$, and $f^{-1}
 
 \begin{proof}
 If $f$ is one-to-one, then it is not constant, and so $f(U)$ is open by
-the open mapping theorem.
+the Open Mapping Theorem.
 
 Next suppose that $f'(p) = 0$ for some $p \in U$.
 
@@ -6675,8 +6893,8 @@ then
 \end{exercise}
 \end{exbox}
 
-\begin{prop}[Maximum principle]
-\index{maximum principle!subharmonic functions}
+\begin{prop}[Maximum Principle]
+\index{Maximum Principle!subharmonic functions}
 Suppose $U \subset \C$ is a domain and $f \colon U \to \R \cup \{ -\infty \}$
 is subharmonic.  If $f$ attains a maximum in $U$, then $f$ is constant.
 \end{prop}
@@ -6986,9 +7204,9 @@ FIXME
 \chapter{Weierstrass Factorization} \label{ch:weier}
 
 \begin{myquote}
-May the forces of evil become confused on the way to your house.
+I became insane, with long intervals of horrible sanity.
 
----George Carlin
+---Edgar Allan Poe
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7005,9 +7223,9 @@ FIXME
 \chapter{Analytic Continuation} \label{ch:analcont}
 
 \begin{myquote}
-I read part of it all the way through.
+May the forces of evil become confused on the way to your house.
 
----Samuel Goldwyn
+---George Carlin
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9823,6 +10041,84 @@ $f \colon S \to Y$ is continuous at $p$ if and only if
 \lim_{x \to p} f(x) = f(p) .
 \end{equation*}
 
+\subsection{Fixed point theorem}
+
+\begin{defn}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+A mapping
+$f \colon X \to Y$ is said to be a \emph{\myindex{contraction}}
+(or a contractive map) if it is
+a $k$-Lipschitz map for some $k < 1$, i.e.\ if there exists a $k < 1$ such that
+\begin{equation*}
+d_Y\bigl(f(p),f(q)\bigr) \leq k\, d_X(p,q)
+\qquad \text{for all } p,q \in X.
+\end{equation*}
+
+\medskip
+
+If $f \colon X \to X$ is a map, $x \in X$ is called a
+\emph{\myindex{fixed point}}
+if $f(x)=x$.
+\end{defn}
+
+\begin{thm}%
+[\myindex{Contraction Mapping Principle}
+or \myindex{Banach Fixed Point Theorem}\index{fixed point theorem}]
+\label{thm:contr}
+Let $(X,d)$ be a nonempty complete metric space and $f \colon X \to X$ a
+contraction.
+Then $f$ has a unique fixed point.
+\end{thm}
+
+The words \emph{complete} and \emph{contraction} are necessary.
+See \exerciseref{exercise:nofixedpoint}.
+
+\begin{proof}
+Pick any $x_0 \in X$.
+Define a sequence $\{ x_n \}$ by $x_{n+1} := f(x_n)$.
+\begin{equation*}
+d(x_{n+1},x_n) = d\bigl(f(x_n),f(x_{n-1})\bigr)
+\leq k d(x_n,x_{n-1})
+\leq \cdots
+\leq k^n d(x_1,x_0) .
+\end{equation*}
+Suppose $m > n$, then
+\begin{equation*}
+\begin{split}
+d(x_m,x_n)
+& \leq \sum_{i=n}^{m-1} d(x_{i+1},x_i) \\
+& \leq \sum_{i=n}^{m-1} k^i d(x_1,x_0) \\
+& = k^n d(x_1,x_0) \sum_{i=0}^{m-n-1} k^i \\
+& \leq k^n d(x_1,x_0) \sum_{i=0}^{\infty} k^i
+= k^n d(x_1,x_0) \frac{1}{1-k} .
+\end{split}
+\end{equation*}
+In particular, the sequence is Cauchy (why?).  Since $X$ is complete,
+we let $x := \lim\, x_n$, and we claim that $x$
+is our unique fixed point.
+
+Fixed point?  The function $f$ is a contraction,
+so it is Lipschitz continuous:
+\begin{equation*}
+f(x) = f( \lim \, x_n) = \lim\, f(x_n) = \lim\, x_{n+1} = x .
+\end{equation*}
+
+Unique?  Let $x$ and $y$ both be fixed points.
+\begin{equation*}
+d(x,y) = d\bigl(f(x),f(y)\bigr) \leq k\, d(x,y) .
+\end{equation*}
+As $k < 1$ this means that $d(x,y) = 0$ and hence $x=y$.  The theorem is
+proved.
+\end{proof}
+
+The proof is constructive.  Not only do we know 
+a unique fixed point exists.  We also know how to find it.  Start with
+any point $x_0 \in X$, and iterate $f(x_0)$,
+$f(f(x_0))$,
+$f(f(f(x_0)))$, etc.  We can even find how far away
+from the fixed point we are, see the exercises.  The idea of the proof is
+therefore used in real-world applications.
+
 \subsection{Exercises}
 
 \begin{exbox}
@@ -10032,6 +10328,17 @@ Now show that $g(y) = \int_0^1 f(x,y)\,dx$ is not continuous at $y=0$.
 \end{exparts}
 Note: Feel free to use what you know about $\arctan$ from calculus,
 in particular that $\frac{d}{ds} \bigl[ \arctan(s) \bigr] = \frac{1}{1+s^2}$.
+\end{exercise}
+
+\begin{exercise} \label{exercise:nofixedpoint}
+\begin{exparts}
+\item
+Find an example of a contraction $f \colon X \to X$
+of a non-complete metric space $X$ with no
+fixed point.
+\item
+Find a 1-Lipschitz map $f \colon X \to X$ of a complete metric space $X$ with no fixed point.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -11766,8 +12073,297 @@ continuously differentiable.
 \caption{Graph of $\frac{xy}{x^2+y^2}$.\label{fig:xyxsqysqvol2}}
 \end{myfig}
 
+\subsection{Inverse Function Theorem}
+\label{subsec:svinvfuncthm}
 
+To prove the Inverse Function Theorem we use the Contraction Mapping
+Principle (\thmref{thm:contr}).
+Intuitively if a function is continuously differentiable, then it
+locally ``behaves like'' the derivative (which is a linear function).
+The idea of the inverse function theorem is that if a function is
+continuously differentiable and the derivative is invertible, the function is
+(locally) invertible.
 
+\begin{thm}[Inverse Function Theorem]\index{Inverse Function Theorem}
+\label{thm:inverse}
+Let $U \subset \R^n$ be an open set and let
+$f \colon U \to \R^n$ be a continuously differentiable function.
+Also suppose $p \in U$, $f(p) = q$, and $Df|_p)$ is invertible
+(that is, $\det Df|_p \not=0$).
+Then there exist open sets $V, W \subset \R^n$ such that
+$p \in V \subset U$, $f(V) = W$ and $f|_V$ is one-to-one.  
+And hence a $g \colon W \to V$ exists such that
+$g(y) := (f|_V)^{-1}(y)$.
+See \figureref{fig:inversefuncRn}.
+Furthermore, $g$ is continuously differentiable
+and 
+\begin{equation*}
+Dg|_y = {\bigl(Df|_x\bigr)}^{-1}, \qquad \text{for all } x \in V, y = f(x).
+\end{equation*}
+\end{thm}
+
+\begin{myfig}
+\subimport*{figures/}{inversefuncRn.pdf_t}
+\caption{Setup of the inverse function theorem in $\R^n$.\label{fig:inversefuncRn}}
+\end{myfig}
+
+\begin{proof}
+Write $A = Df|_p$.  As $Df$ is continuous, there exists an open ball
+$V$ around $p$ such that
+\begin{equation*}
+\snorm{A-Df|_x} < \frac{1}{2\snorm{A^{-1}}}
+\qquad \text{for all } x \in V.
+\end{equation*}
+The inequality implies that $Df|_x$ is invertible for all $x \in V$.
+%FIXME: should we say more? %by \propref{prop:finitedimpropinv}.
+
+Given $y \in \R^n$ we define $\varphi_y \colon C \to \R^n$ by
+\begin{equation*}
+\varphi_y (x) := x + A^{-1}\bigl(y-f(x)\bigr) .
+\end{equation*}
+As $A^{-1}$ is one-to-one,
+$\varphi_y(x) = x$ ($x$ is a fixed point) if only if
+$y-f(x) = 0$, or in other words $f(x)=y$.  Using the chain rule we obtain
+\begin{equation*}
+D\varphi_y|_x = I - A^{-1} Df|_x = A^{-1} \bigl( A-Df|_x \bigr) .
+\end{equation*}
+So for $x \in V$ we have
+\begin{equation*}
+\snorm{D\varphi_y|_x} \leq \snorm{A^{-1}} \, \snorm{A-Df|_x} < \nicefrac{1}{2} .
+\end{equation*}
+As $V$ is a ball, it is convex.  Hence
+\begin{equation*}
+\snorm{\varphi_y(x_1)-\varphi_y(x_2)} \leq \frac{1}{2} \snorm{x_1-x_2} 
+\qquad
+\text{for all } x_1,x_2 \in V.
+\end{equation*}
+In other words $\varphi_y$ is a contraction defined on $V$, though we so far
+do not know what is the range of $\varphi_y$.  We cannot yet
+apply the fixed
+point theorem, but we can say that $\varphi_y$ 
+has at most one fixed point in $V$:
+If $\varphi_y(x_1) = x_1$ and
+$\varphi_y(x_2) = x_2$, then
+$\snorm{x_1-x_2} = \snorm{\varphi_y(x_1)-\varphi_y(x_2)} \leq
+\frac{1}{2} \snorm{x_1-x_2}$, so $x_1 = x_2$.
+That is, there exists at most one $x \in V$
+such that $f(x) = y$, and so $f|_V$ is one-to-one.
+
+Let $W := f(V)$.  We need to show that $W$ is open.  Take a $y_0 \in W$.
+There is a unique $x_0 \in V$ such that $f(x_0) = y_0$.
+Let $r > 0$ be small enough such that the closed ball $C(x_0,r) \subset V$
+(such $r > 0$ exists as $V$ is open).
+
+Suppose $y$ is such that
+\begin{equation*}
+\snorm{y-y_0} <
+\frac{r}{2\snorm{A^{-1}}} .
+\end{equation*}
+If we show that $y \in W$, then we have shown that $W$ is open.
+If $x \in
+C(x_0,r)$, then
+\begin{equation*}
+\begin{split}
+\snorm{\varphi_y(x)-x_0}
+& \leq
+\snorm{\varphi_y(x)-\varphi_y(x_0)} +
+\snorm{\varphi_y(x_0)-x_0} \\
+& \leq
+\frac{1}{2}\snorm{x-x_0} +
+\snorm{A^{-1}(y-y_0)} \\
+& \leq
+\frac{1}{2}r +
+\snorm{A^{-1}} \, \snorm{y-y_0} \\
+& <
+\frac{1}{2}r +
+\snorm{A^{-1}}
+\frac{r}{2\snorm{A^{-1}}} = r .
+\end{split}
+\end{equation*}
+So $\varphi_y$ takes $C(x_0,r)$ into $B(x_0,r) \subset C(x_0,r)$.  It is a
+contraction on $C(x_0,r)$ and $C(x_0,r)$ is complete (closed subset of $\R^n$
+is complete).
+Apply the contraction mapping principle to obtain a fixed point $x$,
+i.e.\ $\varphi_y(x) = x$.  That is, $f(x) = y$, and $y \in
+f\bigl(C(x_0,r)\bigr) \subset f(V) = W$.  Therefore $W$ is open.
+
+Next we need to show that $g$ is continuously differentiable and compute
+its derivative.  First let us show that it is differentiable.
+Let $y \in W$ and $k \in \R^n$, $k\not= 0$, such that $y+k \in W$.
+Because $f|_V$ is a one-to-one and onto mapping of $V$ onto $W$,
+there are unique
+$x \in V$ and $h \in \R^n$, $h \not= 0$ and $x+h \in V$, such that
+$f(x) = y$ and $f(x+h) = y+k$.
+In other words, $g(y) = x$ and $g(y+k) = x+h$.  See
+\figureref{fig:inversefuncRn2}.
+\begin{myfig}
+\subimport*{figures/}{inversefuncRn2.pdf_t}
+\caption{Proving that $g$ is differentiable.\label{fig:inversefuncRn2}}
+\end{myfig}
+
+We can still
+squeeze some information from the fact that $\varphi_y$ is a contraction.
+\begin{equation*}
+\varphi_y(x+h)-\varphi_y(x) = h + A^{-1} \bigl( f(x)-f(x+h) \bigr) = h - A^{-1} k .
+\end{equation*}
+So
+\begin{equation*}
+\snorm{h-A^{-1}k} = \snorm{\varphi_y(x+h)-\varphi_y(x)} \leq
+\frac{1}{2}\snorm{x+h-x} = \frac{\snorm{h}}{2}.
+\end{equation*}
+By the inverse triangle inequality $\snorm{h} - \snorm{A^{-1}k} \leq
+\frac{1}{2}\snorm{h}$, so
+\begin{equation*}
+\snorm{h} \leq 2 \snorm{A^{-1}k} \leq 2 \snorm{A^{-1}} \, \snorm{k}.
+\end{equation*}
+In particular, as $k$ goes to 0, so does $h$.
+
+As $x \in V$, then $Df|_x$ is invertible.
+Let $B = \bigl(Df|_x\bigr)^{-1}$, which is what we think the derivative of
+$g$ at $y$ is.  Then
+\begin{equation*}
+\begin{split}
+\frac{\snorm{g(y+k)-g(y)-Bk}}{\snorm{k}}
+& =
+\frac{\snorm{h-Bk}}{\snorm{k}}
+\\
+& =
+\frac{\snorm{h-B\bigl(f(x+h)-f(x)\bigr)}}{\snorm{k}}
+\\
+& =
+\frac{\snorm{B\bigl(f(x+h)-f(x)-Df|_x h\bigr)}}{\snorm{k}}
+\\
+& \leq
+\snorm{B}
+\frac{\snorm{h}}{\snorm{k}}\,
+\frac{\snorm{f(x+h)-f(x)-Df|_x h}}{\snorm{h}}
+\\
+& \leq
+2\snorm{B} \, \snorm{A^{-1}}
+\frac{\snorm{f(x+h)-f(x)-Df|_x h}}{\snorm{h}} .
+\end{split}
+\end{equation*}
+As $k$ goes to 0, so does $h$.  So the right hand side goes to 0 as $f$ is
+differentiable, and hence
+the left hand side also goes to 0.  And
+$B$ is precisely what we wanted $Dg|_y$ to be.
+
+We have $g$ is differentiable, let us show it is $C^1(W)$.
+The function $g \colon W \to V$ is continuous (it is differentiable),
+$Df$ is a continuous function from $V$
+to the linear operators on $\R^n$,
+and $X \mapsto X^{-1}$ is a continuous function on
+the set of invertible operators.
+As
+$Dg|_y = {\bigl( Df|_{g(y)}\bigr)}^{-1}$ is the composition
+of these three
+continuous functions, it is continuous.
+\end{proof}
+
+\begin{example}
+Also note that just because $Df|_x$ is invertible everywhere does not
+mean that $f$ is
+one-to-one globally.  It is ``locally'' one-to-one but perhaps not
+``globally.''  For an
+example, take the map $f \colon \R^2 \setminus \{ 0 \} \to \R^2$ defined
+by $f(x,y) := (x^2-y^2,2xy)$.
+It is left to student to show that $f$ is
+differentiable and the derivative is invertible
+
+On the other hand, the mapping is 2-to-1 globally (except at the origin).
+For every
+$(a,b)$ that is not the origin, there are exactly two
+solutions to $x^2-y^2=a$ and $2xy=b$.  We leave it to the reader
+to show that there is at least one solution, and then notice
+that replacing $x$ and $y$ with $-x$ and $-y$ obtains another solution.
+\end{example}
+
+The invertibility of the derivative is not a necessary
+condition, just sufficient, for having a continuous inverse and being an open
+mapping.  For example, the function $f(x) := x^3$ is an open mapping from $\R$
+to $\R$ and is globally one-to-one with a continuous inverse, although the
+inverse is not differentiable at $x=0$.
+
+\medskip
+
+As a side note, there is a related famous, and as yet unsolved problem,
+called the \emph{\myindex{Jacobian conjecture}}.  If $F \colon \R^n \to
+\R^n$ is polynomial (each component is a polynomial) and $\det DF$ is a nonzero
+constant, does $F$ have a polynomial inverse?
+The inverse function theorem gives a local $C^1$ inverse, but can one always
+find a global polynomial inverse is the question.
+
+\begin{exbox}
+\begin{exercise}
+\begin{exparts}
+\item
+Given a linear operator $A$ such that
+$\snorm{I-A} < 1$, then $A$ is invertible ($I$ is the identity).
+\item
+For two linear operators $A$ and $B$ on $\R^n$ where $A$ is invertible,
+prove that $\snorm{A-B} < \frac{1}{\snorm{A^{-1}}}$ implies that $B$ is
+invertible.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Define $f \colon \R^2 \to \R^2$ by $f(x,y) :=
+\bigl(x,y+h(x)\bigr)$ for some continuously differentiable function $h$ of one
+variable.
+\begin{exparts}
+\item
+Show that $f$ is one-to-one and onto.
+\item
+Compute $Df$.
+\item
+Show that $Df$ is invertible at all points, and compute
+its inverse.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Define $f \colon \R^2 \to \R^2$
+\begin{equation*}
+f(x,y) :=
+\begin{cases}
+(x^2 \sin \bigl(\nicefrac{1}{x}\bigr) + \frac{x}{2} , y ) & \text{if } x \not= 0, \\
+(0,y)                                                     & \text{if } x=0.
+\end{cases}
+\end{equation*}
+\begin{exparts}
+\item
+Show that $f$ is differentiable everywhere.
+\item
+Show that $Df|_{(0,0)}$ is invertible.
+\item
+Show that $f$ is not one-to-one in any neighborhood of the origin (it is
+not locally invertible, that is, the inverse function theorem does not work).
+\item
+Show that $f$ is not continuously differentiable.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}[Polar coordinates] \label{mv:exercise:polarcoordinates}
+\index{polar coordinates}
+Define a mapping $F(r,\theta) := \bigl(r \cos(\theta), r \sin(\theta) \bigr)$.
+\begin{exparts}
+\item
+Show that $F$ is continuously differentiable (for all $(r,\theta) \in
+\R^2$).
+\item
+Compute $DF|_{(0,\theta)}$ for any $\theta$.
+\item
+Show that if $r \not= 0$, then $DF|_{(r,\theta)}$ is invertible, therefore an
+inverse of $F$ exists locally as long as $r \not= 0$.
+\item
+Show that $F \colon \R^2 \to \R^2$ is onto, and for each point $(x,y) \in
+\R^2$, the set $F^{-1}(x,y)$ is infinite.
+\item
+Show that $F|_{(0,\infty) \times [0,2\pi)}$ is one to one and onto
+$\R^2 \setminus \bigl\{ (0,0) \bigr\}$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
