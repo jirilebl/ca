@@ -513,33 +513,53 @@ If you cannot prove a man wrong, don't panic. You can always call him names.
 ---Oscar Wilde 
 \end{myquote}
 
+\noindent
+\hfill\textbf{Note: This is still a ``draft,'' expect numbering to change as
+needed.}\hfill
+\medskip
+
 The purpose of this book is to teach a one-semester graduate course in
-complex analysis.
+complex analysis for incoming graduate students.
 It is a natural first semester in a two semester sequence where the second
-semester could be several complex variables or perhaps harmonic analysis.
+semester could be several complex variables (e.g. \cite{scv:book})
+or perhaps harmonic analysis.
 What is assumed is basic knowledge of undergraduate
 analysis in the real variable, called advanced calculus in some schools.
 The text assumes knowledge of metric spaces
 and differential analysis in several variables, but if the reader is not
 confident on these topics or has not yet seen them, the useful results
-are presented in the appendices.  With that, basic prerequisite for the
-course could be a single semester of undergraduate analysis if the
-appendices are also covered.  Very basic linear algebra and abstract algebra
-is also useful.
+are presented (with proofs) in the appendices.
+With that, basic prerequisite for the
+course would be at least a single semester of undergraduate analysis if the
+appendices are also covered or read, and if the student has
+seen metric spaces and mappings in $\R^2$, then the course
+can just start in \Chapterref{ch:complexplane}.  Very basic undergraduate
+linear and abstract algebra is also useful.
+
+The analysis prerequisites can be mostly found in
+\cites{ra:book,ra:book2,Rudin:principles}.  Further recommended
+reading on complex analysis is \cites{Boas,Conway1,Conway2,Rudin,Ullrich}.
+See the
+\hyperref[ch:furtherreading]{Further Reading} chapter.
 
 This book takes the view that we do not need to redefine and reprove
-things that we have done in a basic real analysis course, especially with
+things that we have done in a basic undergraduate real analysis course,
+especially with
 regards to mappings of the plane.  We can quite quickly jump to
 holomorphic functions as solutions of the Cauchy--Riemann equations for
 example.
 The connection is to understand multiplication by complex numbers
 as a $2 \times 2$ real matrix.
-Similarly, when we introduce line integrals we connect
+When we introduce line integrals, we connect
 them to the line integrals the student has seen in calculus.
+When the Inverse Function Theorem is introduced it is introduced as a consequence
+of the Inverse Function Theorem in $\R^2$, and an outline of
+a pure complex analysis proof is left as an exercise.
 This is not simply a time saving measure.
-The point is to stress that we are not defining some totally new and different world.
+The point is to stress that we are not defining some totally new and
+different world.
 
-We also want to take a more of the $z,\bar{z}$ approach and less the
+We also want to take a bit more more of the $z,\bar{z}$ approach and less the
 $x,y$ approach.  It is really a better way to think about complex variables,
 although perhaps initially less intuitive.
 
@@ -557,11 +577,13 @@ skipped on first reading (though it does not mean they are not important,
 just not necessary for what follows).  Skipping some may make it possible
 to cover other later topics.
 
+\medskip
+
 The general dependence of the non-appendix chapters is the following.
 My plan for a semester is to go through chapters
 \ref{ch:complexplane}--\ref{ch:counting}, skipping the homotopy versions of
 Cauchy, to get through basic theory of holomorphic functions,
-then getting to \ref{ch:montelriemann} (Montel and Riemann),
+then getting to \ref{ch:montelriemann} (Montel and RMT),
 \ref{ch:harmonic} (harmonic functions),
 \ref{ch:runge} (Runge).
 \begin{equation*}
@@ -614,10 +636,15 @@ numbers that we can really make an argument are obvious from nature,
 and gets us zero and the negative numbers producing the integers
 \glsadd{not:Z}$\Z$ so that we can solve equations such as $n+2 = 1$.
 From \glsadd{not:Z}$\Z$, we define the rational numbers
-\glsadd{not:Z}$\Q$ to solve equations such as $2x=1$.  We extend
-\glsadd{not:Z}$\Q$ to the real numbers \glsadd{not:R}$\R$
-to solve equations such as $x^2=2$.  Really we want the real numbers to
-have things like the Intermediate Value Theorem, Bolzano--Weierstrass,
+\glsadd{not:Z}$\Q$ to solve\footnote{%
+Do we really solve it by writing $x = \frac{1}{2}$?  After all, 
+$\frac{1}{2}$ is just a placeholder for an object that we can't describe
+in another way other than ``whatever 1 divided by 2 would be if it existed.''}
+equations such as $2x=1$.  We extend
+\glsadd{not:Q}$\Q$ to the real numbers \glsadd{not:R}$\R$
+to solve equations such as $x^2=2$.  Actually our definition 
+of the real numbers is such that we get theorems like the
+Intermediate Value Theorem, Bolzano--Weierstrass,
 etc.  It is then not much of a stretch to do the same thing when trying
 to solve $z^2+1=0$.  Similarly as what happened when we defined the real
 numbers, the consequences of adding this solution to the mix are much more
@@ -642,8 +669,8 @@ To make it a field, we define addition and product:
 \begin{exbox}
 \begin{exercise}
 Check that the above makes $\C$ into a field, where the additive
-identity $0=(0,0)$ and the multiplicative is $1=(1,0)$.
-That is, it is an abelian group under addition,
+identity is $0=(0,0)$ and the multiplicative identity is $1=(1,0)$.
+That is, $\C$ is an abelian group under addition,
 the nonzero complex numbers are an abelian group under multiplication,
 and the distributive law holds.  Hint: The multiplicative inverse of $(a,b)$
 is $\left(\frac{a}{a^2+b^2},\frac{-b}{a^2+b^2}\right)$.
@@ -651,7 +678,7 @@ is $\left(\frac{a}{a^2+b^2},\frac{-b}{a^2+b^2}\right)$.
 \end{exbox}
 
 We will actually never write complex numbers as $(x,y)$ from now on.
-When we write a real number $x$ we identify it with the
+When we write a real number $x$, we identify it with the
 complex number $(x,0)$.
 With this identification $\R \subset \C$.
 We also define the \emph{\myindex{imaginary unit}}%
@@ -663,7 +690,8 @@ i \overset{\text{def}}{=} (0,1) ,
 \end{equation*}
 and we find that with this definition $(x,y) = x+iy$, using the field
 structure of $\C$.  So from now on, this is the only way we write
-the complex numbers.  We call the form $x+iy$ the \emph{\myindex{cartesian}}
+the complex numbers in terms of the coordinates $x$ and $y$.
+We call $x+iy$ the \emph{\myindex{cartesian}}
 form of the complex number.
 
 The number $i$ has the magical property that
@@ -717,8 +745,8 @@ y .
 \end{equation*}
 A particularly useful observation one can make is that above we wrote the
 real part and the imaginary part in terms of $z$ and $\bar{z}$.
-Any expression we write in the real and imaginary parts of $z$ we can
-equally well write in terms of $z$ and $\bar{z}$, and vice-versa.
+Any expression we write in the real and imaginary parts of $z$,
+ we can equally well write in terms of $z$ and $\bar{z}$.  And vice-versa.
 For example,
 \begin{equation*}
 x^3 + y^3 + 3ixy
@@ -932,7 +960,7 @@ y & x
 \end{bmatrix}
 \end{equation*}
 If we think of a complex number $a+ib$ as a matrix and $c+id$ as a column vector
-then the multiplication
+then the multiplication makes sense as matrices
 \begin{equation*}
 \begin{bmatrix}
 a & -b \\
@@ -967,7 +995,7 @@ to do.
 The complex conjugate is represented by the
 matrix transpose, and a symmetric matrix represents a real number.
 
-Of course we can also multiply the $2 \times 2$ matrices themselves,
+We can also multiply the $2 \times 2$ matrices themselves,
 and this matrix multiplication is also the same as multiplication of complex
 numbers.  Similarly with addition.
 That is, we can view the field of complex numbers as a subring of $M_2(\R)$.
@@ -992,6 +1020,7 @@ eigenvectors $\left[ \begin{smallmatrix} 1 \\ \pm i \end{smallmatrix}
 \begin{exercise}
 Prove that
 in terms of the complex notation an arbitrary $2 \times 2$ real matrix $M$
+thought of as a (real) linear map of $\C$ to $\C$
 can be represented by two complex numbers $\xi$ and $\zeta$, and the formula
 $z \mapsto \xi z + \zeta \bar{z}$.
 \end{exercise}
@@ -1001,8 +1030,10 @@ We will see this representation of complex numbers come up when we introduce the
 Cauchy--Riemann equations.  But it comes up quite often in applications.
 This can for example be used to represent an $m \times n$ complex matrix by a
 $2m \times 2n$ real matrix by replacing each entry by a $2 \times 2$ matrix.
+So software set up for working with real matrices can easily be duped into
+working with complex matrices.
 
-For us the application will be understand the derivative of a
+For us the application will be to understand the derivative of a
 complex-valued function of a complex variable $f \colon \C \to \C$.
 By thinking of the function simply as a mapping $f \colon \R^2 \to \R^2$,
 then the real derivative of this mapping is a $2 \times 2$ matrix.  And the
@@ -1027,7 +1058,7 @@ e^x e^{iy}
 e^x\cos y + i e^x \sin y .
 \end{equation*}
 This definition agrees with the standard definition for real numbers (when
-$y=0$).  Further note that
+$y=0$).  Furthermore,
 \begin{equation*}
 e^{\bar{z}} = 
 e^{x-iy} =
@@ -1041,7 +1072,8 @@ e^x .
 \end{equation*}
 It is possible to not resort to the real exponentials, sines and cosines
 to define the exponential functions, and we will do so in due course.
-But we want to have something to play around with already.
+But we want to have something to play around with now and not wait till
+later.
 
 \begin{exbox}
 \begin{exercise}
@@ -1071,7 +1103,7 @@ The formula says that for real $\theta$
 \sin \theta = \Im e^{i\theta} = \frac{e^{i\theta}-e^{-i\theta}}{2i} .
 \end{equation*}
 We thus simply define cosine and sine for complex numbers by plugging
-into that formula, now that we know how to evaluate the exponential:
+them into that formula, now that we know how to evaluate the exponential:
 \begin{equation*}
 \cos z \overset{\text{def}}{=} \frac{e^{iz}+e^{-iz}}{2} ,
 \qquad
@@ -2791,16 +2823,24 @@ Thus all points of $Z_f$ are isolated.
 
 \begin{exbox}
 \begin{exercise}
-If $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
-\C$
+Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
+\C$ are
 analytic such that the set $\{ z \in U : f(z) = g(z) \}$ has a limit
-point in $U$, then $f = g$ everywhere.
+point in $U$.  Prove that $f = g$ everywhere.
 \end{exercise}
 \end{exbox}
 
 Think of the implications.  If $f \colon U \to \C$ is analytic, and we know
-$f$ in a small disc $\Delta_r(p)$ for an arbitrarily small $r$, then
+$f$ in a tiny disc $\Delta_r(p)$ for an arbitrarily small $r$, then
 we know $f$ on all of $U$.
+
+\begin{exbox}
+\begin{exercise}
+Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
+\C$ are analytic, and $p \in U$.  Suppose that $f^{(k)}(p) = g^{(k)}(p)$
+for $k=0,1,2,\ldots$.  Prove that $f = g$ everywhere.
+\end{exercise}
+\end{exbox}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3208,7 +3248,7 @@ if one uses the gauge integral even without any hypothesis on $f$.}.
 \end{remark}
 
 A path $\gamma \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if 
-$\gamma(a) = \gamma(b)$.  The fundamental theorem above has the following
+$\gamma(a) = \gamma(b)$.  The fundamental theorem has the following
 immediate corollary.
 
 \begin{cor}[Cauchy's Theorem for Derivatives] \label{cor:cauchyforders}
@@ -3233,7 +3273,8 @@ primitive.  So the other versions of Cauchy's Theorem will generally
 either restrict which $\gamma$ can be taken or
 restrict to only those $U$ where every holomorphic function has a primitive.
 
-The above corollary has another useful corollary.
+The above corollary has another quick corollary (which will be entirely
+subsumed into the more general version of Cauchy we will prove later).
 
 \begin{cor}[Cauchy's Theorem for Polynomials]
 Suppose $P(z)$ is a polynomial and $\gamma \colon [a,b] \to \C$ is a closed
@@ -4087,10 +4128,10 @@ it would be constant (a contradiction).
 %\end{split}
 %\end{equation*}
 %In other words, for large enough $z$ we have
-%\begin{equation}
+%\begin{equation*}
 %\abs{c_{d-1} z^{d-1} + \cdots + b_1 z + b_0} \leq \frac{1}{2} \sabs{z^d}
 %=\frac{1}{2} \sabs{z}^d .
-%\end{equation}
+%\end{equation*}
 %And so as 
 %\begin{equation*}
 %\sabs{P(z)} = 
@@ -4180,10 +4221,10 @@ piecewise $C^1$ path (or a cycle) in $U$, and
 $\psi \colon \gamma \times U \to \C$ is a continuous function such that
 for each fixed $z \in \gamma$, the function $w \mapsto \psi(z,w)$ is
 holomorphic.  Then
-\begin{equation}
+\begin{equation*}
 h(w) =
 \int_\gamma \psi(z,w) \, dz
-\end{equation}
+\end{equation*}
 is a holomorphic function $U$.
 \end{lemma}
 
@@ -4406,7 +4447,18 @@ derivative and to differentiate to find an integral.  Now tell that to your
 calculus students.}
 allows us to use a far weaker topology than one would think.
 
-FIXME
+\begin{exbox}
+\begin{exercise}
+Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \overline{U} \to
+\C$ continuous functions that are holomorphic on $U$, and such that
+the restrictions $f_n|_{\partial U}$ converge uniformly.  Prove that
+$f_n$ converge uniformly on $\overline{U}$ to a continuous
+function $f \colon \overline{U} \to \C$ that is holomorphic in $U$.
+Hint: First use the Maximum Principle to show that $\{ f_n \}$
+is Cauchy at each point (actually uniformly Cauchy).  Feel free to use the
+fact that uniform limit of continuous functions is continuous.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4418,7 +4470,7 @@ FIXME
 Recall $\D = \Delta_1(0)$ is the unit disc.  The following statement may
 seem technical and specialized, but surprisingly it is incredibly
 powerful\footnote{In my first year of graduate school, on an exam in complex
-analysis I solved all the problems with a combination of
+analysis, I solved all the problems with a combination of
 Schwarz's Lemma and
 the Riemann
 Mapping Theorem (which we will see later).  My advisor
@@ -4836,9 +4888,9 @@ FIXME: index constant
 
 \begin{proof}
 Consider the function
-\begin{equation}
+\begin{equation*}
 p \mapsto n(\gamma;p) = \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz .
-\end{equation}
+\end{equation*}
 Fix $p_0 \in \C \setminus \gamma$, and let $d(p_0,\gamma)$ be the distance from 
 $p_0$ to $\gamma$, that is $d(p_0,\gamma) = \inf \{ \sabs{z-p_0} : z \in
 \gamma \}$.
@@ -4868,7 +4920,7 @@ Next,
 \sabs{n(\gamma;p)} \leq \frac{1}{2\pi} \int_\gamma \frac{1}{\sabs{z-p}} \,
 \sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d(p,\gamma)} .
 \end{equation*}
-On the unbounded component as $\gamma$ is compact we can find $p$
+On the unbounded component---as $\gamma$ is compact---we can find $p$
 with $d(p,\gamma)$ arbitrarily large, meaning $n(\gamma;p)$ is arbitrarily small
 on this component, and as it is constant, it must be zero.
 \end{proof}
@@ -4877,7 +4929,7 @@ on this component, and as it is constant, it must be zero.
 
 \section{Homology versions of Cauchy}
 
-\subsection{Cauchy theorems}
+%\subsection{Cauchy theorems}
 
 \begin{thm}[Cauchy Integral Formula (homology version)]
 \label{thm:CIFhomology}
@@ -5499,7 +5551,7 @@ $\C \setminus \{ 0 \}$.
 The rational function $\frac{1}{1-z}$ that leads to the geometric series can
 be expanded in a slightly different way if we want its Laurent Series
 expansion in $\ann(0,1,\infty) = \C \setminus \overline{\D}$.
-\begin{equation}
+\begin{equation*}
 \frac{1}{1-z}
 =
 \frac{-1}{z}
@@ -5511,14 +5563,22 @@ expansion in $\ann(0,1,\infty) = \C \setminus \overline{\D}$.
 =
 \sum_{n=-\infty}^{-1}
 - z^{n} ,
-\end{equation}
+\end{equation*}
 which converges in $\ann(0,1,\infty)$.
 
-Finally we should say that a Laurent Series could very well just be a power
+Finally, a Laurent Series could very well just be a power
 series when all the $c_n$ for negative $n$ are zero.
 
 \begin{exbox}
+\begin{exercise}[Easy]
+Suppose $f \colon \Delta_r(p) \to \C$ is holomorphic, and suppose you expand
+$f$ in a Laurent Series in $\ann(p,r_1,r_2)$ for $0 \leq r_1 < r_2 \leq r$.
+Prove that $c_n = 0$ for all negative $n$ and that $c_n$ for nonnegative $n$
+are just the coefficients of the power series of $f$ at $p$.
+\end{exercise}
+
 \begin{exercise}
+\pagebreak[2]
 Expand the function $\frac{1}{(z-1)(z-2)}$ using Laurent (or power) series in 
 \begin{exparts}
 \item $\D$
@@ -5534,9 +5594,19 @@ $r_1 < s < r_2$, and
 \int_{\partial \Delta_{s}(p)} f(z){(z-p)}^n
  \, dz = 0
 \end{equation*}
-for all $n \leq 0$.  Prove that $f$ extends through the hole:
+for all nonnegative integers $n$.  Prove that $f$ extends through the hole:
 There exists a holomorphic $g \colon \Delta_{r_2}(p) \to \C$ such that 
 $f = g$ on $\ann(p,r_1,r_2)$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is a holomorphic function defined in a domain that contains
+the unit circle $\partial \D$, such that
+\begin{equation*}
+\int_{\partial \D} f(z)z^n
+ \, dz = 0
+\end{equation*}
+for all integers $n$.  Prove that $f \equiv 0$.
 \end{exercise}
 \end{exbox}
 
@@ -5622,12 +5692,15 @@ the votes do.
 
 \section{Zeros of holomorphic functions}
 
-At several times before we have used parts of the following rather simple
+By the Identity Theorem, we know that zeros of holomorphic functions are
+isolated (or the function is identically zero).  Let us expand on how a
+function behaves near a zero.
+Several times before, we have used parts of the following rather simple
 lemma.  We can now give a more complete statement.  
 
 \begin{lemma}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be holomorphic, $p \in U$,
-and $f(p) = 0$.
+and $f$ has an isolated zero at $p$.
 Then there exists a unique $k \in \N$ and a holomorphic $g \colon U
 \to \C$ such that
 \begin{equation*}
@@ -5643,14 +5716,27 @@ We call the point $p$ such that $f(p) = 0$ a \emph{\myindex{zero}} of
 $f$.
 The $k$ from the lemma is called the \emph{order}\index{order of a zero}
 of the zero at $p$.
+We will also call it, for reasons that will be obvious very soon,
+the \emph{multiplicity}\index{multiplicity of a zero}\footnote{%
+To be anally retentive: $f$ is of order $k$ at $p$,
+and $p$ is a zero of $f$ of multiplicity $k$.  Potayto, potahto.}
+the zero at $p$.
 \end{defn}
 
-For completeness, the lemma holds also when $f(p) \not= 0$, in which case
+For completeness, the conclusion of the lemma holds also when $f(p) \not= 0$,
+in which case
 $k=0$ and $g = f$.  So we can say that when $f(p) \not= 0$, then $p$ is
 a zero of order 0, which sounds somewhat idiotic, but it all fits a general
 picture, and we will see negative orders a couple of sections from now.
 
-\begin{proof}
+Another remark (that is hidden in the lemma)
+that may be good to emphasize is that if $f^{(k)}(p) = 0$
+for all $k$, then all coefficients of the power series of $f$ at $p$ are
+zero and $f$ is identically zero.  In other words, \emph{every isolated
+zero of a holomorphic function is of finite order}.  No such
+thing is true for real differentiable functions.
+
+\begin{proof}[Proof of the lemma]
 On $U \setminus \{ p \}$ the function $g(z) = \frac{f(z)}{{(z-p)}^k}$ is
 holomorphic for any $k$, so the trick is only near $p$.  We expand $f$ at $p$
 \begin{equation*}
@@ -5704,6 +5790,37 @@ $g'(z) = (z-p) q'(z) + q(z)$, we have $g'(p) = q(p) \not= 0$.
 
 \begin{exbox}
 \begin{exercise}
+Suppose $U \subset \C$ is a domain and $f$ hass
+has zeros at $z_1, z_2, \ldots, z_n$ of
+orders $k_1, k_2, \ldots, k_n$ and no other zeros.
+Then there exists a holomorphic
+$g \colon U \to \C$ that is never zero
+such that $f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n} g(z).$
+\end{exercise}
+
+\begin{exercise}[Easy]
+Strengthen the statement of the theorem.
+Suppose $U \subset \C$ is simply connected and $f \colon U \to \C$
+is holomorphic.
+\begin{exparts}
+\item
+Suppose $f$ has a zero at $p$ of
+order $k$ and no other zeros.
+Then there exists a holomorphic
+$g \colon U \to \C$ with $g(p) = 0$, $g'(p) \not= 0$
+such that $f(z) = {\bigl( g(z) \bigr)}^k$.
+\item
+Suppose $f$ has a zero at $p$
+of order $k$,
+and it also has zeros at $z_1, z_2, \ldots, z_n$ of
+orders $k_1, k_2, \ldots, k_n$ and no other zeros.
+Then there exists a holomorphic
+$g \colon U \to \C$ with $g(p) = 0$, $g'(p) \not= 0$
+such that $f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n} {\bigl( g(z) \bigr)}^k$.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
 The zero set of $\Re f$ looks like $\Re z^k$:
 Show that if $f \colon U \to \C$ has a zero of order $k \in \N$ at $p \in
 U$, then there exists $k$  $C^1$ curves
@@ -5713,6 +5830,21 @@ and $\gamma_j'(0) \not= 0$, such that the curves only intersect
 one another
 at $p$, and such that $\Re f\bigl( \gamma_j(t) \bigr) = 0$ for
 all $t \in (-\epsilon,\epsilon)$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is holomorphic in a neighborhood of a point $p$
+and suppose $\Re f$ has a critical point at $p$ (derivative is zero).
+Prove that $p$ is a saddle point (neither minimum nor a maximum).
+Hint: Apply the theorem and show that $k \geq 2$.  Note that $\Re z^k$ has a
+saddle point at the origin.
+\end{exercise}
+
+\begin{exercise}
+For $x \in \R$, let $f(x) = e^{-1/x^2}$ if $x \not=0$ and $f(0) = 0$.
+Prove that $f$ is infinitely (real) differentiable, the origin is
+an isolated zero (the only zero in fact), and $f^{(k)}(0) = 0$ for
+all $k=0,1,2,\ldots$.  That is, the origin is a zero of infinite order.
 \end{exercise}
 \end{exbox}
 
@@ -5827,11 +5959,13 @@ as the formula for the $c_{-1}$ term in the Laurent Series
 for $f$ at $w_j$.  In other words, the residue of $f$ at $w_j$.
 \end{proof}
 
-FIXME:
+FIXME: some applications, e.g. inverse Laplace
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Classifying isolated singularities}
+
+\subsection{Isolated singularities}
 
 \begin{defn}
 Suppose $V \subset \C$ is open, $f \colon V \setminus \{p\} \to \C$ is holomorphic with
@@ -5939,10 +6073,24 @@ such that ${(z-p)}^k f(z)$ is bounded is called the
 
 As can be seen from the proof of the proposition,
 there is a symmetry between zeros and poles:
-If $f$ has a zero of order $k$, then $\frac{1}{f}$ has a pole of order $k$.
-If $f$ has a pole of order $k$, then $\frac{1}{f}$
+If $f$ has a zero of order $k$ at $p$, then $\frac{1}{f}$ has a pole of
+order $k$ at $p$.
+If $f$ has a pole of order $k$ at $p$, then $\frac{1}{f}$
 has a removable singularity, and the extended function has a zero of order
-$k$.
+$k$ at $p$.
+
+\begin{exbox}
+\begin{exercise}
+Suppose $f$ has a pole of order $k \in \N$ at $p$.
+Show that there exists a holomorphic function $g$ defined near $p$
+such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
+\begin{equation*}
+f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
+\end{equation*}
+\end{exercise}
+\end{exbox}
+
+\subsection{Singularities and the Laurent Series}
 
 Another way of classifying a singularity is in terms of the Laurent Series.
 The key thing to notice is that a Laurent Series in a punctured
@@ -5981,6 +6129,105 @@ Given an isolated singularity, the negative part of the series
 is called the \emph{\myindex{principal part}}.  So a singularity is
 removable if the principal part is zero, it is a pole if the principle part
 is a finite series, and it is essential if the principal part is infinite.
+
+For example,
+\begin{equation*}
+e^{1/z}
+=
+\sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n .
+\end{equation*}
+so the principal part is infinite and $e^{1/z}$ has an essential
+singularity at 0.  In fact, this is the first example anyone ever thinks of
+if asked for an example of an essential singularity.
+
+\begin{exbox}
+\begin{exercise}
+If $f$ has a pole at $p$ then $e^{f(z)}$ has an essential singularity at
+$p$.
+\end{exercise}
+\end{exbox}
+
+\subsection{Casorati--Weierstrass}
+
+Functions near an essential singularity achieve essentially every value
+arbitrarily close to the singularity.  The function is very wild (and
+getting wilder and wilder) as it gets close to an essential singularity.
+
+\begin{thm}[Casorati--Weierstrass\footnote{%
+Some people say it should be called Casorati--Sokhotskii(--Weierstrass) Theorem as
+Casorati and Sokhotskii both published it in 1868, (Casorati in Italian
+and Sokhotskii in Russian) while Weierstrass published it in 1876 (in
+German).  But really it first appeared in a book by Briot and Bouquet in
+1859 (in French), so really it should be called the Briot--Bouquet Theorem,
+no?  If we still all published in Latin, we wouldn't be in this
+mess.}]\index{Casorati--Weierstrass Theorem}
+Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
+an essential singularity at $p \in U$.  Then for every punctured disc
+$\Delta_r(p) \setminus \{ p \} \subset U$, the image
+\begin{equation*}
+f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)
+=
+\bigl\{ w \in \C : w = f(z), z \in \Delta_r(p) \setminus \{ p \} \bigr\}
+\end{equation*}
+is dense in $\C$.
+\end{thm}
+
+There is a stronger version
+of this theorem called the Picard Theorem saying that the function in any
+punctured neighbourhood achieves all values with at most one exception.
+That is,
+$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C$ or 
+$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C \setminus \{ z_0 \}$ for
+some $z_0$.
+
+\begin{proof}
+Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic
+and $\Delta_r(p) \setminus \{ p \} \subset U$.
+Suppose that there is a $q \in \C$ such that $\Delta_s(q) \subset \C
+\setminus 
+f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)$.
+Now consider $g \colon \Delta_r(p) \setminus \{p\} \to \C$ defined by
+\begin{equation*}
+g(z) = \frac{1}{f(z) - q} .
+\end{equation*}
+By assumption, $\sabs{f(z)-q} \geq s$ for $z \in \Delta_r(p) \setminus
+\{p\}$.
+Hence $g(z)$ is bounded by $\frac{1}{s}$, and $g$ has a removable
+singularity at $p$.  For simplicity,
+assume that $g$ is defined (and holomorphic) on all of
+$\Delta_r(p)$.  But
+\begin{equation*}
+f(z) = \frac{1}{g(z)} + q .
+\end{equation*}
+If $g$ has a zero at $p$, then $f$ has a pole at $p$.  If $g$ does not
+have a zero at $p$, then $f$ has a removable singularity.  In any case,
+$f$ does not have an essential singularity at $p$.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+\begin{exparts}
+\item
+Prove a ``Picard for modulus'' theorem.
+Suppose $f \colon U \setminus \{ p \} \to \C$ has an essential singularity
+at $p \in U$.
+Prove that
+for every 
+$\Delta_r(p) \setminus \{ p \} \subset U$, the set
+of all moduli of all the values of $f$ on $\Delta_r(p) \setminus \{ p \}$,
+that is,
+\begin{equation*}
+\abs{f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)}
+=
+\bigl\{ \sabs{w} \in \R : w = f(z), z \in \Delta_r(p) \setminus \{ p \}
+\bigr\},
+\end{equation*}
+is $(0,\infty)$ or $[0,\infty)$.
+\item
+Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
+\end{exparts}
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -6164,7 +6411,7 @@ neighborhood $V$ of $p$ bijectively into another neighborhood $f(V)$
 of $f(p)$ and the inverse on that neighborhood is differentiable with
 $D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
 
-In terms of holomorphic functions the inverse function theorem is restated
+In terms of holomorphic functions, the inverse function theorem is restated
 as follows.
 
 \begin{thm}[Inverse Function Theorem] \index{Inverse Function Theorem}
@@ -7479,9 +7726,6 @@ May the forces of evil become confused on the way to your house.
 \label{sec:FIXMEanalcont}
 
 FIXME
-
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -12633,7 +12877,44 @@ $\R^2 \setminus \bigl\{ (0,0) \bigr\}$.
 
 \begin{biblist}[\normalsize]
 
-%FIXME: also cite the ra book
+\bib{Boas}{book}{
+   author={Boas, Ralph P.},
+   title={Invitation to complex analysis},
+   series={MAA Textbooks},
+   edition={2},
+   note={Revised by Harold P. Boas},
+   publisher={Mathematical Association of America, Washington, DC},
+   date={2010},
+   pages={xiv+327},
+   isbn={978-0-88385-764-9},
+   review={\MR{2674618}},
+}
+
+\bib{Conway1}{book}{
+   author={Conway, John B.},
+   title={Functions of one complex variable},
+   series={Graduate Texts in Mathematics},
+   volume={11},
+   edition={2},
+   publisher={Springer-Verlag, New York-Berlin},
+   date={1978},
+   pages={xiii+317},
+   isbn={0-387-90328-3},
+   review={\MR{503901}},
+}
+
+\bib{Conway2}{book}{
+   author={Conway, John B.},
+   title={Functions of one complex variable. II},
+   series={Graduate Texts in Mathematics},
+   volume={159},
+   publisher={Springer-Verlag, New York},
+   date={1995},
+   pages={xvi+394},
+   isbn={0-387-94460-5},
+   review={\MR{1344449}},
+   doi={10.1007/978-1-4612-0817-4},
+}
 
 \bib{ra:book}{misc}{
    author={Lebl, Ji\v{r}\'i},
@@ -12662,6 +12943,30 @@ $\R^2 \setminus \bigl\{ (0,0) \bigr\}$.
    date={1976},
    pages={x+342},
    review={\MR{0385023}},
+}
+
+\bib{Rudin}{book}{
+   author={Rudin, Walter},
+   title={Real and complex analysis},
+   edition={3},
+   publisher={McGraw-Hill Book Co., New York},
+   date={1987},
+   pages={xiv+416},
+   isbn={0-07-054234-1},
+   review={\MR{924157}},
+}
+
+\bib{Ullrich}{book}{
+   author={Ullrich, David C.},
+   title={Complex made simple},
+   series={Graduate Studies in Mathematics},
+   volume={97},
+   publisher={American Mathematical Society, Providence, RI},
+   date={2008},
+   pages={xii+489},
+   isbn={978-0-8218-4479-3},
+   review={\MR{2450873}},
+   doi={10.1090/gsm/097},
 }
 
 \end{biblist}
