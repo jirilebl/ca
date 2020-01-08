@@ -5261,11 +5261,12 @@ the punctured disc
 \ann(p,0,r) = \Delta_r(p) \setminus \{ p \} .
 \end{equation*}
 Sometimes $r_2 = \infty$ is also allowed, in which case
-$\ann(p,r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  We will
-avoid calling $\ann(p,r,\infty)$ an annulus for clarity.
+$\ann(p,r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  We will,
+however, avoid temptation calling $\ann(p,r,\infty)$ an ``annulus.''%
+\footnote{``Holey plane'' perhaps?}
 
 \begin{thm}[\myindex{Laurent Series}]
-Suppose $0 \leq r_1 < r_2 < \infty$ and
+Suppose $0 \leq r_1 < r_2 \leq \infty$ and
 $f \colon \ann(p,r_1,r_2) \to \C$ is holomorphic.
 Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
 \begin{equation*}
@@ -5343,20 +5344,25 @@ swap the integral and the series limit is the same as in that theorem.
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
 & =
+\frac{1}{2\pi i}
 \int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-p}
 \frac{1}{1-\frac{z-p}{\zeta-p}} \, d\zeta
 \\
 & =
+\frac{1}{2\pi i}
 \int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-p}
 \sum_{n=0}^\infty
 {\left(\frac{z-p}{\zeta-p}\right)}^n \, d\zeta
 \\
 & =
 \sum_{n=0}^\infty
+\underbrace{
 \left(
+\frac{1}{2\pi i}
 \int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
  \, d\zeta
 \right)
+}_{c_n}
 {(z-p)}^n .
 \end{split}
 \end{equation*}
@@ -5369,10 +5375,12 @@ $\abs{\frac{\zeta-p}{z-p}} < 1$ and so
 -\frac{1}{2\pi i}
 \int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
 & = 
+\frac{1}{2\pi i}
 \int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{z-p}
 \frac{1}{1-\frac{\zeta-p}{z-p}} \, d\zeta
 \\
 & =
+\frac{1}{2\pi i}
 \int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{z-p}
 \sum_{m=0}^\infty
 {\left(\frac{\zeta-p}{z-p}\right)}^m \, d\zeta
@@ -5380,6 +5388,7 @@ $\abs{\frac{\zeta-p}{z-p}} < 1$ and so
 & =
 \sum_{m=0}^\infty
 \left(
+\frac{1}{2\pi i}
 \int_{\partial \Delta_{s_1}(p)} f(\zeta){(\zeta-p)}^{m}
  \, d\zeta
 \right)
@@ -5387,29 +5396,149 @@ $\abs{\frac{\zeta-p}{z-p}} < 1$ and so
 \\
 & =
 \sum_{n=-\infty}^{-1}
+\underbrace{
 \left(
+\frac{1}{2\pi i}
 \int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
  \, d\zeta
 \right)
+}_{c_n}
 {(z-p)}^{n} .
 \end{split}
 \end{equation*}
+Adding these together we have the right thing, except the formula for $c_n$
+is not quite right.  Given any $s$ such that
+$r_1 < s < r_2$, we apply Cauchy as before to find
+\begin{equation*}
+0 = \int_{\partial \Delta_{s}(p) - \partial \Delta_{s_1}(p)}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}} \, d\zeta
+=
+\int_{\partial \Delta_{s}(p)}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}} \, d\zeta
+-
+\int_{\partial \Delta_{s_1}(p)}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}} \, d\zeta .
+\end{equation*}
+Similarly for $s_2$, and hence
+\begin{equation*}
+c_n = \frac{1}{2\pi i}
+\int_{\partial \Delta_{s}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
+ \, d\zeta .
+\end{equation*}
+So we get the same $c_n$ no matter which $s$ we pick.
 
+Next, convergence.
+The geometric series used for the first part converges uniformly
+absolutely when $\abs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} \leq
+1-\epsilon$.  In other words, the series converges uniformly absolutely
+on compact subsets of $\Delta_{s_2}(p)$ (when $\sabs{z-p} < s_2$).
 
+The geometric series used for the second part converges uniformly
+absolutely when $\abs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} \leq
+1-\epsilon$.  In other words, the series converges uniformly absolutely
+on compact subsets of $\C \setminus \Delta_{s_1}(p)$ (when $\sabs{z-p} > s_1$).
 
-%Putting the two together we get the right thing,
-%\begin{equation*}
-%
-%\end{equation*}
+Hence both parts (and so the entire series) 
+converges uniformly absolutely on compact
+subsets of $\ann(p,s_1,s_2)$.  As $s_1$ and $s_2$ were arbitrary such that
+$r_1 < s_1 < s_2 < r_2$, we get that that the series
+converges uniformly absolutely on compact subsets of $\ann(p,r_1,r_2)$.
 
-
-
-
-
-FIXME:
+Finally, uniqueness of $c_n$.  Suppose
+\begin{equation*}
+f(z)
+=
+\sum_{n=-\infty}^{\infty} \tilde{c}_n {(z-p)}^{n} 
+\end{equation*}
+with uniform absolute convergence on compact subsets of $\ann(p,r_1,r_2)$.
+Then
+\begin{equation*}
+\begin{split}
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{m+1}}
+ \, d\zeta 
+& =
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s}(p)}
+\left(\sum_{n=-\infty}^{\infty} \tilde{c}_n {(\zeta-p)}^{n} \right)
+\frac{1}{{(\zeta-p)}^{m+1}}
+ \, d\zeta 
+\\
+& =
+\frac{1}{2\pi i}
+\sum_{n=-\infty}^{\infty}
+\tilde{c}_n
+\int_{\partial \Delta_{s}(p)}
+{(\zeta-p)}^{n-m-1}
+ \, d\zeta 
+\\
+& =
+\tilde{c}_m ,
+\end{split}
+\end{equation*}
+as the only time that 
+$\int_{\partial \Delta_{s}(p)}
+{(\zeta-p)}^{n-m-1}
+ \, d\zeta$ is nonzero is when $n=m$, that is when we are integrating
+${(\zeta-p)}^{-1}$, in which case we get $2 \pi i$.
 \end{proof}
 
-FIXME:
+Similarly to the power series, due to the uniqueness of the Laurent Series,
+it does not matter how we obtain it.  For example, the function $e^{1/z}$
+has Laurent Series
+\begin{equation*}
+e^{1/z}
+=
+\sum_{n=0}^{\infty} \frac{1}{n!} {\left(\frac{1}{z}\right)}^n
+=
+\sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n ,
+\end{equation*}
+which converges uniformly absolutely on compact subsets of
+$\C \setminus \{ 0 \}$.
+
+The rational function $\frac{1}{1-z}$ that leads to the geometric series can
+be expanded in a slightly different way if we want its Laurent Series
+expansion in $\ann(0,1,\infty) = \C \setminus \overline{\D}$.
+\begin{equation}
+\frac{1}{1-z}
+=
+\frac{-1}{z}
+\frac{1}{1-\frac{1}{z}}
+=
+\frac{-1}{z}
+\sum_{n=0}^\infty
+{\left(\frac{1}{z}\right)}^n
+=
+\sum_{n=-\infty}^{-1}
+- z^{n} ,
+\end{equation}
+which converges in $\ann(0,1,\infty)$.
+
+Finally we should say that a Laurent Series could very well just be a power
+series when all the $c_n$ for negative $n$ are zero.
+
+\begin{exbox}
+\begin{exercise}
+Expand the function $\frac{1}{(z-1)(z-2)}$ using Laurent (or power) series in 
+\begin{exparts}
+\item $\D$
+\item $\ann(0,1,2)$
+\item $\ann(0,2,\infty)$
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \ann(p,r_1,r_2) \to \C$ is holomorphic,
+$r_1 < s < r_2$, and
+\begin{equation*}
+\int_{\partial \Delta_{s}(p)} f(z){(z-p)}^n
+ \, dz = 0
+\end{equation*}
+for all $n \leq 0$.  Prove that $f$ extends through the hole:
+There exists a holomorphic $g \colon \Delta_{r_2}(p) \to \C$ such that 
+$f = g$ on $\ann(p,r_1,r_2)$.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
