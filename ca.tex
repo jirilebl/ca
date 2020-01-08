@@ -3794,7 +3794,7 @@ then $f$ is constant.  Also show by example that the hypothesis $f(z_0)
 
 \subsection{Existence of power series}
 
-\begin{thm}
+\begin{thm} \label{thm:holpower}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
 holomorphic, and $p \in U$, and $\Delta_r(p) \subset U$
 is a disc.
@@ -4291,7 +4291,8 @@ functions.
 
 Another consequence of Cauchy's formula is that the correct topology for
 holomorphic functions is the same as that for continuous functions: uniform
-convergence on compact subsets.
+convergence on compact subsets.  In fact, that's the convergence that we
+used for the convergence of power series.
 
 \begin{defn}
 A sequence of functions $f_n \colon U \to \C$ converges
@@ -4301,15 +4302,16 @@ to $f \colon U \to \C$ if for every compact $K \subset U$,
 $f_n|_K$ converges uniformly to $f|_K$.
 \end{defn}
 
-What do we mean by ``the right topology''?  Well we mean the most natural
+What do we mean by ``the right topology''?  Well, we mean the most natural
 topology that preserves the class (limits in that topology are still in that
 class).
 It is rather surprising that this is the right topology for holomorphic
 functions, since for real
 differentiable functions nothing like that holds: $\sabs{x}^{1+1/n}$
 is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$
-which is not differentiable.  And for infinitely differentiable functions.
-Just forget it.
+which is not differentiable.  And for infinitely differentiable functions?
+Just forget it.  It is the right topology for continuous functions, as you
+should recall from your basic analysis class.
 
 \begin{thm}
 Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
@@ -4397,6 +4399,12 @@ f^{(k)}(p) . \qedhere
 \end{split}
 \end{equation*}
 \end{proof}
+
+So you see that the fact that we could write all the derivatives as
+integrals\footnote{Complex analysis allows you to integrate to find the
+derivative and to differentiate to find an integral.  Now tell that to your
+calculus students.}
+allows us to use a far weaker topology than one would think.
 
 FIXME
 
@@ -4801,7 +4809,8 @@ $\arg$.
 \end{proof}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise} \label{exercise:windingcircle}
+%FIXME: mark needed/used exercises
 Let $\partial \Delta_r(p)$ be the path oriented counterclockwise.
 Show that $n(\partial \Delta_r(p);z) = 0$ if $z \notin
 \overline{\Delta_r(p)}$ and 
@@ -5290,14 +5299,117 @@ means
 \lim_{M\to \infty}
 \sum_{n=0}^{M} a_n .
 \end{equation*}
-That is, the limits are taken independently.  However, as we are talking
-about absolute convergence, the limit may be taken in any way, in any order.
+That is, the limits are taken independently.  However, as for the series we
+are interested in, we are generally talking
+about absolute convergence, the limit may be taken in any way, and in any order.
 
 \begin{proof}
+Choose two numbers $s_1$ and $s_2$ such that $r_1 < s_1 < s_2 < r_2$.
+Define the cycle
+\begin{equation*}
+\Gamma = \partial \Delta_{s_2}(p) - \partial \Delta_{s_1}(p) .
+\end{equation*}
+That is, $\Gamma$ goes around the larger ($s_2$) circle counterclockwise and
+around the smaller ($s_1$) circle clockwise.
+
+If $z \in \C \setminus \ann(p,r_1,r_2)$, then $n(\Gamma;z) = 0$:
+If $z$ is in the ``hole'' of the annulus, then
+$n(\partial \Delta_{s_j}(p);z) = 1$ for both $j=1,2$, and 
+if $z$ is outside the annulus altogether then
+$n(\partial \Delta_{s_j}(p);z) = -1$ for both $j=1,2$,
+see \exerciseref{exercise:windingcircle}.
+On the other hand if $z$ is in the (smaller) annulus $\ann(p,s_1,s_2)$,
+then for similar reasons, $n(\Gamma;z) = 1$.
+
+Thus, via Cauchy's Theorem, for every $z \in \ann(p,s_1,s_2)$,
+\begin{equation*}
+f(z) = 
+\frac{1}{2\pi i}
+\int_{\Gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
+-
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta  .
+\end{equation*}
+Let us expand the two bits separately.  First
+if $\zeta \in \partial \Delta_{s_2}$, then
+$\abs{\frac{z-p}{\zeta-p}} < 1$ and so
+we follow the logic of \thmref{thm:holpower}.  The reason that we can
+swap the integral and the series limit is the same as in that theorem.
+\begin{equation*}
+\begin{split}
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
+& =
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-p}
+\frac{1}{1-\frac{z-p}{\zeta-p}} \, d\zeta
+\\
+& =
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-p}
+\sum_{n=0}^\infty
+{\left(\frac{z-p}{\zeta-p}\right)}^n \, d\zeta
+\\
+& =
+\sum_{n=0}^\infty
+\left(
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
+ \, d\zeta
+\right)
+{(z-p)}^n .
+\end{split}
+\end{equation*}
+
+Similarly, 
+if $\zeta \in \partial \Delta_{s_1}$, then
+$\abs{\frac{\zeta-p}{z-p}} < 1$ and so
+\begin{equation*}
+\begin{split}
+-\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
+& = 
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{z-p}
+\frac{1}{1-\frac{\zeta-p}{z-p}} \, d\zeta
+\\
+& =
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{z-p}
+\sum_{m=0}^\infty
+{\left(\frac{\zeta-p}{z-p}\right)}^m \, d\zeta
+\\
+& =
+\sum_{m=0}^\infty
+\left(
+\int_{\partial \Delta_{s_1}(p)} f(\zeta){(\zeta-p)}^{m}
+ \, d\zeta
+\right)
+{(z-p)}^{-m-1} .
+\\
+& =
+\sum_{n=-\infty}^{-1}
+\left(
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
+ \, d\zeta
+\right)
+{(z-p)}^{n} .
+\end{split}
+\end{equation*}
+
+
+
+%Putting the two together we get the right thing,
+%\begin{equation*}
+%
+%\end{equation*}
+
+
+
+
+
 FIXME:
 \end{proof}
 
-FIXME: should it be here?
+FIXME:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
