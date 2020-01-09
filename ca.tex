@@ -129,6 +129,8 @@
 % evil, not using footmisc as it conflicts with hyperref
 %\usepackage[perpage,symbol*]{footmisc}
 
+\usepackage{footnote}
+
 % The [2] would not use star
 %\MakePerPage[2]{footnote}
 \MakePerPage{footnote}
@@ -572,10 +574,10 @@ we will generally write ``(real) differentiable'' or
 ``differentiable (in the real sense)'' to
 make it clear when we mean real differentiability.
 
-Finally, certain sections are marked with a * and those can be easily
-skipped on first reading (though it does not mean they are not important,
-just not necessary for what follows).  Skipping some may make it possible
-to cover other later topics.
+Finally, some sections early on in the book are marked with a * and those
+can be easily skipped on first reading (though it does not mean they are not
+important, just not necessary for what follows).  Skipping some may make it
+possible to cover other later topics.
 
 \medskip
 
@@ -787,7 +789,11 @@ if and only if $z=0$.
 If $z,w \in \C$, then
 \begin{enumerate}[(i)]
 \item
-$\Re z\bar{w} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz),
+$\Re z\bar{w} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz inequality\footnote{%
+Some will say it should be Cauchy--Bunyakovsky--Schwarz, but that is wrong.
+Bunyakovsky and Schwarz proved the infinite-dimensional version.  This is
+just Cauchy inequality, but unfortunately that name refers to a different
+inequality, one that we will call the Cauchy estimates.}),
 \index{Cauchy--Schwarz}
 \item
 $\sabs{z+w} \leq \sabs{z} + \sabs{w}$ \quad (Triangle inequality).
@@ -1745,12 +1751,13 @@ In other words,
 \lim_{h \to 0} \frac{P(z_0+h) - P(z_0)}{h} =
 \lim_{h \to 0} \frac{P(z_0+h) - c_0}{h} = c_1 .
 \end{equation*}
-So $P(z_0+h)$ is approximated (locally) by $c_0 + c_1 h$.
+So $P(z_0+h)$ is approximated (locally) by $c_0 + c_1 h$
+up to an error that vanishes faster than $h$.
 We should emphasize that the limits are as a complex $h$ goes to 0.
 
 Therefore, we wish to study functions that are
-locally approximated by $c_0 + c_1 h$.  Or more formally functions
-such that
+locally approximated by $c_0 + c_1 h$ in the same way.  More formally
+we want functions such that
 \begin{equation*}
 f(z_0+h) = f(z_0) + \xi h + o(\sabs{h})
 \end{equation*}
@@ -1857,7 +1864,12 @@ exists for all $z \in U$.
 \end{prop}
 
 The equations \eqref{eq:CReqreal} are called the
-\emph{\myindex{Cauchy--Riemann equations}}.  This book is dedicated to their
+\emph{\myindex{Cauchy--Riemann equations}}\footnote{Interestingly,
+the equations first appeared in the work of d'Alembert, and
+it was Euler who first connected them to analytic functions.
+So perhaps they had better be called the French-guy--German-guy equations,
+except that Euler was really Swiss, he only lived in Germany.}.
+This book is dedicated to their
 solutions.
 
 \begin{defn}
@@ -2499,7 +2511,9 @@ $r < \rho$
 and diverges if
 $r > \rho$.  We have proved the following proposition:
 
-\begin{prop}[Cauchy--Hadamard theorem]
+\begin{prop}[Cauchy--Hadamard theorem\footnote{%
+Cauchy published this result in 1821, and Hadamard, despite also being
+French, didn't know about it and published it in 1888.}]
 \index{Cauchy--Hadamard theorem}
 A power series $\sum c_n {(z-p)}^n$ converges absolutely if
 $\sabs{z-p} < \rho$ and diverges if
@@ -2761,8 +2775,8 @@ noted is that if $f$ is given by the convergent power series in
 $\Delta_r(p)$ as above, then the power series is unique.  This conclusion
 follows from the formula for the coefficients $c_n$.
 
-In particular we have just noticed that
-analytic functions are infinitely complex differentiable.
+If we apply the corollary to analytic functions at every point,
+we find that they are infinitely differentiable:
 
 \begin{cor} \label{cor:analinfdif}
 An analytic function is infinitely complex differentiable, and each
@@ -3076,9 +3090,10 @@ we define
 \int_a^b f\bigl( \gamma(t) \bigr) \sabs{\gamma'(t)} \, dt
 \end{equation*}
 
-With this definition we can do some estimates on path integrals.
+With this definition we can do some estimates on line integrals.
 
-\begin{prop}[Triangle inequality for paths]\index{triangle inequality!paths}
+\begin{prop}[Triangle inequality for line integrals]%
+\index{triangle inequality!line integrals}
 \pagebreak[2]
 Suppose $\gamma \colon [a,b] \to \C$ is 
 a piecewise $C^1$ path and $f$ is a continuous function on
@@ -3210,8 +3225,8 @@ Prove the proposition.
 
 And now the FTC.
 
-\begin{prop}[Fundamental theorem of calculus for paths]
-\index{fundamental theorem of calculus!paths}%
+\begin{prop}[Fundamental theorem of calculus for line integrals]
+\index{fundamental theorem of calculus!line integrals}%
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is holomorphic with a primitive $F \colon U \to \C$.
 Let $\gamma \colon [a,b] \to U$ be a piecewise $C^1$ path.
@@ -3324,7 +3339,11 @@ should have positive imaginary part.  Then we define the boundary chain
 \partial T = [a,b] + [b,c] + [c,a] .
 \end{equation*}
 
-\begin{thm}[Cauchy--Goursat]\index{Cauchy--Goursat theorem}
+\begin{thm}[Cauchy--Goursat\footnote{%
+Other common statements of this theorem is more complicated (simply
+connected domain, any closed path), what makes it the Goursat theorem
+is that we are only assuming that the complex derivative exists
+everywhere.}]\index{Cauchy--Goursat theorem}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 and $T \subset U$ is a triangle.  Then
 \begin{equation*}
@@ -3358,7 +3377,7 @@ $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side in half.  See
 Each $T_k$ is positively oriented.
 Note that the sides of the inner $T_4$ triangle have the opposite
 orientation as the inner sides of $T_1$ through $T_3$, and
-so the path integral over these sides cancels.  Therefore,
+so the line integral over these sides cancels.  Therefore,
 \begin{equation*}
 c = 
 \abs{\int_{\partial T} f(z) \, dz }
@@ -4088,7 +4107,10 @@ d \zeta
 A holomorphic function $f \colon \C \to \C$ is called
 \emph{entire}\index{entire function}.
 
-\begin{thm}[Liouville]
+\begin{thm}[Liouville\footnote{%
+Liouville proved a different (though similar) theorem.  This particular one
+was proved by Cauchy (what a showoff).  But calling it Cauchy's theorem would be
+unhelpful.}]
 \index{Liouville's theorem}%
 \label{thm:Liouville}%
 A bounded entire holomorphic function is constant.
@@ -4320,8 +4342,8 @@ Cu(z)
 \end{equation*}
 
 \begin{cor}
-Given any continuous $u \colon \partial \Delta_r(p) \to \C$ the
-Cauchy transform $Cu \colon \Delta_r(p) \to \C$ is holomorphic.
+If $u \colon \partial \Delta_r(p) \to \C$ is continuous, then
+the Cauchy transform $Cu \colon \Delta_r(p) \to \C$ is holomorphic.
 \end{cor}
 
 It is not necessarily true that $Cu$ tends to $u$ unless $u$ came from 
@@ -5124,7 +5146,7 @@ Prove that any star-shaped domain is simply connected.
 \end{exercise}
 \end{exbox}
 
-A special case of the holomogy version of Cauchy,
+A special case of the homology version of Cauchy,
 \thmref{thm:CThomology}, can be stated as follows.
 
 \begin{thm}[Cauchy's theorem (simply connected version)]
@@ -5336,7 +5358,7 @@ however, avoid temptation calling $\ann(p,r,\infty)$ an ``annulus.''%
 
 \begin{thm}[\myindex{Existence of Laurent series}]
 \index{Laurent series!existence}%
-Suppose $0 \leq r_1 < r_2 \leq \infty$ and
+Suppose that $0 \leq r_1 < r_2 \leq \infty$ and
 $f \colon \ann(p,r_1,r_2) \to \C$ is holomorphic.
 Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
 \begin{equation*}
@@ -5685,13 +5707,15 @@ e^{i\widetilde{\theta}(t)}$.
 FIXME
 \end{proof}
 
-FIXME: homotopy version here!
+FIXME: homotopy version of Cauchy theorems goes here!
 
 \begin{prop}
 A domain $U \subset \C$ is simply connected (in the sense of this section)
 if and only if it is simply connected
 (in the sense of \defnref{defn:simplyconnected:homology}).
 \end{prop}
+
+FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5747,12 +5771,12 @@ $k=0$ and $g = f$.  So we can say that when $f(p) \not= 0$, then $p$ is
 a zero of order 0, which sounds somewhat idiotic, but it all fits a general
 picture, and we will see negative orders a couple of sections from now.
 
-Another remark (that is hidden in the lemma)
+Another remark (which is hidden in the lemma)
 that may be good to emphasize is that if $f^{(k)}(p) = 0$
 for all $k$, then all coefficients of the power series of $f$ at $p$ are
 zero and $f$ is identically zero.  In other words, \emph{every isolated
 zero of a holomorphic function is of finite order}.  No such
-thing is true for real differentiable functions.
+thing is true for real differentiable functions (see the exercises).
 
 \begin{proof}[Proof of the lemma]
 On $U \setminus \{ p \}$ the function $g(z) = \frac{f(z)}{{(z-p)}^k}$ is
@@ -5897,7 +5921,7 @@ following definition.
 Let $f$ be a holomorphic function $f$ with an isolated singularity at $p$.
 The \emph{\myindex{residue}} of $f$ at $p$ is the number
 \begin{equation*}
-\operatorname{Res}(f,p) = c_{-1}
+\operatorname{Res}(f,p) = c_{-1} ,
 \end{equation*}
 where $c_{-1}$ is the coefficient of ${(z-p)}^{-1}$ in the Laurent series
 expansion in the punctured disc $\Delta_r(p) \setminus \{ p \}$.
@@ -5977,13 +6001,172 @@ as the formula for the $c_{-1}$ term in the Laurent series
 for $f$ at $w_j$.  In other words, the residue of $f$ at $w_j$.
 \end{proof}
 
-FIXME: some applications, e.g. inverse Laplace
+The residue theorem is supposed to be useful in computing line integrals.
+But at first glance it seems ridiculous.  How does one compute $c_{-1}$?  By
+an integral.  Well how does that help then?  It helps because there are
+easier ways to compute $c_{-1}$ then by the line integral.  One is
+almost criminally trivial, but it may be good to emphasize it by making it
+a proposition.
+
+\begin{prop}
+Suppose $f$ is holomorphic in a neighborhood of $p$ and $g$ is holomorphic
+with an isolated singularity at $p$, then
+$\operatorname{Res}(f+g,p) = \operatorname{Res}(g,p)$.
+\end{prop}
+
+\begin{proof}
+\begin{equation*}
+\begin{split}
+\operatorname{Res}(f+g,p)
+& =
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{\epsilon}(p)}
+\bigl(f(z)+g(z)\bigr) \, dz
+\\
+& =
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{\epsilon}(p)}
+f(z) \, dz
++
+\cancelto{0}{
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{\epsilon}(p)}
+g(z) \, dz
+}
+%=
+%\frac{1}{2\pi i}
+%\int_{\partial \Delta_{\epsilon}(p)}
+%g(z) \, dz
+=
+\operatorname{Res}(g,p) . \qedhere
+\end{split}
+\end{equation*}
+\end{proof}
+
+A common application of the residue theorem is to compute certain real
+integrals that are difficult by classical calculus.  Let us compute
+a couple of examples.  They will also show you how one often computes
+residues.
+
+\begin{example}
+\begin{equation*}
+\int_{-\infty}^\infty \frac{1}{1+x^2} \, dx .
+\end{equation*}
+OK, this one is easy to compute by classical calculus, but let us ignore
+that fact for the sake of the simplicity of the example.
+
+Define the cycle $\Gamma_r = [-r,r] + \gamma_r$, where $\gamma_r(t) =
+re^{it}$ for $t \in [0,\pi]$, that is, $\gamma_r$ is the upper semi-circle
+of the circle of radius $r$ centered at the origin oriented counterclockwise.
+See \figureref{fig:rhalfcircle}.
+
+\begin{myfig}
+FIXME: $\Gamma_r$
+\caption{The cycle $\Gamma_r$.\label{fig:rhalfcircle}}
+\end{myfig}
+
+We ``complexify''\index{complexify}
+$\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.  Really
+that's just a fancy way of saying we are going to plug in complex numbers
+into a real formula that happens to also work for complex numbers.
+We note by partial fractions we find
+\begin{equation*}
+\frac{1}{1+z^2} = \frac{1}{(z+i)(z-i)} =
+\frac{i}{2} \frac{1}{z+i} - 
+\frac{i}{2} \frac{1}{z-i} .
+\end{equation*}
+In particular, there is an isolated singularity at $\pm i$.  Our cycle
+$\Gamma_r$ goes around $i$ (once so $n(\Gamma_r,i) = 1$),
+but not around $-i$ (exercise), so we only need to compute (via the
+proposition)
+\begin{equation*}
+\operatorname{Res}\left(\frac{1}{1+z^2},i\right) =
+\operatorname{Res}\left(
+\frac{-i}{2} \frac{1}{z-i}
+i\right) = \frac{-i}{2} .
+\end{equation*}
+
+We compute,
+\begin{equation*}
+\pi 
+=
+2 \pi i \operatorname{Res}\left(\frac{1}{1+z^2}\right) =
+\int_{\Gamma_r} \frac{1}{1+z^2} \, dz
+=
+\int_{-r}^r \frac{1}{1+x^2} \, dx
++
+\int_{\gamma_r} \frac{1}{1+z^2} \, dz .
+%\int_0^{\pi} \frac{1}{1+{(re^{it})}^2} r i e^{it} \, dt
+\end{equation*}
+Let us find the limit as $r \to \infty$ of the second term
+via the triangle inequality.  The length of $\gamma_r$ is $r\pi$,
+and on $\gamma_r$ (for large enough $r$),
+$\sabs{1+z^2} \geq r^2-1$.  So
+\begin{equation*}
+\abs{
+\int_{\gamma_r} \frac{1}{1+z^2} \, dz 
+}
+\leq
+r \pi \frac{1}{r^2-1} \to 0 \quad \text{as } r \to \infty .
+\end{equation*}
+Hence,
+\begin{equation*}
+\int_{-\infty}^\infty
+\frac{1}{1+x^2} \, dx
+=
+\lim_{r\to \infty} \int_{-r}^r 
+\frac{1}{1+x^2} \, dx
+= \pi .
+\end{equation*}
+It is left to the reader why taking the symmetric limit is sufficient to
+compute the double improper integral here.  After all, usually one has to
+take two independent limits.
+\end{example}
+
+\begin{exbox}
+\begin{exercise}
+Rigorously prove that in the exercise
+$n(\Gamma_r,i) = 1$ and
+$n(\Gamma_r,i) = 0$.
+\end{exercise}
+\end{exbox}
+
+\begin{example}
+FIXME: $\int_0^\infty \frac{\sin(x)}{x} \, dx$
+
+\begin{myfig}
+FIXME: $\Gamma_r$
+\caption{The cycle $\Gamma_r$.\label{fig:rpuncturedhalfcircle}}
+\end{myfig}
+\end{example}
+
+\begin{example}[Inverse Laplace transform]
+\index{inverse Laplace transform}
+A common integral that gets computed via the Residue theorem is
+the inverse Laplace transform via \emph{\myindex{Mellin's inversion
+formula}}.  Let us not get into what the Laplace transform is, if the reader
+is unsure, simply take the example as a way to solve another integral.
+The formula, given $F(s)$ which is generally rational function, but could be
+another function with isolated singularities, is to find
+\begin{equation*}
+f(t) =
+\frac{1}{2 \pi i }
+\lim_{r \to \infty}
+\int_{c-ir}^{c+ir}
+e^{st}F(s) \, ds ,
+\end{equation*}
+where the integral is taken over the vertical line where $\Re z = c$.
+
+FIXME: example
+\end{example}
+
+FIXME: exercises
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Classifying isolated singularities}
 
-\subsection{Isolated singularities}
+\subsection{Removable singularities, poles, and essential singularities}
 
 \begin{defn}
 Suppose $V \subset \C$ is open, $f \colon V \setminus \{p\} \to \C$ is holomorphic with
@@ -6077,6 +6260,7 @@ and this either goes to $\infty$ if $k > \ell$ or is bounded if $k \leq
 Given a holomorphic function $f$ with a pole, the smallest $k \in \N$
 such that ${(z-p)}^k f(z)$ is bounded is called the
 \emph{order}\index{order of a pole} of the pole.
+A pole of order 1 is called a \emph{\myindex{simple pole}}.
 \end{defn}
 
 As can be seen from the proof of the proposition,
@@ -6095,6 +6279,11 @@ such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
 \begin{equation*}
 f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
 \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Suppose that $f$ and $g$ are entire functions and $\sabs{f} \leq \sabs{g}$
+everywhere.  Show that $f = c g$ for some $c \in \C$.  Hint: Liouville.
 \end{exercise}
 \end{exbox}
 
@@ -6182,7 +6371,7 @@ is dense in $\C$.
 
 There is a stronger version
 of this theorem called the Picard theorem saying that the function in any
-punctured neighbourhood achieves all values with at most one exception.
+punctured neighborhood achieves all values with at most one exception.
 That is,
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C$ or 
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C \setminus \{ z_0 \}$ for
@@ -6284,7 +6473,8 @@ FIXME:
 
 FIXME:
 
-\begin{thm}[Rouch\`e]\index{Rouch\`e's theorem}\label{thm:rouche}
+\begin{thm}[Rouch\`e\footnote{%
+The stronger version we state was actually proved by Estermann in 1962.}]\index{Rouch\`e's theorem}\label{thm:rouche}
 Suppose $U \subset \C$ is an open set, and $\gamma$ is a closed piecewise $C^1$
 path in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$
 and $n(\gamma;z)$ is either $1$ or $0$ for $z \in U$.  Let $V = \{ z \in U
@@ -6393,7 +6583,7 @@ FIXME
 The open mapping theorem is really a stronger version of the maximum
 principle.
 If for any $p$,
-$f(p)$ is always in the interior of $f(V)$ for any neighbourhood $V$ of
+$f(p)$ is always in the interior of $f(V)$ for any neighborhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6701,6 +6891,7 @@ $\log \sabs{f(z)}$ is harmonic, at least where $f$ is nonzero.
 The fact that $\log \sabs{f(z)}$ is harmonic is just as useful
 as that the real and imaginary parts of $f$ are.
 
+\begin{savenotes}
 \begin{exbox}
 \begin{exercise}
 Let $U \subset \C$ be open and
@@ -6708,12 +6899,18 @@ $f \colon U \to \C$ holomorphic.  Prove that $\log \sabs{f(z)}$ is harmonic
 outside the zero set of $f$, that is on $U \setminus f^{-1}(0)$.
 \end{exercise}
 
+%best for this to be the last in this exbox, so that the footnote appears
+%most likely on the right page.
 \begin{exercise}
-Prove the Lioville theorem\index{Liouville theorem!harmonic functions} for
+Prove the Lioville\footnote{%
+Nelson has a really short proof (one of the runner ups for the shortest
+mathematical papers ever), but you can't use it since you don't have the
+tools for it yet.} theorem\index{Liouville theorem!harmonic functions} for
 harmonic functions.  That is, suppose that $f \colon \C \to \R$ is harmonic
 and bounded from above, then $f$ is constant.
 \end{exercise}
 \end{exbox}
+\end{savenotes}
 
 
 
@@ -6779,12 +6976,6 @@ is a bounded domain and $f \colon \overline{U}
 on the boundary $\partial U$.
 \end{exercise}
 \end{exbox}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Schwarz reflection principle}
-
-FIXME:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -7015,6 +7206,31 @@ Note: Again, less than bounded is
 necessary, but it is sufficient for the exercise.
 \end{exparts}
 \end{exercise}
+
+\begin{exercise}
+Derive the \emph{\myindex{Schwarz integral formula}}, which recovers
+a holomorphic function out of the real parts of the boundary values
+and the value of the imaginary part at one point.
+If $f \colon \overline{\D} \to \C$ is continuous and holomorphic on
+$\D$, then for all $z \in \D$,
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i}
+\int_{\partial \D}
+\frac{\zeta+z}{\zeta-z} \frac{\Re f(\zeta)}{\zeta} \, d\zeta
++ i \Im f(0) .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Prove that given any continuous function $f \colon \partial \D \to \C$
+there exists a function $F \colon \D \to \C$ such that $\Re F$ extends
+continuously to $\partial \D$ (agrees with a continuous function on
+$\overline{\D}$) and such that $\Re F = \Re f$ on $\partial \D$.
+That is, given arbitrary boundary data, we cannot in general find a
+holomorphic function with those boundary values, but we can do it at least
+for the real part.
+\end{exercise}
 \end{exbox}
 
 \subsection{Mean-value property}
@@ -7089,6 +7305,15 @@ logic to $-\varphi$ we find that $\varphi = 0$ on $\Delta_r(p)$.  In
 particular, we find that $f=h$ and $h$ is harmonic, so $f$ is harmonic.
 \end{proof}
 
+The Poisson kernel and so the Poisson integral easily applies to any disc
+$\Delta_r(p)$ by translation and dilation.  See the exercises.
+The uniqueness of the Dirichlet problem says that if $f \colon U \to \R$
+is harmonic and $\overline{\Delta_r(p)} \subset U$, then applying
+Poisson integral on the disc says that $P\bigl[f|_{\partial
+\Delta_r(p)}\bigr] = f$ on $\Delta_r(p)$.  So the Poisson integral gives
+a representation of harmonic functions in terms of boundary values, just
+like the Cauchy integral formula does for holomorphic functions.
+
 \begin{exbox}
 \begin{exercise}
 Prove the maximum principle for harmonic functions directly from the
@@ -7103,6 +7328,18 @@ property on all discs $\Delta_r(p)$ for every $r < s$, then $f$ is
 harmonic.
 \end{exercise}
 \end{exbox}
+
+\subsection{Harnack inequality}
+
+FIXME:
+
+\subsection{Hopf lemma}
+
+FIXME: do Hopf lemma in a disc
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Extending harmonic functions}
 
 \subsection{Removable isolated singularities}
 
@@ -7158,6 +7395,24 @@ Prove that the Dirichlet problem is not solvable in the punctured disc $\D
 \setminus \{ 0 \}$.
 \end{exercise}
 \end{exbox}
+
+\subsection{Schwarz reflection principle}
+
+Classically, the Schwarz reflection principle is a theorem for holomorphic
+functions, but we will state and prove it for harmonic functions.
+We will prove the corresponding holomorphic version later, although
+a sufficiently good version already follows by just applying the harmonic
+version and finding harmonic conjugate.
+
+Basically it says that if a harmonic function vanishes one a nice enough
+curve (such as the real line) then it extends across.
+
+\begin{thm}[Schwarz reflection principle for harmonic functions]
+\index{Schwarz reflection principle!harmonic functions}
+FIXME
+\end{thm}
+
+FIXME:
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7706,6 +7961,24 @@ May the forces of evil become confused on the way to your house.
 
 \section{FIXME}
 \label{sec:FIXMEanalcont}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Schwarz reflection principle}
+
+FIXME: perhaps not a separate section here?  But this is a chapter where it
+makes sense
+
+\begin{thm}[Schwarz reflection principle]
+\index{Schwarz reflection principle!holomorphic functions}
+FIXME
+\end{thm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Monodromy theorem}
 
 FIXME
 
