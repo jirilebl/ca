@@ -552,8 +552,8 @@ The connection is to understand multiplication by complex numbers
 as a $2 \times 2$ real matrix.
 When we introduce line integrals, we connect
 them to the line integrals the student has seen in calculus.
-When the Inverse Function Theorem is introduced it is introduced as a consequence
-of the Inverse Function Theorem in $\R^2$, and an outline of
+When the inverse function theorem is introduced it is introduced as a consequence
+of the inverse function theorem in $\R^2$, and an outline of
 a pure complex analysis proof is left as an exercise.
 This is not simply a time saving measure.
 The point is to stress that we are not defining some totally new and
@@ -644,7 +644,7 @@ equations such as $2x=1$.  We extend
 \glsadd{not:Q}$\Q$ to the real numbers \glsadd{not:R}$\R$
 to solve equations such as $x^2=2$.  Actually our definition 
 of the real numbers is such that we get theorems like the
-Intermediate Value Theorem, Bolzano--Weierstrass,
+intermediate value theorem, Bolzano--Weierstrass,
 etc.  It is then not much of a stretch to do the same thing when trying
 to solve $z^2+1=0$.  Similarly as what happened when we defined the real
 numbers, the consequences of adding this solution to the mix are much more
@@ -788,8 +788,10 @@ If $z,w \in \C$, then
 \begin{enumerate}[(i)]
 \item
 $\Re z\bar{w} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz),
+\index{Cauchy--Schwarz}
 \item
 $\sabs{z+w} \leq \sabs{z} + \sabs{w}$ \quad (Triangle inequality).
+\index{triangle inequality!complex numbers}
 \end{enumerate}
 \end{prop}
 
@@ -880,7 +882,7 @@ A disc centered at the origin of radius 1 is called the
 The unit disc will come up often in this course, as it turns out that
 a lot of complex analysis can be done by looking at just the unit disc.
 
-A useful ``version'' of the unit disc, is the \emph{\myindex{upper half plane}}:
+A useful ``version'' of the unit disc, is the \emph{\myindex{upper half-plane}}:
 \begin{equation*}
 \bH 
 \overset{\text{def}}{=}
@@ -888,8 +890,8 @@ A useful ``version'' of the unit disc, is the \emph{\myindex{upper half plane}}:
 z \in \C : \Im z > 0
 \bigr\} .
 \end{equation*}
-Things done on the unit disc can just as well be done on the upper half
-plane.   We will see in a moment that $\bD$ and $\bH$ are equivalent in a
+Things done on the unit disc can just as well be done on the upper half-plane.
+We will see in a moment that $\bD$ and $\bH$ are equivalent in a
 very nice way.
 
 The following definition is perhaps somewhat unnecessary, but it is so much
@@ -1581,7 +1583,7 @@ C(z)
 \frac{z - i}{z + i} .
 \end{equation*}
 The map is an LFT, and it
-takes the upper half plane $\bH = \{ z \in \C : \Im z > 0 \}$ to the
+takes the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$ to the
 unit disc.  Let us see why.  A $z$ goes to the unit disc if
 \begin{equation*}
 1 > \abs{\frac{z - i}{z + i} }
@@ -1892,7 +1894,7 @@ The proof follows immediately from the standard real result,
 see \thmref{thm:svzerodersol} in the appendix.
 \end{proof}
 
-\begin{prop}[Chain rule]
+\begin{prop}[Chain rule] \index{chain rule!complex derivative}
 Let $U \subset \C$ and $V \subset \C$ be open, and $f \colon U \to V$
 complex differentiable at $z$, $g \colon V \to \C$ complex differentiable
 at $f(z)$.  Then the composition $g \circ f$
@@ -1941,7 +1943,9 @@ one.  If $\gamma = \alpha + i \beta \colon (a,b)
 \to \C$ is a differentiable function,
 then write $\gamma' = \alpha' + i \beta'$.
 
-\begin{prop}[Chain rule] \label{prop:chainrule2}
+\begin{prop}[Chain rule]
+\index{chain rule}%
+\label{prop:chainrule2}%
 Let $U \subset \C$ be open,
 $\gamma (a,b) \to U$ be real differentiable at $t_0 \in (a,b)$,
 and $f \colon U \to \C$ be complex differentiable at $\gamma(t_0)$.
@@ -2386,10 +2390,10 @@ z^n = r^n e^{i n\theta} .
 So $z^n$ takes sectors with vertex at the origin and doubles their angle.
 For example, it takes the first quadrant:
 $\{ z \in \C : \Re z \geq 0, \Im z \geq 0 \}$
-to the upper half plane $\{ z \in \C : \Im z \geq 0 \}$.
+to the upper half-plane $\{ z \in \C : \Im z \geq 0 \}$.
 Similarly, it takes the second quadrant
 $\{ z \in \C : \Re z \leq 0, \Im z \geq 0 \}$
-to the lower half plane $\{ z \in \C : \Im z \leq 0 \}$.
+to the lower half-plane $\{ z \in \C : \Im z \leq 0 \}$.
 
 \begin{exbox}
 \begin{exercise}
@@ -2495,8 +2499,8 @@ $r < \rho$
 and diverges if
 $r > \rho$.  We have proved the following proposition:
 
-\begin{prop}[Cauchy--Hadamard Theorem]
-\index{Cauchy--Hadamard Theorem}
+\begin{prop}[Cauchy--Hadamard theorem]
+\index{Cauchy--Hadamard theorem}
 A power series $\sum c_n {(z-p)}^n$ converges absolutely if
 $\sabs{z-p} < \rho$ and diverges if
 $\sabs{z-p} > \rho$, where $\rho$ is defined by \eqref{eq:rhodef}.
@@ -2775,13 +2779,13 @@ expanded about a different point in $\Delta_r(p)$.  It will follow
 once we prove that holomorphic functions are analytic.
 \end{remark}
 
-\subsection{The Identity Theorem}
+\subsection{The identity theorem}
 
 One of the main properties of analytic functions is that once you know them
 in a neighborhood you know them everywhere.  In fact, much more general
 statement is true.
 
-\begin{thm}[Identity]\index{Identity Theorem!holomorphic functions}
+\begin{thm}[Identity]\index{identity theorem!holomorphic functions}
 Suppose $U \subset \C$ is a domain, 
 and $f \colon U \to \C$ analytic.  If $Z_f = \{ z \in U : f(z) = 0 \}$
 has a limit point in $U$, then $f$ is identically zero.
@@ -2845,7 +2849,7 @@ for $k=0,1,2,\ldots$.  Prove that $f = g$ everywhere.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Line integrals and a starter Cauchy's Theorem}
+\section{Line integrals and a starter Cauchy's theorem}
 \label{sec:cauchysimple}
 
 \subsection{Line integrals}
@@ -2971,6 +2975,7 @@ to refer to the image rather than the actual path parametrization, we will
 leave its proof as an exercise.
 
 \begin{prop}[Reparametrization]
+\index{reparametrization of paths}%
 Suppose $\gamma \colon [a,b] \to \C$ and $\alpha \colon [c,d] \to \C$ are
 piecewise $C^1$ paths that are one-to-one and
 $\gamma\bigl([a,b]\bigr) = \alpha\bigl([c,d]\bigr)$.
@@ -3003,7 +3008,7 @@ $\gamma\bigl([a,b]\bigr)$ using that closed subsets of $[a,b]$
 are compact.
 \item
 Assume that $f=1$.  Prove the next two items first for $C^1$ paths,
-then for piecewise $C^1$ paths.  Hint: Fundamental Theorem of Calculus.
+then for piecewise $C^1$ paths.  Hint: fundamental theorem of calculus.
 \item
 For general $f$, cut the path into small enough pieces so that
 on each piece you can approximate $f$ by a constant and apply the
@@ -3073,7 +3078,7 @@ we define
 
 With this definition we can do some estimates on path integrals.
 
-\begin{prop}[Triangle Inequality for Paths]
+\begin{prop}[Triangle inequality for paths]\index{triangle inequality!paths}
 \pagebreak[2]
 Suppose $\gamma \colon [a,b] \to \C$ is 
 a piecewise $C^1$ path and $f$ is a continuous function on
@@ -3205,7 +3210,8 @@ Prove the proposition.
 
 And now the FTC.
 
-\begin{prop}[Fundamental Theorem of Calculus for Paths]
+\begin{prop}[Fundamental theorem of calculus for paths]
+\index{fundamental theorem of calculus!paths}%
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is holomorphic with a primitive $F \colon U \to \C$.
 Let $\gamma \colon [a,b] \to U$ be a piecewise $C^1$ path.
@@ -3229,8 +3235,8 @@ We have
 F\bigl( \gamma(b) \bigr) - F\bigl( \gamma(a) \bigr) .
 \end{equation*}
 The computation uses the chain rule (\propref{prop:chainrule2})
-and the Fundamental Theorem of Calculus, where of course the
-standard Fundamental Theorem of Calculus is applied to the real and imaginary parts
+and the fundamental theorem of calculus, where of course the
+standard fundamental theorem of calculus is applied to the real and imaginary parts
 of the expression.
 \end{proof}
 
@@ -3251,7 +3257,7 @@ A path $\gamma \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if
 $\gamma(a) = \gamma(b)$.  The fundamental theorem has the following
 immediate corollary.
 
-\begin{cor}[Cauchy's Theorem for Derivatives] \label{cor:cauchyforders}
+\begin{cor}[Cauchy's theorem for derivatives] \label{cor:cauchyforders}
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is holomorphic, such that there exists
 a holomorphic $F \colon U \to \C$ with $f = F'$.
@@ -3262,21 +3268,21 @@ Then
 \end{equation*}
 \end{cor}
 
-We will prove several versions of Cauchy's Theorem, although this one is
+We will prove several versions of Cauchy's theorem, although this one is
 somewhat different from the others.  Usually there will be a restriction on
 the $U$ or perhaps the path $\gamma$ rather
 than on the function being integrated.
 A version of Cauchy's theorem can be taken as an ``independence of path''
 type of result saying we can define a function at $z$ by a line integral
 from some fixed point to $z$.  This will imply that such a function has a
-primitive.  So the other versions of Cauchy's Theorem will generally
+primitive.  So the other versions of Cauchy's theorem will generally
 either restrict which $\gamma$ can be taken or
 restrict to only those $U$ where every holomorphic function has a primitive.
 
 The above corollary has another quick corollary (which will be entirely
 subsumed into the more general version of Cauchy we will prove later).
 
-\begin{cor}[Cauchy's Theorem for Polynomials]
+\begin{cor}[Cauchy's theorem for polynomials]
 Suppose $P(z)$ is a polynomial and $\gamma \colon [a,b] \to \C$ is a closed
 piecewise $C^1$ path.  Then
 \begin{equation*}
@@ -3286,7 +3292,7 @@ piecewise $C^1$ path.  Then
 
 \begin{exbox}
 \begin{exercise}
-Prove Cauchy's Theorem for Polynomials.
+Prove Cauchy's theorem for polynomials.
 \end{exercise}
 \end{exbox}
 
@@ -3318,7 +3324,7 @@ should have positive imaginary part.  Then we define the boundary chain
 \partial T = [a,b] + [b,c] + [c,a] .
 \end{equation*}
 
-\begin{thm}[Cauchy--Goursat]
+\begin{thm}[Cauchy--Goursat]\index{Cauchy--Goursat theorem}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 and $T \subset U$ is a triangle.  Then
 \begin{equation*}
@@ -3404,7 +3410,7 @@ If $f$ was differentiable, we could choose an $\alpha$ such that
 $\frac{g(z)}{z-z_0}$ goes to zero.
 So let us prove that it doesn't for any $\alpha$.  If $g(z_0) \not= 0$,
 then we are done, so assume $g(z_0) = 0$.
-Cauchy's Theorem for Polynomials says
+Cauchy's theorem for polynomials says
 \begin{equation*}
 \int_{\partial T^k} f(z) \, dz =
 \int_{\partial T^k} f(z_0) + \alpha (z-z_0) + g(z) \, dz =
@@ -3424,7 +3430,7 @@ And so
 \end{equation*}
 The length of the sides of $k$\textsuperscript{th} triangle is
 $\frac{\ell}{2^k}$, so
-by Mean Value Theorem for integrals we can choose a $z_k$ on $T^k$ such that
+by mean value theorem for integrals we can choose a $z_k$ on $T^k$ such that
 \begin{equation*}
 \sabs{g(z_k)} = 
 \frac{2^k}{\ell}
@@ -3591,7 +3597,8 @@ such that $F' = f$.
 And we get another corollary, which we will rather state
 as a theorem, as it is one of the fundamental results.
 
-\begin{thm}[Cauchy's Theorem for Star-like Domains]
+\begin{thm}[Cauchy's theorem for star-like domains]
+\index{Cauchy's theorem!star-like domains}%
 Suppose $U \subset \C$ is open and star-like, $f \colon U \to \C$ is holomorphic,
 and $\gamma$ is a closed piecewise $C^1$ path in $U$.  Then
 \begin{equation*}
@@ -3602,17 +3609,18 @@ and $\gamma$ is a closed piecewise $C^1$ path in $U$.  Then
 \begin{proof}
 \corref{cor:primitiveinstarlike} implies that there is
 a primitive $F \colon U \to \C$, and
-Cauchy's Theorem for Derivatives (\corref{cor:cauchyforders}) then implies that the integral is zero.
+Cauchy's theorem for derivatives (\corref{cor:cauchyforders}) then implies that the integral is zero.
 \end{proof}
 
 \subsection{Cauchy's formula in a disc}
 
 Perhaps the most fundamental theorem in complex analysis in one variable,
 and the root cause of all the amazing properties of holomorphic functions
-is the Cauchy Integral Formula.  Let us state it for a disc, and leave
+is the Cauchy integral formula.  Let us state it for a disc, and leave
 more general statements for later.
 
-\begin{thm}[Cauchy Integral Formula in a Disc]
+\begin{thm}[Cauchy integral formula in a disc]
+\index{Cauchy integral formula!disc}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 and $\overline{\Delta_r(p)} \subset U$.
 If $\gamma$ is the boundary of $\Delta_r(p)$ oriented counterclockwise,
@@ -3682,7 +3690,7 @@ As chains $c_1+c_2 = \gamma - \alpha$.  Further, each
 $c_j$ lies in a star-like domain (marked by dashed lines in the figure),
 where $\frac{f(\zeta)}{\zeta-z}$ is holomorphic
 as a function of $\zeta$ (since $z$ is outside each of these domains).
-So by Cauchy's Theorem for Star-like Sets
+So by Cauchy's theorem for star-like sets
 \begin{equation*}
 \int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta -
 \int_{\alpha} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
@@ -3707,13 +3715,14 @@ Now let $s$ go to zero
 \end{equation*}
 \end{proof}
 
-\subsection{The Maximum Principle}
+\subsection{The maximum principle}
 
-A consequence of Cauchy's formula is the so-called Maximum Principle, which
+A consequence of Cauchy's formula is the so-called maximum principle, which
 has several different versions.  We prove the basic statement and leave
 other versions as exercises.
 
-\begin{thm}[Maximum Principle]
+\begin{thm}[Maximum principle]
+\index{maximum principle!holomorphic functions}%
 Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.
 If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
@@ -3801,7 +3810,8 @@ and so
 $\sabs{f(re^{it})}=f(re^{it})$.
 \end{proof}
 
-\begin{cor}[Maximum Principle, Part Deux]
+\begin{cor}[Maximum principle, part deux]
+\index{maximum principle!holomorphic functions}%
 Suppose $U \subset \C$ is open and bounded (so $\overline{U}$ is compact).
 If $f \colon \overline{U} \to \C$ is continuous, and the restriction $f|_{U}$
 is holomorphic, then $\sabs{f(z)}$ achieves a maximum on $\partial U$.  In
@@ -3819,7 +3829,7 @@ That is for a bounded $U$ a holomorphic $f$ continuous
 on $\overline{U}$ achieves a maximum on $\partial U$.
 \end{exercise}
 
-\begin{exercise}[Minimum Principle]\index{Minimum Principle}
+\begin{exercise}[Minimum principle]\index{minimum principle}
 Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.
 If $\sabs{f(z)}$ achieves a minimum at $z_0 \in U$ and $f(z_0) \not= 0$,
@@ -3888,7 +3898,7 @@ converges uniformly).
 Let $\gamma(t) = s e^{i t}$
 be the path going around 
 $\partial \Delta_r(p)$ once in the counterclockwise direction.
-We start with the Cauchy Integral Formula,
+We start with the Cauchy integral formula,
 \begin{equation*}
 \begin{split}
 f(z)
@@ -3958,7 +3968,7 @@ Not only have we proved that $f$ has a power series, but we computed
 that the radius of convergence is at least $r$, where $r$ is the maximum $r$
 such that $\Delta_r(p) \subset U$.
 
-The key point in the proof is writing the \emph{\myindex{Cauchy Kernel}}
+The key point in the proof is writing the \emph{\myindex{Cauchy kernel}}
 $\frac{1}{\zeta-z}$ as
 \begin{equation*}
 \frac{1}{\zeta-z}
@@ -4012,16 +4022,16 @@ for negative $z$ and behave like an exponential for positive $z$.
 \end{exercise}
 \end{exbox}
 
-\subsection{Cauchy Estimates, Liouville, and the Fundamental Theorem of
-Algebra}
+\subsection{Cauchy estimates, Liouville, and the fundamental theorem of
+algebra}
 
 It may seem like we are cramming quite a bit into one subsection, but
 we have all the tools making three fundamental results just pop out
 with little work.  First, using the triangle inequality on
-the Cauchy Integral Formula obtains an estimate on the size of the
+the Cauchy integral formula obtains an estimate on the size of the
 coefficients of the series.  Then these estimates immediately give
-Liouville's Theorem on entire holomorphic functions, which at once gives the
-Fundamental Theorem of Algebra.
+Liouville's theorem on entire holomorphic functions, which at once gives the
+fundamental theorem of algebra.
 
 Some analysts like to make fun of algebraists at this stage, saying that the
 standard proof of their fundamental theorem uses analysis.
@@ -4038,7 +4048,7 @@ For a set $K$, denote the \emph{\myindex{supremum norm}}:
 \sup_{z \in K} \sabs{f(z)} .
 \end{equation*}
 
-\begin{thm}[Cauchy Estimates]\index{Cauchy Estimates}
+\begin{thm}[Cauchy estimates]\index{Cauchy estimates}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
 holomorphic, and $p \in U$, and $\overline{\Delta_r(p)} \subset U$
 a disc.
@@ -4078,7 +4088,9 @@ d \zeta
 A holomorphic function $f \colon \C \to \C$ is called
 \emph{entire}\index{entire function}.
 
-\begin{thm}[Liouville] \label{thm:Liouville}
+\begin{thm}[Liouville]
+\index{Liouville's theorem}%
+\label{thm:Liouville}%
 A bounded entire holomorphic function is constant.
 \end{thm}
 
@@ -4097,7 +4109,7 @@ Letting $r \to \infty$ shows that $c_n = 0$ for $n \geq 1$.  In other
 words, $f(z) = c_0$ for all $z$.
 \end{proof}
 
-\begin{thm}[Fundamental Theorem of Algebra]
+\begin{thm}[Fundamental theorem of algebra]\index{fundamental theorem of algebra}
 If $P(z)$ is a nonconstant polynomial, then $P$ has a root.
 \end{thm}
 
@@ -4176,11 +4188,13 @@ holomorphic.
 
 The ``in particular'' is an important consequence.  Let us close the circle
 of the various simple versions of Cauchy by giving a converse to Cauchy due
-to Morera.  Morera's Theorem is quite a useful tool for showing
+to Morera.  Morera's theorem is quite a useful tool for showing
 holomorphicity as it is often a lot easier to integrate a continuous
 function than to compute a derivative.
 
-\begin{thm}[Morera] \label{thm:Morera}
+\begin{thm}[Morera]
+\index{Morera's theorem}%
+\label{thm:Morera}%
 Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
 Suppose that
 \begin{equation*}
@@ -4207,7 +4221,7 @@ more of its (nonexistent) primitive, the logarithm, shortly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The Cauchy Transform and convergence}
+\section{The Cauchy transform and convergence}
 
 \subsection{Holomorphic functions via integrals}
 
@@ -4232,7 +4246,7 @@ There are two ways to do this,
 and as they are both useful in other places, let us do both of them.
 
 \begin{proof}[Proof A]
-One is to use Morera's Theorem (\thmref{thm:Morera}) and Fubini's Theorem.
+One is to use Morera's theorem (\thmref{thm:Morera}) and Fubini's theorem.
 Let $T$ be a triangle inside this small neighborhood.  Suppose $w \in U$
 first.  Then
 \begin{equation*}
@@ -4251,11 +4265,11 @@ h(w)
 \, dz
 = \int_\gamma 0 \, dz = 0.
 \end{equation*}
-For this of course you need Fubini's Theorem, which applies because both
+For this of course you need Fubini's theorem, which applies because both
 $\partial T$ and $\gamma$ are compact and so parametrized by a finite
 interval, and the integrand is continuous, and hence bounded,
 on $\partial T \times \gamma$.
-Morera's Theorem now says that $h(w)$ is
+Morera's theorem now says that $h(w)$ is
 holomorphic.
 \end{proof}
 
@@ -4284,7 +4298,7 @@ h(w)
 \end{equation*}
 Here, you are really passing the partial derivatives in the real and
 imaginary parts under the integral, which can be done by 
-the Leibniz Integral Rule, \thmref{thm:Leibnizrule}, for example.
+the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
 Actually it requires \exerciseref{exercise:severalvariableLiebniz},
 but that is a simple generalization.  The Cauchy--Riemann equations
 (\propref{prop:WirtCR}) now
@@ -4296,7 +4310,7 @@ and the two techniques above are the two kinds of swaps that come up most
 often (Fubini, and differentiating under the integral).
 
 Given any continuous $u \colon \partial \Delta_r(p) \to \C$ define
-the \emph{\myindex{Cauchy Transform}} $Cu \colon \Delta_r(p) \to \C$ is defined by
+the \emph{\myindex{Cauchy transform}} $Cu \colon \Delta_r(p) \to \C$ is defined by
 \begin{equation*}
 Cu(z)
 \overset{\text{def}}{=}
@@ -4316,7 +4330,7 @@ a holomorphic function to begin with.
 \begin{exbox}
 \begin{exercise}
 Compute explicitly
-the Cauchy Transform $Cu$ on $\D$ for $u \colon \partial \D \to \C$
+the Cauchy transform $Cu$ on $\D$ for $u \colon \partial \D \to \C$
 given by $u(z) = \bar{z}$.
 \end{exercise}
 \end{exbox}
@@ -4394,7 +4408,7 @@ f(z) = \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta .
 \end{equation*}
 And this formula holds for all $z \in \Delta_r(p)$.  So $f$ is equal to
-its Cauchy Transform
+its Cauchy transform
 $C[f|_{\partial \Delta_r(p)}]$, which is holomorphic.  In other words,
 $f$ is holomorphic.
 
@@ -4454,7 +4468,7 @@ Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \overline{U} \to
 the restrictions $f_n|_{\partial U}$ converge uniformly.  Prove that
 $f_n$ converge uniformly on $\overline{U}$ to a continuous
 function $f \colon \overline{U} \to \C$ that is holomorphic in $U$.
-Hint: First use the Maximum Principle to show that $\{ f_n \}$
+Hint: First use the maximum principle to show that $\{ f_n \}$
 is Cauchy at each point (actually uniformly Cauchy).  Feel free to use the
 fact that uniform limit of continuous functions is continuous.
 \end{exercise}
@@ -4462,22 +4476,22 @@ fact that uniform limit of continuous functions is continuous.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Schwarz's Lemma and automorphisms of the disc}
+\section{Schwarz's lemma and automorphisms of the disc}
 \label{sec:schwarz}
 
-\subsection{Schwarz's Lemma}
+\subsection{Schwarz's lemma}
 
 Recall $\D = \Delta_1(0)$ is the unit disc.  The following statement may
 seem technical and specialized, but surprisingly it is incredibly
 powerful\footnote{In my first year of graduate school, on an exam in complex
 analysis, I solved all the problems with a combination of
-Schwarz's Lemma and
+Schwarz's lemma and
 the Riemann
-Mapping Theorem (which we will see later).  My advisor
+mapping theorem (which we will see later).  My advisor
 felt compelled to remind me that there do exist other theorems in complex
 analysis.}.
 
-\begin{lemma}[Schwarz's Lemma]\index{Schwarz's Lemma}
+\begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}
 Suppose $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
 then 
 \begin{enumerate}[(i)]
@@ -4502,7 +4516,7 @@ where $r < 1$, we have
 \begin{equation*}
 \sabs{g(z)} \leq \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r}
 \end{equation*}
-The Maximum Principle says that the inequality also holds in $\Delta_r(0)$.
+The maximum principle says that the inequality also holds in $\Delta_r(0)$.
 Taking limit as $r \to 1$ shows that $\sabs{f(z)} \leq \sabs{z}$ for all $z
 \in \D$.  Then
 \begin{equation*}
@@ -4521,7 +4535,7 @@ holds if $\sabs{f'(0)} = 1$.
 
 \subsection{Automorphisms of the disc}
 
-Schwarz's Lemma can also be used to classify the automorphisms of the disc.
+Schwarz's lemma can also be used to classify the automorphisms of the disc.
 A holomorphic function $f \colon U \to V$ that is one-to-one, onto, and
 such that the inverse $f^{-1}$ is also holomorphic is called a
 \emph{\myindex{biholomorphism}}.  If $U = V$, then $f$ is called an
@@ -4598,8 +4612,8 @@ consider
 $g = \varphi_a \circ f$.  As $\varphi_a$ and $f$ are biholomorphisms, so is
 $g$, and $g(0) = 0$.
 
-In a similar way as in Schwarz's Lemma we find that $g(z) = z h(z)$ for some
-holomorphic $h(z)$ and by Schwarz's Lemma,
+In a similar way as in Schwarz's lemma we find that $g(z) = z h(z)$ for some
+holomorphic $h(z)$ and by Schwarz's lemma,
 \begin{equation*}
 \sabs{h(z)} = \frac{\sabs{g(z)}}{\sabs{z}} \leq 1 .
 \end{equation*}
@@ -4623,7 +4637,7 @@ we obtain $f(z) = e^{-i\theta} \varphi_{-a}(z)$.
 
 \begin{exbox}
 \begin{exercise}
-Using $\varphi_a$ prove a variation of Schwarz's Lemma:  Suppose
+Using $\varphi_a$ prove a variation of Schwarz's lemma:  Suppose
 that $f \colon \D \to \D$ is holomorphic, nonconstant, and $f(a) = b$.
 Then
 \begin{equation*}
@@ -4931,7 +4945,8 @@ on this component, and as it is constant, it must be zero.
 
 %\subsection{Cauchy theorems}
 
-\begin{thm}[Cauchy Integral Formula (homology version)]
+\begin{thm}[Cauchy integral formula (homology version)]
+\index{Cauchy integral formula!homology}
 \label{thm:CIFhomology}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 $\gamma$ a closed piecewise $C^1$ path (or a cycle) in $U$
@@ -4952,7 +4967,7 @@ d \zeta .
 Before we prove the theorem let us note a
 rather strange fact that what we will do in the proof is to define an entire
 function (even though $U$ might be only a small subset) and then we will use
-Liouville's Theorem (\thmref{thm:Liouville}).
+Liouville's theorem (\thmref{thm:Liouville}).
 
 \begin{proof}
 %[Proof of \thmref{thm:CIFhomology}]
@@ -5047,10 +5062,11 @@ f(w) n(\gamma;w) . \qedhere
 \end{equation*}
 \end{proof}
 
-Cauchy's Theorem actually follows immediately using the Integral Formula.
+Cauchy's theorem actually follows immediately using the integral formula.
 
-\begin{thm}[Cauchy's Theorem (homology version)]
-\label{thm:CThomology}
+\begin{thm}[Cauchy's theorem (homology version)]
+\index{Cauchy's theorem!homology}%
+\label{thm:CThomology}%
 Let $U \subset \C$ be a domain and $f \colon U \to \C$ holomorphic.  If
 $\gamma$ is a
 closed
@@ -5063,7 +5079,7 @@ every $p \in \C \setminus U$, then
 
 \begin{proof}
 Fix $z \in \C \setminus \gamma$.  Apply 
-the Cauchy Integral Formula for the function $\zeta \mapsto
+the Cauchy integral formula for the function $\zeta \mapsto
 (\zeta-z)f(\zeta)$ at $\zeta=z$:
 \begin{equation*}
 0 = n(\gamma;z) (z-z)f(z) =
@@ -5076,9 +5092,9 @@ the Cauchy Integral Formula for the function $\zeta \mapsto
 \begin{exbox}
 \begin{exercise}
 Prove that the two theorems are equivalent logically, that is, one follows
-from the other.  We have already proved that Cauchy Integral Formula
-implies Cauchy's Theorem.  So prove that
-Cauchy's Theorem implies the Cauchy Integral Formula.
+from the other.  We have already proved that Cauchy integral formula
+implies Cauchy's theorem.  So prove that
+Cauchy's theorem implies the Cauchy integral formula.
 \end{exercise}
 \end{exbox}
 
@@ -5111,7 +5127,8 @@ Prove that any star-shaped domain is simply connected.
 A special case of the holomogy version of Cauchy,
 \thmref{thm:CThomology}, can be stated as follows.
 
-\begin{thm}[Cauchy's Theorem (simply connected version)]
+\begin{thm}[Cauchy's theorem (simply connected version)]
+\index{Cauchy's theorem!simply connected}%
 Let $U \subset \C$ be a simply connected domain and $f \colon U \to \C$
 holomorphic.  If $\gamma$ is a
 closed
@@ -5122,7 +5139,7 @@ piecewise $C^1$ path (or a cycle) in $U$, then
 \end{thm}
 
 The proof is trivial since for a simply connected $U$, $n(\gamma;p) = 0$
-for every $\gamma$.  Now having Cauchy's Theorem in simply connected
+for every $\gamma$.  Now having Cauchy's theorem in simply connected
 domains, we have primitives (antiderivatives).
 
 \begin{thm}
@@ -5139,7 +5156,7 @@ and define
 F(z) = \int_\gamma f(\xi) \, d\xi .
 \end{equation*}
 A priory, the function $F$ depends on $\gamma$, but Cauchy's
-Theorem says that if $\alpha$ is another such path then
+theorem says that if $\alpha$ is another such path then
 \begin{equation*}
 \int_\gamma f(\xi) \, d\xi -
 \int_\alpha f(\xi) \, d\xi 
@@ -5229,7 +5246,7 @@ e^{\psi(z)} = f(z) . \qedhere
 \end{proof}
 
 On the other hand, the existence of primitives or
-Cauchy's Theorem without restriction on $\gamma$ guarantees simply
+Cauchy's theorem without restriction on $\gamma$ guarantees simply
 connectedness.  In particular, we have the following set of equivalent
 versions of simply connectedness for domains.
 
@@ -5268,7 +5285,7 @@ and
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iii} is immediate.
 
-Using Cauchy's Theorem for Derivatives,
+Using Cauchy's theorem for derivatives,
 \ref{thm:simplyconnected:iii} implies
 \begin{equation*}
 \int_\gamma \frac{1}{z-p} \, dz = 0 
@@ -5286,7 +5303,7 @@ n(\gamma;p) =
 \ref{thm:simplyconnected:v} is simply a restatement of
 \ref{thm:simplyconnected:i}.
 
-Again Cauchy's Theorem for Derivatives,
+Again Cauchy's theorem for derivatives,
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iv}.
 And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
@@ -5295,7 +5312,7 @@ And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Laurent Series}
+\section{Laurent series}
 
 One can also define a series for a holomorphic function around a hole, or a singularity.
 
@@ -5317,7 +5334,8 @@ $\ann(p,r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  We will,
 however, avoid temptation calling $\ann(p,r,\infty)$ an ``annulus.''%
 \footnote{``Holey plane'' perhaps?}
 
-\begin{thm}[\myindex{Laurent Series}]
+\begin{thm}[\myindex{Existence of Laurent series}]
+\index{Laurent series!existence}%
 Suppose $0 \leq r_1 < r_2 \leq \infty$ and
 $f \colon \ann(p,r_1,r_2) \to \C$ is holomorphic.
 Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
@@ -5374,7 +5392,7 @@ see \exerciseref{exercise:windingcircle}.
 On the other hand if $z$ is in the (smaller) annulus $\ann(p,s_1,s_2)$,
 then for similar reasons, $n(\Gamma;z) = 1$.
 
-Thus, via Cauchy's Theorem, for every $z \in \ann(p,s_1,s_2)$,
+Thus, via Cauchy's theorem, for every $z \in \ann(p,s_1,s_2)$,
 \begin{equation*}
 f(z) = 
 \frac{1}{2\pi i}
@@ -5535,9 +5553,9 @@ $\int_{\partial \Delta_{s}(p)}
 ${(\zeta-p)}^{-1}$, in which case we get $2 \pi i$.
 \end{proof}
 
-Similarly to the power series, due to the uniqueness of the Laurent Series,
+Similarly to the power series, due to the uniqueness of the Laurent series,
 it does not matter how we obtain it.  For example, the function $e^{1/z}$
-has Laurent Series
+has Laurent series
 \begin{equation*}
 e^{1/z}
 =
@@ -5549,7 +5567,7 @@ which converges uniformly absolutely on compact subsets of
 $\C \setminus \{ 0 \}$.
 
 The rational function $\frac{1}{1-z}$ that leads to the geometric series can
-be expanded in a slightly different way if we want its Laurent Series
+be expanded in a slightly different way if we want its Laurent series
 expansion in $\ann(0,1,\infty) = \C \setminus \overline{\D}$.
 \begin{equation*}
 \frac{1}{1-z}
@@ -5566,13 +5584,13 @@ expansion in $\ann(0,1,\infty) = \C \setminus \overline{\D}$.
 \end{equation*}
 which converges in $\ann(0,1,\infty)$.
 
-Finally, a Laurent Series could very well just be a power
+Finally, a Laurent series could very well just be a power
 series when all the $c_n$ for negative $n$ are zero.
 
 \begin{exbox}
 \begin{exercise}[Easy]
 Suppose $f \colon \Delta_r(p) \to \C$ is holomorphic, and suppose you expand
-$f$ in a Laurent Series in $\ann(p,r_1,r_2)$ for $0 \leq r_1 < r_2 \leq r$.
+$f$ in a Laurent series in $\ann(p,r_1,r_2)$ for $0 \leq r_1 < r_2 \leq r$.
 Prove that $c_n = 0$ for all negative $n$ and that $c_n$ for nonnegative $n$
 are just the coefficients of the power series of $f$ at $p$.
 \end{exercise}
@@ -5692,7 +5710,7 @@ the votes do.
 
 \section{Zeros of holomorphic functions}
 
-By the Identity Theorem, we know that zeros of holomorphic functions are
+By the identity theorem, we know that zeros of holomorphic functions are
 isolated (or the function is identically zero).  Let us expand on how a
 function behaves near a zero.
 Several times before, we have used parts of the following rather simple
@@ -5850,7 +5868,7 @@ all $k=0,1,2,\ldots$.  That is, the origin is a zero of infinite order.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Isolated singularities and the Residue Theorem}
+\section{Isolated singularities and the residue theorem}
 
 \begin{defn}
 Suppose $U \subset \C$ is open.
@@ -5864,7 +5882,7 @@ $V$).
 In other words, $f$ has an isolated singularity at $p$ if it is defined
 and holomorphic in a punctured neighborhood
 $\Delta_r(p) \setminus \{ p \}$.  We expand
-$f$ in the Laurent Series on $\Delta_r(p) \setminus \{ p \}$:
+$f$ in the Laurent series on $\Delta_r(p) \setminus \{ p \}$:
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 \end{equation*}
@@ -5881,7 +5899,7 @@ The \emph{\myindex{residue}} of $f$ at $p$ is the number
 \begin{equation*}
 \operatorname{Res}(f,p) = c_{-1}
 \end{equation*}
-where $c_{-1}$ is the coefficient of ${(z-p)}^{-1}$ in the Laurent Series
+where $c_{-1}$ is the coefficient of ${(z-p)}^{-1}$ in the Laurent series
 expansion in the punctured disc $\Delta_r(p) \setminus \{ p \}$.
 \end{defn}
 
@@ -5935,7 +5953,7 @@ $n( \partial \Delta_{r_j}(w_j) ; p) = 0$ if $j \not= k$,
 and
 $n( \partial \Delta_{r_k}(w_k) ; p) = 1$.  The claim follows.
 
-By the homology version of the Cauchy Theorem, we find
+By the homology version of the Cauchy theorem, we find
 \begin{equation*}
 0 = 
 \frac{1}{2 \pi i}
@@ -5955,7 +5973,7 @@ Now we recognize
 \frac{1}{2 \pi i}
 \int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz
 \end{equation*}
-as the formula for the $c_{-1}$ term in the Laurent Series
+as the formula for the $c_{-1}$ term in the Laurent series
 for $f$ at $w_j$.  In other words, the residue of $f$ at $w_j$.
 \end{proof}
 
@@ -5985,20 +6003,10 @@ An isolated singularity that is neither removable nor a pole is said to be
 \emph{essential}\index{essential singularity}.
 \end{defn}
 
-%\begin{thm}[Riemann Extension Theorem]
-%Suppose $U \subset \C$ is open and
-%$f \colon U \setminus \{ p \} \to \C$ is holomorphic such that for some $r >
-%0$, $f$ is bounded on $\Delta_r(p)$.  Then $p$ is a removable singularity.
-%\end{thm}
-%
-%\begin{proof}
-%FIXME:
-%\end{proof}
-
 At nonessential isolated singularities
 the function blows up to a finite integral order.
 The first part of the following proposition is
-usually called the \emph{\myindex{Riemann Extension Theorem}}.
+usually called the \emph{\myindex{Riemann extension theorem}}.
 
 \begin{prop} \label{prop:classifysing}
 Suppose $U \subset \C$ is an open set, $p \in U$,
@@ -6090,13 +6098,13 @@ f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
 \end{exercise}
 \end{exbox}
 
-\subsection{Singularities and the Laurent Series}
+\subsection{Singularities and the Laurent series}
 
-Another way of classifying a singularity is in terms of the Laurent Series.
-The key thing to notice is that a Laurent Series in a punctured
+Another way of classifying a singularity is in terms of the Laurent series.
+The key thing to notice is that a Laurent series in a punctured
 disc $\Delta_r(p) \setminus \{p\}$ is unique, so if the singularity is
 removable, the power
-series for the extended function must equal the Laurent Series.
+series for the extended function must equal the Laurent series.
 
 \begin{prop}
 Suppose $f \colon \Delta_r(p) \setminus \{p\} \to \C$ is holomorphic,
@@ -6104,7 +6112,7 @@ and
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
 \end{equation*}
-is the corresponding Laurent Series.
+is the corresponding Laurent series.
 The singularity at $p$ is
 \begin{enumerate}[(i)]
 \item \emph{removable} if $c_n = 0$ for all $n < 0$.
@@ -6154,13 +6162,13 @@ arbitrarily close to the singularity.  The function is very wild (and
 getting wilder and wilder) as it gets close to an essential singularity.
 
 \begin{thm}[Casorati--Weierstrass\footnote{%
-Some people say it should be called Casorati--Sokhotskii(--Weierstrass) Theorem as
+Some people say it should be called Casorati--Sokhotskii(--Weierstrass) theorem as
 Casorati and Sokhotskii both published it in 1868, (Casorati in Italian
 and Sokhotskii in Russian) while Weierstrass published it in 1876 (in
 German).  But really it first appeared in a book by Briot and Bouquet in
-1859 (in French), so really it should be called the Briot--Bouquet Theorem,
+1859 (in French), so really it should be called the Briot--Bouquet theorem,
 no?  If we still all published in Latin, we wouldn't be in this
-mess.}]\index{Casorati--Weierstrass Theorem}
+mess.}]\index{Casorati--Weierstrass theorem}
 Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
 an essential singularity at $p \in U$.  Then for every punctured disc
 $\Delta_r(p) \setminus \{ p \} \subset U$, the image
@@ -6173,7 +6181,7 @@ is dense in $\C$.
 \end{thm}
 
 There is a stronger version
-of this theorem called the Picard Theorem saying that the function in any
+of this theorem called the Picard theorem saying that the function in any
 punctured neighbourhood achieves all values with at most one exception.
 That is,
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C$ or 
@@ -6233,7 +6241,7 @@ Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
 
 \section{Counting zeros and poles}
 
-\subsection{The Argument Principle}
+\subsection{The argument principle}
 
 FIXME:
 
@@ -6271,7 +6279,7 @@ Furthermore, if $h \colon U \to \C$ is holomorphic, and $\#(p)$ is the order
 
 FIXME:
 
-\subsection{Rouch\`e's Theorem}
+\subsection{Rouch\`e's theorem}
 
 
 FIXME:
@@ -6330,12 +6338,12 @@ FIXME:
 
 FIXME:
 
-\subsection{Hurwitz's Theorem}
+\subsection{Hurwitz's theorem}
 
 Often we approximate one function by other functions and we would like to
 count the zeros of the limit.
 
-\begin{thm}[Hurwitz]\index{Hurwitz's Theorem}
+\begin{thm}[Hurwitz]\index{Hurwitz's theorem}
 Let $U \subset \C$ be a domain and $f_n \colon U \to \C$ is a sequence of
 holomorphic functions converging uniformly on compact subsets
 to a holomorphic $f \colon U \to \C$.  Suppose that for some closed
@@ -6353,7 +6361,7 @@ FIXME: some applications
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{The Open Mapping Theorem}
+\section{The open mapping theorem}
 
 A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
 sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
@@ -6372,7 +6380,7 @@ reverse.  So while not every holomorphic function is invertible, at least it
 behaves as if it were as far as the topology is concerned.
 
 
-\begin{thm}[Open Mapping]\index{Open Mapping Theorem}\label{thm:OMT}
+\begin{thm}[Open mapping]\index{open mapping theorem}\label{thm:OMT}
 Let $U \subset \C$ be a domain and $f \colon U \to \C$ be
 holomorphic and nonconstant.  Then $f(V)$ is an open set for every open set
 $V \subset U$.
@@ -6382,8 +6390,8 @@ $V \subset U$.
 FIXME
 \end{proof}
 
-The Open Mapping Theorem is really a stronger version of the Maximum
-Principle.
+The open mapping theorem is really a stronger version of the maximum
+principle.
 If for any $p$,
 $f(p)$ is always in the interior of $f(V)$ for any neighbourhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
@@ -6403,7 +6411,7 @@ theorem) of this subsection
 is therefore quite surprising.
 
 The standard relationship between derivative and one-to-one-ness of a
-function is the Inverse Function Theorem (\thmref{thm:inverse})
+function is the inverse function theorem (\thmref{thm:inverse})
 for continuously differentiable
 functions of $\R^2$ to $\R^2$.
 It says that if $Df$ is invertible at some point $p$, then $f$ takes a
@@ -6414,7 +6422,7 @@ $D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
 In terms of holomorphic functions, the inverse function theorem is restated
 as follows.
 
-\begin{thm}[Inverse Function Theorem] \index{Inverse Function Theorem}
+\begin{thm}[Inverse function theorem]\index{inverse function theorem}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 $p \in U$, and $f'(p) \not= 0$.  Then there exist neighborhoods $V$ of $p$
 and $W$ of $f(p)$ such that $f(V) = W$, $f$ is one-to-one on $V$, and
@@ -6430,7 +6438,7 @@ to prove the theorem directly in the holomorphic case.
 
 \begin{exbox}
 \begin{exercise}
-Prove the Inverse Function Theorem using the following outline.
+Prove the inverse function theorem using the following outline.
 \begin{exparts}
 \item FIXME 1
 \item FIXME 2
@@ -6450,7 +6458,7 @@ one-to-one, then $f(U)$ is open, $f'$ is never zero on $U$, and $f^{-1}
 
 \begin{proof}
 If $f$ is one-to-one, then it is not constant, and so $f(U)$ is open by
-the Open Mapping Theorem.
+the open mapping theorem.
 
 Next suppose that $f'(p) = 0$ for some $p \in U$.
 
@@ -6701,7 +6709,7 @@ outside the zero set of $f$, that is on $U \setminus f^{-1}(0)$.
 \end{exercise}
 
 \begin{exercise}
-Prove the Lioville Theorem\index{Liouville Theorem!harmonic functions} for
+Prove the Lioville theorem\index{Liouville theorem!harmonic functions} for
 harmonic functions.  That is, suppose that $f \colon \C \to \R$ is harmonic
 and bounded from above, then $f$ is constant.
 \end{exercise}
@@ -6709,14 +6717,14 @@ and bounded from above, then $f$ is constant.
 
 
 
-\subsection{Identity and the Maximum Principle}
+\subsection{Identity and the maximum principle}
 
 A consequence of the above propositions is the identity theorem
 for harmonic functions.  For harmonic functions, the zero set is allowed to
 have limit points. For example, $\Re z$ is zero on the entire imaginary
 axis.  However, we are still not allowed open sets.
 
-\begin{prop}[Identity]\index{Identity Theorem!harmonic functions}
+\begin{prop}[Identity]\index{identity theorem!harmonic functions}
 Let $U \subset \C$ be a domain and $f \colon U \to \R$ a harmonic function.
 Suppose $V \subset U$ is a nonempty open subset and $f = 0$ on $V$.  Then $f
 \equiv 0$.
@@ -6734,13 +6742,13 @@ is open, $Z$ is also closed, so $Z=U$ as $U$ is connected.
 
 The maximum principle is really a theorem about harmonic functions rather
 than holomorphic functions.  We will prove it using holomorphic functions
-and the Open Mapping Theorem (\thmref{thm:OMT})\footnote{I mentioned that
-the Open Mapping Theorem is a strong version of the Maximum Principle.}
-although it follows more directly from the Mean-value Property we will see
+and the open mapping theorem (\thmref{thm:OMT})\footnote{I mentioned that
+the open mapping theorem is a strong version of the maximum principle.}
+although it follows more directly from the mean value property we will see
 later.
 
-\begin{thm}[Maximum Principle]
-\index{Maximum Principle!harmonic functions}
+\begin{thm}[Maximum principle]
+\index{maximum principle!harmonic functions}%
 Suppose $U \subset \C$ is a domain and $f \colon U \to \R$
 is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $f$ is constant.
 \end{thm}
@@ -6754,18 +6762,18 @@ $\Delta_r(p)$ to the set $X = \{ z \in \C : \Re z \leq f(p) \}$.  The
 point $h(p)$ is on the boundary of $X$ as $\Re h(p)= f(p)$, and hence
 $h\bigl(\Delta_r(p)\bigr)$ is not open, which can only happen if $h$ is
 constant.  As $f$ is constant on $\Delta_r(p)$, it is constant on $U$ by the
-Identity Theorem.
+identity theorem.
 \end{proof}
 
 \begin{exbox}
 \begin{exercise}
-Assume the Maximum Principle for harmonic functions.  Prove the Maximum
-Principle for holomorphic functions by noting that if $f$ is holomorphic
+Assume the maximum principle for harmonic functions.  Prove the maximum
+principle for holomorphic functions by noting that if $f$ is holomorphic
 then $\log \sabs{f(z)}$ is harmonic.
 \end{exercise}
 
 \begin{exercise}
-Prove the second version of the Maximum Principle: If $U \subset \C$
+Prove the second version of the maximum principle: If $U \subset \C$
 is a bounded domain and $f \colon \overline{U}
 \to \R$ is continuous and harmonic on $U$, then $f$ achieves a maximum
 on the boundary $\partial U$.
@@ -6774,16 +6782,16 @@ on the boundary $\partial U$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Schwarz Reflection Principle}
+\section{Schwarz reflection principle}
 
 FIXME:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Dirichlet Problem and the Poisson Kernel}
+\section{Dirichlet problem and the Poisson kernel}
 
 It is useful to find a harmonic function given boundary values.
-This problem is called the \emph{\myindex{Dirichlet Problem}}, and it is
+This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
 solvable for many (though not all) domains.  If the solution exists on a
 bounded domain, then it is unique.
 
@@ -6794,13 +6802,13 @@ such that $f = g$ on $\partial U$.
 Then $f=g$ on $U$.
 \end{prop}
 
-The proof is simply the Maximum Principle applied to $f-g$.
+The proof is simply the maximum principle applied to $f-g$.
 
 The solution of the problem in a disc is rather useful, and rather explicit.
 It is achieved by integration against the so-called
-\emph{\myindex{Poisson Kernel}}.
+\emph{\myindex{Poisson kernel}}.
 The
-Poisson Kernel for the unit disc $\D \subset \C$ is
+Poisson kernel for the unit disc $\D \subset \C$ is
 \glsadd{not:Pr}%
 \begin{equation*}
 P_r(\theta)
@@ -6871,7 +6879,7 @@ ire^{i\theta}
 \Re \frac{1+0}{1-0} = 1 .
 \end{split}
 \end{equation*}
-The last equality follows by the Cauchy Integral Formula
+The last equality follows by the Cauchy integral formula
 using the function $\frac{1+z}{1-z}$ evaluated at 0.
 
 For the third item, notice that we only need to prove the
@@ -6972,7 +6980,7 @@ Pu(0) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(e^{it}) \, dt ,
 that is $Pu(0)$ is the average value of of $u$.  In general, by applying
 a scaling and a translation, we find a $Pu$ for a function $u \colon
 \partial \Delta_\rho(p) \to \R$.  We
-leave the exact form of the Poisson Kernel for $\Delta_\rho(p)$ as an
+leave the exact form of the Poisson kernel for $\Delta_\rho(p)$ as an
 exercise, but the averaging phenomenon still holds.  That is
 \begin{equation} \label{eq:averageofPu}
 Pu(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(p + \rho e^{it}) \, dt .
@@ -6997,7 +7005,7 @@ just $L^1(\partial \D)$ with continuity of $Pu$ wherever $u$ is continuous.
 \begin{exercise}
 \begin{exparts}
 \item (Easy)
-Dirichlet problem on the upper half plane $\bH = \{ z \in \C : \Im z > 0 \}$
+Dirichlet problem on the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$
 does not have a unique solution.  Show that $f(z) = c \Im z$ is harmonic for
 any $c \in \R$ and $f = 0$ on the real line $\R = \partial \bH$.
 \item 
@@ -7009,7 +7017,7 @@ necessary, but it is sufficient for the exercise.
 \end{exercise}
 \end{exbox}
 
-\subsection{Mean-value Property}
+\subsection{Mean-value property}
 
 The Poisson kernel is also used as a reproducing kernel for
 holomorphic functions, as holomorphic functions are harmonic (their real and
@@ -7019,9 +7027,9 @@ analogous properties.
 The solution to the Dirichlet problem using the Poisson kernel leads to
 the following proposition.
 
-\begin{thm}[Mean-value Property]
+\begin{thm}[Mean-value property]
 \label{prop:meanprop}
-\index{Mean-value Property}
+\index{mean-value property}
 Let $U \subset \C$ be an open set.
 A continuous function
 $f \colon U \to \R$
@@ -7035,22 +7043,22 @@ f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
 
 \begin{proof}
 One direction is simple.  Suppose that $f$ is harmonic and
-$\overline{\Delta_r(p)} \subset U$.  Solve
-Dirichlet Problem in $\Delta_r(p)$ using the Poisson Kernel
+$\overline{\Delta_r(p)} \subset U$.  Solve the
+Dirichlet problem in $\Delta_r(p)$ using the Poisson kernel
 given the boundary values
 $f|_{\partial \Delta_r(p)}$.  Using \eqref{eq:averageofPu} and the
-uniqueness of the solution of the Dirichlet Problem, we find
+uniqueness of the solution of the Dirichlet problem, we find
 \begin{equation*}
 f(p) = P\bigl[f|_{\partial \Delta_r(p)}\big](p) =
 \frac{1}{2\pi} \int_{-\pi}^{\pi}f(p + r e^{it}) \, dt .
 \end{equation*}
 
 For the other direction, suppose $f$ is continuous and satisfies the
-Mean-value property.  Let $\overline{\Delta_r(p)} \subset U$ be an
+mean-value property.  Let $\overline{\Delta_r(p)} \subset U$ be an
 arbitrary closed disc.  Let $h = P\bigl[f|_{\partial \Delta_r(p)}\big]$
-be the solution of the Dirichlet Problem in $\Delta_r(p)$ with boundary
+be the solution of the Dirichlet problem in $\Delta_r(p)$ with boundary
 values given by $f$.  Consider $\varphi = f-h$ which is continuous, identically zero
-on $\partial \Delta_r(p)$ and still satisfies the Mean-value property
+on $\partial \Delta_r(p)$ and still satisfies the mean-value property
 on every closed disc in $U$.  Suppose for contradiction that $\varphi$ is positive
 somewhere on $\Delta_r(p)$, let $\varphi$ achieve a maximum at $q \in
 \Delta_r(p)$.
@@ -7074,7 +7082,7 @@ In particular, we obtain the strict inequality
 \varphi(q) ,
 \end{equation*}
 Which is a contradiction as $\varphi$ was still supposed to satisfy the
-Mean-value Property.
+mean-value property.
 
 We have proved that $\varphi \leq 0$ on $\Delta_r(p)$.  By applying the same
 logic to $-\varphi$ we find that $\varphi = 0$ on $\Delta_r(p)$.  In
@@ -7083,41 +7091,18 @@ particular, we find that $f=h$ and $h$ is harmonic, so $f$ is harmonic.
 
 \begin{exbox}
 \begin{exercise}
-Prove the Maximum Principle for harmonic functions directly from the
-Mean-value Property.
+Prove the maximum principle for harmonic functions directly from the
+mean-value property.
 \end{exercise}
 
 \begin{exercise}
-It is not necessary to assume the Mean-value Property for all discs.  Prove
+It is not necessary to assume the mean-value property for all discs.  Prove
 that given a continuous $f$ as in the theorem such that for every $p \in U$
-there is an $s > 0$ (depending on $p$) such that $f$ satisfies the Mean-value
-Property on all discs $\Delta_r(p)$ for every $r < s$, then $f$ is
+there is an $s > 0$ (depending on $p$) such that $f$ satisfies the mean-value
+property on all discs $\Delta_r(p)$ for every $r < s$, then $f$ is
 harmonic.
 \end{exercise}
 \end{exbox}
-
-%\begin{thm}[Maximum Principle]
-%\index{Maximum Principle!harmonic functions}
-%Suppose $U \subset \C$ is a domain and $f \colon U \to \R$
-%is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $f$ is constant.
-%\end{thm}
-%
-%\begin{proof}
-%Without loss of generality, suppose that the maximum is global
-%Suppose $f$ attains a maximum at $p \in U$.
-%If
-%$\overline{\Delta_r(p)} \subset U$, then
-%\begin{equation*}
-%f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
-%.
-%\end{equation*}
-%As $f(z) \leq f(p)$ for all $z \in \partial \Delta_r(p)$, and $f$ is
-%continuous then $f(z) = f(p)$ on
-%$z \in \partial \Delta_r(p)$.  This was true for any $r$, so
-%$f(z) = f(p)$ on $\Delta_s(p)$ for $s$ where
-%$\overline{\Delta_s(p)} \subset U$.  By the identity theorem $f=f(p)$ in
-%$U$.
-%\end{proof}
 
 \subsection{Removable isolated singularities}
 
@@ -7161,7 +7146,7 @@ g(z)
 The estimate \eqref{eq:removableestimateharmonic} holds also when
 $\sabs{z}=1$.
 The function $-\log\sabs{z}$ is harmonic outside of the origin, so
-using the Maximum Principle we have that
+using the maximum principle we have that
 \eqref{eq:removableestimateharmonic} holds also for $\delta \leq \sabs{z}
 \leq 1$.  As $\epsilon$ was arbitrary we get that $g(z) = 0$ for all
 $z \in \D \setminus \{0\}$, and so $u$ is the extension we are looking for.
@@ -7286,7 +7271,7 @@ The proof is
 similar for the Lebesgue integral if the reader knows that, although
 the statement with the Darboux integral is sufficient for us.
 
-\begin{prop}[Sub-mean-value Property]
+\begin{prop}[Sub-mean-value property]
 \label{prop:submeanprop}
 \index{sub-mean-value property}
 Let $U \subset \C$ be an open set.
@@ -7337,7 +7322,7 @@ and such that
 Solve the Dirichlet problem in the disc $\Delta_r(p)$ for $g$ and
 in a slight abuse of notation call the solution on $\overline{\Delta_r(p)}$
 also $g$.  As $g$ is harmonic and bigger than $f$ we have by
-definition of subharmonicity and the Mean-value Property of harmonic
+definition of subharmonicity and the mean-value property of harmonic
 functions
 \begin{equation*}
 f(p) \leq g(p) =
@@ -7385,8 +7370,8 @@ then
 \end{exercise}
 \end{exbox}
 
-\begin{prop}[Maximum Principle]
-\index{Maximum Principle!subharmonic functions}
+\begin{prop}[Maximum principle]
+\index{maximum principle!subharmonic functions}
 Suppose $U \subset \C$ is a domain and $f \colon U \to \R \cup \{ -\infty \}$
 is subharmonic.  If $f$ attains a maximum in $U$, then $f$ is constant.
 \end{prop}
@@ -7551,16 +7536,13 @@ hint: Integrate the partial sums, and use polar coordinates.
 \end{exercise}
 \end{exbox}
 
-\subsection{Applications, Rad\'o's Theorem}
+\subsection{Applications, Rad\'o's theorem}
 
 We are often really interested in proving results for harmonic functions,
 as we are interested in proving results for holomorphic functions.
 However, harmonic functions are very rigid, they cannot be ``put together''
 easily.  Furthermore there aren't that many of them.  There are a lot of
 subharmonic functions.
-%Analogously linear affine functions are way too rigid , once you
-%make one locally you are stuck with it everywhere.  Convex functions on the
-%other hand, you can piece together.  Perhaps it is difficult to
 
 As an example of the use of subharmonic functions for
 complex analysis,
@@ -7570,7 +7552,7 @@ Here on the one hand the function is
 continuous and vanishes on the set you wish to extend across, but on the
 other hand you know nothing about this set.
 
-\begin{thm}[Rad\'o]\index{Rad\'o's Theorem}\label{thm:rado}
+\begin{thm}[Rad\'o]\index{Rad\'o's theorem}\label{thm:rado}
 Let $U \subset \C$ be open and $f \colon U \to \C$ a continuous
 function that is holomorphic on the set where it is nonzero,
 \begin{equation*}
@@ -7618,7 +7600,7 @@ shows that
 
 \begin{myfig}
 \subimport*{figures/}{radosthm.pdf_t}
-\caption{Proof of Rad\'o's Theorem.\label{fig:radosthm}}
+\caption{Proof of Rad\'o's theorem.\label{fig:radosthm}}
 \end{myfig}
 
 Taking the limit
@@ -7642,12 +7624,12 @@ $\Delta$.
 \end{proof}
 
 Another example of the use subharmonic functions is another solution
-to the Dirichlet Problem.  A solution can be had by considering all the
+to the Dirichlet problem.  A solution can be had by considering all the
 subharmonic functions that are less than the function given on the boundary.
 Then one takes a supremum to obtain a harmonic function.  We will not go
-through this technique which is called the \emph{\myindex{Perron Method}}.
-Clearly that technique would work far better than the Poisson Kernel on
-more complicated domains.  For example, the Poisson Kernel can be computed
+through this technique which is called the \emph{\myindex{Perron method}}.
+Clearly that technique would work far better than the Poisson kernel on
+more complicated domains.  For example, the Poisson kernel can be computed
 on simply connected domains provided we know the Riemann map.  However,
 the kernel is difficult to compute in general, and it requires a very nice
 boundary to be able to integrate.  The Perron method works much more
@@ -7839,20 +7821,13 @@ In this book
 we mostly see $\R^2$, but let us give the example in more generality.
 We use the following
 notation for points: $x =(x_1,x_2,\ldots,x_n) \in \R^n$.
-  %We will not write
-%$\vec{x}$ nor $\mathbf{x}$ for a vector, we simply give it a name such as
-%$x$ and we will remember that $x$ is a vector.
-%We write simply $0 \in \R^n$ to mean the point $(0,0,\ldots,0)$.
 Before making $\R^n$ a metric space, let us prove an important inequality, the
 so-called Cauchy--Schwarz inequality.
 
 \begin{lemma}[\myindex{Cauchy--Schwarz inequality}%
 \footnote{%
 Sometimes it is called the \myindex{Cauchy--Bunyakovsky--Schwarz inequality}.
-\href{https://en.wikipedia.org/wiki/Hermann_Schwarz}{Karl Hermann Amandus
-Schwarz} (1843--1921) was a German mathematician and
-\href{https://en.wikipedia.org/wiki/Viktor_Bunyakovsky}{Viktor Yakovlevich
-Bunyakovsky} (1804--1889) was a Russian mathematician.  What we
+What we
 stated should really be called the Cauchy inequality, as
 Bunyakovsky and Schwarz provided proofs for infinite dimensional versions.}]
 If $x =(x_1,x_2,\ldots,x_n) \in \R^n$, $y =(y_1,y_2,\ldots,y_n) \in
@@ -8112,27 +8087,6 @@ Show that for any set $X$, the discrete metric ($d(x,y) = 1$ if $x\not=y$ and
 $d(x,x) = 0$) does give a metric space $(X,d)$.
 \end{exercise}
 
-%\begin{exercise}
-%Let $X = \{ 0 \}$ be a set.  Can you make it into a metric space?
-%\end{exercise}
-%
-%\begin{exercise}
-%Let $X = \{ a, b \}$ be a set.  Can you make it into two distinct metric
-%spaces?  (define two distinct metrics on it)
-%\end{exercise}
-
-%\begin{exercise}
-%Let the set $X = \{ A, B, C \}$ represent 3 buildings on campus.  Suppose we
-%wish our distance to be the time it takes to walk from one building to
-%the other.
-%It takes 5 minutes either way between buildings $A$ and $B$.  However,
-%building $C$ is on a hill and it takes 10 minutes from $A$ and 15 minutes
-%from $B$ to get to $C$.  On the other hand it takes 5 minutes to go
-%from $C$ to $A$ and 7 minutes to go from $C$ to $B$, as we are going
-%downhill.  Do these distances define a metric?  If so, prove it, if not, say
-%why not.
-%\end{exercise}
-
 \begin{exercise}
 Suppose $(X,d)$ is a metric space and
 $\varphi \colon [0,\infty) \to \R$ is
@@ -8213,24 +8167,6 @@ A nonempty $S$ is bounded if and only if
 $\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
 \end{exparts}
 \end{exercise}
-
-%\begin{samepage}
-%\begin{exercise}
-%\begin{exparts}
-%\item
-%Working in $\R$, compute $\operatorname{diam}\bigl([a,b]\bigr)$.
-%\item
-%Working in $\R^n$, for any $r > 0$, let $B_r = \{ x_1^2+x_2^2+\cdots+x_n^2
-%< r^2 \}$.  Compute $\operatorname{diam}\bigl(B_r\bigr)$.
-%\item
-%Suppose $(X,d)$ is a metric space with at least two points,
-%$d$ is the discrete metric, and $p \in X$.
-%Compute
-%$\operatorname{diam}(\{ p \})$ and $\operatorname{diam}(X)$,
-%then conclude that $(X,d)$ is bounded.
-%\end{exparts}
-%\end{exercise}
-%\end{samepage}
 
 \begin{exercise}
 \begin{exparts}
@@ -8427,14 +8363,11 @@ for example $\bigcap_{n=1}^\infty (-\nicefrac{1}{n},\nicefrac{1}{n}) = \{ 0
 \}$, which is not open.
 \end{example}
 
-
 The proof of the analogous proposition for closed sets
 is left as an exercise.
 
-%FIXMEevillayouthack
-\pagebreak[2]
-
 \begin{prop} \label{prop:topology:closed}
+\pagebreak[2]
 Let $(X,d)$ be a metric space.
 \begin{enumerate}[(i)]
 \item \label{topology:closedi} $\emptyset$ and $X$ are closed.
@@ -8875,7 +8808,7 @@ Let $(X,d)$ be a metric space and $A \subset X$.
 Then $\partial A = \widebar{A} \cap \widebar{A^c}$.
 \end{cor}
 
-\pagebreak[3]
+\pagebreak[2]
 \subsection{Exercises}
 \nopagebreak
 
@@ -9006,29 +8939,6 @@ Let $(X,d)$ be a metric space.  Show that there exists a bounded metric
 $d'$ such that $(X,d')$ has the same open sets, that is, the topology is
 the same.
 \end{exercise}
-
-%\begin{samepage}
-%\begin{exercise}
-%Let $(X,d)$ be a metric space.
-%\begin{exparts}
-%\item
-%Prove that for every $x \in X$, there either exists a $\delta > 0$ such that
-%$B(x,\delta) = \{ x \}$, or $B(x,\delta)$ is infinite for every $\delta >  0$.
-%\item
-%Find an explicit example of $(X,d)$, $X$ infinite, where
-%for every $\delta > 0$ and
-%every $x \in X$, the
-%ball $B(x,\delta)$ is finite.
-%\item
-%Find an explicit example of $(X,d)$ where for every $\delta > 0$ and
-%every $x \in X$, the
-%ball $B(x,\delta)$ is countably infinite.
-%\item
-%Prove that if $X$ is uncountable, then there exists
-%an $x \in X$ and a $\delta > 0$ such that $B(x,\delta)$ is uncountable.
-%\end{exparts}
-%\end{exercise}
-%\end{samepage}
 
 \begin{exercise}
 For every $x \in \R^n$ and every $\delta > 0$ define the ``rectangle''
@@ -9671,11 +9581,8 @@ compact.
 First we prove a lemma.
 
 \begin{lemma}[Lebesgue covering lemma%
-\footnote{Named after the French mathematician
-\href{https://en.wikipedia.org/wiki/Henri_Lebesgue}{Henri L\'eon Lebesgue}
-(1875--1941).
-The number $\delta$ is sometimes called the \myindex{Lebesgue number} of the
-cover.}]\label{ms:lebesgue}
+\footnote{The number $\delta$ is sometimes called the
+\myindex{Lebesgue number} of the cover.}]\label{ms:lebesgue}
 \index{Lebesgue covering lemma}
 Let $(X,d)$ be a metric space and $K \subset X$.  Suppose 
 every sequence in $K$ has a subsequence convergent in $K$.  Given
@@ -9839,7 +9746,7 @@ which is a contradiction.
 \end{proof}
 
 \begin{example}
-The Bolzano--Weierstrass Theorem for sequences of real numbers
+The Bolzano--Weierstrass theorem for sequences of real numbers
 says that any bounded sequence in $\R$ has a convergent
 subsequence.  Therefore, any sequence in a closed interval $[a,b] \subset \R$ has 
 a convergent subsequence.  The limit must also be in $[a,b]$ as limits
@@ -9863,21 +9770,14 @@ some $x \in K$.  As $E$ is closed the limit of a sequence in $E$ is also in $E$
 and so $x \in E$.  Thus $E$ must be compact.
 \end{proof}
 
-\begin{thm}[Heine--Borel%
-\footnote{Named after the German mathematician 
-\href{https://en.wikipedia.org/wiki/Eduard_Heine}{Heinrich Eduard Heine}
-(1821--1881),
-and the French mathematician
-\href{https://en.wikipedia.org/wiki/\%C3\%89mile_Borel}{F\'elix \'Edouard Justin \'Emile Borel}
-(1871--1956).}]%
-\index{Heine--Borel Theorem}
+\begin{thm}[Heine--Borel] \index{Heine--Borel theorem}
 \label{thm:msbw}
 A closed bounded subset $K \subset \R^n$ is compact.
 \end{thm}
 
 So subsets of $\R^n$ are compact if and only if they are closed and bounded,
 a condition that is much easier to check.
-Let us reiterate that the Heine--Borel Theorem only holds for $\R^n$ and not
+Let us reiterate that the Heine--Borel theorem only holds for $\R^n$ and not
 for metric spaces in general.  In general, compact implies closed and
 bounded, but not vice-versa.
 
@@ -9885,7 +9785,7 @@ bounded, but not vice-versa.
 For $\R = \R^1$ if $K \subset \R$ is closed and bounded, then
 any sequence $\{ x_k \}$ in $K$ is bounded, so it has a convergent
 subsequence by
-the Bolzano--Weierstrass Theorem.
+the Bolzano--Weierstrass theorem.
 As $K$ is closed, the limit of the subsequence must be an element of
 $K$.  So $K$ is compact.
 
@@ -9959,7 +9859,6 @@ A subtle issue with Cauchy sequences, completeness, compactness,
 and convergence is that compactness and convergence only depend on the
 topology, that is, on which sets are the open sets.  On the other hand,
 Cauchy sequences and completeness depend on the actual metric.
-%See \exerciseref{exercise:cauchydepndsonmetric}.
 \end{remark}
 
 \subsection{Exercises}
@@ -10064,7 +9963,7 @@ such that the conclusion of the Lebesgue covering lemma does not hold.
 \end{exercise}
 
 \begin{exercise}
-Prove the general \myindex{Bolzano--Weierstrass Theorem}:
+Prove the general \myindex{Bolzano--Weierstrass theorem}:
 Any bounded sequence $\{ x_k
 \}$ in $\R^n$ has a convergent subsequence.
 \end{exercise}
@@ -10094,35 +9993,6 @@ Let $(X,d)$ be a metric space and $K \subset X$.
 Prove that $K$ is compact as a subset of $(X,d)$ if and only if $K$ is
 compact as a subset of itself with the subspace metric.
 \end{exercise}
-
-%\begin{samepage}
-%\begin{exercise} \label{exercise:cauchydepndsonmetric}
-%Consider two metrics on $\R$.
-%Let $d(x,y) = \abs{x-y}$ be the standard metric,
-%and let
-%$d'(x,y) = \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
-%\bigr\rvert$.
-%\begin{exparts}
-%\item
-%Show that $(\R,d')$ is a metric space (if you have done
-%\exerciseref{exercise:extendedrealsmetric} the computation is the same).
-%\item
-%Show that the topology is the same, that is, a set is open in
-%$(\R,d)$ if and only if it is open in $(\R,d')$.
-%\item
-%Show that a set is compact in
-%$(\R,d)$ if and only if it is compact in $(\R,d')$.
-%\item
-%Show that a sequence converges in $(\R,d)$ if and only if
-%it converges in $(\R,d')$.
-%\item
-%Find a sequence of real numbers that is Cauchy
-%in $(\R,d')$ but not Cauchy in $(\R,d)$.
-%\item
-%While $(\R,d)$ is complete, show that $(\R,d')$ is not complete.
-%\end{exparts}
-%\end{exercise}
-%\end{samepage}
 
 \begin{exercise} \label{exercise:relativelycompactseq}
 Let $(X,d)$ be a complete metric space.
@@ -10551,8 +10421,8 @@ if $f(x)=x$.
 \end{defn}
 
 \begin{thm}%
-[\myindex{Contraction Mapping Principle}
-or \myindex{Banach Fixed Point Theorem}\index{fixed point theorem}]
+[Contraction mapping principle\index{contraction mapping principle}
+or \myindex{Banach fixed point theorem}\index{fixed point theorem}]
 \label{thm:contr}
 Let $(X,d)$ be a nonempty complete metric space and $f \colon X \to X$ a
 contraction.
@@ -10665,7 +10535,7 @@ and $(Y,d_Y)$.  Show that if $X$ is connected, then $f(X)$ is connected.
 
 \begin{exercise}
 Prove the following version of the
-Intermediate Value Theorem.  Let $(X,d)$ be a connected
+intermediate value theorem.  Let $(X,d)$ be a connected
 metric space and $f \colon X \to \R$ a continuous function.  Suppose that
 there exist $x_0,x_1 \in X$ and $y \in \R$ such that $f(x_0) < y < f(x_1)$.
 Then prove that there exists a $z \in X$ such that $f(z) = y$.
@@ -11319,7 +11189,7 @@ Therefore $\bigl\{ \int_a^b f_n(x) \,dx \bigr\}$ converges to $\int_a^b f(x) \,d
 \begin{remark}
 While we will not require the Lebesgue integral in this book, note that
 for Lebesgue integral a much stronger convergence theorem holds.  In
-particular, the Dominated Convergence Theorem implies that if
+particular, the dominated convergence theorem implies that if
 $\{ f_n \}$ is a sequence of measurable functions on $[a,b]$,
 converging pointwise to $f \colon [a,b] \to \R$, and such that
 $\{ f_n \}$ is uniformly bounded (there is a single $B \in \R$ such that
@@ -11388,7 +11258,7 @@ a continuously differentiable function $f \colon I \to \R$, and $f' = g$.
 Define $f(c) = \lim_{n\to \infty} f_n(c)$.
 As $f_n'$ are continuous and hence Riemann integrable,
 then
-via the Fundamental Theorem of Calculus, we find that for $x \in I$,
+via the fundamental theorem of calculus, we find that for $x \in I$,
 \begin{equation*}
 f_n(x) = f_n(c) + \int_c^x f_n' (t)\, dt.
 \end{equation*}
@@ -11566,7 +11436,7 @@ fixed $y$.
 
 Let us prove a simple, but perhaps the most useful version of this theorem.
 
-\begin{thm}[\myindex{Leibniz Integral Rule}]
+\begin{thm}[\myindex{Leibniz integral rule}]
 \label{thm:Leibnizrule}
 Suppose $f \colon [a,b] \times [c,d] \to \R$ is a continuous function,
 such that $\frac{\partial f}{\partial y}$ exists for all $(x,y) \in [a,b]
@@ -11601,7 +11471,7 @@ $\abs{y_1-y} < \delta$ and all $x \in [a,b]$ we have
 
 Suppose $h$ is such that $y+h \in [c,d]$ and $\abs{h} < \delta$.
 Fix $x$ for a moment
-and apply the Mean Value Theorem to find a $y_1$ between $y$ and $y+h$ such that
+and apply the mean value theorem to find a $y_1$ between $y$ and $y+h$ such that
 \begin{equation*}
 \frac{f(x,y+h)-f(x,y)}{h}
 =
@@ -12062,7 +11932,7 @@ so the derivative of the composition is the composition
 of the derivatives.  As differentiable maps are ``infinitesimally close''
 to linear maps, they have the same property:
 
-\begin{thm}[Chain rule] \label{thm:realchain}
+\begin{thm}[Chain rule]\index{chain rule} \label{thm:realchain}
 Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
 differentiable at $p \in U$.  Let $V \subset \R^m$ be open,
 $f(U) \subset V$ and let $g \colon V \to \R^\ell$ be differentiable
@@ -12178,7 +12048,7 @@ continuous on $[a,b]$, then there exists a $t_0 \in (a,b)$ such that
 \end{lemma}
 
 \begin{proof}
-By the Mean Value Theorem on the scalar-valued function
+By the mean value theorem on the scalar-valued function
 $t \mapsto \bigl(\varphi(b)-\varphi(a) \bigr) \cdot \varphi(t)$,
 where the dot is the dot product, we obtain
 that
@@ -12240,7 +12110,7 @@ Next
 =
 Df|_{((1-t)x+ty)} (y-x) .
 \end{equation*}
-By the Mean Value Theorem above we get for
+By the mean value theorem above we get for
 some $t_0 \in (0,1)$,
 \begin{equation*}
 \begin{split}
@@ -12485,7 +12355,7 @@ A' k}
 & \leq \snorm{f(x+k + t e_n) - f(x+k) -tv} + \epsilon \snorm{k} .
 \end{split}
 \end{equation*}
-As all the partial derivatives exist, by the Mean Value Theorem,
+As all the partial derivatives exist, by the mean value theorem,
 for each $j$ there is some $\theta_j \in [0,t]$ (or $[t,0]$ if $t < 0$), such that
 \begin{equation*}
 f_j(x+k + t e_n) - f_j(x+k) =
@@ -12562,18 +12432,18 @@ continuously differentiable.
 \caption{Graph of $\frac{xy}{x^2+y^2}$.\label{fig:xyxsqysqvol2}}
 \end{myfig}
 
-\subsection{Inverse Function Theorem}
+\subsection{Inverse function theorem}
 \label{subsec:svinvfuncthm}
 
-To prove the Inverse Function Theorem we use the Contraction Mapping
-Principle (\thmref{thm:contr}).
+To prove the inverse function theorem we use the contraction mapping
+principle (\thmref{thm:contr}).
 Intuitively if a function is continuously differentiable, then it
 locally ``behaves like'' the derivative (which is a linear function).
 The idea of the inverse function theorem is that if a function is
 continuously differentiable and the derivative is invertible, the function is
 (locally) invertible.
 
-\begin{thm}[Inverse Function Theorem]\index{Inverse Function Theorem}
+\begin{thm}[Inverse function theorem]\index{inverse function theorem}
 \label{thm:inverse}
 Let $U \subset \R^n$ be an open set and let
 $f \colon U \to \R^n$ be a continuously differentiable function.
@@ -12757,7 +12627,7 @@ one-to-one globally.  It is ``locally'' one-to-one but perhaps not
 example, take the map $f \colon \R^2 \setminus \{ 0 \} \to \R^2$ defined
 by $f(x,y) := (x^2-y^2,2xy)$.
 It is left to student to show that $f$ is
-differentiable and the derivative is invertible
+differentiable and the derivative is invertible.
 
 On the other hand, the mapping is 2-to-1 globally (except at the origin).
 For every
