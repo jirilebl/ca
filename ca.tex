@@ -5892,7 +5892,9 @@ all $k=0,1,2,\ldots$.  That is, the origin is a zero of infinite order.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Isolated singularities and the residue theorem}
+\section{Isolated singularities}
+
+\subsection{Types of singularities and Riemann extension}
 
 \begin{defn}
 Suppose $U \subset \C$ is open.
@@ -5901,18 +5903,290 @@ an \emph{\myindex{isolated singularity}} at $p \notin U$ if
 there is a disc $\Delta_r(p)$ such that $U \cap \Delta_r(p) =
 \Delta_r(p) \setminus \{ p \}$ (so $U = V \setminus \{ p \}$ for an open set
 $V$).
+
+An isolated singularity is \emph{removable}\index{removable singularity}
+if 
+there exists a holomorphic function $F \colon U \to \C$
+such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
+
+An isolated singularity $p$ is a \emph{\myindex{pole}} if 
+\begin{equation*}
+\lim_{z \to p} f(z) = \infty.
+\end{equation*}
+
+An isolated singularity that is neither removable nor a pole is said to be
+\emph{essential}\index{essential singularity}.
 \end{defn}
 
 In other words, $f$ has an isolated singularity at $p$ if it is defined
 and holomorphic in a punctured neighborhood
-$\Delta_r(p) \setminus \{ p \}$.  We expand
+$\Delta_r(p) \setminus \{ p \}$.  It is removable if the function extends
+across, a pole if $f$ goes to infinity, and essential otherwise.
+
+At nonessential isolated singularities
+the function blows up to a finite integral order.
+The first part of the following proposition is
+usually called the \emph{\myindex{Riemann extension theorem}}.
+
+\begin{thm}[\emph{\myindex{Riemann extension theorem}}]
+\label{prop:riemannext}
+Suppose $U \subset \C$ is an open set, $p \in U$,
+and $f \colon U \setminus \{p\} \to \C$ holomorphic.
+If $f$ is bounded (near $p$ is enough), then $p$ is a removable singularity.
+\end{thm}
+
+\begin{proof}
+Define
+$g(z) = {(z-p)}^2 f(z)$ for $z \not= p$ near $p$ and $g(p) = 0$.
+$g$ is holomorphic for $z \not= p$.  Consider the 
+difference quotient
+$\frac{g(z)-g(p)}{z-p} = (z-p) f(z)$.
+As $f$ is bounded, we have that
+\begin{equation*}
+\lim_{z\to p} \frac{g(z)-g(p)}{z-p} = \lim_{z\to p} (z-p) f(z) = 0 .
+\end{equation*}
+So $g$ is complex differentiable at $p$ and so holomorphic near $p$.
+The order $k$ of the zero of $g$ at $p$ is at least $2$.  Write
+$g(z) = {(z-p)}^k h(z)$ where $h$ is holomorphic near $p$,
+then $f(z) = {(z-p)}^{k-2}h(z)$, or in other words, $p$ is a removable 
+singularity.
+\end{proof}
+
+Using the Riemann extension, we find a criterion for poles, and classify
+poles according to order just like zeros.
+
+\begin{cor}
+Suppose $U \subset \C$ is an open set, $p \in U$,
+and $f \colon U \setminus \{p\} \to \C$ holomorphic.
+\begin{enumerate}[(i)]
+\item
+If $p$ is a pole, then there exists a $k \in \N$ such that
+\begin{equation*}
+g(z) = {(z-p)}^k f(z)
+\end{equation*}
+is bounded near $p$ and hence $g$ has a removable singularity at $p$.
+\item
+Conversely, if there exists a $k \in \N$ such that
+$g(z) = {(z-p)}^k f(z)$ has a removable singularity at $p$,
+then $f(z)$ has a pole or a
+removable singularity at $p$
+\end{enumerate}
+\end{cor}
+
+\begin{proof}
+We start with the first item.
+The function $f$ cannot be zero in some
+punctured neighborhood $\Delta_r(p) \setminus \{p\}$ as it goes to infinity.
+In fact, as $f$ goes to infinity,
+$\frac{1}{f}$ is bounded in some $\Delta_r(p) \setminus \{p\}$ 
+and thus has a removable singularity at $p$ by Riemann extension.
+Let $h$ be holomorphic in $\Delta_r(p)$
+such that $h(z) = \frac{1}{f(z)}$ for $z \not= p$.  By continuity $h(p) =
+0$.  Hence $h(z) = {(z-p)}^k q(z)$ for some holomorphic $q$ and $k \in \N$,
+where $q(p) \not= 0$.  By continuity, $q$ is nonzero near $p$.
+So for $z \not= p$ near $p$,
+\begin{equation*}
+{(z-p)}^k f(z)
+=
+{(z-p)}^k \frac{1}{{(z-p)}^k q(z)}
+=
+\frac{1}{q(z)} .
+\end{equation*}
+
+The converse statement follows by noting that if $g(z)$ has a removable
+singularity, then we can write $g(z) = {(z-p)}^\ell \varphi(z)$ where
+$\varphi(p) \not= 0$.
+Then
+\begin{equation*}
+f(z) = {(z-p)}^{\ell-k} \varphi(z) ,
+\end{equation*}
+and this either goes to $\infty$ if $k > \ell$ ($f$ has a pole) or is
+bounded if $k \leq \ell$ ($f$ has a removable singularity).
+\end{proof}
+
+\begin{defn}
+Given a holomorphic function $f$ with a pole, the smallest $k \in \N$
+such that ${(z-p)}^k f(z)$ is bounded is called the
+\emph{order}\index{order of a pole} of the pole.
+A pole of order 1 is called a \emph{\myindex{simple pole}}.
+\end{defn}
+
+As can be seen from the proof of the proposition,
+there is a symmetry between zeros and poles:
+If $f$ has a zero of order $k$ at $p$, then $\frac{1}{f}$ has a pole of
+order $k$ at $p$.
+If $f$ has a pole of order $k$ at $p$, then $\frac{1}{f}$
+has a removable singularity, and the extended function has a zero of order
+$k$ at $p$.
+
+\begin{exbox}
+\begin{exercise}
+Suppose $f$ has a pole of order $k \in \N$ at $p$.
+Show that there exists a holomorphic function $g$ defined near $p$
+such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
+\begin{equation*}
+f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Suppose that $f$ and $g$ are entire functions and $\sabs{f} \leq \sabs{g}$
+everywhere.  Show that $f = c g$ for some $c \in \C$.  Hint: Liouville.
+\end{exercise}
+\end{exbox}
+
+\subsection{Singularities and the Laurent series}
+
+Another way of classifying a singularity is in terms of the Laurent series.
+The key thing to notice is that a Laurent series in a punctured
+disc $\Delta_r(p) \setminus \{p\}$ is unique, so if the singularity is
+removable, the power
+series for the extended function must equal the Laurent series.
+
+\begin{prop}
+Suppose $f \colon \Delta_r(p) \setminus \{p\} \to \C$ is holomorphic,
+and
+\begin{equation*}
+f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
+\end{equation*}
+is the corresponding Laurent series.
+The singularity at $p$ is
+\begin{enumerate}[(i)]
+\item \emph{removable} if $c_n = 0$ for all $n < 0$.
+\item \emph{pole} of order $k \in \N$ if $c_n = 0$ for all $n < -k$ and
+$c_{-k}
+\not= 0$.
+\item \emph{essential} if for every exist infinitely negative $n$
+such that $c_n \not= 0$.
+\end{enumerate}
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
+
+Given an isolated singularity, the negative part of the series
+\begin{equation*}
+\sum_{n=-\infty}^{-1} c_n {(z-p)}^n 
+\end{equation*}
+is called the \emph{\myindex{principal part}}.  So a singularity is
+removable if the principal part is zero, it is a pole if the principle part
+is a finite series, and it is essential if the principal part is infinite.
+
+For example,
+\begin{equation*}
+e^{1/z}
+=
+\sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n .
+\end{equation*}
+so the principal part is infinite and $e^{1/z}$ has an essential
+singularity at 0.  In fact, this is the first example anyone ever thinks of
+if asked for an example of an essential singularity.
+
+\begin{exbox}
+\begin{exercise}
+If $f$ has a pole at $p$ then $e^{f(z)}$ has an essential singularity at
+$p$.
+\end{exercise}
+\end{exbox}
+
+\subsection{Wild world of essential singularities, Casorati--Weierstrass}
+
+Functions near an essential singularity achieve essentially every value
+arbitrarily close to the singularity.  The function is very wild (and
+getting wilder and wilder) as it gets close to an essential singularity.
+
+\begin{thm}[Casorati--Weierstrass\footnote{%
+Some people say it should be called Casorati--Sokhotskii(--Weierstrass) theorem as
+Casorati and Sokhotskii both published it in 1868, (Casorati in Italian
+and Sokhotskii in Russian) while Weierstrass published it in 1876 (in
+German).  But really it first appeared in a book by Briot and Bouquet in
+1859 (in French), so really it should be called the Briot--Bouquet theorem,
+no?  If we still all published in Latin, we wouldn't be in this
+mess.}]\index{Casorati--Weierstrass theorem}
+Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
+an essential singularity at $p \in U$.  Then for every punctured disc
+$\Delta_r(p) \setminus \{ p \} \subset U$, the image
+\begin{equation*}
+f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)
+=
+\bigl\{ w \in \C : w = f(z), z \in \Delta_r(p) \setminus \{ p \} \bigr\}
+\end{equation*}
+is dense in $\C$.
+\end{thm}
+
+There is a stronger version
+of this theorem called the Picard theorem saying that the function in any
+punctured neighborhood achieves all values with at most one exception.
+That is,
+$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C$ or 
+$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C \setminus \{ z_0 \}$ for
+some $z_0$.
+
+\begin{proof}
+Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic
+and $\Delta_r(p) \setminus \{ p \} \subset U$.
+Suppose that there is a $q \in \C$ such that $\Delta_s(q) \subset \C
+\setminus 
+f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)$.
+Now consider $g \colon \Delta_r(p) \setminus \{p\} \to \C$ defined by
+\begin{equation*}
+g(z) = \frac{1}{f(z) - q} .
+\end{equation*}
+By assumption, $\sabs{f(z)-q} \geq s$ for $z \in \Delta_r(p) \setminus
+\{p\}$.
+Hence $g(z)$ is bounded by $\frac{1}{s}$, and $g$ has a removable
+singularity at $p$.  For simplicity,
+assume that $g$ is defined (and holomorphic) on all of
+$\Delta_r(p)$.  But
+\begin{equation*}
+f(z) = \frac{1}{g(z)} + q .
+\end{equation*}
+If $g$ has a zero at $p$, then $f$ has a pole at $p$.  If $g$ does not
+have a zero at $p$, then $f$ has a removable singularity.  In any case,
+$f$ does not have an essential singularity at $p$.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+\begin{exparts}
+\item
+Prove a ``Picard for modulus'' theorem.
+Suppose $f \colon U \setminus \{ p \} \to \C$ has an essential singularity
+at $p \in U$.
+Prove that
+for every 
+$\Delta_r(p) \setminus \{ p \} \subset U$, the set
+of all moduli of all the values of $f$ on $\Delta_r(p) \setminus \{ p \}$,
+that is,
+\begin{equation*}
+\abs{f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)}
+=
+\bigl\{ \sabs{w} \in \R : w = f(z), z \in \Delta_r(p) \setminus \{ p \}
+\bigr\}
+\end{equation*}
+is $(0,\infty)$ or $[0,\infty)$.
+\item
+Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Residue theorem}
+
+If $f$ has an isolated singularity at $p$,
+we expand
 $f$ in the Laurent series on $\Delta_r(p) \setminus \{ p \}$:
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 \end{equation*}
 As we saw the only power ${(z-p)}^n$ that does not have a primitive in
-$\Delta_r(p) \setminus \{ p \}$ is when $n=-1$.  This will be the only one
-that a line integral of $f$ will ``see,'' or in other words, it will be
+$\Delta_r(p) \setminus \{ p \}$ is when $n=-1$.  This is the only one
+that a line integral of $f$ ``sees,'' or in other words, it is
 what's left, or the ``residue'' of integrating $f(z)$ around a closed path.
 With this in mind, we make the
 following definition.
@@ -5926,6 +6200,16 @@ The \emph{\myindex{residue}} of $f$ at $p$ is the number
 where $c_{-1}$ is the coefficient of ${(z-p)}^{-1}$ in the Laurent series
 expansion in the punctured disc $\Delta_r(p) \setminus \{ p \}$.
 \end{defn}
+
+We know how to compute $c_{-1}$, any small enough $\rho > 0$:
+\begin{equation*}
+\operatorname{Res}(f,p) 
+=
+\frac{1}{2\pi i} \int_{\partial \Delta_{\rho}(p)} f(z) \, dz .
+\end{equation*}
+
+In fact, using Cauchy's theorem we can relate any integral around
+a cycle to the residues that lie inside the cycle.
 
 \begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
 Suppose $U \subset \C$ is an open set, $S \subset U$ is a finite subset,
@@ -6004,7 +6288,7 @@ for $f$ at $w_j$.  In other words, the residue of $f$ at $w_j$.
 The residue theorem is supposed to be useful in computing line integrals.
 But at first glance it seems ridiculous.  How does one compute $c_{-1}$?  By
 an integral.  Well how does that help then?  It helps because there are
-easier ways to compute $c_{-1}$ then by the line integral.  One is
+easier ways to compute $c_{-1}$ then by the line integral.  The first one is
 almost criminally trivial, but it may be good to emphasize it by making it
 a proposition.
 
@@ -6042,6 +6326,28 @@ g(z) \, dz
 \end{split}
 \end{equation*}
 \end{proof}
+
+If $f$ has a pole, and if we have a nice formula for $f$,
+the next proposition makes it easy to compute residues.
+
+\begin{prop}
+Suppose $f$ has a pole at $p$.
+If $p$ is a simple pole of $f$, then
+\begin{equation*}
+\operatorname{Res}(f,p) = \lim_{z\to p} (z-p) f(z) .
+\end{equation*}
+More generally, if $p$ is a pole of $f$ of order $k$, then
+\begin{equation*}
+\operatorname{Res}(f,p) = \frac{1}{(k-1)!} \lim_{z\to p}
+\frac{d^{k-1}}{dz^{k-1}}\bigl[ (z-p)^{k} f(z) \bigr] .
+\end{equation*}
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
 
 A common application of the residue theorem is to compute certain real
 integrals that are difficult by classical calculus.  Let us compute
@@ -6162,269 +6468,7 @@ FIXME: example
 
 FIXME: exercises
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Classifying isolated singularities}
-
-\subsection{Removable singularities, poles, and essential singularities}
-
-\begin{defn}
-Suppose $V \subset \C$ is open, $f \colon V \setminus \{p\} \to \C$ is holomorphic with
-an isolated singularity at $p$.
-
-An isolated singularity is \emph{removable}\index{removable singularity}
-if 
-there exists a holomorphic function $F \colon U \to \C$
-such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
-
-An isolated singularity $p$ is a \emph{\myindex{pole}} if 
-\begin{equation*}
-\lim_{z \to p} f(z) = \infty.
-\end{equation*}
-
-An isolated singularity that is neither removable nor a pole is said to be
-\emph{essential}\index{essential singularity}.
-\end{defn}
-
-At nonessential isolated singularities
-the function blows up to a finite integral order.
-The first part of the following proposition is
-usually called the \emph{\myindex{Riemann extension theorem}}.
-
-\begin{prop} \label{prop:classifysing}
-Suppose $U \subset \C$ is an open set, $p \in U$,
-and $f \colon U \setminus \{p\} \to \C$ holomorphic.
-\begin{enumerate}[(i)]
-\item \label{prop:classifysing:i}
-If $f$ is bounded (near $p$ is enough), then $p$ is a removable singularity.
-\item \label{prop:classifysing:ii}
-If $p$ is a pole, then there exists a $k \in \N$ such that
-\begin{equation*}
-g(z) = {(z-p)}^k f(z)
-\end{equation*}
-is bounded near $p$ and hence $g$ has a removable singularity at $p$.
-\end{enumerate}
-Conversely, if there exists a $k \in \N$ such that
-$g(z) = {(z-p)}^k f(z)$ has a removable singularity at $p$,
-then $f(z)$ has a pole or a
-removable singularity at $p$
-\end{prop}
-
-\begin{proof}
-Let us start with
-\ref{prop:classifysing:i}.
-Define
-$g(z) = {(z-p)}^2 f(z)$ for $z \not= p$ near $p$ and $g(p) = 0$.
-$g$ is holomorphic for $z \not= p$.  Consider the 
-difference quotient
-$\frac{g(z)-g(p)}{z-p} = (z-p) f(z)$.
-As $f$ is bounded, we have that
-\begin{equation*}
-\lim_{z\to p} \frac{g(z)-g(p)}{z-p} = \lim_{z\to p} (z-p) f(z) = 0 .
-\end{equation*}
-So $g$ is complex differentiable at $p$ and so holomorphic near $p$.
-The order $k$ of the zero of $g$ at $p$ is at least $2$.  Write
-$g(z) = {(z-p)}^k h(z)$ where $h$ is holomorphic near $p$,
-then $f(z) = {(z-p)}^{k-2}h(z)$, or in other words, $p$ is a removable 
-singularity.
-
-For
-\ref{prop:classifysing:ii}, notice that $f$ cannot be zero in some
-punctured neighborhood $\Delta_r(p) \setminus \{p\}$.  The function
-$\frac{1}{f(z)}$ in $\Delta_r(p) \setminus \{p\}$ is holomorphic
-and has a removable singularity at $p$ by part
-\ref{prop:classifysing:i}.  Let $h$ be holomorphic in $\Delta_r(p)$
-such that $h(z) = \frac{1}{f(z)}$ for $z \not= p$.  By continuity $h(p) =
-0$.  Hence $h(z) = {(z-p)}^k q(z)$ for some holomorphic $q$ and $k \in \N$,
-where $q(p) \not= 0$.  By continuity, $q$ is nonzero near $p$.
-So for $z \not= p$ near $p$,
-\begin{equation*}
-{(z-p)}^k f(z)
-=
-{(z-p)}^k \frac{1}{{(z-p)}^k q(z)}
-=
-\frac{1}{q(z)} .
-\end{equation*}
-
-The converse statement follows by noting that if $g(z)$ has a removable
-singularity, then we can write $g(z) = {(z-p)}^\ell h(z)$ where $h(p) \not= 0$.
-Then
-\begin{equation*}
-f(z) = {(z-p)}^{\ell-k} h(z) ,
-\end{equation*}
-and this either goes to $\infty$ if $k > \ell$ or is bounded if $k \leq
-\ell$.
-\end{proof}
-
-\begin{defn}
-Given a holomorphic function $f$ with a pole, the smallest $k \in \N$
-such that ${(z-p)}^k f(z)$ is bounded is called the
-\emph{order}\index{order of a pole} of the pole.
-A pole of order 1 is called a \emph{\myindex{simple pole}}.
-\end{defn}
-
-As can be seen from the proof of the proposition,
-there is a symmetry between zeros and poles:
-If $f$ has a zero of order $k$ at $p$, then $\frac{1}{f}$ has a pole of
-order $k$ at $p$.
-If $f$ has a pole of order $k$ at $p$, then $\frac{1}{f}$
-has a removable singularity, and the extended function has a zero of order
-$k$ at $p$.
-
-\begin{exbox}
-\begin{exercise}
-Suppose $f$ has a pole of order $k \in \N$ at $p$.
-Show that there exists a holomorphic function $g$ defined near $p$
-such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
-\begin{equation*}
-f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
-\end{equation*}
-\end{exercise}
-
-\begin{exercise}
-Suppose that $f$ and $g$ are entire functions and $\sabs{f} \leq \sabs{g}$
-everywhere.  Show that $f = c g$ for some $c \in \C$.  Hint: Liouville.
-\end{exercise}
-\end{exbox}
-
-\subsection{Singularities and the Laurent series}
-
-Another way of classifying a singularity is in terms of the Laurent series.
-The key thing to notice is that a Laurent series in a punctured
-disc $\Delta_r(p) \setminus \{p\}$ is unique, so if the singularity is
-removable, the power
-series for the extended function must equal the Laurent series.
-
-\begin{prop}
-Suppose $f \colon \Delta_r(p) \setminus \{p\} \to \C$ is holomorphic,
-and
-\begin{equation*}
-f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
-\end{equation*}
-is the corresponding Laurent series.
-The singularity at $p$ is
-\begin{enumerate}[(i)]
-\item \emph{removable} if $c_n = 0$ for all $n < 0$.
-\item \emph{pole} of order $k \in \N$ if $c_n = 0$ for all $n < -k$ and
-$c_{-k}
-\not= 0$.
-\item \emph{essential} if for every exist infinitely negative $n$
-such that $c_n \not= 0$.
-\end{enumerate}
-\end{prop}
-
-\begin{exbox}
-\begin{exercise}
-Prove the proposition.
-\end{exercise}
-\end{exbox}
-
-Given an isolated singularity, the negative part of the series
-\begin{equation*}
-\sum_{n=-\infty}^{-1} c_n {(z-p)}^n 
-\end{equation*}
-is called the \emph{\myindex{principal part}}.  So a singularity is
-removable if the principal part is zero, it is a pole if the principle part
-is a finite series, and it is essential if the principal part is infinite.
-
-For example,
-\begin{equation*}
-e^{1/z}
-=
-\sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n .
-\end{equation*}
-so the principal part is infinite and $e^{1/z}$ has an essential
-singularity at 0.  In fact, this is the first example anyone ever thinks of
-if asked for an example of an essential singularity.
-
-\begin{exbox}
-\begin{exercise}
-If $f$ has a pole at $p$ then $e^{f(z)}$ has an essential singularity at
-$p$.
-\end{exercise}
-\end{exbox}
-
-\subsection{Casorati--Weierstrass}
-
-Functions near an essential singularity achieve essentially every value
-arbitrarily close to the singularity.  The function is very wild (and
-getting wilder and wilder) as it gets close to an essential singularity.
-
-\begin{thm}[Casorati--Weierstrass\footnote{%
-Some people say it should be called Casorati--Sokhotskii(--Weierstrass) theorem as
-Casorati and Sokhotskii both published it in 1868, (Casorati in Italian
-and Sokhotskii in Russian) while Weierstrass published it in 1876 (in
-German).  But really it first appeared in a book by Briot and Bouquet in
-1859 (in French), so really it should be called the Briot--Bouquet theorem,
-no?  If we still all published in Latin, we wouldn't be in this
-mess.}]\index{Casorati--Weierstrass theorem}
-Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
-an essential singularity at $p \in U$.  Then for every punctured disc
-$\Delta_r(p) \setminus \{ p \} \subset U$, the image
-\begin{equation*}
-f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)
-=
-\bigl\{ w \in \C : w = f(z), z \in \Delta_r(p) \setminus \{ p \} \bigr\}
-\end{equation*}
-is dense in $\C$.
-\end{thm}
-
-There is a stronger version
-of this theorem called the Picard theorem saying that the function in any
-punctured neighborhood achieves all values with at most one exception.
-That is,
-$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C$ or 
-$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C \setminus \{ z_0 \}$ for
-some $z_0$.
-
-\begin{proof}
-Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic
-and $\Delta_r(p) \setminus \{ p \} \subset U$.
-Suppose that there is a $q \in \C$ such that $\Delta_s(q) \subset \C
-\setminus 
-f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)$.
-Now consider $g \colon \Delta_r(p) \setminus \{p\} \to \C$ defined by
-\begin{equation*}
-g(z) = \frac{1}{f(z) - q} .
-\end{equation*}
-By assumption, $\sabs{f(z)-q} \geq s$ for $z \in \Delta_r(p) \setminus
-\{p\}$.
-Hence $g(z)$ is bounded by $\frac{1}{s}$, and $g$ has a removable
-singularity at $p$.  For simplicity,
-assume that $g$ is defined (and holomorphic) on all of
-$\Delta_r(p)$.  But
-\begin{equation*}
-f(z) = \frac{1}{g(z)} + q .
-\end{equation*}
-If $g$ has a zero at $p$, then $f$ has a pole at $p$.  If $g$ does not
-have a zero at $p$, then $f$ has a removable singularity.  In any case,
-$f$ does not have an essential singularity at $p$.
-\end{proof}
-
-\begin{exbox}
-\begin{exercise}
-\begin{exparts}
-\item
-Prove a ``Picard for modulus'' theorem.
-Suppose $f \colon U \setminus \{ p \} \to \C$ has an essential singularity
-at $p \in U$.
-Prove that
-for every 
-$\Delta_r(p) \setminus \{ p \} \subset U$, the set
-of all moduli of all the values of $f$ on $\Delta_r(p) \setminus \{ p \}$,
-that is,
-\begin{equation*}
-\abs{f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)}
-=
-\bigl\{ \sabs{w} \in \R : w = f(z), z \in \Delta_r(p) \setminus \{ p \}
-\bigr\},
-\end{equation*}
-is $(0,\infty)$ or $[0,\infty)$.
-\item
-Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
-\end{exparts}
-\end{exercise}
-\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
