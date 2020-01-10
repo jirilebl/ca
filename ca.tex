@@ -627,16 +627,18 @@ Modern\footnote{In this context, \emph{modern}
 means ``later than the middle ages.''}
 mathematics
 is taking a false statement such as ``all
-polynomials have a root'' and redefining what we mean by a ``number,''
-so that the statement is true.  In this case we arrive at the complex
-numbers.  Surprisingly, while this technique (moving the goalposts)
-just feels like cheating, it has been highly productive in giving us
-essentially all the mathematics we know, both pure and applied.  It is this same
+polynomials have a root'' and redefining ``number,''
+so that the statement is true.
+In this case we arrive at the complex numbers.
+While this technique (moving the goalposts)
+feels like cheating, it gave us
+essentially all the mathematics we know, both pure and applied.
+It is this same
 technique that starts with the natural numbers
 \glsadd{not:N}$\N = \{ 1,2,3,\ldots \}$, which are the only
-numbers that we can really make an argument are obvious from nature,
+numbers that are obvious from nature,
 and gets us zero and the negative numbers producing the integers
-\glsadd{not:Z}$\Z$ so that we can solve equations such as $n+2 = 1$.
+\glsadd{not:Z}$\Z$, so that we can solve equations such as $n+2 = 1$.
 From \glsadd{not:Z}$\Z$, we define the rational numbers
 \glsadd{not:Z}$\Q$ to solve\footnote{%
 Do we really solve it by writing $x = \frac{1}{2}$?  After all, 
@@ -648,9 +650,25 @@ to solve equations such as $x^2=2$.  Actually our definition
 of the real numbers is such that we get theorems like the
 intermediate value theorem, Bolzano--Weierstrass,
 etc.  It is then not much of a stretch to do the same thing when trying
-to solve $z^2+1=0$.  Similarly as what happened when we defined the real
-numbers, the consequences of adding this solution to the mix are much more
+to solve $z^2+1=0$.  Just as with the real numbers,
+the consequences of adding $\sqrt{-1}$ to the mix are much more
 profound than just finding roots of polynomials.
+
+Interestingly, while the step into the real numbers
+is a step into the abyss, the step into the complex numbers is a
+step into a fairytale wonderland.  A first-year real analysis course
+crushes the student's hopes and dreams.  Most reasonable statements
+are false and bizzare counterexamples abound.
+On the other hand, a complex analysis course fills the student with
+unrealistic optimism.  It is filled with na\"ive and silly statements
+that only a bad calculus student could entertain\footnote{%
+E.g., if you can differentiate once, you can differentiate twice.
+Every function acts sort of like a linear function.
+If all derivatives are zero at a point, the function is constant.
+Etc.}.
+It is the good-cop bad-cop, the yin-yang, of modern analysis.
+
+
 
 \subsection{The complex numbers as the plane}
 
@@ -747,7 +765,7 @@ y .
 \end{equation*}
 A particularly useful observation one can make is that above we wrote the
 real part and the imaginary part in terms of $z$ and $\bar{z}$.
-Any expression we write in the real and imaginary parts of $z$,
+Any expression we write in terms of the real and imaginary parts of $z$,
  we can equally well write in terms of $z$ and $\bar{z}$.  And vice-versa.
 For example,
 \begin{equation*}
@@ -1733,13 +1751,14 @@ dance.
 
 \subsection{Holomorphic functions}
 
-The types of functions that we wish to study are those that in some sense
-generalize polynomials in $z \in \C$.  That is, we wish to study functions that 
-at least locally behave like $P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots +
+The functions we wish to study are those that in some sense
+generalize polynomials in $z \in \C$;  we wish to study functions
+that,
+at least locally, behave like $P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots +
 a_1 z + a_0$.  Polynomials are easy to understand and easy to work
 with.  Unfortunately there aren't that many of them.  For example, there is
 no polynomial that solves the most basic of differential equations: $f' =
-f$.  So we have to enlarge our horizons a bit.
+f$.  So we must enlarge our horizons a bit.
 
 Consider a polynomial $P(z)$ and expand it near some $z_0 \in \C$:
 \begin{equation*}
@@ -1761,8 +1780,22 @@ we want functions such that
 \begin{equation*}
 f(z_0+h) = f(z_0) + \xi h + o(\sabs{h})
 \end{equation*}
-for some $\xi \in \C$, where $o(\sabs{h})$ just means any function of $h$
+for some $\xi \in \C$, where $o(\sabs{h})$ means any function of $h$
 that goes to zero faster than $\sabs{h}$.
+
+\begin{defn}
+Given $f \colon U \to \C$ and $z_0 \in U$, we say 
+$f$ is \emph{\myindex{complex differentiable}} at $z_0$ if
+the limit
+\begin{equation*}
+f'(z_0) \overset{\text{def}}{=}
+\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} \qquad ( = \xi )
+\end{equation*}
+exists.
+We call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
+at $z_0$.
+\end{defn}
+
 For a differentiable (in the real sense
 and as a function of two real variables,
 see \sectionref{sec:derinsv} in the appendix) function $f \colon U \to
@@ -1820,23 +1853,18 @@ or in other words
 \begin{equation*}
 \lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi .
 \end{equation*}
-We write 
-\begin{equation*}
-f'(z_0) \overset{\text{def}}{=}
-\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi .
-\end{equation*}
-We call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
-at $z_0$.  We say $f$ is \emph{\myindex{complex differentiable}}
-at $z_0$ if this limit exists.  By working backwards, it is immediate
-that if $f$ is complex differentiable at $z_0$, then it is real
-differentiable at $z_0$.
+So $f$ is complex differentiable at $z_0$ and $f'(z_0) = \xi$.
 
-We proved that if $f$ is differentiable (in the real sense), then 
+We proved that if $f$ is differentiable at $z_0$ (in the real sense), then 
 the complex derivative exists at $z_0$ if and only if 
 $\frac{\partial u}{\partial x}\big|_{z_0} = \frac{\partial v}{\partial
 y}\big|_{z_0}$ and $\frac{\partial v}{\partial x}\big|_{z_0} = -\frac{\partial
 u}{\partial y}\big|_{z_0}$.
-We usually want to do this at all points, not just one.
+%We usually want to do this at all points, not just one.
+By working backwards, it is immediate
+that if $f$ is complex differentiable at $z_0$, then it is real
+differentiable at $z_0$,
+as the complex derivative $f'(z_0)$ gives the $Df|_{z_0}$.
 
 Using the fact
 from undergraduate analysis (see \sectionref{sec:derinsv} again), that
@@ -1873,7 +1901,7 @@ This book is dedicated to their
 solutions.
 
 \begin{defn}
-Let $U \subset \C$ be open.  Then $f \colon U \to \C$ is
+Let $U \subset \C$ be open.  A function $f \colon U \to \C$ is
 \emph{\myindex{holomorphic}}
 if it is complex differentiable at every point.  That is, if
 \eqref{eq:complexdiff} exists for all $z \in U$.
@@ -1885,14 +1913,13 @@ if it is complex differentiable at every point.  That is, if
 We know that continuously differentiable functions that satisfy
 Cauchy--Riemann equations are holomorphic.
 On the other hand
-a function complex differentiable everywhere, that is,
-a holomorphic function, is clearly differentiable in the real sense
-as the complex derivative $f'(z_0)$ gives the $Df|_{z_0}$, and
-thus the partial derivatives exist and satisfy the Cauchy--Riemann
-equations.  We will show that holomorphic functions are in fact
-continuously differentiable, and in fact, infinitely differentiable,
-although that result will have to wait.
-However, one thing we do get immediately is that a holomorphic function is
+a function that is complex differentiable everywhere (a holomorphic
+function) is differentiable in the real sense,
+and thus the partial derivatives exist and satisfy the Cauchy--Riemann
+equations.  We will show later that holomorphic functions are
+continuously differentiable and not just differentiable, and in fact they
+are infinitely differentiable, although those results will have to wait.
+One thing we can see immediately is that a holomorphic function is
 continuous, as it is real differentiable.
 
 \begin{prop} \label{prop:zeroder}
@@ -1914,7 +1941,7 @@ is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)
 \end{prop}
 
 \begin{proof}
-We offer two proves of this.  First one only works for holomorphic
+We offer two proofs of this.  The first works only for holomorphic
 functions, and the second is generalizable to nonholomorphic functions
 with the Wirtinger operators in the next section (an exercise).
 
@@ -1949,10 +1976,10 @@ $D(g \circ f)|_z$ corresponds to a complex number and so $g \circ f$
 complex differentiable at $z$.
 \end{proof}
 
-In fact, we still get this simple statement of the chain rule
-if we plug in a real differentiable function into a complex differentiable
+We still get this simple statement of the chain rule
+if we plug a real differentiable function into a complex differentiable
 one.  If $\gamma = \alpha + i \beta \colon (a,b)
-\to \C$ is a differentiable function,
+\to \C$ is a (real) differentiable function,
 then write $\gamma' = \alpha' + i \beta'$.
 
 \begin{prop}[Chain rule]
@@ -1975,7 +2002,7 @@ Df|_z D\gamma|_{t_0} .
 \end{equation*}
 That is as an equation of real linear operators.  Now $Df|_z$ corresponds
 to the multiplication by the complex number $f'(z)$, and $D\gamma|_{t_0}$
-is the $2 \times 1$ matrix represented by $\gamma'(t_0)$.
+is the $2 \times 1$ matrix (column vector) represented by $\gamma'(t_0)$.
 The result follows.
 %  Therefore
 %the (real) derivative of $f \circ \gamma$ is represented via multiplication
@@ -1996,16 +2023,15 @@ ${\left(\frac{1}{g}\right)}'(z) = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
 \end{enumerate}
 \end{prop}
 
-Do note that a holomorphic function is continuous and so the set
-$\{ z \in U : g(z) \not= 0 \}$ is open.
 The proof is left as an exercise.  There are again several ways
 to do it.  One way is almost identical to the
-proof for functions of one real variable. %  It is again no different than the standard proof
-%for functions of one real variable, with the only difference that the
-%limits taken are complex limits.
+proof for functions of one real variable.
 Similarly (and also left as an exercise) it is easy to see that derivative
 of a constant is zero, the derivative of $z$ is $1$, and in general,
 derivative of $z^n$ is $nz^{n-1}$.
+Note that
+a holomorphic function is continuous, and so the set
+$\{ z \in U : g(z) \not= 0 \}$ is open.
 
 \begin{exbox}
 \begin{exercise}
@@ -2024,10 +2050,12 @@ Prove that the derivative of a constant is zero, $(1)' = 0$.
 \item
 Prove $(z)' = 1$.
 \item
-Prove $(z^n)' = n z^{n-1}$ for positive integers.  Hint: Use product rule
+Prove $(z^n)' = n z^{n-1}$ for positive integers $n$.
+\\
+Hint: Use product rule
 and induction: $z^n = z^{n-1} z$.
 \item
-Prove $(z^n)' = n z^{n-1}$ for negative integers.
+Prove $(z^n)' = n z^{n-1}$ for negative integers $n$.
 \end{exparts}
 Note: You are proving both that the derivatives exist and
 computing the derivative.
@@ -2059,17 +2087,17 @@ at the origin, but nowhere else.
 
 Perhaps the reader may ask at this point: Is any solution to
 the Cauchy--Riemann equations holomorphic?  Above we saw that the answer
-is affirmative for continuously differentiable functions.  In fact, we
+is affirmative for continuously differentiable functions.  We
 really proved the stronger assertion: \emph{If $f$ is differentiable in the
 real sense at every point and satisfies the Cauchy--Riemann equations, then
 it is holomorphic.}
-But in general the answer is false%
+In general, the answer is false%
 \footnote{%
 A good thorough account of this problem is:
 J.\ D.\ Gray and  S.\ A.\ Morris,
 \emph{When is a Function that Satisfies the Cauchy-Riemann Equations
 Analytic?}  The American Mathematical Monthly, Vol.\ 85, No.\ 4 (Apr.,
-1978), pp. 246--256.} if we only assume existence of partial derivatives,
+1978), pp. 246--256.} if we only assume the existence of partial derivatives,
 as the following exercise shows.
 
 \begin{exbox}
@@ -2658,8 +2686,11 @@ using the geometric series.
 \end{exercise}
 \end{exbox}
 
-Eventually we will see that analytic functions and holomorphic functions are
-one and the same.  Let us start by proving that
+Eventually, we will see that analytic functions and holomorphic functions are
+one and the same\footnote{%
+For this reason, some authors define ``analytic'' to mean complex differentiable,
+which is no problem eventually, but right now it would be.}.
+Let us start by proving that
 analytic functions are holomorphic, that is, they are complex
 differentiable.
 
@@ -3147,7 +3178,7 @@ a_1 \int_{\gamma_1} f(z) \, dz +
 +
 a_n \int_{\gamma} f(z) \, dz .
 \end{equation*}
-We consider two chains $\Gamma_1$ and $\Gamma_2$ equal if
+We consider two chains $\Gamma_1$ and $\Gamma_2$ equivalent if
 \begin{equation*}
 \int_{\Gamma_1} f(z) \, dz = 
 \int_{\Gamma_2} f(z) \, dz ,
@@ -3268,15 +3299,22 @@ the statement and proof of the proposition is perfectly fine at this stage
 if one uses the gauge integral even without any hypothesis on $f$.}.
 \end{remark}
 
+\begin{defn}
 A path $\gamma \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if 
 $\gamma(a) = \gamma(b)$.  The fundamental theorem has the following
 immediate corollary.
+
+A chain $\Gamma$ that is equivalent to
+$a_1 \gamma_1 + \cdots + a_n \gamma_n$, where $\gamma_1, \ldots, \gamma_n$
+are closed paths,
+is called a \emph{\myindex{cycle}}.
+\end{defn}
 
 \begin{cor}[Cauchy's theorem for derivatives] \label{cor:cauchyforders}
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is holomorphic, such that there exists
 a holomorphic $F \colon U \to \C$ with $f = F'$.
-Let $\gamma \colon [a,b] \to U$ be a closed piecewise $C^1$ path.
+Let $\gamma$ be a closed piecewise $C^1$ path (or a cycle) in $U$.
 Then
 \begin{equation*}
 \int_\gamma f(z) \, dz = 0 .
@@ -3298,8 +3336,8 @@ The above corollary has another quick corollary (which will be entirely
 subsumed into the more general version of Cauchy we will prove later).
 
 \begin{cor}[Cauchy's theorem for polynomials]
-Suppose $P(z)$ is a polynomial and $\gamma \colon [a,b] \to \C$ is a closed
-piecewise $C^1$ path.  Then
+Suppose $P(z)$ is a polynomial and $\gamma$ is a closed
+piecewise $C^1$ path (or a cycle).  Then
 \begin{equation*}
 \int_\gamma P(z) \, dz = 0 .
 \end{equation*}
@@ -3329,42 +3367,43 @@ In particular, $T$ is the smallest convex set containing the vertices.
 Do note, that we have defined a triangle as the solid triangle, including
 the inside.
 
-We order the vertices so that any triangle $T$ has the positive orientation,
-that is as we travel from $a$ to $b$ to $c$ the inside of the triangle 
+We order the vertices so that $T$ has positive orientation.
+That is, as we travel from $a$ to $b$ to $c$ the inside of the triangle 
 is on the left.  More precisely if we translate so that $a$ is
 at the origin and rotate so that $b$ is on the positive real line, then $c$
-should have positive imaginary part.  Then we define the boundary chain
-(since it is closed it is often called a cycle) of $T$ as
+should have positive imaginary part.  We define the boundary chain (cycle)
+of $T$ as
 \begin{equation*}
 \partial T = [a,b] + [b,c] + [c,a] .
 \end{equation*}
 
 \begin{thm}[Cauchy--Goursat\footnote{%
-Other common statements of this theorem is more complicated (simply
-connected domain, any closed path), what makes it the Goursat theorem
+What makes this the Goursat theorem
 is that we are only assuming that the complex derivative exists
 everywhere.}]\index{Cauchy--Goursat theorem}
-Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is
+holomorphic,
+%complex differentiable everywhere (holomorphic),
 and $T \subset U$ is a triangle.  Then
 \begin{equation*}
 \int_{\partial T} f(z) \, dz = 0 .
 \end{equation*}
 \end{thm}
 
-Let us remark that it is important that $T \subset U$ means that the inside
-of the triangle is inside $U$, not just the boundary.  Otherwise the theorem
+It is important that $T \subset U$ means that the inside
+of the triangle is in $U$, not just the boundary.  Otherwise the theorem
 would not be true.
 
 \begin{proof}
-We prove the theorem by contrapositive.  That is, we will suppose there is
-some triangle over which the integral is not zero, and we will find a point
-where $f$ is not complex differentiable.  So suppose that $T$ is such
-that
+We proceed by contrapositive.
+Suppose there is a triangle $T$ over which the integral is not zero,
 \begin{equation*}
 \abs{\int_{\partial T} f(z) \, dz} = c \not= 0 .
 \end{equation*}
-Let $\ell$ be the sum of the length of the sides of $T$.
+We will find a point
+where $f$ is not complex differentiable.
 
+Let $\ell$ be the sum of the length of the sides of $T$.
 Cut $T$ into 4 subtriangles
 $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side in half.  See
 \figureref{fig:trianggoursat}.
@@ -3619,7 +3658,7 @@ as a theorem, as it is one of the fundamental results.
 \begin{thm}[Cauchy's theorem for star-like domains]
 \index{Cauchy's theorem!star-like domains}%
 Suppose $U \subset \C$ is open and star-like, $f \colon U \to \C$ is holomorphic,
-and $\gamma$ is a closed piecewise $C^1$ path in $U$.  Then
+and $\gamma$ is a closed piecewise $C^1$ path (or a cycle) in $U$.  Then
 \begin{equation*}
 \int_{\gamma} f(z) \, dz = 0 .
 \end{equation*}
