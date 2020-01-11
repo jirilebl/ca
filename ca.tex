@@ -4161,7 +4161,8 @@ Expand $f$ at the origin.
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n .
 \end{equation*}
-As $f$ converges in a disc of an arbitrary radius $r$ we have that
+As $f$ converges in a disc of an arbitrary radius $r$, the Cauchy estimates
+say
 \begin{equation*}
 \sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^n} \leq
 \frac{M}{r^n} .
@@ -6060,6 +6061,14 @@ $k$ at $p$.
 
 \begin{exbox}
 \begin{exercise}
+Suppose $f$ has an isolated singularity at $p$.  Suppose that
+$\{ z_n \}$ and $\{ \zeta_n \}$ are two sequences such that
+$\lim z_n = \lim \zeta_n = p$ and $\lim f(z_n) \not= \lim f(\zeta_n)$
+(both limits exist).
+Show that $f$ has an essential singularity at $p$.
+\end{exercise}
+
+\begin{exercise}
 Suppose $f$ has a pole of order $k \in \N$ at $p$.
 Show that there exists a holomorphic function $g$ defined near $p$
 such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
@@ -6126,8 +6135,24 @@ if asked for an example of an essential singularity.
 
 \begin{exbox}
 \begin{exercise}
-If $f$ has a pole at $p$ then $e^{f(z)}$ has an essential singularity at
+If $f$ has a pole at $p$, then $e^{f(z)}$ has an essential singularity at
 $p$.
+\end{exercise}
+\end{exbox}
+
+For entire functions, we can talk about the ``singularity at infinity.''
+If we think of $\C \subset \C_\infty$, then this makes perfect sense.
+The mapping $z \mapsto \frac{1}{z}$ is a self-mapping of the Riemann
+sphere $\C_\infty$ that takes infinity to zero.  So given $f \colon \C \to
+\C$, the function $z \mapsto f\bigl( \frac{1}{z} \bigr)$ has an isolated
+singularity at the origin, and that is the singularity at infinity
+of $f$.
+
+\begin{exbox}
+\begin{exercise}
+Show that an entire function $f \colon \C \to \C$ has a pole at infinity
+if and only if it is a polynomial.  The order of the pole is the degree of
+the polynomial.
 \end{exercise}
 \end{exbox}
 
@@ -6315,7 +6340,7 @@ n(\gamma;w_j)
 \int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz .
 \end{equation*}
 
-Now we recognize
+We recognize
 \begin{equation*}
 \frac{1}{2 \pi i}
 \int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz
@@ -6422,13 +6447,18 @@ We note by partial fractions we find
 \end{equation*}
 In particular, there is an isolated singularity at $\pm i$.  Our cycle
 $\Gamma_r$ goes around $i$ (once so $n(\Gamma_r,i) = 1$),
-but not around $-i$ (exercise), so we only need to compute (via the
-proposition)
+but not around $-i$ (exercise), so we only need to compute
+the residue in one of the ways:
 \begin{equation*}
 \operatorname{Res}\left(\frac{1}{1+z^2},i\right) =
 \operatorname{Res}\left(
-\frac{-i}{2} \frac{1}{z-i}
-i\right) = \frac{-i}{2} .
+\frac{-i}{2} \frac{1}{z-i},
+i\right) = \frac{-i}{2} ,
+\qquad
+\operatorname{Res}\left(\frac{1}{1+z^2},i\right) =
+\lim_{z \to i} \frac{z-i}{1+z^2}
+=
+\frac{1}{2i} = \frac{-i}{2}.
 \end{equation*}
 
 We compute,
@@ -6630,7 +6660,17 @@ $f_n$ has $k$ zeros (counting multiplicity) in $\Delta_r(p)$.
 FIXME
 \end{proof}
 
-FIXME: some applications
+FIXME: some applications (limits of univalent functions perhaps)
+
+\begin{exbox}
+\begin{exercise}
+Suppose $U \subset \C$ is a domain,
+$f_n \colon U \to \C$ are holomorphic and nowhere zero
+and converge uniformly on compact subsets to $f \colon U \to \C$.
+Show that either $f$ is nowhere zero, or $f$ is identically zero.
+Given examples of both possible conclusions.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -6740,6 +6780,12 @@ FIXME
 
 FIXME
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Meromorphic functions}
+\label{sec:meromorphic}
+
+FIXME
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
