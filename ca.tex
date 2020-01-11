@@ -554,10 +554,10 @@ The connection is to understand multiplication by complex numbers
 as a $2 \times 2$ real matrix.
 When we introduce line integrals, we connect
 them to the line integrals the student has seen in calculus.
-When the inverse function theorem is introduced it is introduced as a consequence
-of the inverse function theorem in $\R^2$, and an outline of
-a pure complex analysis proof is left as an exercise.
-This is not simply a time saving measure.
+The inverse function theorem can be introduced early as
+a consequence of the inverse function theorem in $\R^2$.
+An outline of a pure complex analysis proof is left for later as an exercise.
+These are not simply time saving measures.
 The point is to stress that we are not defining some totally new and
 different world.
 
@@ -591,7 +591,8 @@ then getting to \ref{ch:montelriemann} (Montel and RMT),
 \begin{equation*}
 \begin{tikzcd}[cramped, row sep=small]
 & & {\text{\Chdotref{ch:complexplane}}} \arrow[d] \\
-& & {\text{\Chdotref{ch:holfusc}}} \arrow[d] \\
+& & {\text{\Chdotref{ch:holanal}}} \arrow[d] \\
+& & {\text{\Chdotref{ch:cauchysimple}}} \arrow[d] \\
 & & {\text{\Chdotref{ch:log}}} \arrow[d] \\
 & & {\text{\Chdotref{ch:counting}}} \arrow[dll] \arrow[dl] \arrow[d] \arrow[dr] \arrow[drr] \\
 {\text{\Chdotref{ch:montelriemann}}} &
@@ -799,7 +800,7 @@ which is just the \emph{\myindex{Euclidean distance}}:
 \begin{equation*}
 \sabs{z} \overset{\text{def}}{=} \sqrt{z \bar{z}} = \sqrt{x^2+y^2} .
 \end{equation*}
-Perhaps easier and more useful equation is ${\sabs{z}}^2 = z\bar{z}$.
+More simply, ${\sabs{z}}^2 = z\bar{z}$.
 Notice $\sabs{z} \geq 0$, and $\sabs{z} = 0$
 if and only if $z=0$.
 
@@ -844,7 +845,7 @@ via Cauchy--Schwarz:
 
 \begin{exbox}
 \begin{exercise}
-Prove the polarization identity
+Prove the \emph{\myindex{polarization identity}}
 $4 z\bar{w} =
 {\sabs{z+w}}^2-{\sabs{z-w}}^2 +i \bigl( {\sabs{z+iw}}^2 - {\sabs{z-iw}}^2 \bigr)$.
 \end{exercise}
@@ -1531,7 +1532,7 @@ that takes that circle or line to the real line.
 \end{exercise}
 \end{exbox}
 
-One way to view an LFT is as a $2 \times 2$ matrix.  For this purpose
+One way to view an LFT is as a $2 \times 2$ complex matrix.  For this purpose
 we need to view the Riemann sphere as the so-called one-dimensional
 \emph{\myindex{projective space}}.  The one-dimensional complex projective
 space is defined by
@@ -1643,8 +1644,6 @@ $T_a$, $D_a$, and $I$ for $a\in \C$.
 
 \section{Cross ratio *}
 
-%FIXME: star means optional, not needed later, put that somewhere
-
 There is a certain quantity that is preserved by LFTs, the
 \emph{\myindex{cross ratio}}:
 \begin{equation*}
@@ -1735,18 +1734,17 @@ Hint: Inverse image of the real line is a circle or a straight line.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Holomorphic Functions} \label{ch:holfusc}
+\chapter{Holomorphic and Analytic Functions} \label{ch:holanal}
 
 \begin{myquote}
-If you cannot get rid of the family skeleton, you may as well make it
-dance.
+If this is coffee, please bring me some tea; but if this is tea, please bring me some coffee.
 
----George Bernard Shaw
+---Abraham Lincoln
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Cauchy--Riemann equations}
+\section{Holomorphic functions and Cauchy--Riemann}
 \label{sec:holfuncs}
 
 \subsection{Holomorphic functions}
@@ -1787,14 +1785,24 @@ that goes to zero faster than $\sabs{h}$.
 Given $f \colon U \to \C$ and $z_0 \in U$, we say 
 $f$ is \emph{\myindex{complex differentiable}} at $z_0$ if
 the limit
-\begin{equation*}
+\begin{equation} \label{eq:complexdiff}
 f'(z_0) \overset{\text{def}}{=}
 \lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} \qquad ( = \xi )
-\end{equation*}
+\end{equation}
 exists.
 We call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
 at $z_0$.
+
+A function $f \colon U \to \C$ is
+\emph{\myindex{holomorphic}}
+if it is complex differentiable at every point.  That is, if
+\eqref{eq:complexdiff} exists for all $z_0 \in U$.
+%We will write
+%the set of holomorphic functions defined on $U$ as $\sO(U)$.
+%FIXME: do we every really use $\sO(U)$
 \end{defn}
+
+\subsection{Cauchy--Riemann equations}
 
 For a differentiable (in the real sense
 and as a function of two real variables,
@@ -1884,10 +1892,10 @@ Then
 \end{equation}
 if and only if $f$ is complex differentiable at all $z_0 \in U$, or in
 other words, if
-\begin{equation} \label{eq:complexdiff}
+\begin{equation*}
 f'(z) =
 \lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
-\end{equation}
+\end{equation*}
 exists for all $z \in U$.
 \end{prop}
 
@@ -1896,19 +1904,9 @@ The equations \eqref{eq:CReqreal} are called the
 the equations first appeared in the work of d'Alembert, and
 it was Euler who first connected them to analytic functions.
 So perhaps they had better be called the French-guy--German-guy equations,
-except that Euler was really Swiss, he only lived in Germany.}.
+except that Euler was really Swiss, he only lived in Germany for a long time.}.
 This book is dedicated to their
 solutions.
-
-\begin{defn}
-Let $U \subset \C$ be open.  A function $f \colon U \to \C$ is
-\emph{\myindex{holomorphic}}
-if it is complex differentiable at every point.  That is, if
-\eqref{eq:complexdiff} exists for all $z \in U$.
-%We will write
-%the set of holomorphic functions defined on $U$ as $\sO(U)$.
-%FIXME: do we every really use $\sO(U)$
-\end{defn}
 
 We know that continuously differentiable functions that satisfy
 Cauchy--Riemann equations are holomorphic.
@@ -1921,6 +1919,16 @@ continuously differentiable and not just differentiable, and in fact they
 are infinitely differentiable, although those results will have to wait.
 One thing we can see immediately is that a holomorphic function is
 continuous, as it is real differentiable.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Basic properties of holomorphic functions}
+
+\subsection{Elementary calculus}
+
+First, let us solve a differential equation.  A common technique in analysis
+to show an equality is to differentiate and then show that the derivative is
+zero.
 
 \begin{prop} \label{prop:zeroder}
 Let $U \subset \C$ be a domain (open and connected),
@@ -1983,7 +1991,7 @@ one.  If $\gamma = \alpha + i \beta \colon (a,b)
 then write $\gamma' = \alpha' + i \beta'$.
 
 \begin{prop}[Chain rule]
-\index{chain rule}%
+\index{chain rule!composition of real and complex derivative}%
 \label{prop:chainrule2}%
 Let $U \subset \C$ be open,
 $\gamma (a,b) \to U$ be real differentiable at $t_0 \in (a,b)$,
@@ -2010,6 +2018,7 @@ The result follows.
 \end{proof}
 
 \begin{prop} \label{prop:sumproddiv}
+\pagebreak[2]
 Let $U \subset \C$ be open, and $f \colon U \to \C$ and
 $g \colon U \to \C$ holomorphic.
 \begin{enumerate}[(i)]
@@ -2345,7 +2354,9 @@ that $\bar{z}$ cancels.
 \end{exercise}
 
 \begin{exercise}
-Prove a Wirtinger operator version of the chain rule for real differentiable
+Prove a Wirtinger operator version of
+the chain rule\index{chain rule!Wirtinger operators}
+for real differentiable
 functions:  Let $U \subset \C$ and $V \subset \C$ be open, and $f \colon U \to V$
 (real) differentiable at $z$, $g \colon V \to \C$ (real) differentiable
 at $f(z)$.  Write $\bar{f}$ for the function that is the complex conjugate
@@ -2394,10 +2405,159 @@ for all $z \in U$ (note the bar on the $h$), then $f$ is real differentiable, an
 \end{exercise}
 \end{exbox}
 
+\subsection{Inverse function theorem and automorphisms}
+
+To work with a new category of functions, one should always ask
+what are the right changes of variables.
+
+\begin{defn}
+Let $U, V \subset \C$ be open sets.
+A holomorphic function $f \colon U \to V$ that is one-to-one, onto, and
+such that the inverse $f^{-1}$ is also holomorphic\footnote{%
+Surprisingly, we will (later) show that this condition is superfluous.}
+is called a
+\emph{\myindex{biholomorphism}}.  If $U = V$, then $f$ is called an
+\emph{\myindex{automorphism}}\footnote{%
+The word automorphism is used in other contexts as well, it always means
+that it is the right sort of equivalence in whatever context you are in.
+In topology it may mean homeomorphism, in differential geometry a
+diffeomorphism, in group theory it may mean a bijective homomorphism.}.
+Let $\operatorname{Aut(U)}$ denote the set of all automorphisms of $U$.
+\end{defn}
+
+The reader can check that $\operatorname{Aut}(U)$ is a group under
+composition, although perhaps we are not too worried about the group
+structure at this point.
+
+\begin{exbox}
+\begin{exercise}
+Check that
+$\operatorname{Aut(U)}$ is a group under composition:
+composition of two automorphisms is an automorphism,
+there is an identity element,
+composition is associative,
+and there exists an inverse for every element.
+\end{exercise}
+
+\begin{exercise}
+Show that for any constants $a,b \in \C$, $a \not= 0$, the function
+$a z + b$ is an automorphism of $\C$.
+\end{exercise}
+\end{exbox}
+
+A biholomorphism $f$ has the property that $f'(z) \not= 0$ for any $z$.  To
+see this note that $f^{-1}\bigl(f(z)\bigr) = z$ and both $f$ and $f^{-1}$
+are holomorphic.  Thus differentiate using the chain rule to see
+that $(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$, so if $w = f(z)$ then
+\begin{equation*}
+(f^{-1})'(w) = \frac{1}{f'(z)}
+\qquad \text{or} \qquad
+f'(z) =
+\frac{1}{(f^{-1})'(w)} .
+\end{equation*}
+
+Locally, the relationship between nonzero derivative and invertibility is
+the inverse function theorem.  Consider a holomorphic function
+$f = u+iv$ and its derivative real $Df$ and complex derivative $f'$.
+The real derivative as a matrix is
+\begin{equation*}
+Df =
+\begin{bmatrix}
+\frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\[5pt]
+\frac{\partial v}{\partial x} & \frac{\partial v}{\partial y}
+\end{bmatrix} ,
+\end{equation*}
+so using the Cauchy--Riemann equations, we compute the Jacobian determinant,
+\begin{equation*}
+\det Df =
+\frac{\partial u}{\partial x}
+\frac{\partial v}{\partial y} -
+\frac{\partial u}{\partial y} 
+\frac{\partial v}{\partial x}
+=
+{\left(\frac{\partial u}{\partial x}\right)}^2
++
+{\left(\frac{\partial v}{\partial x}\right)}^2
+=
+\abs{f'(z)}^2 .
+\end{equation*}
+The Jacobian determinant is nonzero (positive) and $Df$ is invertible
+whenever $f'(z)$ is nonzero.
+Let us remark that among other things this computation
+implies that the determinant of
+$Df$ is always nonnegative, so a holomorphic function preserves orientation.
+
+The real inverse function theorem (\thmref{thm:inverse})
+for continuously differentiable
+functions of $\R^2$ to $\R^2$
+says that if $Df$ is invertible at some point $p$, then $f$ takes a
+neighborhood $V$ of $p$ bijectively into another neighborhood $f(V)$
+of $f(p)$ and the inverse on that neighborhood is continuously
+differentiable with $D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
+
+An inverse of a $2 \times 2$ matrix that represents a complex number is
+again one that represents a complex number (the reciprocal), so if $f$
+satisfied the Cauchy--Riemann equations, so does the inverse.  We instantly
+get the holomorphic inverse function theorem.
+
+\begin{thm}[Inverse function theorem for holomorphic functions]
+\index{inverse function theorem!holomorphic functions}
+\label{thm:inversehol}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$p \in U$, and $f'(p) \not= 0$.  Then there exist neighborhoods $V$ of $p$
+and $W$ of $f(p)$ such that $f(V) = W$, $f$ is one-to-one on $V$, and
+the inverse $g \colon W \to V$ (a function such that $g\bigl(f(z)\bigr)=z$
+for all $z \in V$) is holomorphic, with
+\begin{equation*}
+g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
+\end{equation*}
+\end{thm}
+
+Once we build up more machinery, we will leave it as an exercise to prove
+this theorem in a purely complex analytic proof of the theorem.
+
+It is not true that a holomorphic function whose derivative is nonzero
+everywhere is globally invertible.  For example, the exponential $e^z$
+is never zero, and thus so is its derivative.  However since sine and
+cosine are periodic, we get that $e^{z} = e^{z+2\pi i}$, so globally the
+exponential is not one-to-one.  The fact that the inverse of the
+exponential, the logarithm,
+has infinitely many values at each point is key to complex analysis.  So
+much so that we've named a whole chapter after the logarithm.
+
+Another interesting remark about biholomorphisms, is that generally
+there are very few biholomorphisms for a specific $U$ and $V$.  We will
+compute later the automorphism group of the disc and other sets and it is
+in fact rather small.  For example for $\C$ it is simply the affine maps $a
+z + b$.  On the other hand, at each point, there are a huge number of
+holomorphic functions with nonzero derivative.  So there are lots of local
+coordinate changes, but few global coordinate changes.
+
+\begin{exbox}
+\begin{exercise}
+\begin{exparts}
+\item
+Show that $z^2$ is 2-to-1 on $\C \setminus \{ 0 \}$ while its
+derivative is nonzero.
+\item
+Show that $z^2$ is a biholomorphism of the right half-plane
+$\{ z \in \C : \Re z > 0 \}$
+and the slit plane $\{ z \in \C : \Im z \not= 0 \text{ or } \Re z > 0 \}$.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is antiholomorphic, that is
+$\frac{\partial f}{\partial z} = 0$.  Show that
+$\det Df = - \abs{\frac{\partial f}{\partial z}(z)}^2$.  In other words,
+the Jacobian determinant is nonpositive, and $f$ flips orientation.
+\end{exercise}
+\end{exbox}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Power series and analytic functions}
-\label{sec:analfuncs}
+\section{Power series}
+\label{sec:powerser}
 
 \subsection{The function $z^n$}
 
@@ -2522,8 +2682,8 @@ of partial sums of $\sum c_n {(z-p)}^n$.  In particular,
 the series actually converges.
 
 Let $r = \sabs{z-p}$, then we have the real series $\sum \sabs{c_n} r^n$.  Define
-\begin{equation} \label{eq:rhodef}
-\rho = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
+\begin{equation} \label{eq:rconvdef}
+R = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
 \end{equation}
 where we interpret $\frac{1}{\infty} = 0$ and $\frac{1}{0} = \infty$.
 
@@ -2531,38 +2691,44 @@ By the standard root test the series $\sum \sabs{c_n} r^n$
 converges if
 \begin{equation*}
 \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n} r^n} = 
-r \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n}} = r \frac{1}{\rho} < 1 ,
+r \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n}} = r \frac{1}{R} < 1 ,
 \end{equation*}
-and it diverges if $r \frac{1}{\rho} > 1$.  In other words,
+and it diverges if $r \frac{1}{R} > 1$.  In other words,
 the series converges if
-$r < \rho$
+$r < R$
 and diverges if
-$r > \rho$.  We have proved the following proposition:
+$r > R$.  See \figureref{fig:radiusconvcomplex}.
+We have proved the following proposition:
 
 \begin{prop}[Cauchy--Hadamard theorem\footnote{%
 Cauchy published this result in 1821, and Hadamard, despite also being
 French, didn't know about it and published it in 1888.}]
 \index{Cauchy--Hadamard theorem}
 A power series $\sum c_n {(z-p)}^n$ converges absolutely if
-$\sabs{z-p} < \rho$ and diverges if
-$\sabs{z-p} > \rho$, where $\rho$ is defined by \eqref{eq:rhodef}.
+$\sabs{z-p} < R$ and diverges if
+$\sabs{z-p} > R$, where $R$ is defined by \eqref{eq:rconvdef}.
 \end{prop}
 
-The number $\rho$ is called the \emph{\myindex{radius of convergence}}
+\begin{myfig}
+\subimport*{figures/}{radiusconvcomplex.pdf_t}
+\caption{Radius of convergence.\label{fig:radiusconvcomplex}}
+\end{myfig}
+
+The number $R$ is called the \emph{\myindex{radius of convergence}}
 and we find that the given power series converges absolutely
-in the disc $\Delta_\rho(p)$ (radius $\rho$ and centered $p$), and diverges
-in the complement of the closure $\overline{\Delta_\rho(p)}$.
-Convergence (or divergence) on the boundary circle $\partial \Delta_\rho(p)$
+in the disc $\Delta_R(p)$, and diverges
+in the complement of the closure $\overline{\Delta_R(p)}$.
+Convergence (or divergence) on the boundary circle $\partial \Delta_R(p)$
 is a tricky matter.
 
 A useful criterion for the radius of convergence is that $\sabs{c_n} r^n$ is
-bounded whenever $0 < r < \rho$.
+bounded whenever $0 < r < R$.
 
 \begin{prop}
-The series $\sum c_n {(z-p)}^n$ converges in $\Delta_{\rho}(p)$ for some
-$\rho > 0$, if and only if
+The series $\sum c_n {(z-p)}^n$ converges in $\Delta_{R}(p)$ for some
+$R > 0$, if and only if
 for every $r$ with
-$0 < r < \rho$ there exists an $M > 0$ such that for all $n$,
+$0 < r < R$ there exists an $M > 0$ such that for all $n$,
 \begin{equation*}
 \sabs{c_n} \leq \frac{M}{r^n} .
 \end{equation*}
@@ -2577,8 +2743,8 @@ $\sabs{c_n} r^n \leq M$ for all $n$ and $s < r$, then
 \frac{s}{r}\sqrt[n]{\sabs{c_n} r^n} \leq \frac{s}{r} \sqrt[n]{M} .
 \end{equation*}
 The limsup of the right hand side is 0, so the series converges in
-$\Delta_s(p)$.  As $r < \rho$ and $s < r$ were arbitrary,
-the series converges in $\Delta_\rho(p)$.
+$\Delta_s(p)$.  As $r < R$ and $s < r$ were arbitrary,
+the series converges in $\Delta_R(p)$.
 \end{proof}
 
 The convergence inside the radius of convergence is even nicer than just absolute.
@@ -2605,22 +2771,22 @@ a uniformly absolutely convergent series also converges
 uniformly.  So the name fits the crime.
 
 \begin{prop}
-Let $\sum c_n {(z-p)}^n$ be a power series with radius of convergence $\rho
-> 0$.  If $0 < r < \rho$, then the power series converges uniformly absolutely
-in $\overline{\Delta_r(p)}$.  Furthermore, if $K \subset \Delta_{\rho}(p)$
+Let $\sum c_n {(z-p)}^n$ be a power series with radius of convergence $R
+> 0$.  If $0 < r < R$, then the power series converges uniformly absolutely
+in $\overline{\Delta_r(p)}$.  Furthermore, if $K \subset \Delta_{R}(p)$
 (where $\Delta_{\infty}(p) = \C$)
 is any compact subset, then the series converges uniformly absolutely on
 $K$.
 \end{prop}
 
-Note that generally we do not call $\Delta_{\infty}(p)$ a \emph{disc} even
+Generally, we do not call $\Delta_{\infty}(p)$ a \emph{disc} even
 if we use the same notation here for convenience.
 
 \begin{proof}
-%Let $s$ be such that $r < s < \rho$.  Then there exists an $M$ such that
+%Let $s$ be such that $r < s < R$.  Then there exists an $M$ such that
 %$\sabs{c_n} s^n \leq M$.
-Suppose $0 < r < \rho$.  Then as $\sum c_n {(z-p)}^n$ converges absolutely
-on $\Delta_\rho(p)$, we have
+Suppose $0 < r < R$.  Then as $\sum c_n {(z-p)}^n$ converges absolutely
+on $\Delta_R(p)$, we have
 $\sum \sabs{c_n} r^n$ converges (and in particular any tail of
 the series converges).  Thus
 \begin{equation*}
@@ -2633,8 +2799,8 @@ the series converges).  Thus
 As $m \to \infty$ the right hand side goes to zero, and hence 
 the series converges uniformly in $\overline{\Delta_r(p)}$.
 
-If $K \subset \Delta_{\rho}(p)$ is compact, then there exists some $r <
-\rho$ such that $K \subset \Delta_r(p)$ (consider an open cover of
+If $K \subset \Delta_{R}(p)$ is compact, then there exists some $r <
+R$ such that $K \subset \Delta_r(p)$ (consider an open cover of
 $K$ by discs $\Delta_r(p)$).  The result follows.
 \end{proof}
 
@@ -2653,7 +2819,12 @@ $\sum_{n=0}^\infty n^n z^{n}$ is not convergent at all.
 \end{exercise}
 \end{exbox}
 
-\subsection{Analytic functions and differentiating the power series}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Analytic functions}
+\label{sec:analfuncs}
+
+\subsection{Definition}
 
 Functions that possess a convergent power series are called analytic.
 There exist both complex and real analytic functions depending on if the
@@ -2685,6 +2856,8 @@ a power series at any $z_0 \in \C \setminus \{ 0 \}$
 using the geometric series.
 \end{exercise}
 \end{exbox}
+
+\subsection{Differentiating the power series}
 
 Eventually, we will see that analytic functions and holomorphic functions are
 one and the same\footnote{%
@@ -2891,13 +3064,22 @@ for $k=0,1,2,\ldots$.  Prove that $f = g$ everywhere.
 \end{exercise}
 \end{exbox}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Line Integrals and a Starter Cauchy's Theorem} \label{ch:cauchysimple}
+
+\begin{myquote}
+The Brain: Pinky, are you pondering what I am pondering?
+
+Pinky:  Uh, I think so, Brain, but we'll never get a monkey to use dental floss.
+\end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Line integrals and a starter Cauchy's theorem}
-\label{sec:cauchysimple}
-
-\subsection{Line integrals}
+\section{Line integrals}
+\label{sec:lineints}
 
 A continuous complex-valued piecewise continuously
 differentiable (piecewise $C^1$) function $\gamma \colon [a,b] \to \C$ 
@@ -3224,6 +3406,11 @@ beginning and end point, such that
 \end{equation*}
 \end{exercise}
 \end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Simple versions of Cauchy}
+\label{sec:simplecauchy}
 
 \subsection{Primitives and Cauchy for derivatives}
 
@@ -3773,6 +3960,11 @@ Now let $s$ go to zero
 \end{equation*}
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Consequences of Cauchy}
+\label{sec:consequencescauchy}
+
 \subsection{The maximum principle}
 
 A consequence of Cauchy's formula is the so-called maximum principle, which
@@ -3896,12 +4088,7 @@ then $f$ is constant.  Also show by example that the hypothesis $f(z_0)
 \end{exercise}
 \end{exbox}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Holomorphic functions are analytic}
-\label{sec:holoanal}
-
-\subsection{Existence of power series}
+\subsection{Holomorphic functions are analytic}
 
 \begin{thm} \label{thm:holpower}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
@@ -4598,43 +4785,8 @@ holds if $\sabs{f'(0)} = 1$.
 \subsection{Automorphisms of the disc}
 
 Schwarz's lemma can also be used to classify the automorphisms of the disc.
-A holomorphic function $f \colon U \to V$ that is one-to-one, onto, and
-such that the inverse $f^{-1}$ is also holomorphic is called a
-\emph{\myindex{biholomorphism}}.  If $U = V$, then $f$ is called an
-\emph{\myindex{automorphism}}\footnote{%
-The word automorphism is used in other contexts as well, it always means
-that it is the right sort of equivalence in whatever context you are in.
-In topology it may mean homeomorphism, in differential geometry a
-diffeomorphism, in group theory it may mean a bijective homomorphism.}.
-Let
-$\operatorname{Aut(U)}$ denote the set of all automorphisms of $U$.
-The reader can check that this is a group under composition,
-although perhaps we are
-not too worried about the group structure at this point.
-
-\begin{exbox}
-\begin{exercise}
-Check that
-$\operatorname{Aut(U)}$ satisfies the begin a group under composition:
-composition of two automorphisms is an automorphism,
-there is an identity element,
-composition is associative,
-and there exists an inverse for every element.
-\end{exercise}
-\end{exbox}
-
-A biholomorphism $f$ has the property that $f'(z) \not= 0$ for any $z$.  To
-see this note that $f^{-1}\bigl(f(z)\bigr) = z$ and both $f$ and $f^{-1}$
-are holomorphic.  Thus differentiate using the chain rule to see
-that $(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$, so if $w = f(z)$ then
-\begin{equation*}
-(f^{-1})'(w) = \frac{1}{f'(z)}
-\qquad \text{or} \qquad
-f'(z) =
-\frac{1}{(f^{-1})'(w)} .
-\end{equation*}
-
-Let us start with certain specific automorphisms of the disc.  Let $a \in \D$, and let
+Let us start with certain specific automorphisms of the disc.
+Let $a \in \D$, and let
 \begin{equation*}
 \varphi_a(z) \overset{\text{def}}{=} \frac{z-a}{1-\bar{a}z}.
 \end{equation*}
@@ -4849,14 +5001,18 @@ about following them along a path.  That doesn't mean that we really define
 a single branch, it means that we define a branch in some small open set,
 follow its values for a while, then switch to another branch that 
 happens to agree with the first branch at least at the point where we are
-at.  See \figureref{fig:followabranch}.  This is really what we did in the
+at.  See \figureref{fig:followbranch}.  This is really what we did in the
 ``computation'' above.  We followed the log from 1 along the circle until we
 ended up at 1 again, and our branches that we followed ended up $2\pi i$
 off.  We will see an example of this briefly.
 
 \begin{myfig}
-FIXME: follow a branch.
-\caption{FIXME:\label{fig:followabranch}}
+\subimport*{figures/}{followbranch.pdf_t}
+\caption{Following a branch.
+The branches are defined in the discs
+(they do not have to be discs).
+Points where the branches are supposed to equal
+are marked.\label{fig:followbranch}}
 \end{myfig}
 
 OK.  Let's get more rigorous.  In the following, it is enough
@@ -4899,7 +5055,8 @@ is an integer.
 \end{prop}
 
 Intuitively, the proof is to follow a branch of $\log$ around $\gamma$, and
-see by how much it changes.  Since we really just follow the argument
+see by how much it changes.  See \figureref{fig:followbranch}, and we
+go all the way around a loop.  Since we really just follow the argument
 and we have gone some number of times around $p$ along $\gamma$, the
 argument has changed by some multiple of $2\pi$.
 
@@ -4912,25 +5069,21 @@ $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
 so in each one there exists a branch of $\log (z-p)$, call it $L_j$
 such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j-1}\bigl(\gamma(t_j)\bigr)$.
 Call $z_0 = \gamma(0) = \gamma(1)$.  So
-\begin{equation*}
-\begin{split}
-n(\gamma;p) & =
+\begin{multline*}
+n(\gamma;p)
+=
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
-\\
-& =
+=
 \frac{1}{2\pi i} \int_0^1 \frac{\gamma'(t)}{\gamma(t)-p} \, dt
-\\
-& =
+=
 \frac{1}{2\pi i} \sum_{j=1}^n \int_{t_{j-1}}^{t_j} \frac{\gamma'(t)}{\gamma(t)-p} \, dt
 \\
-& =
+=
 \frac{1}{2\pi i} \sum_{j=1}^n L_j\bigl(\gamma(t_j)\bigr) -
 L_j\bigl(\gamma(t_{j-1})\bigr)
-\\
-& =
+=
 \frac{1}{2\pi i} \bigl( L_n(z_0) - L_1(z_0) \Bigr) .
-\end{split}
-\end{equation*}
+\end{multline*}
 As $L_n$ and $L_1$ are both branches of the log, their difference is
 $2\pi k i$ for some $k \in \Z$, as each is $\log\sabs{z_0} + i \arg z_0$ for some value of
 $\arg$.
@@ -4954,12 +5107,16 @@ Furthermore, $n(\gamma;z) = 0$ for $z$ on the unbounded component
 of $\C \setminus \gamma$.
 \end{prop}
 
-As $\gamma$ is compact, there must be a unique unbounded component.
+As $\gamma$ is compact, there must be a unique unbounded component
+of the complement $\C \setminus \gamma$, and possibly several bounded
+components.
 See \figureref{fig:indexconstant} for example.
 
 \begin{myfig}
-FIXME: index constant
-\caption{FIXME:\label{fig:indexconstant}}
+\subimport*{figures/}{indexconstant.pdf_t}
+\caption{Components of $\C \setminus \gamma$ with the 
+winding number around points in those components
+marked.\label{fig:indexconstant}}
 \end{myfig}
 
 \begin{proof}
@@ -5798,7 +5955,8 @@ We call the point $p$ such that $f(p) = 0$ a \emph{\myindex{zero}} of
 $f$.
 The $k$ from the lemma is called the \emph{order}\index{order of a zero}
 of the zero at $p$.
-We will also call it, for reasons that will be obvious very soon,
+If the order is 1, we say $p$ is a \emph{\myindex{simple zero}}.
+We will also call the order, for reasons that will be obvious very soon,
 the \emph{multiplicity}\index{multiplicity of a zero}\footnote{%
 To be anally retentive: $f$ is of order $k$ at $p$,
 and $p$ is a zero of $f$ of multiplicity $k$.  Potayto, potahto.}
@@ -5815,7 +5973,10 @@ Another remark (which is hidden in the lemma)
 that may be good to emphasize is that if $f^{(k)}(p) = 0$
 for all $k$, then all coefficients of the power series of $f$ at $p$ are
 zero and $f$ is identically zero.  In other words, \emph{every isolated
-zero of a holomorphic function is of finite order}.  No such
+zero of a holomorphic function is of finite order}.
+In yet other words, \emph{a zero of a holomorphic function of
+infinite order means that function is identically zero}.
+No such
 thing is true for real differentiable functions (see the exercises).
 
 \begin{proof}[Proof of the lemma]
@@ -5855,8 +6016,9 @@ f(z) = {\bigl( g(z) \bigr)}^k
 where $g(p) = 0$ and $g'(p) \not= 0$.
 \end{thm}
 
-In more fancy language, $g$ is a biholomorphic change of variables near
-$p$ that makes $p$ into the origin, and it makes $f$ into $z^k$.
+In more fancy language, $g$ is a local biholomorphic change of variables near
+$p$ (see \thmref{thm:inversehol})
+that makes $p$ into the origin, and it makes $f$ into $z^k$.
 
 \begin{proof}
 Let $V = \Delta_r(p)$ be a disc such that $f(z) \not= 0$ for any $z \in
@@ -6353,8 +6515,8 @@ The residue theorem is supposed to be useful in computing line integrals.
 But at first glance it seems ridiculous.  How does one compute $c_{-1}$?  By
 an integral.  Well how does that help then?  It helps because there are
 easier ways to compute $c_{-1}$ then by the line integral.  The first one is
-almost criminally trivial, but it may be good to emphasize it by making it
-a proposition.
+almost criminally trivial, but it may be good to emphasize all of them
+by making them propositions.
 
 \begin{prop}
 Suppose $f$ is holomorphic in a neighborhood of $p$ and $g$ is holomorphic
@@ -6413,6 +6575,24 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
+A related and simpler rule for rational functions with simple poles is
+the following.
+
+\begin{prop}
+Suppose $f(z) = \frac{h(z)}{g(z)}$ where $h$ and $g$ are holomorphic
+at $p$ and $g$ has a simple zero at $p$ (so $f$ has a simple pole at $p$).
+Then
+\begin{equation*}
+\operatorname{Res}(f,p) = \frac{h(p)}{g'(p)} .
+\end{equation*}
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
+
 A common application of the residue theorem is to compute certain real
 integrals that are difficult by classical calculus.  Let us compute
 a couple of examples.  They will also show you how one often computes
@@ -6431,7 +6611,7 @@ of the circle of radius $r$ centered at the origin oriented counterclockwise.
 See \figureref{fig:rhalfcircle}.
 
 \begin{myfig}
-FIXME: $\Gamma_r$
+\subimport*{figures/}{rhalfcircle.pdf_t}
 \caption{The cycle $\Gamma_r$.\label{fig:rhalfcircle}}
 \end{myfig}
 
@@ -6500,44 +6680,87 @@ take two independent limits.
 
 \begin{exbox}
 \begin{exercise}
-Rigorously prove that in the exercise
+Rigorously prove that in the example above
 $n(\Gamma_r,i) = 1$ and
 $n(\Gamma_r,i) = 0$.
 \end{exercise}
 \end{exbox}
 
-\begin{example}
-FIXME: $\int_0^\infty \frac{\sin(x)}{x} \, dx$
+Another application to real integrals is to simply recognize 
+a path integral.  For example integrals of trigonometric functions
+are often integrals over the unit circle.  On the unit
+circle, $\bar{z} = \frac{1}{z}$ and so if $z=e^{i\theta}$,
+$\cos \theta = \Re z = \frac{z+1/z}{2}$ and
+$\sin \theta = \Im z = \frac{z-1/z}{2i}$.
 
-\begin{myfig}
-FIXME: $\Gamma_r$
-\caption{The cycle $\Gamma_r$.\label{fig:rpuncturedhalfcircle}}
-\end{myfig}
+\begin{example}
+If $c > 1$, then
+\begin{equation*}
+\int_0^{2\pi} \frac{1}{c+\cos \theta} \, d\theta 
+=
+\int_{\partial \D} \frac{1}{c+\frac{z+1/z}{2}} \frac{1}{iz} \, dz
+=
+-2i
+\int_{\partial \D} \frac{1}{z^2 + 2cz + 1} \, dz
+.
+\end{equation*}
+The function $\frac{1}{z^2 + 2cz + 1}$ has two poles $-c \pm \sqrt{c^2-1}$,
+one inside and one outside the unit circle.  Thus
+\begin{equation*}
+\int_0^{2\pi} \frac{1}{c+\cos \theta} \, d\theta 
+=
+(-2i)
+(2 \pi i)
+\operatorname{Res}
+\left(\frac{1}{z^2 + 2cz + 1}, -c+\sqrt{c^2-1}\right)
+=
+\frac{2\pi}{\sqrt{c^2-1}}
+.
+\end{equation*}
+
 \end{example}
 
-\begin{example}[Inverse Laplace transform]
+\begin{exbox}
+\begin{exercise}
+Compute
+\begin{equation*}
+\int_{-\infty}^\infty \frac{\cos(3x)}{x^4+1} \, dx
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}[Inverse Laplace transform]
 \index{inverse Laplace transform}
 A common integral that gets computed via the Residue theorem is
 the inverse Laplace transform via \emph{\myindex{Mellin's inversion
-formula}}.  Let us not get into what the Laplace transform is, if the reader
-is unsure, simply take the example as a way to solve another integral.
-The formula, given $F(s)$ which is generally rational function, but could be
-another function with isolated singularities, is to find
+formula}}. The point is, given $F(s)$, to find
 \begin{equation*}
-f(t) =
+f(t) = \sL^{-1}\bigl[F(s)\bigr] =
 \frac{1}{2 \pi i }
 \lim_{r \to \infty}
 \int_{c-ir}^{c+ir}
-e^{st}F(s) \, ds ,
+e^{st}F(s) \, ds .
 \end{equation*}
-where the integral is taken over the vertical line where $\Re z = c$.
+for some $c \in \R$ (usually $c \geq 0$).
+\begin{exparts}
+\item
+Compute $\sL^{-1}\left[ \frac{1}{s(s+1)} \right]$
+\item
+Compute $\sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$
+\end{exparts}
+Hint: Pick the correct vertical line (pick a $c$) and an arc that goes
+around all the poles.
+\end{exercise}
 
-FIXME: example
-\end{example}
-
-FIXME: exercises
-
-
+\begin{exercise}
+Compute
+\begin{exparts}
+\item
+$\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$
+\item
+$\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$
+\end{exparts}
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -6711,57 +6934,44 @@ $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Inverses of holomorphic functions}
+\section{Inverses of holomorphic functions} \label{sec:inverses}
 
-A function with nonzero derivative can be inverted (at least locally).
-We now have enough machinery to show that an invertible (one-to-one)
-holomorphic function has nonzero derivative, and the inverse is holomorphic.
-A priory this makes no
-sense at all.  A function $f \colon \R \to \R$ such as $f(x) = x^3$
-is one-to-one, but its derivative is zero at $x=0$, and $f^{-1}(x) =
-\sqrt[3]{x}$ is not differentiable at $x=0$.  The main result (the second
-theorem) of this subsection
-is therefore quite surprising.
-
-The standard relationship between derivative and one-to-one-ness of a
-function is the inverse function theorem (\thmref{thm:inverse})
-for continuously differentiable
-functions of $\R^2$ to $\R^2$.
-It says that if $Df$ is invertible at some point $p$, then $f$ takes a
-neighborhood $V$ of $p$ bijectively into another neighborhood $f(V)$
-of $f(p)$ and the inverse on that neighborhood is differentiable with
-$D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
-
-In terms of holomorphic functions, the inverse function theorem is restated
-as follows.
-
-\begin{thm}[Inverse function theorem]\index{inverse function theorem}
-Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-$p \in U$, and $f'(p) \not= 0$.  Then there exist neighborhoods $V$ of $p$
-and $W$ of $f(p)$ such that $f(V) = W$, $f$ is one-to-one on $V$, and
-the inverse $g \colon W \to V$ (a function such that $g\bigl(f(z)\bigr)=z$
-for all $z \in V$) is holomorphic, with
+The standard local relationship between derivative and one-to-one-ness of a
+function is the inverse function theorem (\thmref{thm:inversehol}).
+It says that if $f'(z)$ is nonzero somewhere, then locally $f$ is
+one-to-one and has an inverse $g$ such that
 \begin{equation*}
 g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
 \end{equation*}
-\end{thm}
 
-We leave it as an exercise to complete the following outline
-to prove the theorem directly in the holomorphic case.
+We now have enough machinery to give a simple proof
+of the inverse function theorem for holomorphic functions
+without needing the real inverse function.
 
 \begin{exbox}
 \begin{exercise}
-Prove the inverse function theorem using the following outline.
+Prove the inverse function theorem \thmref{thm:inversehol}
+using the following outline, without appealing to the real inverse function
+theorem.
 \begin{exparts}
-\item FIXME 1
-\item FIXME 2
-\item FIXME 3
+\item Show that for some neighborhood $V$ of $p$, $f|_V$ is one-to-one.
+Hint: $f$ has a simple zero at $p$.
+\item Show that $f(V) = W$ is open and the inverse $g \colon W \to V$ is
+continuous.
+\item By looking at the difference quotient $\frac{g(w)-g(w_0)}{w-w_0}$
+show that $g$ is complex differentiable at all $w_0 \in W$.
 \end{exparts}
 \end{exercise}
 \end{exbox}
 
-So far, nothing really new for holomorphic functions.  But it turns out that
-being one-to-one is sufficient for being invertible.
+So far, nothing really new for holomorphic functions.
+It is the next
+theorem that is the surprising new result of this section: being injective
+implies that the derivative is nonzero.
+A priory this makes no sense at all and it is not true for real functions.
+A function $f \colon \R \to \R$ such as $f(x) = x^3$
+is one-to-one, but its derivative is zero at $x=0$, and $f^{-1}(x) =
+\sqrt[3]{x}$ is not differentiable at $x=0$.
 
 \begin{thm}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
@@ -6815,9 +7025,10 @@ FIXME
 \chapter{Harmonic Functions} \label{ch:harmonic}
 
 \begin{myquote}
-If this is coffee, please bring me some tea; but if this is tea, please bring me some coffee.
+If you cannot get rid of the family skeleton, you may as well make it
+dance.
 
----Abraham Lincoln
+---George Bernard Shaw
 \end{myquote}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -12334,7 +12545,7 @@ so the derivative of the composition is the composition
 of the derivatives.  As differentiable maps are ``infinitesimally close''
 to linear maps, they have the same property:
 
-\begin{thm}[Chain rule]\index{chain rule} \label{thm:realchain}
+\begin{thm}[Chain rule]\index{chain rule!real derivative} \label{thm:realchain}
 Let $U \subset \R^n$ be open and let $f \colon U \to \R^m$ be
 differentiable at $p \in U$.  Let $V \subset \R^m$ be open,
 $f(U) \subset V$ and let $g \colon V \to \R^\ell$ be differentiable
