@@ -2417,7 +2417,11 @@ A holomorphic function $f \colon U \to V$ that is one-to-one, onto, and
 such that the inverse $f^{-1}$ is also holomorphic\footnote{%
 Surprisingly, we will (later) show that this condition is superfluous.}
 is called a
-\emph{\myindex{biholomorphism}}.  If $U = V$, then $f$ is called an
+\emph{\myindex{biholomorphism}}.
+If there exists a biholomorphism $f \colon U \to V$, we say that
+$U$ and $V$ are \emph{\myindex{biholomorphic}}.
+
+If $U = V$, then a biholomorphism $f$ is called an
 \emph{\myindex{automorphism}}\footnote{%
 The word automorphism is used in other contexts as well, it always means
 that it is the right sort of equivalence in whatever context you are in.
@@ -2425,6 +2429,15 @@ In topology it may mean homeomorphism, in differential geometry a
 diffeomorphism, in group theory it may mean a bijective homomorphism.}.
 Let $\operatorname{Aut(U)}$ denote the set of all automorphisms of $U$.
 \end{defn}
+
+We saw before that the Cayley map
+$C(z)
+=
+\frac{z - i}{z + i}$
+takes the upper half-plane
+$\bH = \{ z \in \C : \Im z > 0 \}$ to the unit disc $\D$,
+in other words $C \colon \bH \to \D$ is a biholomorphism
+making $\bH$ and $\D$ biholomorphic.
 
 The reader can check that $\operatorname{Aut}(U)$ is a group under
 composition, although perhaps we are not too worried about the group
@@ -2591,10 +2604,10 @@ z^n = r^n e^{i n\theta} .
 So $z^n$ takes sectors with vertex at the origin and doubles their angle.
 For example, it takes the first quadrant:
 $\{ z \in \C : \Re z \geq 0, \Im z \geq 0 \}$
-to the upper half-plane $\{ z \in \C : \Im z \geq 0 \}$.
+to the closed upper half-plane $\{ z \in \C : \Im z \geq 0 \}$.
 Similarly, it takes the second quadrant
 $\{ z \in \C : \Re z \leq 0, \Im z \geq 0 \}$
-to the lower half-plane $\{ z \in \C : \Im z \leq 0 \}$.
+to the closed lower half-plane $\{ z \in \C : \Im z \leq 0 \}$.
 
 \begin{exbox}
 \begin{exercise}
@@ -4783,6 +4796,48 @@ As $g(0) = f'(0)$, the same conclusion, for the same reason,
 holds if $\sabs{f'(0)} = 1$.
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+State and prove a version of Schwarz's lemma for a holomorphic
+function $f \colon \Delta_r(p) \to \Delta_R(q)$ with $f(p)=q$.
+\end{exercise}
+
+\begin{exercise}
+Prove that if $\bH = \{ z \in \C : \Im z > 0 \}$ is the upper half-plane
+and $f \colon \bH \to \bH$ holomorphic such that $f(i) = i$, then
+\begin{equation*}
+\abs{\frac{f(z)-i}{\overline{f(z)}-i}} \leq
+\abs{\frac{z-i}{\bar{z}-i}} 
+\qquad
+\text{and}
+\qquad
+\abs{f'(i)} \leq 1 .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Prove a certain generalization of Schwarz's lemma.  Suppose $U \subset \C$
+is bounded, $p \in U$, and $f \colon U \to U$ is holomorphic, and $f(p)=p$.
+\begin{exparts}
+\item
+Show $\abs{f'(p)} \leq 1$.
+\item
+Show that if $f'(p) = 1$ then $f(z) = z$ for all $z \in U$.
+\item
+Find counterexamples to both statements for some unbounded $U$.
+\end{exparts}
+Hint: First normalize to have $p=0$.  Consider the power series
+expansions of
+$f^{\ell}$, the $\ell$\textsuperscript{th} composition of $f$ with itself,
+$f(f(f(\cdots f(z) \cdots)))$.
+For the first part, consider the linear term of $f^{\ell}$ when $\abs{f'(p)}
+> 1$.  For the second part,
+consider the first term other
+than the linear term that is nonzero, and compute it for $f^{\ell}$ in terms
+of the one for $f$.  Then apply Cauchy estimates.
+\end{exercise}
+\end{exbox}
+
 \subsection{Automorphisms of the disc}
 
 Schwarz's lemma can also be used to classify the automorphisms of the disc.
@@ -4852,17 +4907,40 @@ we obtain $f(z) = e^{-i\theta} \varphi_{-a}(z)$.
 
 \begin{exbox}
 \begin{exercise}
-Using $\varphi_a$ prove a variation of Schwarz's lemma:  Suppose
-that $f \colon \D \to \D$ is holomorphic, nonconstant, and $f(a) = b$.
-Then
+Prove that if $\bH = \{ z \in \C : \Im z > 0 \}$ is the upper half-plane
+and $f \colon \bH \to \bH$ is an automorphism of $\bH$, then
+\begin{equation*}
+f(z) = \frac{a z +b}{c z + d}
+\end{equation*}
+for real numbers $a,b,c,d$ such that $ad-bc \not= 0$.
+\end{exercise}
+
+\begin{exercise}
+Prove the \emph{\myindex{Schwarz--Pick lemma}}.
+Suppose $f \colon \D \to \D$ is holomorphic.  For all $z,\zeta \in \D$
+\begin{equation*}
+\frac{f(z)-f(\zeta)}{1-\overline{f(z)}f(\zeta)} \leq
+\frac{z-\zeta}{1-\bar{z}\zeta} 
+\qquad
+\text{and}
+\qquad
+\frac{\abs{f'(z)}}{1-\abs{f(z)}^2} \leq
+\frac{1}{1-\abs{z}^2} ,
+\end{equation*}
+with equality if and only if $f$ is an automorphism of $\D$.
+\end{exercise}
+\end{exbox}
+
+In particular, the Schwarz--Pick lemma gives a bound on the derivative
+at all points.  If
+$f \colon \D \to \D$ is holomorphic, nonconstant, and $f(a) = b$,
+then
 \begin{equation*}
 \sabs{f'(a)} \leq
 \frac{1-\sabs{b}^2}{1-\sabs{a}^2} .
 \end{equation*}
 If equality holds, then $f(z) = \varphi_{-b}\bigl( e^{i\theta} \varphi_a(z)
 \bigr)$ for some $\theta \in \R$.
-\end{exercise}
-\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6316,6 +6394,13 @@ of $f$.
 Show that an entire function $f \colon \C \to \C$ has a pole at infinity
 if and only if it is a polynomial.  The order of the pole is the degree of
 the polynomial.
+\end{exercise}
+
+\begin{exercise}
+Show that if $f \colon \C \to \C$ is an automorphism then
+$f(z) = az + b$ for
+some constants $a \not= 0$ and $b$.  Hint: Show that $f$ has a simple pole at
+infinity.
 \end{exercise}
 \end{exbox}
 
