@@ -857,7 +857,8 @@ The distance between two numbers $z$ and $w$ is measured by
 %\overset{\text{def}}{=}
 \sabs{z-w} ,
 \end{equation*}
-and this makes $\C$ into a metric space.  See \Appendixref{ap:metric}
+and this makes $\C$ into a complete metric space.  By complete, we mean that
+Cauchy sequences have limits.  See \Appendixref{ap:metric}
 for an introduction to metric spaces.
 
 \begin{exbox}
@@ -1236,6 +1237,13 @@ on the negative real axis.  The principal branch ends up being somewhat less
 useful than we may think.  There is also the issue that not everyone agrees
 on what ``principal branch'' means; some mathematicians will sacrifice the
 positive real axis and let $\theta$ be in the range $[0,2\pi)$.
+
+\begin{exbox}
+\begin{exercise}
+Show that $\Arg$ as defined above is not continuous on $\C \setminus \{ 0
+\}$.
+\end{exercise}
+\end{exbox}
 
 \subsection{Mapping properties of the exponential}
 
@@ -1803,6 +1811,13 @@ if it is complex differentiable at every point.  That is, if
 %FIXME: do we every really use $\sO(U)$
 \end{defn}
 
+\begin{exbox}
+\begin{exercise}
+Directly from the definition, show that a
+holomorphic function is continuous.
+\end{exercise}
+\end{exbox}
+
 \subsection{Cauchy--Riemann equations}
 
 For a differentiable (in the real sense
@@ -2358,6 +2373,7 @@ that $\bar{z}$ cancels.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Prove a Wirtinger operator version of
 the chain rule\index{chain rule!Wirtinger operators}
 for real differentiable
@@ -2625,6 +2641,12 @@ If $z \not= 1$ is such that $\sabs{z}=1$, then $z^n$ diverges as $n \to
 \infty$.
 \end{exparts}
 \end{exercise}
+
+\begin{exercise}[Easy]
+On the unit circle parametrized by the angle $\theta$,
+write $\sin(n\theta)$ and $\cos(n\theta)$ as a combination
+of powers (including negative) of $z = e^{i\theta}$.
+\end{exercise}
 \end{exbox}
 
 \subsection{Power series and radius of convergence}
@@ -2738,7 +2760,8 @@ in the complement of the closure $\overline{\Delta_R(p)}$.
 Convergence (or divergence) on the boundary circle $\partial \Delta_R(p)$
 is a tricky matter.
 
-A useful criterion for the radius of convergence is that $\sabs{c_n} r^n$ is
+A useful criterion for the radius of convergence is that the sequence
+$\bigl\{ \sabs{c_n} r^n \bigr\}$ is
 bounded whenever $0 < r < R$.
 
 \begin{prop}
@@ -3119,6 +3142,18 @@ Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
 \C$ are analytic, and $p \in U$.  Suppose that $f^{(k)}(p) = g^{(k)}(p)$
 for $k=0,1,2,\ldots$.  Prove that $f = g$ everywhere.
 \end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ is analytic.
+Prove that if $f'(z) = 0$ for
+all $z \in U$ in a neighborhood of some $z_0 \in U$, then $f$ is constant.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a domain, $a, b, c \in \C$, $z_0 \in U$, show that
+an analytic solution $f$ on $U$ to a linear equation $f'(z) = a f(z) + b$
+given $f(z_0) = c$ is unique if it exists.
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3371,10 +3406,10 @@ $\gamma$.  Then
 \begin{equation*}
 \abs{\int_\gamma f(z) \, dz} \leq \int_\gamma \sabs{f(z)} \, \sabs{dz} .
 \end{equation*}
-In particular, if $\sabs{f(z)} \leq M$ on $\gamma$ and $L = \int_\gamma ds
+In particular, if $\sabs{f(z)} \leq M$ on $\gamma$ and $\ell = \int_\gamma ds
 = \int_{\gamma} \sabs{dz}$ is the length of $\gamma$, then
 \begin{equation*}
-\abs{\int_\gamma f(z) \, dz} \leq ML .
+\abs{\int_\gamma f(z) \, dz} \leq M \ell .
 \end{equation*}
 \end{prop} 
 
@@ -3623,8 +3658,9 @@ of $T$ as
 
 \begin{thm}[Cauchy--Goursat\footnote{%
 What makes this the Goursat theorem
-is that we are only assuming that the complex derivative exists
-everywhere.}]\index{Cauchy--Goursat theorem}
+rather than just another statement of Cauchy's theorem
+is that in the proof, we are only assuming that the complex derivative exists
+and not that it is continuous, which is what Cauchy assumed.}]\index{Cauchy--Goursat theorem}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is
 holomorphic,
 %complex differentiable everywhere (holomorphic),
@@ -3924,14 +3960,13 @@ more general statements for later.
 \begin{thm}[Cauchy integral formula in a disc]
 \index{Cauchy integral formula!disc}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-and $\overline{\Delta_r(p)} \subset U$.
-If $\gamma$ is the boundary of $\Delta_r(p)$ oriented counterclockwise,
-then for all $z \in \Delta_r(p)$
+$\overline{\Delta_r(p)} \subset U$.
+Then for all $z \in \Delta_r(p)$,
 \begin{equation*}
 f(z)
 =
 \frac{1}{2\pi i}
-\int_{\gamma}
+\int_{\partial \Delta_r(p)}
 \frac{f(\zeta)}{\zeta-z}
 \,
 d \zeta
@@ -3943,10 +3978,11 @@ holomorphic function inside the disc (a large set) are determined by their
 values on the circle (a relatively small set).
 
 \begin{proof}
-Fix $z \in \Delta_r(p)$.
+Fix $z \in \Delta_r(p)$ and write
+$\gamma$ for the boundary of $\Delta_r(p)$ oriented counterclockwise.
 Let $\Delta_s(z)$ be a small disc with $\overline{\Delta_s(z)} \subset
 \Delta_r(p)$.
-Let $\alpha(t) = z+s e^{i t}$,
+Let $\alpha(t) = z+s e^{i t}$ parametrize $\partial \Delta_s(z)$.  Then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_{\alpha}
@@ -3976,7 +4012,7 @@ d \zeta
 f(z) .
 \end{equation*}
 
-Now fix $\alpha$.
+Now fix $\alpha$ (that is, fix $s$).
 We connect $\alpha$ to $\gamma$
 via two straight lines as in \figureref{fig:disccauchy}.
 The two resulting regions between $\alpha$ and $\gamma$
@@ -4016,6 +4052,23 @@ Now let $s$ go to zero
 = f(z) .  \qedhere
 \end{equation*}
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Suppose $f$ is holomorphic in a neighborhood of $\overline{\Delta_r(p)}$,
+show that $f$ at $p$ is the average of the values on $\partial \Delta_r(p)$.
+That is, show
+\begin{equation*}
+f(p) = \frac{1}{2\pi} \int_0^{2\pi} f(p + r e^{it}) \, dt .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise} \label{exercise:cauchycont}
+Strenghten the theorem.  Show that the conclusion holds if
+we only assume that $f \colon \overline{\Delta_r(p)} \to \C$
+is continuous and $f$ is holomorphic on $\Delta_r(p)$.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4147,6 +4200,10 @@ then $f$ is constant.  Also show by example that the hypothesis $f(z_0)
 
 \subsection{Holomorphic functions are analytic}
 
+The next, and perhaps the most profound consequence of Cauchy's formula is
+that holomorphic functions are analytic.  We have already seen
+that analytic functions are holomorphic, and now prove the converse.
+
 \begin{thm} \label{thm:holpower}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
 holomorphic, and $p \in U$, and $\Delta_r(p) \subset U$
@@ -4266,10 +4323,6 @@ the $c_n$ we computed are the same for every $s < r$, and hence
 we get convergence in $\Delta_r(p)$.
 \end{proof}
 
-Not only have we proved that $f$ has a power series, but we computed
-that the radius of convergence is at least $r$, where $r$ is the maximum $r$
-such that $\Delta_r(p) \subset U$.
-
 The key point in the proof is writing the \emph{\myindex{Cauchy kernel}}
 $\frac{1}{\zeta-z}$ as
 \begin{equation*}
@@ -4280,7 +4333,23 @@ $\frac{1}{\zeta-z}$ as
 \end{equation*}
 and then using the geometric series.
 
+Not only have we proved
+that $f$ has a power series, but we computed
+that the radius of convergence is at least $r$, where $r$ is the maximum $r$
+such that $\Delta_r(p) \subset U$.
+
 \begin{exbox}
+\begin{exercise}
+Show that for so called real-analytic functions, the above statement
+does not hold.  Show that the function $f(x) = \frac{1}{1+x^2}$,
+which is defined on the
+entire real line, can be expressed as a real power series
+$\sum_{n=0}^\infty c_n {(x-a)}^n$ for every $a \in \R$, but
+this power series always has a finite radius of convergence.
+Compute this radius of convergence for every $a$.  Hint: Consider
+the holomorphic function $\frac{1}{1+z^2}$ and find its discontinuities.
+\end{exercise}
+
 \begin{exercise}
 Suppose that $g(z)$ is such that
 \begin{equation*}
@@ -4294,6 +4363,71 @@ g(z) = \sum_{n=0}^\infty c_n \bar{z}^n .
 \end{equation*}
 \end{exercise}
 \end{exbox}
+
+Let us state the main conclusion of this subsection once more.
+
+\begin{cor}
+Let $U \subset \C$ be an open set.  A function $f \colon U \to \C$
+is holomorphic if and only if $f$ is analytic.
+\end{cor}
+
+\subsection{Derivative is holomorphic}
+
+Let us restate \corref{cor:analinfdif} in terms of
+holomorphic functions, now that we know that holomorphic functions are
+analytic.
+
+\begin{thm}
+Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.  Then
+$f$ is infinitely complex differentiable.  In particular, $f'$ is
+holomorphic.
+\end{thm}
+
+The ``in particular'' is an important consequence.  It is also a somewhat
+surprising consequence, it says that if $f$ is differentiable in some way,
+then so is the derivative.  Nothing like that is true for real functions.
+
+\begin{exbox}
+\begin{exercise}
+Let $f \colon \R \to \R$ be defined by $f(0) = 0$ and $f(x) = x^2
+\sin\bigl( \frac{1}{x} \bigr)$ for $x \not= 0$.  Show that $f$ is
+differentiable everywhere (including at $0$), but $f'$ is not continuous.
+\end{exercise}
+\end{exbox}
+
+The fact that $f'$ is holomorphic also surprisingly gives us a
+certain converse to Cauchy.
+Morera's theorem is quite a useful tool for showing
+holomorphicity as it is often easier to integrate a continuous
+function than to compute a derivative.
+
+\begin{thm}[Morera]
+\index{Morera's theorem}%
+\label{thm:Morera}%
+Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
+Suppose that
+\begin{equation*}
+\int_{\partial T} f(z) \, dz = 0
+\end{equation*}
+for every triangle such that $T \subset U$.  Then $f$ is holomorphic.
+\end{thm}
+
+\begin{proof}
+As holomorphicity is a local property we can assume that $U$ is a disc.
+We then apply \propref{prop:primitiveinstarlike1} to show that $f$ has
+a primitive $F$ in the disc $U$, and $f = F'$ is thus holomorphic.
+\end{proof}
+
+Let us remark that in the proof,
+the reduction to a disc (or some other simpler set)
+is important.  It is not true
+that every function satisfying the hypotheses of Morera's theorem has a
+primitive in $U$ for a general $U$.  For example, $\frac{1}{z}$ is
+holomorphic in $U = \C \setminus \{ 0 \}$ and satisfies the hypotheses of
+Morera's theorem, however, it does not have a primitive
+in $\C \setminus \{ 0 \}$.  We will see much
+more of its (nonexistent) primitive, the logarithm, shortly.
+
 
 \subsection{The exponential}
 
@@ -4430,6 +4564,13 @@ Letting $r \to \infty$ shows that $c_n = 0$ for $n \geq 1$.  In other
 words, $f(z) = c_0$ for all $z$.
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+Suppose that $f$ is entire and $\sabs{f(z)} \leq e^{\Re z}$ for all $z \in
+\C$.  Show that $f(z) = c e^z$ for all $z$.
+\end{exercise}
+\end{exbox}
+
 \begin{thm}[Fundamental theorem of algebra]\index{fundamental theorem of algebra}
 If $P(z)$ is a nonconstant polynomial, then $P$ has a root.
 \end{thm}
@@ -4493,52 +4634,6 @@ Hint: Prove that $P(z_0) = 0$ implies $P(z) = Q(z) (z-z_0)$ for some
 polynomial $Q$ of degree $d-1$.
 \end{exercise}
 \end{exbox}
-
-\subsection{Complex derivative is holomorphic}
-
-It may be useful to state other consequences of the fact that holomorphic
-functions are analytic.  Firstly we restate \corref{cor:analinfdif} in terms of
-holomorphic functions, now that we know that holomorphic functions are
-analytic.
-
-\begin{thm}
-Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.  Then
-$f$ is infinitely complex differentiable.  In particular, $f'$ is
-holomorphic.
-\end{thm}
-
-The ``in particular'' is an important consequence.  Let us close the circle
-of the various simple versions of Cauchy by giving a converse to Cauchy due
-to Morera.  Morera's theorem is quite a useful tool for showing
-holomorphicity as it is often a lot easier to integrate a continuous
-function than to compute a derivative.
-
-\begin{thm}[Morera]
-\index{Morera's theorem}%
-\label{thm:Morera}%
-Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
-Suppose that
-\begin{equation*}
-\int_{\partial T} f(z) \, dz = 0
-\end{equation*}
-for every triangle such that $T \subset U$.  Then $f$ is holomorphic.
-\end{thm}
-
-\begin{proof}
-As holomorphicity is a local property we can assume that $U$ is a disc.
-We then apply \propref{prop:primitiveinstarlike1} to show that $f$ has
-a primitive $F$ in the disc $U$.
-\end{proof}
-
-Let us remark that in the proof,
-the reduction to a disc (or some other simpler set)
-is important.  It is not true
-that every function satisfying the hypotheses of Morera's theorem has a
-primitive in $U$ for a general $U$.  For example, $\frac{1}{z}$ is
-holomorphic in $U = \C \setminus \{ 0 \}$ and satisfies the hypotheses of
-Morera's theorem, however, it does not have a primitive
-in $\C \setminus \{ 0 \}$.  We will see much
-more of its (nonexistent) primitive, the logarithm, shortly.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4652,7 +4747,10 @@ a holomorphic function to begin with.
 \begin{exercise}
 Compute explicitly
 the Cauchy transform $Cu$ on $\D$ for $u \colon \partial \D \to \C$
-given by $u(z) = \bar{z}$.
+given by $u(z) = \bar{z}$.  Hint: $\bar{\zeta} = \frac{1}{\zeta}$ for
+$\zeta \in \partial \D$
+and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$,
+see also \exerciseref{exercise:cauchycont}.
 \end{exercise}
 \end{exbox}
 
@@ -6360,14 +6458,6 @@ $k$ at $p$.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $f$ has an isolated singularity at $p$.  Suppose that
-$\{ z_n \}$ and $\{ \zeta_n \}$ are two sequences such that
-$\lim z_n = \lim \zeta_n = p$ and $\lim f(z_n) \not= \lim f(\zeta_n)$
-(both limits exist).
-Show that $f$ has an essential singularity at $p$.
-\end{exercise}
-
-\begin{exercise}
 Suppose $f$ has a pole of order $k \in \N$ at $p$.
 Show that there exists a holomorphic function $g$ defined near $p$
 such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
@@ -6379,6 +6469,20 @@ f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
 \begin{exercise}
 Suppose that $f$ and $g$ are entire functions and $\sabs{f} \leq \sabs{g}$
 everywhere.  Show that $f = c g$ for some $c \in \C$.  Hint: Liouville.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ has an isolated singularity at $p$.  Suppose that
+$\{ z_n \}$ and $\{ \zeta_n \}$ are two sequences such that
+$\lim z_n = \lim \zeta_n = p$ and $\lim f(z_n) \not= \lim f(\zeta_n)$
+(both limits exist).
+Show that $f$ has an essential singularity at $p$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \D \setminus \{0\} \to \C$ is holomorphic and
+$f$ has infinitely many zeros in $\Delta_{1/2}(0) \setminus \{ 0 \}$.
+Prove that $f$ has an essential singularity at $0$.
 \end{exercise}
 \end{exbox}
 
@@ -6452,6 +6556,12 @@ of $f$.
 Show that an entire function $f \colon \C \to \C$ has a pole at infinity
 if and only if it is a polynomial.  The order of the pole is the degree of
 the polynomial.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $f$ is entire, $n \in \N$, and
+$\sabs{f(z)} \leq {(1+\sabs{z})}^n$ for all $z$.
+Show that $f$ is a polynomial.  Hint: See previous exercise.
 \end{exercise}
 
 \begin{exercise}
