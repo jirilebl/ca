@@ -1921,6 +1921,25 @@ are infinitely differentiable, although those results will have to wait.
 One thing we can see immediately is that a holomorphic function is
 continuous, as it is real differentiable.
 
+\begin{exbox}
+\begin{exercise} \label{exercise:exponentialholomorphic}
+Show that the complex exponential function, and hence also sine and cosine,
+is holomorphic, and show that $\exp' = \exp$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain (open and connected),
+and $f \colon U \to \R$ be a real-valued function that is holomorphic.
+Prove that $f$ is constant.
+\end{exercise}
+
+\begin{exercise}
+Show that $f(z) = z \bar{z} = \sabs{z}^2$ is complex differentiable
+at the origin, but nowhere else.
+\end{exercise}
+\end{exbox}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Basic properties of holomorphic functions}
@@ -2076,22 +2095,6 @@ computing the derivative.
 Prove that any polynomial $P(z)$ is holomorphic.  And more generally
 rational function $\frac{P(z)}{Q(z)}$ is holomorphic wherever $Q$ is
 nonzero.
-\end{exercise}
-
-\begin{exercise} \label{exercise:exponentialholomorphic}
-Show that the complex exponential function, and hence also sine and cosine,
-is holomorphic, and show that $\exp' = \exp$.
-\end{exercise}
-
-\begin{exercise}
-Let $U \subset \C$ be a domain (open and connected),
-and $f \colon U \to \R$ be a real-valued function that is holomorphic.
-Prove that $f$ is constant.
-\end{exercise}
-
-\begin{exercise}
-Show that $f(z) = z \bar{z} = \sabs{z}^2$ is complex differentiable
-at the origin, but nowhere else.
 \end{exercise}
 \end{exbox}
 
@@ -2831,7 +2834,36 @@ $\sum_{n=0}^\infty n^n z^{n^n}$ has radius of convergence 1,
 while
 $\sum_{n=0}^\infty n^n z^{n}$ is not convergent at all.
 \end{exercise}
+
+\begin{exercise}
+Suppose
+$\sum_{n=0}^\infty a_n z^{n}$ and $\sum_{n=0}^\infty b_n z^{n}$
+have a radius of convergence at least $r > 0$.  Show that
+the sum series
+$\sum_{n=0}^\infty (a_n+b_n) z^{n}$ has a radius of convergence at least
+$r$ and converges to the sum of the two series.
+\end{exercise}
+
+\begin{exercise}
+Suppose
+$\sum_{n=0}^\infty a_n z^{n}$ and $\sum_{n=0}^\infty b_n z^{n}$
+have a radius of convergence at least $r > 0$.  Let 
+$c_n = \sum_{k=0}^n a_{n-k}b_k$.  Show that
+the series
+$\sum_{n=0}^\infty c_n z^{n}$ has a radius of convergence at least
+$r$ and converges to the product of the two series.
+Hint: The key is to look at a point where both series converge absolutely,
+then use the absolute convergence.
+\end{exercise}
 \end{exbox}
+
+\begin{remark}
+The last two exercises say that we can add and multiply series, however,
+we won't need them later on as the two results are easy for holomorphic
+functions, and we will show later that power series are
+holomorphic and vice versa.  You should still try them, they are good
+practice.
+\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2984,6 +3016,17 @@ c_n =
 \begin{exbox}
 \begin{exercise}
 Fill in the details of the proof of this corollary.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \Delta_r(0) \to \C$ is given by a convergent power
+series
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty c_n z^n
+\end{equation*}
+Suppose that for some $\epsilon > 0$, $f(x) = 0$ for all $x \in
+(-\epsilon,\epsilon)$ (an interval on the real line).
+Prove that $c_n = 0$ for all $n$ and hence $f$ is identically zero.
 \end{exercise}
 \end{exbox}
 
@@ -4236,6 +4279,21 @@ $\frac{1}{\zeta-z}$ as
 \frac{\zeta-p}{\zeta-z}
 \end{equation*}
 and then using the geometric series.
+
+\begin{exbox}
+\begin{exercise}
+Suppose that $g(z)$ is such that
+\begin{equation*}
+\lim_{h \to 0}
+\frac{g(z+\bar{h})-g(z)}{h}
+\end{equation*}
+exists for all $z \in \D$.  Prove that there exists
+a sequence $\{ c_n \}$ such that for all $z \in \D$,
+\begin{equation*}
+g(z) = \sum_{n=0}^\infty c_n \bar{z}^n .
+\end{equation*}
+\end{exercise}
+\end{exbox}
 
 \subsection{The exponential}
 
