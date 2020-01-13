@@ -664,13 +664,14 @@ step into a fairytale wonderland.  A first-year real analysis course
 crushes the student's hopes and dreams.  Most reasonable statements
 are false and bizzare counterexamples abound.
 On the other hand, a complex analysis course fills the student with
-unrealistic optimism.  It is filled with na\"ive and silly statements
+unrealistic optimism.  It is replete with na\"ive and silly statements
 that only a bad calculus student could entertain\footnote{%
 E.g., if you can differentiate once, you can differentiate twice.
 Every function acts sort of like a linear function.
 If all derivatives are zero at a point, the function is constant.
 Etc.}.
-It is the good-cop bad-cop, the yin-yang, of modern analysis.
+The two are the good-cop bad-cop, the yin-yang,
+of modern analysis.
 
 
 
@@ -729,7 +730,7 @@ Those people also deserve a good whack.}
 write $i = \sqrt{-1}$.
 We will prove later that complex numbers
 are precisely the field in which every polynomial has roots.
-Note that there is another square root of $-1$, that is $-i$.
+Note that there is another square root of $-1$, that is, $-i$.
 
 %\begin{remark}
 %Another way to define complex numbers is to take the real numbers
@@ -744,7 +745,7 @@ Note that there is another square root of $-1$, that is $-i$.
 %theory, which we could not tell apart from the original.
 %\end{remark}
 
-Given a complex number $z$, its ``evil twin'' is 
+Given a complex number $z=x+iy$, its ``evil twin'' is 
 the \emph{\myindex{complex conjugate}} of $z$ and is defined as
 \glsadd{not:conj}%
 \begin{equation*}
@@ -767,7 +768,7 @@ If $z = x+iy \in \C$ for $x,y \in \R$, then $x$ is called the
 =
 y .
 \end{equation*}
-A particularly useful observation one can make is that above we wrote the
+A particularly useful observation is that above we wrote the
 real part and the imaginary part in terms of $z$ and $\bar{z}$.
 Any expression we write in terms of the real and imaginary parts of $z$,
  we can equally well write in terms of $z$ and $\bar{z}$.  And vice-versa.
@@ -982,15 +983,15 @@ $\C$ as a real two-dimensional vector space by forgetting about the
 complex multiplication.  A standard basis is then $1$ and $i$.
 To put multiplication back into the picture, we think of an object that
 acts on $\R^2$, that is, a matrix.
-Complex numbers can also be represented by $2 \times 2$ real matrices.
-Represent $x+iy$ as
+The complex number $x+iy$ can be represented by the $2 \times 2$ matrix
 \begin{equation*}
 \begin{bmatrix}
 x & -y \\
 y & x
-\end{bmatrix}
+\end{bmatrix} .
 \end{equation*}
-If we think of a complex number $a+ib$ as a matrix and $c+id$ as a column vector
+If we think of a complex number $a+ib$ as a matrix
+and $c+id$ as a column vector,
 then the multiplication makes sense as matrices
 \begin{equation*}
 \begin{bmatrix}
@@ -1102,7 +1103,7 @@ and
 e^x .
 \end{equation*}
 It is possible to not resort to the real exponentials, sines and cosines
-to define the exponential functions, and we will do so in due course.
+to define the complex exponential, and we will do so in due course.
 But we want to have something to play around with now and not wait till
 later.
 
@@ -1118,9 +1119,9 @@ and also $e^1 = e$, but let us not worry about this now.
 \end{exercise}
 \end{exbox}
 
-In particular, we have the so-called
-\emph{\myindex{Euler's formula}}.  For real $\theta$, the definition
-of the exponential says:
+For real $\theta$, the definition
+of the exponential gives the so-called
+\emph{\myindex{Euler's formula}}:
 \begin{equation*}
 e^{i\theta}
 =
@@ -1144,7 +1145,7 @@ them into that formula, now that we know how to evaluate the exponential:
 
 \subsection{Polar coordinates}
 
-As complex numbers are just the plane, we could also use polar coordinates
+As complex numbers are just the plane, we can use polar coordinates
 to represent complex numbers.
 That is, $x = r \cos \theta$ and $y= r \sin \theta$.  We write this form as
 \begin{equation*}
@@ -1166,7 +1167,7 @@ Euler's formula, so
 z = r e^{i\theta} = r\cos \theta + i r\sin \theta  = x+iy .
 \end{equation*}
 
-Polar form is particularly nice for multiplication of numbers and powers.
+Polar form is particularly nice for multiplication of numbers and for powers.
 Suppose $z = r e^{i\theta}$ and $w = s e^{i \psi}$, then
 \begin{equation*}
 zw =
@@ -1200,7 +1201,7 @@ this is the formula for the dot product from calculus.
 
 \subsection{The argument}
 
-We attempt to define the argument as
+We attempt to define the argument of $z = re^{i\theta}$ as
 \glsadd{not:arg}%
 \begin{equation*}
 \arg z
@@ -1251,7 +1252,7 @@ Show that $\Arg$ as defined above is not continuous on $\C \setminus \{ 0
 \subsection{Mapping properties of the exponential}
 
 Before we leave the exponential, let us note what it does to the complex
-plane.  First, the identity $e^{z+w} = e^z e^w$ implies that the exponential
+plane.  The identity $e^{z+w} = e^z e^w$ implies that the exponential
 can never be zero (exercise).  From known properties of polar coordinates
 (so properties of real sine and cosine) it follows that the exponential is
 onto $\C \setminus \{ 0 \}$.
@@ -1265,9 +1266,14 @@ e^z .
 
 \begin{exbox}
 \begin{exercise}
-Then prove that those are really the only such identities by
+Prove that the above are the only such identities by
 showing that if $2ki\pi < \Im z \leq 2(k+1)i\pi$ and
 $2ki\pi < \Im w \leq 2(k+1)i\pi$, then $e^z=e^w$ implies $z=w$.
+\end{exercise}
+
+\begin{exercise}
+Use $e^{z+w} = e^z e^w$ and $e^1 \not= 0$ to show that $e^z \not=0$ for all
+$z \in \C$.
 \end{exercise}
 \end{exbox}
 
@@ -1280,7 +1286,7 @@ e^x e^{iy} ,
 and since $\sabs{e^{iy}} =1$, we find that the vertical line $x=c$ is taken to a
 circle of radius $e^c$.
 
-More generally the exponential takes the strip $a < x < b$ to the
+Thus, the exponential takes the strip $a < x < b$ to the
 annulus
 \begin{equation*}
 \bigl\{ z \in \C : e^a < \sabs{z} < e^b \bigr\} .
@@ -1288,13 +1294,13 @@ annulus
 
 On the other hand consider a horizontal line $y=c$.  By the formula above it
 is taken to the ray from the origin to infinity where $\theta = c$ in polar
-coordinates.  Hence, more generally,
+coordinates.  Hence,
 the exponential takes the strip $a < y < b$ to the
 sector
 \begin{equation*}
 \bigl\{ z \in \C : ``a < \arg z < b'' \bigr\} .
 \end{equation*}
-The reason for the quotation marks is that the inequality of course makes no
+The reason for the quotation marks is that the inequality makes no
 sense without interpreting it properly.  It means that one of the values
 of $\arg z$ is between $a$ and $b$.
 
@@ -1302,25 +1308,19 @@ In particular, the exponential $e^z$ takes the set given by
 $2ki\pi < \Im z \leq 2(k+1)i\pi$ in a one-to-one (see the exercise above)
 way onto $\C \setminus \{ 0 \}$.
 
-\begin{exbox}
-\begin{exercise}
-Use $e^{z+w} = e^z e^w$ and $e^1 \not= 0$ to show that $e^z \not=0$ for all
-$z \in \C$.
-\end{exercise}
-\end{exbox}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{The Riemann sphere}
 
 It is sometimes useful to extend the real numbers by adding $\pm \infty$.
-There is a similar concept for the complex plane, although in this case
+There is a similar concept for the complex plane, although
 we only add one infinity.  We write:
 \begin{equation*}
-\C_{\infty} = \C \cup \{ \infty \} .
+\C_{\infty} = \C \cup \{ \infty \} ,
 \end{equation*}
+and we call $\C_{\infty}$ the \emph{\myindex{Riemann sphere}}.
 The trick is giving this set some geometry or at least topology.  We
-definitely want the topology to be the same as that of $\C$ when we stay
+definitely want the topology to be the same as that of $\C$ when we are
 away from infinity.  We define the function $g \colon \C_\infty \to \C_\infty$
 \begin{equation*}
 g(z) =
@@ -1331,23 +1331,24 @@ g(z) =
 \end{cases}
 \end{equation*}
 The function $g$ is one-to-one and onto.
-Any neighborhood of the origin can be taken to a neighborhood of
-$\infty$ and vice versa.  In fact when talking about a neighborhood of
+Any neighborhood of the origin in $\C$ can be taken to a set that
+includes infinity and we call those neighborhoods of
+$\infty$.  When talking about a neighborhood of
 infinity in $\C_{\infty}$, then we really want to think of this map,
 and think of the corresponding neighborhood of the origin.
 
 More concretely we can give $\C_{\infty}$ a metric space structure.  The way
 we can visualize it is as follows.  Let $S^2$ be the unit sphere in $\R^3$,
 that is, the set described by $x^2 + y^2 + z^2 = 1$ if $(x,y,z)$ are the
-coordinates\footnote{This is one of the few instances in this book where
+coordinates\footnote{This is possibly the only instance in this book where
 $z$ is a real number.}.  The plane $\R^2$ with coordinates $(x,y)$ can be
 identified with $\C$ with coordinate $\xi$ by taking $x+iy = \xi$.
-Given any point $p \in S^2$ which is not the north pole $(0,0,1) \in S^2$,
+Given any point $p \in S^2$, which is not the north pole $(0,0,1) \in S^2$,
 there is a unique line in $\R^3$ through the point $(0,0,1)$ and $p$.
 It is not difficult to prove that this line is never parallel to the
 $xy$-plane, that is, to $\C$, and hence it must intersect $\C$ in a unique
 point $\xi \in \C$ (a plane and a line intersect at a unique point unless
-the two are parallel).  We then define:
+the two are parallel).  We define:
 \begin{equation*}
 \Phi(p) = \xi.
 \end{equation*}
@@ -1361,15 +1362,15 @@ could be the great circle distance, \exampleref{ms:greatcircle}).
 
 \begin{exbox}
 \begin{exercise}
+Show that $\Phi$ is one-to-one and onto.
+\end{exercise}
+
+\begin{exercise}
 Suppose $(\phi,\theta)$
 are spherical coordinates on $S^2$, where $0 \leq \phi \leq \pi$ is the zenith (angle made
 with the $z$-axis) and $-\pi < \theta \leq \pi$ the azimuth, and we write
 points in $\C$ using polar coordinates $re^{\theta}$.  Then prove that $\Phi$ of
 $(\phi,\theta)$ is $(\cot \nicefrac{\phi}{2})e^{i\theta}$.
-\end{exercise}
-
-\begin{exercise}
-Show that $\Phi$ is one-to-one and onto.
 \end{exercise}
 
 \begin{exercise}
@@ -1389,6 +1390,7 @@ function $f \colon U \subset \C_\infty \to \C_\infty$ we define
 \end{equation*}
 as the metric space limit using the metric on the Riemann sphere, this
 includes the cases when $z_0 = \infty$ and when $L = \infty$.
+Conveniently the Riemann sphere is compact.
 
 \begin{exbox}
 \begin{exercise}
@@ -1425,7 +1427,7 @@ $\lim_{z \to z_0} \frac{1}{f(z)} = 0$.
 
 It then makes sense to talk about the value of $\frac{1}{z}$ at the origin
 as $\infty$, and the value of $z$ at $\infty$ as $\infty$.
-In fact, any polynomial is $\infty$ at $\infty$.
+In fact, any nonconstant polynomial is $\infty$ at $\infty$.
 
 \begin{exbox}
 \begin{exercise} \label{exercise:polygoesinf}
@@ -1480,7 +1482,7 @@ however, as in the last section, we write
 f\left(\frac{-d}{c}\right) = \infty, \qquad \text{and} \qquad
 f(\infty) = \frac{a}{c} .
 \end{equation*}
-If $c=0$, then just set $f(\infty) = \infty$.  Then $f$ is a map of
+If $c=0$, then set $f(\infty) = \infty$.  Then $f$ is a map of
 the Riemann sphere to itself.
 
 \begin{exbox}
@@ -1559,7 +1561,7 @@ $u \sim v$ if and only if $u = \lambda v$ for some $\lambda \in \C$.
 In other words, $\C \bP^1$ is the set of ``complex lines through the
 origin'' in $\C^2$, or yet in other words, the set of one-dimensional vector
 subspaces of $\C^2$.  We identify $\C\bP^1$ with $\C_\infty$ in the following
-way.  Suppose $[z,w]$ denotes the equivalence class of vectors in $C^2$.
+way.  Suppose $[z,w]$ denotes the equivalence class of vectors in $\C^2$.
 Then define the map $\Phi \colon \C_\infty \to \C \bP^1$ as
 \begin{equation*}
 \Phi(z) =
@@ -1575,7 +1577,7 @@ Prove that $\Phi$ above is bijective.
 \end{exercise}
 \end{exbox}
 
-Now we can check that the function
+Let us check that
 \begin{equation*}
 f(z) = \frac{a z + b}{c z + d}
 \end{equation*}
@@ -1587,7 +1589,7 @@ a & b \\
 c & d
 \end{bmatrix} .
 \end{equation*}
-First $\Phi \circ f$ for $z \in \C$ is equal to
+First, $\Phi \circ f$ for $z \in \C$ is equal to
 \begin{equation*}
 \Phi \circ f(z) =
 \left[\frac{a z + b}{c z + d}, 1 \right]
@@ -1595,7 +1597,7 @@ First $\Phi \circ f$ for $z \in \C$ is equal to
 \left[a z + b, c z + d \right] ,
 \end{equation*}
 where the second inequality follows by definition of $\sim$.
-Next notice that (again noting the definition of $\sim$
+Next, notice that (again noting the definition of $\sim$
 and the fact that $(z,w) \mapsto M(z,w) = (a z + b w, c z + d w)$ is
 linear):
 \begin{equation*}
@@ -1621,7 +1623,7 @@ C(z)
 \end{equation*}
 The map is an LFT, and it
 takes the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$ to the
-unit disc.  Let us see why.  A $z$ goes to the unit disc if
+unit disc.  Let us see why.  A $z \in \C$ goes to the unit disc if
 \begin{equation*}
 1 > \abs{\frac{z - i}{z + i} }
 =
