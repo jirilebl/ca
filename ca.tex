@@ -269,7 +269,10 @@
 \title{Guide to Cultivating Complex Analysis}
 
 % Don't include subsections
-\setcounter{tocdepth}{1}
+%\setcounter{tocdepth}{1}
+
+% Better "outline"
+\setcounter{tocdepth}{2}
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
@@ -3130,6 +3133,12 @@ Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
 analytic such that the set $\{ z \in U : f(z) = g(z) \}$ has a limit
 point in $U$.  Prove that $f = g$ everywhere.
 \end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
+\C$ are analytic such that $f(z)g(z) = 0$ for all $z \in U$.
+Prove that either $f$ or $g$ is identically zero.
+\end{exercise}
 \end{exbox}
 
 Think of the implications.  If $f \colon U \to \C$ is analytic, and we know
@@ -3580,14 +3589,15 @@ if one uses the gauge integral even without any hypothesis on $f$.}.
 
 \begin{defn}
 A path $\gamma \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if 
-$\gamma(a) = \gamma(b)$.  The fundamental theorem has the following
-immediate corollary.
-
+$\gamma(a) = \gamma(b)$.
 A chain $\Gamma$ that is equivalent to
 $a_1 \gamma_1 + \cdots + a_n \gamma_n$, where $\gamma_1, \ldots, \gamma_n$
 are closed paths,
 is called a \emph{\myindex{cycle}}.
 \end{defn}
+
+The fundamental theorem has the following
+immediate corollary.
 
 \begin{cor}[Cauchy's theorem for derivatives] \label{cor:cauchyforders}
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
@@ -3611,8 +3621,9 @@ primitive.  So the other versions of Cauchy's theorem will generally
 either restrict which $\gamma$ can be taken or
 restrict to only those $U$ where every holomorphic function has a primitive.
 
-The above corollary has another quick corollary (which will be entirely
-subsumed into the more general version of Cauchy we will prove later).
+The above corollary has another quick corollary, which will be entirely
+subsumed into the more general version of Cauchy we will prove later,
+but right now it is rather appealing.
 
 \begin{cor}[Cauchy's theorem for polynomials]
 Suppose $P(z)$ is a polynomial and $\gamma$ is a closed
@@ -4428,6 +4439,12 @@ Morera's theorem, however, it does not have a primitive
 in $\C \setminus \{ 0 \}$.  We will see much
 more of its (nonexistent) primitive, the logarithm, shortly.
 
+\begin{exbox}
+\begin{exercise}
+Show that if $f \colon \C \to \C$ is continuous and holomorphic on $\C
+\setminus \R$, then $f$ is holomorphic everywhere.
+\end{exercise}
+\end{exbox}
 
 \subsection{The exponential}
 
@@ -5063,6 +5080,11 @@ we obtain $f(z) = e^{-i\theta} \varphi_{-a}(z)$.
 
 \begin{exbox}
 \begin{exercise}
+Given two distinct $a,b \in \D$, show that there exists a unique automorphism
+$f$ such that $f(a) = b$ and $f(b) = a$.
+\end{exercise}
+
+\begin{exercise}
 Prove that if $\bH = \{ z \in \C : \Im z > 0 \}$ is the upper half-plane
 and $f \colon \bH \to \bH$ is an automorphism of $\bH$, then
 \begin{equation*}
@@ -5114,6 +5136,8 @@ Never doubt the courage of the French. They were the ones who discovered that sn
 
 \section{The logarithm and the winding number}
 \label{sec:log}
+
+\subsection{The logarithm}
 
 Let us look at the function $z^n$ for $n \in \Z$.  When $n \geq 0$, 
 then $z^n$ is defined in the entire plane, and a primitive is
@@ -5250,6 +5274,8 @@ Points where the branches are supposed to equal
 are marked.\label{fig:followbranch}}
 \end{myfig}
 
+\subsection{Winding numbers}
+
 OK.  Let's get more rigorous.  In the following, it is enough
 to consider closed paths, although everything automatically works
 also for cycles (chains that can be written as sums of closed paths,
@@ -5324,15 +5350,8 @@ $2\pi k i$ for some $k \in \Z$, as each is $\log\sabs{z_0} + i \arg z_0$ for som
 $\arg$.
 \end{proof}
 
-\begin{exbox}
-\begin{exercise} \label{exercise:windingcircle}
-%FIXME: mark needed/used exercises
-Let $\partial \Delta_r(p)$ be the path oriented counterclockwise.
-Show that $n(\partial \Delta_r(p);z) = 0$ if $z \notin
-\overline{\Delta_r(p)}$ and 
-$n(\partial \Delta_r(p);z) = 1$ if $z \in \Delta_r(p)$.
-\end{exercise}
-\end{exbox}
+The second thing to notice is that $n(\gamma;z)$ is constant as long as we
+do not cross $\gamma$.
 
 \begin{prop}
 Given a piecewise $C^1$ path (or a cycle) $\gamma$ then
@@ -5392,6 +5411,35 @@ On the unbounded component---as $\gamma$ is compact---we can find $p$
 with $d(p,\gamma)$ arbitrarily large, meaning $n(\gamma;p)$ is arbitrarily small
 on this component, and as it is constant, it must be zero.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise} \label{exercise:windingcircle}
+%FIXME: mark needed/used exercises
+Let $\partial \Delta_r(p)$ be the path oriented counterclockwise.
+Show that $n\bigl(\partial \Delta_r(p);z\bigr) = 0$ if $z \notin
+\overline{\Delta_r(p)}$ and 
+$n\bigl(\partial \Delta_r(p);z\bigr) = 1$ if $z \in \Delta_r(p)$.
+\end{exercise}
+
+\begin{exercise}
+Let $n \in \Z$ and $\gamma \colon [0,2\pi] \to \C$, where
+$\gamma(t) = p + re^{in t}$ be a path.
+Prove that
+$n\bigl(\partial \Delta_r(p);z\bigr) = n$ if $z \in \Delta_r(p)$.
+\end{exercise}
+
+\begin{exercise} \label{exercise:windingcircles}
+Suppose $0 < r_1 < r_2 < \infty$.
+Let $\Gamma = \partial \Delta_{r_2}(p) - \partial \Delta_{r_1} (p)$
+(that is, the outside circles goes counterclockwise, the inside circle goes
+clockwise).
+Prove that if $z \in \C$ is such that $\sabs{z-p} < r_1$ then
+$n(\Gamma;z) = 0$.  If $r_1 < \sabs{z-p} < r_2$, then
+$n(\Gamma;z) = 1$.  If $r_2 < \sabs{z-p}$, then
+$n(\Gamma;z) = 0$.
+\end{exercise}
+\end{exbox}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -5839,10 +5887,11 @@ around the smaller ($s_1$) circle clockwise.
 
 If $z \in \C \setminus \ann(p,r_1,r_2)$, then $n(\Gamma;z) = 0$:
 If $z$ is in the ``hole'' of the annulus, then
-$n(\partial \Delta_{s_j}(p);z) = 1$ for both $j=1,2$, and 
+$n\bigl(\partial \Delta_{s_j}(p);z\bigr) = 1$ for both $j=1,2$, and 
 if $z$ is outside the annulus altogether then
-$n(\partial \Delta_{s_j}(p);z) = -1$ for both $j=1,2$,
-see \exerciseref{exercise:windingcircle}.
+$n\bigl(\partial \Delta_{s_j}(p);z\bigr) = -1$ for both $j=1,2$,
+see \exerciseref{exercise:windingcircle} or.
+\exerciseref{exercise:windingcircles}.
 On the other hand if $z$ is in the (smaller) annulus $\ann(p,s_1,s_2)$,
 then for similar reasons, $n(\Gamma;z) = 1$.
 
@@ -6388,6 +6437,20 @@ $g(z) = {(z-p)}^k h(z)$ where $h$ is holomorphic near $p$,
 then $f(z) = {(z-p)}^{k-2}h(z)$, or in other words, $p$ is a removable 
 singularity.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove that if $f \colon \D \setminus \{ 0 \} \to \D \setminus \{ 0 \}$
+is an automorphism then $f(z) = e^{i\theta} z$ for some $\theta$.
+\end{exercise}
+
+\begin{exercise}
+Prove that if
+$f \colon \D \setminus \bigl\{ 0, \frac{1}{2} \bigr\} \to \D \setminus
+\bigl\{ 0 , \frac{1}{2} \bigr\}$
+is an automorphism then $f(z) = z$ or $f(z) = \frac{1-2z}{2-z}$.
+\end{exercise}
+\end{exbox}
 
 Using the Riemann extension, we find a criterion for poles, and classify
 poles according to order just like zeros.
