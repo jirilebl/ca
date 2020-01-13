@@ -648,7 +648,7 @@ From \glsadd{not:Z}$\Z$, we define the rational numbers
 \glsadd{not:Z}$\Q$ to solve\footnote{%
 Do we really solve it by writing $x = \frac{1}{2}$?  After all, 
 $\frac{1}{2}$ is just a placeholder for an object that we can't describe
-in another way other than ``whatever 1 divided by 2 would be if it existed.''}
+in another way other than ``whatever $1$ divided by $2$ would be if it existed.''}
 equations such as $2x=1$.  We extend
 \glsadd{not:Q}$\Q$ to the real numbers \glsadd{not:R}$\R$
 to solve equations such as $x^2=2$.  Actually our definition 
@@ -813,14 +813,14 @@ if and only if $z=0$.
 If $z,w \in \C$, then
 \begin{enumerate}[(i)]
 \item
-$\Re z\bar{w} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz inequality\footnote{%
+$\sabs{\Re z\bar{w}} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz inequality\footnote{%
 Some will say it should be Cauchy--Bunyakovsky--Schwarz, but that is wrong.
 Bunyakovsky and Schwarz proved the infinite-dimensional version.  This is
 just Cauchy inequality, but unfortunately that name refers to a different
-inequality, one that we will call the Cauchy estimates.}),
-\index{Cauchy--Schwarz}
+inequality, one that we will call the Cauchy estimates.}, note: $\Re z
+\bar{w}$ is the real dot product),\index{Cauchy--Schwarz}
 \item
-$\sabs{z+w} \leq \sabs{z} + \sabs{w}$ \quad (Triangle inequality).
+$\sabs{z+w} \leq \sabs{z} + \sabs{w}$ \quad (Triangle inequality).%
 \index{triangle inequality!complex numbers}
 \end{enumerate}
 \end{prop}
@@ -830,7 +830,7 @@ The modulus squared of a complex number is always nonnegative:
 \begin{equation*}
 \begin{split}
 0 & \leq {\sabs{z\bar{w}-\bar{z}w}}^2 \\
-  & =    (z\bar{w}-\bar{z}w)(z\bar{w}-\bar{z}w) \\
+  & =    (z\bar{w}-\bar{z}w)(\bar{z}w-z\bar{w}) \\
   & =    2z\bar{z}w\bar{w} - z^2\bar{w}^2 - \bar{z}^2w^2 \\
   & =    4z\bar{z}w\bar{w} - {(z\bar{w}+\bar{z}w)}^2 \\
   & =    {(2\sabs{z}\sabs{w})}^2 - {(2 \Re z\bar{w})}^2 .
@@ -900,7 +900,7 @@ as
 \overset{\text{def}}{=}
 \bigl\{ z \in \C : \sabs{z-p} < r \bigr\} .
 \end{equation*}
-A disc centered at the origin of radius 1 is called the
+A disc centered at the origin of radius $1$ is called the
 \emph{\myindex{unit disc}}
 \glsadd{not:D}%
 \begin{equation*}
@@ -1022,7 +1022,7 @@ i \quad ``{}={}'' \quad
 1 & 0
 \end{bmatrix} 
 \end{equation*}
-are the identity and the rotation counterclockwise by 90 degrees
+are the identity and the rotation counterclockwise by $90$ degrees
 respectively.  Precisely what we expect multiplication by $1$ and $i$
 to do.
 The complex conjugate is represented by the
@@ -1066,7 +1066,7 @@ $2m \times 2n$ real matrix by replacing each entry by a $2 \times 2$ matrix.
 So software set up for working with real matrices can easily be duped into
 working with complex matrices.
 
-For us the application will be to understand the derivative of a
+For us the main application will be to understand the derivative of a
 complex-valued function of a complex variable $f \colon \C \to \C$.
 By thinking of the function simply as a mapping $f \colon \R^2 \to \R^2$,
 then the real derivative of this mapping is a $2 \times 2$ matrix.  And the
@@ -1184,7 +1184,7 @@ z^n =
 r^n e^{i n\theta} .
 \end{equation*}
 In particular, again we see that multiplication by $i = e^{i \pi / 2}$ is
-rotation counterclockwise by 90 degrees.
+rotation counterclockwise by $90$ degrees.
 On the other hand, the polar form is particularly terrible for addition.
 You win some, you lose some.
 
@@ -1708,14 +1708,14 @@ Prove the invariance of cross ratios under LFTs.
 \end{exercise}
 
 \begin{exercise}
-Prove that 4 distinct points are on a line or a circle if and only if the cross
+Prove that four distinct points are on a line or a circle if and only if the cross
 ratio is real.
 Hint: The exercise above and \exerciseref{exercise:anycircletorealline}.
 \end{exercise}
 \end{exbox}
 
 Cross ratios give a convenient way to describe LFTs.  For example, 
-for 3 distinct numbers $z_2,z_3,z_4$, the
+for three distinct numbers $z_2,z_3,z_4$, the
 function
 \begin{equation*}
 f(z) =
@@ -3698,12 +3698,12 @@ We will find a point
 where $f$ is not complex differentiable.
 
 Let $\ell$ be the sum of the length of the sides of $T$.
-Cut $T$ into 4 subtriangles
+Cut $T$ into four subtriangles
 $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side in half.  See
 \figureref{fig:trianggoursat}.
 \begin{myfig}
 \subimport*{figures/}{trianggoursat.pdf_t}
-\caption{Cutting a triangle into 4 triangles of half the size.%
+\caption{Cutting a triangle into four triangles of half the size.%
 \label{fig:trianggoursat}}
 \end{myfig}
 
@@ -5069,7 +5069,7 @@ But $h$ can have no zeros:
 $h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is one-to-one,
 and $h(0) = g'(0) \not= 0$.  As $g$ is a biholomorphism, then $g^{-1}$ is
 continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
-In other words, $\sabs{g(z)}$ must get close to 1 as $z$
+In other words, $\sabs{g(z)}$ must get close to $1$ as $z$
 approaches the boundary $\partial \D$.  Then so must $\sabs{h(z)}$.
 The function
 $\sabs{h(z)}$ must attain a minimum inside $\D$, or in other
@@ -5158,7 +5158,7 @@ U = \C \setminus \{ \Re z \leq 0 , \Im z = 0 \},
 the so-called \emph{\myindex{slit plane}}.  It is a star-like domain and
 so there exists a
 primitive for $\frac{1}{z}$ in $U$.
-We could require that this primitive is 0 at 1,
+We could require that this primitive is $0$ at $1$,
 and from this we get a function
 \begin{equation*}
 \operatorname{Log} \colon U \to \C ,
@@ -5264,8 +5264,8 @@ a single branch, it means that we define a branch in some small open set,
 follow its values for a while, then switch to another branch that 
 happens to agree with the first branch at least at the point where we are
 at.  See \figureref{fig:followbranch}.  This is really what we did in the
-``computation'' above.  We followed the log from 1 along the circle until we
-ended up at 1 again, and our branches that we followed ended up $2\pi i$
+``computation'' above.  We followed the log from $1$ along the circle until we
+ended up at $1$ again, and our branches that we followed ended up $2\pi i$
 off.  We will see an example of this briefly.
 
 \begin{myfig}
@@ -6511,7 +6511,7 @@ bounded if $k \leq \ell$ ($f$ has a removable singularity).
 Given a holomorphic function $f$ with a pole, the smallest $k \in \N$
 such that ${(z-p)}^k f(z)$ is bounded is called the
 \emph{order}\index{order of a pole} of the pole.
-A pole of order 1 is called a \emph{\myindex{simple pole}}.
+A pole of order $1$ is called a \emph{\myindex{simple pole}}.
 \end{defn}
 
 As can be seen from the proof of the proposition,
@@ -6549,6 +6549,12 @@ Show that $f$ has an essential singularity at $p$.
 Suppose $f \colon \D \setminus \{0\} \to \C$ is holomorphic and
 $f$ has infinitely many zeros in $\Delta_{1/2}(0) \setminus \{ 0 \}$.
 Prove that $f$ has an essential singularity at $0$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \D \setminus \{0\} \to \C$ is holomorphic 
+has a pole of order $2$ at the origin.  Then $f$ has a primitive
+in $\D \setminus \{ 0 \}$.
 \end{exercise}
 \end{exbox}
 
@@ -7079,6 +7085,13 @@ $\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$
 \item
 $\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Prove that if $S$ is a countable discrete set (every point is isolated)
+and $f \colon \C \setminus S \to \C$ is holomorphic with all the points
+of $S$ being poles of order at least 2, then $f$ has a primitive in
+$\C \setminus S$ (even though that's not simply connected).
 \end{exercise}
 \end{exbox}
 
@@ -7736,7 +7749,7 @@ using the function $\frac{1+z}{1-z}$ evaluated at 0.
 For the third item, notice that we only need to prove the
 theory for $\delta \leq \theta \leq \pi$ by symmetry ($P_r$ is even).
 On $(0,\pi)$, $P_r$ is strictly decreasing as $\cos \theta$ is strictly
-increasing.  So we only need to show that $P_r(\delta)$ goes to 0
+increasing.  So we only need to show that $P_r(\delta)$ goes to $0$
 as $r \to 1$ if $\delta > 0$.
 This follows by noting that $r \mapsto
 \frac{1+re^{i\delta}}{1-re^{i\delta}}$
@@ -8439,7 +8452,7 @@ value $-\infty$.
 \item
 Show that $f$ is a subharmonic function in $U$.
 \item
-If $U = \D$ and $p_n = \frac{1}{n}$, show that $f$ is discontinuous at 0
+If $U = \D$ and $p_n = \frac{1}{n}$, show that $f$ is discontinuous at $0$
 (the natural topology on $\R \cup \{ -\infty \}$).
 \item
 If $\{ p_n \}$ is dense in $U$, show that $f$ 
@@ -8709,7 +8722,7 @@ context.
 The geometric idea is that $d$ is the distance between two points. 
 Items \ref{metric:pos}--\ref{metric:com} have obvious geometric
 interpretation: Distance is always nonnegative, the only point that is
-distance 0 away from $x$ is $x$ itself, and finally that the distance from
+distance $0$ away from $x$ is $x$ itself, and finally that the distance from
 $x$ to $y$ is the same as the distance from $y$ to $x$.  The triangle
 inequality \ref{metric:triang} has the interpretation given in
 \figureref{fig:mstriang}.
@@ -8797,7 +8810,7 @@ y_k \bigr)
 \biggl( \sum_{k=1}^n x_k y_k \biggr) .
 \end{split}
 \end{equation*}
-We relabel and divide by 2 to obtain the needed inequality:
+We relabel and divide by $2$ to obtain the needed inequality:
 \begin{equation*}
 0 \leq 
 \biggl( \sum_{j=1}^n x_j^2 \biggr)
@@ -9239,7 +9252,7 @@ every ball in $\R$ around $0$, $B(0,\delta) = (-\delta,\delta)$, contains negati
 numbers and hence is not contained in $[0,1)$.  So $[0,1)$ is not open.
 Second, every ball in $\R$ around $1$,
 $B(1,\delta) = (1-\delta,1+\delta)$, contains
-numbers strictly less than 1 and greater than 0
+numbers strictly less than $1$ and greater than $0$
 (e.g.\ $1-\nicefrac{\delta}{2}$ as long as $\delta < 2$).
 Thus ${[0,1)}^c = \R \setminus
 [0,1)$ is not open, and $[0,1)$ is not closed.
@@ -9439,7 +9452,7 @@ A nonempty%
 \footnote{Some authors do not exclude the empty set from the definition,
 and the empty set would then be connected.
 We avoid the empty set for essentially the same reason why
-1 is neither a prime nor a composite number:  Our connected sets have exactly
+$1$ is neither a prime nor a composite number:  Our connected sets have exactly
 two clopen subsets and disconnected sets have more than two.  The empty set
 has exactly one.}
 metric space $(X,d)$ is \emph{\myindex{connected}} if the
@@ -9613,7 +9626,7 @@ Always notice what ambient metric space you are working with.
 If $X = (0,\infty)$, then
 the closure of $(0,1)$ in $(0,\infty)$ is $(0,1]$.  Proof:  Similarly as
 above $(0,1]$ is closed in $(0,\infty)$ (why?).  Any closed set $E$
-that contains $(0,1)$ must contain 1 (why?).  Therefore, $(0,1] \subset E$,
+that contains $(0,1)$ must contain $1$ (why?).  Therefore, $(0,1] \subset E$,
 and hence $\overline{(0,1)} = (0,1]$ when working in $(0,\infty)$.
 \end{example}
 
@@ -12021,7 +12034,7 @@ Let $\chi_{T}$ be the characteristic function of a set $T$, that is $\chi_T(x) =
 1$ if $x \in T$ and $\chi_T(x) = 0$ otherwise.
 The functions $n \chi_{(0,\nicefrac{1}{n})}$ all integrate (on the interval
 $[0,1]$) to 1.  Their
-pointwise limit is 0 (whose integral is 0).
+pointwise limit is $0$ (whose integral is $0$).
 \end{example}
 
 If we require the convergence to be uniform, the limits can
@@ -12242,7 +12255,7 @@ for all $x \in I$.  Then
 The proof goes through without boundedness of $I$, except for the
 uniform convergence of $f_n$ to $f$.  As an example suppose $I = \R$ and let
 $f_n(x) = \nicefrac{x}{n}$.  Then $f_n'(x)=\nicefrac{1}{n}$, which
-converges uniformly to $0$.  However, $\{f_n\}$ converges to 0 only pointwise.
+converges uniformly to $0$.  However, $\{f_n\}$ converges to $0$ only pointwise.
 
 \begin{exbox}
 \begin{exercise}
@@ -12921,12 +12934,12 @@ Then $r(h) = k-Ah$ or $Ah = k-r(h)$, and $f(p+h) = q+k$.
 \end{equation*}
 First, $\snorm{B}$ is constant and $f$ is differentiable at $p$,
 so
-the term $\snorm{B}\frac{\snorm{r(h)}}{\snorm{h}}$ goes to 0.
+the term $\snorm{B}\frac{\snorm{r(h)}}{\snorm{h}}$ goes to $0$.
 Next as $f$ is continuous at $p$, we have that as 
-$h$ goes to 0, then $k$ goes to 0.  Therefore
+$h$ goes to $0$, then $k$ goes to $0$.  Therefore
 $\frac
 {\snorm{g(q+k)-g(q) - Bk}}
-{\snorm{k}}$ goes to 0 because $g$ is differentiable at $q$.
+{\snorm{k}}$ goes to $0$ because $g$ is differentiable at $q$.
 Finally 
 \begin{equation*}
 \frac
@@ -13508,7 +13521,7 @@ By the inverse triangle inequality $\snorm{h} - \snorm{A^{-1}k} \leq
 \begin{equation*}
 \snorm{h} \leq 2 \snorm{A^{-1}k} \leq 2 \snorm{A^{-1}} \, \snorm{k}.
 \end{equation*}
-In particular, as $k$ goes to 0, so does $h$.
+In particular, as $k$ goes to $0$, so does $h$.
 
 As $x \in V$, then $Df|_x$ is invertible.
 Let $B = \bigl(Df|_x\bigr)^{-1}$, which is what we think the derivative of
@@ -13535,9 +13548,9 @@ $g$ at $y$ is.  Then
 \frac{\snorm{f(x+h)-f(x)-Df|_x h}}{\snorm{h}} .
 \end{split}
 \end{equation*}
-As $k$ goes to 0, so does $h$.  So the right hand side goes to 0 as $f$ is
+As $k$ goes to $0$, so does $h$.  So the right hand side goes to $0$ as $f$ is
 differentiable, and hence
-the left hand side also goes to 0.  And
+the left hand side also goes to $0$.  And
 $B$ is precisely what we wanted $Dg|_y$ to be.
 
 We have $g$ is differentiable, let us show it is $C^1(W)$.
