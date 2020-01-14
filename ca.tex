@@ -1785,7 +1785,7 @@ In other words,
 \end{equation*}
 So $P(z_0+h)$ is approximated (locally) by $c_0 + c_1 h$
 up to an error that vanishes faster than $h$.
-We should emphasize that the limits are as a complex $h$ goes to 0.
+We should emphasize that the limits are as a complex $h$ goes to $0$.
 
 Therefore, we wish to study functions that are
 locally approximated by $c_0 + c_1 h$ in the same way.  More formally
@@ -2607,9 +2607,9 @@ a $z^n$ for some $n$ out of a power series that vanishes at the origin, which is
 after all, just a sum of such terms.  This means that any holomorphic
 function really behaves like $z^n$ behaves near the origin for some $n$.
 
-A key point about the function $z \mapsto z^n$ is that it is $n$-to-1.
-That is, there are $n$ distinct roots of any complex number except 0,
-which has in some sense also $n$ roots but they are all 0.  For any nonzero
+A key point about the function $z \mapsto z^n$ is that it is $n$-to-$1$.
+That is, there are $n$ distinct roots of any complex number except $0$,
+which has in some sense also $n$ roots but they are all $0$.  For any nonzero
 number write $w = re^{i\theta}$.  Then the $n$ roots are easily seen
 (using the polar form) as
 \begin{equation*}
@@ -2788,7 +2788,7 @@ $\sabs{c_n} r^n \leq M$ for all $n$ and $s < r$, then
 \sqrt[n]{\sabs{c_n} s^n}=
 \frac{s}{r}\sqrt[n]{\sabs{c_n} r^n} \leq \frac{s}{r} \sqrt[n]{M} .
 \end{equation*}
-The limsup of the right hand side is 0, so the series converges in
+The limsup of the right hand side is $0$, so the series converges in
 $\Delta_s(p)$.  As $r < R$ and $s < r$ were arbitrary,
 the series converges in $\Delta_R(p)$.
 \end{proof}
@@ -2852,14 +2852,15 @@ $K$ by discs $\Delta_r(p)$).  The result follows.
 
 \begin{exbox}
 \begin{exercise}
-Show that the series $\sum_{n=0}^\infty \frac{1}{n^2} z^{n}$ has radius of convergence 1, and
+Show that the series $\sum_{n=0}^\infty \frac{1}{n^2} z^{n}$ has radius of
+convergence $1$, and
 show that it converges absolutely on the boundary of the unit disc.  Hence
 it actually converges uniformly on the entire closed unit disc.
 \end{exercise}
 
 \begin{exercise}
 Show that
-$\sum_{n=0}^\infty n^n z^{n^n}$ has radius of convergence 1,
+$\sum_{n=0}^\infty n^n z^{n^n}$ has radius of convergence $1$,
 while
 $\sum_{n=0}^\infty n^n z^{n}$ is not convergent at all.
 \end{exercise}
@@ -4604,7 +4605,7 @@ $\lim_{z \to \infty} R(z) = 0$.  In other words, $R(z)$ is bounded, but then
 it would be constant (a contradiction).
 %
 %Without loss of generality we can assume that $P$ is monic, that is,
-%the leading coefficient is 1.  So
+%the leading coefficient is $1$.  So
 %Let $P(z) = z^d + c_{d-1} z^{d-1} + \cdots c_1 z + c_0$.
 %Then as long as $\sabs{z} \geq 1$,
 %\begin{equation*}
@@ -5301,7 +5302,7 @@ sometimes the
 Intuitively, the winding number is the number of times that $\gamma$ winds
 around $p$.  This intuition is confirmed by trying to integrate
 $\frac{1}{z}$ for the path $e^{it}$ for $t \in [0,2\pi]$, that gets you 
-a winding number 1, as it goes once counterclockwise direction around zero.  If we do
+a winding number $1$, as it goes once counterclockwise direction around zero.  If we do
 the integral with $e^{2it}$, we go around zero twice in the
 counterclockwise direction, and the winding number really is $2$.  Similarly
 if we use $e^{-it}$, then we go around zero once in the
@@ -6242,7 +6243,7 @@ We call the point $p$ such that $f(p) = 0$ a \emph{\myindex{zero}} of
 $f$.
 The $k$ from the lemma is called the \emph{order}\index{order of a zero}
 of the zero at $p$.
-If the order is 1, we say $p$ is a \emph{\myindex{simple zero}}.
+If the order is $1$, we say $p$ is a \emph{\myindex{simple zero}}.
 We will also call the order, for reasons that will be obvious very soon,
 the \emph{multiplicity}\index{multiplicity of a zero}\footnote{%
 To be anally retentive: $f$ is of order $k$ at $p$,
@@ -6253,7 +6254,7 @@ the zero at $p$.
 For completeness, the conclusion of the lemma holds also when $f(p) \not= 0$,
 in which case
 $k=0$ and $g = f$.  So we can say that when $f(p) \not= 0$, then $p$ is
-a zero of order 0, which sounds somewhat idiotic, but it all fits a general
+a zero of order $0$, which sounds somewhat idiotic, but it all fits a general
 picture, and we will see negative orders a couple of sections from now.
 
 Another remark (which is hidden in the lemma)
@@ -6550,12 +6551,6 @@ Suppose $f \colon \D \setminus \{0\} \to \C$ is holomorphic and
 $f$ has infinitely many zeros in $\Delta_{1/2}(0) \setminus \{ 0 \}$.
 Prove that $f$ has an essential singularity at $0$.
 \end{exercise}
-
-\begin{exercise}
-Suppose $f \colon \D \setminus \{0\} \to \C$ is holomorphic 
-has a pole of order $2$ at the origin.  Then $f$ has a primitive
-in $\D \setminus \{ 0 \}$.
-\end{exercise}
 \end{exbox}
 
 \subsection{Singularities and the Laurent series}
@@ -6605,7 +6600,7 @@ e^{1/z}
 \sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n .
 \end{equation*}
 so the principal part is infinite and $e^{1/z}$ has an essential
-singularity at 0.  In fact, this is the first example anyone ever thinks of
+singularity at $0$.  In fact, this is the first example anyone ever thinks of
 if asked for an example of an essential singularity.
 
 \begin{exbox}
@@ -6952,7 +6947,7 @@ We note by partial fractions we find
 \frac{i}{2} \frac{1}{z-i} .
 \end{equation*}
 In particular, there is an isolated singularity at $\pm i$.  Our cycle
-$\Gamma_r$ goes around $i$ (once so $n(\Gamma_r,i) = 1$),
+$\Gamma_r$ goes around $i$ (once so $n(\Gamma_r;i) = 1$),
 but not around $-i$ (exercise), so we only need to compute
 the residue in one of the ways:
 \begin{equation*}
@@ -7007,8 +7002,8 @@ take two independent limits.
 \begin{exbox}
 \begin{exercise}
 Rigorously prove that in the example above
-$n(\Gamma_r,i) = 1$ and
-$n(\Gamma_r,i) = 0$.
+$n(\Gamma_r;i) = 1$ and
+$n(\Gamma_r;i) = 0$.
 \end{exercise}
 \end{exbox}
 
@@ -7085,13 +7080,6 @@ $\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$
 \item
 $\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$
 \end{exparts}
-\end{exercise}
-
-\begin{exercise}
-Prove that if $S$ is a countable discrete set (every point is isolated)
-and $f \colon \C \setminus S \to \C$ is holomorphic with all the points
-of $S$ being poles of order at least 2, then $f$ has a primitive in
-$\C \setminus S$ (even though that's not simply connected).
 \end{exercise}
 \end{exbox}
 
@@ -7175,21 +7163,22 @@ The weaker statement is enough for vast majority of
 applications, and has a more geometric meaning.  The number of zeros of $f$
 inside $\gamma$ corresponds to the number times $f(z)$ winds around zero
 as $z$ traverses $\gamma$.  The theorem says that if $f$ is modified a
-little this does not change.  The classical visual proof is a dog on a leash
+little this does not change.  The classical visual ``proof'' is a dog on a leash
 with the master going around a tree.  The master is at $f(z)$, the tree is
 at the origin, and the dog is at $g(z)$, so the length of the leash is
 $\sabs{f(z)-g(z)}$ and the distance of the master from the tree is
 $\sabs{f(z)}$.  So the ``proof'' of the theorem is to notice that if the
 master walks around a tree $k$ times, and the dog is never further from the
 master than the distance of the master to the tree, then the dog also walked
-around the tree $k$ times.  See \figureref{fig:dogtree}.
+around the tree $k$ times.  See \figureref{fig:dogandtree}.
 
 \begin{myfig}
-FIXME: Dog and tree
-\caption{FIXME:\label{fig:dogtree}}
+\subimport*{figures/}{dogandtree.pdf_t}
+\caption{Dog and tree proof of Rouch\`e's theorem.\label{fig:dogandtree}}
 \end{myfig}
 
-Let us get to the rigorous proof of the theorem.
+Let us get to the rigorous proof of the symmetric version of the
+theorem.
 
 \begin{proof}[Proof of Rouch\`e]
 FIXME:
@@ -7325,8 +7314,47 @@ FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Meromorphic functions}
+\section{Meromorphic functions *}
 \label{sec:meromorphic}
+
+\begin{defn}
+A holomorphic function $f \colon U \setminus S \to \C$ with poles on a
+discrete set $S \subset U$ is said to be \emph{\myindex{meromorphic}}.
+\end{defn}
+
+A meromorphic function can be extended to
+\begin{equation*}
+f \colon U \to \C_{\infty}
+\end{equation*}
+by simply setting $f(p) = \infty$ at all poles, and by the definition of a
+pole, the function is then continuous.  In fact, a common way to define
+a meromorphic function is as a holomorphic function
+$f \colon U \to \C_{\infty}$.  Holomorphicity at a pole can be
+rephrased as holomorphicity of a function $\frac{1}{f(z)}$ at $p$.
+There is a small technicality, if one should consider the function
+that is constantly $\infty$ as a meromorphic function or not.
+
+We have already looked at infinity as an isolated singularity.
+We define holomorphicity at $\infty$ when $U \subset
+\C_\infty$ by saying that $f$ is holomorphic at $\infty$ if
+$f\bigl(\frac{1}{z}\bigr)$ is holomorphic at $0$.
+
+\begin{exbox}
+\begin{exercise}
+Show that a holomorphic function $f \colon \C_\infty \to \C_\infty$ has
+at most finitely many poles and finitely many zeros.
+\end{exercise}
+
+\begin{exercise}
+Show that a holomorphic function $f \colon \C_\infty \to \C_\infty$ is a
+rational function (a polynomial divided by a polynomial).
+\end{exercise}
+
+\begin{exercise}
+Show that if $f \colon \C_\infty \to \C_\infty$ is holomorphic and
+one-to-one, then it is an LFT.
+\end{exercise}
+\end{exbox}
 
 FIXME
 
@@ -7712,7 +7740,7 @@ and similarly
 \begin{equation*}
 1+r^2-2r \cos\theta \geq 1+r^2-2r = {(1-r)}^2 > 0 .
 \end{equation*}
-Next, denote by $r\D$ the disc of radius $r$ around 0,
+Next, denote by $r\D$ the disc of radius $r$ around $0$,
 \begin{equation*}
 \begin{split}
 \int_{-\pi}^{\pi}
@@ -7744,7 +7772,7 @@ ire^{i\theta}
 \end{split}
 \end{equation*}
 The last equality follows by the Cauchy integral formula
-using the function $\frac{1+z}{1-z}$ evaluated at 0.
+using the function $\frac{1+z}{1-z}$ evaluated at $0$.
 
 For the third item, notice that we only need to prove the
 theory for $\delta \leq \theta \leq \pi$ by symmetry ($P_r$ is even).
@@ -12033,7 +12061,7 @@ of the integrals.
 Let $\chi_{T}$ be the characteristic function of a set $T$, that is $\chi_T(x) =
 1$ if $x \in T$ and $\chi_T(x) = 0$ otherwise.
 The functions $n \chi_{(0,\nicefrac{1}{n})}$ all integrate (on the interval
-$[0,1]$) to 1.  Their
+$[0,1]$) to $1$.  Their
 pointwise limit is $0$ (whose integral is $0$).
 \end{example}
 
@@ -12173,12 +12201,14 @@ however, enough to swap limits with derivatives, unless you also have
 uniform convergence of the derivatives themselves.
 
 \begin{example}
-Let $f_n(x) = \frac{\sin(nx)}{n}$.  Then $f_n$ converges uniformly to
-0.  See \figureref{fig:conv1nsinxn}.
-The derivative of the limit is 0.  But $f_n'(x) = \cos(nx)$, which
-does not converge even pointwise, for
-example $f_n'(\pi) = {(-1)}^n$.  Furthermore,
-$f_n'(0) = 1$ for all $n$, which does converge, but not to 0.
+Let $f_n(x) = \frac{\sin(nx)}{n}$.
+Then $f_n$ converges uniformly to $0$.
+See \figureref{fig:conv1nsinxn}.
+The derivative of the limit is $0$.
+But $f_n'(x) = \cos(nx)$,
+which does not converge even pointwise,
+for example $f_n'(\pi) = {(-1)}^n$.
+Furthermore, $f_n'(0) = 1$ for all $n$, which does converge, but not to $0$.
 \begin{myfig}
 \includegraphics{figures/conv1nsinxn}
 \caption{Graphs of $\frac{\sin(nx)}{n}$ for
@@ -12969,7 +12999,7 @@ $
 {\snorm{f(p+h)-f(p)}}
 {\snorm{h}}
 $
-stays bounded as $h$ goes to 0.  Therefore, 
+stays bounded as $h$ goes to $0$.  Therefore, 
 $\frac{\snorm{F(p+h)-F(p) - BAh}}{\snorm{h}}$ goes to zero, and
 $DF|_p = BA$, which is what was claimed.
 \end{proof}
@@ -13179,7 +13209,7 @@ Fix a $j$ and note that
 \frac{\snorm{f(p+h e_j)-f(p) - Df|_p \, h e_j}}{\snorm{h e_j}} .
 \end{split}
 \end{equation*}
-As $h$ goes to 0, the right hand side goes to zero by
+As $h$ goes to $0$, the right hand side goes to zero by
 differentiability of $f$, and hence
 \begin{equation*}
 \lim_{h \to 0}
