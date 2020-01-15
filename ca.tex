@@ -974,7 +974,7 @@ We say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
 \int_a^b f(t) \, dt = 
 \int_a^b u(t) \, dt + i \int_a^b v(t) \, dt .
 \end{equation*}
-Again, this is precisely the way one integrates vector-valued functions
+This is precisely the way one integrates vector-valued functions
 for any vector space.
 
 \subsection{Matrix representation of complex numbers}
@@ -983,7 +983,7 @@ As $\C$ is $\R^2$, we can think of
 $\C$ as a real two-dimensional vector space by forgetting about the
 complex multiplication.  A standard basis is then $1$ and $i$.
 To put multiplication back into the picture, we think of an object that
-acts on $\R^2$, that is, a matrix.
+acts on $\R^2$: a matrix.
 The complex number $x+iy$ can be represented by the $2 \times 2$ matrix
 \begin{equation*}
 \begin{bmatrix}
@@ -993,7 +993,7 @@ y & x
 \end{equation*}
 If we think of a complex number $a+ib$ as a matrix
 and $c+id$ as a column vector,
-then the multiplication makes sense as matrices
+then complex multiplication makes sense as matrices
 \begin{equation*}
 \begin{bmatrix}
 a & -b \\
@@ -1006,10 +1006,10 @@ d
 =
 \begin{bmatrix}
 ac-bd \\
-bc+ad .
-\end{bmatrix}
+bc+ad
+\end{bmatrix} .
 \end{equation*}
-Note that the matrices
+The matrices
 \begin{equation*}
 1 \quad ``{}={}'' \quad
 \begin{bmatrix}
@@ -1029,7 +1029,7 @@ The complex conjugate is represented by the
 matrix transpose, and a symmetric matrix represents a real number.
 
 We can also multiply the $2 \times 2$ matrices themselves,
-and this matrix multiplication is also the same as multiplication of complex
+and likewise this matrix multiplication is the same as multiplication of complex
 numbers.  Similarly with addition.
 That is, we can view the field of complex numbers as a subring of $M_2(\R)$.
 
@@ -1039,7 +1039,7 @@ Prove that the matrix multiplication on these matrices is commutative
 and reproduces the complex
 number multiplication, and that these matrices form a subring of $M_2(\R)$.
 Prove that the nonzero matrices of this form are
-invertible (the subring is a field).  In particular, notice the
+invertible (the subring is a field).  Specifically, notice the
 determinant appearing in the denominator for the multiplicative inverse.
 \end{exercise}
 
@@ -1061,17 +1061,18 @@ $z \mapsto \xi z + \zeta \bar{z}$.
 
 We will see this representation of complex numbers come up when we introduce the
 Cauchy--Riemann equations.  But it comes up quite often in applications.
-This can for example be used to represent an $m \times n$ complex matrix by a
+For example, 
+an $m \times n$ complex matrix can be represented by a
 $2m \times 2n$ real matrix by replacing each entry by a $2 \times 2$ matrix.
 So software set up for working with real matrices can easily be duped into
 working with complex matrices.
 
-For us the main application will be to understand the derivative of a
+For us, the main application will be to understand the derivative of a
 complex-valued function of a complex variable $f \colon \C \to \C$.
-By thinking of the function simply as a mapping $f \colon \R^2 \to \R^2$,
-then the real derivative of this mapping is a $2 \times 2$ matrix.  And the
+Thinking of the function as a mapping $f \colon \R^2 \to \R^2$,
+the real derivative of $f$ is a $2 \times 2$ matrix.  The
 object of study of complex analysis, the holomorphic (or analytic)
-functions, are those functions whose real derivative corresponds to a
+functions, are those functions whose real derivative matrix corresponds to a
 multiplication by a complex number.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1080,8 +1081,8 @@ multiplication by a complex number.
 
 \subsection{The exponential}
 
-The exponential is one of the most useful functions in complex analysis
-(if not all of analysis).  Let us define it for all complex numbers:
+The exponential is the most fundamental and useful functions in complex
+analysis.  Let us define it for all complex numbers:
 \begin{equation*}
 e^{z} = 
 e^{x+iy}
@@ -1103,10 +1104,9 @@ and
 \sabs{e^{x-iy}} =
 e^x .
 \end{equation*}
-It is possible to not resort to the real exponentials, sines and cosines
+It is possible to not resort to the real exponentials, sines, and cosines
 to define the complex exponential, and we will do so in due course.
-But we want to have something to play around with now and not wait till
-later.
+But we want to have something to play around with now without waiting.
 
 \begin{exbox}
 \begin{exercise}
@@ -1128,7 +1128,7 @@ e^{i\theta}
 =
 \cos \theta + i \sin \theta .
 \end{equation*}
-Using this formula we could extend cosine and sine to the complex plane.
+Using this formula we extend cosine and sine to the complex plane.
 The formula says that for real $\theta$
 \begin{equation*}
 \cos \theta = \Re e^{i\theta} = \frac{e^{i\theta}+e^{-i\theta}}{2} ,
@@ -1185,7 +1185,7 @@ r^n e^{i n\theta} .
 \end{equation*}
 In particular, again we see that multiplication by $i = e^{i \pi / 2}$ is
 rotation counterclockwise by $90$ degrees.
-On the other hand, the polar form is particularly terrible for addition.
+The downside is that the polar form is particularly terrible for addition.
 You win some, you lose some.
 
 \begin{exbox}
@@ -1215,7 +1215,7 @@ $\arg z$ is not a function in the classical sense, but a
 \emph{\myindex{multivalued function}}%
 \footnote{Non-complex analysts will sometimes claim that a multivalued
 function is nonsense, but you can safely ignore them.}.  The correct
-definition is then
+definition is
 \begin{equation*}
 \arg z
 \overset{\text{def}}{=}
@@ -1225,12 +1225,12 @@ definition is then
 \theta + 2\pi,
 \theta + 4\pi, \ldots
 \end{equation*}
-There is one more minor issue left.  If $z=0$, then $z=0=0 e^{i\theta}$ for any
+One more minor issue remains.  If $z=0$, then $z=0=0 e^{i\theta}$ for any
 $\theta$ whatsoever.  Therefore, we only define the argument for nonzero
 $z$.
 
-Sometimes it is useful to nail down a particular number for the argument.
-We thus define the \emph{\myindex{principal branch of $\arg$}} as
+It may at times be useful to nail down a particular number for the argument.
+We define the \emph{\myindex{principal branch of $\arg$}} as
 \begin{equation*}
 \Arg z
 \overset{\text{def}}{=}
@@ -1239,8 +1239,8 @@ We thus define the \emph{\myindex{principal branch of $\arg$}} as
 It may seem like a good solution to the multivaluedness of $\arg$, but
 one's hopes are dashed by the cruel reality of $\Arg$ not being continuous
 on the negative real axis.  The principal branch ends up being somewhat less
-useful than we may think.  There is also the issue that not everyone agrees
-on what ``principal branch'' means; some mathematicians will sacrifice the
+useful than one may think.  There is also the issue that not everyone agrees
+on what ``principal branch'' means; some mathematicians sacrifice the
 positive real axis and let $\theta$ be in the range $[0,2\pi)$.
 
 \begin{exbox}
@@ -1252,12 +1252,13 @@ Show that $\Arg$ as defined above is not continuous on $\C \setminus \{ 0
 
 \subsection{Mapping properties of the exponential}
 
-Before we leave the exponential, let us note what it does to the complex
-plane.  The identity $e^{z+w} = e^z e^w$ implies that the exponential
-can never be zero (exercise).  From known properties of polar coordinates
-(so properties of real sine and cosine) it follows that the exponential is
+Let us note what the exponential does to the complex plane.
+The identity $e^{z+w} = e^z e^w$ implies that the exponential
+can never be zero (exercise).
+From the known properties of polar coordinates
+and the real exponential, it follows that the complex exponential is
 onto $\C \setminus \{ 0 \}$.
-The complex exponential is not one-to-one, it is in fact
+The complex exponential is not one-to-one, it is 
 infinitely-many-to-one.  For any integer $k$
 \begin{equation*}
 e^{z+ik2\pi} = 
@@ -1320,8 +1321,8 @@ we only add one infinity.  We write:
 \C_{\infty} = \C \cup \{ \infty \} ,
 \end{equation*}
 and we call $\C_{\infty}$ the \emph{\myindex{Riemann sphere}}.
-The trick is giving this set some geometry or at least topology.  We
-definitely want the topology to be the same as that of $\C$ when we are
+We want to give this set some geometry or at least topology.  We
+want the topology to be the same as that of $\C$ when we are
 away from infinity.  We define the function $g \colon \C_\infty \to \C_\infty$
 \begin{equation*}
 g(z) =
@@ -1332,19 +1333,19 @@ g(z) =
 \end{cases}
 \end{equation*}
 The function $g$ is one-to-one and onto.
-Any neighborhood of the origin in $\C$ can be taken to a set that
-includes infinity and we call those neighborhoods of
+Any neighborhood of the origin in $\C$ is taken to a set that
+includes infinity and we call those the neighborhoods of
 $\infty$.  When talking about a neighborhood of
 infinity in $\C_{\infty}$, then we really want to think of this map,
 and think of the corresponding neighborhood of the origin.
 
-More concretely we can give $\C_{\infty}$ a metric space structure.  The way
+More concretely, we can give $\C_{\infty}$ a metric space structure.  The way
 we can visualize it is as follows.  Let $S^2$ be the unit sphere in $\R^3$,
 that is, the set described by $x^2 + y^2 + z^2 = 1$ if $(x,y,z)$ are the
 coordinates\footnote{This is possibly the only instance in this book where
 $z$ is a real number.}.  The plane $\R^2$ with coordinates $(x,y)$ can be
 identified with $\C$ with coordinate $\xi$ by taking $x+iy = \xi$.
-Given any point $p \in S^2$, which is not the north pole $(0,0,1) \in S^2$,
+Given any point $p \in S^2$ that is not the north pole $(0,0,1) \in S^2$,
 there is a unique line in $\R^3$ through the point $(0,0,1)$ and $p$.
 It is not difficult to prove that this line is never parallel to the
 $xy$-plane, that is, to $\C$, and hence it must intersect $\C$ in a unique
@@ -1384,14 +1385,17 @@ metric coming from $S^2$.
 \end{exbox}
 
 The point of the Riemann sphere is to give values of $\infty$ to certain
-limits and to allow limits as $z$ goes to $\infty$.  So if we have a
-function $f \colon U \subset \C_\infty \to \C_\infty$ we define
+limits and to allow limits as $z$ goes to $\infty$.  If we have a
+function $f \colon U \subset \C_\infty \to \C_\infty$, we define
 \begin{equation*}
 \lim_{z \to z_0} f(z) = L
 \end{equation*}
-as the metric space limit using the metric on the Riemann sphere, this
-includes the cases when $z_0 = \infty$ and when $L = \infty$.
+as the metric space limit using the metric on the Riemann sphere, 
+including
+the cases when $z_0 = \infty$, $L = \infty$, or both.
 Conveniently the Riemann sphere is compact.
+Indeed, topologically, it is the same as the
+``one-point compactification'' of $\C$.
 
 \begin{exbox}
 \begin{exercise}
@@ -1442,8 +1446,8 @@ $\abs{P(z)} \geq \frac{1}{2} \sabs{z}^d$.
 \end{exercise}
 \end{exbox}
 
-In calculus and in basic real analysis, you most likely encountered
-infinite limits that are really in the sense of the extended reals.
+In calculus and in basic real analysis, you likely encountered
+infinite limits in the sense of the extended reals.
 Despite that the two types of infinite limits, either in the sense of the
 extended reals or in the sense of the Riemann sphere,
 look similar, and despite using essentially the same notation,
@@ -1483,7 +1487,7 @@ however, as in the last section, we write
 f\left(\frac{-d}{c}\right) = \infty, \qquad \text{and} \qquad
 f(\infty) = \frac{a}{c} .
 \end{equation*}
-If $c=0$, then set $f(\infty) = \infty$.  Then $f$ is a map of
+If $c=0$, then set $f(\infty) = \infty$.  In either case, $f$ is a map of
 the Riemann sphere to itself.
 
 \begin{exbox}
@@ -1509,7 +1513,7 @@ and \emph{inversions}\index{inversion}
 I(z) = \frac{1}{z}.
 \end{equation*}
 Suppose $f(z) = \frac{az+b}{cz+d}$ is an LFT.
-Without loss of generality we could assume that either $c=1$ or $c=0$.
+Without loss of generality, we assume that either $c=1$ or $c=0$.
 Suppose $c=1$ first,
 \begin{equation*}
 f(z)
@@ -1520,14 +1524,16 @@ f(z)
 =
 T_a\biggr(D_{b-ad}\Bigr(I\bigl(T_d(z)\bigr)\Bigr)\biggr) .
 \end{equation*}
-On the other hand if $c=0$, then we can also assume that $d=1$ and
-so $f(z) = az + b$, and so clearly
+If $c=0$, then we can also assume that $d=1$ and
+so $f(z) = az + b$.
+Then
 \begin{equation*}
 f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
 \end{equation*}
 
-This sort of decomposition is quite useful since to prove some fact about
-LFTs, one only needs to prove it for $T_a$, $D_a$, and $I$.  This technique
+This sort of decomposition is quite useful in proving statements about
+LFTs that are preserved under composition,
+one only needs to prove it for $T_a$, $D_a$, and $I$.  This technique
 will come in handy in just the next exercise.
 
 Let us include straight lines in the set of circles.  After all, a straight
@@ -1560,9 +1566,10 @@ where the equivalence relation $\sim$ is defined by
 $u \sim v$ if and only if $u = \lambda v$ for some $\lambda \in \C$.
 
 In other words, $\C \bP^1$ is the set of ``complex lines through the
-origin'' in $\C^2$, or yet in other words, the set of one-dimensional vector
+origin'' in $\C^2$, or yet in other words,
+it is the set of one-dimensional vector
 subspaces of $\C^2$.  We identify $\C\bP^1$ with $\C_\infty$ in the following
-way.  Suppose $[z,w]$ denotes the equivalence class of vectors in $\C^2$.
+way.  Denote by $[z,w]$ the equivalence class of vectors in $\C^2$.
 Then define the map $\Phi \colon \C_\infty \to \C \bP^1$ as
 \begin{equation*}
 \Phi(z) =
@@ -1590,7 +1597,8 @@ a & b \\
 c & d
 \end{bmatrix} .
 \end{equation*}
-First, $\Phi \circ f$ for $z \in \C$ is equal to
+First, $\Phi \circ f$ for $z \in \C \setminus \bigl\{ \frac{-d}{c} \bigr\}$
+is equal to
 \begin{equation*}
 \Phi \circ f(z) =
 \left[\frac{a z + b}{c z + d}, 1 \right]
@@ -1598,6 +1606,8 @@ First, $\Phi \circ f$ for $z \in \C$ is equal to
 \left[a z + b, c z + d \right] ,
 \end{equation*}
 where the second inequality follows by definition of $\sim$.
+The expression $[az+b,cz+d]$ makes sense even when
+$z = \frac{-d}{c}$.
 Next, notice that (again noting the definition of $\sim$
 and the fact that $(z,w) \mapsto M(z,w) = (a z + b w, c z + d w)$ is
 linear):
@@ -1606,25 +1616,25 @@ linear):
 \left[a z + b w, c z + d w \right] .
 \end{equation*}
 
-In other words, $f$ corresponds to the linear map $v \mapsto Mv$ on $\C^2$.
+Namely, $f$ corresponds to the linear map $v \mapsto Mv$ on $\C^2$.
 The requirement that $ad \not= bc$ corresponds to determinant of $M$ being
 nonzero, or in other words, to $M$ being invertible.
 So every LFT is represented by an invertible $2 \times 2$ matrix $M$
-(not unique), and
+(not uniquely), and
 conversely every invertible $2 \times 2$ matrix $M$ corresponds to an LFT.
 
 \medskip
 
-A useful LFT that comes up all the time is the
+An LFT that comes up often is the
 \emph{\myindex{Cayley map}}
 \begin{equation*}
 C(z)
 =
 \frac{z - i}{z + i} .
 \end{equation*}
-The map is an LFT, and it
+The map is clearly an LFT, and it
 takes the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$ to the
-unit disc.  Let us see why.  A $z \in \C$ goes to the unit disc if
+unit disc $\D$.  Let us see why.  A $z \in \C$ goes to the unit disc if
 \begin{equation*}
 1 > \abs{\frac{z - i}{z + i} }
 =
@@ -1652,7 +1662,7 @@ Hint: Same hint as above.
 
 In the exercises you have essentially just shown (or at least finished
 showing) that LFTs form a group, called the \emph{\myindex{M\"obius group}}.
-And we also have that this group is generated by the elements
+And this group is generated by the elements
 $T_a$, $D_a$, and $I$ for $a\in \C$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
