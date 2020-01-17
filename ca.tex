@@ -1050,12 +1050,24 @@ eigenvectors $\left[ \begin{smallmatrix} 1 \\ \pm i \end{smallmatrix}
 \right]$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:reallinmap}
 Prove that
 in terms of the complex notation an arbitrary $2 \times 2$ real matrix $M$
 thought of as a (real) linear map of $\C$ to $\C$
 can be represented by two complex numbers $\xi$ and $\zeta$, and the formula
 $z \mapsto \xi z + \zeta \bar{z}$.
+\end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+If a $2 \times 2$ real matrix $M$ represents multiplication by $\xi \in \C$,
+then show that $\det M = \sabs{\xi}^2$.
+\item
+If a $2 \times 2$ real matrix $M$ is represented by $z \mapsto \xi z + \zeta
+\bar{z}$ (see previous exercise),
+then show that $\det M = \sabs{\xi}^2 - \sabs{\zeta}^2$.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -1245,8 +1257,8 @@ positive real axis and let $\theta$ be in the range $[0,2\pi)$.
 
 \begin{exbox}
 \begin{exercise}
-Show that $\Arg$ as defined above is not continuous on $\C \setminus \{ 0
-\}$.
+Show that $\Arg$ as defined above is not a continuous function on all of
+$\C \setminus \{ 0 \}$.
 \end{exercise}
 \end{exbox}
 
@@ -1827,9 +1839,14 @@ if it is complex differentiable at every point.  That is, if
 %FIXME: do we every really use $\sO(U)$
 \end{defn}
 
+The most basic result is that a holomorphic function is continuous
+(exercise).  This can be proved either directly from the definition,
+or using that a holomorphic function is
+(real) differentiable as we will see shortly.
+
 \begin{exbox}
 \begin{exercise}
-Directly from the definition, show that a
+Directly from the definition of the complex derivative, show that a
 holomorphic function is continuous.
 \end{exercise}
 \end{exbox}
@@ -1904,14 +1921,37 @@ u}{\partial y}\big|_{z_0}$.
 By working backwards, it is immediate
 that if $f$ is complex differentiable at $z_0$, then it is real
 differentiable at $z_0$,
-as the complex derivative $f'(z_0)$ gives the $Df|_{z_0}$.
-
-Using the fact
-from undergraduate analysis (see \sectionref{sec:derinsv} again), that
-if the partial derivatives exist and are continuous, then $f$ is
-differentiable, we have the following proposition.
+as the complex derivative $f'(z_0)$ gives the $Df|_{z_0}$.  Let us formalize
+what we just proved.
 
 \begin{prop}
+Let $U \subset \C$ be open, and $f = u+iv \colon U \to \C$ be a function
+that is (real) differentiable at $z_0 \in U$.
+Then
+%\begin{equation*}
+$\frac{\partial u}{\partial x}\big|_{z_0} =
+\frac{\partial v}{\partial y}\big|_{z_0}$
+and
+%, \qquad
+$\frac{\partial v}{\partial x}\big|_{z_0} =
+-\frac{\partial u}{\partial y}\big|_{z_0}$
+%.
+%\end{equation*}
+if and only if $f$ is complex differentiable at $z_0 \in U$.
+%, or in
+%other words, if
+%\begin{equation*}
+%f'(z) =
+%\lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
+%\end{equation*}
+%exists for all $z \in U$.
+\end{prop}
+
+If the partial derivatives exist and are continuous, then $f$ is
+(real) differentiable (see \sectionref{sec:derinsv} again).
+So we have the following, perhaps easier to apply, result.
+
+\begin{cor}
 \pagebreak[2]
 Let $U \subset \C$ be open, and $f = u+iv \colon U \to \C$ be a function
 such that $\frac{\partial u}{\partial x}$, $\frac{\partial u}{\partial y}$, $\frac{\partial
@@ -1929,7 +1969,7 @@ f'(z) =
 \lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
 \end{equation*}
 exists for all $z \in U$.
-\end{prop}
+\end{cor}
 
 The equations \eqref{eq:CReqreal} are called the
 \emph{\myindex{Cauchy--Riemann equations}}\footnote{Interestingly,
@@ -1949,8 +1989,6 @@ and thus the partial derivatives exist and satisfy the Cauchy--Riemann
 equations.  We will show later that holomorphic functions are
 continuously differentiable and not just differentiable, and in fact they
 are infinitely differentiable, although those results will have to wait.
-One thing we can see immediately is that a holomorphic function is
-continuous, as it is real differentiable.
 
 \begin{exbox}
 \begin{exercise} \label{exercise:exponentialholomorphic}
@@ -2045,9 +2083,9 @@ then write $\gamma' = \alpha' + i \beta'$.
 \index{chain rule!composition of real and complex derivative}%
 \label{prop:chainrule2}%
 Let $U \subset \C$ be open,
-$\gamma (a,b) \to U$ be real differentiable at $t_0 \in (a,b)$,
+$\gamma \colon (a,b) \to U$ be (real) differentiable at $t_0 \in (a,b)$,
 and $f \colon U \to \C$ be complex differentiable at $\gamma(t_0)$.
-Then the composition $f \circ \gamma$ is real differentiable
+Then the composition $f \circ \gamma$ is (real) differentiable
 at $t_0$ and $(f \circ \gamma)'(t_0) = f'\bigl(\gamma(t_0)\bigr) \gamma'(t_0)$.
 \end{prop}
 
@@ -2131,10 +2169,8 @@ nonzero.
 
 Perhaps the reader may ask at this point: Is any solution to
 the Cauchy--Riemann equations holomorphic?  Above we saw that the answer
-is affirmative for continuously differentiable functions.  We
-really proved the stronger assertion: \emph{If $f$ is differentiable in the
-real sense at every point and satisfies the Cauchy--Riemann equations, then
-it is holomorphic.}
+is affirmative for continuously differentiable functions, or at least
+functions differentiable as functions of two variables.
 In general, the answer is false%
 \footnote{%
 A good thorough account of this problem is:
@@ -2201,7 +2237,7 @@ $\bar{z}$.  That statement had better make no sense at first glance.
 After all, the Wirtinger operators are not really derivatives with
 respect to actual variables,
 they are simply formal operators, and also, and more importantly,
-how could possibly something depend on $z$ but not $\bar{z}$.
+how could something possibly depend on $z$ but not on $\bar{z}$.
 
 But let us humor ourselves and check:
 \begin{equation*}
@@ -2240,7 +2276,7 @@ But let us humor ourselves and check:
 \right) .
 \end{equation*}
 This expression is zero if and only if the real parts and the imaginary
-parts are zero.  In other words
+parts are zero.  Namely,
 \begin{equation*}
 \frac{\partial u}{\partial x} 
 - \frac{\partial v}{\partial y}
@@ -2257,7 +2293,7 @@ let us state this result as a proposition.
 
 \begin{prop}
 \label{prop:WirtCR}
-Let $U \subset \C$ be open, and $f \colon U \to \C$ be a (real) continuously
+Let $U \subset \C$ be open, and $f \colon U \to \C$ be a (real) 
 differentiable function.
 Then
 \begin{equation*}
@@ -2307,7 +2343,7 @@ the $z$ derivative in two different ways:
 .
 \end{split}
 \end{equation*}
-In the second form, notice that really we want to think of the derivative in
+In the second form, we want to think of the derivative in
 the imaginary direction as a derivative in $iy$ and not the partial
 derivative in $y$.  That is why the $\frac{1}{i}$ is there.
 If $f$ is complex differentiable, $h$ can
@@ -2349,7 +2385,7 @@ f' =
 \frac{\partial f}{\partial z} .
 \end{equation*}
 
-Even for functions that are not holomorphic, and so the complex derivative
+Even for functions that are not holomorphic, where the complex derivative
 does not exist, the Wirtinger operators still
 make sense.  For example, take a polynomial in $x$ and $y$, or equivalently
 in $z$ and $\bar{z}$.
@@ -2368,7 +2404,8 @@ work as if $z$ and $\bar{z}$ really were independent variables.  For example:
 =
 z^2 ( 3 \bar{z}^2 ) + 0 .
 \end{equation*}
-So a holomorphic function is a function not depending on $\bar{z}$.
+So in that sense (at least for a polynomial) a holomorphic function is a
+function not depending on $\bar{z}$.
 
 \begin{exbox}
 \begin{exercise}
@@ -2378,6 +2415,15 @@ Compute (and justify of course)
 $\frac{\partial}{\partial z} \left[ z^m\bar{z}^n \right]$
 and
 $\frac{\partial}{\partial \bar{z}} \left[ z^m\bar{z}^n \right]$.
+\end{exercise}
+
+\begin{exercise}
+Let $f \colon U \subset \C \to \C$ be real differentiable at $p \in U$.
+The derivative $Df|_{p}$ can be represented by two numbers $\xi$ and
+$\zeta$: it is the real linear map $h \mapsto \xi h + \zeta \bar{h}$
+(see \exerciseref{exercise:reallinmap}).
+Show that $\frac{\partial f}{\partial z} \big|_p = \xi$ and
+$\frac{\partial f}{\partial \bar{z}} \big|_p = \zeta$.
 \end{exercise}
 
 \begin{exercise}
@@ -2553,7 +2599,8 @@ get the holomorphic inverse function theorem.
 \index{inverse function theorem!holomorphic functions}
 \label{thm:inversehol}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-$p \in U$, and $f'(p) \not= 0$.  Then there exist neighborhoods $V$ of $p$
+$p \in U$, and $f'(p) \not= 0$.  Suppose further that $f$ is continuously
+differentiable.  Then there exist neighborhoods $V$ of $p$
 and $W$ of $f(p)$ such that $f(V) = W$, $f$ is one-to-one on $V$, and
 the inverse $g \colon W \to V$ (a function such that $g\bigl(f(z)\bigr)=z$
 for all $z \in V$) is holomorphic, with
@@ -2562,8 +2609,11 @@ g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
 \end{equation*}
 \end{thm}
 
+The hypothesis that $f$ is continuously differentiable is completely
+superfluous.  Every holomorphic function is continuously
+differentiable, although you will have to wait till \thmref{thm:holfuncinfder}.
 Once we build up more machinery, we will leave it as an exercise to prove
-this theorem in a purely complex analytic proof of the theorem.
+this theorem in a purely complex analytic manner.
 
 It is not true that a holomorphic function whose derivative is nonzero
 everywhere is globally invertible.  For example, the exponential $e^z$
@@ -2596,10 +2646,18 @@ and the slit plane $\{ z \in \C : \Im z \not= 0 \text{ or } \Re z > 0 \}$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is antiholomorphic, that is
+\begin{exparts}
+\item
+Suppose $f$ is antiholomorphic (assume $f$ is real differentiable), that is
 $\frac{\partial f}{\partial z} = 0$.  Show that
-$\det Df = - \abs{\frac{\partial f}{\partial z}(z)}^2$.  In other words,
+$\det Df\big|_z = - \abs{\frac{\partial f}{\partial \bar{z}}(z)}^2$.  In other words,
 the Jacobian determinant is nonpositive, and $f$ flips orientation.
+\item
+More generally, if $f$ is (real) differentiable then
+$\det Df\big|_z = \abs{\frac{\partial f}{\partial z}(z)}^2 -
+\abs{\frac{\partial f}{\partial \bar{z}}(z)}^2$.  In other words,
+the Jacobian determinant is nonpositive, and $f$ flips orientation.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -3090,7 +3148,7 @@ complex differentiable because they have a power series representation,
 we have not yet proved that a convergent power series defines an analytic
 function.  What would be left to prove is that a power series convergent
 in $\Delta_r(p)$ can be
-expanded about a different point in $\Delta_r(p)$.  It will follow
+expanded about a different point in $\Delta_r(p)$.  That will follow
 once we prove that holomorphic functions are analytic.
 \end{remark}
 
@@ -3098,7 +3156,8 @@ once we prove that holomorphic functions are analytic.
 
 One of the main properties of analytic functions is that once you know them
 in a neighborhood you know them everywhere.  In fact, much more general
-statement is true.
+statement is true, you only need to know an analytic function on a set with
+a limit point.
 
 \begin{thm}[Identity]\index{identity theorem!holomorphic functions}
 Suppose $U \subset \C$ is a domain, 
@@ -4402,7 +4461,7 @@ Let us restate \corref{cor:analinfdif} in terms of
 holomorphic functions, now that we know that holomorphic functions are
 analytic.
 
-\begin{thm}
+\begin{thm} \label{thm:holfuncinfder}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.  Then
 $f$ is infinitely complex differentiable.  In particular, $f'$ is
 holomorphic.
@@ -4663,6 +4722,12 @@ P(z) = a \prod_{j=1}^d (z-z_j) ,
 for some $a \in \C$ and $z_1,\ldots,z_d \in \C$.
 Hint: Prove that $P(z_0) = 0$ implies $P(z) = Q(z) (z-z_0)$ for some
 polynomial $Q$ of degree $d-1$.
+\end{exercise}
+
+\begin{exercise}[Easy]
+Prove the one-dimensional version of the Jacobian conjecture:
+Suppose that $P(z)$ is a polynomial and $P'(z)$ is nonzero for all $z$,
+then $P$ is an automorphism of $\C$, that is $P(z) = az+b$ and $a \not= 0$.
 \end{exercise}
 \end{exbox}
 
@@ -5201,22 +5266,22 @@ make the definition
 \begin{equation*}
 \log z \overset{\text{def}}{=} \log \sabs{z} + i \arg z .
 \end{equation*}
-This definition is totally bonkers at first glance.  First, the log on the
-left, is a different log than the log on the right.  On the right, it is the
-standard real log, that is, $\log \colon (0,\infty) \to \R$,
+This definition is totally bonkers at first glance.  First, the $\log$ on the
+left, is a different $\log$ than the $\log$ on the right.  On the right, it is the
+standard real $\log$, that is, $\log \colon (0,\infty) \to \R$,
 where $\log 0 = 1$.
-But the log on the left
+But the $\log$ on the left
 is now not even a function, it has infinitely many values for every $z$,
-since the arg on the right hand side has infinitely many values.
+since the $\arg$ on the right hand side has infinitely many values.
 The value of $\log -1$ is $\pi i$, but also $-\pi i$, $3\pi i$,
-or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So log is a function just as much
-as arg is a function.
+or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So $\log$ is a function just as much
+as $\arg$ is a function.
 
-The double duty of ``log'' is a small price to pay.  It is almost never a
-problem and it is generally clear which log one is talking about based on
+The double duty of ``$\log$'' is a small price to pay.  It is almost never a
+problem and it is generally clear which $\log$ one is talking about based on
 what sort of things are being plugged into it.
 
-While the log is not really a function---it is a multivalued
+While $\log$ is not really a function---it is a multivalued
 function\footnote{%
 And countless insufferable smartypants on the internet will try to convince
 you that a ``multivalued function'' isn't a thing.}---it is really
@@ -5227,7 +5292,7 @@ want.  It is not as useful as one would think.
 And beware that computers like to give back the principal branch even 
 when it doesn't make any sense.
 
-So how do we use log?  Well it comes up in line integrals, which are used
+So how do we use $\log$?  Well it comes up in line integrals, which are used
 to count and classify zeros and/or singularities of functions, or vice
 versa.  Let us compute the integral of $\frac{1}{z}$ around the unit
 circle $\partial \D$, oriented counterclockwise as usual (parametrized
@@ -5257,13 +5322,13 @@ out which, you start with say $\log 1 = 0$, and you follow the function
 along the circle slowly and notice that the $i \arg z$ grows from $0$ to
 $2\pi i$, so the $\log 1$ at the end is $2 \pi i$.
 
-To make working with the log easier we usually talk about a
-\emph{\myindex{branch of the log}}.  So $L \colon U \to \C$ is a branch
-of the log if $L$ is holomorphic, $L'(z) = \frac{1}{z}$, and $L(z)$ is equal
+To make working with $\log$ easier we usually talk about a
+\emph{\myindex{branch of the logarithm}}.  So $L \colon U \to \C$ is a branch
+of the logarithm if $L$ is holomorphic, $L'(z) = \frac{1}{z}$, and $L(z)$ is equal
 to some value of $\log z$ for every $z \in U$.  It is not possible to define
-a branch of the log in every $U$, but for example we can do it in every
+a branch of the logarithm in every $U$, but for example we can do it in every
 star-like $U$ where $0 \notin U$.  In general, one can define a branch of
-the log in every simply connected domain, that is, a domain without holes,
+the logarithm in every simply connected domain, that is, a domain without holes,
 that does not contain zero.
 More on this later.  Similarly we can define branches of $\log (z-p)$, which
 should be a primitive of $\frac{1}{z-p}$, in which case the domain
@@ -5275,7 +5340,7 @@ a single branch, it means that we define a branch in some small open set,
 follow its values for a while, then switch to another branch that 
 happens to agree with the first branch at least at the point where we are
 at.  See \figureref{fig:followbranch}.  This is really what we did in the
-``computation'' above.  We followed the log from $1$ along the circle until we
+``computation'' above.  We followed $\log$ from $1$ along the circle until we
 ended up at $1$ again, and our branches that we followed ended up $2\pi i$
 off.  We will see an example of this briefly.
 
@@ -5359,7 +5424,7 @@ L_j\bigl(\gamma(t_{j-1})\bigr)
 =
 \frac{1}{2\pi i} \bigl( L_n(z_0) - L_1(z_0) \Bigr) .
 \end{multline*}
-As $L_n$ and $L_1$ are both branches of the log, their difference is
+As $L_n$ and $L_1$ are both branches of $\log$, their difference is
 $2\pi k i$ for some $k \in \Z$, as each is $\log\sabs{z_0} + i \arg z_0$ for some value of
 $\arg$.
 \end{proof}
@@ -5737,7 +5802,7 @@ e^{g(z) + C} = f(z)
 for some $C \in \C$.
 \end{proof}
 
-If we have the log, we can take roots.
+If we have the logarithm, we can take roots.
 
 \begin{cor}
 Let $U \subset \C$ be open and simply connected,
@@ -7583,7 +7648,7 @@ The proposition thus says that every harmonic function on a simply connected
 domain has a harmonic conjugate.  On the other hand, on the punctured plane
 $\C \setminus \{ 0 \}$, the function $\log \sabs{z}$ is harmonic, but
 fails to have a harmonic conjugate.  If it did have a harmonic conjugate
-then log would have a branch in $\C \setminus \{0\}$, which it does not.
+then $\log$ would have a branch in $\C \setminus \{0\}$, which it does not.
 So much follows from the following proposition.
 
 
