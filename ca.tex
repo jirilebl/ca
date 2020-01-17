@@ -1264,9 +1264,9 @@ $\C \setminus \{ 0 \}$.
 
 \subsection{Mapping properties of the exponential}
 
-Let us note what the exponential does to the complex plane.
+Let us consider what the exponential does to the complex plane.
 The identity $e^{z+w} = e^z e^w$ implies that the exponential
-can never be zero (exercise).
+is never zero (exercise).
 From the known properties of polar coordinates
 and the real exponential, it follows that the complex exponential is
 onto $\C \setminus \{ 0 \}$.
@@ -1291,7 +1291,7 @@ $z \in \C$.
 \end{exercise}
 \end{exbox}
 
-Let us consider a vertical line given by $x=c$.  As
+Consider a vertical line given by $x=c$.  As
 \begin{equation*}
 e^{z} = 
 e^{x+iy} =
@@ -1306,7 +1306,7 @@ annulus
 \bigl\{ z \in \C : e^a < \sabs{z} < e^b \bigr\} .
 \end{equation*}
 
-On the other hand consider a horizontal line $y=c$.  By the formula above it
+On the other hand, the horizontal line $y=c$
 is taken to the ray from the origin to infinity where $\theta = c$ in polar
 coordinates.  Hence,
 the exponential takes the strip $a < y < b$ to the
@@ -1327,15 +1327,15 @@ way onto $\C \setminus \{ 0 \}$.
 \section{The Riemann sphere}
 
 It is sometimes useful to extend the real numbers by adding $\pm \infty$.
-There is a similar concept for the complex plane, although
-we only add one infinity.  We write:
+A similar concept exists for the complex plane, although
+we only add one infinity.  We write
 \begin{equation*}
 \C_{\infty} = \C \cup \{ \infty \} ,
 \end{equation*}
 and we call $\C_{\infty}$ the \emph{\myindex{Riemann sphere}}.
-We want to give this set some geometry or at least topology.  We
-want the topology to be the same as that of $\C$ when we are
-away from infinity.  We define the function $g \colon \C_\infty \to \C_\infty$
+We want to define the topology of $\C_\infty$ to be the same as that of $\C$
+when we are away from infinity.
+We define the function $g \colon \C_\infty \to \C_\infty$ by
 \begin{equation*}
 g(z) =
 \begin{cases}
@@ -1351,8 +1351,8 @@ $\infty$.  When talking about a neighborhood of
 infinity in $\C_{\infty}$, then we really want to think of this map,
 and think of the corresponding neighborhood of the origin.
 
-More concretely, we can give $\C_{\infty}$ a metric space structure.  The way
-we can visualize it is as follows.  Let $S^2$ be the unit sphere in $\R^3$,
+More concretely, we can give $\C_{\infty}$ a metric space structure.
+Let $S^2$ be the unit sphere in $\R^3$,
 that is, the set described by $x^2 + y^2 + z^2 = 1$ if $(x,y,z)$ are the
 coordinates\footnote{This is possibly the only instance in this book where
 $z$ is a real number.}.  The plane $\R^2$ with coordinates $(x,y)$ can be
@@ -1366,11 +1366,12 @@ the two are parallel).  We define:
 \begin{equation*}
 \Phi(p) = \xi.
 \end{equation*}
-Furthermore we let $\Phi\bigl((0,0,1)\bigr) = \infty$ to find a map
-$\Phi \colon S^2 \to \C_\infty$.  The map we have is the
-\emph{stereographic projection}.  The map is one-to-one and onto (exercise
-below), and so we can assign a distance to $\C_\infty$ by
-using a distance on $S^2$, which we can just take to be the subspace
+We let $\Phi\bigl((0,0,1)\bigr) = \infty$ so that we have a map
+$\Phi \colon S^2 \to \C_\infty$.  This map is called the 
+\emph{\myindex{stereographic projection}}.
+The map is one-to-one and onto (exercise below),
+and so we define a metric in $\C_\infty$ by
+using a metric on $S^2$, which we can just take to be the subspace
 metric coming from the euclidean metric on $\R^3$ (another possibility
 could be the great circle distance, \exampleref{ms:greatcircle}).
 
@@ -1396,8 +1397,8 @@ metric coming from $S^2$.
 \end{exercise}
 \end{exbox}
 
-The point of the Riemann sphere is to give values of $\infty$ to certain
-limits and to allow limits as $z$ goes to $\infty$.  If we have a
+The point of the Riemann sphere is to give the value $\infty$ to certain
+limits and to allow limits as $z$ tends to $\infty$.  For a
 function $f \colon U \subset \C_\infty \to \C_\infty$, we define
 \begin{equation*}
 \lim_{z \to z_0} f(z) = L
@@ -1581,13 +1582,15 @@ In other words, $\C \bP^1$ is the set of ``complex lines through the
 origin'' in $\C^2$, or yet in other words,
 it is the set of one-dimensional vector
 subspaces of $\C^2$.  We identify $\C\bP^1$ with $\C_\infty$ in the following
-way.  Denote by $[z,w]$ the equivalence class of vectors in $\C^2$.
+way.  Denote by $[z:w] \in \C \bP^1$
+the equivalence class of vectors in $\C^2$ under
+$\sim$ that contains $(z,w) \in \C^2$.
 Then define the map $\Phi \colon \C_\infty \to \C \bP^1$ as
 \begin{equation*}
 \Phi(z) =
 \begin{cases}
-[z,1] & \text{if } z \in \C , \\
-[1,0] & \text{if } z=\infty .
+[z:1] & \text{if } z \in \C , \\
+[1:0] & \text{if } z=\infty .
 \end{cases}
 \end{equation*}
 
@@ -1613,19 +1616,19 @@ First, $\Phi \circ f$ for $z \in \C \setminus \bigl\{ \frac{-d}{c} \bigr\}$
 is equal to
 \begin{equation*}
 \Phi \circ f(z) =
-\left[\frac{a z + b}{c z + d}, 1 \right]
+\left[\frac{a z + b}{c z + d}: 1 \right]
 =
-\left[a z + b, c z + d \right] ,
+\left[a z + b: c z + d \right] ,
 \end{equation*}
 where the second inequality follows by definition of $\sim$.
-The expression $[az+b,cz+d]$ makes sense even when
+The expression $[az+b:cz+d]$ makes sense even when
 $z = \frac{-d}{c}$.
 Next, notice that (again noting the definition of $\sim$
 and the fact that $(z,w) \mapsto M(z,w) = (a z + b w, c z + d w)$ is
 linear):
 \begin{equation*}
-\Phi \circ f \circ \Phi^{-1} ([z,w]) =
-\left[a z + b w, c z + d w \right] .
+\Phi \circ f \circ \Phi^{-1} ([z:w]) =
+\left[a z + b w: c z + d w \right] .
 \end{equation*}
 
 Namely, $f$ corresponds to the linear map $v \mapsto Mv$ on $\C^2$.
@@ -1800,7 +1803,7 @@ Consider a polynomial $P(z)$ and expand it near some $z_0 \in \C$:
 P(z) = c_0 + c_1 (z-z_0) + c_2 {(z-z_0)}^2 + \cdots + c_n {(z-z_0)}^n .
 \end{equation*}
 So $P(z_0+h) = c_0 + c_1 h + c_2 h^2 + \cdots + c_n h^n$.
-In other words,
+Then
 \begin{equation*}
 \lim_{h \to 0} \frac{P(z_0+h) - P(z_0)}{h} =
 \lim_{h \to 0} \frac{P(z_0+h) - c_0}{h} = c_1 .
@@ -1853,23 +1856,25 @@ holomorphic function is continuous.
 
 \subsection{Cauchy--Riemann equations}
 
-For a differentiable (in the real sense
+Let $f \colon U \to \C$, where $U \subset \C$, be a
+differentiable (in the real sense
 and as a function of two real variables,
-see \sectionref{sec:derinsv} in the appendix) function $f \colon U \to
-\C$ where $U \subset \C$, if we think of $\C$ as $\R^2$,
+see \sectionref{sec:derinsv} in the appendix) function.
+If we think of $\C$ as $\R^2$,
 then the real derivative of $f$ is a $2 \times 2$ real matrix $D f$.
-That is, $f$ is real differentiable at $z_0$ if there exists
+That is, $f$ is (real) differentiable at $z_0$ if there exists
 a $2 \times 2$ real matrix $Df|_{z_0}$ such that
 \begin{equation*}
 \lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - (Df|_{z_0}) h}}{\sabs{h}} = 0 .
 \end{equation*}
-Here we think of $h$ as a column vector to be able to apply it to the
+We think of $h$ as a column vector in $\R^2$ 
+to be able to apply it to the
 $2 \times 2$ real matrix $Df|_{z_0}$.
-A key point here is that $h \in \C$ (or $\R^2$ if you wish)
-so the limit is being taken in $\C$.
+A key point here is that the limit is being taken
+as $h$ moves in $\C$ (or $\R^2$ if you wish).
 So $f(z_0+h) - f(z_0) - (Df|_{z_0}) h$ is $o(\sabs{h})$ as needed.
-The trick is when does $(Df|_{z_0}) h$ correspond to $\xi h$ for some $\xi \in
-\C$.
+The trick is to see when $(Df|_{z_0}) h$ corresponds to $\xi h$
+for some $\xi \in \C$.
 
 Write $f = u+iv$, that is, as a
 mapping into $\R^2$ it is $f = (u,v)$.  Then
@@ -1881,14 +1886,15 @@ y}\big|_{z_0} \\[5pt]
 \frac{\partial v}{\partial x}\big|_{z_0} & \frac{\partial v}{\partial y}\big|_{z_0}
 \end{bmatrix} .
 \end{equation*}
-If we think of complex numbers as $2 \times 2$
-matrices, then most often the matrix $Df|_{z_0}$ does not correspond to a
-complex number.  As we have seen in the last chapter, it is
+As we have seen in the last chapter, only a matrix of the form
 $\left[ \begin{smallmatrix}
 a & -b \\ b & a
-\end{smallmatrix} \right]$ that corresponds to the complex number $a+ib$.
-If we wish $Df|_{z_0}$ to correspond to multiplication by
-a complex number then
+\end{smallmatrix} \right]$ corresponds to the complex number $a+ib$.
+So the derivative $Df|_{z_0}$ corresponds to a
+complex number only if it is of the form
+$\left[ \begin{smallmatrix}
+a & -b \\ b & a
+\end{smallmatrix} \right]$, or in other words,
 \begin{equation*}
 \frac{\partial u}{\partial x}\Big|_{z_0} =
 \frac{\partial v}{\partial y}\Big|_{z_0}
@@ -2578,7 +2584,7 @@ so using the Cauchy--Riemann equations, we compute the Jacobian determinant,
 \end{equation*}
 The Jacobian determinant is nonzero (positive) and $Df$ is invertible
 whenever $f'(z)$ is nonzero.
-Let us remark that among other things this computation
+Among other things this computation
 implies that the determinant of
 $Df$ is always nonnegative, so a holomorphic function preserves orientation.
 
@@ -2586,7 +2592,7 @@ The real inverse function theorem (\thmref{thm:inverse})
 for continuously differentiable
 functions of $\R^2$ to $\R^2$
 says that if $Df$ is invertible at some point $p$, then $f$ takes a
-neighborhood $V$ of $p$ bijectively into another neighborhood $f(V)$
+neighborhood $V$ of $p$ bijectively to a neighborhood $f(V)$
 of $f(p)$ and the inverse on that neighborhood is continuously
 differentiable with $D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
 
@@ -2655,8 +2661,7 @@ the Jacobian determinant is nonpositive, and $f$ flips orientation.
 \item
 More generally, if $f$ is (real) differentiable then
 $\det Df\big|_z = \abs{\frac{\partial f}{\partial z}(z)}^2 -
-\abs{\frac{\partial f}{\partial \bar{z}}(z)}^2$.  In other words,
-the Jacobian determinant is nonpositive, and $f$ flips orientation.
+\abs{\frac{\partial f}{\partial \bar{z}}(z)}^2$.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -2689,8 +2694,8 @@ r^{1/n} e^{i\theta/n + 2\pi i (n-1)/n} .
 \end{equation*}
 So those are the $n$ different $z$s that go to $w$.
 
-Another important thing about what $z^n$ does is what it does to angles.
-If now $z = re^{i\theta}$, then
+Another important thing about $z^n$ is what it does to angles.
+If $z = re^{i\theta}$, then
 \begin{equation*}
 z^n = r^n e^{i n\theta} .
 \end{equation*}
@@ -2971,9 +2976,10 @@ practice.
 \subsection{Definition}
 
 Functions that possess a convergent power series are called analytic.
-There exist both complex and real analytic functions depending on if the
-variables are real or complex, and they may be in one or several variables,
-but here we are interested in complex analytic functions of one variable. 
+One can talk about
+both complex and real analytic functions depending on if the
+variables are real or complex, and they may depend on one or several variables,
+but we are interested in complex analytic functions of one variable. 
 As there is little chance of confusion, we say just ``analytic'' instead of
 ``complex analytic.''  Until the 19\textsuperscript{th} century, 
 when people considered a ``function'' they really meant ``analytic function''
@@ -4754,11 +4760,11 @@ h(w) =
 is a holomorphic function $U$.
 \end{lemma}
 
-There are two ways to do this,
+The lemma has two common proofs,
 and as they are both useful in other places, let us do both of them.
 
 \begin{proof}[Proof A]
-One is to use Morera's theorem (\thmref{thm:Morera}) and Fubini's theorem.
+One proof is to use Morera's theorem (\thmref{thm:Morera}) and Fubini's theorem.
 Let $T$ be a triangle inside this small neighborhood.  Suppose $w \in U$
 first.  Then
 \begin{equation*}
@@ -7171,7 +7177,7 @@ Suppose $U \subset \C$ is an open set, and $\gamma$ is a closed piecewise $C^1$
 path (or a cycle) in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C
 \setminus U$.
 FIXME:
-Suppose that $f \colon U \to \bP^1$ is a meromorphic function with no zeros
+Suppose that $f \colon U \to \C_\infty$ is a meromorphic function with no zeros
 or poles on $\gamma$.
 Then
 \begin{equation*}
