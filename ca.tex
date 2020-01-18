@@ -4461,7 +4461,7 @@ Let $U \subset \C$ be an open set.  A function $f \colon U \to \C$
 is holomorphic if and only if $f$ is analytic.
 \end{cor}
 
-\subsection{Derivative is holomorphic}
+\subsection{Derivative is holomorphic and Morera}
 
 Let us restate \corref{cor:analinfdif} in terms of
 holomorphic functions, now that we know that holomorphic functions are
@@ -4482,6 +4482,113 @@ then so is the derivative.  Nothing like that is true for real functions.
 Let $f \colon \R \to \R$ be defined by $f(0) = 0$ and $f(x) = x^2
 \sin\bigl( \frac{1}{x} \bigr)$ for $x \not= 0$.  Show that $f$ is
 differentiable everywhere (including at $0$), but $f'$ is not continuous.
+\end{exercise}
+\end{exbox}
+
+\begin{thm}[Cauchy integral formula for derivatives]
+\index{Cauchy integral formula!derivatives}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$\overline{\Delta_r(p)} \subset U$.
+Then for all $z \in \Delta_r(p)$ and all $k \in \N$
+\begin{equation*}
+f^{(k)}(z)
+=
+\frac{k!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{(\zeta-z)^{k+1}}
+\,
+d \zeta
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+We know that $f$ is infinitely complex differentiable, and we can compute
+the derivatives using the Wirtinger operator.
+By induction, suppose the theorem holds for some $k$
+(the standard formula says it is true for $k=0$).  Fix some $z \in
+\Delta_r(p)$.
+\begin{equation*}
+\begin{split}
+f^{(k+1)}(z)
+=
+\frac{\partial }{\partial z}
+\bigl[ f^{(k)}(z) \bigr]
+& =
+\frac{\partial }{\partial z}
+\left[
+\frac{k!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{(\zeta-z)^{k+1}}
+\,
+d \zeta
+\right]
+\\
+& = 
+\frac{k!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+f(\zeta)
+\frac{\partial }{\partial z}
+\left[
+\frac{1}{(\zeta-z)^{k+1}}
+\right]
+\,
+d \zeta
+\\
+& = 
+\frac{(k+1)!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{(\zeta-z)^{k+2}}
+\,
+d \zeta .
+\end{split}
+\end{equation*}
+Here, we are really passing the partial derivatives in the real and
+imaginary parts (the $x$ and the $y$) under the integral, which can be done by 
+the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
+Actually it requires \exerciseref{exercise:severalvariableLiebniz},
+but that is a simple generalization.  Note that we have used that the
+$x$ and $y$ derivatives of 
+$\frac{f(\zeta)}{(\zeta-z)^{k+2}}$ are continuous, as long as $z$ is kept to
+inside of $\Delta_r(p)$.
+\end{proof}
+
+We could have also simply used the difference quotient instead of the
+Wirtinger operator.  That requires slightly more care, you have to show
+uniform convergence of the right limit of functions, but this technique
+would have avoided the proof that holomorphic functions are analytic.
+We leave it as an exercise.
+
+\begin{exbox}
+\begin{exercise}
+Give a different proof of the above formula by using the difference
+quotient.  First show the formula for $f'$, then again using the difference
+quotient and the fact that the kernel (the function inside) is holomorphic
+in $z$, show the formula for $f''$, etc.  Note that for this to work it is
+not necessary to assume that $f'$ is holomorphic, it will follow from your
+work.
+\end{exercise}
+
+\begin{exercise} \label{exercise:partialderscont}
+Suppose that $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$
+where $U \subset \C$ is open, and for any fixed $t \in (a,b)$, the function
+$z \mapsto f(z,t)$ is holomorphic.  Prove that
+$\frac{\partial f}{\partial z}$ is a continuous function of $U \times
+(a,b)$.  In particular,
+$\frac{\partial f}{\partial x}$
+and
+$\frac{\partial f}{\partial y}$ are continuous as well (where $z=x+iy$).
+\end{exercise}
+
+\begin{exercise}
+The previous exercise may seem trivial, but the key is that we can prove
+(using Cauchy's formula) that the partials are continuous as a function of
+$U \times (a,b)$ by using continuity of $f$ on $U \times (a,b)$.  No such
+result is true for nonholomorphic functions.  Prove that the function defined by
+$f(x,t) = t \sin\bigl(\frac{x}{t}\bigr)$ for $t \not= 0$ and $f(x,0) =  0$,
+is continuous as a function of $\R^2$, and for each fixed $t$, the function
+$x \mapsto f(x,t)$ is differentiable (infinitely differentiable in fact)
+but $\frac{\partial f}{\partial x}$ is not continuous as a function of both
+$x$ and $t$.
 \end{exercise}
 \end{exbox}
 
@@ -4814,11 +4921,16 @@ h(w)
 \, dz
 = \int_\gamma 0 \, dz = 0.
 \end{equation*}
-Here, you are really passing the partial derivatives in the real and
-imaginary parts under the integral, which can be done by 
-the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
-Actually it requires \exerciseref{exercise:severalvariableLiebniz},
-but that is a simple generalization.  The Cauchy--Riemann equations
+As once before, we are really passing the partial derivatives in $x$
+and $y$ under the integral via the Leibniz integral rule,
+\thmref{thm:Leibnizrule} (or again really
+\exerciseref{exercise:severalvariableLiebniz}).
+Leibniz rule applies because 
+\exerciseref{exercise:partialderscont} says that the partial
+derivatives are continuous as functions of both variables.
+Leibniz also implies that $h$ is continuously (real) differentiable,
+and thus
+the Cauchy--Riemann equations
 (\propref{prop:WirtCR}) now
 say that $h(w)$ is holomorphic.
 \end{proof}
