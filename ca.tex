@@ -1623,9 +1623,9 @@ is equal to
 where the second inequality follows by definition of $\sim$.
 The expression $[az+b:cz+d]$ makes sense even when
 $z = \frac{-d}{c}$.
-Next, notice that (again noting the definition of $\sim$
+Next, again using the definition of $\sim$
 and the fact that $(z,w) \mapsto M(z,w) = (a z + b w, c z + d w)$ is
-linear):
+linear,
 \begin{equation*}
 \Phi \circ f \circ \Phi^{-1} ([z:w]) =
 \left[a z + b w: c z + d w \right] .
@@ -3095,7 +3095,7 @@ defines a continuous function of $\Delta_s(p)$.  Thus
 \end{equation*}
 \end{proof}
 
-We notice that the derivative is again given by a power series.
+The derivative is again given by a power series.
 By induction, it follows that a power series is infinitely complex
 differentiable.
 
@@ -3451,7 +3451,7 @@ require that $\gamma'(t)$ never vanishes (including the one sided limits)
 for piecewise $C^1$ paths.  The point is, are we thinking of the path
 as the parametrization $\gamma$ or as the set $\gamma\bigl([a,b]\bigr)$.
 In practical terms, we lose nothing of real value by the extra requirement,
-and the reader is free to assume so.
+and the reader is free to assume so, although we will not need it.
 \end{remark}
 
 Due to the exercises above,
@@ -3513,7 +3513,7 @@ The statement follows.
 \end{proof}
 
 It is useful to combine paths, we have an almost arithmetic of paths.
-The resulting objects are called \emph{chains}\index{chain}, and they
+The resulting objects are called \emph{chains}, and they
 are just formal combinations of paths.  For example, if $\gamma$
 and $\alpha$ are piecewise $C^1$ paths, then the chain  $\gamma+\alpha$
 is an object over which we can integrate functions that are continuous
@@ -3524,7 +3524,9 @@ on the image of both:
 \int_{\gamma} f(z) \, dz +
 \int_{\alpha} f(z) \, dz .
 \end{equation*}
-In general, a chain is an expression
+
+\begin{defn}
+A \emph{\myindex{chain}} is an expression
 \begin{equation*}
 \Gamma = a_1 \gamma_1 + \cdots + a_n \gamma_n ,
 \end{equation*}
@@ -3538,18 +3540,58 @@ are paths.  We integrate over such a chain as
 a_1 \int_{\gamma_1} f(z) \, dz +
 \cdots
 +
-a_n \int_{\gamma} f(z) \, dz .
+a_n \int_{\gamma_n} f(z) \, dz .
 \end{equation*}
-We consider two chains $\Gamma_1$ and $\Gamma_2$ equivalent if
+We say a chain is \emph{in} $U \subset \C$ if the images
+of all the component paths are subsets of $U$.
+
+We consider two chains $\Gamma_1$ and $\Gamma_2$ in an
+open $U \subset \C$
+\emph{equivalent}\index{equivalent chains} if
 \begin{equation*}
 \int_{\Gamma_1} f(z) \, dz = 
 \int_{\Gamma_2} f(z) \, dz ,
 \end{equation*}
-for all continuous functions $f$ (continuous on the image of both $\Gamma_1$
-and $\Gamma_2$).
+for all continuous functions $f \colon U \to \C$.
+
+We define the \emph{\myindex{zero chain}} $0$ by defining 
+$\int_0 f(z) \, dz = 0$ for all continuous $f \colon U \to \C$.
+\end{defn}
+
+The chain arithmetic is done in the obvious way as formal sums of paths:
+If $\Gamma_1 = 2 \gamma_1 + \gamma_2$ and $\Gamma_2 = 3 \gamma_2 +
+\gamma_3$, then $\Gamma_1 + \Gamma_2 = 2 \gamma_1 + 4 \gamma_2 + \gamma_3$.
+Similarly for scalar multiplication: $3 \Gamma_1 = 6 \gamma_1 + 3 \gamma_2$.
+In particular, we write $-\Gamma$ for $(-1)\Gamma$.
+A chain is equivalent to the zero chain if
+\begin{equation*}
+\int_\Gamma f(z)\, dz = 0
+\end{equation*}
+for all continuous $f$, and
+two chains are equivalent if $\Gamma_1 - \Gamma_2 = 0$.
+Our chains in this book are always composed of piecewise $C^1$ paths,
+although that is not the most general definition used in the literature.
+
+\begin{remark}
+The set where the continuous $f$ is defined is not a big deal.  We could
+take $f$ to be continuous on $U$, $\C$ or perhaps just the images of
+$\Gamma_1$ and $\Gamma_2$.
+By Tietze's extension theorem, any continuous function on a closed subset of
+$\C$ (such as the images of $\Gamma_1$ and $\Gamma_2$) extends to a
+continuous function on $\C$ (this theorem works in any metric space).
+The way we defined things, we do not need Tietze.
+\end{remark}
+
+\begin{remark}
+It is important that the equivalence is for all continuous
+functions.  We will show later that if $U$ is say the disc, then for
+any closed $\Gamma$, $\int_\Gamma f(z) \, dz = 0$ for all holomorphic $f$.
+Clearly that should not imply that $\Gamma$ is equivalent to the zero chain
+(or a constant path).  See \exerciseref{exercise:nonconstantnonzerochain}.
+\end{remark}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise} \label{exercise:pathsum}
 Let $\gamma_1 \colon [a,b] \to \C$ and $\gamma_2 \colon [b,c] \to \C$
 be two piecewise $C^1$ paths.  Prove that the function $\gamma \colon [a,c] \to
 \C$ defined by $\gamma(t) = \gamma_1(t)$ if $t \in [a,b]$ and $\gamma(t)
@@ -3559,27 +3601,39 @@ be two piecewise $C^1$ paths.  Prove that the function $\gamma \colon [a,c] \to
 \end{equation*}
 for all $f$ continuous on the image of $\gamma$.
 \end{exercise}
+
+\begin{exercise} \label{exercise:nonconstantnonzerochain}
+Suppose $U \subset \C$ is open and $\gamma \colon [a,b] \to U$
+is a nonconstant piecewise $C^1$
+path.  Show that as chains, $\gamma$ is not equivalent to the zero chain.
+\end{exercise}
 \end{exbox}
 
-Using the exercise above, we can assume that any chain that is put together
+Using \exerciseref{exercise:pathsum} above,
+we can assume that any chain that is put together
 from connecting paths can be converted and integrated as a single path,
 and so in the sequel we may do this procedure implicitly.
 
-The paths that come up in applications are often constructed out of straight
-line segments or arcs.
-Given two points $a,b \in \C$, the \emph{\myindex{segment}} $[a,b]$ is the path
-$\gamma \colon [0,1] \to \C$ given by $\gamma(t) = (1-t)a + tb$.
-If we do chain arithmetic, note that $-[a,b] = [b,a]$.
-A path is \emph{\myindex{polygonal}} if it can be written as a chain
-as $[a_1,a_2] + [a_2,a_3] + \cdots + [a_{k-1},a_k]$ for some complex numbers
-$a_1,\ldots,a_k$.  As the following exercise shows, we can in fact get by
+\begin{defn}
+Given two points $z,w \in \C$, the \emph{\myindex{segment}} $[z,w]$ is the path
+$\gamma \colon [0,1] \to \C$ given by $\gamma(t) = (1-t)z + tw$.
+For the purposes of chain arithmetic, $-[z,w] = [w,z]$.
+A path is \emph{\myindex{polygonal}} if it can be written as
+(is equivalent to) a chain
+$[z_1,z_2] + [z_2,z_3] + \cdots + [z_{k-1},z_k]$ for some complex numbers
+$z_1,\ldots,z_k$.
+\end{defn}
+
+As the following exercise shows, we can, if we want to, get by
 with just polygonal path for most practical purposes.
+Although the paths that come up in applications are often constructed out of
+segments and arcs anyhow.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is open, $\gamma \colon [a,b] \to \C$ is a piecewise
+Suppose $U \subset \C$ is open, $\gamma \colon [a,b] \to U$ is a piecewise
 $C^1$ path, and $f \colon U \to \C$ is continuous.  Then for every $\epsilon
-> 0$, there exists a polygonal path (or chain) $\alpha$ with the same
+> 0$, there exists a polygonal path (or chain) $\alpha$ in $U$ with the same
 beginning and end point, such that
 \begin{equation*}
 \abs{\int_\alpha f(z)\, dz - \int_{\gamma} f(z) \, dz} < \epsilon .
@@ -3601,7 +3655,7 @@ is called a \emph{\myindex{primitive}} (or \emph{\myindex{antiderivative}})
 of $f$.
 \end{defn}
 
-First, let us note the ``uniqueness'' of primitives.
+First, let us observe the ``uniqueness'' of primitives.
 
 \begin{prop} \label{prop:primunique}
 Suppose $U \subset \C$ is a domain, and
@@ -3612,8 +3666,8 @@ there is a constant $C$ such that
 $F(z) = G(z) + C$.
 \end{prop}
 
-The proof is left as an exercise.  Be careful to somewhere use that $U$ is a
-domain.
+The proof is left as an exercise.  Make sure to use that $U$ is a
+domain somewhere.
 
 \begin{exbox}
 \begin{exercise}
@@ -3784,7 +3838,7 @@ $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side in half.  See
 \end{myfig}
 
 Each $T_k$ is positively oriented.
-Note that the sides of the inner $T_4$ triangle have the opposite
+The sides of the inner $T_4$ triangle have the opposite
 orientation as the inner sides of $T_1$ through $T_3$, and
 so the line integral over these sides cancels.  Therefore,
 \begin{equation*}
@@ -4546,7 +4600,7 @@ Here, we are really passing the partial derivatives in the real and
 imaginary parts (the $x$ and the $y$) under the integral, which can be done by 
 the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
 Actually it requires \exerciseref{exercise:severalvariableLiebniz},
-but that is a simple generalization.  Note that we have used that the
+but that is a simple generalization.  We have used that the
 $x$ and $y$ derivatives of 
 $\frac{f(\zeta)}{(\zeta-z)^{k+2}}$ are continuous, as long as $z$ is kept to
 inside of $\Delta_r(p)$.
@@ -4563,7 +4617,7 @@ We leave it as an exercise.
 Give a different proof of the above formula by using the difference
 quotient.  First show the formula for $f'$, then again using the difference
 quotient and the fact that the kernel (the function inside) is holomorphic
-in $z$, show the formula for $f''$, etc.  Note that for this to work it is
+in $z$, show the formula for $f''$, etc.  For this to work it is
 not necessary to assume that $f'$ is holomorphic, it will follow from your
 work.
 \end{exercise}
@@ -4646,14 +4700,14 @@ It is not hard to compute that our previous definition and the results
 of this section give us the above series.  It is also not hard to check
 directly that the series converges in all of $\C$.
 
-Let us note that the series is the unique holomorphic function $f \colon \C
+We claim that the series is the unique holomorphic function $f \colon \C
 \to \C$, such that $f(0)=1$ and $f' = f$.  If $f$ were such a function, than
 it would have a power series
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n ,
 \end{equation*}
 which would converge uniformly in any disc.  Obviously, $c_0 = 1$
-as $f(0) = 1$.  The trick is to figure out the rest.
+as $f(0) = 1$.  The trick is to figure out the rest of the series.
 We now know how to
 differentiate such a series, we just do it term-by-term, ``formally.''
 So
@@ -5434,11 +5488,11 @@ with quotation marks:
 2\pi i.
 \end{equation*}
 That's a lot better, no?  The equalities are only true morally.  But
-interpreted correctly, it is exactly what is happening.  You do subtract
-one of the values of $\log 1$ from another value of $\log 1$.  And to figure
-out which, you start with say $\log 1 = 0$, and you follow the function
-along the circle slowly and notice that the $i \arg z$ grows from $0$ to
-$2\pi i$, so the $\log 1$ at the end is $2 \pi i$.
+interpreted correctly, it is exactly what is happening.  You really do subtract
+one of the values of $\log 1$ from another value of $\log 1$.  To figure
+out which from which, you start with say $\log 1 = 0$, and you follow the
+function along the circle slowly and notice that the $i \arg z$ grows from $0$ to
+$2\pi i$.  So the $\log 1$ at the end is $2 \pi i$.
 
 To make working with $\log$ easier we usually talk about a
 \emph{\myindex{branch of the logarithm}}.  So $L \colon U \to \C$ is a branch
@@ -5663,9 +5717,9 @@ d \zeta .
 \end{equation*}
 \end{thm}
 
-Before we prove the theorem let us note a
-rather strange fact that what we will do in the proof is to define an entire
-function (even though $U$ might be only a small subset) and then we will use
+Before we prove the theorem let us remark
+that in the proof, rather strangely, we will define an entire
+function (even though $U$ may be small) and then we will use
 Liouville's theorem (\thmref{thm:Liouville}).
 
 \begin{proof}
@@ -5880,7 +5934,7 @@ F(z) =
 +
 \int_{[z_0,\xi]} f(\xi) \, d\xi .
 \end{equation*}
-Now note that the first term is a constant, and the second term is precisely
+The first term in the sum is a constant, and the second term is precisely
 the primitive of $f$ for star-like domains.
 \end{proof}
 
@@ -7133,16 +7187,16 @@ We ``complexify''\index{complexify}
 $\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.  Really
 that's just a fancy way of saying we are going to plug in complex numbers
 into a real formula that happens to also work for complex numbers.
-We note by partial fractions we find
+By partial fractions we find
 \begin{equation*}
 \frac{1}{1+z^2} = \frac{1}{(z+i)(z-i)} =
 \frac{i}{2} \frac{1}{z+i} - 
 \frac{i}{2} \frac{1}{z-i} .
 \end{equation*}
-In particular, there is an isolated singularity at $\pm i$.  Our cycle
+There is an isolated singularity at $\pm i$.  Our cycle
 $\Gamma_r$ goes around $i$ (once so $n(\Gamma_r;i) = 1$),
 but not around $-i$ (exercise), so we only need to compute
-the residue in one of the ways:
+the residue around $i$.  We can use any one of the techniques:
 \begin{equation*}
 \operatorname{Res}\left(\frac{1}{1+z^2},i\right) =
 \operatorname{Res}\left(
@@ -7351,7 +7405,7 @@ inequality
 \sabs{f(z)-g(z)} < \sabs{f(z)}
 \end{equation*}
 as hypothesis.
-Notice that either inequality precludes any zeros on $\gamma$ itself.
+Either inequality precludes any zeros on $\gamma$ itself.
 The weaker statement is enough for vast majority of
 applications, and has a more geometric meaning.  The number of zeros of $f$
 inside $\gamma$ corresponds to the number times $f(z)$ winds around zero
@@ -7360,7 +7414,7 @@ little this does not change.  The classical visual ``proof'' is a dog on a leash
 with the master going around a tree.  The master is at $f(z)$, the tree is
 at the origin, and the dog is at $g(z)$, so the length of the leash is
 $\sabs{f(z)-g(z)}$ and the distance of the master from the tree is
-$\sabs{f(z)}$.  So the ``proof'' of the theorem is to notice that if the
+$\sabs{f(z)}$.  So the ``proof'' of the theorem is to observe that if the
 master walks around a tree $k$ times, and the dog is never further from the
 master than the distance of the master to the tree, then the dog also walked
 around the tree $k$ times.  See \figureref{fig:dogandtree}.
@@ -7616,7 +7670,7 @@ A $C^2$ (a twice continuously differentiable) function $f \colon U \to \R$ is
 
 The operator $\nabla^2$, sometimes also written $\Delta$,
 is the \emph{\myindex{Laplacian}}.
-It is the trace of the Hessian matrix.  It is a convenient thing
+It is the trace of the Hessian matrix.  It is convenient 
 to note that
 \begin{equation*}
 4
@@ -7700,7 +7754,7 @@ Notice that
 \nabla^2 =
 4 \frac{\partial^2}{\partial \bar{z} \partial z}
 =
-4 \frac{\partial^2}{\partial \bar{z} \partial z} .
+4 \frac{\partial^2}{\partial z \partial \bar{z}} .
 \end{equation*}
 Then
 \begin{equation*}
