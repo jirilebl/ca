@@ -7572,8 +7572,10 @@ for all $z \in \gamma$.  Then $f$ and $g$ have the same number of zeros (up
 to multiplicity) in $V$.
 \end{cor}
 
-Observe that for holomorphic functions, the inequality precludes any zeros of $f$ or
-$g$ on $\gamma$.
+Observe that for holomorphic functions,
+the inequality precludes any zeros of $f$ or
+$g$ on $\gamma$.  This observation is actually quite convenient in the
+applications as it avoids having to show some technicalities.
 
 The classical statement of the theorem uses the weaker
 inequality
@@ -7625,6 +7627,84 @@ is a closed path (cycle) we find
 \end{equation*}
 The argument principle finishes the proof.
 \end{proof}
+
+\begin{example}
+A typical application of Rouch\`e is to approximately locate zeros of
+polynomials.  Consider $P(z) = z^n - 1$.  We can explicitly find the roots,
+but let us forget we can do so,
+and show using Rouch\`e that they are all on the unit circle.
+
+First
+consider $\gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
+around the origin.  Then on $\gamma$ we have
+\begin{equation*}
+\abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
+\end{equation*}
+We apply Rouch\`e ($P(z)$ is the dog and $1$ is the master).  So $P(z)$
+has the same number of zeros as the constant $1$ (that is, no zeros) in
+$\Delta_{1-\epsilon}(0)$.
+
+Similarly, take $z^n$ instead of $1$, and make $\gamma$ be the circle of
+radius $1+\epsilon$ around the origin.  Then on $\gamma$,
+\begin{equation*}
+\abs{P(z) - z^n} = 1 < \abs{z^n} .
+\end{equation*}
+So by Rouch\`e, $P(z)$ and $z^n$ have the same number of zeros in
+$\Delta_{1+\epsilon}(0)$, that is $n$ zeros.  As $\epsilon$ was arbitrary,
+all the zeros must be on the unit circle.
+\end{example}
+
+\begin{example}
+A typical application of Rouch\`e is to approximately locate zeros of
+polynomials.  Consider $P(z) = z^n - 1$.  We can explicitly find the roots,
+but let us forget we can do so,
+and show using Rouch\`e that they are all on the unit circle.
+
+First
+consider $\gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
+around the origin.  Then on $\gamma$ we have
+\begin{equation*}
+\abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
+\end{equation*}
+We apply Rouch\`e ($P(z)$ is the dog and $1$ is the master).  So $P(z)$
+has the same number of zeros as the constant $1$ (that is, no zeros) in
+$\Delta_{1-\epsilon}(0)$.
+
+Similarly, take $z^n$ instead of $1$, and make $\gamma$ be the circle of
+radius $1+\epsilon$ around the origin.  Then on $\gamma$,
+\begin{equation*}
+\abs{P(z) - z^n} = 1 < \abs{z^n} .
+\end{equation*}
+So by Rouch\`e, $P(z)$ and $z^n$ have the same number of zeros in
+$\Delta_{1+\epsilon}(0)$, that is $n$ zeros.  As $\epsilon$ was arbitrary,
+all the zeros must be on the unit circle.
+\end{example}
+
+\begin{example}
+As a more complicated example, consider $P(z) = z^4+12z^3+24z^2+4z+6$.
+Then on $\sabs{z}=1$,
+\begin{multline*}
+\abs{P(z)-(z^4+24z^2)} =
+\abs{12z^3+4z+6} \leq
+\abs{12z^3}+\abs{4z}+\abs{6} \\
+= 22 < 23 = \abs{\sabs{24 z^2} - \sabs{z^4}}
+\leq \sabs{z^4+24z^2} .
+\end{multline*}
+It is easy to see that $z^4+24z^2$ has zeros at $\pm \sqrt{24} i$ (outside
+the unit circle), and two zeros at the origin (inside the unit circle).
+Thus, $P(z)$ also has two zeros inside the unit circle.
+
+On the other hand, if $\sabs{z} > 46$ then
+\begin{equation*}
+\abs{P(z)-z^4} = \abs{12z^3+24z^2+4z+6}
+\leq 46 \sabs{z}^3 < 46^4 = \abs{z^4}.
+\end{equation*}
+So $P$ has all four zeros in a disc $\Delta_{46+\epsilon}(0)$ for any
+$\epsilon > 0$,
+in other words, all zeros of $P$ satisfy $\sabs{z} \leq 46$.
+These are not the ideal estimates (largest zero of $P$ has modulus less than
+10), but they are explicit and they were easy to come by.
+\end{example}
 
 \begin{exbox}
 \begin{exercise}
@@ -7712,7 +7792,7 @@ A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
 sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
 is surprisingly famous\footnote{%
 It is called a ``blow-up'' and it is used in obtaining a Fields medal.
-Unfortunately, it has already been obtained by Hironaka, and you
+Unfortunately, the medal has already been obtained by Hironaka, and you
 have to find your own map if you want your own medal.},
 takes all of $\R^2$, which is both an open and a closed set, to the
 set $\{ (x,y) : x \not= 0 \text{ or } y=0 \}$, which is neither open nor
