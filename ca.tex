@@ -1623,9 +1623,9 @@ is equal to
 where the second inequality follows by definition of $\sim$.
 The expression $[az+b:cz+d]$ makes sense even when
 $z = \frac{-d}{c}$.
-Next, notice that (again noting the definition of $\sim$
+Next, again using the definition of $\sim$
 and the fact that $(z,w) \mapsto M(z,w) = (a z + b w, c z + d w)$ is
-linear):
+linear,
 \begin{equation*}
 \Phi \circ f \circ \Phi^{-1} ([z:w]) =
 \left[a z + b w: c z + d w \right] .
@@ -3095,7 +3095,7 @@ defines a continuous function of $\Delta_s(p)$.  Thus
 \end{equation*}
 \end{proof}
 
-We notice that the derivative is again given by a power series.
+The derivative is again given by a power series.
 By induction, it follows that a power series is infinitely complex
 differentiable.
 
@@ -3451,7 +3451,7 @@ require that $\gamma'(t)$ never vanishes (including the one sided limits)
 for piecewise $C^1$ paths.  The point is, are we thinking of the path
 as the parametrization $\gamma$ or as the set $\gamma\bigl([a,b]\bigr)$.
 In practical terms, we lose nothing of real value by the extra requirement,
-and the reader is free to assume so.
+and the reader is free to assume so, although we will not need it.
 \end{remark}
 
 Due to the exercises above,
@@ -3513,7 +3513,7 @@ The statement follows.
 \end{proof}
 
 It is useful to combine paths, we have an almost arithmetic of paths.
-The resulting objects are called \emph{chains}\index{chain}, and they
+The resulting objects are called \emph{chains}, and they
 are just formal combinations of paths.  For example, if $\gamma$
 and $\alpha$ are piecewise $C^1$ paths, then the chain  $\gamma+\alpha$
 is an object over which we can integrate functions that are continuous
@@ -3524,7 +3524,9 @@ on the image of both:
 \int_{\gamma} f(z) \, dz +
 \int_{\alpha} f(z) \, dz .
 \end{equation*}
-In general, a chain is an expression
+
+\begin{defn}
+A \emph{\myindex{chain}} is an expression
 \begin{equation*}
 \Gamma = a_1 \gamma_1 + \cdots + a_n \gamma_n ,
 \end{equation*}
@@ -3538,18 +3540,58 @@ are paths.  We integrate over such a chain as
 a_1 \int_{\gamma_1} f(z) \, dz +
 \cdots
 +
-a_n \int_{\gamma} f(z) \, dz .
+a_n \int_{\gamma_n} f(z) \, dz .
 \end{equation*}
-We consider two chains $\Gamma_1$ and $\Gamma_2$ equivalent if
+We say a chain is \emph{in} $U \subset \C$ if the images
+of all the component paths are subsets of $U$.
+
+We consider two chains $\Gamma_1$ and $\Gamma_2$ in an
+open $U \subset \C$
+\emph{equivalent}\index{equivalent chains} if
 \begin{equation*}
 \int_{\Gamma_1} f(z) \, dz = 
 \int_{\Gamma_2} f(z) \, dz ,
 \end{equation*}
-for all continuous functions $f$ (continuous on the image of both $\Gamma_1$
-and $\Gamma_2$).
+for all continuous functions $f \colon U \to \C$.
+
+We define the \emph{\myindex{zero chain}} $0$ by defining 
+$\int_0 f(z) \, dz = 0$ for all continuous $f \colon U \to \C$.
+\end{defn}
+
+The chain arithmetic is done in the obvious way as formal sums of paths:
+If $\Gamma_1 = 2 \gamma_1 + \gamma_2$ and $\Gamma_2 = 3 \gamma_2 +
+\gamma_3$, then $\Gamma_1 + \Gamma_2 = 2 \gamma_1 + 4 \gamma_2 + \gamma_3$.
+Similarly for scalar multiplication: $3 \Gamma_1 = 6 \gamma_1 + 3 \gamma_2$.
+In particular, we write $-\Gamma$ for $(-1)\Gamma$.
+A chain is equivalent to the zero chain if
+\begin{equation*}
+\int_\Gamma f(z)\, dz = 0
+\end{equation*}
+for all continuous $f$, and
+two chains are equivalent if $\Gamma_1 - \Gamma_2 = 0$.
+Our chains in this book are always composed of piecewise $C^1$ paths,
+although that is not the most general definition used in the literature.
+
+\begin{remark}
+The set where the continuous $f$ is defined is not a big deal.  We could
+take $f$ to be continuous on $U$, $\C$ or perhaps just the images of
+$\Gamma_1$ and $\Gamma_2$.
+By Tietze's extension theorem, any continuous function on a closed subset of
+$\C$ (such as the images of $\Gamma_1$ and $\Gamma_2$) extends to a
+continuous function on $\C$ (this theorem works in any metric space).
+The way we defined things, we do not need Tietze.
+\end{remark}
+
+\begin{remark}
+It is important that the equivalence is for all continuous
+functions.  We will show later that if $U$ is say the disc, then for
+any closed $\Gamma$, $\int_\Gamma f(z) \, dz = 0$ for all holomorphic $f$.
+Clearly that should not imply that $\Gamma$ is equivalent to the zero chain
+(or a constant path).  See \exerciseref{exercise:nonconstantnonzerochain}.
+\end{remark}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise} \label{exercise:pathsum}
 Let $\gamma_1 \colon [a,b] \to \C$ and $\gamma_2 \colon [b,c] \to \C$
 be two piecewise $C^1$ paths.  Prove that the function $\gamma \colon [a,c] \to
 \C$ defined by $\gamma(t) = \gamma_1(t)$ if $t \in [a,b]$ and $\gamma(t)
@@ -3559,27 +3601,39 @@ be two piecewise $C^1$ paths.  Prove that the function $\gamma \colon [a,c] \to
 \end{equation*}
 for all $f$ continuous on the image of $\gamma$.
 \end{exercise}
+
+\begin{exercise} \label{exercise:nonconstantnonzerochain}
+Suppose $U \subset \C$ is open and $\gamma \colon [a,b] \to U$
+is a nonconstant piecewise $C^1$
+path.  Show that as chains, $\gamma$ is not equivalent to the zero chain.
+\end{exercise}
 \end{exbox}
 
-Using the exercise above, we can assume that any chain that is put together
+Using \exerciseref{exercise:pathsum} above,
+we can assume that any chain that is put together
 from connecting paths can be converted and integrated as a single path,
 and so in the sequel we may do this procedure implicitly.
 
-The paths that come up in applications are often constructed out of straight
-line segments or arcs.
-Given two points $a,b \in \C$, the \emph{\myindex{segment}} $[a,b]$ is the path
-$\gamma \colon [0,1] \to \C$ given by $\gamma(t) = (1-t)a + tb$.
-If we do chain arithmetic, note that $-[a,b] = [b,a]$.
-A path is \emph{\myindex{polygonal}} if it can be written as a chain
-as $[a_1,a_2] + [a_2,a_3] + \cdots + [a_{k-1},a_k]$ for some complex numbers
-$a_1,\ldots,a_k$.  As the following exercise shows, we can in fact get by
+\begin{defn}
+Given two points $z,w \in \C$, the \emph{\myindex{segment}} $[z,w]$ is the path
+$\gamma \colon [0,1] \to \C$ given by $\gamma(t) = (1-t)z + tw$.
+For the purposes of chain arithmetic, $-[z,w] = [w,z]$.
+A path is \emph{\myindex{polygonal}} if it can be written as
+(is equivalent to) a chain
+$[z_1,z_2] + [z_2,z_3] + \cdots + [z_{k-1},z_k]$ for some complex numbers
+$z_1,\ldots,z_k$.
+\end{defn}
+
+As the following exercise shows, we can, if we want to, get by
 with just polygonal path for most practical purposes.
+Although the paths that come up in applications are often constructed out of
+segments and arcs anyhow.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is open, $\gamma \colon [a,b] \to \C$ is a piecewise
+Suppose $U \subset \C$ is open, $\gamma \colon [a,b] \to U$ is a piecewise
 $C^1$ path, and $f \colon U \to \C$ is continuous.  Then for every $\epsilon
-> 0$, there exists a polygonal path (or chain) $\alpha$ with the same
+> 0$, there exists a polygonal path (or chain) $\alpha$ in $U$ with the same
 beginning and end point, such that
 \begin{equation*}
 \abs{\int_\alpha f(z)\, dz - \int_{\gamma} f(z) \, dz} < \epsilon .
@@ -3601,7 +3655,7 @@ is called a \emph{\myindex{primitive}} (or \emph{\myindex{antiderivative}})
 of $f$.
 \end{defn}
 
-First, let us note the ``uniqueness'' of primitives.
+First, let us observe the ``uniqueness'' of primitives.
 
 \begin{prop} \label{prop:primunique}
 Suppose $U \subset \C$ is a domain, and
@@ -3612,8 +3666,8 @@ there is a constant $C$ such that
 $F(z) = G(z) + C$.
 \end{prop}
 
-The proof is left as an exercise.  Be careful to somewhere use that $U$ is a
-domain.
+The proof is left as an exercise.  Make sure to use that $U$ is a
+domain somewhere.
 
 \begin{exbox}
 \begin{exercise}
@@ -3784,7 +3838,7 @@ $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side in half.  See
 \end{myfig}
 
 Each $T_k$ is positively oriented.
-Note that the sides of the inner $T_4$ triangle have the opposite
+The sides of the inner $T_4$ triangle have the opposite
 orientation as the inner sides of $T_1$ through $T_3$, and
 so the line integral over these sides cancels.  Therefore,
 \begin{equation*}
@@ -4461,7 +4515,7 @@ Let $U \subset \C$ be an open set.  A function $f \colon U \to \C$
 is holomorphic if and only if $f$ is analytic.
 \end{cor}
 
-\subsection{Derivative is holomorphic}
+\subsection{Derivative is holomorphic and Morera}
 
 Let us restate \corref{cor:analinfdif} in terms of
 holomorphic functions, now that we know that holomorphic functions are
@@ -4482,6 +4536,113 @@ then so is the derivative.  Nothing like that is true for real functions.
 Let $f \colon \R \to \R$ be defined by $f(0) = 0$ and $f(x) = x^2
 \sin\bigl( \frac{1}{x} \bigr)$ for $x \not= 0$.  Show that $f$ is
 differentiable everywhere (including at $0$), but $f'$ is not continuous.
+\end{exercise}
+\end{exbox}
+
+\begin{thm}[Cauchy integral formula for derivatives]
+\index{Cauchy integral formula!derivatives}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$\overline{\Delta_r(p)} \subset U$.
+Then for all $z \in \Delta_r(p)$ and all $k \in \N$
+\begin{equation*}
+f^{(k)}(z)
+=
+\frac{k!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{(\zeta-z)^{k+1}}
+\,
+d \zeta
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+We know that $f$ is infinitely complex differentiable, and we can compute
+the derivatives using the Wirtinger operator.
+By induction, suppose the theorem holds for some $k$
+(the standard formula says it is true for $k=0$).  Fix some $z \in
+\Delta_r(p)$.
+\begin{equation*}
+\begin{split}
+f^{(k+1)}(z)
+=
+\frac{\partial }{\partial z}
+\bigl[ f^{(k)}(z) \bigr]
+& =
+\frac{\partial }{\partial z}
+\left[
+\frac{k!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{(\zeta-z)^{k+1}}
+\,
+d \zeta
+\right]
+\\
+& = 
+\frac{k!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+f(\zeta)
+\frac{\partial }{\partial z}
+\left[
+\frac{1}{(\zeta-z)^{k+1}}
+\right]
+\,
+d \zeta
+\\
+& = 
+\frac{(k+1)!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{(\zeta-z)^{k+2}}
+\,
+d \zeta .
+\end{split}
+\end{equation*}
+Here, we are really passing the partial derivatives in the real and
+imaginary parts (the $x$ and the $y$) under the integral, which can be done by 
+the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
+Actually it requires \exerciseref{exercise:severalvariableLiebniz},
+but that is a simple generalization.  We have used that the
+$x$ and $y$ derivatives of 
+$\frac{f(\zeta)}{(\zeta-z)^{k+2}}$ are continuous, as long as $z$ is kept to
+inside of $\Delta_r(p)$.
+\end{proof}
+
+We could have also simply used the difference quotient instead of the
+Wirtinger operator.  That requires slightly more care, you have to show
+uniform convergence of the right limit of functions, but this technique
+would have avoided the proof that holomorphic functions are analytic.
+We leave it as an exercise.
+
+\begin{exbox}
+\begin{exercise}
+Give a different proof of the above formula by using the difference
+quotient.  First show the formula for $f'$, then again using the difference
+quotient and the fact that the kernel (the function inside) is holomorphic
+in $z$, show the formula for $f''$, etc.  For this to work it is
+not necessary to assume that $f'$ is holomorphic, it will follow from your
+work.
+\end{exercise}
+
+\begin{exercise} \label{exercise:partialderscont}
+Suppose that $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$
+where $U \subset \C$ is open, and for any fixed $t \in (a,b)$, the function
+$z \mapsto f(z,t)$ is holomorphic.  Prove that
+$\frac{\partial f}{\partial z}$ is a continuous function of $U \times
+(a,b)$.  In particular,
+$\frac{\partial f}{\partial x}$
+and
+$\frac{\partial f}{\partial y}$ are continuous as well (where $z=x+iy$).
+\end{exercise}
+
+\begin{exercise}
+The previous exercise may seem trivial, but the key is that we can prove
+(using Cauchy's formula) that the partials are continuous as a function of
+$U \times (a,b)$ by using continuity of $f$ on $U \times (a,b)$.  No such
+result is true for nonholomorphic functions.  Prove that the function defined by
+$f(x,t) = t \sin\bigl(\frac{x}{t}\bigr)$ for $t \not= 0$ and $f(x,0) =  0$,
+is continuous as a function of $\R^2$, and for each fixed $t$, the function
+$x \mapsto f(x,t)$ is differentiable (infinitely differentiable in fact)
+but $\frac{\partial f}{\partial x}$ is not continuous as a function of both
+$x$ and $t$.
 \end{exercise}
 \end{exbox}
 
@@ -4539,14 +4700,14 @@ It is not hard to compute that our previous definition and the results
 of this section give us the above series.  It is also not hard to check
 directly that the series converges in all of $\C$.
 
-Let us note that the series is the unique holomorphic function $f \colon \C
+We claim that the series is the unique holomorphic function $f \colon \C
 \to \C$, such that $f(0)=1$ and $f' = f$.  If $f$ were such a function, than
 it would have a power series
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n ,
 \end{equation*}
 which would converge uniformly in any disc.  Obviously, $c_0 = 1$
-as $f(0) = 1$.  The trick is to figure out the rest.
+as $f(0) = 1$.  The trick is to figure out the rest of the series.
 We now know how to
 differentiate such a series, we just do it term-by-term, ``formally.''
 So
@@ -4814,11 +4975,16 @@ h(w)
 \, dz
 = \int_\gamma 0 \, dz = 0.
 \end{equation*}
-Here, you are really passing the partial derivatives in the real and
-imaginary parts under the integral, which can be done by 
-the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
-Actually it requires \exerciseref{exercise:severalvariableLiebniz},
-but that is a simple generalization.  The Cauchy--Riemann equations
+As once before, we are really passing the partial derivatives in $x$
+and $y$ under the integral via the Leibniz integral rule,
+\thmref{thm:Leibnizrule} (or again really
+\exerciseref{exercise:severalvariableLiebniz}).
+Leibniz rule applies because 
+\exerciseref{exercise:partialderscont} says that the partial
+derivatives are continuous as functions of both variables.
+Leibniz also implies that $h$ is continuously (real) differentiable,
+and thus
+the Cauchy--Riemann equations
 (\propref{prop:WirtCR}) now
 say that $h(w)$ is holomorphic.
 \end{proof}
@@ -4950,7 +5116,7 @@ on $K'$.  Now for any $p \in K$, write
 f_n^{(k)}(p) =
 \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)}
-\frac{f_n(\zeta)}{{(\zeta-z)}^{k+1}} \, d\zeta .
+\frac{f_n(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta .
 \end{equation*}
 As before, 
 $\zeta \mapsto \frac{f_n(\zeta)}{{(\zeta-z)}^{k+1}}$ converges uniformly
@@ -4964,19 +5130,19 @@ f_n^{(k)}(p)
 \lim_{n\to\infty}
 \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)}
-\frac{f_n(\zeta)}{{(\zeta-z)}^{k+1}} \, d\zeta .
+\frac{f_n(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta .
 \\
 & =
 \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)}
-\frac{f(\zeta)}{{(\zeta-z)}^{k+1}} \, d\zeta 
+\frac{f(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta 
 =
 f^{(k)}(p) . \qedhere
 \end{split}
 \end{equation*}
 \end{proof}
 
-So you see that the fact that we could write all the derivatives as
+The fact that we can write all the derivatives as
 integrals\footnote{Complex analysis allows you to integrate to find the
 derivative and to differentiate to find an integral.  Now tell that to your
 calculus students.}
@@ -5235,7 +5401,7 @@ the entire punctured plane.
 We proved that in any star-like domain, a holomorphic function has a
 primitive.  So if we take say the set
 \begin{equation*}
-U = \C \setminus \{ \Re z \leq 0 , \Im z = 0 \},
+U = \C \setminus (-\infty,0] = \C \setminus \bigl\{ z \in \C : \Re z \leq 0 , \Im z = 0 \bigr\},
 \end{equation*}
 the so-called \emph{\myindex{slit plane}}.  It is a star-like domain and
 so there exists a
@@ -5251,7 +5417,7 @@ the principal branch of the argument.  Let us show that
 \begin{equation*}
 \Log z = \log \sabs{z} + i \Arg z ,
 \end{equation*}
-where $\log \sabs{z}$ is just the standard real logarithm.  So first let
+where $\log \sabs{z}$ is just the standard real logarithm.  Let
 $L(z) = \log \sabs{z} + i \Arg z$ and let us show that $L = \Log$.  We see
 \begin{equation*}
 e^{L(z)}
@@ -5322,11 +5488,11 @@ with quotation marks:
 2\pi i.
 \end{equation*}
 That's a lot better, no?  The equalities are only true morally.  But
-interpreted correctly, it is exactly what is happening.  You do subtract
-one of the values of $\log 1$ from another value of $\log 1$.  And to figure
-out which, you start with say $\log 1 = 0$, and you follow the function
-along the circle slowly and notice that the $i \arg z$ grows from $0$ to
-$2\pi i$, so the $\log 1$ at the end is $2 \pi i$.
+interpreted correctly, it is exactly what is happening.  You really do subtract
+one of the values of $\log 1$ from another value of $\log 1$.  To figure
+out which from which, you start with say $\log 1 = 0$, and you follow the
+function along the circle slowly and notice that the $i \arg z$ grows from $0$ to
+$2\pi i$.  So the $\log 1$ at the end is $2 \pi i$.
 
 To make working with $\log$ easier we usually talk about a
 \emph{\myindex{branch of the logarithm}}.  So $L \colon U \to \C$ is a branch
@@ -5464,8 +5630,8 @@ Consider the function
 p \mapsto n(\gamma;p) = \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz .
 \end{equation*}
 Fix $p_0 \in \C \setminus \gamma$, and let $d(p_0,\gamma)$ be the distance from 
-$p_0$ to $\gamma$, that is $d(p_0,\gamma) = \inf \{ \sabs{z-p_0} : z \in
-\gamma \}$.
+$p_0$ to $\gamma$, namely
+$d(p_0,\gamma) = \inf \bigl\{ \sabs{z-p_0} : z \in \gamma \bigr\}$.
 As $\gamma$ is compact, $d(p_0,\gamma) > 0$.  Suppose $p$ is
 such that $\sabs{p-p_0} < \frac{d(p_0,\gamma)}{2}$, so $\sabs{z-p} \geq
 \frac{d(p_0,\gamma)}{2}$ for every $z \in \gamma$.  Let $\ell$ be the length of
@@ -5551,9 +5717,9 @@ d \zeta .
 \end{equation*}
 \end{thm}
 
-Before we prove the theorem let us note a
-rather strange fact that what we will do in the proof is to define an entire
-function (even though $U$ might be only a small subset) and then we will use
+Before we prove the theorem let us remark
+that in the proof, rather strangely, we will define an entire
+function (even though $U$ may be small) and then we will use
 Liouville's theorem (\thmref{thm:Liouville}).
 
 \begin{proof}
@@ -5768,7 +5934,7 @@ F(z) =
 +
 \int_{[z_0,\xi]} f(\xi) \, d\xi .
 \end{equation*}
-Now note that the first term is a constant, and the second term is precisely
+The first term in the sum is a constant, and the second term is precisely
 the primitive of $f$ for star-like domains.
 \end{proof}
 
@@ -6332,6 +6498,13 @@ and $p$ is a zero of $f$ of multiplicity $k$.  Potayto, potahto.}
 the zero at $p$.
 \end{defn}
 
+Another way\footnote{Which is really the standard way of defining order of a
+zero for nonholomorphic functions.}
+of saying that a zero of $f$ has order $k$ at $p$ is to say that
+$k$ is the largest integer such that $\frac{f(z)}{{(z-p)}^{k}}$ is bounded
+near $p$.  That these possible definitions are equivalent
+follows immediately from the lemma.
+
 For completeness, the conclusion of the lemma holds also when $f(p) \not= 0$,
 in which case
 $k=0$ and $g = f$.  So we can say that when $f(p) \not= 0$, then $p$ is
@@ -6403,7 +6576,7 @@ $g'(z) = (z-p) q'(z) + q(z)$, we have $g'(p) = q(p) \not= 0$.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is a domain and $f$ hass
+Suppose $U \subset \C$ is a domain and $f$ has
 has zeros at $z_1, z_2, \ldots, z_n$ of
 orders $k_1, k_2, \ldots, k_n$ and no other zeros.
 Then there exists a holomorphic
@@ -6468,12 +6641,9 @@ all $k=0,1,2,\ldots$.  That is, the origin is a zero of infinite order.
 \subsection{Types of singularities and Riemann extension}
 
 \begin{defn}
-Suppose $U \subset \C$ is open.
-A holomorphic function $f \colon U \to \C$ is said to have
-an \emph{\myindex{isolated singularity}} at $p \notin U$ if
-there is a disc $\Delta_r(p)$ such that $U \cap \Delta_r(p) =
-\Delta_r(p) \setminus \{ p \}$ (so $U = V \setminus \{ p \}$ for an open set
-$V$).
+Suppose $U \subset \C$ is open and $p \in U$.
+A holomorphic function $f \colon U \setminus \{ p \} \to \C$ is said to have
+an \emph{\myindex{isolated singularity}} at $p$.
 
 An isolated singularity is \emph{removable}\index{removable singularity}
 if 
@@ -6494,10 +6664,9 @@ and holomorphic in a punctured neighborhood
 $\Delta_r(p) \setminus \{ p \}$.  It is removable if the function extends
 across, a pole if $f$ goes to infinity, and essential otherwise.
 
-At nonessential isolated singularities
-the function blows up to a finite integral order.
-The first part of the following proposition is
-usually called the \emph{\myindex{Riemann extension theorem}}.
+A holomorphic function must blow up in some way if a singularity is not
+removable.  That is a rather surprising property of holomorphic functions
+with a rather surprisingly simple proof.
 
 \begin{thm}[\emph{\myindex{Riemann extension theorem}}]
 \label{prop:riemannext}
@@ -6509,14 +6678,14 @@ If $f$ is bounded (near $p$ is enough), then $p$ is a removable singularity.
 \begin{proof}
 Define
 $g(z) = {(z-p)}^2 f(z)$ for $z \not= p$ near $p$ and $g(p) = 0$.
-$g$ is holomorphic for $z \not= p$.  Consider the 
+The function $g$ is clearly holomorphic for $z \not= p$.  Consider the 
 difference quotient
 $\frac{g(z)-g(p)}{z-p} = (z-p) f(z)$.
-As $f$ is bounded, we have that
+As $f$ is bounded,
 \begin{equation*}
 \lim_{z\to p} \frac{g(z)-g(p)}{z-p} = \lim_{z\to p} (z-p) f(z) = 0 .
 \end{equation*}
-So $g$ is complex differentiable at $p$ and so holomorphic near $p$.
+So $g$ is also complex differentiable at $p$ and so holomorphic on $U$.
 The order $k$ of the zero of $g$ at $p$ is at least $2$.  Write
 $g(z) = {(z-p)}^k h(z)$ where $h$ is holomorphic near $p$,
 then $f(z) = {(z-p)}^{k-2}h(z)$, or in other words, $p$ is a removable 
@@ -6535,10 +6704,20 @@ $f \colon \D \setminus \bigl\{ 0, \frac{1}{2} \bigr\} \to \D \setminus
 \bigl\{ 0 , \frac{1}{2} \bigr\}$
 is an automorphism then $f(z) = z$ or $f(z) = \frac{1-2z}{2-z}$.
 \end{exercise}
+
+\begin{exercise}
+The Riemann extension theorem is (of course) not true for functions that are
+not holomorphic.  Prove that $\frac{xy}{x^2+y^2}$ is a bounded infinitely 
+(real) differentiable function
+on $\R^2 \setminus \{ (0,0) \}$ with an isolated singularity that does not
+extend through the singularity even continuously.
+\end{exercise}
 \end{exbox}
 
 Using the Riemann extension, we find a criterion for poles, and classify
-poles according to order just like zeros.
+poles according to order just like zeros.  That is,
+at nonessential isolated singularities
+the function blows up to a finite integral order.
 
 \begin{cor}
 Suppose $U \subset \C$ is an open set, $p \in U$,
@@ -6734,7 +6913,7 @@ German).  But really it first appeared in a book by Briot and Bouquet in
 1859 (in French), so really it should be called the Briot--Bouquet theorem,
 no?  If we still all published in Latin, we wouldn't be in this
 mess.}]\index{Casorati--Weierstrass theorem}
-Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
+Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
 an essential singularity at $p \in U$.  Then for every punctured disc
 $\Delta_r(p) \setminus \{ p \} \subset U$, the image
 \begin{equation*}
@@ -6804,6 +6983,56 @@ Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsection{Meromorphic functions}
+\label{subsec:meromorphic}
+
+\begin{defn}
+A holomorphic function $f \colon U \setminus S \to \C$ with poles on a
+discrete set $S \subset U$ is said to be \emph{\myindex{meromorphic}}.
+\end{defn}
+
+A meromorphic function can be extended to
+\begin{equation*}
+f \colon U \to \C_{\infty}
+\end{equation*}
+by simply setting $f(p) = \infty$ at all poles, and by the definition of a
+pole, the function is then continuous.  In fact, a way to define
+a meromorphic function is as a holomorphic function
+$f \colon U \to \C_{\infty}$.  Holomorphicity at a pole can be
+rephrased as holomorphicity of a function $\frac{1}{f(z)}$ at $p$.
+There is a small technicality, if one should consider the function
+that is constantly $\infty$ as a meromorphic function or not, and we
+will take the view that it is not a meromorphic function.
+
+So from now on, when we say that $f \colon U \to \C_\infty$ is
+meromorphic, we mean that it is a holomorphic function possible
+poles in $U$, where we set the value as $\infty$ at the poles.
+
+Similarly, we can define a function on subsets of $\C_\infty$, just as
+we did with LFTs.
+We define holomorphicity at $\infty$ when $U \subset
+\C_\infty$ by saying that $f$ is \emph{\myindex{holomorphic at $\infty$}}
+if $f\bigl(\frac{1}{z}\bigr)$ is holomorphic at $0$.
+
+\begin{exbox}
+\begin{exercise}
+Show that a holomorphic function $f \colon \C_\infty \to \C_\infty$ has
+at most finitely many poles and finitely many zeros.
+\end{exercise}
+
+\begin{exercise}
+Show that a holomorphic function $f \colon \C_\infty \to \C_\infty$ is a
+rational function (a polynomial divided by a polynomial).
+\end{exercise}
+
+\begin{exercise}
+Show that if $f \colon \C_\infty \to \C_\infty$ is holomorphic and
+one-to-one, then it is an LFT.
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Residue theorem}
 
 If $f$ has an isolated singularity at $p$,
@@ -6812,28 +7041,29 @@ $f$ in the Laurent series on $\Delta_r(p) \setminus \{ p \}$:
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 \end{equation*}
-As we saw the only power ${(z-p)}^n$ that does not have a primitive in
-$\Delta_r(p) \setminus \{ p \}$ is when $n=-1$.  This is the only one
+The only power ${(z-p)}^n$ that does not have a primitive in
+$\Delta_r(p) \setminus \{ p \}$ is ${(z-p)}^{-1}$.  This is the only power
 that a line integral of $f$ ``sees,'' or in other words, it is
 what's left, or the ``residue'' of integrating $f(z)$ around a closed path.
 With this in mind, we make the
 following definition.
 
 \begin{defn}
-Let $f$ be a holomorphic function $f$ with an isolated singularity at $p$.
+Let $f$ be a holomorphic function
+with an isolated singularity at $p$.
 The \emph{\myindex{residue}} of $f$ at $p$ is the number
 \begin{equation*}
-\operatorname{Res}(f,p) = c_{-1} ,
+\operatorname{Res}(f;p) = c_{-1} ,
 \end{equation*}
 where $c_{-1}$ is the coefficient of ${(z-p)}^{-1}$ in the Laurent series
-expansion in the punctured disc $\Delta_r(p) \setminus \{ p \}$.
+expansion as above in a punctured disc $\Delta_r(p) \setminus \{ p \}$.
 \end{defn}
 
-We know how to compute $c_{-1}$, any small enough $\rho > 0$:
+We know how to compute $c_{-1}$: for any small enough $s > 0$,
 \begin{equation*}
-\operatorname{Res}(f,p) 
+\operatorname{Res}(f;p) 
 =
-\frac{1}{2\pi i} \int_{\partial \Delta_{\rho}(p)} f(z) \, dz .
+\frac{1}{2\pi i} \int_{\partial \Delta_{s}(p)} f(z) \, dz .
 \end{equation*}
 
 In fact, using Cauchy's theorem we can relate any integral around
@@ -6847,7 +7077,7 @@ Suppose $f \colon U \setminus S \to \C$ is a holomorphic function (with isolated
 singularities on $S$).
 Then
 \begin{equation*}
-\frac{1}{2\pi i} \int_{\gamma} f(z) \, dz = \sum_{p \in S} n(\gamma;p) \operatorname{Res}(f,p) .
+\frac{1}{2\pi i} \int_{\gamma} f(z) \, dz = \sum_{p \in S} n(\gamma;p) \operatorname{Res}(f;p) .
 \end{equation*}
 \end{thm}
 
@@ -6923,13 +7153,13 @@ by making them propositions.
 \begin{prop}
 Suppose $f$ is holomorphic in a neighborhood of $p$ and $g$ is holomorphic
 with an isolated singularity at $p$, then
-$\operatorname{Res}(f+g,p) = \operatorname{Res}(g,p)$.
+$\operatorname{Res}(f+g;p) = \operatorname{Res}(g;p)$.
 \end{prop}
 
 \begin{proof}
 \begin{equation*}
 \begin{split}
-\operatorname{Res}(f+g,p)
+\operatorname{Res}(f+g;p)
 & =
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{\epsilon}(p)}
@@ -6950,7 +7180,7 @@ g(z) \, dz
 %\int_{\partial \Delta_{\epsilon}(p)}
 %g(z) \, dz
 =
-\operatorname{Res}(g,p) . \qedhere
+\operatorname{Res}(g;p) . \qedhere
 \end{split}
 \end{equation*}
 \end{proof}
@@ -6962,11 +7192,11 @@ the next proposition makes it easy to compute residues.
 Suppose $f$ has a pole at $p$.
 If $p$ is a simple pole of $f$, then
 \begin{equation*}
-\operatorname{Res}(f,p) = \lim_{z\to p} (z-p) f(z) .
+\operatorname{Res}(f;p) = \lim_{z\to p} (z-p) f(z) .
 \end{equation*}
 More generally, if $p$ is a pole of $f$ of order $k$, then
 \begin{equation*}
-\operatorname{Res}(f,p) = \frac{1}{(k-1)!} \lim_{z\to p}
+\operatorname{Res}(f;p) = \frac{1}{(k-1)!} \lim_{z\to p}
 \frac{d^{k-1}}{dz^{k-1}}\bigl[ (z-p)^{k} f(z) \bigr] .
 \end{equation*}
 \end{prop}
@@ -6985,7 +7215,7 @@ Suppose $f(z) = \frac{h(z)}{g(z)}$ where $h$ and $g$ are holomorphic
 at $p$ and $g$ has a simple zero at $p$ (so $f$ has a simple pole at $p$).
 Then
 \begin{equation*}
-\operatorname{Res}(f,p) = \frac{h(p)}{g'(p)} .
+\operatorname{Res}(f;p) = \frac{h(p)}{g'(p)} .
 \end{equation*}
 \end{prop}
 
@@ -7021,23 +7251,23 @@ We ``complexify''\index{complexify}
 $\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.  Really
 that's just a fancy way of saying we are going to plug in complex numbers
 into a real formula that happens to also work for complex numbers.
-We note by partial fractions we find
+By partial fractions we find
 \begin{equation*}
 \frac{1}{1+z^2} = \frac{1}{(z+i)(z-i)} =
 \frac{i}{2} \frac{1}{z+i} - 
 \frac{i}{2} \frac{1}{z-i} .
 \end{equation*}
-In particular, there is an isolated singularity at $\pm i$.  Our cycle
+There is an isolated singularity at $\pm i$.  Our cycle
 $\Gamma_r$ goes around $i$ (once so $n(\Gamma_r;i) = 1$),
 but not around $-i$ (exercise), so we only need to compute
-the residue in one of the ways:
+the residue around $i$.  We can use any one of the techniques:
 \begin{equation*}
-\operatorname{Res}\left(\frac{1}{1+z^2},i\right) =
+\operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
 \operatorname{Res}\left(
-\frac{-i}{2} \frac{1}{z-i},
+\frac{-i}{2} \frac{1}{z-i};
 i\right) = \frac{-i}{2} ,
 \qquad
-\operatorname{Res}\left(\frac{1}{1+z^2},i\right) =
+\operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
 \lim_{z \to i} \frac{z-i}{1+z^2}
 =
 \frac{1}{2i} = \frac{-i}{2}.
@@ -7047,7 +7277,7 @@ We compute,
 \begin{equation*}
 \pi 
 =
-2 \pi i \operatorname{Res}\left(\frac{1}{1+z^2}\right) =
+2 \pi i \operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
 \int_{\Gamma_r} \frac{1}{1+z^2} \, dz
 =
 \int_{-r}^r \frac{1}{1+x^2} \, dx
@@ -7114,7 +7344,7 @@ one inside and one outside the unit circle.  Thus
 (-2i)
 (2 \pi i)
 \operatorname{Res}
-\left(\frac{1}{z^2 + 2cz + 1}, -c+\sqrt{c^2-1}\right)
+\left(\frac{1}{z^2 + 2cz + 1}; -c+\sqrt{c^2-1}\right)
 =
 \frac{2\pi}{\sqrt{c^2-1}}
 .
@@ -7170,85 +7400,199 @@ $\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$
 
 \subsection{The argument principle}
 
-FIXME:
+As integration picks out singularities, we can use it to count zeros and
+poles of a function.  The following theorem is called the
+``argument principle'' although perhaps the naming is more the idea of
+how one counts the order of a zero, that is, we count how many times does
+the value of the function (its argument really) go around a circle, although
+we will simply apply the residue theorem.
+
+By \emph{\myindex{zeros counted with multiplicity}} we mean that for
+example $f(z) = z^2{(z-1)}^3$ has the zeros $0,0,1,1,1$.  Same with poles.
 
 \begin{thm}[Argument principle]\index{argument principle}\label{thm:argprinc}
-Suppose $U \subset \C$ is an open set, and $\gamma$ is a closed piecewise $C^1$
+Suppose $U \subset \C$ is open, and $\gamma$ is a closed piecewise $C^1$
 path (or a cycle) in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C
 \setminus U$.
-FIXME:
-Suppose that $f \colon U \to \C_\infty$ is a meromorphic function with no zeros
+Suppose $f \colon U \to \C_\infty$ is a meromorphic function with no zeros
 or poles on $\gamma$.
+Let $z_1,z_2,\ldots$ be the zeros of $f$ counted with multiplicity,
+and $p_1,p_2,\ldots$ be the poles of $f$ counted with multiplicity.
 Then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\gamma \frac{f'(z)}{f(z)} \, dz
+=
+\sum_{j} n(\gamma;z_j)
+\quad
+-
+\quad
+\sum_{j} n(\gamma;p_j) .
+\end{equation*}
+
+Furthermore, if $h \colon U \to \C$ is holomorphic, then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\gamma h(z) \frac{f'(z)}{f(z)} \, dz
+=
+\sum_{j} n(\gamma;z_j)h(z_j) 
+\quad
+-
+\quad
+\sum_{j} n(\gamma;p_j)h(p_j) .
+\end{equation*}
+\end{thm}
+
+The number of zeros or poles inside an open set is always countable, but
+in the theorem we could really assume there are only finitely many zeros and
+poles, as there are only finitely many zeros and poles for which 
+$n(\gamma;z) \not= 0$ (see exercise below).
+
+The reason for saying that this counts the number of zeros and poles,
+suppose that $\gamma$ only goes around every point in $z \in U$ at most once
+in the positive direction or not at all.  That is,
+$n(\gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the ``inside of
+$\gamma$'' as the points such as $n(\gamma;z)=1$.  Suppose that there are
+$N$ zeros and $P$ poles (counting multiplicity).  Then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\gamma \frac{f'(z)}{f(z)} \, dz
 = N - P ,
 \end{equation*}
-where $N$ is the number of zeros of $f$ inside $\gamma$ and $P$ is the
-number of poles, both counted with multiplicity.
 
-Furthermore, if $h \colon U \to \C$ is holomorphic, and $\#(p)$ is the order
-(multiplicity) of a zero or pole at $p$, then
-\begin{equation*}
+\begin{proof}[Proof of the argument principle]
+We prove the ``Furthermore'' as that proves the rest of the theorem by
+simply considering the constant $h(z) = 1$.
+
+The function $h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
+at the zeros and poles of $f$.  We apply the residue theorem to find
+\begin{multline*}
 \frac{1}{2\pi i}
 \int_\gamma h(z) \frac{f'(z)}{f(z)} \, dz
 =
-\sum_{p \in f^{-1}(0)}
-\#(p) \, h(p)
-\quad
+\\
+\sum_{j} n(\gamma;z_j)\operatorname{Res}\left(h(z)
+\frac{f'(z)}{f(z)};z_j\right)
 -
-\quad
-\sum_{p \in f^{-1}(\infty)}
-\#(p) \, h(p) .
+\sum_{j} n(\gamma;p_j)\operatorname{Res}\left(h(z)
+\frac{f'(z)}{f(z)};p_j\right) .
+\end{multline*}
+So we simply need to compute the residues.  Consider a zero of $f$ of
+multiplicity $k$, and
+without loss of generality suppose that it is at the origin,
+that is, $f(z) = c_k z^k + c_{k+1} z^{k+1} + \cdots$ for $c_k \not= 0$, and 
+$f'(z) = k c_k z^{k-1} + (k+1)c_{k+1} z^{k} + \cdots$.
+Write also $h(z) = a_0 + a_1 z + \cdots$.  Then
+\begin{equation*}
+h(z)
+\frac{f'(z)}{f(z)}
+=
+\bigl(
+a_0 + a_1 z + \cdots
+\bigr)
+\frac{k c_k z^{k-1} + \cdots}{c_k z^k + \cdots}
+=
+a_0 k \frac{1}{z} \left( 1 + O(\sabs{z}) \right)
 \end{equation*}
-\end{thm}
+where $O(\sabs{z})$ is something that vanishes as $z \to 0$.
+In other words, $\operatorname{Res}\left(h(z)
+\frac{f'(z)}{f(z)};0\right) = h(0) k$.
+Same exact computation carries through when $0$ is a pole of $f$
+of multiplicity $-k$ (that is, just let $k$ be negative).
+The theorem follows.
+\end{proof}
 
-FIXME:
+\begin{exbox}
+\begin{exercise}
+Suppose $U \subset \C$ is open, $\gamma$ is a cycle in $U$,
+and $f \colon U \to \C_\infty$ is meromorphic.
+Show that there are only finitely many zeros and poles of $f$
+such that $n(\gamma;z) \not= 0$.
+\end{exercise}
+\end{exbox}
+
+One thing to notice is that the theorem is a generalization of the integral
+of $\frac{1}{z}$ around zero via taking the antiderivative, that is,
+$\log z$ and evaluating it (taking care to follow the branch).  In this case
+the function $\frac{f'(z)}{f(z)}$ has the antiderivative $\log f(z)$.  This
+intuitive idea can be worked into a proof if one wants to.
+
+FIXME
 
 \subsection{Rouch\`e's theorem}
 
-
-FIXME:
+The next theorem allows us to count zeros (or poles) of a function that is
+close to another function.  In rough terms,
+\emph{the number of zeros minus the
+number of poles (up to multiplicity) inside a curve does not change
+if the function does not change much on the curve}.
+A nonzero point might ``split'' into a zero and a
+pole, that is $\frac{z-\epsilon}{z+\epsilon}$ is very close to the function
+$1$ on the unit circle.  So poles are allowed to ``cancel'' zeros, but this
+balance is always maintained.  Furthermore if we do not allow any poles
+whatsoever, then the theorem says that the number of zeros does not change.
 
 \begin{thm}[Rouch\`e\footnote{%
 The stronger version we state was actually proved by Estermann in 1962.}]\index{Rouch\`e's theorem}\label{thm:rouche}
 Suppose $U \subset \C$ is an open set, and $\gamma$ is a closed piecewise $C^1$
-path in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$
+path (or cycle) in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$
 and $n(\gamma;z)$ is either $1$ or $0$ for $z \in U$.  Let $V = \{ z \in U
 : n(\gamma;z) = 1 \}$.
 
-Suppose that $f \colon U \to \C$ and $g \colon U \to \C$
-are holomorphic functions such that
+Suppose that $f \colon U \to \C_\infty$ and $g \colon U \to \C_\infty$
+are meromorphic functions with no zeros or poles on
+$\gamma$ such that
 \begin{equation*}
 \sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
 \end{equation*}
-for all $z \in \gamma$.  Then $f$ and $g$
-have the same number of zeros in $V$
-(up to multiplicity).
+for all $z \in \gamma$.  Let $Z_f$, $Z_g$ be the number of zeros in $V$
+and $P_g$, $P_f$ the number of poles in $V$ (both up to multiplicity)
+of $f$ and $g$ respectively.
+Then
+\begin{equation*}
+Z_f - P_f = 
+Z_g - P_g.
+\end{equation*}
 \end{thm}
 
 The condition on $\gamma$ means that the
 path that is simple in the sense
 that only goes around any particular point either once or not at all.
-We then want to count the number of zeros inside the path.
+We then want to count the number of zeros and poles inside the path.
 
-The classical statement of the theorem use the weaker
+Often the theorem is only applied for holomorphic functions, that is,
+without poles:
+
+\begin{cor}[Rouch\`e]\label{thm:rouche2}
+Let $U$,  $\gamma$ and $V$ be as in \thmref{thm:rouche}.
+Suppose $f \colon U \to \C$ and $g \colon U \to \C$
+are holomorphic such that
+$\sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}$
+for all $z \in \gamma$.  Then $f$ and $g$ have the same number of zeros (up
+to multiplicity) in $V$.
+\end{cor}
+
+Observe that for holomorphic functions,
+the inequality precludes any zeros of $f$ or
+$g$ on $\gamma$.  This observation is actually quite convenient in the
+applications as it avoids having to show some technicalities.
+
+The classical statement of the theorem uses the weaker
 inequality
 \begin{equation*}
 \sabs{f(z)-g(z)} < \sabs{f(z)}
 \end{equation*}
 as hypothesis.
-Notice that either inequality precludes any zeros on $\gamma$ itself.
 The weaker statement is enough for vast majority of
-applications, and has a more geometric meaning.  The number of zeros of $f$
+applications, and has a more geometric meaning.  The number of zeros (or
+poles) of $f$
 inside $\gamma$ corresponds to the number times $f(z)$ winds around zero
 as $z$ traverses $\gamma$.  The theorem says that if $f$ is modified a
 little this does not change.  The classical visual ``proof'' is a dog on a leash
 with the master going around a tree.  The master is at $f(z)$, the tree is
 at the origin, and the dog is at $g(z)$, so the length of the leash is
 $\sabs{f(z)-g(z)}$ and the distance of the master from the tree is
-$\sabs{f(z)}$.  So the ``proof'' of the theorem is to notice that if the
+$\sabs{f(z)}$.  So the ``proof'' of the theorem is to observe that if the
 master walks around a tree $k$ times, and the dog is never further from the
 master than the distance of the master to the tree, then the dog also walked
 around the tree $k$ times.  See \figureref{fig:dogandtree}.
@@ -7262,8 +7606,126 @@ Let us get to the rigorous proof of the symmetric version of the
 theorem.
 
 \begin{proof}[Proof of Rouch\`e]
-FIXME:
+Write the inequality as
+\begin{equation*}
+\abs{\frac{f(z)}{g(z)} + 1} <
+\abs{\frac{f(z)}{g(z)}} + 1 .
+\end{equation*}
+This inequality precludes $\frac{f(z)}{g(z)}$ ever being positive on
+$\gamma$, and hence in a neighborhood of $\gamma$.  Let $L$ be a branch of
+the logarithm defined on the set $\C \setminus [0,\infty)$.
+Let $\phi(z) = \frac{f(z)}{g(z)}$.
+The function
+$\frac{\varphi'}{\varphi}$ then has a well-defined antiderivative
+$L \circ \varphi$ on a neighborhood of $\gamma$.  As $\gamma$
+is a closed path (cycle) we find
+\begin{equation*}
+0
+= \frac{1}{2\pi i} \int_{\gamma} \frac{\varphi'(z)}{\varphi(z)} \, dz
+= \frac{1}{2\pi i} \int_{\gamma} \left( \frac{f'(z)}{f(z)} -
+\frac{g'(z)}{g(z)} \right) \, dz .
+\end{equation*}
+The argument principle finishes the proof.
 \end{proof}
+
+\begin{example}
+A typical application of Rouch\`e is to approximately locate zeros of
+polynomials.  Consider $P(z) = z^n - 1$.  We can explicitly find the roots,
+but let us forget we can do so,
+and show using Rouch\`e that they are all on the unit circle.
+
+First
+consider $\gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
+around the origin.  Then on $\gamma$ we have
+\begin{equation*}
+\abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
+\end{equation*}
+We apply Rouch\`e ($P(z)$ is the dog and $1$ is the master).  So $P(z)$
+has the same number of zeros as the constant $1$ (that is, no zeros) in
+$\Delta_{1-\epsilon}(0)$.
+
+Similarly, take $z^n$ instead of $1$, and make $\gamma$ be the circle of
+radius $1+\epsilon$ around the origin.  Then on $\gamma$,
+\begin{equation*}
+\abs{P(z) - z^n} = 1 < \abs{z^n} .
+\end{equation*}
+So by Rouch\`e, $P(z)$ and $z^n$ have the same number of zeros in
+$\Delta_{1+\epsilon}(0)$, that is $n$ zeros.  As $\epsilon$ was arbitrary,
+all the zeros must be on the unit circle.
+\end{example}
+
+\begin{example}
+A typical application of Rouch\`e is to approximately locate zeros of
+polynomials.  Consider $P(z) = z^n - 1$.  We can explicitly find the roots,
+but let us forget we can do so,
+and show using Rouch\`e that they are all on the unit circle.
+
+First
+consider $\gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
+around the origin.  Then on $\gamma$ we have
+\begin{equation*}
+\abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
+\end{equation*}
+We apply Rouch\`e ($P(z)$ is the dog and $1$ is the master).  So $P(z)$
+has the same number of zeros as the constant $1$ (that is, no zeros) in
+$\Delta_{1-\epsilon}(0)$.
+
+Similarly, take $z^n$ instead of $1$, and make $\gamma$ be the circle of
+radius $1+\epsilon$ around the origin.  Then on $\gamma$,
+\begin{equation*}
+\abs{P(z) - z^n} = 1 < \abs{z^n} .
+\end{equation*}
+So by Rouch\`e, $P(z)$ and $z^n$ have the same number of zeros in
+$\Delta_{1+\epsilon}(0)$, that is $n$ zeros.  As $\epsilon$ was arbitrary,
+all the zeros must be on the unit circle.
+\end{example}
+
+\begin{example}
+As a more complicated example, consider $P(z) = z^4+12z^3+24z^2+4z+6$.
+Then on $\sabs{z}=1$,
+\begin{multline*}
+\abs{P(z)-(z^4+24z^2)} =
+\abs{12z^3+4z+6} \leq
+\abs{12z^3}+\abs{4z}+\abs{6} \\
+= 22 < 23 = \abs{\sabs{24 z^2} - \sabs{z^4}}
+\leq \sabs{z^4+24z^2} .
+\end{multline*}
+It is easy to see that $z^4+24z^2$ has zeros at $\pm \sqrt{24} i$ (outside
+the unit circle), and two zeros at the origin (inside the unit circle).
+Thus, $P(z)$ also has two zeros inside the unit circle.
+
+On the other hand, if $\sabs{z} > 46$ then
+\begin{equation*}
+\abs{P(z)-z^4} = \abs{12z^3+24z^2+4z+6}
+\leq 46 \sabs{z}^3 < 46^4 = \abs{z^4}.
+\end{equation*}
+So $P$ has all four zeros in a disc $\Delta_{46+\epsilon}(0)$ for any
+$\epsilon > 0$,
+in other words, all zeros of $P$ satisfy $\sabs{z} \leq 46$.
+These are not the ideal estimates (largest zero of $P$ has modulus less than
+10), but they are explicit and they were easy to come by.
+\end{example}
+
+\begin{exbox}
+\begin{exercise}
+Suppose that
+$P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$
+is a monic polynomial that has no zeros on the unit circle and $k \leq n$ zeros
+(counting multiplicity)
+in the unit disc.  Show that there exists an $\epsilon > 0$ such that
+if $\sabs{b_j-a_j} < \epsilon$ for $j=0,\ldots,n-1$, then
+$Q(z) = z^n + b_{n-1} z^{n-1} + \cdots + b_0$ has
+exactly $k$ zeros (counting multiplicity) in the unit disc.
+\end{exercise}
+
+\begin{exercise}
+Suppose that
+$P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$
+is a monic polynomial.  Prove that all the zeros of $P$ are
+in the closed disc $\overline{\Delta_M(0)}$ where $M =
+\max\left\{ 1, \sum_{j=0}^{n-1} \sabs{a_j} \right\}$.
+\end{exercise}
+\end{exbox}
 
 FIXME:
 
@@ -7273,17 +7735,49 @@ Often we approximate one function by other functions and we would like to
 count the zeros of the limit.
 
 \begin{thm}[Hurwitz]\index{Hurwitz's theorem}
-Let $U \subset \C$ be a domain and $f_n \colon U \to \C$ is a sequence of
+Let $U \subset \C$ be open and $f_n \colon U \to \C$ is a sequence of
 holomorphic functions converging uniformly on compact subsets
-to a holomorphic $f \colon U \to \C$.  Suppose that for some closed
-disc $\overline{\Delta_r(p)} \subset U$, $f$ has no zeros on $\partial
-\Delta_r(p)$ and has $k$ zeros (counting multiplicity) in $\Delta_r(p)$.
+to a holomorphic $f \colon U \to \C$.  Suppose $\gamma$ is a piecewise $C^1$
+path (or cycle) in $U$ such that $n(\gamma;z) = 0$ or $1$ for all $z \in U$,
+and $n(\gamma;z) = 0$ for all $z \in \C \setminus U$.  Let
+$V = \{ z \in U : n(\gamma;z) = 1 \}$.
+Suppose that $f$ has no zeros on $\gamma$ and $k$ zeros (counting
+multiplicity) in $V$.
 Then there exists an $N$ such that for all $n \geq N$,
-$f_n$ has $k$ zeros (counting multiplicity) in $\Delta_r(p)$.
+$f_n$ has $k$ zeros (counting multiplicity) in $V$.
 \end{thm}
 
 \begin{proof}
-FIXME
+As $\gamma$ is compact, the functions $f_n$ and $f_n'$
+converge uniformly to $f$ and $f'$ on $\gamma$.
+There is a $\delta > 0$ and $M > 0$ such that $\delta < \sabs{f(z)} < M$
+and $\sabs{f'(z)} < M$ for all $z \in \gamma$.
+Then for all large enough $n$, we have
+$\delta < \sabs{f_n(z)} < M$ and $\sabs{f_n'(z)} < M$ for all $z \in \gamma$.  So
+\begin{equation*}
+\abs{
+\frac{f_n'(z)}{f_n(z)}-
+\frac{f'(z)}{f(z)}
+}
+<
+\frac{\abs{f_n'(z)f(z) - f_n(z)f'(z)}}{\delta^2}
+<
+\frac{\abs{f_n'(z)-f'(z)} M + \abs{f(z) - f_n(z)} M}{\delta^2} .
+\end{equation*}
+By the uniform convergence of $f_n$ and $f_n'$, we find that
+$\frac{f_n'(z)}{f_n(z)}$ converges uniformly to
+$\frac{f'(z)}{f(z)}$ on $\gamma$.  Then, using the argument principle,
+\begin{equation*}
+\lim_{n\to\infty} \frac{1}{2\pi i} \int_\gamma
+\frac{f_n'(z)}{f_n(z)} \, dz
+=
+\frac{1}{2\pi i} \int_\gamma
+\frac{f'(z)}{f(z)} \, dz
+=
+k .
+\end{equation*}
+As the integral is integer valued we find that the limit is achieved
+for large enough $n$ and we are finished.
 \end{proof}
 
 FIXME: some applications (limits of univalent functions perhaps)
@@ -7306,7 +7800,7 @@ A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
 sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
 is surprisingly famous\footnote{%
 It is called a ``blow-up'' and it is used in obtaining a Fields medal.
-Unfortunately, it has already been obtained by Hironaka, and you
+Unfortunately, the medal has already been obtained by Hironaka, and you
 have to find your own map if you want your own medal.},
 takes all of $\R^2$, which is both an open and a closed set, to the
 set $\{ (x,y) : x \not= 0 \text{ or } y=0 \}$, which is neither open nor
@@ -7326,7 +7820,27 @@ $V \subset U$.
 \end{thm}
 
 \begin{proof}
-FIXME
+Suppose $f$ is not constant.  As $U$ is a connected, $f$ is not constant
+near every point.
+Given any $p \in U$ take 
+a closed disc $\overline{\Delta_r(p)} \subset U$ small enough such that
+$f(z) \not= f(p)$ for $z \in \partial \Delta_r(p)$, which we can do as $f$
+is not constant.  Take $\delta > 0$ such
+that $\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$.
+The function $z \mapsto f(z)-f(p)$ has at least one zero in $\Delta_r(p)$
+(at $p$).  Take any $w \in \Delta_{\delta}\bigl(f(p)\bigr)$.  Then for
+all $z \in \partial \Delta_r(p)$,
+\begin{equation*}
+\abs{\bigl( f(z)-w \bigr) - \bigl( f(z)-f(p) \bigr)} = \abs{f(p)-w} <
+\delta < \abs{f(z)-f(p)} .
+\end{equation*}
+By Rouch\`e, $z \mapsto f(z)-w$ has at least one zero in $\Delta_r(p)$.
+In other words,
+\begin{equation*}
+\Delta_{\delta}\bigl(f(p)\bigr) \subset
+f\bigl(\Delta_r(p)\bigr) .
+\end{equation*}
+The theorem follows as any open set is a union of small discs.
 \end{proof}
 
 The open mapping theorem is really a stronger version of the maximum
@@ -7334,6 +7848,34 @@ principle.
 If for any $p$,
 $f(p)$ is always in the interior of $f(V)$ for any neighborhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
+
+The proof says something stronger than the theorem statement.  It
+gives an explicit bound.  It says that if 
+$\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$
+then
+$\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
+
+FIXME:
+
+\begin{exbox}
+\begin{exercise}
+Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic
+and let $V = f(U)$.  Prove that if $f(z) \in \partial V$
+for some $z \in U$, then $f$ is constant.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
+Suppose $\abs{f''(z)} \leq M$ for all $z \in U$ for some $M > 0$.
+Suppose $f'(p) \not= 0$ and $r > 0$ is such that
+$\frac{M}{2}r < \abs{f'(p)}$ and $\overline{\Delta_r(p)} \subset U$.
+Let $\delta = \abs{f'(p)}r - \frac{M}{2} r^2
+= r\left(\abs{f'(p)} - \frac{M}{2} r\right) > 0$.  Prove that
+$\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl( \Delta_r(p) \bigr)$.
+\end{exercise}
+\end{exbox}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -7434,52 +7976,6 @@ FIXME
 
 FIXME
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Meromorphic functions *}
-\label{sec:meromorphic}
-
-\begin{defn}
-A holomorphic function $f \colon U \setminus S \to \C$ with poles on a
-discrete set $S \subset U$ is said to be \emph{\myindex{meromorphic}}.
-\end{defn}
-
-A meromorphic function can be extended to
-\begin{equation*}
-f \colon U \to \C_{\infty}
-\end{equation*}
-by simply setting $f(p) = \infty$ at all poles, and by the definition of a
-pole, the function is then continuous.  In fact, a common way to define
-a meromorphic function is as a holomorphic function
-$f \colon U \to \C_{\infty}$.  Holomorphicity at a pole can be
-rephrased as holomorphicity of a function $\frac{1}{f(z)}$ at $p$.
-There is a small technicality, if one should consider the function
-that is constantly $\infty$ as a meromorphic function or not.
-
-We have already looked at infinity as an isolated singularity.
-We define holomorphicity at $\infty$ when $U \subset
-\C_\infty$ by saying that $f$ is holomorphic at $\infty$ if
-$f\bigl(\frac{1}{z}\bigr)$ is holomorphic at $0$.
-
-\begin{exbox}
-\begin{exercise}
-Show that a holomorphic function $f \colon \C_\infty \to \C_\infty$ has
-at most finitely many poles and finitely many zeros.
-\end{exercise}
-
-\begin{exercise}
-Show that a holomorphic function $f \colon \C_\infty \to \C_\infty$ is a
-rational function (a polynomial divided by a polynomial).
-\end{exercise}
-
-\begin{exercise}
-Show that if $f \colon \C_\infty \to \C_\infty$ is holomorphic and
-one-to-one, then it is an LFT.
-\end{exercise}
-\end{exbox}
-
-FIXME
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7545,7 +8041,7 @@ A $C^2$ (a twice continuously differentiable) function $f \colon U \to \R$ is
 
 The operator $\nabla^2$, sometimes also written $\Delta$,
 is the \emph{\myindex{Laplacian}}.
-It is the trace of the Hessian matrix.  It is a convenient thing
+It is the trace of the Hessian matrix.  It is convenient 
 to note that
 \begin{equation*}
 4
@@ -7629,7 +8125,7 @@ Notice that
 \nabla^2 =
 4 \frac{\partial^2}{\partial \bar{z} \partial z}
 =
-4 \frac{\partial^2}{\partial \bar{z} \partial z} .
+4 \frac{\partial^2}{\partial z \partial \bar{z}} .
 \end{equation*}
 Then
 \begin{equation*}
