@@ -7369,12 +7369,53 @@ show that $g$ is complex differentiable at all $w_0 \in W$.
 
 So far, nothing really new for holomorphic functions.
 It is the next
-theorem that is the surprising new result of this section: being injective
+result that is the surprising: being injective
 implies that the derivative is nonzero.
 A priory this makes no sense at all and it is not true for real functions.
 A function $f \colon \R \to \R$ such as $f(x) = x^3$
 is one-to-one, but its derivative is zero at $x=0$, and $f^{-1}(x) =
 \sqrt[3]{x}$ is not differentiable at $x=0$.
+We proof this result in stages, which are really useful by themselves.
+
+\begin{lemma}
+If $U \subset \C$ is open and $f \colon \to \C$ is one-to-one, then
+$f'$ is never zero.
+\end{lemma}
+
+\begin{proof}
+We will prove the contrapositive.
+Suppose that $f'(p) = 0$ for some $p$.  Without loss of generality
+assume $p=0$ and $f(0) = 0$.  Now $f$ is nonconstant and so $f'$ has
+an isolated zero, so let $\Delta_r(0)$ be small enough so that
+$f'(z) \not= 0$ for all $z \in \Delta_r(0) \setminus \{ 0 \}$
+and such that $f$ is holomorphic on a neighborhood of
+$\overline{\Delta_r(0)}$.
+
+
+
+
+
+
+and has a zero of order
+at least two so near the origin.  In particular,
+
+  For a small disc
+
+$\Delta_r(0)$ we find
+
+
+
+
+
+
+$f(z) = {\bigl(g(z)\bigr)}^k$ for $k \geq
+2$ and some
+holomorphic $g$ with an isolated zero at the origin.  In particular,
+for $z\not=0$ near $0$, $z= e^{i
+
+
+FIXME
+\end{proof}
 
 \begin{thm}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
