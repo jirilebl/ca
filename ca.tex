@@ -5401,7 +5401,7 @@ the entire punctured plane.
 We proved that in any star-like domain, a holomorphic function has a
 primitive.  So if we take say the set
 \begin{equation*}
-U = \C \setminus \{ \Re z \leq 0 , \Im z = 0 \},
+U = \C \setminus (-\infty,0] = \C \setminus \bigl\{ z \in \C : \Re z \leq 0 , \Im z = 0 \bigr\},
 \end{equation*}
 the so-called \emph{\myindex{slit plane}}.  It is a star-like domain and
 so there exists a
@@ -5417,7 +5417,7 @@ the principal branch of the argument.  Let us show that
 \begin{equation*}
 \Log z = \log \sabs{z} + i \Arg z ,
 \end{equation*}
-where $\log \sabs{z}$ is just the standard real logarithm.  So first let
+where $\log \sabs{z}$ is just the standard real logarithm.  Let
 $L(z) = \log \sabs{z} + i \Arg z$ and let us show that $L = \Log$.  We see
 \begin{equation*}
 e^{L(z)}
@@ -7710,12 +7710,20 @@ These are not the ideal estimates (largest zero of $P$ has modulus less than
 \begin{exercise}
 Suppose that
 $P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$
-is a polynomial that has no zeros on the unit circle and $k \leq n$ zeros
+is a monic polynomial that has no zeros on the unit circle and $k \leq n$ zeros
 (counting multiplicity)
 in the unit disc.  Show that there exists an $\epsilon > 0$ such that
 if $\sabs{b_j-a_j} < \epsilon$ for $j=0,\ldots,n-1$, then
 $Q(z) = z^n + b_{n-1} z^{n-1} + \cdots + b_0$ has
 exactly $k$ zeros (counting multiplicity) in the unit disc.
+\end{exercise}
+
+\begin{exercise}
+Suppose that
+$P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$
+is a monic polynomial.  Prove that all the zeros of $P$ are
+in the closed disc $\overline{\Delta_M(0)}$ where $M =
+\max\left\{ 1, \sum_{j=0}^{n-1} \sabs{a_j} \right\}$.
 \end{exercise}
 \end{exbox}
 
@@ -7812,7 +7820,27 @@ $V \subset U$.
 \end{thm}
 
 \begin{proof}
-FIXME
+Suppose $f$ is not constant.  As $U$ is a connected, $f$ is not constant
+near every point.
+Given any $p \in U$ take 
+a closed disc $\overline{\Delta_r(p)} \subset U$ small enough such that
+$f(z) \not= f(p)$ for $z \in \partial \Delta_r(p)$, which we can do as $f$
+is not constant.  Take $\delta > 0$ such
+that $\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$.
+The function $z \mapsto f(z)-f(p)$ has at least one zero in $\Delta_r(p)$
+(at $p$).  Take any $w \in \Delta_{\delta}\bigl(f(p)\bigr)$.  Then for
+all $z \in \partial \Delta_r(p)$,
+\begin{equation*}
+\abs{\bigl( f(z)-w \bigr) - \bigl( f(z)-f(p) \bigr)} = \abs{f(p)-w} <
+\delta < \abs{f(z)-f(p)} .
+\end{equation*}
+By Rouch\`e, $z \mapsto f(z)-w$ has at least one zero in $\Delta_r(p)$.
+In other words,
+\begin{equation*}
+\Delta_{\delta}\bigl(f(p)\bigr) \subset
+f\bigl(\Delta_r(p)\bigr) .
+\end{equation*}
+The theorem follows as any open set is a union of small discs.
 \end{proof}
 
 The open mapping theorem is really a stronger version of the maximum
@@ -7820,6 +7848,34 @@ principle.
 If for any $p$,
 $f(p)$ is always in the interior of $f(V)$ for any neighborhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
+
+The proof says something stronger than the theorem statement.  It
+gives an explicit bound.  It says that if 
+$\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$
+then
+$\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
+
+FIXME:
+
+\begin{exbox}
+\begin{exercise}
+Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic
+and let $V = f(U)$.  Prove that if $f(z) \in \partial V$
+for some $z \in U$, then $f$ is constant.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
+Suppose $\abs{f''(z)} \leq M$ for all $z \in U$ for some $M > 0$.
+Suppose $f'(p) \not= 0$ and $r > 0$ is such that
+$\frac{M}{2}r < \abs{f'(p)}$ and $\overline{\Delta_r(p)} \subset U$.
+Let $\delta = \abs{f'(p)}r - \frac{M}{2} r^2
+= r\left(\abs{f'(p)} - \frac{M}{2} r\right) > 0$.  Prove that
+$\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl( \Delta_r(p) \bigr)$.
+\end{exercise}
+\end{exbox}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
