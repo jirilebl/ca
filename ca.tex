@@ -7210,7 +7210,7 @@ Prove the proposition.
 A related and simpler rule for rational functions with simple poles is
 the following.
 
-\begin{prop}
+\begin{prop} \label{prop:residuesimpleratio}
 Suppose $f(z) = \frac{h(z)}{g(z)}$ where $h$ and $g$ are holomorphic
 at $p$ and $g$ has a simple zero at $p$ (so $f$ has a simple pole at $p$).
 Then
@@ -7492,7 +7492,7 @@ a_0 + a_1 z + \cdots
 \bigr)
 \frac{k c_k z^{k-1} + \cdots}{c_k z^k + \cdots}
 =
-a_0 k \frac{1}{z} \left( 1 + O(\sabs{z}) \right)
+a_0 k \frac{1}{z} \bigl( 1 + O(\sabs{z}) \bigr) ,
 \end{equation*}
 where $O(\sabs{z})$ is something that vanishes as $z \to 0$.
 In other words, $\operatorname{Res}\left(h(z)
@@ -7780,7 +7780,21 @@ As the integral is integer valued we find that the limit is achieved
 for large enough $n$ and we are finished.
 \end{proof}
 
-FIXME: some applications (limits of univalent functions perhaps)
+An interesting application of Hurwitz's theorem is that limits of
+injective mappings is either injective or constant.  Injective holomorphic
+mappings are called \emph{\myindex{univalent}}.
+
+\begin{cor} \label{cor:univalentlimit}
+Suppose $U \subset \C$ is a domain and $f_n \colon U \to \C$ are
+univalent holomorphic functions that converge uniformly on compact sets
+to $f \colon U \to \C$.  Then $f$ is either univalent or constant.
+\end{cor}
+
+\begin{proof}
+FIXME
+\end{proof}
+
+FIXME:
 
 \begin{exbox}
 \begin{exercise}
@@ -7900,10 +7914,10 @@ using the following outline, without appealing to the real inverse function
 theorem.
 \begin{exparts}
 \item Show that for some neighborhood $V$ of $p$, $f|_V$ is one-to-one.
-Hint: $f$ has a simple zero at $p$.
+Hint: $f(z)-f(p)$ has a simple zero at $p$.
 \item Show that $f(V) = W$ is open and the inverse $g \colon W \to V$ is
 continuous.
-\item By looking at the difference quotient $\frac{g(w)-g(w_0)}{w-w_0}$
+\item By looking directly at the difference quotient $\frac{g(w)-g(w_0)}{w-w_0}$
 show that $g$ is complex differentiable at all $w_0 \in W$.
 \end{exparts}
 \end{exercise}
@@ -7911,53 +7925,68 @@ show that $g$ is complex differentiable at all $w_0 \in W$.
 
 So far, nothing really new for holomorphic functions.
 It is the next
-result that is the surprising: being injective
+result that is surprising: being injective
 implies that the derivative is nonzero.
-A priory this makes no sense at all and it is not true for real functions.
+A priory this should make no sense at all and it is not true for real functions.
 A function $f \colon \R \to \R$ such as $f(x) = x^3$
 is one-to-one, but its derivative is zero at $x=0$, and $f^{-1}(x) =
 \sqrt[3]{x}$ is not differentiable at $x=0$.
-We proof this result in stages, which are really useful by themselves.
+Intuitively the way to think about it is that a holomorphic function is
+locally like $z^k$ for some $k$, and the only way that that is injective is
+if $k=1$ in which case the derivative is nonzero.  You can make that
+argument into a proof as well, but it is a bit more complicated.
 
-\begin{lemma}
+\begin{lemma} \label{lemma:dernonzero}
 If $U \subset \C$ is open and $f \colon \to \C$ is one-to-one, then
 $f'$ is never zero.
 \end{lemma}
 
 \begin{proof}
 We will prove the contrapositive.
-Suppose that $f'(p) = 0$ for some $p$.  Without loss of generality
-assume $p=0$ and $f(0) = 0$.  Now $f$ is nonconstant and so $f'$ has
-an isolated zero, so let $\Delta_r(0)$ be small enough so that
-$f'(z) \not= 0$ for all $z \in \Delta_r(0) \setminus \{ 0 \}$
-and such that $f$ is holomorphic on a neighborhood of
-$\overline{\Delta_r(0)}$.
-
-
-
-
-
-
-and has a zero of order
-at least two so near the origin.  In particular,
-
-  For a small disc
-
-$\Delta_r(0)$ we find
-
-
-
-
-
-
-$f(z) = {\bigl(g(z)\bigr)}^k$ for $k \geq
-2$ and some
-holomorphic $g$ with an isolated zero at the origin.  In particular,
-for $z\not=0$ near $0$, $z= e^{i
-
-
-FIXME
+Suppose that $f'(p) = 0$ for some $p$.
+Now $f$ is nonconstant and so $f'$ has
+an isolated zero, so let $\overline{\Delta_r(p)} \subset U$
+be small enough so that $f'(z) \not= 0$ for all $z \in \Delta_r(p) \setminus \{ p \}$,
+and such that $\sabs{f(z)-f(p)} > \delta > 0$ for $z \in \partial
+\Delta_r(p)$.
+The function $z \mapsto f(z) - f(p)$ has a zero of multiplicity at least
+two.
+For $w \in \Delta_{\delta}\bigl(f(p)\bigr) \setminus \bigl\{ f(p) \bigr\}$,
+we have that
+$z \mapsto f(z)-w$ has at least two zeros counting multiplicity via Rouch\`e as
+before.  As derivative of $f(z)$ and hence also of $f(z)-w$ is nonzero in
+the punctured disc, all these zeros are of multiplicity one.  Ergo, $f(z)-w$
+has more than one distinct zero, and consequently, $f$ is not one-to-one.
 \end{proof}
+
+\begin{lemma} \label{lemma:inverseasintegral}
+If $f \colon U \to \C$ is holomorphic and one-to-one, and
+$\overline{\Delta_r(p)} \subset U$.  Then for all $w \in
+f\bigl(\Delta_r(p)\bigr)$, we have
+\begin{equation*}
+f^{-1}(w) = \frac{1}{2\pi i} \int_{\partial \Delta_r(p)}
+\frac{f'(z)z}{f(z)-w} \, dz .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Fix $w \in f\bigl(\Delta_r(p)\bigr)$ and suppose $\zeta \in \Delta_r(p)$
+is such that $f(\zeta) = w$.
+The derivative of $f$ is never zero, and so $z \mapsto f(z)-w$ has a simple
+zero at $z=\zeta$.  By the residue theorem and
+\propref{prop:residuesimpleratio},
+\begin{equation*}
+\frac{1}{2\pi i} \int_{\partial \Delta_r(p)}
+\frac{f'(z)z}{f(z)-w} \, dz
+=
+\operatorname{Res}\left(\frac{f'(z)z}{f(z)-w};\zeta\right)
+=
+\frac{f'(\zeta)\zeta}{f'(\zeta)} = \zeta = f^{-1}(w) .
+\qedhere
+\end{equation*}
+\end{proof}
+
+Let us summarize the main result of this section.
 
 \begin{thm}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
@@ -7967,14 +7996,25 @@ one-to-one, then $f(U)$ is open, $f'$ is never zero on $U$, and $f^{-1}
 
 \begin{proof}
 If $f$ is one-to-one, then it is not constant, and so $f(U)$ is open by
-the open mapping theorem.
-
-Next suppose that $f'(p) = 0$ for some $p \in U$.
-
-FIXME
+the open mapping theorem.  By \lemmaref{lemma:dernonzero} $f'$ is never zero
+on $U$, and by \lemmaref{lemma:inverseasintegral} and
+\lemmaref{lemma:holfuncbyintegral} (functions defined by integration against
+something holomorphic are holomorphic)
+we have that $f^{-1}$ is holomorphic.
 \end{proof}
 
 FIXME
+
+\begin{exbox}
+\begin{exercise}
+Suppose $U,V \subset \C$ are domains.
+Suppose $f_n \colon U \to V$ are bijective holomorphic mappings
+that converge uniformly on compact subsets to a nonconstant
+holomorphic $f$ (which is injective by \corref{cor:univalentlimit}).
+Show that $f(U) = V$ and that $\bigl\{ f_n^{-1} \bigr\}$ converges uniformly on
+compact subsets to $f^{-1}$.
+\end{exercise}
+\end{exbox}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
