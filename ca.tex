@@ -1856,7 +1856,8 @@ holomorphic function is continuous.
 
 \subsection{Cauchy--Riemann equations}
 
-Let $f \colon U \to \C$, where $U \subset \C$, be a
+For an open $U \subset \C$,
+let $f \colon U \to \C$ be a
 differentiable (in the real sense
 and as a function of two real variables,
 see \sectionref{sec:derinsv} in the appendix) function.
@@ -1931,26 +1932,17 @@ as the complex derivative $f'(z_0)$ gives the $Df|_{z_0}$.  Let us formalize
 what we just proved.
 
 \begin{prop}
-Let $U \subset \C$ be open, and $f = u+iv \colon U \to \C$ be a function
-that is (real) differentiable at $z_0 \in U$.
+Let $U \subset \C$ be open and $f = u+iv \colon U \to \C$ be a function.
 Then
-%\begin{equation*}
+$f$ is complex differentiable at $z_0 \in U$
+if and only if
+$f$ (real) differentiable at $z_0 \in U$
+with
 $\frac{\partial u}{\partial x}\big|_{z_0} =
 \frac{\partial v}{\partial y}\big|_{z_0}$
 and
-%, \qquad
 $\frac{\partial v}{\partial x}\big|_{z_0} =
--\frac{\partial u}{\partial y}\big|_{z_0}$
-%.
-%\end{equation*}
-if and only if $f$ is complex differentiable at $z_0 \in U$.
-%, or in
-%other words, if
-%\begin{equation*}
-%f'(z) =
-%\lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
-%\end{equation*}
-%exists for all $z \in U$.
+-\frac{\partial u}{\partial y}\big|_{z_0}$ .
 \end{prop}
 
 If the partial derivatives exist and are continuous, then $f$ is
@@ -2081,8 +2073,9 @@ complex differentiable at $z$.
 
 We still get this simple statement of the chain rule
 if we plug a real differentiable function into a complex differentiable
-one.  If $\gamma = \alpha + i \beta \colon (a,b)
-\to \C$ is a (real) differentiable function,
+one.  If $\gamma \colon (a,b)
+\to \C$ is a (real) differentiable function, where
+$\gamma = \alpha + i \beta$,
 then write $\gamma' = \alpha' + i \beta'$.
 
 \begin{prop}[Chain rule]
@@ -2104,7 +2097,7 @@ D(f \circ \gamma)|_{t_0} =
 Df|_z D\gamma|_{t_0} .
 \end{equation*}
 That is as an equation of real linear operators.  Now $Df|_z$ corresponds
-to the multiplication by the complex number $f'(z)$, and $D\gamma|_{t_0}$
+to multiplication by the complex number $f'(z)$, and $D\gamma|_{t_0}$
 is the $2 \times 1$ matrix (column vector) represented by $\gamma'(t_0)$.
 The result follows.
 %  Therefore
@@ -2118,11 +2111,11 @@ Let $U \subset \C$ be open, and $f \colon U \to \C$ and
 $g \colon U \to \C$ holomorphic.
 \begin{enumerate}[(i)]
 \item
-$f+g$ is holomorphic, and in fact, $(f+g)'(z) = f'(z) + g'(z)$.
+$f+g$ is holomorphic and $(f+g)'(z) = f'(z) + g'(z)$.
 \item
-$fg$ is holomorphic, and in fact, $(fg)'(z) = f'(z)g(z) + f(z)g'(z)$.
+$fg$ is holomorphic fact $(fg)'(z) = f'(z)g(z) + f(z)g'(z)$.
 \item
-$\frac{1}{g}$ is holomorphic on $\{ z \in U : g(z) \not= 0 \}$, and in fact
+$\frac{1}{g}$ is holomorphic on $\{ z \in U : g(z) \not= 0 \}$ and
 ${\left(\frac{1}{g}\right)}'(z) = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
 \end{enumerate}
 \end{prop}
@@ -2130,12 +2123,12 @@ ${\left(\frac{1}{g}\right)}'(z) = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
 The proof is left as an exercise.  There are again several ways
 to do it.  One way is almost identical to the
 proof for functions of one real variable.
-Similarly (and also left as an exercise) it is easy to see that derivative
-of a constant is zero, the derivative of $z$ is $1$, and in general,
-derivative of $z^n$ is $nz^{n-1}$.
 Note that
 a holomorphic function is continuous, and so the set
 $\{ z \in U : g(z) \not= 0 \}$ is open.
+Similarly (and also left as an exercise) it is easy to see that derivative
+of a constant is zero, the derivative of $z$ is $1$, and in general,
+derivative of $z^n$ is $nz^{n-1}$.
 
 \begin{exbox}
 \begin{exercise}
@@ -2167,14 +2160,14 @@ computing the derivative.
 \end{exercise}
 
 \begin{exercise}
-Prove that any polynomial $P(z)$ is holomorphic.  And more generally
-rational function $\frac{P(z)}{Q(z)}$ is holomorphic wherever $Q$ is
+Prove that any polynomial $P(z)$ is holomorphic.  More generally
+prove that a rational function $\frac{P(z)}{Q(z)}$ is holomorphic wherever $Q$ is
 nonzero.
 \end{exercise}
 \end{exbox}
 
 Perhaps the reader may ask at this point: Is any solution to
-the Cauchy--Riemann equations holomorphic?  Above we saw that the answer
+the Cauchy--Riemann equations holomorphic?  Above, we saw that the answer
 is affirmative for continuously differentiable functions, or at least
 functions differentiable as functions of two variables.
 In general, the answer is false%
