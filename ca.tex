@@ -1951,7 +1951,7 @@ So we have the following, perhaps easier to apply, result.
 
 \begin{cor}
 \pagebreak[2]
-Let $U \subset \C$ be open, and $f = u+iv \colon U \to \C$ be a function
+Let $U \subset \C$ be open and let $f = u+iv \colon U \to \C$ be a function
 such that $\frac{\partial u}{\partial x}$, $\frac{\partial u}{\partial y}$, $\frac{\partial
 v}{\partial x}$, and $\frac{\partial v}{\partial y}$ exist and are continuous (that is,
 $f$ is continuously differentiable).
@@ -1960,13 +1960,14 @@ Then
 \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} , \qquad
 \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
 \end{equation}
-if and only if $f$ is complex differentiable at all $z_0 \in U$, or in
+if and only if $f$ is complex differentiable at all $z \in U$, or in
 other words, if
 \begin{equation*}
 f'(z) =
 \lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
+\qquad
+\text{exists for all $z \in U$.}
 \end{equation*}
-exists for all $z \in U$.
 \end{cor}
 
 The equations \eqref{eq:CReqreal} are called the
@@ -1978,7 +1979,7 @@ except that Euler was really Swiss, he only lived in Germany for a long time.}.
 This book is dedicated to their
 solutions.
 
-We know that continuously differentiable functions that satisfy
+So continuously differentiable functions that satisfy
 Cauchy--Riemann equations are holomorphic.
 On the other hand
 a function that is complex differentiable everywhere (a holomorphic
@@ -1986,7 +1987,7 @@ function) is differentiable in the real sense,
 and thus the partial derivatives exist and satisfy the Cauchy--Riemann
 equations.  We will show later that holomorphic functions are
 continuously differentiable and not just differentiable, and in fact they
-are infinitely differentiable, although those results will have to wait.
+are infinitely differentiable.
 
 \begin{exbox}
 \begin{exercise} \label{exercise:exponentialholomorphic}
@@ -2058,7 +2059,7 @@ The proof then follows by continuity of complex multiplication and taking
 the limit as $h \to 0$.
 
 Let's see the second proof.
-Since complex differentiable functions are differentiable in the real sense,
+Complex differentiable functions are differentiable in the real sense, so
 the proof follows from the standard real chain rule (\thmref{thm:realchain}).
 Let $w = f(z) \in V$.  Then
 \begin{equation*}
@@ -2072,7 +2073,8 @@ complex differentiable at $z$.
 \end{proof}
 
 We still get this simple statement of the chain rule
-if we plug a real differentiable function into a complex differentiable
+if we plug a real differentiable function of one variable
+into a complex differentiable
 one.  If $\gamma \colon (a,b)
 \to \C$ is a (real) differentiable function, where
 $\gamma = \alpha + i \beta$,
@@ -2115,18 +2117,18 @@ $f+g$ is holomorphic and $(f+g)'(z) = f'(z) + g'(z)$.
 \item
 $fg$ is holomorphic fact $(fg)'(z) = f'(z)g(z) + f(z)g'(z)$.
 \item
-$\frac{1}{g}$ is holomorphic on $\{ z \in U : g(z) \not= 0 \}$ and
+$\frac{1}{g}$ is holomorphic on $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ and
 ${\left(\frac{1}{g}\right)}'(z) = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
 \end{enumerate}
 \end{prop}
 
-The proof is left as an exercise.  There are again several ways
+The proof is left as an exercise below.  There are again several ways
 to do it.  One way is almost identical to the
 proof for functions of one real variable.
 Note that
 a holomorphic function is continuous, and so the set
-$\{ z \in U : g(z) \not= 0 \}$ is open.
-Similarly (and also left as an exercise) it is easy to see that derivative
+$\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
+Similarly (also an exercise below) the derivative
 of a constant is zero, the derivative of $z$ is $1$, and in general,
 derivative of $z^n$ is $nz^{n-1}$.
 
@@ -2238,7 +2240,7 @@ respect to actual variables,
 they are simply formal operators, and also, and more importantly,
 how could something possibly depend on $z$ but not on $\bar{z}$.
 
-But let us humor ourselves and check:
+But let us humor ourselves and check what \eqref{eq:CReq} means:
 \begin{equation*}
 \frac{\partial f}{\partial \bar{z}} 
 =
@@ -2287,25 +2289,18 @@ parts are zero.  Namely,
 + \frac{\partial u}{\partial y} = 0
 .
 \end{equation*}
-That is, the Cauchy--Riemann equations are satisfied.  Just for emphasis
-let us state this result as a proposition.
+That is, the Cauchy--Riemann equations are satisfied.  For emphasis,
+we state this result as a proposition.
 
 \begin{prop}
 \label{prop:WirtCR}
-Let $U \subset \C$ be open, and $f \colon U \to \C$ be a (real) 
-differentiable function.
-Then
+Let $U \subset \C$ be open and $f \colon U \to \C$ be a function.
+Then $f$ is holomorphic if and only if
+$f$ is (real) differentiable such that
 \begin{equation*}
-\frac{\partial f}{\partial \bar{z}} \equiv 0
-\qquad
-\text{if and only if}
-\qquad
-f \text{ is holomorphic.}
+\frac{\partial f}{\partial \bar{z}} \equiv 0 .
 \end{equation*}
 \end{prop}
-
-
-\medskip
 
 
 The Wirtinger derivative in $z$ computes the holomorphic derivative
@@ -2403,14 +2398,14 @@ work as if $z$ and $\bar{z}$ really were independent variables.  For example:
 =
 z^2 ( 3 \bar{z}^2 ) + 0 .
 \end{equation*}
-So in that sense (at least for a polynomial) a holomorphic function is a
+In that sense (at least for polynomials) a holomorphic function is a
 function not depending on $\bar{z}$.
 
 \begin{exbox}
 \begin{exercise}
-Justify the statement about Wirtinger operators.  That is consider
+Justify the statement about Wirtinger operators:  Consider
 the function $z^m\bar{z}^n$ for any nonnegative integrers $m$ and $n$.
-Compute (and justify of course)
+Compute
 $\frac{\partial}{\partial z} \left[ z^m\bar{z}^n \right]$
 and
 $\frac{\partial}{\partial \bar{z}} \left[ z^m\bar{z}^n \right]$.
@@ -2510,7 +2505,7 @@ diffeomorphism, in group theory it may mean a bijective homomorphism.}.
 Let $\operatorname{Aut(U)}$ denote the set of all automorphisms of $U$.
 \end{defn}
 
-We saw before that the Cayley map
+For example, the Cayley map
 $C(z)
 =
 \frac{z - i}{z + i}$
@@ -2519,9 +2514,10 @@ $\bH = \{ z \in \C : \Im z > 0 \}$ to the unit disc $\D$,
 in other words $C \colon \bH \to \D$ is a biholomorphism
 making $\bH$ and $\D$ biholomorphic.
 
-The reader can check that $\operatorname{Aut}(U)$ is a group under
-composition, although perhaps we are not too worried about the group
-structure at this point.
+The reader can check that for any open $U \subset \C$, the set
+$\operatorname{Aut}(U)$ is a group under
+composition, although we will not be too worried about the group
+structure.
 
 \begin{exbox}
 \begin{exercise}
@@ -2541,8 +2537,9 @@ $a z + b$ is an automorphism of $\C$.
 
 A biholomorphism $f$ has the property that $f'(z) \not= 0$ for any $z$.  To
 see this note that $f^{-1}\bigl(f(z)\bigr) = z$ and both $f$ and $f^{-1}$
-are holomorphic.  Thus differentiate using the chain rule to see
-that $(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$, so if $w = f(z)$ then
+are holomorphic.  Differentiate the equality using the chain rule to see
+that $(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$.  So $f'(z)$ cannot be zero.
+If $w = f(z)$, then
 \begin{equation*}
 (f^{-1})'(w) = \frac{1}{f'(z)}
 \qquad \text{or} \qquad
@@ -2552,7 +2549,7 @@ f'(z) =
 
 Locally, the relationship between nonzero derivative and invertibility is
 the inverse function theorem.  Consider a holomorphic function
-$f = u+iv$ and its derivative real $Df$ and complex derivative $f'$.
+$f = u+iv$ and its real derivative $Df$ and its complex derivative $f'$.
 The real derivative as a matrix is
 \begin{equation*}
 Df =
@@ -2591,12 +2588,13 @@ differentiable with $D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
 
 An inverse of a $2 \times 2$ matrix that represents a complex number is
 again one that represents a complex number (the reciprocal), so if $f$
-satisfied the Cauchy--Riemann equations, so does the inverse.  We instantly
-get the holomorphic inverse function theorem.
+satisfied the Cauchy--Riemann equations, so does the inverse.  We 
+instantly obtain the holomorphic inverse function theorem.
 
 \begin{thm}[Inverse function theorem for holomorphic functions]
 \index{inverse function theorem!holomorphic functions}
 \label{thm:inversehol}
+\pagebreak[2]
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 $p \in U$, and $f'(p) \not= 0$.  Suppose further that $f$ is continuously
 differentiable.  Then there exist neighborhoods $V$ of $p$
@@ -2609,7 +2607,10 @@ g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
 \end{thm}
 
 The hypothesis that $f$ is continuously differentiable is completely
-superfluous.  Every holomorphic function is continuously
+superfluous\footnote{Cauchy (early 1800s)
+assumed continuity of the derivative for his work, it was
+Goursat more than half a century later that showed that continuity of the
+derivative came for free.}.  Every holomorphic function is continuously
 differentiable, although you will have to wait till \thmref{thm:holfuncinfder}.
 Once we build up more machinery, we will leave it as an exercise to prove
 this theorem in a purely complex analytic manner.
@@ -2666,11 +2667,11 @@ $\det Df\big|_z = \abs{\frac{\partial f}{\partial z}(z)}^2 -
 
 \subsection{The function \texorpdfstring{$z^n$}{z to the n}}
 
-It will turn out that to understand holomorphic functions locally, 
+To understand holomorphic functions locally, 
 it is sufficient to understand $z \mapsto z^n$.  We will prove that
 holomorphic functions are just power series and so we can always factor
-a $z^n$ for some $n$ out of a power series that vanishes at the origin, which is,
-after all, just a sum of such terms.  This means that any holomorphic
+a $z^n$ for some $n$ out of a power series that vanishes at the origin,
+which is, after all, just a sum of such terms.  This means that any holomorphic
 function really behaves like $z^n$ behaves near the origin for some $n$.
 
 A key point about the function $z \mapsto z^n$ is that it is $n$-to-$1$.
@@ -2685,7 +2686,8 @@ r^{1/n} e^{i\theta/n + 2\pi i /n}
 , \quad \ldots, \quad
 r^{1/n} e^{i\theta/n + 2\pi i (n-1)/n} .
 \end{equation*}
-So those are the $n$ different $z$s that go to $w$.
+So those are the $n$ different $z$s such that $z^n=w$.  They are equally
+spaced out on a circle of radius $r^{1/n}$.
 
 Another important thing about $z^n$ is what it does to angles.
 If $z = re^{i\theta}$, then
@@ -2734,7 +2736,7 @@ convergence at other points.  So we say the series is
 some $z \not= p$ where the series converges.
 
 The most important series, and in some sense the only one that we really
-know how to sum is the \emph{\myindex{geometric series}}.
+know how to sum, is the \emph{\myindex{geometric series}}.
 
 \begin{prop}[Geometric series]
 \leavevmode
@@ -2748,8 +2750,8 @@ know how to sum is the \emph{\myindex{geometric series}}.
 \sum_{n=0}^\infty z^n \quad \text{diverges.}
 \end{equation*}
 \item
-Given $0 < r < 1$, then for all $z \in \overline{\Delta_r(0)}$ ($\sabs{z}
-\leq r$)
+Given $0 < r < 1$, then for all $z \in \overline{\Delta_r(0)}$
+(that is, $\sabs{z} \leq r$)
 \begin{equation*}
 \abs{\frac{1}{1-z} - \sum_{n=0}^m z^n}
 \leq \frac{r^{m+1}}{1-r} .
@@ -2781,16 +2783,17 @@ A power series converges absolutely if
 \begin{equation*}
 \sum_{n=0}^\infty \sabs{c_n} \sabs{z-p}^n ,
 \end{equation*}
-converges.  Suppose $N < M$:
+converges.  For $N < M$,
 \begin{equation*}
 \abs{\sum_{n=N+1}^M c_n {(z-p)}^n}
 \leq
-\sum_{n=N+1}^M \sabs{c_n} \sabs{(z-p)}^n
+\sum_{n=N+1}^M \sabs{c_n} \sabs{(z-p)}^n.
 \end{equation*}
-In particular, if the sequence of partial sums of 
+Hence, if the sequence of partial sums of 
 $\sum \sabs{c_n} \sabs{z-p}^n$ is Cauchy, so is the sequence
 of partial sums of $\sum c_n {(z-p)}^n$.  In particular,
-the series actually converges.
+an absolutely convergent series
+actually converges.
 
 Let $r = \sabs{z-p}$, then we have the real series $\sum \sabs{c_n} r^n$.  Define
 \begin{equation} \label{eq:rconvdef}
@@ -2906,7 +2909,7 @@ the series converges).  Thus
 -
 \sum_{n=0}^{m} \abs{c_n {(z-p)}^n}
 \leq
-\sum_{n=m+1}^\infty \sabs{c_n} r^n
+\sum_{n=m+1}^\infty \sabs{c_n} r^n .
 \end{equation*}
 As $m \to \infty$ the right hand side goes to zero, and hence 
 the series converges uniformly in $\overline{\Delta_r(p)}$.
@@ -3112,14 +3115,14 @@ c_n =
 
 \begin{exbox}
 \begin{exercise}
-Fill in the details of the proof of this corollary.
+Fill in the details of the proof of the corollary.
 \end{exercise}
 
 \begin{exercise}
 Suppose $f \colon \Delta_r(0) \to \C$ is given by a convergent power
 series
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n z^n
+f(z) = \sum_{n=0}^\infty c_n z^n .
 \end{equation*}
 Suppose that for some $\epsilon > 0$, $f(x) = 0$ for all $x \in
 (-\epsilon,\epsilon)$ (an interval on the real line).
@@ -3154,8 +3157,8 @@ once we prove that holomorphic functions are analytic.
 \subsection{The identity theorem}
 
 One of the main properties of analytic functions is that once you know them
-in a neighborhood you know them everywhere.  In fact, much more general
-statement is true, you only need to know an analytic function on a set with
+in a neighborhood you know them everywhere.  In fact, a much more general
+statement is true; you only need to know an analytic function on a set with
 a limit point.
 
 \begin{thm}[Identity]\index{identity theorem!holomorphic functions}
