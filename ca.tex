@@ -1640,6 +1640,20 @@ So every LFT is represented by an invertible $2 \times 2$ matrix $M$
 (not uniquely), and
 conversely every invertible $2 \times 2$ matrix $M$ corresponds to an LFT.
 
+An invertible $2 \times 2$ matrix $M$ gives a map from
+$\C^2 \setminus \{ 0 \}$ to $\C^2 \setminus \{ 0 \}$.
+If $\pi \colon \C^2 \setminus \{ 0 \}$ is the map $\pi \bigl( (z,w) \bigr) =
+[z:w]$, then we have that the following commutative diagram that may
+illustrate the situation better:
+\begin{equation*}
+\begin{tikzcd}
+\C^2 \setminus \{ 0 \} \arrow[r,"M"] \arrow[d,"\pi"] &
+\C^2 \setminus \{ 0 \} \arrow[d,"\pi"] \\
+\C \bP^1 \arrow[r,"\Phi \circ f \circ \Phi^{-1}"] &
+\C \bP^1 
+\end{tikzcd}
+\end{equation*}
+
 \medskip
 
 A handy LFT is the
