@@ -1688,9 +1688,15 @@ unit disc $\D$.  Let us see why.  The map takes $z \in \C$ to the unit disc if
 =
 \frac{\sabs{z - i}}{\sabs{z + i}} .
 \end{equation*}
-In other words, if $\sabs{z+i} > \sabs{z - i}$.  The distance of $z$
-to $-i$ is bigger than the distance of $z$ to $i$.  It is straightforward
-plane geometry to see this means that $z \in \bH$.
+In other words, $\sabs{z+i} > \sabs{z - i}$: The distance of $z$
+to $-i$ is larger than the distance of $z$ to $i$.  It is straightforward
+plane geometry to see this means that $z \in \bH$.  See
+\figureref{fig:cayleydisc}.
+
+\begin{myfig}
+\subimport*{figures/}{cayleydisc.pdf_t}
+\caption{Why does the Cayley map take $\bH$ to $\bD$.\label{fig:cayleydisc}}
+\end{myfig}
 
 Any LFT is bijective if thought of as a map from $\C_\infty$
 to itself, so $C^{-1}$ exists, and it is also a useful map.  We leave
@@ -2064,14 +2070,14 @@ see \thmref{thm:svzerodersol} in the appendix.
 \end{proof}
 
 \begin{prop}[Chain rule] \index{chain rule!complex derivative}
-Let $U \subset \C$ and $V \subset \C$ be open, and $f \colon U \to V$
-complex differentiable at $z$, $g \colon V \to \C$ complex differentiable
+Let $U \subset \C$ and $V \subset \C$ be open, $f \colon U \to V$
+complex differentiable at $z$, and $g \colon V \to \C$ complex differentiable
 at $f(z)$.  Then the composition $g \circ f$
 is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)$.
 \end{prop}
 
 \begin{proof}
-We offer two proofs of this.  The first works only for holomorphic
+We offer two proofs.  The first works only for holomorphic
 functions, and the second is generalizable to nonholomorphic functions
 with the Wirtinger operators in the next section (an exercise).
 
@@ -2934,12 +2940,10 @@ is any compact subset, then the series converges uniformly absolutely on
 $K$.
 \end{prop}
 
-Generally, we do not call $\Delta_{\infty}(p)$ a \emph{disc} even
+We do not call $\Delta_{\infty}(p)$ a \emph{disc} even
 if we use the same notation here for convenience.
 
 \begin{proof}
-%Let $s$ be such that $r < s < R$.  Then there exists an $M$ such that
-%$\sabs{c_n} s^n \leq M$.
 Suppose $0 < r < R$.  Then as $\sum c_n {(z-p)}^n$ converges absolutely
 on $\Delta_R(p)$, we have
 $\sum \sabs{c_n} r^n$ converges (and in particular any tail of
