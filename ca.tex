@@ -1128,7 +1128,7 @@ e^{z+w} = e^z e^w .
 \end{equation*}
 Remark: In fact, $e^z$ is the unique continuous
 function that satisfies the identity above
-and also $e^1 = e$, but let us not worry about this now.
+and $e^0 = 1$, but let us not worry about this now.
 \end{exercise}
 \end{exbox}
 
@@ -1286,8 +1286,9 @@ $2k\pi < \Im w \leq 2(k+1)\pi$, then $e^z=e^w$ implies $z=w$.
 \end{exercise}
 
 \begin{exercise}
-Use $e^{z+w} = e^z e^w$ and $e^1 \not= 0$ to show that $e^z \not=0$ for all
-$z \in \C$.
+Use $e^{z+w} = e^z e^w$ and $e^0 = 1 \not= 0$ to show that $e^z \not=0$ for all
+$z \in \C$.  In other words, if a function $f$ satisfies $f(z+w)=f(z)f(w)$
+and $f(0) = 1$, then $f(z) \not= 0$ for all $z$.
 \end{exercise}
 \end{exbox}
 
@@ -1602,11 +1603,11 @@ Prove that $\Phi$ above is bijective.
 \end{exercise}
 \end{exbox}
 
-Let us check that
+Let us check that an LFT
 \begin{equation*}
 f(z) = \frac{a z + b}{c z + d}
 \end{equation*}
-corresponds to the linear map given by the matrix
+corresponds to an invertible linear map given by the matrix
 \begin{equation*}
 M =
 \begin{bmatrix}
@@ -1614,6 +1615,9 @@ a & b \\
 c & d
 \end{bmatrix} .
 \end{equation*}
+An invertible $M$ takes one-dimensional subspaces to one-dimensional
+subspaces, so it sounds plausible.
+
 First, $\Phi \circ f$ for $z \in \C \setminus \bigl\{ \frac{-d}{c} \bigr\}$
 is equal to
 \begin{equation*}
@@ -1623,34 +1627,47 @@ is equal to
 \left[a z + b: c z + d \right] ,
 \end{equation*}
 where the second inequality follows by definition of $\sim$.
-The expression $[az+b:cz+d]$ makes sense even when
-$z = \frac{-d}{c}$.
-Next, again using the definition of $\sim$
-and the fact that $(z,w) \mapsto M(z,w) = (a z + b w, c z + d w)$ is
-linear,
+When $z = \frac{-d}{c}$, then $cz+d = 0$, or $f(0) = \infty$
+and $\Phi(\infty) = [1:0] = [az+b : cz+d]$ as well.
+
+Let us consider $\Phi \circ f \circ \Phi^{-1}$.
+If $w \not= 0$, then $[z:w] = \left[ \frac{z}{w}:1 \right]$.  So
 \begin{equation*}
 \Phi \circ f \circ \Phi^{-1} \bigl([z:w]\bigr) =
+\Phi \circ f \left(\frac{z}{w}\right) =
+\left[a \frac{z}{w} + b : c \frac{z}{w} + d \right] =
 \left[a z + b w: c z + d w \right] .
 \end{equation*}
-
-Namely, $f$ corresponds to the linear map $v \mapsto Mv$ on $\C^2$.
-The requirement that $ad \not= bc$ corresponds to determinant of $M$ being
-nonzero, or in other words, to $M$ being invertible.
+And one checks that the same equality holds if $w=0$.
+As
+$M \left[ \begin{smallmatrix} z \\ w \end{smallmatrix} \right]
+= \left[ \begin{smallmatrix} 
+a z + b w \\ c z + d w
+\end{smallmatrix} \right]$,
+the function $f$ corresponds to the linear map $v \mapsto Mv$ on $\C^2$.
+The requirement $ad \not= bc$ implies $\det M \not= 0$,
+or in other words, $M$ is invertible.
 So every LFT is represented by an invertible $2 \times 2$ matrix $M$
 (not uniquely), and
 conversely every invertible $2 \times 2$ matrix $M$ corresponds to an LFT.
 
 An invertible $2 \times 2$ matrix $M$ gives a map from
 $\C^2 \setminus \{ 0 \}$ to $\C^2 \setminus \{ 0 \}$.
-If $\pi \colon \C^2 \setminus \{ 0 \}$ is the map $\pi \bigl( (z,w) \bigr) =
-[z:w]$, then we have that the following commutative diagram that may
-illustrate the situation better:
+Let $\pi \colon \C^2 \setminus \{ 0 \} \to \C \bP^1$ be the map\footnote{The
+``quotient map'' or the ``natural projection.''}
+$\pi \bigl( (z,w) \bigr) =
+[z:w]$.  The following commutative diagram may
+illustrate the entire situation better:
+one-to-one:
 \begin{equation*}
 \begin{tikzcd}
 \C^2 \setminus \{ 0 \} \arrow[r,"M"] \arrow[d,"\pi"] &
 \C^2 \setminus \{ 0 \} \arrow[d,"\pi"] \\
-\C \bP^1 \arrow[r,"\Phi \circ f \circ \Phi^{-1}"] &
-\C \bP^1 
+\C \bP^1 \arrow[r,"\Phi \circ f \circ \Phi^{-1}"] \arrow[d,shift left,"\Phi^{-1}"] &
+\C \bP^1 \arrow[d,shift left,"\Phi^{-1}"]
+\\
+\C_\infty \arrow[r,"f"]\arrow[u,shift left,"\Phi"] &
+\C_\infty \arrow[u,shift left,"\Phi"]
 \end{tikzcd}
 \end{equation*}
 
@@ -1673,7 +1690,7 @@ unit disc $\D$.  Let us see why.  The map takes $z \in \C$ to the unit disc if
 \end{equation*}
 In other words, if $\sabs{z+i} > \sabs{z - i}$.  The distance of $z$
 to $-i$ is bigger than the distance of $z$ to $i$.  It is straightforward
-to see this means that $z \in \bH$.
+plane geometry to see this means that $z \in \bH$.
 
 Any LFT is bijective if thought of as a map from $\C_\infty$
 to itself, so $C^{-1}$ exists, and it is also a useful map.  We leave
@@ -2867,16 +2884,22 @@ $0 < r < R$ there exists an $M > 0$ such that for all $n$,
 \end{prop}
 
 \begin{proof}
-Suppose the series converges, then the terms of the series are bounded.
-Conversely, if 
-$\sabs{c_n} r^n \leq M$ for all $n$ and $s < r$, then
+Suppose the series converges in $\Delta_{R}(p)$ and
+$0 < r < R$, then $\sum \sabs{c_n}r^n$ converges,
+and the terms of that series are bounded.
+
+Conversely, suppose
+$\sabs{c_n} r^n \leq M$ for all $n$ and $0 < s < r$.
+Then
 \begin{equation*}
 \sqrt[n]{\sabs{c_n} s^n}=
 \frac{s}{r}\sqrt[n]{\sabs{c_n} r^n} \leq \frac{s}{r} \sqrt[n]{M} .
 \end{equation*}
-The limsup of the right hand side is $0$, so the series converges in
-$\Delta_s(p)$.  As $r < R$ and $s < r$ were arbitrary,
-the series converges in $\Delta_R(p)$.
+The limsup of the right hand side is strictly less than 1 as $\frac{s}{r} < 1$,
+so the series converges absolutely in
+$\overline{\Delta_s(p)}$.  As $s$ and $r$ with $0 < s < r < R$ were
+arbitrary,
+the series converges (absolutely) in $\Delta_R(p)$.
 \end{proof}
 
 The convergence inside the radius of convergence is even nicer than just absolute.
@@ -2920,7 +2943,7 @@ if we use the same notation here for convenience.
 Suppose $0 < r < R$.  Then as $\sum c_n {(z-p)}^n$ converges absolutely
 on $\Delta_R(p)$, we have
 $\sum \sabs{c_n} r^n$ converges (and in particular any tail of
-the series converges).  Thus
+the series converges).  Thus for $z \in \overline{\Delta_r(p)}$,
 \begin{equation*}
 \sum_{n=0}^\infty \abs{c_n {(z-p)}^n}
 -
@@ -2928,12 +2951,13 @@ the series converges).  Thus
 \leq
 \sum_{n=m+1}^\infty \sabs{c_n} r^n .
 \end{equation*}
-As $m \to \infty$ the right hand side goes to zero, and hence 
+As $m \to \infty$ the right hand side, which does not depend on $z$,
+goes to zero, and hence 
 the series converges uniformly in $\overline{\Delta_r(p)}$.
 
 If $K \subset \Delta_{R}(p)$ is compact, then there exists some $r <
 R$ such that $K \subset \Delta_r(p)$ (consider an open cover of
-$K$ by discs $\Delta_r(p)$).  The result follows.
+$K$ by discs $\Delta_r(p)$ for all $r < R$).  The result follows.
 \end{proof}
 
 \begin{exbox}
