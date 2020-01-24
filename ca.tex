@@ -2071,7 +2071,7 @@ see \thmref{thm:svzerodersol} in the appendix.
 
 \begin{prop}[Chain rule] \index{chain rule!complex derivative}
 Let $U \subset \C$ and $V \subset \C$ be open, $f \colon U \to V$
-complex differentiable at $z$, and $g \colon V \to \C$ complex differentiable
+complex differentiable at $z \in U$, and $g \colon V \to \C$ complex differentiable
 at $f(z)$.  Then the composition $g \circ f$
 is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)$.
 \end{prop}
@@ -2124,8 +2124,8 @@ then write $\gamma' = \alpha' + i \beta'$.
 \index{chain rule!composition of real and complex derivative}%
 \label{prop:chainrule2}%
 Let $U \subset \C$ be open,
-$\gamma \colon (a,b) \to U$ be (real) differentiable at $t_0 \in (a,b)$,
-and $f \colon U \to \C$ be complex differentiable at $\gamma(t_0)$.
+$\gamma \colon (a,b) \to U$ (real) differentiable at $t_0 \in (a,b)$,
+and $f \colon U \to \C$ complex differentiable at $\gamma(t_0)$.
 Then the composition $f \circ \gamma$ is (real) differentiable
 at $t_0$ and $(f \circ \gamma)'(t_0) = f'\bigl(\gamma(t_0)\bigr) \gamma'(t_0)$.
 \end{prop}
@@ -2203,12 +2203,13 @@ computing the derivative.
 
 \begin{exercise}
 Prove that any polynomial $P(z)$ is holomorphic.  More generally
-prove that a rational function $\frac{P(z)}{Q(z)}$ is holomorphic wherever $Q$ is
-nonzero.
+prove that a rational function $\frac{P(z)}{Q(z)}$ is holomorphic on the
+set where $Q$ is nonzero.
 \end{exercise}
 \end{exbox}
 
-Perhaps the reader may ask at this point: Is any solution to
+Perhaps the reader may ask:
+Is any solution to
 the Cauchy--Riemann equations holomorphic?  Above, we saw that the answer
 is affirmative for continuously differentiable functions, or at least
 functions differentiable as functions of two variables.
@@ -2235,7 +2236,7 @@ even continuous.
 
 \subsection{Wirtinger operators}
 
-Let us concentrate a bit more on the equations.
+Let us concentrate a bit more on the equations.  Suppose $z=x+iy$.
 The so-called \emph{\myindex{Wirtinger operators}},
 \begin{equation*}
 \frac{\partial}{\partial z}
@@ -2277,7 +2278,8 @@ a function is holomorphic if and only if it depends on $z$ but not on
 $\bar{z}$.  That statement had better make no sense at first glance.
 After all, the Wirtinger operators are not really derivatives with
 respect to actual variables,
-they are simply formal operators, and also, and more importantly,
+they are simply formal operators.
+Also, and more importantly,
 how could something possibly depend on $z$ but not on $\bar{z}$.
 
 But let us humor ourselves and check what \eqref{eq:CReq} means:
@@ -2638,8 +2640,8 @@ instantly obtain the holomorphic inverse function theorem.
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 $p \in U$, and $f'(p) \not= 0$.  Suppose further that $f$ is continuously
 differentiable.  Then there exist neighborhoods $V$ of $p$
-and $W$ of $f(p)$ such that $f(V) = W$, $f$ is one-to-one on $V$, and
-the inverse $g \colon W \to V$ (a function such that $g\bigl(f(z)\bigr)=z$
+and $W$ of $f(p)$ such that $f(V) = W$, the restriction $f|_V$ is one-to-one,
+and the inverse $g \colon W \to V$ (a function such that $g\bigl(f(z)\bigr)=z$
 for all $z \in V$) is holomorphic, with
 \begin{equation*}
 g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
@@ -2651,15 +2653,15 @@ superfluous\footnote{Cauchy (early 1800s)
 assumed continuity of the derivative for his work, it was
 Goursat more than half a century later that showed that continuity of the
 derivative came for free.}.  Every holomorphic function is continuously
-differentiable, although you will have to wait till \thmref{thm:holfuncinfder}.
-Once we build up more machinery, we will leave it as an exercise to prove
-this theorem in a purely complex analytic manner.
+differentiable, although you will have to wait till \thmref{thm:holfuncinfder}
+for why that is true.
 
-It is not true that a holomorphic function whose derivative is nonzero
-everywhere is globally invertible.  For example, the exponential $e^z$
-is never zero, and thus so is its derivative.  However since sine and
-cosine are periodic, we get that $e^{z} = e^{z+2\pi i}$, so globally the
-exponential is not one-to-one.  The fact that the inverse of the
+A holomorphic function whose derivative is nonzero
+everywhere need not be globally invertible.  The exponential $e^z$
+is never zero, and thus so is its derivative.  However, $e^{z} = e^{z+2\pi i}$,
+so the
+exponential is not one-to-one.
+The fact that the inverse of the
 exponential, the logarithm,
 has infinitely many values at each point is key to complex analysis.  So
 much so that we've named a whole chapter after the logarithm.
@@ -2672,7 +2674,22 @@ z + b$.  On the other hand, at each point, there are a huge number of
 holomorphic functions with nonzero derivative.  So there are lots of local
 coordinate changes, but few global coordinate changes.
 
+In the following couple of exercises, you may want to apply the inverse
+function theorem to show that the inverse is holomorphic.
+
 \begin{exbox}
+\begin{exercise}
+\begin{exparts}
+\item
+Find a biholomorphism from the horizontal strip
+$S = \{ z \in \C : 0 < \Im z < \pi \}$ to
+the upper half plane $\bH = \{ z \in \C : \Im z > 0 \}$.
+\item
+Find a biholomorphism from the horizontal strip
+$S$ to the unit disc $\bD$.
+\end{exparts}
+\end{exercise}
+
 \begin{exercise}
 \begin{exparts}
 \item
@@ -2688,20 +2705,21 @@ and the slit plane $\{ z \in \C : \Im z \not= 0 \text{ or } \Re z > 0 \}$.
 \begin{exercise}
 \begin{exparts}
 \item
-Suppose $f$ is antiholomorphic (assume $f$ is real differentiable), that is
-$\frac{\partial f}{\partial z} = 0$.  Show that
-$\det Df\big|_z = - \abs{\frac{\partial f}{\partial \bar{z}}(z)}^2$.  In other words,
+Suppose $f$ is antiholomorphic, that is assume $f$ is real differentiable
+and $\frac{\partial f}{\partial z} = 0$.  Show that
+$\det Df\big|_p = - \abs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.  In other words,
 the Jacobian determinant is nonpositive, and $f$ flips orientation.
 \item
 More generally, if $f$ is (real) differentiable then
-$\det Df\big|_z = \abs{\frac{\partial f}{\partial z}(z)}^2 -
-\abs{\frac{\partial f}{\partial \bar{z}}(z)}^2$.
+$\det Df\big|_p = \abs{\frac{\partial f}{\partial z}(p)}^2 -
+\abs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.
 \end{exparts}
 \end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\pagebreak[3]
 \section{Power series}
 \label{sec:powerser}
 
@@ -2726,7 +2744,7 @@ r^{1/n} e^{i\theta/n + 2\pi i /n}
 , \quad \ldots, \quad
 r^{1/n} e^{i\theta/n + 2\pi i (n-1)/n} .
 \end{equation*}
-So those are the $n$ different $z$s such that $z^n=w$.  They are equally
+Those are the $n$ different $z$s such that $z^n=w$.  They are equally
 spaced out on a circle of radius $r^{1/n}$.
 
 Another important thing about $z^n$ is what it does to angles.
@@ -2734,8 +2752,8 @@ If $z = re^{i\theta}$, then
 \begin{equation*}
 z^n = r^n e^{i n\theta} .
 \end{equation*}
-So $z^n$ takes sectors with vertex at the origin and doubles their angle.
-For example, it takes the first quadrant:
+So $z^2$ takes sectors with vertex at the origin and doubles their angle.
+It takes the first quadrant
 $\{ z \in \C : \Re z \geq 0, \Im z \geq 0 \}$
 to the closed upper half-plane $\{ z \in \C : \Im z \geq 0 \}$.
 Similarly, it takes the second quadrant
@@ -2926,7 +2944,7 @@ Suppose a series converges uniformly absolutely.  Then,
 \abs{\sum_{n=m+1}^\infty c_n {(z-p)}^n} \leq
 \sum_{n=m+1}^\infty \sabs{c_n {(z-p)}^n} .
 \end{equation*}
-The right hand side goes to zero uniformly in $z$,
+The right hand side goes to zero uniformly in $z \in K$,
 and so
 a uniformly absolutely convergent series also converges
 uniformly.  So the name fits the crime.
@@ -2936,7 +2954,7 @@ Let $\sum c_n {(z-p)}^n$ be a power series with radius of convergence $R
 > 0$.  If $0 < r < R$, then the power series converges uniformly absolutely
 in $\overline{\Delta_r(p)}$.  Furthermore, if $K \subset \Delta_{R}(p)$
 (where $\Delta_{\infty}(p) = \C$)
-is any compact subset, then the series converges uniformly absolutely on
+is a compact subset, then the series converges uniformly absolutely on
 $K$.
 \end{prop}
 
@@ -3258,6 +3276,12 @@ point in $U$.  Prove that $f = g$ everywhere.
 Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
 \C$ are analytic such that $f(z)g(z) = 0$ for all $z \in U$.
 Prove that either $f$ or $g$ is identically zero.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ is
+analytic and not constant.  Show that if $K \subset U$ is compact
+then $Z_f \cap K$ is finite.
 \end{exercise}
 \end{exbox}
 
