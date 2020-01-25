@@ -3035,18 +3035,19 @@ practice.
 \subsection{Definition}
 
 Functions that possess a convergent power series are called analytic.
+From the beginnings of calculus until the 19\textsuperscript{th} century, 
+when mathematicians considered a ``function'' they really meant
+``analytic function'' in modern language.
 One can talk about
 both complex and real analytic functions depending on if the
 variables are real or complex, and they may depend on one or several variables,
 but we are interested in complex analytic functions of one variable. 
 As there is little chance of confusion, we say just ``analytic'' instead of
-``complex analytic.''  Until the 19\textsuperscript{th} century, 
-when people considered a ``function'' they really meant ``analytic function''
-in modern language.
+``complex analytic.''
 
 \begin{defn}
 Let $U \subset \C$ be open.  A function $f \colon U \to \C$
-is called \emph{\myindex{analytic}}\index{complex analytic}
+is \emph{\myindex{analytic}}\index{complex analytic}
 if for every $p \in U$, there exists 
 an $r > 0$ and a
 power series $\sum c_n {(z-p)}^n$ converging to $f$ on $\Delta_r(p) \subset
@@ -3110,11 +3111,12 @@ term-wise:
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} .
 \end{equation*}
 The right hand side is defined even if $z_0 = z$.
-We must show that the above expression is continuous at $z_0$.
+We must show that the above expression is continuous as a function of $z$
+at $z_0$.
 It is continuous provided that the series above
 %(the series whose terms are $c_n z_0^k z^{n-1-k}$)
 converges uniformly for $z$ in a
-neighborhood of $z_0$.  Suppose $s < r$ and $z_0$ and $z$ are
+neighborhood of $z_0$.  Suppose $0 < s < r$ and $z_0$ and $z$ are
 in $\Delta_s(0)$.
 \begin{equation*}
 %\abs{c_n \frac{z_0^n-z^n}{z_0-z}}
@@ -3131,18 +3133,28 @@ n
 \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1} .
 \end{equation*}
 The expression
-$\sabs{c_n} r^{n-1}$ is bounded because the series for $f$ converges,
-and as $\frac{s}{r} < 1$ we have that
+$\sabs{c_n} r^{n-1}$ is bounded by some $M$ because the series for $f$ converges.
+As
 \begin{equation*}
-\sum_{n=1}^\infty n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1} 
+\sqrt[n]{
+n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1}
+} \leq
+\sqrt[n]{
+n M {\left(\frac{s}{r}\right)}^{n-1}
+} \to \frac{s}{r} < 1 ,
 \end{equation*}
-converges (root test, or ratio test will do).
+the root test shows that
+%\begin{equation*}
+%\sum_{n=1}^\infty n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1}
+%\end{equation*}
+$\sum n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1}$
+converges.
 Hence the series for the difference quotient,
 \begin{equation*}
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} ,
 \end{equation*}
-converges uniformly, and
-defines a continuous function of $\Delta_s(p)$.  Thus
+converges uniformly in $z$ on $\Delta_s(p)$, and
+we can swap the limit $z \to z_0$ with the series limit.  Thus
 \begin{equation*}
 \lim_{z \to z_0}
 \frac{f(z_0)-f(z)}{z_0-z}
@@ -3189,7 +3201,8 @@ f(z) = \sum_{n=0}^\infty c_n z^n .
 \end{equation*}
 Suppose that for some $\epsilon > 0$, $f(x) = 0$ for all $x \in
 (-\epsilon,\epsilon)$ (an interval on the real line).
-Prove that $c_n = 0$ for all $n$ and hence $f$ is identically zero.
+Using the corollary,
+prove that $c_n = 0$ for all $n$ and hence $f$ is identically zero.
 \end{exercise}
 \end{exbox}
 
@@ -3226,7 +3239,8 @@ a limit point.
 
 \begin{thm}[Identity]\index{identity theorem!holomorphic functions}
 Suppose $U \subset \C$ is a domain, 
-and $f \colon U \to \C$ analytic.  If $Z_f = \{ z \in U : f(z) = 0 \}$
+and $f \colon U \to \C$ analytic.
+If $Z_f = \bigl\{ z \in U : f(z) = 0 \bigr\}$
 has a limit point in $U$, then $f$ is identically zero.
 In other words, all points of $Z_f$ are isolated.
 \end{thm}
@@ -3326,9 +3340,12 @@ Pinky:  Uh, I think so, Brain, but we'll never get a monkey to use dental floss.
 \section{Line integrals}
 \label{sec:lineints}
 
+\begin{defn}
 A continuous complex-valued piecewise continuously
 differentiable (piecewise $C^1$) function $\gamma \colon [a,b] \to \C$ 
 is called a \emph{\myindex{path}} or a \emph{\myindex{piecewise $C^1$ path}}.
+\end{defn}
+
 All of our paths will be piecewise $C^1$, so we may forget to mention it
 sometime.
 By continuous piecewise $C^1$,
@@ -3356,6 +3373,30 @@ as if it were a set we will mean the image $\gamma\bigl([a,b]\bigr)$.
 As you will see in the exercises,
 we should also morally require that $\gamma'(t) \not= 0$ for all $t$.
 
+\begin{example}
+The path $\gamma \colon [0,4] \to \C$
+\begin{equation*}
+\gamma(t) =
+\begin{cases}
+t          & \text{if } t \in [0,1],\\
+1 + i(t-1) & \text{if } t \in (1,2],\\
+3-t + i    & \text{if } t \in (2,3],\\
+i(4-t)     & \text{if } t \in (3,4],
+\end{cases}
+\end{equation*}
+is a piecewise $C^1$ path traversing the sides unit square.
+See \figureref{fig:squarepath}.  You should check that the
+conditions are satisfied.  For example, 
+on $t \in (0,1)$, $\gamma'(t) = 1$, and so
+$\lim_{t \uparrow 1} \gamma'(t) = 1$.  Similarly
+$\lim_{t \downarrow 1} \gamma'(t) = i$, and so on.
+\begin{myfig}
+\includegraphics{figures/squarepath}
+\caption{The path $\gamma$ traversing the unit square.\label{fig:squarepath}}
+\end{myfig}
+\end{example}
+
+\begin{defn}
 Given a piecewise $C^1$ path $\gamma \colon [a,b] \to \C$ and a continuous
 function $f$ defined on the image
 $\gamma\bigl([a,b]\bigr)$, 
@@ -3369,6 +3410,8 @@ a \emph{\myindex{contour integral}}.}
 \overset{\text{def}}{=}
 \int_a^b f\bigl(\gamma(t)\bigr) \gamma'(t) \, dt .
 \end{equation*}
+\end{defn}
+
 The definition makes sense despite $\gamma'(t)$ not existing at possibly
 finitely many points.  The integrand is undefined
 at finitely many points but is piecewise continuous, and this is enough
@@ -3380,7 +3423,8 @@ Let us compute the most important example of a line integral.
 
 \begin{example}
 Let $\gamma \colon [0,2\pi] \to \C$ be given by $\gamma(t) = e^{it}$ be
-the unit circle oriented counterclockwise.  For $n \in \Z$, we claim that
+the unit circle oriented counterclockwise.  See \figureref{fig:circlepath}.
+For $n \in \Z$, we claim that
 \begin{equation*}
 \int_\gamma z^n \, dz
 =
@@ -3389,6 +3433,12 @@ the unit circle oriented counterclockwise.  For $n \in \Z$, we claim that
 0 & \text{otherwise.}
 \end{cases}
 \end{equation*}
+
+\begin{myfig}
+\includegraphics{figures/circlepath}
+\caption{The path $\gamma$ traversing the unit circle.\label{fig:circlepath}}
+\end{myfig}
+
 First, $\gamma'(t) = i e^{it}$.
 To prove the claim we compute
 \begin{equation*}
@@ -4041,16 +4091,25 @@ exercise).
 
 \subsection{Cauchy for star-like sets}
 
+\begin{defn}
 A set $U \subset \C$ is called \emph{\myindex{star-like}} (or more precisely
 \emph{star-like with respect to $z_0$} if there exists a
 point $z_0 \in U$ such that the segment $[z_0,z] \subset U$ for every
-$z \in U$.  A convex set is star-like, but not vice-versa.
+$z \in U$.  See \figureref{fig:starshaped}.
+\end{defn}
+
+\begin{myfig}
+\subimport*{figures/}{starshaped.pdf_t}
+\caption{A star-like domain with respect to $z_0$.\label{fig:starshaped}}
+\end{myfig}
+
+A convex set is star-like, but not vice-versa.
 
 \begin{exbox}
 \begin{exercise}
-Prove that if $U \subset \C$ is star-like with respect to $z_0$ and $a,b \in
-U$, then the triangle $T$ with vertices $z_0$, $a$, and $b$ is entirely
-contained in $U$.  Hint: An exercise in the previous section may be useful.
+Prove that if $U \subset \C$ is star-like with respect to $z_0$ and $[a,b]
+\subset U$, then the triangle $T$ with vertices $z_0$, $a$, and $b$ is entirely
+contained in $U$.
 \end{exercise}
 \end{exbox}
 
@@ -4067,21 +4126,26 @@ such that $F' = f$.
 \end{prop}
 
 \begin{proof}
-Suppose $U$ is star-like with respect to $z_0 \in U$.  Define
+Suppose $U$ is star-like with respect to $z_0 \in U$.
+Define
 \begin{equation*}
 F(z) = \int_{[z_0,z]} f(\zeta) \, d\zeta .
 \end{equation*}
-%Let us try to compute $F'$:
-%\begin{equation*}
-%\frac{F(z+h)-F(z)}{h} =
-%\frac{1}{h}
-%\int_{[z_0,z+h]-[z_0,z]} f(\zeta) \, d\zeta .
-%\end{equation*}
-%By Cauchy--Goursat, 
-As $U$ is star-like with respect to $z_0$, 
+
+Consider a small disc $\Delta_r(z) \subset U$.
+Now suppose $h$ is small enough so that
+$z+h \in \Delta_r(z)$.
+The line between $z$ and $z+h$ is in $U$, and
+as $U$ is star-like with respect to $z_0$, 
 the entire triangle with
 vertices $z_0$, $z$, and $z+h$,
-is in $U$, and the
+is in $U$, see \figureref{fig:triangantidef}.
+\begin{myfig}
+\subimport*{figures/}{triangantidef.pdf_t}
+\caption{Star-like domain and the triangle $[z_0,z,z+h]$.\label{fig:triangantidef}}
+\end{myfig}
+
+The
 hypothesis then says
 \begin{equation*}
 \int_{[z_0,z]+[z,z+h]-[z_0,z+h]} f(\zeta) \, d\zeta = 0 .

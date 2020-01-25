@@ -1,0 +1,47 @@
+/* slightly modified sample from epix samples gallery */
+#include "epix.h"
+using namespace ePiX;
+
+int main()
+{
+  double slope;
+  double c;
+  double x;
+
+  picture(P(-1.3,-1.3), P(1.3,1.3), "1.5x1.5in");
+
+  begin();
+  //border();
+
+  //line(P(-0.3,0),P(1.3,0));
+  //line(P(0,-0.3),P(0,1.3));
+  //h_axis(3);
+  //v_axis(3);
+  //
+
+  arrow_inset(0.9);
+  arrow(P(0,0),P(0.4,0));
+  arrow(P(0,0),P(0,0.4));
+  arrow_inset(0);
+
+
+  bold();
+  solid();
+  arc_arrow(P(0,0),1,0,2*M_PI/3);
+  arc_arrow(P(0,0),1,2*M_PI/3,4*M_PI/3);
+  arc_arrow(P(0,0),1,4*M_PI/3,2*M_PI);
+
+  dot(P(1,0));
+  label(P(1.09,0), P(0,7), "$t=0$", r);
+  label(P(1.09,0), P(0,-7), "$t=2\\pi$", r);
+
+  dot(P(0,1));
+  label(P(0,1), P(0,2), "$t=\\frac{\\pi}{2}$", t);
+
+  dot(P(-1,0));
+  label(P(-1,0), P(-5,0), "$t = \\pi$", l);
+
+  tikz_format();
+  end();
+}
+
