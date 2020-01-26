@@ -3863,8 +3863,8 @@ somewhat different from the others.  Usually there will be a restriction on
 the $U$ or perhaps the path $\gamma$ rather
 than on the function being integrated.
 A version of Cauchy's theorem can be taken as an ``independence of path''
-type of result saying we can define a function at $z$ by a line integral
-from some fixed point to $z$.  This will imply that such a function has a
+result saying that we can define a function at $z$ by a line integral
+from some fixed point to $z$.  The result will be that such a function has a
 primitive.  So the other versions of Cauchy's theorem will generally
 either restrict which $\gamma$ can be taken or
 restrict to only those $U$ where every holomorphic function has a primitive.
@@ -3986,7 +3986,9 @@ but of exactly half the size.
 In particular,
 the largest possible distance for two points in the triangle must
 get halved each iteration.
-In more formal language:
+In more formal language\footnote{%
+Here $\operatorname{diam}(T)$ means the largest distance between two points
+in $T$.}:
 \begin{equation*}
 \operatorname{diam}(T^k) =
 \frac{1}{2} \operatorname{diam}(T^{k-1})
@@ -4242,7 +4244,7 @@ f(z)
 \int_{\partial \Delta_r(p)}
 \frac{f(\zeta)}{\zeta-z}
 \,
-d \zeta
+d \zeta .
 \end{equation*}
 \end{thm}
 
@@ -4501,11 +4503,11 @@ $p$ oriented counterclockwise.
 \end{thm}
 
 \begin{proof}
-First fix a particular $s$ such that $0 < s < r$.
+First fix an $s$ such that $0 < s < r$.
 We have $\overline{\Delta_s(p)} \subset U$,
 the boundary of the disc of radius $s$ is in $U$.
 
-For $z \in \Delta_r(p)$ and $\zeta \in \partial \Delta_r(p)$, 
+For $z \in \Delta_s(p)$ and $\zeta \in \partial \Delta_s(p)$, 
 \begin{equation*}
 \abs{\frac{z-p}{\zeta-p}} =
 \frac{\sabs{z-p}}{s} < 1 .
@@ -4523,27 +4525,24 @@ the geometric series
 \frac{\zeta-p}{\zeta-z}
 \end{equation*}
 converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{s'}(p)}
-\times \partial \Delta_r(p)$ (that is, $\sum_n {\bigl\lvert
+\times \partial \Delta_s(p)$ (that is, $\sum_n {\bigl\lvert
 \frac{z-p}{\zeta-p} \bigr\rvert}^n$
 converges uniformly).
 
-Let $\gamma(t) = s e^{i t}$
-be the path going around 
-$\partial \Delta_r(p)$ once in the counterclockwise direction.
-We start with the Cauchy integral formula,
+We write $f(z)$ using the Cauchy integral formula:
 \begin{equation*}
 \begin{split}
 f(z)
 & =
 \frac{1}{2\pi i}
-\int_{\gamma}
+\int_{\partial \Delta_s(p)}
 \frac{f(\zeta)}{\zeta-z}
 \,
 d \zeta 
 \\
 & =
 \frac{1}{2\pi i}
-\int_{\gamma}
+\int_{\partial \Delta_s(p)}
 \frac{f(\zeta)}{\zeta-p}
 \frac{\zeta-p}{\zeta-z}
 \,
@@ -4551,7 +4550,7 @@ d \zeta
 \\
 & =
 \frac{1}{2\pi i}
-\int_{\gamma}
+\int_{\partial \Delta_s(p)}
 \frac{f(\zeta)}{\zeta-p}
 \sum_{n=0}^\infty
 {\left(\frac{z-p}{\zeta-p}\right)}^n
@@ -4562,7 +4561,7 @@ d \zeta
 \sum_{n=0}^\infty
 \left(
 \frac{1}{2\pi i}
-\int_{\gamma}
+\int_{\partial \Delta_s(p)}
 \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
 \,
 d \zeta 
@@ -4574,9 +4573,9 @@ In the last equality, we were allowed to
 interchange the limit on the sum with the integral
 %either
 %via Fubini's theorem or
-via uniform convergence (uniform in the $\zeta \in \partial \Delta_r(p)$):
+via uniform convergence (uniform in the $\zeta \in \partial \Delta_s(p)$):
 $z$ is fixed and if $M$ is the supremum of $\abs{\frac{f(\zeta)}{\zeta-p}} =
-\frac{\sabs{f(\zeta)}}{s}$ on $\partial \Delta_r(p)$,
+\frac{\sabs{f(\zeta)}}{s}$ on $\partial \Delta_s(p)$,
 then
 \begin{equation*}
 \abs{
@@ -4609,7 +4608,15 @@ and then using the geometric series.
 Not only have we proved
 that $f$ has a power series, but we computed
 that the radius of convergence is at least $r$, where $r$ is the maximum $r$
-such that $\Delta_r(p) \subset U$.
+such that $\Delta_r(p) \subset U$.  See \figureref{fig:largestr}.
+
+\begin{myfig}
+\subimport*{figures/}{largestr.pdf_t}
+\caption{Largest disc around $p$ that fits in $U$
+is where the series at $p$
+for a holomorphic $f \colon U \to \C$ converges.%
+\label{fig:largestr}}
+\end{myfig}
 
 \begin{exbox}
 \begin{exercise}
@@ -5144,7 +5151,9 @@ a holomorphic function to begin with.
 \begin{exercise}
 Compute explicitly
 the Cauchy transform $Cu$ on $\D$ for $u \colon \partial \D \to \C$
-given by $u(z) = \bar{z}$.  Hint: $\bar{\zeta} = \frac{1}{\zeta}$ for
+given by $u(z) = \bar{z}$.  Then note that $Cu$ does not tend to $u$
+as $z$ goes to $\partial \D$.
+Hint: $\bar{\zeta} = \frac{1}{\zeta}$ for
 $\zeta \in \partial \D$
 and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$,
 see also \exerciseref{exercise:cauchycont}.
@@ -5233,7 +5242,16 @@ $K$ and $\partial U$ is positive, say $d > 0$.  Consider
 \begin{equation*}
 K' = \bigcup_{p \in K} \overline{\Delta_{d/2}(p)} .
 \end{equation*}
-Clearly $K' \subset U$.  The set $K'$ is also compact: It is clearly
+Clearly $K \subset K' \subset U$.
+See \figureref{fig:kkprime}.
+
+\begin{myfig}
+\subimport*{figures/}{kkprime.pdf_t}
+\caption{Enlarging the set $K$ by half the distance to the boundary.  One of
+the closed discs $\overline{\Delta_{d/2}(p)}$ is marked in dashed line.\label{fig:kkprime}}
+\end{myfig}
+
+The set $K'$ is also compact: It is clearly
 bounded, let us show it is closed.  Suppose that $p$ is not in $K'$,
 then $p$ is strictly further than
 $\frac{d}{2}$ from $K$, and thus so is every point in some neighborhood of
