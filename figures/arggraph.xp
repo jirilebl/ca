@@ -1,0 +1,43 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P F(double x, double y)
+{
+  	return P(x, y, 2*Atan(y/(x+sqrt(x*x+y*y))));
+}
+
+P FF(double r, double th)
+{
+	double x = r*Cos(th);
+	double y = r*Sin(th);
+	return F(x,y);
+}
+
+domain RR(P(sqrt(0.0001),-M_PI+0.00001), P(sqrt(2), M_PI-0.00001), mesh(5,40), mesh(10,80));
+
+int main()
+{
+  picture(P(-1.5,-M_PI*0.7), P(1.5,M_PI*0.7), "2.5x2.5in");
+
+  begin();
+  //border();
+
+  camera.at(P(-8,-8,35));
+
+  arrow(P(-1.9,0,0), P(1.9,0,0));
+  label(P(1.9,0), P(2,4), "$\\operatorname{Re} z$", r); 
+
+  arrow(P(0,0,0), P(0,2.1,0));
+  label(P(0,2.2), P( 2,8), "$\\operatorname{Im} z$", br);
+
+  plain ();
+  fill(White());
+  surface(FF, RR); // polar
+
+  // that bit of the y axis that's above the graph
+  line(P(0,-1.9,0), P(0,0,0));
+
+  tikz_format();
+  end();
+}

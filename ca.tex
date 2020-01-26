@@ -1250,10 +1250,15 @@ We define the \emph{\myindex{principal branch of $\arg$}} as
 \end{equation*}
 It may seem like a good solution to the multivaluedness of $\arg$, but
 one's hopes are dashed by the cruel reality of $\Arg$ not being continuous
-on the negative real axis.  The principal branch ends up being somewhat less
+on the negative real axis.  See \figureref{fig:arggraph}.  The principal branch ends up being somewhat less
 useful than one may think.  There is also the issue that not everyone agrees
 on what ``principal branch'' means; some mathematicians sacrifice the
 positive real axis and let $\theta$ be in the range $[0,2\pi)$.
+
+\begin{myfig}
+\includegraphics{figures/arggraph}
+\caption{Graph of the principal branch of argument.\label{fig:arggraph}}
+\end{myfig}
 
 \begin{exbox}
 \begin{exercise}
@@ -5417,6 +5422,13 @@ Let $a \in \D$, and let
 \begin{equation*}
 \varphi_a(z) \overset{\text{def}}{=} \frac{z-a}{1-\bar{a}z}.
 \end{equation*}
+See \figureref{fig:varphiplot} to see what $\varphi_a(z)$ does to the disc.
+\begin{myfig}
+\includegraphics{figures/varphiplot}
+\caption{What $\varphi_a$ does to the unit disc.   In this case,
+$a=-0.4$ and the position of $a$ and $\varphi_a(a)=0$ is marked with a dot.%
+\label{fig:varphiplot}}
+\end{myfig}
 
 \begin{exbox}
 \begin{exercise}
@@ -5453,16 +5465,16 @@ consider
 $g = \varphi_a \circ f$.  As $\varphi_a$ and $f$ are biholomorphisms, so is
 $g$, and $g(0) = 0$.
 
-In a similar way as in Schwarz's lemma we find that $g(z) = z h(z)$ for some
+As in the proof of Schwarz's lemma, we find that $g(z) = z h(z)$ for some
 holomorphic $h(z)$ and by Schwarz's lemma,
 \begin{equation*}
 \sabs{h(z)} = \frac{\sabs{g(z)}}{\sabs{z}} \leq 1 .
 \end{equation*}
-In particular $h$ is a map of the disc to the disc.
+In particular, $h$ is a map of the disc to the disc.
 
 But $h$ can have no zeros:
 $h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is one-to-one,
-and $h(0) = g'(0) \not= 0$.  As $g$ is a biholomorphism, then $g^{-1}$ is
+and $h(0) = g'(0) \not= 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
 continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
 In other words, $\sabs{g(z)}$ must get close to $1$ as $z$
 approaches the boundary $\partial \D$.  Then so must $\sabs{h(z)}$.
@@ -8676,11 +8688,11 @@ Pu(0) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(e^{it}) \, dt ,
 \end{equation*}
 that is $Pu(0)$ is the average value of $u$.  In general, by applying
 a scaling and a translation, we find a $Pu$ for a function $u \colon
-\partial \Delta_\rho(p) \to \R$.  We
-leave the exact form of the Poisson kernel for $\Delta_\rho(p)$ as an
-exercise, but the averaging phenomenon still holds.  That is
+\partial \Delta_s(p) \to \R$.  We
+leave the exact form of the Poisson kernel for $\Delta_s(p)$ as an
+exercise, but the averaging phenomenon still holds.  That is,
 \begin{equation} \label{eq:averageofPu}
-Pu(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(p + \rho e^{it}) \, dt .
+Pu(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(p + s e^{it}) \, dt .
 \end{equation}
 
 \begin{exbox}
@@ -8779,29 +8791,30 @@ For the other direction, suppose $f$ is continuous and satisfies the
 mean-value property.  Let $\overline{\Delta_r(p)} \subset U$ be an
 arbitrary closed disc.  Let $h = P\bigl[f|_{\partial \Delta_r(p)}\big]$
 be the solution of the Dirichlet problem in $\Delta_r(p)$ with boundary
-values given by $f$.  Consider $\varphi = f-h$ which is continuous, identically zero
+values given by $f$.  Consider $\varphi = f-h$,
+which is continuous, identically zero
 on $\partial \Delta_r(p)$ and still satisfies the mean-value property
 on every closed disc in $U$.  Suppose for contradiction that $\varphi$ is positive
 somewhere on $\Delta_r(p)$, let $\varphi$ achieve a maximum at $q \in
 \Delta_r(p)$.
 The set $S \subset \overline{\Delta_r(p)}$ where $\varphi(z) = \varphi(q)$ is compact.
 We could thus assume that $q$ is the point closest to
-$\partial \Delta_r(p)$.  In this case for some small $\rho$ the circle
-$\partial \Delta_\rho(q) \subset \Delta_r(q)$ and for some neighborhood
-of $\partial \Delta_\rho(q)$ the function $\varphi$ must be less than some fixed
+$\partial \Delta_r(p)$.  For some small $s$ the circle
+$\partial \Delta_s(q) \subset \Delta_r(q)$ and for some neighborhood
+of $\partial \Delta_s(q)$ the function $\varphi$ must be less than some fixed
 negative constant.  See \figureref{fig:meanvalue}.
 
 \begin{myfig}
 %Note this figure is used later as well
-FIXME:
-\caption{The discs $\Delta_r(p)$ and $\Delta_\rho(q)$ and the set
+\subimport*{figures/}{meanvalue.pdf_t}
+\caption{The discs $\Delta_r(p)$ and $\Delta_s(q)$ and the set
 $S$.\label{fig:meanvalue}}
 \end{myfig}
 
 In particular, we obtain the strict inequality
 \begin{equation*}
 \frac{1}{2\pi} \int_{-\pi}^{\pi} \varphi(p+re^{i\theta})\, d\theta <
-\varphi(q) ,
+\varphi(q) .
 \end{equation*}
 Which is a contradiction as $\varphi$ was still supposed to satisfy the
 mean-value property.
@@ -9103,9 +9116,9 @@ for all $z \in \partial \Delta_r(p)$.  The set
 $S \subset \overline{\Delta_r(p)}$ where $\varphi(z) = \varphi(q)$ is closed and so
 compact (via an exercise above).
 We could thus assume that $q$ is the point closest to
-$\partial \Delta_r(p)$.  In this case for some small $\rho$ the circle
-$\partial \Delta_\rho(q) \subset \Delta_r(q)$ and for some neighborhood
-of $\partial \Delta_\rho(q)$ the function $\varphi$ must be less than some fixed
+$\partial \Delta_r(p)$.  In this case for some small $s$ the circle
+$\partial \Delta_s(q) \subset \Delta_r(q)$ and for some neighborhood
+of $\partial \Delta_s(q)$ the function $\varphi$ must be less than some fixed
 nnegative constant.  The setup is the same as in \figureref{fig:meanvalue}.
 
 In particular we obtain the strict inequality
