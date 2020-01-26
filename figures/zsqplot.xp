@@ -1,0 +1,88 @@
+/* slightly modified sample from epix samples gallery */
+#include "epix.h"
+using namespace ePiX;
+
+double gxf, gyf, gxt, gyt;
+double a = -0.4;
+
+double gr;
+
+P
+f(double x, double y)
+{
+  return P(x*x-y*y + 2.6, 2*x*y);
+}
+
+P
+fl(double t)
+{
+  return f(gxf + t*(gxt-gxf),gyf + t*(gyt-gyf));
+}
+
+P
+fc(double t)
+{
+  return f(gr*cos(2*M_PI*t),gr*sin(2*M_PI*t));
+}
+
+void
+draw_line(double xf, double yf, double xt, double yt, int steps)
+{
+	gxf = xf;
+	gyf = yf;
+	gxt = xt;
+	gyt = yt;
+
+	line (P(xf,yf),P(xt,yt));
+	
+	plot(fl, 0, 1, steps);
+}
+
+void
+draw_arc(double in, double en, double r, int steps)
+{
+	gr = r;
+
+	arc (P(0,0),r,in*2*M_PI,en*2*M_PI);
+	
+	plot(fc, in, en, steps);
+}
+
+void
+draw_dot(double x, double y)
+{
+	ddot (P(x,y));
+	ddot (f(x,y));
+}
+
+int main()
+{
+  double slope;
+  double c;
+  double x;
+
+  picture(P(-0.3,-1.3), P(3.9,1.3), "2.5x1.5in");
+
+  begin();
+  //border();
+
+  plain();
+
+  //pen(Black(0.2));
+
+  double r;
+  for (r = 0.1; r <= 1.1001; r += 0.1) {
+	  draw_arc(-0.125,0.125,r,r*80);
+  }
+
+  arrow(P(1.6,0),P(2.3,0));
+
+  double th;
+  for (th = -0.125; th <= 0.1250001; th+= 0.125/4.0) {
+	  draw_line(0,0,1.1*cos(2*M_PI*th),1.1*sin(2*M_PI*th),2);
+  }
+
+  tikz_format();
+  end();
+}
+
