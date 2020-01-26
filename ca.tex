@@ -3803,9 +3803,10 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
-And now the FTC.
+We have antiderivatives, we have integrals.  We are in need of a
+fundamental theorem.
 
-\begin{prop}[Fundamental theorem of calculus for line integrals]
+\begin{thm}[Fundamental theorem of calculus for line integrals]
 \index{fundamental theorem of calculus!line integrals}%
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is holomorphic with a primitive $F \colon U \to \C$.
@@ -3816,7 +3817,7 @@ Then
 F\bigl( \gamma(b) \bigr) - F\bigl( \gamma(a)
 \bigr) .
 \end{equation*}
-\end{prop}
+\end{thm}
 
 \begin{proof}
 We have
@@ -3882,7 +3883,7 @@ primitive.  So the other versions of Cauchy's theorem will generally
 either restrict which $\gamma$ can be taken or
 restrict to only those $U$ where every holomorphic function has a primitive.
 
-The above corollary has another quick corollary, which will be entirely
+The next corollary will be entirely
 subsumed into the more general version of Cauchy we will prove later,
 but right now it is rather appealing.
 
@@ -3902,6 +3903,7 @@ Prove Cauchy's theorem for polynomials.
 
 \subsection{Cauchy--Goursat, the ``Cauchy for triangles''}
 
+\begin{defn}
 A set $X$ is \emph{\myindex{convex}} if the segment $[a,b] \subset X$ for all $a,b \in
 X$.
 Let $a,b,c \in C$ be distinct points in $\C$ that do not lie on a
@@ -3912,7 +3914,10 @@ the set of all points
 \begin{equation*}
 t_1 a + t_2 b + t_3 c ,
 \end{equation*}
-where $t_1,t_2,t_3 \in [0,1]$ and $t_1+t_2+t_3 = 1$.  Another way to define
+where $t_1,t_2,t_3 \in [0,1]$ and $t_1+t_2+t_3 = 1$.
+\end{defn}
+
+Another way to define
 the convex hull is the intersection of all convex sets containing $\{ a,b,c \}$.
 In particular, $T$ is the smallest convex set containing the vertices.
 Do note, that we have defined a triangle as the solid triangle, including
@@ -4108,14 +4113,14 @@ exercise).
 
 \begin{defn}
 A set $U \subset \C$ is called \emph{\myindex{star-like}} (or more precisely
-\emph{star-like with respect to $z_0$} if there exists a
+\emph{star-like with respect to $z_0$}) if there exists a
 point $z_0 \in U$ such that the segment $[z_0,z] \subset U$ for every
 $z \in U$.  See \figureref{fig:starshaped}.
 \end{defn}
 
 \begin{myfig}
 \subimport*{figures/}{starshaped.pdf_t}
-\caption{A star-like domain with respect to $z_0$.\label{fig:starshaped}}
+\caption{A domain that is star-like with respect to $z_0$.\label{fig:starshaped}}
 \end{myfig}
 
 A convex set is star-like, but not vice-versa.
@@ -4237,6 +4242,21 @@ and $\gamma$ is a closed piecewise $C^1$ path (or a cycle) in $U$.  Then
 a primitive $F \colon U \to \C$, and
 Cauchy's theorem for derivatives (\corref{cor:cauchyforders}) then implies that the integral is zero.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Suppose $f \colon \C \setminus \{ 0 \} \to \C$ is a holomorphic function,
+$\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ is a closed piecewise $C^1$ path
+such that $\Re \gamma(t) < \sabs{\gamma(t)}$ for all $t \in [a,b]$.
+Show that $\int_\gamma f(z) \, dz = 0$.
+\end{exercise}
+
+\begin{exercise}
+Let $\gamma$ be the upper semicircle of the unit circle oriented from $1$ to
+$-1$.   Suppose $f \colon \C \to \C$ is holomorphic, and $\int_0^1 f(x^2) \,
+dx = \pi$.  Compute $\int_\gamma f(z^2) \, dz$.
+\end{exercise}
+\end{exbox}
 
 \subsection{Cauchy's formula in a disc}
 
@@ -4377,8 +4397,8 @@ If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
 \end{thm}
 
 \begin{proof}
-Suppose $\sabs{f(z)}$ achieves a (local) maximum at $z_0$.
-Without loss of generality suppose $z_0 = 0$.  By multiplying by some
+Suppose $\sabs{f(z)}$ achieves a (local) maximum at $p \in U$.
+Without loss of generality suppose $p = 0$.  By multiplying by some
 $e^{i\theta}$, also assume that $f(0)$ is positive and real.
 We write\footnote{%
 Perhaps you're thinking to yourself: Of course we write that $\xi$ is
@@ -4480,9 +4500,9 @@ on $\overline{U}$ achieves a maximum on $\partial U$.
 \begin{exercise}[Minimum principle]\index{minimum principle}
 Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.
-If $\sabs{f(z)}$ achieves a minimum at $z_0 \in U$ and $f(z_0) \not= 0$,
-then $f$ is constant.  Also show by example that the hypothesis $f(z_0)
-\not= 0$ is necessary.
+If $\sabs{f(z)}$ achieves a minimum at $p \in U$ and $f(p) \not= 0$,
+then $f$ is constant.  Also show by example that the hypothesis
+$f(p) \not= 0$ is necessary.
 \end{exercise}
 \end{exbox}
 
@@ -5430,7 +5450,31 @@ Let $a \in \D$, and let
 \begin{equation*}
 \varphi_a(z) \overset{\text{def}}{=} \frac{z-a}{1-\bar{a}z}.
 \end{equation*}
-See \figureref{fig:varphiplot} to see what $\varphi_a(z)$ does to the disc.
+
+\begin{exbox}
+\begin{exercise}
+Show that for every $a \in \D$, the LFT $\varphi_a$ takes
+$\partial \D$ to $\partial \D$.
+\end{exercise}
+
+\begin{exercise}
+Show that for every $a \in \D$, the map $\varphi_a(z)$ gives a biholomorphism
+of $\D$.
+In particular, show that when restricted to the disc $\D$,
+\begin{equation*}
+\varphi_a^{-1} = \varphi_{-a} .
+\end{equation*}
+\end{exercise}
+\end{exbox}
+
+So, $\varphi_a$ is an automorphism of the disc.
+See \figureref{fig:varphiplot} for an example of it does to the disc.
+A direct computation shows that
+\begin{equation*}
+\varphi_a(a) = 0, \qquad
+\varphi_a'(0) = 1 - \sabs{a}^2, \qquad
+\varphi_a'(a) = \frac{1}{1 - \sabs{a}^2} .
+\end{equation*}
 \begin{myfig}
 \includegraphics{figures/varphiplot}
 \caption{What $\varphi_a$ does to the unit disc.   In this case,
@@ -5438,26 +5482,7 @@ $a=-0.4$ and the position of $a$ and $\varphi_a(a)=0$ is marked with a dot.%
 \label{fig:varphiplot}}
 \end{myfig}
 
-\begin{exbox}
-\begin{exercise}
-Show that for every $a \in \D$, the map $\varphi_a(z)$ is a biholomorphism.
-In particular, show that
-\begin{equation*}
-\varphi_a^{-1} = \varphi_{-a} .
-\end{equation*}
-\end{exercise}
-
-\begin{exercise}
-Show that $\varphi_a$ takes $\partial \D$ to $\partial \D$.
-\end{exercise}
-\end{exbox}
-
-It is easy to see that
-\begin{equation*}
-\varphi_a(a) = 0, \qquad
-\varphi_a'(0) = 1 - \sabs{a}^2, \qquad
-\varphi_a'(a) = \frac{1}{1 - \sabs{a}^2} .
-\end{equation*}
+Up to a rotation, $\varphi_a$ are all the automorphisms of $\D$.
 
 \begin{prop}
 If $f \in \operatorname{Aut}(\D)$, then there exists an $a \in \D$
@@ -5468,17 +5493,17 @@ f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} = e^{i\theta} \varphi_a(z).
 \end{prop}
 
 \begin{proof}
-Suppose $f(0) = a$.  Note that $\varphi_a(a) = 0$, so
-consider
-$g = \varphi_a \circ f$.  As $\varphi_a$ and $f$ are biholomorphisms, so is
-$g$, and $g(0) = 0$.
-
-As in the proof of Schwarz's lemma, we find that $g(z) = z h(z)$ for some
-holomorphic $h(z)$ and by Schwarz's lemma,
+Suppose $f(0) = a$.
+Consider $g = \varphi_a \circ f$, which is a biholomorphism
+and $g(0) = 0$ as
+$\varphi_a(a) = 0$.
+As in the proof of Schwarz's lemma, we find a holomorphic $h(z)$
+such that $g(z) = z h(z)$.  By
+Schwarz's lemma, if $z \in \D \setminus \{ 0 \}$, then
 \begin{equation*}
 \sabs{h(z)} = \frac{\sabs{g(z)}}{\sabs{z}} \leq 1 .
 \end{equation*}
-In particular, $h$ is a map of the disc to the disc.
+Consequently, $h$ is a map of the disc to the closed disc.
 
 But $h$ can have no zeros:
 $h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is one-to-one,
