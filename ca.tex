@@ -2862,7 +2862,7 @@ converges.  For $N < M$,
 \end{equation*}
 Hence, if the sequence of partial sums of 
 $\sum \sabs{c_n} \sabs{z-p}^n$ is Cauchy, so is the sequence
-of partial sums of $\sum c_n {(z-p)}^n$.  In particular,
+of partial sums of $\sum c_n {(z-p)}^n$.  Thus,
 an absolutely convergent series
 actually converges.
 
@@ -2965,16 +2965,13 @@ uniformly.  So the name fits the crime.
 \begin{prop}
 Let $\sum c_n {(z-p)}^n$ be a power series with radius of convergence $R
 > 0$.  If $0 < r < R$, then the power series converges uniformly absolutely
-in $\overline{\Delta_r(p)}$.  Furthermore, if $K \subset \Delta_{R}(p)$
-(where $\Delta_{\infty}(p) = \C$)
-is a compact subset, then the series converges uniformly absolutely on
-$K$.
+in $\overline{\Delta_r(p)}$. Furthermore, let $U = \Delta_R(p)$ if $R < \infty$ and
+$U = \C$ if $R=\infty$ and $K \subset U$ is compact,
+then the series converges uniformly absolutely on $K$.
 \end{prop}
 
-We do not call $\Delta_{\infty}(p)$ a \emph{disc} even
-if we use the same notation here for convenience.
-
 \begin{proof}
+Without loss of generality suppose $R < \infty$.
 Suppose $0 < r < R$.  Then as $\sum c_n {(z-p)}^n$ converges absolutely
 on $\Delta_R(p)$, we have
 $\sum \sabs{c_n} r^n$ converges (and in particular any tail of
@@ -3066,7 +3063,7 @@ is \emph{\myindex{analytic}}\index{complex analytic}
 if for every $p \in U$, there exists 
 an $r > 0$ and a
 power series $\sum c_n {(z-p)}^n$ converging to $f$ on $\Delta_r(p) \subset
-\C$.
+U \subset \C$.
 \end{defn}
 
 \begin{exbox}
