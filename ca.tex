@@ -2426,8 +2426,8 @@ f' =
 \frac{\partial f}{\partial z} .
 \end{equation*}
 
-Even for functions that are not holomorphic, where the complex derivative
-does not exist, the Wirtinger operators still
+Even for real differentiable functions that are not holomorphic,
+where the complex derivative does not exist, the Wirtinger operators still
 make sense.  For example, take a polynomial in $x$ and $y$, or equivalently
 in $z$ and $\bar{z}$.
 The Wirtinger operators
@@ -2570,7 +2570,7 @@ structure.
 \begin{exercise}
 Check that
 $\operatorname{Aut(U)}$ is a group under composition:
-composition of two automorphisms is an automorphism,
+Composition of two automorphisms is an automorphism,
 there is an identity element,
 composition is associative,
 and there exists an inverse for every element.
@@ -2658,8 +2658,8 @@ superfluous\footnote{Cauchy (early 1800s)
 assumed continuity of the derivative for his work, it was
 Goursat more than half a century later that showed that continuity of the
 derivative came for free.}.  Every holomorphic function is continuously
-differentiable, although you will have to wait till \thmref{thm:holfuncinfder}
-for why that is true.
+differentiable, although you will have to wait till around
+\thmref{thm:holfuncinfder} for why that is true.
 
 A holomorphic function whose derivative is nonzero
 everywhere need not be globally invertible.  The exponential $e^z$
@@ -2703,7 +2703,7 @@ derivative is nonzero.
 \item
 Show that $z^2$ is a biholomorphism of the right half-plane
 $\{ z \in \C : \Re z > 0 \}$
-and the slit plane $\{ z \in \C : \Im z \not= 0 \text{ or } \Re z > 0 \}$.
+and the slit plane $\C \setminus (-\infty,0] = \{ z \in \C : \Im z \not= 0 \text{ or } \Re z > 0 \}$.
 \end{exparts}
 \end{exercise}
 
@@ -3387,7 +3387,7 @@ As you will see in the exercises,
 we should also morally require that $\gamma'(t) \not= 0$ for all $t$.
 
 \begin{example}
-The path $\gamma \colon [0,4] \to \C$
+The path $\gamma \colon [0,4] \to \C$, given by
 \begin{equation*}
 \gamma(t) =
 \begin{cases}
@@ -3714,8 +3714,8 @@ The way we defined things, we do not need Tietze.
 It is important that the equivalence is for all continuous
 functions.  We will show later that if $U$ is say the disc, then for
 any closed $\Gamma$, $\int_\Gamma f(z) \, dz = 0$ for all holomorphic $f$.
-Clearly that should not imply that $\Gamma$ is equivalent to the zero chain
-(or a constant path).  See \exerciseref{exercise:nonconstantnonzerochain}.
+Clearly that should not always imply that $\Gamma$ is equivalent to the zero chain
+(or a constant path).  See also \exerciseref{exercise:nonconstantnonzerochain}.
 \end{remark}
 
 \begin{exbox}
@@ -3731,9 +3731,18 @@ for all $f$ continuous on the image of $\gamma$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:nonconstantnonzerochain}
-Suppose $U \subset \C$ is open and $\gamma \colon [a,b] \to U$
+\begin{exparts}
+\item
+Suppose $U \subset \C$ is open and
+$\gamma \colon [a,b] \to U$
 is a nonconstant piecewise $C^1$
-path.  Show that as chains, $\gamma$ is not equivalent to the zero chain.
+path and $\gamma|_{[a,b)}$ is one-to-one (so possibly closed,
+$\gamma(a)=\gamma(b)$,
+but otherwise injective).  Show that as chains, $\gamma$ is not equivalent to the zero chain.
+\item
+Find a nonconstant piecewise $C^1$ path $\gamma \colon [a,b] \to \C$ that is
+equivalent to the zero chain.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -4098,7 +4107,7 @@ there exists a nonzero $w$ such that for all $z \in X$ we have
 In other words, $X$ is in the closed half-space
 bounded by a straight line containing $\xi$ and
 orthogonal to $w$.
-Remember that $\Re z\bar{w}$ is the standard dot product from
+Notice that $\Re z\bar{w}$ is the standard dot product from
 vector calculus in $\R^2$.
 \end{exercise}
 
@@ -4312,10 +4321,10 @@ By continuity of $f$ at $z$,
 \frac{f(\zeta)}{\zeta-z}
 \,
 d \zeta
-%=
-%\lim_{s \to 0}
-%\frac{1}{2\pi}
-%\int_0^{2\pi} f(p+se^{it}) \, dt
+=
+\lim_{s \to 0}
+\frac{1}{2\pi}
+\int_0^{2\pi} f(z+se^{it}) \, dt
 =
 f(z) .
 \end{equation*}
@@ -4860,7 +4869,7 @@ Show that if $f \colon \C \to \C$ is continuous and holomorphic on $\C
 We have met the complex exponential $e^z$ before, and we have proved
 that it is holomorphic and it is its own derivative
 (\exerciseref{exercise:exponentialholomorphic}).  We can now see this fact
-from a different vantage point.  We could rather have defined the exponential
+from a different vantage point.  We could have defined the exponential
 using a power series:
 \begin{equation*}
 e^z = \exp(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n .
@@ -4870,7 +4879,7 @@ of this section give us the above series.  It is also not hard to check
 directly that the series converges in all of $\C$.
 
 We claim that the series is the unique holomorphic function $f \colon \C
-\to \C$, such that $f(0)=1$ and $f' = f$.  If $f$ were such a function, than
+\to \C$, such that $f(0)=1$ and $f' = f$.  If $f$ were such a function, then
 it would have a power series
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n ,
@@ -4905,8 +4914,8 @@ algebra}
 It may seem like we are cramming quite a bit into one subsection, but
 we have all the tools making three fundamental results just pop out
 with little work.  First, using the triangle inequality on
-the Cauchy integral formula obtains an estimate on the size of the
-coefficients of the series.  Then these estimates immediately give
+the Cauchy integral formula we obtain an estimate on the size of the
+coefficients of the series.  These estimates immediately give
 Liouville's theorem on entire holomorphic functions, which at once gives the
 fundamental theorem of algebra.
 
@@ -4962,6 +4971,20 @@ d \zeta
 \end{equation*}
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+Suppose $f \colon \D \to \D$ is holomorphic.
+\begin{exparts}
+\item
+Prove that $\sabs{f^{(n)}(0)}
+\leq n!$ for all $n$.
+\item
+For every $n$, find an example $f \colon \D \to \D$ such that
+$\sabs{f^{(n)}(0)} = n!$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
 A holomorphic function $f \colon \C \to \C$ is called
 \emph{entire}\index{entire function}.
 
@@ -4994,6 +5017,12 @@ words, $f(z) = c_0$ for all $z$.
 \begin{exercise}
 Suppose that $f$ is entire and $\sabs{f(z)} \leq e^{\Re z}$ for all $z \in
 \C$.  Show that $f(z) = c e^z$ for all $z$.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $f$ is entire, $n \in \N$, $M > 0$, and
+$\sabs{f(z)} \leq M {(1+\sabs{z})}^n$ for all $z \in \C$.
+Show that $f$ is a polynomial of degree at most $n$.
 \end{exercise}
 \end{exbox}
 
@@ -5359,6 +5388,7 @@ felt compelled to remind me that there do exist other theorems in complex
 analysis.}.
 
 \begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}
+\pagebreak[1]
 Suppose $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
 then 
 \begin{enumerate}[(i)]
@@ -5591,14 +5621,14 @@ a primitive is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
 the entire punctured plane.
 
 We proved that in any star-like domain, a holomorphic function has a
-primitive.  So if we take say the set
+primitive.  Consider
 \begin{equation*}
 U = \C \setminus (-\infty,0] = \C \setminus \bigl\{ z \in \C : \Re z \leq 0 , \Im z = 0 \bigr\},
 \end{equation*}
 the so-called \emph{\myindex{slit plane}}.  It is a star-like domain and
 so there exists a
 primitive for $\frac{1}{z}$ in $U$.
-We could require that this primitive is $0$ at $1$,
+We could require that this primitive is $0$ at $z=1$,
 and from this we get a function
 \begin{equation*}
 \operatorname{Log} \colon U \to \C ,
@@ -7075,12 +7105,6 @@ of $f$.
 Show that an entire function $f \colon \C \to \C$ has a pole at infinity
 if and only if it is a polynomial.  The order of the pole is the degree of
 the polynomial.
-\end{exercise}
-
-\begin{exercise}
-Suppose that $f$ is entire, $n \in \N$, and
-$\sabs{f(z)} \leq {(1+\sabs{z})}^n$ for all $z$.
-Show that $f$ is a polynomial.  Hint: See previous exercise.
 \end{exercise}
 
 \begin{exercise}
