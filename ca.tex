@@ -2858,7 +2858,7 @@ converges.  For $N < M$,
 \begin{equation*}
 \abs{\sum_{n=N+1}^M c_n {(z-p)}^n}
 \leq
-\sum_{n=N+1}^M \sabs{c_n} \sabs{(z-p)}^n.
+\sum_{n=N+1}^M \sabs{c_n} \sabs{z-p}^n.
 \end{equation*}
 Hence, if the sequence of partial sums of 
 $\sum \sabs{c_n} \sabs{z-p}^n$ is Cauchy, so is the sequence
@@ -2912,7 +2912,7 @@ bounded whenever $0 < r < R$.
 
 \begin{prop}
 The series $\sum c_n {(z-p)}^n$ converges in $\Delta_{R}(p)$ for some
-$R > 0$, if and only if
+$R > 0$ if and only if
 for every $r$ with
 $0 < r < R$ there exists an $M > 0$ such that for all $n$,
 \begin{equation*}
@@ -2925,8 +2925,8 @@ Suppose the series converges in $\Delta_{R}(p)$ and
 $0 < r < R$, then $\sum \sabs{c_n}r^n$ converges,
 and the terms of that series are bounded.
 
-Conversely, suppose
-$\sabs{c_n} r^n \leq M$ for all $n$ and $0 < s < r$.
+Conversely, suppose 
+$\sabs{c_n} r^n \leq M$ for all $n$, and suppose that $0 < s < r$.
 Then
 \begin{equation*}
 \sqrt[n]{\sabs{c_n} s^n}=
@@ -2944,7 +2944,7 @@ Let $K \subset \C$ be a set.
 A power series $\sum c_n {(z-p)}^n$
 \emph{\myindex{converges uniformly absolutely}}
 \index{uniform absolute convergence}
-for $z \in K$ when $\sum \sabs{c_n {(z-p)}^n}$
+for $z \in K$ when $\sum \sabs{c_n} \sabs{z-p}^n$
 converges uniformly for $z \in K$.
 Suppose a series converges uniformly absolutely.  Then,
 \begin{equation*}
@@ -2955,7 +2955,7 @@ Suppose a series converges uniformly absolutely.  Then,
 }
 =
 \abs{\sum_{n=m+1}^\infty c_n {(z-p)}^n} \leq
-\sum_{n=m+1}^\infty \sabs{c_n {(z-p)}^n} .
+\sum_{n=m+1}^\infty \sabs{c_n} \sabs{z-p}^n .
 \end{equation*}
 The right hand side goes to zero uniformly in $z \in K$,
 and so
@@ -2980,9 +2980,11 @@ on $\Delta_R(p)$, we have
 $\sum \sabs{c_n} r^n$ converges (and in particular any tail of
 the series converges).  Thus for $z \in \overline{\Delta_r(p)}$,
 \begin{equation*}
-\sum_{n=0}^\infty \abs{c_n {(z-p)}^n}
+\abs{
+\sum_{n=0}^\infty \sabs{c_n} \sabs{z-p}^n
 -
-\sum_{n=0}^{m} \abs{c_n {(z-p)}^n}
+\sum_{n=0}^{m} \sabs{c_n} \sabs{z-p}^n
+}
 \leq
 \sum_{n=m+1}^\infty \sabs{c_n} r^n .
 \end{equation*}
@@ -3091,28 +3093,30 @@ analytic functions are holomorphic, that is, they are complex
 differentiable.
 
 \begin{prop}
-Let $f \colon \Delta_r(p) \to \C$ be defined by a convergent power series
+Let $f \colon \Delta_R(p) \to \C$ be defined by
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
+f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n 
 \end{equation*}
-Then $f$ is complex differentiable at every $z \in \Delta_r(p)$ and
+converges in $\Delta_R(p)$.
+Then $f$ is complex differentiable at every $z \in \Delta_R(p)$ and
 \begin{equation*}
 f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1} ,
 \end{equation*}
-which converges in $\Delta_r(p)$.
+which converges in $\Delta_R(p)$.
 \end{prop}
 
 \begin{proof}
-Without loss of generality, let $p=0$.
-Fix $z_0 \in \Delta_r(0)$.
-We look at how we differentiate $z^n$ at $z_0$; we consider the limit of
+Without loss of generality, let $p=0$.  Fix $r$ such that $0 < r < R$.
+Now fix $z_0 \in \Delta_r(0)$.
+We look at how we differentiate $z^n$ at $z_0$; we consider the difference
+quotient
 \begin{equation*}
 \frac{z_0^n-z^n}{z_0-z}
 =
 \sum_{k=0}^{n-1}
-z_0^k z^{n-1-k}
+z_0^k z^{n-1-k} ,
 \end{equation*}
-as $z \to z_0$, which is $n z_0^{n-1}$.
+which goes to $n z_0^{n-1}$ as $z \to z_0$.
 
 With that out of the way, let us try to apply it to $f$
 term-wise:
@@ -3146,7 +3150,8 @@ n
 \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1} .
 \end{equation*}
 The expression
-$\sabs{c_n} r^{n-1}$ is bounded by some $M$ because the series for $f$ converges.
+$\sabs{c_n} r^{n-1}$ is bounded by some $M$ because the series for $f$ converges
+in $\Delta_R(0)$ and $r < R$.
 As
 \begin{equation*}
 \sqrt[n]{
@@ -3175,8 +3180,9 @@ we can swap the limit $z \to z_0$ with the series limit.  Thus
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z_0^{n-1-k}
 =
 \sum_{n=1}^\infty n c_n z_0^{n-1} .
-\qedhere
 \end{equation*}
+As $s$ and $r$ were arbitrary, the convergence happens in all of
+$\Delta_R(0)$.
 \end{proof}
 
 The derivative is again given by a power series.
@@ -3184,16 +3190,16 @@ By induction, it follows that a power series is infinitely complex
 differentiable.
 
 \begin{cor} \label{cor:convpowserinfdif}
-Let $f \colon \Delta_r(p) \to \C$ be defined by a convergent power series
+Let $f \colon \Delta_R(p) \to \C$ be defined by a convergent power series
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
 \end{equation*}
-Then $f$ is infinitely complex differentiable in $\Delta_r(p)$,
+Then $f$ is infinitely complex differentiable in $\Delta_R(p)$,
 and the $n$\textsuperscript{th} derivative is given by
 \begin{equation*}
 f^{(k)}(z) = \sum_{n=k}^\infty n(n-1)\cdots(n-k+1) c_n {(z-p)}^{n-k} ,
 \end{equation*}
-which converges in $\Delta_r(p)$.
+which converges in $\Delta_R(p)$.
 Furthermore,
 \begin{equation*}
 c_n =
@@ -3207,7 +3213,7 @@ Fill in the details of the proof of the corollary.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f \colon \Delta_r(0) \to \C$ is given by a convergent power
+Suppose $f \colon \Delta_R(0) \to \C$ is given by a convergent power
 series
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n .
@@ -3222,7 +3228,7 @@ prove that $c_n = 0$ for all $n$ and hence $f$ is identically zero.
 Perhaps a subtle consequence of
 this corollary that should be
 noted is that if $f$ is given by the convergent power series in
-$\Delta_r(p)$ as above, then the power series is unique.  This conclusion
+$\Delta_R(p)$ as above, then the power series is unique.  This conclusion
 follows from the formula for the coefficients $c_n$.
 
 If we apply the corollary to analytic functions at every point,
@@ -3238,8 +3244,8 @@ A subtle issue is that while we have proved that analytic functions are
 complex differentiable because they have a power series representation,
 we have not yet proved that a convergent power series defines an analytic
 function.  What would be left to prove is that a power series convergent
-in $\Delta_r(p)$ can be
-expanded about a different point in $\Delta_r(p)$.  That will follow
+in $\Delta_R(p)$ can be
+expanded about a different point in $\Delta_R(p)$.  That will follow
 once we prove that holomorphic functions are analytic.
 \end{remark}
 
@@ -4523,14 +4529,14 @@ that analytic functions are holomorphic, and now prove the converse.
 
 \begin{thm} \label{thm:holpower}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
-holomorphic, and $p \in U$, and $\Delta_r(p) \subset U$
+holomorphic, and $p \in U$, and $\Delta_R(p) \subset U$
 is a disc.
 Then there exists a power series $\sum c_n {(z-p)}^n$
 such that
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n ,
 \end{equation*}
-for all $z \in \Delta_r(p)$.
+for all $z \in \Delta_R(p)$.
 Furthermore,
 \begin{equation*}
 c_n = 
@@ -4540,35 +4546,34 @@ c_n =
 \,
 dz  ,
 \end{equation*}
-where $\gamma$ is any circle of radius $s$, $0 < s < r$ centered at
+where $\gamma$ is any circle of radius $r$, $0 < r < R$ centered at
 $p$ oriented counterclockwise.
 \end{thm}
 
 \begin{proof}
-First fix an $s$ such that $0 < s < r$.
-We have $\overline{\Delta_s(p)} \subset U$,
-the boundary of the disc of radius $s$ is in $U$.
+First fix an $r$ such that $0 < r < R$.
+We have $\overline{\Delta_r(p)} \subset U$,
+the boundary of the disc of radius $r$ is in $U$.
 
-For $z \in \Delta_s(p)$ and $\zeta \in \partial \Delta_s(p)$, 
+For $z \in \Delta_r(p)$ and $\zeta \in \partial \Delta_r(p)$, 
 \begin{equation*}
 \abs{\frac{z-p}{\zeta-p}} =
-\frac{\sabs{z-p}}{s} < 1 .
+\frac{\sabs{z-p}}{r} < 1 .
 \end{equation*}
-If $\sabs{z-p} \leq s' < s$, then
-$\abs{\frac{z-p}{\zeta-p}} \leq \frac{s'}{s} < 1$.  Therefore,
+If $\sabs{z-p} \leq s < r$, then
+$\abs{\frac{z-p}{\zeta-p}} \leq \frac{s}{r} < 1$.  Therefore,
 the geometric series
 \begin{equation*}
 \sum_{n=0}^\infty
 {\left(\frac{z-p}{\zeta-p}\right)}^n
 =
-\frac{1}{1-
-\frac{z-p}{\zeta-p}}
+\frac{1}{1-\frac{z-p}{\zeta-p}}
 =
 \frac{\zeta-p}{\zeta-z}
 \end{equation*}
-converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{s'}(p)}
-\times \partial \Delta_s(p)$ (that is, $\sum_n {\bigl\lvert
-\frac{z-p}{\zeta-p} \bigr\rvert}^n$
+converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{s}(p)}
+\times \partial \Delta_r(p)$ (that is,
+$\sum_n {\bigl\lvert \frac{z-p}{\zeta-p} \bigr\rvert}^n$
 converges uniformly).
 
 We write $f(z)$ using the Cauchy integral formula:
@@ -4577,14 +4582,14 @@ We write $f(z)$ using the Cauchy integral formula:
 f(z)
 & =
 \frac{1}{2\pi i}
-\int_{\partial \Delta_s(p)}
+\int_{\partial \Delta_r(p)}
 \frac{f(\zeta)}{\zeta-z}
 \,
 d \zeta 
 \\
 & =
 \frac{1}{2\pi i}
-\int_{\partial \Delta_s(p)}
+\int_{\partial \Delta_r(p)}
 \frac{f(\zeta)}{\zeta-p}
 \frac{\zeta-p}{\zeta-z}
 \,
@@ -4592,7 +4597,7 @@ d \zeta
 \\
 & =
 \frac{1}{2\pi i}
-\int_{\partial \Delta_s(p)}
+\int_{\partial \Delta_r(p)}
 \frac{f(\zeta)}{\zeta-p}
 \sum_{n=0}^\infty
 {\left(\frac{z-p}{\zeta-p}\right)}^n
@@ -4603,7 +4608,7 @@ d \zeta
 \sum_{n=0}^\infty
 \left(
 \frac{1}{2\pi i}
-\int_{\partial \Delta_s(p)}
+\int_{\partial \Delta_r(p)}
 \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
 \,
 d \zeta 
@@ -4615,9 +4620,9 @@ In the last equality, we were allowed to
 interchange the limit on the sum with the integral
 %either
 %via Fubini's theorem or
-via uniform convergence (uniform in the $\zeta \in \partial \Delta_s(p)$):
+via uniform convergence (uniform in the $\zeta \in \partial \Delta_r(p)$):
 $z$ is fixed and if $M$ is the supremum of $\abs{\frac{f(\zeta)}{\zeta-p}} =
-\frac{\sabs{f(\zeta)}}{s}$ on $\partial \Delta_s(p)$,
+\frac{\sabs{f(\zeta)}}{r}$ on $\partial \Delta_r(p)$,
 then
 \begin{equation*}
 \abs{
@@ -4626,15 +4631,15 @@ then
 }
 \leq
 M 
-{\left(\frac{\abs{z-p}}{s}\right)}^n,
+{\left(\frac{\abs{z-p}}{r}\right)}^n,
 \qquad \text{and} \qquad
-\frac{\abs{z-p}}{s} < 1 .
+\frac{\abs{z-p}}{r} < 1 .
 \end{equation*}
 
-We proved convergence in $\Delta_s(p)$.
+We proved convergence in $\Delta_r(p)$.
 By the uniqueness of the power series (see \corref{cor:convpowserinfdif}),
-the $c_n$ we computed are the same for every $s < r$, and hence
-we get convergence in $\Delta_r(p)$.
+the $c_n$ we computed are the same for every $r < R$, and hence
+we get convergence in $\Delta_R(p)$.
 \end{proof}
 
 The key point in the proof is writing the \emph{\myindex{Cauchy kernel}}
@@ -4649,8 +4654,8 @@ and then using the geometric series.
 
 Not only have we proved
 that $f$ has a power series, but we computed
-that the radius of convergence is at least $r$, where $r$ is the maximum $r$
-such that $\Delta_r(p) \subset U$.  See \figureref{fig:largestr}.
+that the radius of convergence is at least $R$, where $R$ is the maximum $R$
+such that $\Delta_R(p) \subset U$.  See \figureref{fig:largestr}.
 
 \begin{myfig}
 \subimport*{figures/}{largestr.pdf_t}
@@ -4780,7 +4785,9 @@ the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
 Actually it requires \exerciseref{exercise:severalvariableLiebniz},
 but that is a simple generalization.  We have used that the
 $x$ and $y$ derivatives of 
-$\frac{f(\zeta)}{(\zeta-z)^{k+2}}$ are continuous, as long as $z$ is kept to
+$\frac{f(\zeta)}{(\zeta-z)^{k+2}}$ are continuous
+(as functions of both $\zeta$ and $z$), as long as $z = x+iy$
+is kept to
 inside of $\Delta_r(p)$.
 \end{proof}
 

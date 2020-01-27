@@ -10,7 +10,7 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(3273,1302)(-61,-626)
-\put(1981,-196){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$r$}%
+\put(1981,-196){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$R$}%
 }}}}
 \put(1621,119){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$p$}%
 }}}}
