@@ -1956,7 +1956,7 @@ y}\big|_{z_0}$.
 So we get that
 \begin{equation*}
 0 = \lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - \xi h}}{\sabs{h}} =
-\lim_{h \to 0} \abs{\frac{f(z_0+h) - f(z_0)}{h} - \xi h} ,
+\lim_{h \to 0} \abs{\frac{f(z_0+h) - f(z_0)}{h} - \xi} ,
 \end{equation*}
 or in other words
 \begin{equation*}
@@ -2641,15 +2641,17 @@ instantly obtain the holomorphic inverse function theorem.
 \begin{thm}[Inverse function theorem for holomorphic functions]
 \index{inverse function theorem!holomorphic functions}
 \label{thm:inversehol}
-\pagebreak[2]
+\pagebreak[1]
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 $p \in U$, and $f'(p) \not= 0$.  Suppose further that $f$ is continuously
-differentiable.  Then there exist neighborhoods $V$ of $p$
-and $W$ of $f(p)$ such that $f(V) = W$, the restriction $f|_V$ is one-to-one,
-and the inverse $g \colon W \to V$ (a function such that $g\bigl(f(z)\bigr)=z$
-for all $z \in V$) is holomorphic, with
+differentiable.
+Then there exist open sets $V, W \subset \C$ such that
+$p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is one-to-one,
+and hence a $g \colon W \to V$ exists such that
+$g(y) := (f|_V)^{-1}(y)$.
+Furthermore, $g$ is holomorphic and
 \begin{equation*}
-g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
+g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} \qquad \text{for all $w \in W$}.
 \end{equation*}
 \end{thm}
 
@@ -14302,11 +14304,11 @@ continuously differentiable and the derivative is invertible, the function is
 \label{thm:inverse}
 Let $U \subset \R^n$ be an open set and let
 $f \colon U \to \R^n$ be a continuously differentiable function.
-Also suppose $p \in U$, $f(p) = q$, and $Df|_p)$ is invertible
+Also suppose $p \in U$, and $Df|_p$ is invertible
 (that is, $\det Df|_p \not=0$).
 Then there exist open sets $V, W \subset \R^n$ such that
-$p \in V \subset U$, $f(V) = W$ and $f|_V$ is one-to-one.  
-And hence a $g \colon W \to V$ exists such that
+$p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is one-to-one,
+and hence a $g \colon W \to V$ exists such that
 $g(y) := (f|_V)^{-1}(y)$.
 See \figureref{fig:inversefuncRn}.
 Furthermore, $g$ is continuously differentiable
