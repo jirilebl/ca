@@ -2829,7 +2829,7 @@ Given $0 < r < 1$, then for all $z \in \overline{\Delta_r(0)}$
 \abs{\frac{1}{1-z} - \sum_{n=0}^m z^n}
 \leq \frac{r^{m+1}}{1-r} .
 \end{equation*}
-In particular,
+Consequently,
 as $\frac{r^{m+1}}{1-r} \to 0$,
 the geometric series converges uniformly
 on $\overline{\Delta_r(0)}$.
@@ -2901,8 +2901,8 @@ $\sabs{z-p} > R$, where $R$ is defined by \eqref{eq:rconvdef}.
 \caption{Radius of convergence.\label{fig:radiusconvcomplex}}
 \end{myfig}
 
-The number $R$ is called the \emph{\myindex{radius of convergence}}
-and we find that the given power series converges absolutely
+The number $R$ is called the \emph{\myindex{radius of convergence}}.
+The power series converges absolutely
 in the disc $\Delta_R(p)$, and diverges
 in the complement of the closure $\overline{\Delta_R(p)}$.
 Convergence (or divergence) on the boundary circle $\partial \Delta_R(p)$
@@ -2987,8 +2987,8 @@ the series converges).  Thus for $z \in \overline{\Delta_r(p)}$,
 \leq
 \sum_{n=m+1}^\infty \sabs{c_n} r^n .
 \end{equation*}
-As $m \to \infty$ the right hand side, which does not depend on $z$,
-goes to zero, and hence 
+The right hand side, which does not depend on $z$,
+goes to zero $m \to \infty$, and hence 
 the series converges uniformly in $\overline{\Delta_r(p)}$.
 
 If $K \subset \Delta_{R}(p)$ is compact, then there exists some $r <
@@ -3009,6 +3009,12 @@ Show that
 $\sum_{n=0}^\infty n^n z^{n^n}$ has radius of convergence $1$,
 while
 $\sum_{n=0}^\infty n^n z^{n}$ is not convergent at all.
+\end{exercise}
+
+\begin{exercise}
+Suppose
+$\sum_{n=0}^\infty c_n z^{n}$ converges at $z=1$, but not absolutely.
+Prove that the radius of convergence is 1.
 \end{exercise}
 
 \begin{exercise}
