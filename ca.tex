@@ -2852,11 +2852,11 @@ about the boundary of the disc.
 \end{exercise}
 \end{exbox}
 
-A power series converges absolutely if
+A power series converges absolutely if the following series converges:
 \begin{equation*}
-\sum_{n=0}^\infty \sabs{c_n} \sabs{z-p}^n ,
+\sum_{n=0}^\infty \sabs{c_n} \sabs{z-p}^n .
 \end{equation*}
-converges.  For $N < M$,
+For $N < M$,
 \begin{equation*}
 \abs{\sum_{n=N+1}^M c_n {(z-p)}^n}
 \leq
@@ -2872,9 +2872,10 @@ Let $r = \sabs{z-p}$, then we have the real series $\sum \sabs{c_n} r^n$.  Defin
 \begin{equation} \label{eq:rconvdef}
 R = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
 \end{equation}
-where we interpret $\frac{1}{\infty} = 0$ and $\frac{1}{0} = \infty$.
+where we interpret $\frac{1}{\infty} = 0$ and $\frac{1}{0} = \infty$,
+so $R=\infty$ is allowed.
 
-By the standard root test the series $\sum \sabs{c_n} r^n$
+By the standard root test, the series $\sum \sabs{c_n} r^n$
 converges if
 \begin{equation*}
 \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n} r^n} = 
@@ -2927,15 +2928,15 @@ Suppose the series converges in $\Delta_{R}(p)$ and
 $0 < r < R$, then $\sum \sabs{c_n}r^n$ converges,
 and the terms of that series are bounded.
 
-Conversely, suppose 
-$\sabs{c_n} r^n \leq M$ for all $n$, and suppose that $0 < s < r$.
+Conversely, fix $r$, suppose 
+$\sabs{c_n} r^n \leq M$ for all $n$, and suppose $0 < s < r$.
 Then
 \begin{equation*}
 \sqrt[n]{\sabs{c_n} s^n}=
 \frac{s}{r}\sqrt[n]{\sabs{c_n} r^n} \leq \frac{s}{r} \sqrt[n]{M} .
 \end{equation*}
-The limsup of the right hand side is strictly less than 1 as $\frac{s}{r} < 1$,
-so the series converges absolutely in
+The limsup of the right hand side is strictly less than 1 as $\frac{s}{r} < 1$.
+So the series converges absolutely in
 $\overline{\Delta_s(p)}$.  As $s$ and $r$ with $0 < s < r < R$ were
 arbitrary,
 the series converges (absolutely) in $\Delta_R(p)$.
@@ -2948,7 +2949,8 @@ A power series $\sum c_n {(z-p)}^n$
 \index{uniform absolute convergence}
 for $z \in K$ when $\sum \sabs{c_n} \sabs{z-p}^n$
 converges uniformly for $z \in K$.
-Suppose a series converges uniformly absolutely.  Then,
+Suppose a series converges uniformly absolutely.  It converges absolutely,
+so it converges, and 
 \begin{equation*}
 \abs{
 \sum_{n=0}^\infty c_n {(z-p)}^n
@@ -2968,16 +2970,19 @@ uniformly.  So the name fits the crime.
 Let $\sum c_n {(z-p)}^n$ be a power series with radius of convergence $R
 > 0$.  If $0 < r < R$, then the power series converges uniformly absolutely
 in $\overline{\Delta_r(p)}$. Furthermore, let $U = \Delta_R(p)$ if $R < \infty$ and
-$U = \C$ if $R=\infty$ and $K \subset U$ is compact,
-then the series converges uniformly absolutely on $K$.
+$U = \C$ if $R=\infty$, and let $K \subset U$ be compact.
+Then the series converges uniformly absolutely on $K$.
 \end{prop}
+
+In other words, we say that the series converges uniformly (absolutely) on
+compact subsets.
 
 \begin{proof}
 Without loss of generality suppose $R < \infty$.
-Suppose $0 < r < R$.  Then as $\sum c_n {(z-p)}^n$ converges absolutely
-on $\Delta_R(p)$, we have
+Suppose $0 < r < R$.  As $\sum c_n {(z-p)}^n$ converges absolutely
+on $\Delta_R(p)$, the series
 $\sum \sabs{c_n} r^n$ converges (and in particular any tail of
-the series converges).  Thus for $z \in \overline{\Delta_r(p)}$,
+that series converges).  Thus for $z \in \overline{\Delta_r(p)}$,
 \begin{equation*}
 \abs{
 \sum_{n=0}^\infty \sabs{c_n} \sabs{z-p}^n
@@ -2989,7 +2994,7 @@ the series converges).  Thus for $z \in \overline{\Delta_r(p)}$,
 \end{equation*}
 The right hand side, which does not depend on $z$,
 goes to zero $m \to \infty$, and hence 
-the series converges uniformly in $\overline{\Delta_r(p)}$.
+the series $\sum \sabs{c_n} \sabs{z-p}^n$ converges uniformly in $\overline{\Delta_r(p)}$.
 
 If $K \subset \Delta_{R}(p)$ is compact, then there exists some $r <
 R$ such that $K \subset \Delta_r(p)$ (consider an open cover of
@@ -2998,7 +3003,7 @@ $K$ by discs $\Delta_r(p)$ for all $r < R$).  The result follows.
 
 \begin{exbox}
 \begin{exercise}
-Show that the series $\sum_{n=0}^\infty \frac{1}{n^2} z^{n}$ has radius of
+Show that the series $\sum_{n=1}^\infty \frac{1}{n^2} z^{n}$ has radius of
 convergence $1$, and
 show that it converges absolutely on the boundary of the unit disc.  Hence
 it actually converges uniformly on the entire closed unit disc.
@@ -3116,21 +3121,21 @@ Now fix $z_0 \in \Delta_r(0)$.
 We look at how we differentiate $z^n$ at $z_0$; we consider the difference
 quotient
 \begin{equation*}
-\frac{z_0^n-z^n}{z_0-z}
+\frac{z^n-z_0^n}{z-z_0}
 =
 \sum_{k=0}^{n-1}
-z_0^k z^{n-1-k} ,
+z^k z_0^{n-1-k} ,
 \end{equation*}
 which goes to $n z_0^{n-1}$ as $z \to z_0$.
 
 With that out of the way, let us try to apply it to $f$
 term-wise:
 \begin{equation*}
-\frac{f(z_0) - f(z)}{z_0-z}
+\frac{f(z) - f(z_0)}{z-z_0}
 =
-\sum_{n=1}^\infty c_n \frac{z_0^n-z^n}{z_0-z}
+\sum_{n=1}^\infty c_n \frac{z^n-z_0^n}{z-z_0}
 =
-\sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} .
+\sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k} .
 \end{equation*}
 The right hand side is defined even if $z_0 = z$.
 We must show that the above expression is continuous as a function of $z$
@@ -3141,9 +3146,9 @@ converges uniformly for $z$ in a
 neighborhood of $z_0$.  Suppose $0 < s < r$ and $z_0$ and $z$ are
 in $\Delta_s(0)$.
 \begin{equation*}
-%\abs{c_n \frac{z_0^n-z^n}{z_0-z}}
+%\abs{c_n \frac{z^n-z_0^n}{z-z_0}}
 %=
-\abs{c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k}}
+\abs{c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k}}
 \leq
 \sum_{k=0}^{n-1} 
 \sabs{c_n} s^{n-1}
@@ -3174,13 +3179,13 @@ $\sum n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1}$
 converges.
 Hence the series for the difference quotient,
 \begin{equation*}
-\sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z^{n-1-k} ,
+\sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k} ,
 \end{equation*}
 converges uniformly in $z$ on $\Delta_s(p)$, and
 we can swap the limit $z \to z_0$ with the series limit.  Thus
 \begin{equation*}
 \lim_{z \to z_0}
-\frac{f(z_0)-f(z)}{z_0-z}
+\frac{f(z)-f(z_0)}{z-z_0}
 =
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z_0^k z_0^{n-1-k}
 =
