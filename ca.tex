@@ -5305,7 +5305,7 @@ which is not differentiable.  And for infinitely differentiable functions?
 Just forget it.  It is the right topology for continuous functions, as you
 should recall from your basic analysis class.
 
-\begin{thm}
+\begin{thm} \label{thm:unifoncompact}
 Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
 of holomorphic functions converging uniformly on compact subsets to
 $f \colon U \to \C$.  Then $f$ is holomorphic.
@@ -7145,7 +7145,6 @@ Given an isolated singularity, the negative part of the series
 is called the \emph{\myindex{principal part}}.  So a singularity is
 removable if the principal part is zero, it is a pole if the principle part
 is a finite series, and it is essential if the principal part is infinite.
-
 For example,
 \begin{equation*}
 e^{1/z}
@@ -7156,22 +7155,27 @@ so the principal part is infinite and $e^{1/z}$ has an essential
 singularity at $0$.  In fact, this is the first example anyone ever thinks of
 if asked for an example of an essential singularity.
 
+Suppose $P(z)$ is the principal part of $f(z)$ at a removable singularity.
+It is sometimes useful to consider $f(z)-P(z)$, which then has a removable
+singularity, as it is defined by a power series.
+
+\medskip
+
+For entire functions, we can talk about the ``singularity at infinity.''
+If we think of $\C \subset \C_\infty$, then this makes perfect sense.
+The mapping $z \mapsto \frac{1}{z}$ is a self-mapping of the Riemann
+sphere $\C_\infty$ that takes infinity to zero.  Given $f \colon \C \to
+\C$, the function $z \mapsto f\bigl( \frac{1}{z} \bigr)$ has an isolated
+singularity at the origin, and that is the singularity at infinity
+of $f$.  That's exactly what happened with $e^{1/z}$ above.  The function
+$e^z$ has an essential singularity at infinity.
+
 \begin{exbox}
 \begin{exercise}
 If $f$ has a pole at $p$, then $e^{f(z)}$ has an essential singularity at
 $p$.
 \end{exercise}
-\end{exbox}
 
-For entire functions, we can talk about the ``singularity at infinity.''
-If we think of $\C \subset \C_\infty$, then this makes perfect sense.
-The mapping $z \mapsto \frac{1}{z}$ is a self-mapping of the Riemann
-sphere $\C_\infty$ that takes infinity to zero.  So given $f \colon \C \to
-\C$, the function $z \mapsto f\bigl( \frac{1}{z} \bigr)$ has an isolated
-singularity at the origin, and that is the singularity at infinity
-of $f$.
-
-\begin{exbox}
 \begin{exercise}
 Show that an entire function $f \colon \C \to \C$ has a pole at infinity
 if and only if it is a polynomial.  The order of the pole is the degree of
@@ -7792,7 +7796,7 @@ at the zeros and poles of $f$.  We apply the residue theorem to find
 \sum_{j} n(\gamma;p_j)\operatorname{Res}\left(h(z)
 \frac{f'(z)}{f(z)};p_j\right) .
 \end{multline*}
-So we simply need to compute the residues.  Consider a zero of $f$ of
+We simply need to compute the residues.  Consider a zero of $f$ of
 multiplicity $k$, and
 without loss of generality suppose that it is at the origin,
 that is, $f(z) = c_k z^k + c_{k+1} z^{k+1} + \cdots$ for $c_k \not= 0$, and 
@@ -8055,7 +8059,9 @@ in the closed disc $\overline{\Delta_M(0)}$ where $M =
 \subsection{Hurwitz's theorem}
 
 Often we approximate one function by other functions and we would like to
-count the zeros of the limit.
+count the zeros of the limit.  Recall that if a sequence of holomorphic
+functions converge uniformly on compact sets, the limit is holomorphic
+(see \thmref{thm:unifoncompact}).
 
 \begin{thm}[Hurwitz]\index{Hurwitz's theorem}
 Let $U \subset \C$ be open and $f_n \colon U \to \C$ is a sequence of
@@ -8114,7 +8120,21 @@ to $f \colon U \to \C$.  Then $f$ is either univalent or constant.
 \end{cor}
 
 \begin{proof}
-FIXME
+Suppose the function $f$ is nonconstant.
+Suppose there exist distinct $z_1$ and $z_2$ in $U$ such that $f(z_1) =
+f(z_2) = w$.  Consider $f-w$, which has isolated zeros at $z_1$ and $z_2$.
+Consider two small discs $\Delta_r(z_1)$ and $\Delta_r(z_2)$ contained in
+$U$, such that $f$ is not zero on their boundaries,
+and $z_1$ and $z_2$ are the only zeros
+in those discs, and the closures of the two discs are disjoint.
+The sets $\partial \Delta_r(z_1)$ and 
+$\partial \Delta_r(z_2)$ are compact, so
+for a large enough $n$, the function $f_n-w$ is nonzero on either.
+We can also assume by Hurwitz that $f_n-w$ has the same number of
+zeros in $\Delta_r(z_1)$ as $f-w$ and the same for $\Delta_r(z_2)$.
+So there is $z_1' \in \Delta_r(z_1)$ and
+$z_2' \in \Delta_r(z_2)$ such that $f_n(z_1')=f_n(z_2')=w$, in particular
+$f_n$ is not univalent.
 \end{proof}
 
 FIXME:
@@ -8188,7 +8208,7 @@ $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
 
 Notice also that the proof says something stronger than the theorem statement.  It
 gives an explicit bound.  It says that if 
-$\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$
+$\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$,
 then
 $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
 
