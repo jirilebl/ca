@@ -2739,6 +2739,13 @@ $\det Df\big|_p = \abs{\frac{\partial f}{\partial z}(p)}^2 -
 \abs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.
 \end{exparts}
 \end{exercise}
+
+\begin{exercise} \label{exercise:segmentcomplement}
+Consider $f(z) = z+ \frac{1}{z}$.  Show that $f$ takes $\C \setminus
+\overline{\D}$ biholomorphically to $\C \setminus [-2,2]$, and it also takes
+$\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.  Thus
+construct a biholomorphism between $\C \setminus [-2,2]$.
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3010,7 +3017,7 @@ that series converges).  Thus for $z \in \overline{\Delta_r(p)}$,
 \sum_{n=m+1}^\infty \sabs{c_n} r^n .
 \end{equation*}
 The right hand side, which does not depend on $z$,
-goes to zero $m \to \infty$, and hence 
+goes to zero as $m \to \infty$, and hence 
 the series $\sum \sabs{c_n} \sabs{z-p}^n$ converges uniformly in $\overline{\Delta_r(p)}$.
 
 If $K \subset \Delta_{R}(p)$ is compact, then there exists some $r <
@@ -3135,7 +3142,7 @@ which converges in $\Delta_R(p)$.
 \begin{proof}
 Without loss of generality, let $p=0$.  Fix $r$ such that $0 < r < R$.
 Now fix $z_0 \in \Delta_r(0)$.
-We look at how we differentiate $z^n$ at $z_0$; we consider the difference
+We differentiate $z^n$ at $z_0$ by considering the difference
 quotient
 \begin{equation*}
 \frac{z^n-z_0^n}{z-z_0}
@@ -3315,11 +3322,12 @@ The series $g(z)$ above is a convergent power series and $g(0) = c_k \not=
 As $z^k$ is only zero at $0$, we find that $0$ is an isolated zero of $f$.
 
 So the only points of $Z_f$ that are not isolated are those that are in the
-interior of $Z_f$.  Let $Z_f' \subset Z_f$ be the closure (in the subspace
-topology of $U$)
-of the interior of $Z_f$.
-The set $Z_f'$ must have empty boundary, as those points are not isolated.
-But then $Z_f'$ is both open and closed.  As $U$ is connected, and we know
+interior of $Z_f$.  Let $Z_f' \subset Z_f$ be the set of nonisolated points
+of $Z_f$.  This set must be closed as $Z_f$ is closed, and no sequence
+of points in $Z_f'$ can
+got to an isolated point of $Z_f$.  We have proved above that nonisolated
+points must be interior points of $Z_f$ (and hence of $Z_f'$).
+So $Z_f'$ is both open and closed.  As $U$ is connected, and we know
 that $Z_f' \not= U$, we conclude $Z_f' = \emptyset$.
 Thus all points of $Z_f$ are isolated.
 \end{proof}
@@ -5065,6 +5073,14 @@ Suppose that $f$ is entire, $n \in \N$, $M > 0$, and
 $\sabs{f(z)} \leq M {(1+\sabs{z})}^n$ for all $z \in \C$.
 Show that $f$ is a polynomial of degree at most $n$.
 \end{exercise}
+
+\begin{exercise}
+Suppose that $f \colon \C \to \C$ is holomorphic and misses a segment,
+that is, there exists a segment
+$[a,b]$ such that $f(\C) \subset \C \setminus [a,b]$.
+Show that $f$ is constant.  Hint: See the map from
+\exerciseref{exercise:segmentcomplement}.
+\end{exercise}
 \end{exbox}
 
 \begin{thm}[Fundamental theorem of algebra]\index{fundamental theorem of algebra}
@@ -5148,19 +5164,18 @@ the Cauchy integral itself (usually called the Cauchy transform).
 First, a general lemma about holomorphicity of functions defined by integrals.
 
 \begin{lemma} \label{lemma:holfuncbyintegral}
-Suppose $U \subset \C$ is a domain, $\gamma$ is a
-piecewise $C^1$ path (or a chain) in $U$, and
-$\psi \colon \gamma \times U \to \C$ is a continuous function such that
-for each fixed $z \in \gamma$, the function $w \mapsto \psi(z,w)$ is
+Suppose $U \subset \C$ is open, and
+$\psi \colon U \times [0,1] \to \C$ is a continuous function such that
+for each fixed $t \in [0,1]$, the function $z \mapsto \psi(z,t)$ is
 holomorphic.  Then
 \begin{equation*}
-h(w) =
-\int_\gamma \psi(z,w) \, dz
+h(z) =
+\int_0^1 \psi(z,t) \, dt
 \end{equation*}
 is a holomorphic function $U$.
 \end{lemma}
 
-The lemma has two common proofs,
+This kind of lemma has two common proofs,
 and as they are both useful in other places, let us do both of them.
 
 \begin{proof}[Proof A]
@@ -5169,25 +5184,25 @@ Let $T$ be a triangle inside this small neighborhood.  Suppose $w \in U$
 first.  Then
 \begin{equation*}
 \int_{\partial T}
-h(w)
-\, dw
-=
-\int_{\partial T}
-\int_\gamma \psi(z,w) \, dz
-\, dw
-=
-\int_\gamma
-\int_{\partial T}
-\psi(z,w)
-\, dw
+h(z)
 \, dz
-= \int_\gamma 0 \, dz = 0.
+=
+\int_{\partial T}
+\int_0^1 \psi(z,t) \, dt
+\, dz
+=
+\int_0^1
+\int_{\partial T}
+\psi(z,t)
+\, dz
+\, dt
+= \int_0^1 0 \, dt = 0.
 \end{equation*}
 For this of course you need Fubini's theorem, which applies because both
 $\partial T$ and $\gamma$ are compact and so parametrized by a finite
 interval, and the integrand is continuous, and hence bounded,
 on $\partial T \times \gamma$.
-Morera's theorem now says that $h(w)$ is
+Morera's theorem now says that $h(z)$ is
 holomorphic.
 \end{proof}
 
@@ -5198,21 +5213,21 @@ For no good rational reason, this is the one us several complex variables
 people and we rather differentiate than integrate.}
 is to apply Wirtinger derivatives and differentiation under the integral:
 \begin{equation*}
-\frac{\partial}{\partial \bar{w}}
+\frac{\partial}{\partial \bar{z}}
 \bigl[
-h(w)
+h(z)
 \bigr]
 =
-\frac{\partial}{\partial \bar{w}}
-\int_\gamma \psi(z,w) \, dz
+\frac{\partial}{\partial \bar{z}}
+\int_0^1 \psi(z,t) \, dt
 =
-\int_\gamma
-\frac{\partial}{\partial \bar{w}}
+\int_0^1
+\frac{\partial}{\partial \bar{z}}
 \bigl[
-\psi(z,w)
+\psi(z,t)
 \bigr]
-\, dz
-= \int_\gamma 0 \, dz = 0.
+\, dt
+= \int_0^1 0 \, dt = 0.
 \end{equation*}
 As once before, we are really passing the partial derivatives in $x$
 and $y$ under the integral via the Leibniz integral rule,
@@ -5225,12 +5240,27 @@ Leibniz also implies that $h$ is continuously (real) differentiable,
 and thus
 the Cauchy--Riemann equations
 (\propref{prop:WirtCR}) now
-say that $h(w)$ is holomorphic.
+say that $h(z)$ is holomorphic.
 \end{proof}
 
 In either case, the idea is to swap some limits, which is not always true,
 and the two techniques above are the two kinds of swaps that come up most
-often (Fubini, and differentiating under the integral).
+often (Fubini, and differentiating under the integral).  By writing each
+path in a chain as an integral of one real variable we obtain the following
+corollary.
+
+\begin{cor} \label{cor:holfuncbyintegral}
+Suppose $U \subset \C$ is open, $\gamma$ is a
+piecewise $C^1$ path (or a chain), and
+$\psi \colon U \times \gamma \to \C$ is a continuous function such that
+for each fixed $w \in \gamma$, the function $z \mapsto \psi(z,w)$ is
+holomorphic.  Then
+\begin{equation*}
+h(z) =
+\int_\gamma \psi(z,w) \, dw
+\end{equation*}
+is a holomorphic function $U$.
+\end{cor}
 
 Given any continuous $u \colon \partial \Delta_r(p) \to \C$ define
 the \emph{\myindex{Cauchy transform}} $Cu \colon \Delta_r(p) \to \C$ is defined by
@@ -5265,7 +5295,7 @@ see also \exerciseref{exercise:cauchycont}.
 \begin{exercise}
 Suppose $g \colon [0,1] \to \C$ is continuous and define
 \begin{equation*}
-f(z) = \int_{-1}^1 \frac{g(t)}{z-t} \, dt .
+f(z) = \int_{-1}^1 \frac{g(t)}{t-z} \, dt .
 \end{equation*}
 Show that $f$ is holomorphic in $\C \setminus [-1,1]$ and
 $\lim_{z \to \infty} f(z) = 0$.
@@ -7177,6 +7207,12 @@ $p$.
 \end{exercise}
 
 \begin{exercise}
+Prove that if $f$ has a pole at the origin and $g$ has an essential
+singularity at the origin, then $f+g$ has an essential singularity at the
+origin.
+\end{exercise}
+
+\begin{exercise}
 Show that an entire function $f \colon \C \to \C$ has a pole at infinity
 if and only if it is a polynomial.  The order of the pole is the degree of
 the polynomial.
@@ -7273,17 +7309,21 @@ Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
 \end{exercise}
 
 \begin{exercise}
-\pagebreak[2]
-Prove that if $f$ has a pole at the origin and $g$ has an essential
-singularity at the origin, then $f+g$ has an essential singularity at the
-origin.
-\end{exercise}
-
-\begin{exercise}
 Suppose $f \colon \C \to \C$ is holomorphic and nonconstant.  Prove that $f(\C)$ is dense in
 $\C$.  Note that the so-called ``little Picard theorem'' says that $f(\C)$
 is actually everything minus possibly one point, but that is much harder to
 prove.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is
+holomorphic and has
+an essential singularity at $p \in U$.  Then for every punctured disc
+$\Delta_r(p) \setminus \{ p \} \subset U$ and every segment $[a,b] \subset
+\C$, we have
+$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) \cap [a,b] \not= \emptyset$.
+Hint: See the map from
+\exerciseref{exercise:segmentcomplement}.
 \end{exercise}
 \end{exbox}
 
@@ -8137,8 +8177,6 @@ $z_2' \in \Delta_r(z_2)$ such that $f_n(z_1')=f_n(z_2')=w$, in particular
 $f_n$ is not univalent.
 \end{proof}
 
-FIXME:
-
 \begin{exbox}
 \begin{exercise}
 Suppose $U \subset \C$ is a domain,
@@ -8146,6 +8184,26 @@ $f_n \colon U \to \C$ are holomorphic and nowhere zero
 and converge uniformly on compact subsets to $f \colon U \to \C$.
 Show that either $f$ is nowhere zero, or $f$ is identically zero.
 Given examples of both possible conclusions.
+\end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+Suppose $f_n \colon \D \to \C$ is a sequence of maps converging
+to $f \colon \D \to \C$ uniformly on compact sets such that
+for each $0 < r < 1$ the number of zeros (up to multiplicity)
+of $f_n$ in $\Delta_r(0)$ goes to infinity as $n \to \infty$.
+Prove that $f \equiv 0$.
+\item
+Find an example sequence of such maps such that $f_n(\D) = \D$.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose $P_t(z) = z^n + \sum_{k=0}^{n-1} a_k(t) z^k$ is a polynomial
+with continuous coefficients $a_k \colon [0,1] \to \C$.  Suppose $P_t$ has
+no zeros on $\partial \D$ for all $t \in [0,1]$.  Then the number of zeros
+of $P_t$ (up to multiplicity) in $\D$ is constant in $t$.
 \end{exercise}
 \end{exbox}
 
