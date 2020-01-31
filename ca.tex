@@ -2476,6 +2476,23 @@ that $\bar{z}$ cancels.
 \end{exercise}
 
 \begin{exercise}
+Suppose $f \colon U \to \C$ is real differentiable and let $\bar{f}$
+denote the complex conjugate of $f$.  Show that
+\begin{equation*}
+\overline{\left(\frac{\partial f}{\partial z}\right)} = 
+\frac{\partial \bar{f}}{\partial \bar{z}}
+\qquad \text{and} \qquad
+\overline{\left(\frac{\partial f}{\partial \bar{z}}\right)} = 
+\frac{\partial \bar{f}}{\partial z} .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon U \to \C$ is such that both $f$ and its conjugate
+$\bar{f}$ is holomorphic.  Show that $f$ is constant.
+\end{exercise}
+
+\begin{exercise}
 \pagebreak[2]
 Prove a Wirtinger operator version of
 the chain rule\index{chain rule!Wirtinger operators}
@@ -2974,7 +2991,7 @@ $U = \C$ if $R=\infty$, and let $K \subset U$ be compact.
 Then the series converges uniformly absolutely on $K$.
 \end{prop}
 
-In other words, we say that the series converges uniformly (absolutely) on
+In other words, power series converges uniformly (absolutely) on
 compact subsets.
 
 \begin{proof}
@@ -3062,7 +3079,7 @@ practice.
 Functions that possess a convergent power series are called analytic.
 From the beginnings of calculus until the 19\textsuperscript{th} century, 
 when mathematicians considered a ``function'' they really meant
-``analytic function'' in modern language.
+``analytic function'' (or something like it) in modern language.
 One can talk about
 both complex and real analytic functions depending on if the
 variables are real or complex, and they may depend on one or several variables,
@@ -3105,9 +3122,9 @@ differentiable.
 \begin{prop}
 Let $f \colon \Delta_R(p) \to \C$ be defined by
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n 
+f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n ,
 \end{equation*}
-converges in $\Delta_R(p)$.
+which converges in $\Delta_R(p)$.
 Then $f$ is complex differentiable at every $z \in \Delta_R(p)$ and
 \begin{equation*}
 f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1} ,
@@ -3923,6 +3940,13 @@ piecewise $C^1$ path (or a cycle).  Then
 \begin{exbox}
 \begin{exercise}
 Prove Cauchy's theorem for polynomials.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ holomorphic, and
+$\gamma$ is a closed piecewise $C^1$ path in $U$.  
+For $p \in U$, find a holomorphic $g \colon U \to \C$ with $g(p) = 0$
+and $g'(p) = 0$ such that $\int_\gamma g(z)\, dz = \int_\gamma f(z) \, dz$.
 \end{exercise}
 \end{exbox}
 
@@ -5124,8 +5148,8 @@ the Cauchy integral itself (usually called the Cauchy transform).
 First, a general lemma about holomorphicity of functions defined by integrals.
 
 \begin{lemma} \label{lemma:holfuncbyintegral}
-Suppose $U \subset \C$ is a domain, $\gamma$ is a closed
-piecewise $C^1$ path (or a cycle) in $U$, and
+Suppose $U \subset \C$ is a domain, $\gamma$ is a
+piecewise $C^1$ path (or a chain) in $U$, and
 $\psi \colon \gamma \times U \to \C$ is a continuous function such that
 for each fixed $z \in \gamma$, the function $w \mapsto \psi(z,w)$ is
 holomorphic.  Then
@@ -5236,6 +5260,15 @@ Hint: $\bar{\zeta} = \frac{1}{\zeta}$ for
 $\zeta \in \partial \D$
 and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$,
 see also \exerciseref{exercise:cauchycont}.
+\end{exercise}
+
+\begin{exercise}
+Suppose $g \colon [0,1] \to \C$ is continuous and define
+\begin{equation*}
+f(z) = \int_{-1}^1 \frac{g(t)}{z-t} \, dt .
+\end{equation*}
+Show that $f$ is holomorphic in $\C \setminus [-1,1]$ and
+$\lim_{z \to \infty} f(z) = 0$.
 \end{exercise}
 \end{exbox}
 
@@ -6588,11 +6621,19 @@ Prove that $c_n = 0$ for all negative $n$ and that $c_n$ for nonnegative $n$
 are just the coefficients of the power series of $f$ at $p$.
 \end{exercise}
 
+\begin{exercise}[Easy]
+Suppose $f$ and $g$ are holomorphic functions defined on
+$\ann(p,r_1,r_2)$.  Let $a_n$ be the coefficients in the Laurent series for
+$f$ and $b_n$ be the coefficients in the Laurent series for $g$.  Suppose
+that $\alpha,\beta \in \C$.  Show that the Laurent series for the function
+$\alpha f + \beta g$ has coefficients $\alpha a_n + \beta b_n$.
+\end{exercise}
+
 \begin{exercise}
 \pagebreak[2]
 Expand the function $\frac{1}{(z-1)(z-2)}$ using Laurent (or power) series in 
 \begin{exparts}
-\item $\D$
+\item $\D \setminus \{ 0 \}$
 \item $\ann(0,1,2)$
 \item $\ann(0,2,\infty)$
 \end{exparts}
@@ -6933,6 +6974,12 @@ singularity.
 
 \begin{exbox}
 \begin{exercise}
+Suppose that $S \subset \C$ is a discrete set (each point is isolated) and
+$f \colon \C \setminus S \to \C$ is holomorphic and $f(\C \setminus S)
+\subset \D$.  Show that $f$ is constant.
+\end{exercise}
+
+\begin{exercise}
 Prove that if $f \colon \D \setminus \{ 0 \} \to \D \setminus \{ 0 \}$
 is an automorphism then $f(z) = e^{i\theta} z$ for some $\theta$.
 \end{exercise}
@@ -6950,6 +6997,13 @@ not holomorphic.  Prove that $\frac{xy}{x^2+y^2}$ is a bounded infinitely
 (real) differentiable function
 on $\R^2 \setminus \{ (0,0) \}$ with an isolated singularity that does not
 extend through the singularity even continuously.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $f$ is an entire holomorphic function such that
+$\sabs{f(z)} \leq e^{\sabs{\Im z}}$ for all $z$ and such that
+$f'(0) =1$ and $f(n\pi) = 0$ for all integers $n$.
+Prove that $f(z) = \sin z$.
 \end{exercise}
 \end{exbox}
 
@@ -7166,21 +7220,22 @@ $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C \setminus \{ z_0 \}$ for
 some $z_0$.
 
 \begin{proof}
-Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic
-and $\Delta_r(p) \setminus \{ p \} \subset U$.
-Suppose that there is a $q \in \C$ such that $\Delta_s(q) \subset \C
+Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic,
+$\Delta_r(p) \setminus \{ p \} \subset U$,
+and that
+there is a $q \in \C$ such that $\Delta_s(q) \subset \C
 \setminus 
 f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)$.
-Now consider $g \colon \Delta_r(p) \setminus \{p\} \to \C$ defined by
+Consider $g \colon \Delta_r(p) \setminus \{p\} \to \C$ defined by
 \begin{equation*}
 g(z) = \frac{1}{f(z) - q} .
 \end{equation*}
 By assumption, $\sabs{f(z)-q} \geq s$ for $z \in \Delta_r(p) \setminus
 \{p\}$.
 Hence $g(z)$ is bounded by $\frac{1}{s}$, and $g$ has a removable
-singularity at $p$.  For simplicity,
-assume that $g$ is defined (and holomorphic) on all of
-$\Delta_r(p)$.  But
+singularity at $p$.  So
+assume that $g$ is defined and holomorphic on all of
+$\Delta_r(p)$.  But for $z \in \Delta_r(p) \setminus \{ p \}$,
 \begin{equation*}
 f(z) = \frac{1}{g(z)} + q .
 \end{equation*}
@@ -7211,6 +7266,20 @@ is $(0,\infty)$ or $[0,\infty)$.
 \item
 Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+\pagebreak[2]
+Prove that if $f$ has a pole at the origin and $g$ has an essential
+singularity at the origin, then $f+g$ has an essential singularity at the
+origin.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \C \to \C$ is holomorphic and nonconstant.  Prove that $f(\C)$ is dense in
+$\C$.  Note that the so-called ``little Picard theorem'' says that $f(\C)$
+is actually everything minus possibly one point, but that is much harder to
+prove.
 \end{exercise}
 \end{exbox}
 
@@ -7588,9 +7657,12 @@ one inside and one outside the unit circle.  Thus
 \begin{exbox}
 \begin{exercise}
 Compute
-\begin{equation*}
-\int_{-\infty}^\infty \frac{\cos(3x)}{x^4+1} \, dx
-\end{equation*}
+\begin{exparts}
+\item
+$\displaystyle \int_{-\infty}^\infty \frac{1}{{(x^2+1)}^2} \, dx$.
+\item
+$\displaystyle \int_{-\infty}^\infty \frac{\cos(3x)}{x^4+1} \, dx$.
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}[Inverse Laplace transform]
@@ -7608,22 +7680,31 @@ e^{st}F(s) \, ds .
 for some $c \in \R$ (usually $c \geq 0$).
 \begin{exparts}
 \item
-Compute $\sL^{-1}\left[ \frac{1}{s(s+1)} \right]$
+Compute $\sL^{-1}\left[ \frac{1}{s(s+1)} \right]$.
 \item
-Compute $\sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$
+Compute $\sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$.
 \end{exparts}
 Hint: Pick the correct vertical line (pick a $c$) and an arc that goes
 around all the poles.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Compute
 \begin{exparts}
 \item
-$\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$
+$\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$.
 \item
-$\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$
+$\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose that $r > 1$ and $f \colon \Delta_r(0) \setminus \{ 1 \} \to \C$ is
+holomorphic, and suppose $f$ has a simple pole with $\operatorname{Res}(f;1) = 1$.
+If the power series for $f$ at 0 is $\sum_{n=0}^\infty c_n z^n$, show that
+$\lim_{n\to \infty} c_n$ exists and compute what it is.  Hint: Try
+subtracting the pole away.
 \end{exercise}
 \end{exbox}
 
@@ -7644,6 +7725,7 @@ By \emph{\myindex{zeros counted with multiplicity}} we mean that for
 example $f(z) = z^2{(z-1)}^3$ has the zeros $0,0,1,1,1$.  Same with poles.
 
 \begin{thm}[Argument principle]\index{argument principle}\label{thm:argprinc}
+\pagebreak[2]
 Suppose $U \subset \C$ is open, and $\gamma$ is a closed piecewise $C^1$
 path (or a cycle) in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C
 \setminus U$.
@@ -7742,15 +7824,21 @@ and $f \colon U \to \C_\infty$ is meromorphic.
 Show that there are only finitely many zeros and poles of $f$
 such that $n(\gamma;z) \not= 0$.
 \end{exercise}
+
+\begin{exercise}
+Let $\gamma$ be the unit circle oriented counterclockwise.
+Compute $\int_\gamma \frac{z^2}{2 z^2+1} \, dz$ using the argument
+principle.  Hint: $\frac{z^2}{2 z^2+1}=\frac{z}{4} \frac{4z}{2z^2+1}$.
+\end{exercise}
 \end{exbox}
 
 One thing to notice is that the theorem is a generalization of the integral
 of $\frac{1}{z}$ around zero via taking the antiderivative, that is,
 $\log z$ and evaluating it (taking care to follow the branch).  In this case
-the function $\frac{f'(z)}{f(z)}$ has the antiderivative $\log f(z)$.  This
-intuitive idea can be worked into a proof if one wants to.
-
-FIXME
+the function $\frac{f'(z)}{f(z)}$ has the antiderivative $\log f(z)$.
+In other words the argument principle is about counting the number of times
+the curve $f \circ \gamma$ winds around zero.
+This intuitive idea could even be worked into a proof if one wants to.
 
 \subsection{Rouch\`e's theorem}
 
@@ -7941,6 +8029,10 @@ These are not the ideal estimates (largest zero of $P$ has modulus less than
 
 \begin{exbox}
 \begin{exercise}
+Count the number of zeros of $z^7-4z^3-11$ in $\ann(p,1,2)$.
+\end{exercise}
+
+\begin{exercise}
 Suppose that
 $P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$
 is a monic polynomial that has no zeros on the unit circle and $k \leq n$ zeros
@@ -7959,8 +8051,6 @@ in the closed disc $\overline{\Delta_M(0)}$ where $M =
 \max\left\{ 1, \sum_{j=0}^{n-1} \sabs{a_j} \right\}$.
 \end{exercise}
 \end{exbox}
-
-FIXME:
 
 \subsection{Hurwitz's theorem}
 
@@ -8096,13 +8186,11 @@ If for any $p$,
 $f(p)$ is always in the interior of $f(V)$ for any neighborhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
 
-The proof says something stronger than the theorem statement.  It
+Notice also that the proof says something stronger than the theorem statement.  It
 gives an explicit bound.  It says that if 
 $\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$
 then
 $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
-
-FIXME:
 
 \begin{exbox}
 \begin{exercise}
@@ -8113,12 +8201,33 @@ for some $z \in U$, then $f$ is constant.
 
 \begin{exercise}
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
+Prove that if $\abs{\Re f(z)}^2 + \abs{\Im f(z)}^2 = 1$ for all $z \in U$,
+then $f$ is constant.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
 Suppose $\abs{f''(z)} \leq M$ for all $z \in U$ for some $M > 0$.
 Suppose $f'(p) \not= 0$ and $r > 0$ is such that
 $\frac{M}{2}r < \abs{f'(p)}$ and $\overline{\Delta_r(p)} \subset U$.
 Let $\delta = \abs{f'(p)}r - \frac{M}{2} r^2
 = r\left(\abs{f'(p)} - \frac{M}{2} r\right) > 0$.  Prove that
 $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl( \Delta_r(p) \bigr)$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
+Suppose that $f$ is nonconstant and for every $p \in \partial U$,
+\begin{equation*}
+\lim_{z \to p} \abs{f(z)}=1 .
+\end{equation*}
+Prove that $f(U) = \D$.
+\end{exercise}
+
+\begin{exercise}
+Let $f \colon \C \to \C$ be an entire holomorphic function such that
+$f$ is real valued on the unit circle $\partial \D$.  Show that $f$ is
+constant.  What if $\partial \D$ is replaced by the real line?
 \end{exercise}
 \end{exbox}
 
