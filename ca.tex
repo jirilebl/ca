@@ -3249,13 +3249,20 @@ Fill in the details of the proof of the corollary.
 \begin{exercise}
 Suppose $f \colon \Delta_R(0) \to \C$ is given by a convergent power
 series
-\begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n z^n .
-\end{equation*}
+$f(z) = \sum_{n=0}^\infty c_n z^n$.
 Suppose that for some $\epsilon > 0$, $f(x) = 0$ for all $x \in
 (-\epsilon,\epsilon)$ (an interval on the real line).
 Using the corollary,
 prove that $c_n = 0$ for all $n$ and hence $f$ is identically zero.
+\end{exercise}
+
+\begin{exercise} \label{exercise:antiderseries}
+Suppose $f \colon \Delta_R(p) \to \C$ is given by a convergent power
+series
+$f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n$.
+Antidifferentiate:
+Show that there exists a power series converging in $\Delta_R(p)$
+whose complex derivative is $f(z)$.
 \end{exercise}
 \end{exbox}
 
@@ -4282,7 +4289,9 @@ there exists a holomorphic $F \colon U \to \C$
 such that $F' = f$.
 \end{cor}
 
-And we get another corollary, which we will rather state
+Compare the corollary with \exerciseref{exercise:antiderseries}, which we
+proved for power series, but only in a disc.
+We get another corollary, which we will rather state
 as a theorem, as it is one of the fundamental results.
 
 \begin{thm}[Cauchy's theorem for star-like domains]
