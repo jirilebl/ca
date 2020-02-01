@@ -3140,8 +3140,7 @@ which converges in $\Delta_R(p)$.
 \end{prop}
 
 \begin{proof}
-Without loss of generality, let $p=0$.  Fix $r$ such that $0 < r < R$.
-Now fix $z_0 \in \Delta_r(0)$.
+Without loss of generality, let $p=0$.
 We differentiate $z^n$ at $z_0$ by considering the difference
 quotient
 \begin{equation*}
@@ -3153,7 +3152,7 @@ z^k z_0^{n-1-k} ,
 which goes to $n z_0^{n-1}$ as $z \to z_0$.
 
 With that out of the way, let us try to apply it to $f$
-term-wise:
+term-wise.  As long as $z_0$ and $z$ are in $\Delta_R(0)$, then
 \begin{equation*}
 \frac{f(z) - f(z_0)}{z-z_0}
 =
@@ -3167,7 +3166,9 @@ at $z_0$.
 It is continuous provided that the series above
 %(the series whose terms are $c_n z_0^k z^{n-1-k}$)
 converges uniformly for $z$ in a
-neighborhood of $z_0$.  Suppose $0 < s < r$ and $z_0$ and $z$ are
+neighborhood of $z_0$.
+
+Let $r$ and $s$ be such that $0 < s < r < R$ and suppose that $z_0$ and $z$ are
 in $\Delta_s(0)$.
 \begin{equation*}
 %\abs{c_n \frac{z^n-z_0^n}{z-z_0}}
@@ -3199,7 +3200,7 @@ the root test shows that
 %\begin{equation*}
 %\sum_{n=1}^\infty n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1}
 %\end{equation*}
-$\sum n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1}$
+$\sum n \sabs{c_n} s^{n-1}$
 converges.
 Hence the series for the difference quotient,
 \begin{equation*}
@@ -4171,6 +4172,12 @@ Let $X \subset \C$ be a closed convex set and $\xi \in \partial X$.
 Prove that $X$ is an intersection of closed half-spaces (see previous
 exercise).
 \end{exercise}
+
+\begin{exercise}
+Union of convex sets is normally not convex, but if $\{ X_j \}$ is a
+sequence of convex sets such that $X_j \subset X_{j+1}$, then
+prove that the union $\bigcup_j X_j$ is convex.
+\end{exercise}
 \end{exbox}
 
 \subsection{Cauchy for star-like sets}
@@ -4289,9 +4296,7 @@ there exists a holomorphic $F \colon U \to \C$
 such that $F' = f$.
 \end{cor}
 
-Compare the corollary with \exerciseref{exercise:antiderseries}, which we
-proved for power series, but only in a disc.
-We get another corollary, which we will rather state
+We also get another corollary, which we will rather state
 as a theorem, as it is one of the fundamental results.
 
 \begin{thm}[Cauchy's theorem for star-like domains]
