@@ -3261,7 +3261,7 @@ Let $f \colon \Delta_R(p) \to \C$ be defined by a convergent power series
 f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
 \end{equation*}
 Then $f$ is infinitely complex differentiable in $\Delta_R(p)$,
-and the $n$\textsuperscript{th} derivative is given by
+and the $k$\textsuperscript{th} derivative is given by
 \begin{equation*}
 f^{(k)}(z) = \sum_{n=k}^\infty n(n-1)\cdots(n-k+1) c_n {(z-p)}^{n-k} ,
 \end{equation*}
@@ -3428,6 +3428,19 @@ given $f(z_0) = c$ is unique if it exists.
 \end{exercise}
 \end{exbox}
 
+One of the downsides of analytic functions is that there are no compactly
+supported analytic functions on $\C$.  The support of a function $f \colon U
+\to \C$ is the closure of $\{ z \in U : f(z) \not= 0 \} = U \setminus Z_f$.
+
+\begin{exbox}
+\begin{exercise}
+Let $U \subset \C$ be a domain and $f \colon U \to \C$ is analytic and
+is not identically zero.
+Show that the support of $f$ is $U$.
+In particular, the support cannot be compact.
+\end{exercise}
+\end{exbox}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3530,8 +3543,8 @@ function of the whole closed integral.
 Let us compute the most important example of a line integral.
 
 \begin{example}
-Let $\gamma \colon [0,2\pi] \to \C$ be given by $\gamma(t) = e^{it}$ be
-the unit circle oriented counterclockwise.  See \figureref{fig:circlepath}.
+Let $\gamma \colon [0,2\pi] \to \C$ be given by $\gamma(t) = r e^{it}$ be
+the circle of radius $r$ oriented counterclockwise.  See \figureref{fig:circlepath}.
 For $n \in \Z$, we claim that
 \begin{equation*}
 \int_\gamma z^n \, dz
@@ -3544,24 +3557,34 @@ For $n \in \Z$, we claim that
 
 \begin{myfig}
 \includegraphics{figures/circlepath}
-\caption{The path $\gamma$ traversing the unit circle.\label{fig:circlepath}}
+\caption{The path $\gamma$ traversing the circle.\label{fig:circlepath}}
 \end{myfig}
 
-First, $\gamma'(t) = i e^{it}$.
+First, $\gamma'(t) = i r e^{it}$.
 To prove the claim we compute
 \begin{equation*}
 \int_\gamma z^n \, dz
 =
 \int_0^{2\pi}
-e^{int} i e^{it} \, dt
+r^n
+e^{int} i r e^{it} \, dt
 =
-i 
+i r^{n+1}
 \int_0^{2\pi}
 e^{i(n+1)t} \, dt .
 \end{equation*}
-The result follows as the integral above is zero (write it in terms of sines and
-cosines) unless $n+1 = 0$, in which case, the integral is $2\pi$.
+The result follows as the integral on the right hand side above is zero
+(write it in terms of sines and cosines) unless $n+1 = 0$,
+in which case, the integral 
+is $2\pi$ and $r^{n+1} = 1$.  Note in particular that the value of the
+integral does not depend on $r$.
 \end{example}
+
+\begin{exbox}
+\begin{exercise}
+Prove that if $k\not= 0$ then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
+\end{exercise}
+\end{exbox}
 
 Our line integral definition above is equivalent to the definition you
 have seen in multivariable calculus.  Actually it is a special case of it.
@@ -3581,7 +3604,9 @@ Then
 \end{split}
 \end{equation*}
 In the second line you should recognize the definition of a line integral
-$\int_\gamma P\,dx + Q \, dy$ from calculus.
+$\int_\gamma P\,dx + Q \, dy$ from calculus.  An arbitrary
+line integral in the plane can be obtained if we also include $d\bar{z}$.  See the
+exercise below.
 
 \begin{exbox}
 \begin{exercise}
@@ -3604,8 +3629,8 @@ morally important, is actually more of a technicality so that we only have
 to refer to the image rather than the actual path parametrization, we will
 leave its proof as an exercise.
 
-\begin{prop}[Reparametrization]
-\index{reparametrization of paths}%
+\begin{prop}[Reparametrization]\index{reparametrization of paths}%
+\pagebreak[2]
 Suppose $\gamma \colon [a,b] \to \C$ and $\alpha \colon [c,d] \to \C$ are
 piecewise $C^1$ paths that are one-to-one and
 $\gamma\bigl([a,b]\bigr) = \alpha\bigl([c,d]\bigr)$.
