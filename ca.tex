@@ -922,7 +922,7 @@ z \in \C : \Im z > 0
 \bigr\} .
 \end{equation*}
 Things done on the unit disc can just as well be done on the upper half-plane.
-We will see in a moment that $\bD$ and $\bH$ are equivalent in a
+We will see in a moment that $\D$ and $\bH$ are equivalent in a
 very nice way.
 
 The following definition is perhaps somewhat unnecessary, but it is so much
@@ -1439,13 +1439,13 @@ $\sabs{f(z)} > <$ whenever $\sabs{z-z_0} < \delta$.
 \end{exercise}
 
 \begin{exercise}
-Show that $\lim_{z\to\infty} f(z) = L$ for some $L \in \C_\infty$ if and only if
-$\lim_{z \to 0} f(\nicefrac{1}{z}) = L$.
+Show that $\lim\limits_{z\to\infty} f(z) = L$ for some $L \in \C_\infty$ if and only if
+$\lim\limits_{z \to 0} f(\nicefrac{1}{z}) = L$.
 \end{exercise}
 
 \begin{exercise}
-Show that $\lim_{z\to z_0} f(z) = \infty$ for some $z_0 \in \C_\infty$ if and only if
-$\lim_{z \to z_0} \frac{1}{f(z)} = 0$.
+Show that $\lim\limits_{z\to z_0} f(z) = \infty$ for some $z_0 \in \C_\infty$ if and only if
+$\lim\limits_{z \to z_0} \frac{1}{f(z)} = 0$.
 \end{exercise}
 \end{exbox}
 
@@ -1459,9 +1459,9 @@ Suppose $P(z) = a_d z^d + a_{d-1} z^{d-1} + \cdots + a_1 z + a_0$ be
 a polynomial where $a_0,\ldots,a_d \in \C$.  Prove that if $d \geq 1$
 and $a_d \not=0$ ($P$ is nonconstant),
 then $\lim_{z \to \infty} P(z) = \infty$.
-Hint: Assume $a_d = 1$, then study
-$\abs{\frac{a_{d-1} z^{d-1} + \cdots + a_1 z + a_0}{z^d}}$ to show that
-$\abs{P(z)} \geq \frac{1}{2} \sabs{z}^d$.
+Hint: If $a_d = 1$, then using
+$\abs{\frac{a_{d-1} z^{d-1} + \cdots + a_1 z + a_0}{z^d}}$, one finds
+$\abs{P(z)} \geq \frac{1}{2} \sabs{z}^d$ for large $z$.
 \end{exercise}
 \end{exbox}
 
@@ -1482,6 +1482,25 @@ right hand side we tacitly use the Riemann sphere sense ($z$ seems complex).
 This could, obviously, cause confusion.
 In this book, infinite limits are going to be in the Riemann sphere sense
 unless either otherwise noted or obvious.
+
+\medskip
+
+The arithmetic that one can 
+reasonably define with the Riemann sphere $\infty$ is quite different from
+the $\infty$ of the extended reals.
+No additions or subtractions make sense here.
+Even something like
+$\infty+\infty$ does not make sense, even though this is common for the
+extended reals:  For example, if $f(z) = z$ and $g(z) = -z$,
+then $\lim_{z \to \infty} f(z) = \infty$,
+$\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
+\bigl(f(z)+g(z)\bigr) = 0$.
+
+On the other hand it is reasonable to define $\frac{c}{0} = \infty$ for
+any $c \not= 0$, $\frac{c}{\infty} = 0$ for any $c \not= \infty$,
+and $c \cdot \infty = \infty$ for any $c \not= 0$.
+Just make sure to definitely avoid doing any additions and subtractions of
+infinities!
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1700,7 +1719,7 @@ plane geometry to see this means that $z \in \bH$.  See
 
 \begin{myfig}
 \subimport*{figures/}{cayleydisc.pdf_t}
-\caption{Why does the Cayley map take $\bH$ to $\bD$.\label{fig:cayleydisc}}
+\caption{Why does the Cayley map take $\bH$ to $\D$.\label{fig:cayleydisc}}
 \end{myfig}
 
 Any LFT is bijective if thought of as a map from $\C_\infty$
@@ -2493,7 +2512,6 @@ $\bar{f}$ is holomorphic.  Show that $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
-\pagebreak[2]
 Prove a Wirtinger operator version of
 the chain rule\index{chain rule!Wirtinger operators}
 for real differentiable
@@ -2710,7 +2728,7 @@ $S = \{ z \in \C : 0 < \Im z < \pi \}$ to
 the upper half plane $\bH = \{ z \in \C : \Im z > 0 \}$.
 \item
 Find a biholomorphism from the horizontal strip
-$S$ to the unit disc $\bD$.
+$S$ to the unit disc $\D$.
 \end{exparts}
 \end{exercise}
 
@@ -2743,8 +2761,7 @@ $\det Df\big|_p = \abs{\frac{\partial f}{\partial z}(p)}^2 -
 \begin{exercise} \label{exercise:segmentcomplement}
 Consider $f(z) = z+ \frac{1}{z}$.  Show that $f$ takes $\C \setminus
 \overline{\D}$ biholomorphically to $\C \setminus [-2,2]$, and it also takes
-$\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.  Thus
-construct a biholomorphism between $\C \setminus [-2,2]$.
+$\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.
 \end{exercise}
 \end{exbox}
 
@@ -2804,9 +2821,9 @@ $\frac{-\pi}{2} \leq \operatorname{Arg} z \leq \frac{\pi}{2}$, $\sabs{z} <
 Prove that
 \begin{exparts}
 \item
-If $\sabs{z}<1$, then $\lim_{n\to \infty} z^n = 0$.
+If $\sabs{z}<1$, then $\lim\limits_{n\to \infty} z^n = 0$.
 \item
-If $\sabs{z}>1$, then $\lim_{n\to \infty} z^n = \infty$.
+If $\sabs{z}>1$, then $\lim\limits_{n\to \infty} z^n = \infty$.
 \item
 If $z \not= 1$ is such that $\sabs{z}=1$, then $z^n$ diverges as $n \to
 \infty$.
@@ -2966,6 +2983,14 @@ arbitrary,
 the series converges (absolutely) in $\Delta_R(p)$.
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+Prove the triangle inequality for series.  If $\sum_{n=0}^\infty c_n$
+converges, then $\abs{\sum_{n=0}^\infty c_n} \leq \sum_{n=0}^\infty
+\sabs{c_n}$.
+\end{exercise}
+\end{exbox}
+
 The convergence inside the radius of convergence is even nicer than just absolute.
 Let $K \subset \C$ be a set.
 A power series $\sum c_n {(z-p)}^n$
@@ -3111,7 +3136,7 @@ Prove that polynomials $P(z)$ are analytic.
 \begin{exercise}
 Prove that $\frac{1}{z}$ is analytic in $\C \setminus \{ 0 \}$
 by explicitly writing down 
-a power series at any $z_0 \in \C \setminus \{ 0 \}$
+a power series at any $p \in \C \setminus \{ 0 \}$
 using the geometric series.
 \end{exercise}
 \end{exbox}
@@ -3538,8 +3563,8 @@ The result follows as the integral above is zero (write it in terms of sines and
 cosines) unless $n+1 = 0$, in which case, the integral is $2\pi$.
 \end{example}
 
-We remark that our line integral definition is equivalent to the definition you
-have seen in multivariable calculus.
+Our line integral definition above is equivalent to the definition you
+have seen in multivariable calculus.  Actually it is a special case of it.
 Let $\gamma(t) = \bigl( x(t), y(t) \bigr)$, for $t \in [a,b]$, be a path,
 and let $dz = dx + i\, dy$.
 Then
@@ -3626,7 +3651,7 @@ Any one-to-one piecewise $C^1$ path $\gamma \colon [a,b] \to \C$
 can be reparametrized
 to a $C^1$ path.  That is, there exists a strictly increasing
 continuous $h \colon [a,b] \to [a,b]$ such that
-$\gamma \circ h$ is $C^1$.  Hint: Make the derivative at the endpoints
+$\gamma \circ h$ is $C^1$.  Hint: Make the derivative at the ``corners''
 zero.
 \end{exercise}
 
@@ -4048,7 +4073,7 @@ where $f$ is not complex differentiable.
 
 Let $\ell$ be the sum of the length of the sides of $T$.
 Cut $T$ into four subtriangles
-$T_1$, $T_2$, $T_3$, $T_4$ by cutting each side in half.  See
+$T_1$, $T_2$, $T_3$, $T_4$ by cutting each side of $T$ in half.  See
 \figureref{fig:trianggoursat}.
 \begin{myfig}
 \subimport*{figures/}{trianggoursat.pdf_t}
@@ -4072,8 +4097,9 @@ c =
 +
 \int_{\partial T_4} f(z) \, dz } .
 \end{equation*}
-So one of the integrals must have modulus at least $\frac{c}{4}$.  Let $T^1$
-be that triangle.
+One of the four integrals, say that over $\partial T_j$,
+must have modulus at least $\frac{c}{4}$.  Label
+that triangle $T^1 = T_j$:
 \begin{equation*}
 \abs{\int_{\partial T^1} f(z) \, dz } \geq \frac{c}{4} .
 \end{equation*}
@@ -4110,13 +4136,14 @@ Let us write
 f(z) = f(z_0) + \alpha (z-z_0) + g(z) .
 \end{equation*}
 If $f$ was differentiable, we could choose an $\alpha$ such that
-$\frac{g(z)}{z-z_0}$ goes to zero.
-So let us prove that it doesn't for any $\alpha$.  If $g(z_0) \not= 0$,
+$\frac{g(z)}{z-z_0}$ goes to zero as $z \to z_0$.
+So let us prove that it doesn't for any $\alpha$.  Fix some $\alpha$,
+and thus some $g$.  If $g(z_0) \not= 0$,
 then we are done, so assume $g(z_0) = 0$.
 Cauchy's theorem for polynomials says
 \begin{equation*}
 \int_{\partial T^k} f(z) \, dz =
-\int_{\partial T^k} f(z_0) + \alpha (z-z_0) + g(z) \, dz =
+\int_{\partial T^k} \bigl( f(z_0) + \alpha (z-z_0) + g(z) \bigr) \, dz =
 \int_{\partial T^k} g(z) \, dz .
 \end{equation*}
 And so
@@ -4157,7 +4184,7 @@ As $z_k \to z_0$, we find that $\frac{g(z)}{z-z_0}$ does not
 go to zero, so $f$ is not complex differentiable at $z_0$.
 \end{proof}
 
-A triangle is one type of convex sets, but as these kind of sets come up
+A triangle is one type of a convex set, but as convex sets come up
 often, let us give some basic properties of convex sets as exercises.
 They may be good to do in order and possibly use previous ones in the next
 ones.
