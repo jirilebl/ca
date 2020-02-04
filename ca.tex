@@ -3210,7 +3210,7 @@ n
 \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1} .
 \end{equation*}
 The expression
-$\sabs{c_n} r^{n-1}$ is bounded by some $M$ because the series for $f$ converges
+$\sabs{c_n} r^{n-1}$ is bounded by some $M > 0$ because the series for $f$ converges
 in $\Delta_R(0)$ and $r < R$.
 As
 \begin{equation*}
@@ -3225,7 +3225,8 @@ n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1}
 \sqrt[n]{
 n M {\left(\frac{s}{r}\right)}^{n-1}
 }
-\to \frac{s}{r} < 1 ,
+\quad\underset{\text{as } n \to \infty}{\to}\quad
+\frac{s}{r} < 1 ,
 \end{equation*}
 the root test shows that
 %\begin{equation*}
@@ -3543,7 +3544,7 @@ function of the whole closed integral.
 Let us compute the most important example of a line integral.
 
 \begin{example}
-Let $\gamma \colon [0,2\pi] \to \C$ be given by $\gamma(t) = r e^{it}$ be
+Let $\gamma \colon [0,2\pi] \to \C$ given by $\gamma(t) = r e^{it}$ be
 the circle of radius $r$ oriented counterclockwise.  See \figureref{fig:circlepath}.
 For $n \in \Z$, we claim that
 \begin{equation*}
@@ -3669,6 +3670,14 @@ For general $f$, cut the path into small enough pieces so that
 on each piece you can approximate $f$ by a constant and apply the
 last part.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Prove a version of reparametrization for closed paths.  Prove the
+conclusion of the proposition modifying the injectivity hypothesis to
+only that $\gamma|_{(a,b]}$ and
+$\alpha|_{(c,d]}$ are one-to-one, and suppose further
+$\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \end{exercise}
 
 \begin{exercise}
@@ -4625,7 +4634,7 @@ $\sabs{f(re^{it})}=f(re^{it})$.
 \begin{cor}[Maximum principle, part deux]
 \index{maximum principle!holomorphic functions}%
 Suppose $U \subset \C$ is open and bounded (so $\overline{U}$ is compact).
-If $f \colon \overline{U} \to \C$ is continuous, and the restriction $f|_{U}$
+If $f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
 is holomorphic, then $\sabs{f(z)}$ achieves a maximum on $\partial U$.  In
 other words,
 \begin{equation*}
@@ -4647,6 +4656,27 @@ $f \colon U \to \C$ is holomorphic.
 If $\sabs{f(z)}$ achieves a minimum at $p \in U$ and $f(p) \not= 0$,
 then $f$ is constant.  Also show by example that the hypothesis
 $f(p) \not= 0$ is necessary.
+\end{exercise}
+
+\begin{exercise}[Maximum principle, part trois]
+Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ is a holomorphic
+function, and $M > 0$ is a number such that
+$\limsup_{z \to p} \sabs{f(z)} \leq M$ for all $p \in \partial U$,
+and if $U$ is unbounded then also 
+$\limsup_{z \to \infty} \sabs{f(z)} \leq M$.  Prove that
+$\sabs{f(z)} \leq M$ for all $z \in U$.
+Note: For a real valued real-valued $g \colon U \to \R$,
+by definition
+$\limsup\limits_{z\to p} g(z) = \inf\limits_{r > 0} \sup \{ g(z) : z \in U
+\cap \Delta_r(p) \}$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a bounded domain,
+$f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
+is holomorphic, and there is a constant $M$ such that $\sabs{f(z)} = M$
+for all $z \in \partial U$.  Prove that $f$ is either constant or $f(z) = 0$
+for some $z \in U$.
 \end{exercise}
 \end{exbox}
 
@@ -4735,6 +4765,7 @@ d \zeta
 \\
 & =
 \sum_{n=0}^\infty
+\underbrace{
 \left(
 \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)}
@@ -4742,6 +4773,7 @@ d \zeta
 \,
 d \zeta 
 \right)
+}_{c_n}
 {(z-p)}^n .
 \end{split}
 \end{equation*}
