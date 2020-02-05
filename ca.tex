@@ -2954,7 +2954,7 @@ A useful criterion for the radius of convergence is that the sequence
 $\bigl\{ \sabs{c_n} r^n \bigr\}$ is
 bounded whenever $0 < r < R$.
 
-\begin{prop}
+\begin{prop} \label{prop:cnrnbounded}
 The series $\sum c_n {(z-p)}^n$ converges in $\Delta_{R}(p)$ for some
 $R > 0$ if and only if
 for every $r$ with
@@ -2982,6 +2982,16 @@ $\overline{\Delta_s(p)}$.  As $s$ and $r$ with $0 < s < r < R$ were
 arbitrary,
 the series converges (absolutely) in $\Delta_R(p)$.
 \end{proof}
+
+The proof is farily typical for convergence results of power series.
+Convergence in $\Delta_R(p)$, means boundedness of
+$\{ \sabs{c_n} r^n \}$ in a smaller $\Delta_r(p)$, which only gets us convergence
+in $\Delta_s(p)$.  See \figureref{fig:threediscs}.  But since $s$ and $r$
+are arbitrary we get convergence everywhere.
+\begin{myfig}
+\subimport*{figures/}{threediscs.pdf_t}
+\caption{The three discs from the convergence proof.\label{fig:threediscs}}
+\end{myfig}
 
 \begin{exbox}
 \begin{exercise}
@@ -3175,8 +3185,7 @@ quotient
 z^k z_0^{n-1-k} ,
 \end{equation*}
 which goes to $n z_0^{n-1}$ as $z \to z_0$.
-
-Let us try to apply this to $f$
+Let us apply formula to $f$
 term-wise.  As long as $z_0$ and $z$ are in $\Delta_R(0)$, then
 \begin{equation*}
 \frac{f(z) - f(z_0)}{z-z_0}
@@ -3193,6 +3202,7 @@ It is continuous provided that the series above
 converges uniformly for $z$ in a
 neighborhood of $z_0$.
 
+The setup will be just like in \figureref{fig:threediscs}.
 Let $r$ and $s$ be such that $0 < s < r < R$ and suppose that $z_0$ and $z$ are
 in $\Delta_s(0)$.
 \begin{equation*}
@@ -3239,7 +3249,7 @@ Hence the series for the difference quotient,
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k} ,
 \end{equation*}
 converges uniformly in $z$ on $\Delta_s(p)$, and
-we can swap the limit $z \to z_0$ with the series limit.  Thus
+we can swap the limit $z \to z_0$ with the series limit:
 \begin{equation*}
 \lim_{z \to z_0}
 \frac{f(z)-f(z_0)}{z-z_0}
@@ -3575,7 +3585,7 @@ i r^{n+1}
 e^{i(n+1)t} \, dt .
 \end{equation*}
 The result follows as the integral on the right hand side above is zero
-(write it in terms of sines and cosines) unless $n+1 = 0$,
+(write it in terms of sines and cosines, exercise below) unless $n+1 = 0$,
 in which case, the integral 
 is $2\pi$ and $r^{n+1} = 1$.  Note in particular that the value of the
 integral does not depend on $r$.
@@ -3737,7 +3747,7 @@ we define
 \begin{equation*}
 \int_\gamma f(z) \, \sabs{dz}
 \overset{\text{def}}{=}
-\int_a^b f\bigl( \gamma(t) \bigr) \sabs{\gamma'(t)} \, dt
+\int_a^b f\bigl( \gamma(t) \bigr) \sabs{\gamma'(t)} \, dt .
 \end{equation*}
 
 With this definition we can do some estimates on line integrals.
@@ -3759,14 +3769,18 @@ In particular, if $\sabs{f(z)} \leq M$ on $\gamma$ and $\ell = \int_\gamma ds
 \end{prop} 
 
 \begin{proof}
+We estimate,
 \begin{equation*}
 \abs{\int_\gamma f(z) \, dz}
 =
 \abs{\int_a^b f\bigl( \gamma(t) \bigr) \gamma'(t) \, dt}
 \leq
-\int_a^b \abs{ f\bigl( \gamma(t) \bigr) }  \sabs{ \gamma'(t) } \, dt .
+\int_a^b \abs{ f\bigl( \gamma(t) \bigr) }  \sabs{ \gamma'(t) } \, dt
+\leq
+M
+\int_a^b \sabs{ \gamma'(t) } \, dt .
+\qedhere
 \end{equation*}
-The statement follows.
 \end{proof}
 
 It is useful to combine paths; to have a certain ``arithmetic'' of paths.
@@ -3783,12 +3797,12 @@ on the image of both:
 \end{equation*}
 
 \begin{defn}
-A \emph{\myindex{chain}} is an expression
+A \emph{\myindex{chain}} in $U \subset \C$ is an expression
 \begin{equation*}
 \Gamma = a_1 \gamma_1 + \cdots + a_n \gamma_n ,
 \end{equation*}
 where $a_1,\ldots,a_n$ are numbers and $\gamma_1,\ldots,\gamma_n$
-are paths.  We integrate over such a chain as
+are paths in $U$.  We integrate over $\Gamma$ as
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz
 =
@@ -3799,18 +3813,14 @@ a_1 \int_{\gamma_1} f(z) \, dz +
 +
 a_n \int_{\gamma_n} f(z) \, dz .
 \end{equation*}
-We say a chain is \emph{in} $U \subset \C$ if the images
-of all the component paths are subsets of $U$.
-
-We consider two chains $\Gamma_1$ and $\Gamma_2$ in an
-open $U \subset \C$
+Two chains $\Gamma_1$ and $\Gamma_2$ in 
+$U$ are
 \emph{equivalent}\index{equivalent chains} if
 \begin{equation*}
 \int_{\Gamma_1} f(z) \, dz = 
 \int_{\Gamma_2} f(z) \, dz ,
 \end{equation*}
 for all continuous functions $f \colon U \to \C$.
-
 We define the \emph{\myindex{zero chain}} $0$ by defining 
 $\int_0 f(z) \, dz = 0$ for all continuous $f \colon U \to \C$.
 \end{defn}
@@ -3819,23 +3829,24 @@ The chain arithmetic is done in the obvious way as formal sums of paths:
 If $\Gamma_1 = 2 \gamma_1 + \gamma_2$ and $\Gamma_2 = 3 \gamma_2 +
 \gamma_3$, then $\Gamma_1 + \Gamma_2 = 2 \gamma_1 + 4 \gamma_2 + \gamma_3$.
 Similarly for scalar multiplication: $3 \Gamma_1 = 6 \gamma_1 + 3 \gamma_2$.
-In particular, we write $-\Gamma$ for $(-1)\Gamma$.
+We write $-\Gamma$ for $(-1)\Gamma$.
 A chain is equivalent to the zero chain if
 \begin{equation*}
 \int_\Gamma f(z)\, dz = 0
 \end{equation*}
 for all continuous $f$, and
 two chains are equivalent if $\Gamma_1 - \Gamma_2 = 0$.
-Our chains in this book are always composed of piecewise $C^1$ paths,
+Chains in this book are always composed of piecewise $C^1$ paths,
 although that is not the most general definition used in the literature.
 
 \begin{remark}
-The set where the continuous $f$ is defined is not a big deal.  We could
-take $f$ to be continuous on $U$, $\C$ or perhaps just the images of
+For the equivalence,
+the set where the continuous $f$ is defined is not a big deal.  We could
+take $f$ to be continuous on $U$, $\C$, or just the images of
 $\Gamma_1$ and $\Gamma_2$.
 By Tietze's extension theorem, any continuous function on a closed subset of
 $\C$ (such as the images of $\Gamma_1$ and $\Gamma_2$) extends to a
-continuous function on $\C$ (this theorem works in any metric space).
+continuous function on $\C$ (a theorem in any metric space).
 The way we defined things, we do not need Tietze.
 \end{remark}
 
@@ -3843,7 +3854,7 @@ The way we defined things, we do not need Tietze.
 It is important that the equivalence is for all continuous
 functions.  We will show later that if $U$ is say the disc, then for
 any closed $\Gamma$, $\int_\Gamma f(z) \, dz = 0$ for all holomorphic $f$.
-Clearly that should not always imply that $\Gamma$ is equivalent to the zero chain
+Clearly that should not imply that $\Gamma$ is equivalent to the zero chain
 (or a constant path).  See also \exerciseref{exercise:nonconstantnonzerochain}.
 \end{remark}
 
@@ -3932,16 +3943,14 @@ there is a constant $C$ such that
 $F(z) = G(z) + C$.
 \end{prop}
 
-The proof is left as an exercise.  Make sure to use that $U$ is a
-domain somewhere.
-
 \begin{exbox}
 \begin{exercise}
 Prove the proposition.
+Make sure to use that $U$ is a domain (connected) somewhere.
 \end{exercise}
 \end{exbox}
 
-We have antiderivatives, we have integrals.  We are in need of a
+We have antiderivatives.  We have integrals.  We are in need of a
 fundamental theorem.
 
 \begin{thm}[Fundamental theorem of calculus for line integrals]
@@ -3958,13 +3967,13 @@ F\bigl( \gamma(b) \bigr) - F\bigl( \gamma(a)
 \end{thm}
 
 \begin{proof}
-We have
+We compute:
 \begin{equation*}
 \int_\gamma F'(z) \, dz
 =
 \int_a^b F'\bigl(\gamma(t)\bigr) \gamma'(t) \, dt 
 =
-\int_a^b \frac{d}{dt} \bigl( F\bigl(\gamma(t)\bigr) \bigr) \, dt 
+\int_a^b \frac{d}{dt} \Bigl( F\bigl(\gamma(t)\bigr) \Bigr) \, dt 
 =
 F\bigl( \gamma(b) \bigr) - F\bigl( \gamma(a) \bigr) .
 \end{equation*}
@@ -4065,24 +4074,30 @@ where $t_1,t_2,t_3 \in [0,1]$ and $t_1+t_2+t_3 = 1$.
 Another way to define
 the convex hull is the intersection of all convex sets containing $\{ a,b,c \}$.
 In particular, $T$ is the smallest convex set containing the vertices.
-Do note, that we have defined a triangle as the solid triangle, including
+Do note that we have defined a triangle as the solid triangle, including
 the inside.
 
-We order the vertices so that $T$ has positive orientation.
-That is, as we travel from $a$ to $b$ to $c$ the inside of the triangle 
+We order the vertices so that the boundary $\partial T$ has positive orientation;
+as we travel from $a$ to $b$ to $c$ the inside of the triangle 
 is on the left.  More precisely if we translate so that $a$ is
-at the origin and rotate so that $b$ is on the positive real line, then $c$
-should have positive imaginary part.  We define the boundary chain (cycle)
+the origin and rotate so that $b$ is on the positive real line, then $c$
+should have positive imaginary part.  See \figureref{fig:triang}.  We define the boundary chain (cycle)
 of $T$ as
 \begin{equation*}
 \partial T = [a,b] + [b,c] + [c,a] .
 \end{equation*}
+\begin{myfig}
+\subimport*{figures/}{triang.pdf_t}
+\caption{Positively oriented triangle.%
+\label{fig:triang}}
+\end{myfig}
 
 \begin{thm}[Cauchy--Goursat\footnote{%
 What makes this the Goursat theorem
 rather than just another statement of Cauchy's theorem
 is that in the proof, we are only assuming that the complex derivative exists
 and not that it is continuous, which is what Cauchy assumed.}]\index{Cauchy--Goursat theorem}
+\pagebreak[2]
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is
 holomorphic,
 %complex differentiable everywhere (holomorphic),
@@ -5100,9 +5115,9 @@ algebra}
 
 It may seem like we are cramming quite a bit into one subsection, but
 we have all the tools making three fundamental results just pop out
-with little work.  First, using the triangle inequality on
-the Cauchy integral formula we obtain an estimate on the size of the
-coefficients of the series.  These estimates immediately give
+with little work.  The triangle inequality on
+the Cauchy integral formula obtains an estimate on the size of the
+coefficients of the power series.  These estimates immediately give
 Liouville's theorem on entire holomorphic functions, which at once gives the
 fundamental theorem of algebra.
 
@@ -5133,6 +5148,9 @@ Then for all $n$
 \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n}} .
 \end{equation*}
 \end{thm}
+
+In other words, the sequence $\bigl\{ \sabs{c_n} r^n \bigr\}$ is bounded by
+$\snorm{f}_{\partial \Delta_r(p)}$.  Compare to \propref{prop:cnrnbounded}.
 
 \begin{proof}
 The proof is a brute force estimation.  Parametrize 
@@ -5297,9 +5315,9 @@ then $P$ is an automorphism of $\C$, that is $P(z) = az+b$ and $a \not= 0$.
 
 \subsection{Holomorphic functions via integrals}
 
-It is common to define functions using line integrals.  For example,
+It is common to define functions using line integrals, for example,
 the Cauchy integral itself (usually called the Cauchy transform).
-First, a general lemma about holomorphicity of functions defined by integrals.
+%First, a general lemma about holomorphicity of functions defined by integrals.
 
 \begin{lemma} \label{lemma:holfuncbyintegral}
 Suppose $U \subset \C$ is open, and
@@ -5310,7 +5328,7 @@ holomorphic.  Then
 h(z) =
 \int_0^1 \psi(z,t) \, dt
 \end{equation*}
-is a holomorphic function $U$.
+is a holomorphic function on $U$.
 \end{lemma}
 
 This kind of lemma has two common proofs,
@@ -5629,7 +5647,7 @@ f(z) = \sum_{n=1}^\infty c_n z^n = z \sum_{n=1}^\infty c_n z^{n-1} = z g(z) .
 where $g(z)$ is a holomorphic function of $\D$.  For $z \in \partial \Delta_r(0)$
 where $r < 1$, we have
 \begin{equation*}
-\sabs{g(z)} \leq \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r}
+\sabs{g(z)} \leq \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r} .
 \end{equation*}
 The maximum principle says that the inequality also holds in $\Delta_r(0)$.
 Taking limit as $r \to 1$ shows that $\sabs{f(z)} \leq \sabs{z}$ for all $z
