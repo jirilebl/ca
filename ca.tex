@@ -4113,7 +4113,8 @@ would not be true.
 
 \begin{proof}
 We proceed by contrapositive.
-Suppose there is a triangle $T$ over which the integral is not zero,
+Suppose $f$ is at least continuous, and 
+suppose there is a triangle $T$ over which the integral is not zero,
 \begin{equation*}
 \abs{\int_{\partial T} f(z) \, dz} = c \not= 0 .
 \end{equation*}
@@ -4232,6 +4233,23 @@ $\sabs{z_k-z_0} \leq \frac{d}{2^k}$ and
 As $z_k \to z_0$, we find that $\frac{g(z)}{z-z_0}$ does not 
 go to zero, so $f$ is not complex differentiable at $z_0$.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+A closed rectangle $R \subset \C$ is a set
+$\bigl\{ z \in \C : a \leq \Re z \leq b , c \leq \Im z \leq d \bigr\}$
+for real numbers $a < b$, $c < d$.  The boundary
+is again oriented counterclockwise.  Prove Cauchy--Goursat for rectangles
+(replace $T$ in the theorem with $R$).
+\end{exercise}
+
+\begin{exercise}
+Let $T$ be a triangle with 0 in the interior, say the triangle with vertices
+$-1-i$, $1-i$, and $i$.  Compute $\int_{\partial T} \frac{1}{z} \, dz$,
+notice that it is nonzero, and argue why it does not violate the
+Cauchy--Goursat theorem.
+\end{exercise}
+\end{exbox}
 
 A triangle is one type of a convex set, but as convex sets come up
 often, let us give some basic properties of convex sets as exercises.
@@ -4423,6 +4441,13 @@ Show that $\int_\gamma f(z) \, dz = 0$.
 Let $\gamma$ be the upper semicircle of the unit circle oriented from $1$ to
 $-1$.   Suppose $f \colon \C \to \C$ is holomorphic, and $\int_0^1 f(x^2) \,
 dx = \pi$.  Compute $\int_\gamma f(z^2) \, dz$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U_1, U_2 \subset \C$ are star-like domains such that $U_1 \cap U_2$
+is connected.  Prove Cauchy's theorem for $U = U_1 \cup U_2$, that is,
+if $f \colon U \to \C$ is holomorphic and $\gamma$ is a cycle in $U$
+then $\int_\gamma f(z) \, dz = 0$.
 \end{exercise}
 \end{exbox}
 
@@ -4929,7 +4954,7 @@ f^{(k)}(z)
 \int_{\partial \Delta_r(p)}
 \frac{f(\zeta)}{(\zeta-z)^{k+1}}
 \,
-d \zeta
+d \zeta .
 \end{equation*}
 \end{thm}
 
@@ -4975,7 +5000,8 @@ d \zeta .
 \end{split}
 \end{equation*}
 Here, we are really passing the partial derivatives in the real and
-imaginary parts (the $x$ and the $y$) under the integral, which can be done by 
+imaginary parts (the $x$ and the $y$ if $z=x+iy$) under the integral,
+which can be done by 
 the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
 Actually it requires \exerciseref{exercise:severalvariableLiebniz},
 but that is a simple generalization.  We have used that the
@@ -5490,6 +5516,9 @@ is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$
 which is not differentiable.  And for infinitely differentiable functions?
 Just forget it.  It is the right topology for continuous functions, as you
 should recall from your basic analysis class.
+That is, a sequence of continuous functions converging uniformly on compact
+subsets converges to a continuous limit.  Interestingly, that works for
+holomorphic functions too.
 
 \begin{thm} \label{thm:unifoncompact}
 Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
@@ -5501,7 +5530,7 @@ $f_n^{(k)}$ converges uniformly on compact subsets to $f^{(k)}$.
 
 \begin{proof}
 Let $p \in U$ be fixed.  Take closed disc $\overline{\Delta_r(p)} \subset
-U$.  For any fixed $z \in \Delta_r(p)$ we have
+U$.  For any $z \in \Delta_r(p)$,
 \begin{equation*}
 f_n(z) = \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)} \frac{f_n(\zeta)}{\zeta-z} \, d\zeta .
@@ -5530,13 +5559,16 @@ to obtain
 f(z) = \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta .
 \end{equation*}
-And this formula holds for all $z \in \Delta_r(p)$.  So $f$ is equal to
-its Cauchy transform
+And this formula holds for all $z \in \Delta_r(p)$.
+The function $f|_{\partial \Delta_r(p)}$ is continuous by uniform
+convergence, and $f$ on $\Delta_r(p)$ is equal to
+the Cauchy transform
 $C[f|_{\partial \Delta_r(p)}]$, which is holomorphic.  In other words,
 $f$ is holomorphic.
 
 Suppose $K \subset U$ is compact.  Then the distance the distance of
-$K$ and $\partial U$ is positive, say $d > 0$.  Consider 
+$K$ and $\partial U$ is positive, say $d > 0$.  If $U=\C$, then the distance
+to $\partial U$ is infinite, so take $d$ to be any positive number.  Consider 
 \begin{equation*}
 K' = \bigcup_{p \in K} \overline{\Delta_{d/2}(p)} .
 \end{equation*}
@@ -5555,42 +5587,58 @@ then $p$ is strictly further than
 $\frac{d}{2}$ from $K$, and thus so is every point in some neighborhood of
 $p$, so complement of $K'$ is open.
 
-As $\{ f_n \}$ converges uniformly on compact subsets it converges uniformly
-on $K'$.  Now for any $p \in K$, write
-\begin{equation*}
-f_n^{(k)}(p) =
-\frac{1}{2\pi i}
-\int_{\partial \Delta_r(p)}
-\frac{f_n(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta .
-\end{equation*}
-As before, 
-$\zeta \mapsto \frac{f_n(\zeta)}{{(\zeta-z)}^{k+1}}$ converges uniformly
-on $\partial \Delta_r(p)$, and so we can take the limit of the right hand
-side under the integral:
+As $\{ f_n \}$ converges uniformly on compact subsets, it converges uniformly
+on $K'$.  So given $\epsilon > 0$ find an $N$ such that for all $n \geq N$
+we have $\sabs{f(z)-f_n(z)} < \epsilon$ for all $z \in K'$.
+For any $p \in K$, we expand the $k$\textsuperscript{th} derivative
+using Cauchy's formula for derivatives and estimate:
 \begin{equation*}
 \begin{split}
-\lim_{n\to\infty}
-f_n^{(k)}(p) 
+\abs{
+f_n^{(k)}(p)
+-
+f^{(k)}(p)
+}
 & =
-\lim_{n\to\infty}
+\abs{
 \frac{1}{2\pi i}
-\int_{\partial \Delta_r(p)}
-\frac{f_n(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta .
+\int_{\partial \Delta_{d/2}(p)}
+\frac{f_n(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta 
+-
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{d/2}(p)}
+\frac{f(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta 
+}
 \\
 & =
+\abs{
 \frac{1}{2\pi i}
-\int_{\partial \Delta_r(p)}
-\frac{f(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta 
+\int_{\partial \Delta_{d/2}(p)}
+\frac{f_n(\zeta)-f(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta 
+}
+\\
+& \leq
+\frac{1}{2\pi}
+\int_{\partial \Delta_{d/2}(p)}
+\frac{\sabs{f_n(\zeta)-f(\zeta)}}{{\sabs{\zeta-p}}^{k+1}} \, \sabs{d\zeta}
+\\
+&
+\leq
+\frac{1}{2\pi}
+\int_{\partial \Delta_{d/2}(p)}
+\frac{\epsilon}{{(d/2)}^{k+1}} \, \sabs{d\zeta}
 =
-f^{(k)}(p) . \qedhere
+\frac{2^{k+1}\pi}{d^k} 
+\epsilon .
 \end{split}
 \end{equation*}
+Thus $f_n^{(k)}$ converges uniformly to $f^{(k)}$ on $K$.
 \end{proof}
 
 The fact that we can write all the derivatives as
 integrals\footnote{Complex analysis allows you to integrate to find the
 derivative and to differentiate to find an integral.  Now tell that to your
-calculus students.}
+calculus students.} of the function
 allows us to use a far weaker topology than one would think.
 
 \begin{exbox}
@@ -5600,9 +5648,24 @@ Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \overline{U} \to
 the restrictions $f_n|_{\partial U}$ converge uniformly.  Prove that
 $f_n$ converge uniformly on $\overline{U}$ to a continuous
 function $f \colon \overline{U} \to \C$ that is holomorphic in $U$.
-Hint: First use the maximum principle to show that $\{ f_n \}$
+Hint: First use the maximum principle to show that the sequence
+$\{ f_n \}$
 is Cauchy at each point (actually uniformly Cauchy).  Feel free to use the
 fact that uniform limit of continuous functions is continuous.
+\end{exercise}
+
+\begin{exercise}
+The functions $f_n(z) = \frac{\sin(nz)}{n}$.  Note that $f_n|_{\R}$ converge
+uniformly.
+\begin{exparts}
+\item
+Show that for no $a < b$ is there a $\delta > 0$ such that
+$f_n$ converges uniformly on the rectangle $R = \bigl\{ z \in \C : a \leq \Re z
+\leq b , -\delta \leq \Im z \leq \delta \bigr\}$.
+\item
+In any $[a,b] \subset \R$, find 
+an $x$ such that $f_n'(x)$ does not converge.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -5621,7 +5684,8 @@ Schwarz's lemma and
 the Riemann
 mapping theorem (which we will see later).  My advisor
 felt compelled to remind me that there do exist other theorems in complex
-analysis.}.
+analysis.}.  Any disc can be translated and rescaled to $\D$, and any
+bounded function can be rescaled to be valued in $\D$.
 
 \begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}
 \pagebreak[1]
@@ -5644,16 +5708,18 @@ origin, and hence
 \begin{equation*}
 f(z) = \sum_{n=1}^\infty c_n z^n = z \sum_{n=1}^\infty c_n z^{n-1} = z g(z) .
 \end{equation*}
-where $g(z)$ is a holomorphic function of $\D$.  For $z \in \partial \Delta_r(0)$
+where $g(z)$ is a holomorphic function of $\D$.  For
+$z \in \partial \Delta_r(0) \setminus \{ 0 \}$
 where $r < 1$, we have
 \begin{equation*}
-\sabs{g(z)} \leq \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r} .
+\sabs{g(z)} = \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r} .
 \end{equation*}
 The maximum principle says that the inequality also holds in $\Delta_r(0)$.
-Taking limit as $r \to 1$ shows that $\sabs{f(z)} \leq \sabs{z}$ for all $z
+Taking limit as $r \to 1$ shows that $\sabs{f(z)} \leq \sabs{z}$ or
+$\sabs{g(z)} \leq 1$ for all $z
 \in \D$.  Then
 \begin{equation*}
-\sabs{f'(0)}
+\abs{f'(0)}
 =
 \abs{\lim_{z \to 0} \frac{f(z)}{z}} = \sabs{g(0)} \leq 1 .
 \end{equation*}
@@ -5661,7 +5727,6 @@ Taking limit as $r \to 1$ shows that $\sabs{f(z)} \leq \sabs{z}$ for all $z
 If $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus \{ 0 \}$,
 then $g$ attains a maximum inside $\D$ and hence is constant.
 It must be that $f(z) = e^{i \theta} z$.
-
 As $g(0) = f'(0)$, the same conclusion, for the same reason,
 holds if $\sabs{f'(0)} = 1$.
 \end{proof}
