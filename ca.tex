@@ -2683,7 +2683,7 @@ differentiable.
 Then there exist open sets $V, W \subset \C$ such that
 $p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is one-to-one,
 and hence a $g \colon W \to V$ exists such that
-$g(y) := (f|_V)^{-1}(y)$.
+$g(y) = (f|_V)^{-1}(y)$.
 Furthermore, $g$ is holomorphic and
 \begin{equation*}
 g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} \qquad \text{for all $w \in W$}.
@@ -8680,6 +8680,8 @@ have time to modify his shape.
 \section{Equicontinuity and the Arzel\`a--Ascoli theorem}
 \label{sec:arzelaascoli}
 
+\subsection{Convergence of subsequences}
+
 The point of Montel's theorem will be a way to easily classify the
 relatively compact subsets of the set of holomorphic functions.  That is,
 we will try to figure out when does a sequence of holomorphic functions
@@ -8764,6 +8766,8 @@ For any $m$ the tail $\{ f_{k,k} \}_{k=m}^\infty$ is a subsequence of $\{ f_{m,k
 and hence for any $m$ the sequence $\{ f_{k,k}(x_m) \}_{k=1}^\infty$ converges.
 \end{proof}
 
+\subsection{Equicontinuity}
+
 For larger than countable sets,
 we need the functions of the sequence to be related.  We look at
 continuous functions, and the concept we need is equicontinuity.
@@ -8772,6 +8776,15 @@ continuous functions, and the concept we need is equicontinuity.
 Let $X$ be a metric space.
 A set $S$ of functions
 $f \colon X \to \C$ is said to be
+\emph{\myindex{equicontinuous}} at $x \in X$
+if for every $\epsilon > 0$, there is a $\delta > 0$
+such that if $y \in X$ with $d(x,y) < \delta$ we have
+\begin{equation*}
+\sabs{f(x)-f(y)} < \epsilon \qquad \text{for all } f \in S .
+\end{equation*}
+We say $S$ is equicontinuous if it is equicontinuous at every $x \in X$.
+
+The set $S$ is 
 \emph{\myindex{uniformly equicontinuous}}
 if for every $\epsilon > 0$, there is a $\delta > 0$
 such that if $x,y \in X$ with $d(x,y) < \delta$ we have
@@ -8780,125 +8793,137 @@ such that if $x,y \in X$ with $d(x,y) < \delta$ we have
 \end{equation*}
 \end{defn}
 
-Notice the functions in a uniformly equicontinuous sequence are
-all uniformly continuous.  It is 
-not hard to show that a finite set of uniformly continuous functions
-is uniformly equicontinuous.  The definition is really interesting
-if $S$ is infinite.
+For finite sets $S$ this is the same as continuity or uniform continuity.  The
+key is what happens to infinite sets.
 
-Just as for continuity, one can define equicontinuity at a point.
-That is, $S$ is \emph{\myindex{equicontinuous}} at $x \in X$
-if for every $\epsilon > 0$, there is a $\delta > 0$
-such that if $y \in X$ with $d(x,y) < \delta$ we have
-$\sabs{f(x)-f(y)} < \epsilon$ for all $f \in S$.
-We will only deal with compact $X$ here, and
-one can prove (exercise) that for a compact metric space $X$,
-if $S$ is equicontinuous at every $x \in X$,
-then it is uniformly equicontinuous.  For simplicity
-we stick to uniform equicontinuity.
-
-FIXME: ought not to be an exercise here I don't think, Probably we want to
-start with the pointwise
-
+\begin{exbox}
 \begin{exercise}
-Show that for a compact metric space $X$,
-a sequence $\{ f_n \}$ that is equicontinuous at every $x \in X$
-is uniformly equicontinuous.
+Prove that a finite set of functions continuous at $x$ is
+equicontinus at $x$, and
+a finite set of uniformly functions is uniformly equicontinuous.
 \end{exercise}
-
+\end{exbox}
 
 \begin{prop}
-Suppose $(X,d)$ is a compact metric space,
-$f_n \in C(X,\C)$, and $\{ f_n \}$
-converges uniformly, then $\{ f_n \}$ is uniformly equicontinuous.
+Let $(X,d)$ be a compact metric space and
+$f_n \colon X \to \C$ an equicontinuous sequence of functions.
+Then the sequence $\{ f_n \}$ is uniformly equicontinuous.
 \end{prop}
 
 \begin{proof}
-Let $\epsilon > 0$ be given.
-As $\{ f_n \}$ converges uniformly, there is an $N \in \N$ such that for
-all $n \geq N$
-\begin{equation*}
-\sabs{f_n(x)-f_N(x)} < \nicefrac{\epsilon}{3} \qquad \text{for all } x \in X.
-\end{equation*}
-As $X$ is compact, any continuous function is uniformly continuous.
-So $\{ f_1,f_2,\ldots,f_N \}$ is a finite set of uniformly continuous
-functions.  And so, as we mentioned above, it is uniformly equicontinuous.
-Hence there is a $\delta > 0$ such that
-\begin{equation*}
-\sabs{f_j(x)-f_j(y)} < \nicefrac{\epsilon}{3} < \epsilon
-\end{equation*}
-whenever $d(x,y) < \delta$ and $1 \leq j \leq N$.
+Argue by contrapositive.  Suppose that $\{ f_n \}$ is not
+uniformly equicontinuous.  Then there exists an $\epsilon > 0$
+such that for every $k \in \N$, there
+is an $x_k,y_k \in X$ with $d(x_k,y_k) < \frac{1}{k}$
+such that $\sabs{f_{n_k}(x_k)-f_{n_k}(y_k)} \geq \epsilon$ for some $n_k$.
 
-Take $n > N$.  For $d(x,y) < \delta$ we have
+By compactness $\{x_k\}$ and $\{ y_k\}$ have convergent subsequences, so
+without loss of generality suppose that they converge, in which case
+they have to converge to the same point $x \in X$.
+For any $\delta > 0$, take $k$ such that $\frac{1}{k} < \delta$ and
+such that $d(x,x_k) < \delta$ and
+$d(x,y_k) < \delta$.  Then
 \begin{equation*}
-\sabs{f_n(x)-f_n(y)}
+\epsilon \leq 
+\abs{f_{n_k}(x_k)-f_{n_k}(y_k)}
 \leq
-\sabs{f_n(x)-f_N(x)}
-+
-\sabs{f_N(x)-f_N(y)}
-+
-\sabs{f_N(y)-f_n(y)}
-<
-\nicefrac{\epsilon}{3}
-+
-\nicefrac{\epsilon}{3}
-+
-\nicefrac{\epsilon}{3}
-=\epsilon . \qedhere
+\abs{f_{n_k}(x_k)-f_{n_k}(x)} + \abs{f(x)-f_{n_k}(y_k)} .
 \end{equation*}
+So either 
+$\abs{f_{n_k}(x_k)-f_{n_k}(x)}$ or $\abs{f(x)-f_{n_k}(y_k)}$ is
+bigger than or equal to the fixed $\epsilon$, no matter how small $\delta$
+was.  So $\{ f_n \}$ is not equicontinuous at $x$.
 \end{proof}
+
+%\begin{prop}
+%Suppose $(X,d)$ is a compact metric space,
+%and a sequence of functions $f_n \colon X \to \C$
+%converges uniformly, then $\{ f_n \}$ is uniformly equicontinuous.
+%\end{prop}
+%
+%\begin{proof}
+%Let $\epsilon > 0$ be given.
+%As $\{ f_n \}$ converges uniformly, there is an $N \in \N$ such that for
+%all $n \geq N$
+%\begin{equation*}
+%\sabs{f_n(x)-f_N(x)} < \frac{\epsilon}{3} \qquad \text{for all } x \in X.
+%\end{equation*}
+%As $X$ is compact, any continuous function is uniformly continuous.
+%So $\{ f_1,f_2,\ldots,f_N \}$ is a finite set of uniformly continuous
+%functions and thus it is uniformly equicontinuous.
+%Hence there is a $\delta > 0$ such that
+%$\sabs{f_j(x)-f_j(y)} < \frac{\epsilon}{3}$
+%whenever $d(x,y) < \delta$ and $j=1,\ldots,N$.
+%Now take $n > N$.  For $d(x,y) < \delta$,
+%\begin{equation*}
+%\sabs{f_n(x)-f_n(y)}
+%\leq
+%\sabs{f_n(x)-f_N(x)}
+%+
+%\sabs{f_N(x)-f_N(y)}
+%+
+%\sabs{f_N(y)-f_n(y)}
+%<
+%\epsilon .
+%\qedhere
+%\end{equation*}
+%\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Suppose $(X,d)$ is a compact metric space,
+and a sequence of continuous functions $f_n \colon X \to \C$
+converges uniformly. Prove that $\{ f_n \}$ is uniformly equicontinuous.
+\end{exercise}
+\end{exbox}
+
+\subsection{Arzel\`a--Ascoli}
+
+Let us now prove
+the Arzel\`a--Ascoli theorem for compact metric spaces.  First,
+we start with a lemma, showing that we can always find a countable
+set in a compact metric space.  We will then be able to apply our
+result about countable sets.
 
 \begin{prop}
 A compact metric space $X$ contains a countable dense subset,
 that is, there exists a countable $D \subset X$ such that $\widebar{D} = X$.
 \end{prop}
 
+Denote by $B(x,\delta) = \{ y \in X : d(x,y) < \delta \}$ the ball of radius
+$\delta$.
+
 \begin{proof}
 For each $n \in \N$ there are finitely many
-balls of radius $\nicefrac{1}{n}$ that cover $X$ (as $X$ is compact). That is,
+balls of radius $\frac{1}{n}$ that cover $X$ (as $X$ is compact). That is,
 for every $n$, there exists
 a finite set of points $x_{n,1},x_{n,2},\ldots,x_{n,k_n}$ such that
 \begin{equation*}
-X= \bigcup_{j=1}^{k_n} B(x_{n,j},\nicefrac{1}{n})
+X= \bigcup_{j=1}^{k_n} B(x_{n,j},\nicefrac{1}{n}) .
 \end{equation*}
-Let $D := \bigcup_{n=1}^\infty \{ x_{n,1},x_{n,2},\ldots,x_{n,k_n} \}$.
+Let $D = \bigcup_{n=1}^\infty \{ x_{n,1},x_{n,2},\ldots,x_{n,k_n} \}$.
 The set $D$ is countable as it is a countable union of finite sets.
 For every $x \in X$
 and every $\epsilon > 0$, there exists an $n$ such that
-$\nicefrac{1}{n} < \epsilon$ and an $x_{n,j} \in D$ such that
+$\frac{1}{n} < \epsilon$ and an $x_{n,j} \in D$ such that
 \begin{equation*}
-x \in B(x_{n,j},\nicefrac{1}{n}) \subset B(x_{n,j},\epsilon) .
+x \in B(x_{n,j},\nicefrac{1}{n}) \subset B\left(x_{n,j},\epsilon\right) .
 \end{equation*}
 Hence $x \in \widebar{D}$, so $\widebar{D} = X$ and $D$ is dense.
 \end{proof}
 
-We are now ready for the main result of this section,
-the Arzel\`a--Ascoli theorem\footnote{%
-Named after the Italian mathematicians
-\href{https://en.wikipedia.org/wiki/Cesare_Arzel\%C3\%A0}{Cesare Arzel\`a}
-(1847--1912), and
-\href{https://en.wikipedia.org/wiki/Giulio_Ascoli}{Giulio Ascoli}
-(1843--1896).} about existence of convergent subsequences.
-
 \begin{thm}[Arzel\`a--Ascoli]\index{Arzel\`a--Ascoli theorem}
 \label{thm:arzelaascoli}
 Let $(X,d)$ be a compact metric space, and let $\{ f_n \}$
-be pointwise bounded and uniformly equicontinuous sequence
-of functions $f_n \in C(X,\C)$.  Then
+be pointwise bounded and equicontinuous sequence
+of functions $f_n \colon X \to \C$.  Then
 $\{f_n\}$ is uniformly bounded and $\{ f_n \}$ contains a uniformly
 convergent subsequence.
 \end{thm}
 
-Basically, a uniformly equicontinuous sequence in the metric space
-$C(X,\C)$ that is pointwise bounded
-is bounded (in $C(X,\C)$) and furthermore contains a convergent
-subsequence in $C(X,\C)$.
-
-As we mentioned before, as $X$ is compact, it is enough
-to just assume that $\{ f_n \}$ is equicontinuous as
-uniform equicontinuity is automatic via an exercise.
-
 \begin{proof}
+As $X$ is compact, then the sequence $\{ f_n \}$ is uniformly
+equicontinuous.
 Let us first show that the sequence is uniformly bounded.
 
 By uniform equicontinuity we have that
@@ -8913,12 +8938,12 @@ such that
 \begin{equation*}
 X = \bigcup_{j=1}^k B(x_j,\delta) .
 \end{equation*}
-As $\{ f_n \}$ is pointwise bounded there exist $M_1,M_2,\ldots,M_k$
+As $\{ f_n \}$ is pointwise bounded there exists an $M$
 such that for $j=1,2,\ldots,k$ we have
 \begin{equation*}
-\sabs{f_n(x_j)} \leq M_j \qquad \text{for all } n.
+\sabs{f_n(x_j)} \leq M \qquad \text{for all } n.
 \end{equation*}
-Let $M := 1+ \max \{ M_1,M_2,\ldots,M_k \}$.  Given any
+Given any
 $x \in X$, there is a $j$ such that $x \in B(x_j,\delta)$.  Therefore,
 for all $n$ we have
 $x \in f_n^{-1}\bigl(B(f_n(x_j),1)\bigr)$, or in other words
@@ -8927,7 +8952,7 @@ $x \in f_n^{-1}\bigl(B(f_n(x_j),1)\bigr)$, or in other words
 \end{equation*}
 By reverse triangle inequality,
 \begin{equation*}
-\sabs{f_n(x)} < 1+ \sabs{f_n(x_j)} \leq 1+M_j \leq M .
+\sabs{f_n(x)} < 1+ \sabs{f_n(x_j)} \leq 1+M .
 \end{equation*}
 And as $x$ was arbitrary, $\{f_n\}$ is uniformly bounded.
 
@@ -8935,7 +8960,7 @@ And as $x$ was arbitrary, $\{f_n\}$ is uniformly bounded.
 Next, pick a countable dense subset $D \subset X$.
 By \propref{prop:subsequenceoncountableX}, we find
 a subsequence $\{ f_{n_j} \}$ that converges pointwise on $D$.
-Write $g_j := f_{n_j}$ for simplicity.
+Write $g_j = f_{n_j}$ for simplicity.
 The sequence $\{ g_n \}$ is 
 uniformly equicontinuous.
 Let $\epsilon > 0$ be given, then there exists a $\delta > 0$
@@ -8954,14 +8979,14 @@ As there are finitely many points and $\{ g_n \}$
 converges pointwise on $D$, there exists a single $N$ such that for 
 all $n,m \geq N$ we have
 \begin{equation*}
-\sabs{g_n(x_j)-g_m(x_j)} < \nicefrac{\epsilon}{3}
+\sabs{g_n(x_j)-g_m(x_j)} < \frac{\epsilon}{3}
  \qquad \text{for all } j=1,2,\ldots,k.
 \end{equation*}
 
 Let $x \in X$ be arbitrary.  There is some $j$ such that
 $x \in B(x_j,\delta)$ and so we have for all $\ell \in \N$
 \begin{equation*}
-\sabs{g_\ell(x)-g_\ell(x_j)} < \nicefrac{\epsilon}{3},
+\sabs{g_\ell(x)-g_\ell(x_j)} < \frac{\epsilon}{3},
 \end{equation*}
 and so $n,m \geq N$ that
 \begin{equation*}
@@ -8969,29 +8994,68 @@ and so $n,m \geq N$ that
 \sabs{g_n(x)-g_n(x_j)} +
 \sabs{g_n(x_j)-g_m(x_j)} +
 \sabs{g_m(x_j)-g_m(x)} <
-\nicefrac{\epsilon}{3} +
-\nicefrac{\epsilon}{3} +
-\nicefrac{\epsilon}{3} = \epsilon .
+\epsilon .
 \end{equation*}
 Hence, the sequence is uniformly Cauchy.  By completeness of $\C$,
 it is uniformly convergent.
 %FIXME: reference?
 \end{proof}
 
+We will need Arzel\`a--Ascoli in open subsets of the plane, so we have the
+following version.
+
+\begin{cor}[Arzel\`a--Ascoli]\index{Arzel\`a--Ascoli theorem}
+\label{cor:arzelaascoliplane}
+Let $U \subset \C$ be open and let $\{ f_n \}$
+be pointwise bounded and equicontinuous sequence
+of functions $f_n \colon X \to \C$.  Then
+$\{ f_n \}$ contains a subsequence
+that converges uniformly on compact subsets.
+\end{cor}
+
+\begin{proof}
+Let $d(z,\partial U)$ denote the distance to the boundary of $U$.  Define
+\begin{equation*}
+K_\ell = \left\{
+z \in U : d(z,\partial U) \geq \frac{1}{\ell} \text{ and } \sabs{z} \leq
+\ell
+\right\} .
+\end{equation*}
+It is easy to see that $K_\ell$ is compact (as it is closed in $\C$ and bounded).
+It is also easy to see that $U = \bigcup K_\ell$.  The interior of
+$K_\ell$ is given by
+\begin{equation*}
+K^\circ_\ell = \left\{
+z \in U : d(z,\partial U) < \frac{1}{\ell} \text{ and } \sabs{z} < \ell
+\right\} .
+\end{equation*}
+From this it is clear that $K_\ell \subset K^\circ_{\ell+1}$, and
+$U = \bigcup K^\circ_\ell$ (it is an open cover).
+
+Using the Arzel\`a--Ascoli theorem on compact sets,
+find a subsequence $\{ f_{1,n} \}$  of $\{f_n\}$ that converges uniformly
+on $K_1$.  Then find a subsequence
+$\{ f_{2,n} \}$ of
+$\{ f_{1,n} \}$ that converges uniformly on $K_2$, and so on.
+Finally take the diagonal sequence $\{ f_{n,n} \}$.  Given any compact $K$
+it is in some $K^\circ_\ell$.  The $\ell$-tail of the sequence $\{ f_{n,n}
+\}$ is a subsequence of $\{ f_{\ell,n} \}$ and hence uniformly convergent on
+$K_\ell$ and thus $K$.
+\end{proof}
+
 \begin{exbox}
 \begin{exercise}
-Let $f_n \colon [-1,1] \to \R$ be given by $f_n(x) := \frac{nx}{1+{(nx)}^2}$.
-Prove that the sequence is uniformly bounded, converges pointwise to 0, but
-does not converge uniformly to 0.
-Which hypothesis of Arzel\`a--Ascoli
-is not satisfied?  Prove your assertion.
+Prove the formula of $K^\circ_\ell$.  That is, prove that the interior
+of $K_\ell$ is
+$K^\circ_\ell = \left\{
+z \in U : d(z,\partial U) < \frac{1}{\ell} \text{ and } \sabs{z} < \ell
+\right\}$.  Then prove that $K_\ell \subset K^\circ_{\ell+1}$ for all $\ell$.
 \end{exercise}
 
 \begin{exercise}
-Define $f_n \colon \R \to \R$ by $f_n(x) := \frac{1}{{(x-n)}^2+1}$.  Prove that
-this sequence is uniformly bounded, uniformly equicontinuous, the sequence
-converges pointwise to zero, yet there is no
-subsequence that converges uniformly.
+Let $f_n \colon [-1,1] \to \R$ be given by $f_n(x) = \frac{nx}{1+{(nx)}^2}$.
+Prove that the sequence is uniformly bounded, converges pointwise to 0, but
+does not converge uniformly to 0.
 Which hypothesis of Arzel\`a--Ascoli
 is not satisfied?  Prove your assertion.
 \end{exercise}
@@ -9011,17 +9075,17 @@ Show that $\{ F_n \}$ has a uniformly convergent subsequence.
 
 \begin{exercise}
 Suppose $(X,d)$ is a compact metric space, $\{ f_n \}$ a uniformly equicontinuous
-sequence of functions in $C(X,\C)$.  Suppose $\{ f_n \}$ converges
+sequence of functions on $X$.  Suppose $\{ f_n \}$ converges
 pointwise.  Show that it converges uniformly.
 \end{exercise}
 
 \begin{exercise}
-Define $f_n \colon [0,1] \to \C$ by $f_n(t) := e^{i(2\pi t + n)}$.
+Define $f_n \colon [0,1] \to \C$ by $f_n(t) = e^{i(2\pi t + n)}$.
 This is a uniformly equicontinuous uniformly bounded sequence.
 Prove more than just
 the conclusion of Arzel\`a--Ascoli for this sequence.  Let $\gamma \in \R$
 be given,
-and define $g(t) := e^{i(2\pi t + \gamma)}$.  Show that there exists 
+and define $g(t) = e^{i(2\pi t + \gamma)}$.  Show that there exists 
 a subsequence of $\{ f_n \}$ converging uniformly to $g$.
 \\
 Hint: Feel free to use the \emph{\myindex{Kronecker density theorem}}:
@@ -13073,7 +13137,7 @@ See \exerciseref{exercise:nofixedpoint}.
 
 \begin{proof}
 Pick any $x_0 \in X$.
-Define a sequence $\{ x_n \}$ by $x_{n+1} := f(x_n)$.
+Define a sequence $\{ x_n \}$ by $x_{n+1} = f(x_n)$.
 \begin{equation*}
 d(x_{n+1},x_n) = d\bigl(f(x_n),f(x_{n-1})\bigr)
 \leq k d(x_n,x_{n-1})
@@ -13092,7 +13156,7 @@ d(x_m,x_n)
 \end{split}
 \end{equation*}
 In particular, the sequence is Cauchy (why?).  Since $X$ is complete,
-we let $x := \lim\, x_n$, and we claim that $x$
+we let $x = \lim\, x_n$, and we claim that $x$
 is our unique fixed point.
 
 Fixed point?  The function $f$ is a contraction,
@@ -15093,7 +15157,7 @@ Suppose $p \in U$ and $Df|_p$ is invertible
 Then there exist open sets $V, W \subset \R^n$ such that
 $p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is one-to-one,
 and hence a $g \colon W \to V$ exists such that
-$g(y) := (f|_V)^{-1}(y)$.
+$g(y) = (f|_V)^{-1}(y)$.
 See \figureref{fig:inversefuncRn}.
 Furthermore, $g$ is continuously differentiable
 and 
@@ -15119,7 +15183,7 @@ The inequality implies that $Df|_x$ is invertible for all $x \in V$.
 
 Given $y \in \R^n$ we define $\varphi_y \colon C \to \R^n$ by
 \begin{equation*}
-\varphi_y (x) := x + A^{-1}\bigl(y-f(x)\bigr) .
+\varphi_y (x) = x + A^{-1}\bigl(y-f(x)\bigr) .
 \end{equation*}
 As $A^{-1}$ is one-to-one,
 $\varphi_y(x) = x$ ($x$ is a fixed point) if only if
@@ -15149,7 +15213,7 @@ $\snorm{x_1-x_2} = \snorm{\varphi_y(x_1)-\varphi_y(x_2)} \leq
 That is, there exists at most one $x \in V$
 such that $f(x) = y$, and so $f|_V$ is one-to-one.
 
-Let $W := f(V)$.  We need to show that $W$ is open.  Take a $y_0 \in W$.
+Let $W = f(V)$.  We need to show that $W$ is open.  Take a $y_0 \in W$.
 There is a unique $x_0 \in V$ such that $f(x_0) = y_0$.
 Let $r > 0$ be small enough such that the closed ball $C(x_0,r) \subset V$
 (such $r > 0$ exists as $V$ is open).
@@ -15266,7 +15330,7 @@ mean that $f$ is
 one-to-one globally.  It is ``locally'' one-to-one but perhaps not
 ``globally.''  For an
 example, take the map $f \colon \R^2 \setminus \{ 0 \} \to \R^2$ defined
-by $f(x,y) := (x^2-y^2,2xy)$.
+by $f(x,y) = (x^2-y^2,2xy)$.
 It is left to student to show that $f$ is
 differentiable and the derivative is invertible.
 
@@ -15280,7 +15344,7 @@ that replacing $x$ and $y$ with $-x$ and $-y$ obtains another solution.
 
 The invertibility of the derivative is not a necessary
 condition, just sufficient, for having a continuous inverse and being an open
-mapping.  For example, the function $f(x) := x^3$ is an open mapping from $\R$
+mapping.  For example, the function $f(x) = x^3$ is an open mapping from $\R$
 to $\R$ and is globally one-to-one with a continuous inverse, although the
 inverse is not differentiable at $x=0$.
 
@@ -15307,7 +15371,7 @@ invertible.
 \end{exercise}
 
 \begin{exercise}
-Define $f \colon \R^2 \to \R^2$ by $f(x,y) :=
+Define $f \colon \R^2 \to \R^2$ by $f(x,y) =
 \bigl(x,y+h(x)\bigr)$ for some continuously differentiable function $h$ of one
 variable.
 \begin{exparts}
@@ -15324,7 +15388,7 @@ its inverse.
 \begin{exercise}
 Define $f \colon \R^2 \to \R^2$
 \begin{equation*}
-f(x,y) :=
+f(x,y) =
 \begin{cases}
 (x^2 \sin \bigl(\nicefrac{1}{x}\bigr) + \frac{x}{2} , y ) & \text{if } x \not= 0, \\
 (0,y)                                                     & \text{if } x=0.
@@ -15345,7 +15409,7 @@ Show that $f$ is not continuously differentiable.
 
 \begin{exercise}[Polar coordinates] \label{mv:exercise:polarcoordinates}
 \index{polar coordinates}
-Define a mapping $F(r,\theta) := \bigl(r \cos(\theta), r \sin(\theta) \bigr)$.
+Define a mapping $F(r,\theta) = \bigl(r \cos(\theta), r \sin(\theta) \bigr)$.
 \begin{exparts}
 \item
 Show that $F$ is continuously differentiable (for all $(r,\theta) \in
