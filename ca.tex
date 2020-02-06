@@ -5506,19 +5506,25 @@ to $f \colon U \to \C$ if for every compact $K \subset U$,
 $f_n|_K$ converges uniformly to $f|_K$.
 \end{defn}
 
-What do we mean by ``the right topology''?  Well, we mean the most natural
+What do we mean by ``the right topology'' for a class of functions?
+Well, we mean the most natural
 topology that preserves the class (limits in that topology are still in that
-class).
+class).  
+Results from introductory analysis
+(see \thmref{thm:uniformlimitcont} and \corref{cor:uniformkptlimitcont})
+say that a uniform limit of a continuous functions is continuous.
+By concentrating on a compact neighborhood such as $\overline{\Delta_r(p)}$
+we can see that uniform convergence on compact sets is enough.
+In other words, uniform convergence on compact subsets is the right topology
+for continuous functions.
+
 It is rather surprising that this is the right topology for holomorphic
 functions, since for real
 differentiable functions nothing like that holds: $\sabs{x}^{1+1/n}$
 is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$
 which is not differentiable.  And for infinitely differentiable functions?
-Just forget it.  It is the right topology for continuous functions, as you
-should recall from your basic analysis class.
-That is, a sequence of continuous functions converging uniformly on compact
-subsets converges to a continuous limit.  Interestingly, that works for
-holomorphic functions too.
+Just forget it.
+So the following result should be surprising.
 
 \begin{thm} \label{thm:unifoncompact}
 Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
@@ -8671,8 +8677,369 @@ have time to modify his shape.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{FIXME}
-\label{sec:FIXME 1}
+\section{Equicontinuity and the Arzel\`a--Ascoli theorem}
+\label{sec:arzelaascoli}
+
+The point of Montel's theorem will be a way to easily classify the
+relatively compact subsets of the set of holomorphic functions.  That is,
+we will try to figure out when does a sequence of holomorphic functions
+contain a convergent subsequence.  We would really like something like the
+Bolzano--Weierstrass for sequences of numbers:  \emph{If $\{ z_n \}$ is a
+bounded sequence, then it has a convergent subsequence.}
+Interestingly, Montel provides just that kind of theorem.
+However, before we get to Montel, we must find a weaker result
+of this kind for continuous functions, the Arzel\`a--Ascoli theorem.
+For continuous functions we will need something more than just bounded,
+we need some sort of uniformity in the continuity.
+Let us start with some definitions.
+
+\begin{defn}
+Let $X$ be any set.
+Consider a sequence of functions $f_n \colon X \to \C$.  We say that
+$\{ f_n \}$
+is \emph{\myindex{pointwise bounded}} if for every $x \in X$, there is an $M_x \in \R$
+such that
+\begin{equation*}
+\sabs{f_n(x)} \leq M_x \qquad \text{for all } n \in \N .
+\end{equation*}
+We say that
+$\{ f_n \}$
+is \emph{\myindex{uniformly bounded}} if there is an $M \in \R$
+such that
+\begin{equation*}
+\sabs{f_n(x)} \leq M \qquad \text{for all } n \in \N \text{ and all } x \in X.
+\end{equation*}
+\end{defn}
+
+A sequence of uniformly bounded functions may
+not contain any subsequence that converges even pointwise.
+For example, $\sin(nx)$ on the real line is one such example.
+Below we will show that there must always exist
+a subsequence converging at countably
+many points, but $\R$ (or any interval) is uncountable.
+
+On the other hand the functions $x^n$ are uniformly bounded
+and even converge to a function on the unit interval $[0,1]$, but the limit
+is discontinuous.
+
+Let us prove that for a countable domain, given a bounded (pointwise)
+sequence of functions, we can always find a subsequence
+that converges pointwise via a diagonalization argument.
+
+\begin{prop} \label{prop:subsequenceoncountableX}
+Let $X$ be a countable set and $f_n \colon X \to \C$ give a pointwise bounded
+sequence of functions.  Then $\{ f_n \}$ has a subsequence that converges
+pointwise.
+\end{prop}
+
+\begin{proof}
+Let $\{ x_n \}_{n=1}^{\infty}$ be an enumeration of the elements of $X$.
+The sequence $\{ f_n(x_1) \}_{n=1}^\infty$ is bounded and hence
+we have a subsequence of $\{ f_n \}_{n=1}^{\infty}$, which we denote by
+$\{ f_{1,k} \}_{k=1}^\infty$
+such that
+$\{ f_{1,k}(x_1) \}_{k=1}^\infty$ converges.
+Next $\{ f_{1,k}(x_2) \}_{k=1}^\infty$ is bounded and so 
+$\{ f_{1,k} \}_{k=1}^\infty$ has a subsequence
+$\{ f_{2,k} \}_{k=1}^\infty$ such that
+$\{ f_{2,k}(x_2) \}_{k=1}^\infty$ converges.  Note that
+$\{ f_{2,k}(x_1) \}_{k=1}^\infty$ is still convergent.
+
+In general, we have a sequence $\{ f_{m,k}
+\}_{k=1}^\infty$
+that makes $\{ f_{m,k}(x_j) \}_{k=1}^\infty$ converge for all $j \leq m$ and we 
+let $\{ f_{m+1,k} \}_{k=1}^\infty$ be the subsequence of $\{ f_{m,k}
+\}_{k=1}^\infty$
+such that
+$\{ f_{m+1,k}(x_{m+1}) \}_{k=1}^\infty$ converges (and hence it converges for all
+$x_j$ for $j=1,2,\ldots,m+1$) and we rinse and repeat.
+
+If $X$ is finite, we are done as the process stops at some point.
+If $X$ is countably infinite,
+we pick the sequence
+$\{ f_{k,k} \}_{k=1}^\infty$.
+This is a subsequence of the original sequence $\{ f_n \}_{n=1}^\infty$.
+For any $m$ the tail $\{ f_{k,k} \}_{k=m}^\infty$ is a subsequence of $\{ f_{m,k}
+\}_{k=1}^\infty$
+and hence for any $m$ the sequence $\{ f_{k,k}(x_m) \}_{k=1}^\infty$ converges.
+\end{proof}
+
+For larger than countable sets,
+we need the functions of the sequence to be related.  We look at
+continuous functions, and the concept we need is equicontinuity.
+
+\begin{defn}
+Let $X$ be a metric space.
+A set $S$ of functions
+$f \colon X \to \C$ is said to be
+\emph{\myindex{uniformly equicontinuous}}
+if for every $\epsilon > 0$, there is a $\delta > 0$
+such that if $x,y \in X$ with $d(x,y) < \delta$ we have
+\begin{equation*}
+\sabs{f(x)-f(y)} < \epsilon \qquad \text{for all } f \in S .
+\end{equation*}
+\end{defn}
+
+Notice the functions in a uniformly equicontinuous sequence are
+all uniformly continuous.  It is 
+not hard to show that a finite set of uniformly continuous functions
+is uniformly equicontinuous.  The definition is really interesting
+if $S$ is infinite.
+
+Just as for continuity, one can define equicontinuity at a point.
+That is, $S$ is \emph{\myindex{equicontinuous}} at $x \in X$
+if for every $\epsilon > 0$, there is a $\delta > 0$
+such that if $y \in X$ with $d(x,y) < \delta$ we have
+$\sabs{f(x)-f(y)} < \epsilon$ for all $f \in S$.
+We will only deal with compact $X$ here, and
+one can prove (exercise) that for a compact metric space $X$,
+if $S$ is equicontinuous at every $x \in X$,
+then it is uniformly equicontinuous.  For simplicity
+we stick to uniform equicontinuity.
+
+FIXME: ought not to be an exercise here I don't think, Probably we want to
+start with the pointwise
+
+\begin{exercise}
+Show that for a compact metric space $X$,
+a sequence $\{ f_n \}$ that is equicontinuous at every $x \in X$
+is uniformly equicontinuous.
+\end{exercise}
+
+
+\begin{prop}
+Suppose $(X,d)$ is a compact metric space,
+$f_n \in C(X,\C)$, and $\{ f_n \}$
+converges uniformly, then $\{ f_n \}$ is uniformly equicontinuous.
+\end{prop}
+
+\begin{proof}
+Let $\epsilon > 0$ be given.
+As $\{ f_n \}$ converges uniformly, there is an $N \in \N$ such that for
+all $n \geq N$
+\begin{equation*}
+\sabs{f_n(x)-f_N(x)} < \nicefrac{\epsilon}{3} \qquad \text{for all } x \in X.
+\end{equation*}
+As $X$ is compact, any continuous function is uniformly continuous.
+So $\{ f_1,f_2,\ldots,f_N \}$ is a finite set of uniformly continuous
+functions.  And so, as we mentioned above, it is uniformly equicontinuous.
+Hence there is a $\delta > 0$ such that
+\begin{equation*}
+\sabs{f_j(x)-f_j(y)} < \nicefrac{\epsilon}{3} < \epsilon
+\end{equation*}
+whenever $d(x,y) < \delta$ and $1 \leq j \leq N$.
+
+Take $n > N$.  For $d(x,y) < \delta$ we have
+\begin{equation*}
+\sabs{f_n(x)-f_n(y)}
+\leq
+\sabs{f_n(x)-f_N(x)}
++
+\sabs{f_N(x)-f_N(y)}
++
+\sabs{f_N(y)-f_n(y)}
+<
+\nicefrac{\epsilon}{3}
++
+\nicefrac{\epsilon}{3}
++
+\nicefrac{\epsilon}{3}
+=\epsilon . \qedhere
+\end{equation*}
+\end{proof}
+
+\begin{prop}
+A compact metric space $X$ contains a countable dense subset,
+that is, there exists a countable $D \subset X$ such that $\widebar{D} = X$.
+\end{prop}
+
+\begin{proof}
+For each $n \in \N$ there are finitely many
+balls of radius $\nicefrac{1}{n}$ that cover $X$ (as $X$ is compact). That is,
+for every $n$, there exists
+a finite set of points $x_{n,1},x_{n,2},\ldots,x_{n,k_n}$ such that
+\begin{equation*}
+X= \bigcup_{j=1}^{k_n} B(x_{n,j},\nicefrac{1}{n})
+\end{equation*}
+Let $D := \bigcup_{n=1}^\infty \{ x_{n,1},x_{n,2},\ldots,x_{n,k_n} \}$.
+The set $D$ is countable as it is a countable union of finite sets.
+For every $x \in X$
+and every $\epsilon > 0$, there exists an $n$ such that
+$\nicefrac{1}{n} < \epsilon$ and an $x_{n,j} \in D$ such that
+\begin{equation*}
+x \in B(x_{n,j},\nicefrac{1}{n}) \subset B(x_{n,j},\epsilon) .
+\end{equation*}
+Hence $x \in \widebar{D}$, so $\widebar{D} = X$ and $D$ is dense.
+\end{proof}
+
+We are now ready for the main result of this section,
+the Arzel\`a--Ascoli theorem\footnote{%
+Named after the Italian mathematicians
+\href{https://en.wikipedia.org/wiki/Cesare_Arzel\%C3\%A0}{Cesare Arzel\`a}
+(1847--1912), and
+\href{https://en.wikipedia.org/wiki/Giulio_Ascoli}{Giulio Ascoli}
+(1843--1896).} about existence of convergent subsequences.
+
+\begin{thm}[Arzel\`a--Ascoli]\index{Arzel\`a--Ascoli theorem}
+\label{thm:arzelaascoli}
+Let $(X,d)$ be a compact metric space, and let $\{ f_n \}$
+be pointwise bounded and uniformly equicontinuous sequence
+of functions $f_n \in C(X,\C)$.  Then
+$\{f_n\}$ is uniformly bounded and $\{ f_n \}$ contains a uniformly
+convergent subsequence.
+\end{thm}
+
+Basically, a uniformly equicontinuous sequence in the metric space
+$C(X,\C)$ that is pointwise bounded
+is bounded (in $C(X,\C)$) and furthermore contains a convergent
+subsequence in $C(X,\C)$.
+
+As we mentioned before, as $X$ is compact, it is enough
+to just assume that $\{ f_n \}$ is equicontinuous as
+uniform equicontinuity is automatic via an exercise.
+
+\begin{proof}
+Let us first show that the sequence is uniformly bounded.
+
+By uniform equicontinuity we have that
+there is a $\delta > 0$
+such that
+for all $x \in X$ and all $n \in \N$
+\begin{equation*}
+B(x,\delta) \subset f_n^{-1}\bigl(B(f_n(x),1)\bigr) .
+\end{equation*}
+The space $X$ is compact, so there exist $x_1,x_2,\ldots,x_k$
+such that
+\begin{equation*}
+X = \bigcup_{j=1}^k B(x_j,\delta) .
+\end{equation*}
+As $\{ f_n \}$ is pointwise bounded there exist $M_1,M_2,\ldots,M_k$
+such that for $j=1,2,\ldots,k$ we have
+\begin{equation*}
+\sabs{f_n(x_j)} \leq M_j \qquad \text{for all } n.
+\end{equation*}
+Let $M := 1+ \max \{ M_1,M_2,\ldots,M_k \}$.  Given any
+$x \in X$, there is a $j$ such that $x \in B(x_j,\delta)$.  Therefore,
+for all $n$ we have
+$x \in f_n^{-1}\bigl(B(f_n(x_j),1)\bigr)$, or in other words
+\begin{equation*}
+\sabs{f_n(x)-f_n(x_j)} < 1 .
+\end{equation*}
+By reverse triangle inequality,
+\begin{equation*}
+\sabs{f_n(x)} < 1+ \sabs{f_n(x_j)} \leq 1+M_j \leq M .
+\end{equation*}
+And as $x$ was arbitrary, $\{f_n\}$ is uniformly bounded.
+
+
+Next, pick a countable dense subset $D \subset X$.
+By \propref{prop:subsequenceoncountableX}, we find
+a subsequence $\{ f_{n_j} \}$ that converges pointwise on $D$.
+Write $g_j := f_{n_j}$ for simplicity.
+The sequence $\{ g_n \}$ is 
+uniformly equicontinuous.
+Let $\epsilon > 0$ be given, then there exists a $\delta > 0$
+such that for all $x \in X$ and all $n \in N$
+\begin{equation*}
+B(x,\delta) \subset g_n^{-1}\bigl(B(g_n(x),\nicefrac{\epsilon}{3})\bigr).
+\end{equation*}
+By density of $D$ and because $\delta$ is fixed, every $x \in X$ is in some $B(y,\delta)$
+for some $y \in D$.  By compactness of $X$,
+there is a finite subset $\{ x_1,x_2,\ldots,x_k \} \subset D$
+such that
+\begin{equation*}
+X = \bigcup_{j=1}^k B(x_j,\delta) .
+\end{equation*}
+As there are finitely many points and $\{ g_n \}$
+converges pointwise on $D$, there exists a single $N$ such that for 
+all $n,m \geq N$ we have
+\begin{equation*}
+\sabs{g_n(x_j)-g_m(x_j)} < \nicefrac{\epsilon}{3}
+ \qquad \text{for all } j=1,2,\ldots,k.
+\end{equation*}
+
+Let $x \in X$ be arbitrary.  There is some $j$ such that
+$x \in B(x_j,\delta)$ and so we have for all $\ell \in \N$
+\begin{equation*}
+\sabs{g_\ell(x)-g_\ell(x_j)} < \nicefrac{\epsilon}{3},
+\end{equation*}
+and so $n,m \geq N$ that
+\begin{equation*}
+\sabs{g_n(x)-g_m(x)} \leq
+\sabs{g_n(x)-g_n(x_j)} +
+\sabs{g_n(x_j)-g_m(x_j)} +
+\sabs{g_m(x_j)-g_m(x)} <
+\nicefrac{\epsilon}{3} +
+\nicefrac{\epsilon}{3} +
+\nicefrac{\epsilon}{3} = \epsilon .
+\end{equation*}
+Hence, the sequence is uniformly Cauchy.  By completeness of $\C$,
+it is uniformly convergent.
+%FIXME: reference?
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Let $f_n \colon [-1,1] \to \R$ be given by $f_n(x) := \frac{nx}{1+{(nx)}^2}$.
+Prove that the sequence is uniformly bounded, converges pointwise to 0, but
+does not converge uniformly to 0.
+Which hypothesis of Arzel\`a--Ascoli
+is not satisfied?  Prove your assertion.
+\end{exercise}
+
+\begin{exercise}
+Define $f_n \colon \R \to \R$ by $f_n(x) := \frac{1}{{(x-n)}^2+1}$.  Prove that
+this sequence is uniformly bounded, uniformly equicontinuous, the sequence
+converges pointwise to zero, yet there is no
+subsequence that converges uniformly.
+Which hypothesis of Arzel\`a--Ascoli
+is not satisfied?  Prove your assertion.
+\end{exercise}
+
+\begin{exercise}
+Suppose $\partial \D \subset \C$ is the unit circle
+and
+$f_n \colon \partial \D \to \C$ are uniformly bounded continuous functions.
+Let $g(z,w)$ be a continuous function on $\overline{\D} \times \partial \D$.
+Define
+$F_n \colon \overline{\D} \to \C$ by
+\begin{equation*}
+F_n(z)  = \int_{\partial \D} f_n(w)\, g(z,w) \, dw . 
+\end{equation*}
+Show that $\{ F_n \}$ has a uniformly convergent subsequence.
+\end{exercise}
+
+\begin{exercise}
+Suppose $(X,d)$ is a compact metric space, $\{ f_n \}$ a uniformly equicontinuous
+sequence of functions in $C(X,\C)$.  Suppose $\{ f_n \}$ converges
+pointwise.  Show that it converges uniformly.
+\end{exercise}
+
+\begin{exercise}
+Define $f_n \colon [0,1] \to \C$ by $f_n(t) := e^{i(2\pi t + n)}$.
+This is a uniformly equicontinuous uniformly bounded sequence.
+Prove more than just
+the conclusion of Arzel\`a--Ascoli for this sequence.  Let $\gamma \in \R$
+be given,
+and define $g(t) := e^{i(2\pi t + \gamma)}$.  Show that there exists 
+a subsequence of $\{ f_n \}$ converging uniformly to $g$.
+\\
+Hint: Feel free to use the \emph{\myindex{Kronecker density theorem}}:
+The sequence $\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Montel's theorem}
+\label{sec:montel}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Riemann mapping theorem}
+\label{sec:RMT}
 
 FIXME
 
@@ -13285,7 +13652,7 @@ convergence, this need not be the case.
 If we, however, require the convergence to be uniform, the limits can
 be interchanged.
 
-\begin{thm}
+\begin{thm} \label{thm:uniformlimitcont}
 Let $S$ be a metric space.
 Let $\{ f_n \}$ be 
 a sequence of continuous functions $f_n \colon S \to \R$ converging
@@ -13336,7 +13703,7 @@ We say that a sequence of functions $f_n \colon S \to \R$
 if for every compact $K \subset S$
 the sequence $\{ f_n \}$ converges uniformly on $K$.
 
-\begin{cor}
+\begin{cor} \label{cor:uniformkptlimitcont}
 Let $S$ be a metric space.
 If $f_n \colon S \to \R$ is a sequence of
 continuous functions converging uniformly on compact subsets, then
