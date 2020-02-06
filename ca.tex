@@ -588,7 +588,8 @@ The general dependence of the non-appendix chapters is the following.
 My plan for a semester is to go through chapters
 \ref{ch:complexplane}--\ref{ch:counting}, skipping the homotopy versions of
 Cauchy, to get through basic theory of holomorphic functions,
-then getting to \ref{ch:montelriemann} (Montel and RMT),
+then getting to \ref{ch:montelriemannweier} (Montel and RMT, but perhaps not
+Weierstrass),
 \ref{ch:harmonic} (harmonic functions),
 \ref{ch:runge} (Runge).
 \begin{equation*}
@@ -597,11 +598,10 @@ then getting to \ref{ch:montelriemann} (Montel and RMT),
 & & {\text{\Chdotref{ch:holanal}}} \arrow[d] \\
 & & {\text{\Chdotref{ch:cauchysimple}}} \arrow[d] \\
 & & {\text{\Chdotref{ch:log}}} \arrow[d] \\
-& & {\text{\Chdotref{ch:counting}}} \arrow[dll] \arrow[dl] \arrow[d] \arrow[dr] \arrow[drr] \\
-{\text{\Chdotref{ch:montelriemann}}} &
+& & {\text{\Chdotref{ch:counting}}} \arrow[dll] \arrow[dl] \arrow[d] \arrow[dr] \arrow[dr] \\
+{\text{\Chdotref{ch:montelriemannweier}}} &
 {\text{\Chdotref{ch:harmonic}}} &
 {\text{\Chdotref{ch:runge}}} &
-{\text{\Chdotref{ch:weier}}} &
 {\text{\Chdotref{ch:analcont}}}
 \end{tikzcd}
 \end{equation*}
@@ -2741,6 +2741,21 @@ derivative is nonzero.
 Show that $z^2$ is a biholomorphism of the right half-plane
 $\{ z \in \C : \Re z > 0 \}$
 and the slit plane $\C \setminus (-\infty,0] = \{ z \in \C : \Im z \not= 0 \text{ or } \Re z > 0 \}$.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+Show that if $\Delta \subset \C$ is a disc such that $0 \notin \Delta$, then
+there exist two distinct holomorphic functions $f \colon \Delta \to \C$ such that
+${\bigl(f(z)\bigr)}^2 = z$.  In other words, $f(z) = \pm \sqrt{z}$ and the
+square root and its negative is holomorphic on $\Delta$.
+\item
+Show that there does not exist a continuous $f \colon \C \setminus \{ 0 \} =
+\C$ such that ${\bigl(f(z)\bigr)}^2 = z$.  That is, we cannot choose a
+continuous square root in the punctured plane.  Hint: Just consider the unit
+circle.
 \end{exparts}
 \end{exercise}
 
@@ -6603,7 +6618,9 @@ Given two numbers $0 \leq r_1 < r_2 < \infty$ and $p \in \C$, the set
 \begin{equation*}
 \ann(p,r_1,r_2) = \{ z \in \C : r_1 < \sabs{z - p} < r_2 \}
 \end{equation*}
-is called an \emph{\myindex{annulus}}.
+is called an \emph{\myindex{annulus}}\footnote{%
+Q: What do you call a banana with a hole?
+A: A banannulus.}.
 \end{defn}
 
 A common case we will see often is when $r_1 = 0$, that is
@@ -7618,8 +7635,10 @@ The only power ${(z-p)}^n$ that does not have a primitive in
 $\Delta_r(p) \setminus \{ p \}$ is ${(z-p)}^{-1}$.  This is the only power
 that a line integral of $f$ ``sees,'' or in other words, it is
 what's left, or the ``residue'' of integrating $f(z)$ around a closed path.
-With this in mind, we make the
-following definition.
+With this in mind\footnote{%
+Q: Why did the mathematician name their dog Cauchy?
+A: Because it left a residue at every pole.},
+we make the following definition.
 
 \begin{defn}
 Let $f$ be a holomorphic function
@@ -8666,7 +8685,7 @@ compact subsets to $f^{-1}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Montel and Riemann} \label{ch:montelriemann}
+\chapter{Montel, Riemann, and Weierstrass} \label{ch:montelriemannweier}
 
 \begin{myquote}
 A round man cannot be expected to fit in a square hole right away. He must
@@ -8834,40 +8853,6 @@ $\abs{f_{n_k}(x_k)-f_{n_k}(x)}$ or $\abs{f(x)-f_{n_k}(y_k)}$ is
 bigger than or equal to the fixed $\epsilon$, no matter how small $\delta$
 was.  So $\{ f_n \}$ is not equicontinuous at $x$.
 \end{proof}
-
-%\begin{prop}
-%Suppose $(X,d)$ is a compact metric space,
-%and a sequence of functions $f_n \colon X \to \C$
-%converges uniformly, then $\{ f_n \}$ is uniformly equicontinuous.
-%\end{prop}
-%
-%\begin{proof}
-%Let $\epsilon > 0$ be given.
-%As $\{ f_n \}$ converges uniformly, there is an $N \in \N$ such that for
-%all $n \geq N$
-%\begin{equation*}
-%\sabs{f_n(x)-f_N(x)} < \frac{\epsilon}{3} \qquad \text{for all } x \in X.
-%\end{equation*}
-%As $X$ is compact, any continuous function is uniformly continuous.
-%So $\{ f_1,f_2,\ldots,f_N \}$ is a finite set of uniformly continuous
-%functions and thus it is uniformly equicontinuous.
-%Hence there is a $\delta > 0$ such that
-%$\sabs{f_j(x)-f_j(y)} < \frac{\epsilon}{3}$
-%whenever $d(x,y) < \delta$ and $j=1,\ldots,N$.
-%Now take $n > N$.  For $d(x,y) < \delta$,
-%\begin{equation*}
-%\sabs{f_n(x)-f_n(y)}
-%\leq
-%\sabs{f_n(x)-f_N(x)}
-%+
-%\sabs{f_N(x)-f_N(y)}
-%+
-%\sabs{f_N(y)-f_n(y)}
-%<
-%\epsilon .
-%\qedhere
-%\end{equation*}
-%\end{proof}
 
 \begin{exbox}
 \begin{exercise}
@@ -9120,6 +9105,11 @@ Let $U \subset \C$ be open.
 A set $\sF$ of holomorphic functions $f \colon U \to \C$ is called a
 \emph{\myindex{normal family}} if every sequence in $\sF$ has a subsequence
 that converges uniformly on compact sets (the limit need not be in $\sF$).
+
+A set $\sF$ of holomorphic functions on $U$ is \emph{\myindex{locally bounded}}
+if for every $p \in U$, there is a disc $\Delta_r(p)$ and $M > 0$
+such that 
+$\snorm{f}_{\overline{\Delta_r(p)}} \leq M$ for all $f \in \sF$.
 \end{defn}
 
 In more modern language, a set $\sF$ is a normal family if it is precompact, or
@@ -9130,9 +9120,7 @@ Let us just start with the statement of Montel.
 
 \begin{thm}[Montel]\index{Montel's theorem}
 Let $U \subset \C$ be open let $\sF$
-be a set of holomorphic functions on $U$ that is uniformly bounded on
-compact sets.  Namely, for every compact $K \subset U$, there is an $M > 0$
-such that $\snorm{f}_{K} \leq M$ for all $f \in \sF$.
+be a set of holomorphic functions on $U$ that is locally bounded.
 Then $\sF$ is a normal family (every sequence has a subsequence that
 converges uniformly on compact sets).
 \end{thm}
@@ -9147,16 +9135,103 @@ when working with sequences of in $\C$ or $\R$ before (several times in this
 book already in fact).
 
 \begin{proof}
-FIXME
+First, clearly $\sF$ is pointwise bounded as it is bounded on discs around
+every point.
+We need to show that it is equicontinuous at every point.
+
+Consider $p \in U$ and suppose $\overline{\Delta_r(p)} \subset U$
+such that $\sF$ is bounded on it.
+Say $\snorm{f}_{\overline{\Delta_r(p)}} \leq M$ for all $f \in \sF$.
+For $z \in \overline{\Delta_{r/2}(p)}$
+we have
+\begin{equation*}
+\begin{split}
+\abs{f'(z)}
+=
+\abs{
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{{(\zeta-z)}^2} \, d\zeta
+}
+& \leq
+\frac{1}{2\pi}
+\int_{\partial \Delta_r(p)}
+\frac{\sabs{f(\zeta)}}{\sabs{(\zeta-z)}^2} \, \sabs{d\zeta}
+\\
+& \leq
+\frac{1}{2\pi}
+\int_{\partial \Delta_r(p)}
+\frac{M}{{(r/2)}^2} \, \sabs{d\zeta}
+=
+\frac{4 M}{r}.
+\end{split}
+\end{equation*}
+So for $z \in \overline{\Delta_{r/2}(p)}$,
+\begin{equation*}
+\abs{f(p)-f(z)}
+=
+\abs{
+f(p)
+-
+\left(
+f(p) + \int_{[p,z]} f'(\zeta) \, d\zeta
+\right)
+}
+\leq
+\int_{[p,z]} \abs{f'(\zeta)} \, \sabs{d\zeta}
+\leq
+\frac{4 M}{r} \sabs{z-p} .
+\end{equation*}
+As $M$ does not depend on the particular $f$, we get that $\sF$ is
+equicontinuous at $p$ (it is in fact Lipschitz at $p$ with the same
+Lipschitz constant for every $f \in \sF$).
+
+Therefore, we may apply Arzel\`a--Ascoli, 
+\corref{cor:arzelaascoliplane}, to any sequence in $\sF$
+to find a convergent subsequence and hence $\sF$ is a normal family.
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+Prove the converse to Montel.  That is, if $\sF$ is a normal family of 
+holomorphic functions on an open set $U \subset \C$, then $\sF$ is locally
+bounded.
+\end{exercise}
 
-FIXME
+\begin{exercise}
+Prove that ``locally bounded'' means ``bounded on compact sets,''
+that is, $\sF$ is locally bounded if and only if
+for every compact $K \subset U$ there is an $M >0$ such that
+$\snorm{f}_K \leq M$ for all $f \in \sF$.
+\end{exercise}
+
+\begin{exercise}[Vitali's theorem]\index{Vitali's theorem}
+Suppose $U \subset \C$ is a domain, $\{ f_n \}$ is a locally bounded
+sequence of holomorphic functions, $f \colon U \to \C$ is a holomorphic
+function such that $\{ f_n \}$ converges pointwise to $f$ on a set $E \subset U$,
+and $E$ has a limit point in $U$.  Prove that $\{ f_n \}$
+converges uniformly on compact sets to $f$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be open and $\sF$ a set of holomorphic
+functions such that $\{ f' : f \in \sF \}$ is a normal family.
+Is $\sF$ a normal family?  If not, can you add a simple
+hypothesis that would make it a normal family?
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Riemann mapping theorem}
 \label{sec:RMT}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Weierstrass factorization}
+\label{sec:weier}
 
 FIXME
 
@@ -10413,20 +10488,20 @@ FIXME
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Weierstrass Factorization} \label{ch:weier}
-
-\begin{myquote}
-I became insane, with long intervals of horrible sanity.
-
----Edgar Allan Poe
-\end{myquote}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{FIXME}
-\label{sec:FIXMEweier}
-
-FIXME
+%\chapter{Weierstrass Factorization} \label{ch:weier}
+%
+%\begin{myquote}
+%I became insane, with long intervals of horrible sanity.
+%
+%---Edgar Allan Poe
+%\end{myquote}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\section{FIXME}
+%\label{sec:FIXMEweier}
+%
+%FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
