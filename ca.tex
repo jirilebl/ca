@@ -9045,6 +9045,13 @@ $K_\ell$ and thus $K$.
 
 \begin{exbox}
 \begin{exercise}
+Suppose that $f_n \colon [0,1] \to \C$ are functions that are pointwise
+bounded, continuously differentiable and for some $M> 0$ we have
+$\sabs{f_n'(t)} \leq M$ for all $t \in [0,1]$ and all $n$.  Prove that there
+exists a subsequence that converges uniformly on $[0,1]$.
+\end{exercise}
+
+\begin{exercise}
 Prove the formula of $K^\circ_\ell$.  That is, prove that the interior
 of $K_\ell$ is
 $K^\circ_\ell = \left\{
@@ -9097,6 +9104,52 @@ The sequence $\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
 
 \section{Montel's theorem}
 \label{sec:montel}
+
+For holomorphic functions, if you have a bound on the function, you have a
+bound on the derivative using the Cauchy formula.  A uniform
+bound on the derivative gives equicontinuity, and
+so it comes as no
+surprise that if we have a uniformly bounded set of holomorphic functions
+on a common domain, then this set is equicontinuous.
+Let us use some of the traditional language\footnote{%
+We wouldn't want the reader to miss out on all the possibilities of making
+jokes about ``normal families.''}.
+
+\begin{defn}
+Let $U \subset \C$ be open.
+A set $\sF$ of holomorphic functions $f \colon U \to \C$ is called a
+\emph{\myindex{normal family}} if every sequence in $\sF$ has a subsequence
+that converges uniformly on compact sets (the limit need not be in $\sF$).
+\end{defn}
+
+In more modern language, a set $\sF$ is a normal family if it is precompact, or
+relatively compact, in the space of holomorphic functions on $U$.  But we
+didn't define an actual topology or metric on this set in this book, so
+we will just use the traditional verbiage.
+Let us just start with the statement of Montel.
+
+\begin{thm}[Montel]\index{Montel's theorem}
+Let $U \subset \C$ be open let $\sF$
+be a set of holomorphic functions on $U$ that is uniformly bounded on
+compact sets.  Namely, for every compact $K \subset U$, there is an $M > 0$
+such that $\snorm{f}_{K} \leq M$ for all $f \in \sF$.
+Then $\sF$ is a normal family (every sequence has a subsequence that
+converges uniformly on compact sets).
+\end{thm}
+
+The theorem allows quite incredible applications.  The thing is, it is
+really easy to show that a sequence is bounded, then it is to show that it
+converges (or has a subsequence that does).  One can generate
+``approximate'' solutions to a problem without worrying about them being
+close to something.  The reader has seen applications of this idea
+(using Bolzano--Weierstrass)
+when working with sequences of in $\C$ or $\R$ before (several times in this
+book already in fact).
+
+\begin{proof}
+FIXME
+\end{proof}
+
 
 FIXME
 
