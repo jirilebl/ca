@@ -3545,8 +3545,8 @@ $\lim_{t \downarrow 1} \gamma'(t) = i$, and so on.
 
 \begin{defn}
 Given a piecewise $C^1$ path $\gamma \colon [a,b] \to \C$ and a continuous
-function $f$ defined on the image
-$\gamma\bigl([a,b]\bigr)$, 
+function $f$ defined on 
+$\gamma$, 
 we define the \emph{\myindex{line integral}}\footnote{%
 This integral is also called
 a \emph{\myindex{path integral}}, 
@@ -3708,10 +3708,11 @@ $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \begin{exercise}
 Any one-to-one piecewise $C^1$ path $\gamma \colon [a,b] \to \C$
 can be reparametrized
-to a $C^1$ path.  That is, there exists a strictly increasing
+to a $C^1$ path (as long as $\gamma'$ is allowed to vanish at some points).
+That is, there exists a strictly increasing
 continuous $h \colon [a,b] \to [a,b]$ such that
-$\gamma \circ h$ is $C^1$.  Hint: Make the derivative at the ``corners''
-zero.
+$\gamma \circ h$ is $C^1$.
+Hint: Make the derivative at the ``corners'' zero.
 \end{exercise}
 
 \begin{exercise}[Tricky]
@@ -3866,9 +3867,9 @@ The way we defined things, we do not need Tietze.
 \end{remark}
 
 \begin{remark}
-It is important that the equivalence is for all continuous
+It is important that the definition of equivalence is for all continuous
 functions.  We will show later that if $U$ is say the disc, then for
-any closed $\Gamma$, $\int_\Gamma f(z) \, dz = 0$ for all holomorphic $f$.
+any closed $\Gamma$ in $U$, $\int_\Gamma f(z) \, dz = 0$ for all holomorphic $f$.
 Clearly that should not imply that $\Gamma$ is equivalent to the zero chain
 (or a constant path).  See also \exerciseref{exercise:nonconstantnonzerochain}.
 \end{remark}
@@ -3918,7 +3919,7 @@ $z_1,\ldots,z_k$.
 
 As the following exercise shows, we can, if we want to, get by
 with just polygonal path for most practical purposes.
-Although the paths that come up in applications are often constructed out of
+The paths that come up in applications are often constructed out of
 segments and arcs anyhow.
 
 \begin{exbox}
@@ -3941,13 +3942,18 @@ beginning and end point, such that
 \subsection{Primitives and Cauchy for derivatives}
 
 \begin{defn}
-Suppose $U \subset \C$ is open and $f \colon U \to \C$
-is holomorphic.  A holomorphic $F \colon U \to \C$ with $f = F'$
-is called a \emph{\myindex{primitive}} (or \emph{\myindex{antiderivative}})
+Let $U \subset \C$ be open and $f \colon U \to \C$
+holomorphic.  A holomorphic $F \colon U \to \C$ with $f = F'$
+is called a (holomorphic)\footnote{%
+We will usually say just ``primitive'' as it is generally clear that it must be
+a holomorphic primitive, and besides, that is the only way that we will use
+the word anyway.}
+\emph{\myindex{primitive}}\index{holomorphic primitive} (or an \emph{\myindex{antiderivative}})
 of $f$.
 \end{defn}
 
-First, let us observe the ``uniqueness'' of primitives.
+Primitives do not always exist, but if they do exist, then they are unique up
+to a constant.
 
 \begin{prop} \label{prop:primunique}
 Suppose $U \subset \C$ is a domain, and
@@ -3993,8 +3999,8 @@ We compute:
 F\bigl( \gamma(b) \bigr) - F\bigl( \gamma(a) \bigr) .
 \end{equation*}
 The computation uses the chain rule (\propref{prop:chainrule2})
-and the fundamental theorem of calculus, where of course the
-standard fundamental theorem of calculus is applied to the real and imaginary parts
+and the fundamental theorem of calculus, where the
+standard (real) fundamental theorem of calculus is applied to the real and imaginary parts
 of the expression.
 \end{proof}
 
@@ -4025,8 +4031,8 @@ immediate corollary.
 
 \begin{cor}[Cauchy's theorem for derivatives] \label{cor:cauchyforders}
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
-is holomorphic, such that there exists
-a holomorphic $F \colon U \to \C$ with $f = F'$.
+is holomorphic with a primitive
+$F \colon U \to \C$.
 Let $\gamma$ be a closed piecewise $C^1$ path (or a cycle) in $U$.
 Then
 \begin{equation*}
@@ -9107,9 +9113,9 @@ A set $\sF$ of holomorphic functions $f \colon U \to \C$ is called a
 that converges uniformly on compact sets (the limit need not be in $\sF$).
 
 A set $\sF$ of holomorphic functions on $U$ is \emph{\myindex{locally bounded}}
-if for every $p \in U$, there is a disc $\Delta_r(p)$ and $M > 0$
+if for every $p \in U$, there is a disc $\Delta_r(p) \subset U$ and $M > 0$
 such that 
-$\snorm{f}_{\overline{\Delta_r(p)}} \leq M$ for all $f \in \sF$.
+$\snorm{f}_{\Delta_r(p)} \leq M$ for all $f \in \sF$.
 \end{defn}
 
 In more modern language, a set $\sF$ is a normal family if it is precompact, or
