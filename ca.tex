@@ -2598,6 +2598,11 @@ is called a
 If there exists a biholomorphism $f \colon U \to V$, we say that
 $U$ and $V$ are \emph{\myindex{biholomorphic}}.
 
+Traditionally,
+a biholomorphism
+$f \colon U \to V$ is also called a \emph{\myindex{conformal mapping}} and
+then $U$ and $V$ are said to be \emph{\myindex{conformally equivalent}}.
+
 If $U = V$, then a biholomorphism $f$ is called an
 \emph{\myindex{automorphism}}\footnote{%
 The word automorphism is used in other contexts as well, it always means
@@ -2753,6 +2758,7 @@ $S$ to the unit disc $\D$.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 \begin{exparts}
 \item
 Show that $z^2$ is 2-to-1 on $\C \setminus \{ 0 \}$ while its
@@ -2797,6 +2803,144 @@ $\det Df\big|_p = \abs{\frac{\partial f}{\partial z}(p)}^2 -
 Consider $f(z) = z+ \frac{1}{z}$.  Show that $f$ takes $\C \setminus
 \overline{\D}$ biholomorphically to $\C \setminus [-2,2]$, and it also takes
 $\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.
+\end{exercise}
+\end{exbox}
+
+\subsection{Conformality *}
+
+The actual definition of ``conformal mapping'' is that it
+is a real differentiable bijective mapping $f \colon U \to V$ for open
+$U, V \subset \R^2$ that preserves
+a)~orientation, and b)~angles.
+Both of these are taken in the infinitesimal sense, that is, they are
+statements about $Df$.  If we have two continuously differentiable curves
+$\gamma \colon (-\epsilon,\epsilon) \to \R^2$ and
+$\alpha \colon (-\epsilon,\epsilon) \to \R^2$, such that
+$\gamma(0)=\alpha(0) = p \in \R^2$, then by preserving angles we
+mean that the curves $f \circ \gamma$ and $f \circ \alpha$ meet at the same
+angle at $f(p)$, see \figureref{fig:conform}.  In other words,
+\begin{equation*}
+\text{angle of } Df|_p \gamma'(0) \text{ and }
+Df|_p \alpha'(0)
+\qquad = \qquad
+\text{angle of } \gamma'(0) \text{ and } \alpha'(0) .
+\end{equation*}
+Hence, we are really dealing with linear algebra.
+
+\begin{myfig}
+\subimport*{figures/}{conform.pdf_t}
+\caption{Preserving angles (and orientation).\label{fig:conform}}
+\end{myfig}
+
+By preserving angles we clearly mean that no vector can be taken to zero
+as that does not make any well defined angle with anything else.  That
+means among other things
+that $Df$ must be automatically invertible at every point for a conformal map.
+
+
+\begin{prop}
+A $2\times 2$ real matrix $M$
+preserves orientation and angles
+if and only if $M$ corresponds to the multiplication by a nonzero
+complex number.
+\end{prop}
+
+\begin{proof}
+Let us suppose that $M$ preserve orientation and angles.
+As we said $M$ must be nonsingular.
+Let $M =
+\left[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right]$.
+If it preserves angles then this means that given any two vectors $v$ and
+$w$ in $\R^2$, then the angle between $Mv$ and $Mw$ is the same as the angle
+between $v$ and $w$.  For example take the vectors
+$v=\left[\begin{smallmatrix}1\\0\end{smallmatrix}\right]$ and
+$w=\left[\begin{smallmatrix}0\\1\end{smallmatrix}\right]$.  These are
+orthogonal and so we have that $Mv$ and $Mw$ are orthogonal:
+\begin{equation*}
+0 = Mv \cdot Mw = 
+\begin{bmatrix} a\\b \end{bmatrix}
+\cdot
+\begin{bmatrix} c\\d \end{bmatrix}
+=
+ac+bd .
+\end{equation*}
+As $M$ is nonsingular then either $a$ or $b$ is nonzero.  In either case 
+there must exist some nonzero $r \in \R$ such that
+\begin{equation*}
+M =
+\begin{bmatrix}
+a &-rc \\
+c & ra
+\end{bmatrix} .
+\end{equation*}
+A similar calculation using
+$v=\left[\begin{smallmatrix}1\\1\end{smallmatrix}\right]$ and
+$w=\left[\begin{smallmatrix}1\\-1\end{smallmatrix}\right]$ results in
+$a^2+c^2 = b^2+d^2 = r^2(a^2+c^2)$.  Or in other words $r=\pm 1$.
+
+We have not yet used that $M$ preserves orientation, that is, $\det M > 0$.
+As $\det M = r(a^2+c^2)$ we find that $r=1$, and hence
+\begin{equation*}
+M =
+\begin{bmatrix}
+a & -c \\
+c &  a
+\end{bmatrix} .
+\end{equation*}
+In other words $M$ corresponds to multiplication by the complex number
+$a+ic$.
+
+For the converse, we may assume that $M$ is multiplication by the
+nonzero complex number $\xi$.
+If $z = \sabs{z} e^{i\theta}$ and $w = \sabs{w} e^{i\psi}$ are two nonzero
+complex numbers, then the angle between them, $\theta-\psi$, can be
+computed using
+\begin{equation*}
+e^{i(\theta-\psi)}
+=
+\frac{z\bar{w}}{\sabs{z}\sabs{w}} .
+\end{equation*}
+So the angle between 
+$\xi z$ and $\xi w$ can be computed using
+\begin{equation*}
+\frac{\Re \xi z\overline{\xi w}}{\sabs{\xi z}\sabs{\xi w}} 
+=
+\frac{\sabs{\xi}^2 \Re z\overline{w}}{\sabs{\xi}^2 \sabs{z}\sabs{w}} 
+=
+\frac{\Re z\overline{w}}{\sabs{z}\sabs{w}} e^{i(\theta-\psi)}.
+\end{equation*}
+So the angle is the same.  We have already seen that $\det M =
+\sabs{\xi}^2$ so $M$ preserves orientation.
+\end{proof}
+
+Applying the proposition to $Df$ we find:
+
+\begin{cor}
+Let $U \subset \C$ be open.
+A real differentiable function $f \colon U \to \C$
+preserves orientation and angles
+if and only if $f$ is holomorphic and $f'$ never vanishes.
+\end{cor}
+
+In other words, conformal maps are holomorphic, and holomorphic
+maps with nonzero derivative preserve angles and orientation.
+Once we prove later that
+holomorphic maps are continuously differentiable and we will be able to
+apply the inverse function theorem we have just presented in the previous
+subsection, then we will see that conformal maps are also biholomorphic.
+
+\begin{exbox}
+\begin{exercise}
+Prove that a $2 \times 2$ matrix $M$ preserves angles and reverses
+orientation if and only if $M$ corresponds to the mapping $h \mapsto \xi
+\bar{h}$ for some $\xi \in \C$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be open.
+Prove that real differentiable function $f \colon U \to \C$ preserves angles
+and reverses orientation if and only if the conjugate $\bar{f}$ is
+holomorphic.
 \end{exercise}
 \end{exbox}
 
@@ -9307,6 +9451,46 @@ hypothesis that would make it a normal family?
 
 \section{Riemann mapping theorem}
 \label{sec:RMT}
+
+Every simply connected domain of $\C$ (except $\C$ itself) is really
+equivalent (biholomorphically, conformally) to $\D$.
+This is the content of the so-called Riemann mapping theorem.
+It is a theorem that gets cited a lot in all sorts of branches of
+mathematics\footnote{For example, a beginning course on topology will cite
+the theorem to say that any simply connected domain in $\R^2$
+is homeomorphic to the disc, and that's despite the topologists only
+needing the mapping to be continuous.  It still seems to be the easiest way.}
+
+\begin{thm}
+Let $U \subset \C$ be a simply connected domain such that $U \not= \C$.
+Let $p \in U$ be given.  Then there exists a biholomorphic (conformal)
+map $f \colon U \to \D$ such that $f(p) = 0$, such that $\sabs{f'(p)}$ is
+maximal, and $f'(p) > 0$ (real and positive).
+\end{thm}
+
+The proof of the theorem gives a wonderful example of how many problems are
+solved by formulating the correct extremal problem.  In this case, we will
+show that maximizing $\sabs{f'(p)}$ is equivalent to getting an onto
+mapping.  For any map that is not onto, we find one with a bigger
+$\sabs{f'(p)}$ that still goes into the disc.  As such maps are all bounded,
+we then use Montel to find a convergent subsequence, and the limit will then
+have to be onto.  Why would one think of this extremal problem?  Well,
+maximizing the derivative seems like a good way to spread out the values.
+We wish to make the image as large as possible, and we get furthest if the
+velocity is largest, no?
+
+\begin{proof}
+Consider $\sF$ to be the family of univalent (injective) holomorphic
+maps $f \colon U \to \D$ such that $f(p) = 0$.
+
+Before we rush off to Montel however, we first have to show that such a
+function even exists, that is, that $\sF$ is not empty.  This is where we
+use that $U$ is not equal to the complex plane (by Liouville, $\sF$
+would be empty if $U = \C$).
+
+FIXME
+
+\end{proof}
 
 FIXME
 
