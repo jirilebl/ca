@@ -975,7 +975,27 @@ We say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
 \int_a^b u(t) \, dt + i \int_a^b v(t) \, dt .
 \end{equation*}
 This is precisely the way one integrates vector-valued functions
-for any vector space.
+for any vector space.  From basic analysis, if you have a Riemann integrable
+real valued function $u \colon [a,b] \to \R$, then $\abs{u}$ is Riemann
+integrable and $\abs{\int_a^b u(t) \, dt} \leq \int_a^b \sabs{u(t)} \, dt$.
+Similarly for complex value functions.
+
+\begin{prop} \label{prop:inttriangleineq}
+Suppose $f \colon [a,b] \to \C$ is (Riemann) integrable.  Then $\sabs{f}$ is
+(Riemann) integrable and
+\begin{equation*}
+\abs{\int_a^b f(t) \, dt} \leq 
+\int_a^b \abs{f(t)} \, dt .
+\end{equation*}
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.  Hint: After you know integrability, consider
+a Riemann sum and the regular triangle inequality.
+\end{exercise}
+\end{exbox}
+
 
 \subsection{Matrix representation of complex numbers}
 
@@ -3568,9 +3588,10 @@ function of the whole closed integral.
 
 Let us compute the most important example of a line integral.
 
-\begin{example}
+\begin{example} \label{example:integralpowerz}
 Let $\gamma \colon [0,2\pi] \to \C$ given by $\gamma(t) = r e^{it}$ be
-the circle of radius $r$ oriented counterclockwise.  See \figureref{fig:circlepath}.
+the circle of radius $r$ oriented counterclockwise,
+that is, $\partial \Delta_r(0)$.  See \figureref{fig:circlepath}.
 For $n \in \Z$, we claim that
 \begin{equation*}
 \int_\gamma z^n \, dz
@@ -3819,7 +3840,7 @@ In particular, if $\sabs{f(z)} \leq M$ on $\gamma$ and $\ell = \int_\gamma ds
 \end{prop} 
 
 \begin{proof}
-We estimate,
+We estimate using \propref{prop:inttriangleineq},
 \begin{equation*}
 \abs{\int_\gamma f(z) \, dz}
 =
@@ -4108,6 +4129,20 @@ Suppose $U \subset \C$ is open, $f \colon U \to \C$ holomorphic, and
 $\gamma$ is a closed piecewise $C^1$ path in $U$.  
 For $p \in U$, find a holomorphic $g \colon U \to \C$ with $g(p) = 0$
 and $g'(p) = 0$ such that $\int_\gamma g(z)\, dz = \int_\gamma f(z) \, dz$.
+\end{exercise}
+
+\begin{exercise}
+Compute
+\begin{equation*}
+\int_\gamma z^n \, dz
+\end{equation*}
+for any integer $n \not= -1$ and any cycle $\gamma$ in
+$\C \setminus \{ 0 \}$.
+\end{exercise}
+
+\begin{exercise}
+Using \exampleref{example:integralpowerz}, argue that $\frac{1}{z}$ does
+not have a primitive in $\C \setminus \{ 0 \}$.
 \end{exercise}
 \end{exbox}
 
@@ -4957,9 +4992,10 @@ given by the formula you found above.
 Suppose that $g(z)$ is such that
 \begin{equation*}
 \lim_{h \to 0}
-\frac{g(z+\bar{h})-g(z)}{h}
+\frac{g(z+h)-g(z)}{\bar{h}}
 \end{equation*}
-exists for all $z \in \D$.  Prove that there exists
+exists for all $z \in \D$ (note that conjugate on the $h$).
+Prove that there exists
 a sequence $\{ c_n \}$ such that for all $z \in \D$,
 \begin{equation*}
 g(z) = \sum_{n=0}^\infty c_n \bar{z}^n .
