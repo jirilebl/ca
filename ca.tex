@@ -9533,17 +9533,18 @@ where
 $\varphi_a(z) = \frac{z-a}{1-\bar{a}z}$ is an automorphism of $\D$ that
 takes $a$ to $0$.  In particular, $h(p) = 0$, and $h \in \sF$.
 
-As the inverse of $\varphi_a$ is $\varphi_{-a}$ we have
-that $g = \varphi_{-g(p)} \circ h$ and so
-let's differentiate
-$f(z)-q = {\bigl(g(z)\bigr)}^2$ at $p$:
+The inverse of $\varphi_a$ is $\varphi_{-a}$, so
+$g = \varphi_{-g(p)} \circ h$.
+Next, differentiate
+$f(z)-q = {\bigl(g(z)\bigr)}^2$ at $p$, noting that
+and $\varphi_a'(0) = 1-\sabs{a}^2$:
 \begin{equation*}
 f'(p) = 2 g(p) g'(p) = 2 \varphi_{-g(p)} (0) \varphi_{-g(p)}'(0) h'(p)  =
 2 g(p) (1-\sabs{g(p)}^2) h'(p) .
 \end{equation*}
-If we take modulus we find
+We take modulus,
 $\sabs{f'(p)} = 2 \sabs{g(p)} (1-\sabs{g(p)}^2) \sabs{h'(p)}$.  The function
-$2x(1-x^2) < 1$ for all $x \in [0,1]$ (exercise), and as $g(p) \in \D$ we thus get that
+$2x(1-x^2) < 1$ for all $x \in [0,1]$ (exercise), and as $g(p) \in \D$ we get that
 \begin{equation*}
 \sabs{f'(p)} < \sabs{h'(p)} .
 \end{equation*}
@@ -9581,9 +9582,34 @@ Given an open $U \subset \C$ and $p \in U$, prove
 that a biholomorphic map
 $f \colon U \to \D$ such that $f'(p) > 0$ is unique if it exists.
 \end{exercise}
-\end{exbox}
 
-FIXME
+\begin{exercise}
+Suppose $V \subset \C$ is a simply connected domain, and $V \not= \C$.
+Show that every holomorphic $f \colon \C \to V$ is constant.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a simply connected domain.
+Show that for every two points $z,w \in U$, there exists an automorphism
+$\psi \in \Aut(U)$ such that $\psi(z) = w$.
+\end{exercise}
+
+\begin{exercise}
+Show that there exists
+a holomorphic $f \colon \D \to \D$ such that
+\begin{equation*}
+\int_{\D} \abs{f'(x+iy)}^2 \, dx \, dy
+\end{equation*}
+is maximal.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a simply connected domain, $U \not= \C$,
+$p,q \in U$ are distinct points, and
+$f \colon U \to U$ is holomorphic such that $f(p) = p$ and $f(q)=q$.
+Prove that $f$ is the identity, that is, $f(z)=z$ for all $z \in U$.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
