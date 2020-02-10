@@ -9101,6 +9101,11 @@ A compact metric space $X$ contains a countable dense subset,
 that is, there exists a countable $D \subset X$ such that $\widebar{D} = X$.
 \end{prop}
 
+We will be applying this Arezl\`a--Ascoli for subsets of $\C$, and
+it is rather simple to find a countable dense subset in such sets:
+The set of all $a+ib$ for rational $a$ and $b$ is dense in $\C$.  So if you 
+are impatient, feel free to skip to the main theorem below.
+
 Denote by $B(x,\delta) = \{ y \in X : d(x,y) < \delta \}$ the ball of radius
 $\delta$.
 
@@ -9122,6 +9127,7 @@ x \in B(x_{n,j},\nicefrac{1}{n}) \subset B\left(x_{n,j},\epsilon\right) .
 \end{equation*}
 Hence $x \in \widebar{D}$, so $\widebar{D} = X$ and $D$ is dense.
 \end{proof}
+
 
 \begin{thm}[Arzel\`a--Ascoli]\index{Arzel\`a--Ascoli theorem}
 \label{thm:arzelaascoli}
@@ -9465,32 +9471,117 @@ needing the mapping to be continuous.  It still seems to be the easiest way.}
 Let $U \subset \C$ be a simply connected domain such that $U \not= \C$.
 Let $p \in U$ be given.  Then there exists a biholomorphic (conformal)
 map $f \colon U \to \D$ such that $f(p) = 0$, such that $\sabs{f'(p)}$ is
-maximal, and $f'(p) > 0$ (real and positive).
+maximal.  Furthermore, the biholomorphic map $f \colon U \to \C$
+such that $f(p) = 0$ and
+$f'(p) > 0$ (real and positive) is unique.
 \end{thm}
 
-The proof of the theorem gives a wonderful example of how many problems are
+The proof of the theorem is a wonderful example of how many problems are
 solved by formulating the correct extremal problem.  In this case, we will
 show that maximizing $\sabs{f'(p)}$ is equivalent to getting an onto
 mapping.  For any map that is not onto, we find one with a bigger
-$\sabs{f'(p)}$ that still goes into the disc.  As such maps are all bounded,
-we then use Montel to find a convergent subsequence, and the limit will then
-have to be onto.  Why would one think of this extremal problem?  Well,
+$\sabs{f'(p)}$ that still goes into the disc.  Such maps are bounded,
+so Montel gives us a convergent sequence with increasing $\sabs{f'(p)}$
+going to the supremum, and the limit will then have to be onto.
+Why would one think of this extremal problem?  Well,
 maximizing the derivative seems like a good way to spread out the values.
 We wish to make the image as large as possible, and we get furthest if the
 velocity is largest, no?
 
 \begin{proof}
 Consider $\sF$ to be the family of univalent (injective) holomorphic
-maps $f \colon U \to \D$ such that $f(p) = 0$.
+maps $f \colon U \to \D$ such that $f(p) = 0$.  We're trying to find
+an $f \in \sF$ that is onto.
 
 Before we rush off to Montel however, we first have to show that such a
 function even exists, that is, that $\sF$ is not empty.  This is where we
 use that $U$ is not equal to the complex plane (by Liouville, $\sF$
-would be empty if $U = \C$).
+would be empty if $U = \C$).  If the complement of $U$ contained an open
+set, things would be easy, but we can only use that the complement of $U$
+contains at least one point, and that it is simply connected.  We will use
+the simply-connectedness to construct a square root, as square root squishes
+things together.
 
-FIXME
+Suppose $q \in \C \setminus U$.  Then the function $z \mapsto z-q$ is never
+zero and so there exists a function $g(z)$ which is the holomorphic
+square root in $U$, that is, ${\bigl(g(z)\bigr)}^2 = z-q$.
+The set $g(U)$ is open by the open mapping theorem and
+if $g(z)=g(w)$ then $z=w$, so $g$ is injective.  What's more,
+$g(z)=-g(w)$ also implies $z=w$.  In particular, that means that $g(z) =
+-g(w)$ never happens since $g$ is never zero,
+or in other words $g(U) \cap \bigl( - g(U) \bigr) = \emptyset$.  The set
+$- g(U)$ (the set of negatives of all points in $g(U)$) is also open, and so
+the complement of $g(U)$ contains an open disc $\Delta_r(\xi)$.  Hence
+\begin{equation*}
+z \mapsto \frac{r}{g(z)-\xi}
+\end{equation*}
+takes $U$ to $\D$.
+By composing with the right automorphism of the disc we can assume also that
+we have a map that takes $p$ to $0$.  Hence, $\sF$ is nonempty.
 
+OK.  Now suppose that $f \colon U \to \D$ is a univalent holomorphic map
+such that $f(p) = 0$ and suppose that $f$ is not onto.  Suppose there is a
+$q \in \D \setminus f(\D)$.  Again, we have that $z \mapsto f(z)-q$ is
+nonzero and thus again there exists a holomorphic square root $g$ on $U$ such that
+${\bigl(g(z)\bigr)}^2 = f(z)-q$.  If $g(z)=g(w)$, then $f(z)=f(w)$ and as
+$f$ is univalent, $z=w$, and so $g$ is univalent.  The function $g$
+now takes $p$ to one of the square roots of $q$.  Define
+\begin{equation*}
+h = \varphi_{g(p)} \circ g ,
+\end{equation*}
+where
+$\varphi_a(z) = \frac{z-a}{1-\bar{a}z}$ is an automorphism of $\D$ that
+takes $a$ to $0$.  In particular, $h(p) = 0$, and $h \in \sF$.
+
+As the inverse of $\varphi_a$ is $\varphi_{-a}$ we have
+that $g = \varphi_{-g(p)} \circ h$ and so
+let's differentiate
+$f(z)-q = {\bigl(g(z)\bigr)}^2$ at $p$:
+\begin{equation*}
+f'(p) = 2 g(p) g'(p) = 2 \varphi_{-g(p)} (0) \varphi_{-g(p)}'(0) h'(p)  =
+2 g(p) (1-\sabs{g(p)}^2) h'(p) .
+\end{equation*}
+If we take modulus we find
+$\sabs{f'(p)} = 2 \sabs{g(p)} (1-\sabs{g(p)}^2) \sabs{h'(p)}$.  The function
+$2x(1-x^2) < 1$ for all $x \in [0,1]$ (exercise), and as $g(p) \in \D$ we thus get that
+\begin{equation*}
+\sabs{f'(p)} < \sabs{h'(p)} .
+\end{equation*}
+\begin{exbox}
+\begin{exercise}
+Prove that for all real $x \in [0,1]$, we have $2x(1-x^2) < 1$.
+\end{exercise}
+\end{exbox}
+
+We can thus construct a sequence $f_n \in \sF$ such that the increasing sequence
+$\bigl\{ \sabs{f_n'(p)} \bigr\}$ converges to $\sup_{f \in \sF}
+\sabs{f'(p)}$.  As all functions in $\sF$ are bounded by $1$,
+Montel says that there exists a subsequence that converges uniformly on
+compact sets to some $f$.  Assume $\{ f_n \}$ is that subsequence.
+By the corollary to Hurwitz,
+\corref{cor:univalentlimit},
+the function $f$ is univalent or constant.  It clearly cannot be constant,
+as we know that $f_n'(p)$ also converges (all derivatives do), and so it
+cannot be zero as 
+$\bigl\{ \sabs{f_n'(p)} \bigr\}$ is an increasing sequence.
+We must have $f(p) = 0$ by taking the limit.
+Similarly 
+$\sabs{f(z)} \leq 1$ for all $z \in U$ by taking limits,
+so $f(U) \subset \overline{\D}$.
+By the open mapping theorem we get that $f(U) \subset \D$, so $f \in
+\sF$.  If $f$ was not onto, then it would not be the one that achieves the
+supremum for $\sabs{f'(p)}$.  Thus $f(U) = \D$ and it is the desired map.
+
+The uniqueness is left as an exercise.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Given an open $U \subset \C$ and $p \in U$, prove
+that a biholomorphic map
+$f \colon U \to \D$ such that $f'(p) > 0$ is unique if it exists.
+\end{exercise}
+\end{exbox}
 
 FIXME
 
