@@ -4143,7 +4143,7 @@ beginning and end point, such that
 
 \begin{defn}
 Let $U \subset \C$ be open and $f \colon U \to \C$
-holomorphic.  A holomorphic $F \colon U \to \C$ with $f = F'$
+a function.  A holomorphic $F \colon U \to \C$ with $f = F'$
 is called a (holomorphic)\footnote{%
 We will usually say just ``primitive'' as it is generally clear that it must be
 a holomorphic primitive, and besides, that is the only way that we will use
@@ -4391,7 +4391,8 @@ that triangle $T^1 = T_j$:
 Now cut $T^1$ into subtriangles
 $T_1^1$, $T_2^1$, $T_3^1$, $T_4^1$ as above and repeat the procedure.  There
 is one of these four whose integral is at least $\frac{c}{4^2}$ let that be
-$T^2$.  All in all, for the $k$\textsuperscript{th} triangle $T^k$ we have
+$T^2$.  Rinse and repeat.
+All in all, for the $k$\textsuperscript{th} triangle $T^k$ we have
 \begin{equation*}
 \abs{\int_{\partial T^k} f(z) \, dz } \geq \frac{c}{4^k} .
 \end{equation*}
@@ -4420,8 +4421,8 @@ Let us write
 \begin{equation*}
 f(z) = f(z_0) + \alpha (z-z_0) + g(z) .
 \end{equation*}
-If $f$ was differentiable, we could choose an $\alpha$ such that
-$\frac{g(z)}{z-z_0}$ goes to zero as $z \to z_0$.
+If $f$ was differentiable, we could choose an $\alpha$ that would make 
+$\frac{g(z)}{z-z_0}$ go to zero as $z \to z_0$.
 So let us prove that it doesn't for any $\alpha$.  Fix some $\alpha$,
 and thus some $g$.  If $g(z_0) \not= 0$,
 then we are done, so assume $g(z_0) = 0$.
@@ -4445,7 +4446,7 @@ And so
 \end{equation*}
 The length of the sides of $k$\textsuperscript{th} triangle is
 $\frac{\ell}{2^k}$, so
-by mean value theorem for integrals we can choose a $z_k$ on $T^k$ such that
+by mean value theorem for integrals we can choose a $z_k$ on $\partial T^k$ such that
 \begin{equation*}
 \sabs{g(z_k)} = 
 \frac{2^k}{\ell}
