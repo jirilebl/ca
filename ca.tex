@@ -9617,7 +9617,66 @@ Prove that $f$ is the identity, that is, $f(z)=z$ for all $z \in U$.
 \section{Weierstrass factorization}
 \label{sec:weier}
 
-FIXME
+It is useful to factor out all the zeros of a holomorphic function,
+not just finitely many.  Similarly, we can work with poles.  Basically, if a
+function has zeros at $0$, $1$, and $i$, we could consider
+$\frac{f(z)}{z(z-1)(z-i)}$.  If those are the only zeros of $f$, then we
+could write $f$ as
+$f(z) = g(z) z(z-1)(z-i)$ where $g$ is never zero.
+
+Now the question is, what about infinitely many
+zeros.  Can we for example factor out the zeros out of $\sin z$?  Can we
+write $\sin z$ as something times $\prod_{n \in \Z} (z-2\pi n)$?  Sort of,
+though we have to be more careful about convergence.  So we need to use
+more complicated factors to make convergence happen the way we want to.
+
+\begin{defn}
+The product
+$\prod_{j=1}^\infty (1+a_j)$
+\emph{converges}\index{converges!infinite product} if the sequence partial products
+$\prod_{j=1}^n (1+a_j)$ converges.  We say that the product
+\emph{converges absolutely}\index{converges!infinite product}
+if $\prod_{j=1}^\infty (1+\sabs{a_j})$
+converges, which is equivalent to $\sum_{j=1}^\infty \sabs{a_j}$ converging.
+
+Define the \emph{\myindex{elementary factors}}
+\begin{equation*}
+E_0(z) = (1-z), \qquad
+E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+.
+\end{equation*}
+\end{defn}
+
+Notice that the function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
+
+\begin{thm}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
+Let $f$ be an entire function with zeros (with multiplicity) at points of
+the sequence $\{ a_k \}$ except the zero at
+the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
+entire function $g$ and a sequence $p_k$ such that
+\begin{equation*}
+f(z) = z^m e^{g(z)} \prod_{k=1}^\infty E_{p_k}\left(\frac{z}{a_k}\right) ,
+\end{equation*}
+converges absolutely and uniformly on all compact subsets.
+\end{thm}
+
+FIXME: The $p_k$ are chosen such that
+\begin{equation*}
+\sum_{j=1}^\infty {\abs{\frac{r}{a_k}}}^{1+p_k}
+\end{equation*}
+converges for all $r > 0$.
+
+FIXME:
+
+\begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
+Suppose $U \subset \C$ is a domain, $\{ a_k \}$, $\{ b_k \}$ are
+countable sets in $U$
+with no limit points in $U$, and $\{ n_k \}$, $\{ m_k \}$ any countable sets of
+natural numbers.
+Then there exists a meromorphic function $f$ of $U$ whose
+zeros are exactly at $a_k$, with orders given by $n_k$, and
+poles are exactly at $b_k$, with orders given by $m_k$.
+\end{thm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
