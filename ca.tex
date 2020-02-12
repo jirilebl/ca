@@ -4177,7 +4177,7 @@ fundamental theorem.
 \begin{thm}[Fundamental theorem of calculus for line integrals]
 \index{fundamental theorem of calculus!line integrals}%
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
-is holomorphic with a primitive $F \colon U \to \C$.
+is continuous with a primitive $F \colon U \to \C$ (so $F' = f$).
 Let $\gamma \colon [a,b] \to U$ be a piecewise $C^1$ path.
 Then
 \begin{equation*}
@@ -4205,7 +4205,7 @@ of the expression.
 \end{proof}
 
 \begin{remark}
-The hypothesis that $f=F'$ is holomorphic is extraneous,
+The hypothesis that $f=F'$ is continuous is extraneous,
 we will soon prove that a derivative of a holomorphic function is
 holomorphic.  As that is not yet proved, we need $F'$ to be at least
 continuous so that the integral makes sense\footnote{%
@@ -4231,7 +4231,7 @@ immediate corollary.
 
 \begin{cor}[Cauchy's theorem for derivatives] \label{cor:cauchyforders}
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
-is holomorphic with a primitive
+is continuous with a primitive
 $F \colon U \to \C$.
 Let $\gamma$ be a closed piecewise $C^1$ path (or a cycle) in $U$.
 Then
@@ -4400,11 +4400,11 @@ We have $T^k \subset T^{k-1} \subset \cdots \subset T$.
 The subtriangles are all similar triangles (same angles),
 but of exactly half the size.
 In particular,
-the largest possible distance for two points in the triangle must
-get halved each iteration.
+the largest possible distance for two points in the triangle 
+gets halved each iteration.
 In more formal language\footnote{%
-Here $\operatorname{diam}(T)$ means the largest distance between two points
-in $T$.}:
+Here $\operatorname{diam}(T)= \sup \{ \sabs{p-q} : p,q \in T \}$
+means the maximum distance between two points in $T$.}:
 \begin{equation*}
 \operatorname{diam}(T^k) =
 \frac{1}{2} \operatorname{diam}(T^{k-1})
@@ -4419,12 +4419,13 @@ And as the diameter goes to zero, it must be a single point:
 
 Let us write
 \begin{equation*}
-f(z) = f(z_0) + \alpha (z-z_0) + g(z) .
+f(z) = f(z_0) + \alpha (z-z_0) + g(z) ,
 \end{equation*}
+for some continuous $g(z)$.
 If $f$ was differentiable, we could choose an $\alpha$ that would make 
 $\frac{g(z)}{z-z_0}$ go to zero as $z \to z_0$.
-So let us prove that it doesn't for any $\alpha$.  Fix some $\alpha$,
-and thus some $g$.  If $g(z_0) \not= 0$,
+Let us prove that it doesn't for any $\alpha$.  Fix $\alpha$
+and thus $g$.  If $g(z_0) \not= 0$,
 then we are done, so assume $g(z_0) = 0$.
 Cauchy's theorem for polynomials says
 \begin{equation*}
@@ -4444,9 +4445,9 @@ And so
 \leq
 \int_{\partial T^k} \sabs{g(z)} \, \sabs{dz} .
 \end{equation*}
-The length of the sides of $k$\textsuperscript{th} triangle is
+The sum of the length of the sides of $T^k$ is
 $\frac{\ell}{2^k}$, so
-by mean value theorem for integrals we can choose a $z_k$ on $\partial T^k$ such that
+by mean value theorem for integrals there is a $z_k \in \partial T^k$ such that
 \begin{equation*}
 \sabs{g(z_k)} = 
 \frac{2^k}{\ell}
@@ -4467,7 +4468,7 @@ $\sabs{z_k-z_0} \leq \frac{d}{2^k}$ and
 \frac{c}{4^k} = \frac{c}{d \ell} .
 \end{equation*}
 As $z_k \to z_0$, we find that $\frac{g(z)}{z-z_0}$ does not 
-go to zero, so $f$ is not complex differentiable at $z_0$.
+go to zero as $z \to z_0$.  So $f$ is not complex differentiable at $z_0$.
 \end{proof}
 
 \begin{exbox}
@@ -4480,10 +4481,14 @@ is again oriented counterclockwise.  Prove Cauchy--Goursat for rectangles
 \end{exercise}
 
 \begin{exercise}
-Let $T$ be a triangle with 0 in the interior, say the triangle with vertices
-$-1-i$, $1-i$, and $i$.  Compute $\int_{\partial T} \frac{1}{z} \, dz$,
+Let $R$ be a rectangle with vertices
+$-1-i$, $1-i$, $1+i$, and $-1+i$ and notice that $0$ is in the interior.
+Compute $\int_{\partial R} \frac{1}{z} \, dz$,
 notice that it is nonzero, and argue why it does not violate the
-Cauchy--Goursat theorem.
+Cauchy--Goursat theorem (for rectangles, see the previous exercise).
+Hint: We do not yet have complex logarithm, so you can't use that
+but notice that for example:
+$\frac{1}{t-i} = \frac{t}{t^2+1} + i \frac{1}{t^2+1}$.
 \end{exercise}
 \end{exbox}
 
@@ -4506,6 +4511,7 @@ The closure of a convex set is convex.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Let $X \subset \C$ be a convex set and $\xi \in \partial X$, then prove that
 there exists a nonzero $w$ such that for all $z \in X$ we have
 \begin{equation*}
@@ -4548,7 +4554,7 @@ $z \in U$.  See \figureref{fig:starshaped}.
 A convex set is star-like, but not vice-versa.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise} \label{exercise:triangleinstarlike}
 Prove that if $U \subset \C$ is star-like with respect to $z_0$ and $[a,b]
 \subset U$, then the triangle $T$ with vertices $z_0$, $a$, and $b$ is entirely
 contained in $U$.
@@ -4575,16 +4581,18 @@ F(z) = \int_{[z_0,z]} f(\zeta) \, d\zeta .
 \end{equation*}
 
 Consider a small disc $\Delta_r(z) \subset U$.
-Now suppose $h$ is small enough so that
+If $\sabs{h} < r$, then
 $z+h \in \Delta_r(z)$.
 The line between $z$ and $z+h$ is in $U$, and
 as $U$ is star-like with respect to $z_0$, 
 the entire triangle with
 vertices $z_0$, $z$, and $z+h$
-is in $U$, see \figureref{fig:triangantidef}.
+is in $U$, see \figureref{fig:triangantidef}
+(and \exerciseref{exercise:triangleinstarlike}).
 \begin{myfig}
 \subimport*{figures/}{triangantidef.pdf_t}
-\caption{Star-like domain and the triangle $[z_0,z,z+h]$.\label{fig:triangantidef}}
+\caption{Star-like domain and the triangle with vertices
+$z_0$, $z$, and $z+h$.\label{fig:triangantidef}}
 \end{myfig}
 
 The
@@ -4604,7 +4612,9 @@ So
 \int_{[z,z+h]} f(\zeta) \, d\zeta
 =
 \frac{1}{h}
-\int_0^1 f(z+th) h \, dt .
+\int_0^1 f(z+th) h \, dt
+=
+\int_0^1 f(z+th) \, dt .
 \end{split}
 \end{equation*}
 In other words,
@@ -4626,7 +4636,7 @@ f(z)
 \int_0^1 \abs{f(z+th)-f(z)} \, dt .
 \end{split}
 \end{equation*}
-By continuity of $f$ at $z$ we find
+By continuity of $f$ at $z$,
 \begin{equation*}
 \lim_{h \to 0}
 \frac{F(z+h)-F(z)}{h} 
@@ -4753,7 +4763,7 @@ Now fix $\alpha$ (that is, fix $s$).
 We connect $\alpha$ to $\gamma$
 via two straight lines as in \figureref{fig:disccauchy}.
 The two resulting regions between $\alpha$ and $\gamma$
-give paths $c_1$ and $c_2$ with the counterclockwise
+give closed paths $c_1$ and $c_2$ with the counterclockwise
 orientations marked in the figure.
 \begin{myfig}
 \subimport*{figures/}{disccauchy.pdf_t}
@@ -4765,7 +4775,7 @@ As chains $c_1+c_2 = \gamma - \alpha$.  Further, each
 $c_j$ lies in a star-like domain (marked by dashed lines in the figure),
 where $\frac{f(\zeta)}{\zeta-z}$ is holomorphic
 as a function of $\zeta$ (since $z$ is outside each of these domains).
-So by Cauchy's theorem for star-like sets
+By Cauchy's theorem for star-like sets
 \begin{equation*}
 \int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta -
 \int_{\alpha} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
