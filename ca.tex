@@ -4350,7 +4350,6 @@ suppose there is a triangle $T$ over which the integral is not zero,
 We will find a point
 where $f$ is not complex differentiable.
 
-Let $\ell$ be the sum of the length of the sides of $T$.
 Cut $T$ into four subtriangles
 $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side of $T$ in half.  See
 \figureref{fig:trianggoursat}.
@@ -4439,9 +4438,13 @@ And so
 \leq
 \int_{\partial T^k} \sabs{g(z)} \, \sabs{dz} .
 \end{equation*}
+Let $\ell$ be the sum of the length of the sides of $T$.
 The sum of the length of the sides of $T^k$ is
 $\frac{\ell}{2^k}$, so
-by mean value theorem for integrals there is a $z_k \in \partial T^k$ such that
+by mean value theorem for integrals\footnote{%
+If $\varphi \colon [a,b] \to \R$ is continuous, then there is an $x \in [a,b]$
+such that $\varphi(x) = \frac{1}{b-a} \int_a^b \varphi(t) \, dt$.},
+there is a $z_k \in \partial T^k$ such that
 \begin{equation*}
 \sabs{g(z_k)} = 
 \frac{2^k}{\ell}
@@ -4796,12 +4799,40 @@ Now let $s$ go to zero
 
 \begin{exbox}
 \begin{exercise}
-Suppose $f$ is holomorphic in a neighborhood of $\overline{\Delta_r(p)}$,
-show that $f$ at $p$ is the average of the values on $\partial \Delta_r(p)$.
+Suppose $f$ is holomorphic in a neighborhood of $\overline{\Delta_r(p)}$.
+Show that $f$ at $p$ is the average of the values on $\partial \Delta_r(p)$.
 That is, show
 \begin{equation*}
 f(p) = \frac{1}{2\pi} \int_0^{2\pi} f(p + r e^{it}) \, dt .
 \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is holomorphic in a neighborhood of $\overline{\Delta_r(p)}$.
+Show that $f$ at $p$ is the average of the values on $\Delta_r(p)$.
+That is, show
+\begin{equation*}
+f(p) = \frac{1}{\pi r^2} \int_{\Delta_r(p)} f(z) \, dA ,
+\end{equation*}
+where $dA = dx \, dy = r \, dr \, d\theta$ is the area measure.
+\end{exercise}
+
+\begin{exercise}
+Compute 
+\begin{equation*}
+\int_\gamma \frac{\cos ( z^2 ) +z}{z-\sqrt{\pi}} \, dz
+\end{equation*}
+if $\gamma$ is:
+\begin{exparts}
+\item
+The circle of radius 2 centered at the origin oriented
+counterclockwise.
+\item
+The circle of radius 1 centered at the origin oriented
+counterclockwise.
+\item
+The circle of radius 5 centered at $i+1$ oriented clockwise.
+\end{exparts}
 \end{exercise}
 
 \begin{exercise} \label{exercise:cauchycont}
@@ -4962,7 +4993,7 @@ for some $z \in U$.
 
 \subsection{Holomorphic functions are analytic}
 
-The next, and perhaps the most profound consequence of Cauchy's formula is
+The next, and perhaps the most profound consequence of Cauchy's formula, is
 that holomorphic functions are analytic.  We have already seen
 that analytic functions are holomorphic, and now prove the converse.
 
@@ -5172,7 +5203,11 @@ holomorphic.
 
 The ``in particular'' is an important consequence.  It is also a somewhat
 surprising consequence, it says that if $f$ is differentiable in some way,
-then so is the derivative.  Nothing like that is true for real functions.
+then so is the derivative.  Nothing like that is true for real functions:
+Any continuous function $g \colon (a,b) \to \R$ is a derivative
+of a real differentiable function, e.g.\ $f(x) = \int_a^x g(t)\,dt$,
+and continuous functions need not be differentiable anywhere.
+Even worse, the real derivative could even be discontinuous.
 
 \begin{exbox}
 \begin{exercise}
@@ -5181,6 +5216,9 @@ Let $f \colon \R \to \R$ be defined by $f(0) = 0$ and $f(x) = x^2
 differentiable everywhere (including at $0$), but $f'$ is not continuous.
 \end{exercise}
 \end{exbox}
+
+The derivatives of a holomorphic function can be computed by
+integration via the Cauchy formula as well (yeah that does sound weird).
 
 \begin{thm}[Cauchy integral formula for derivatives]
 \index{Cauchy integral formula!derivatives}
