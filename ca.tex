@@ -588,20 +588,23 @@ The general dependence of the non-appendix chapters is the following.
 My plan for a semester is to go through chapters
 \ref{ch:complexplane}--\ref{ch:counting}, skipping the homotopy versions of
 Cauchy, to get through basic theory of holomorphic functions,
-then getting to \ref{ch:montelriemannweier} (Montel and RMT, but perhaps not
-Weierstrass),
+then getting to \ref{ch:montelriemann} (Montel and Riemann mapping),
 \ref{ch:harmonic} (harmonic functions),
-\ref{ch:runge} (Runge).
+\ref{ch:runge} (Runge).  Then there are some extra topics for a differnt
+plan such as \ref{ch:weier} (Weierstrass factorization) and
+\ref{ch:analcont} (analytic continuation).
 \begin{equation*}
 \begin{tikzcd}[cramped, row sep=small]
 & & {\text{\Chdotref{ch:complexplane}}} \arrow[d] \\
 & & {\text{\Chdotref{ch:holanal}}} \arrow[d] \\
 & & {\text{\Chdotref{ch:cauchysimple}}} \arrow[d] \\
 & & {\text{\Chdotref{ch:log}}} \arrow[d] \\
-& & {\text{\Chdotref{ch:counting}}} \arrow[dll] \arrow[dl] \arrow[d] \arrow[dr] \arrow[dr] \\
-{\text{\Chdotref{ch:montelriemannweier}}} &
+& & {\text{\Chdotref{ch:counting}}} \arrow[dll] \arrow[dl] \arrow[d]
+\arrow[dr] \arrow[dr] \arrow[drr] \\
+{\text{\Chdotref{ch:montelriemann}}} &
 {\text{\Chdotref{ch:harmonic}}} &
 {\text{\Chdotref{ch:runge}}} &
+{\text{\Chdotref{ch:weier}}} &
 {\text{\Chdotref{ch:analcont}}}
 \end{tikzcd}
 \end{equation*}
@@ -1937,6 +1940,15 @@ or using that a holomorphic function is
 Directly from the definition of the complex derivative, show that a
 holomorphic function is continuous.
 \end{exercise}
+
+\begin{exercise}
+Show that $f(z) = \bar{z}$ is not complex differentiable at any point.
+\end{exercise}
+
+\begin{exercise}
+Show that $f(z) = z \bar{z} = \sabs{z}^2$ is complex differentiable
+at the origin, but nowhere else.
+\end{exercise}
 \end{exbox}
 
 \subsection{Cauchy--Riemann equations}
@@ -2086,8 +2098,23 @@ Prove that $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
-Show that $f(z) = z \bar{z} = \sabs{z}^2$ is complex differentiable
-at the origin, but nowhere else.
+Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
+Let $f = u+iv$.  Show that $u$ and $v$ are \emph{\myindex{harmonic}},
+that is,
+$\frac{\partial^2 u}{\partial x^2} +  \frac{\partial^2 u}{\partial y^2} = 0$
+and
+$\frac{\partial^2 v}{\partial x^2} +  \frac{\partial^2 v}{\partial y^2} = 0$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
+Let $f = u+iv$.  Show that whenever the second derivative test applies to
+to $u$ or $v$, you get a saddle, that is, prove that
+$\frac{\partial^2 u}{\partial x^2} \frac{\partial^2 u}{\partial y^2}
+-{\left(\frac{\partial^2 u}{\partial x \partial y}\right)}^2 \leq 0$
+and
+$\frac{\partial^2 v}{\partial x^2} \frac{\partial^2 v}{\partial y^2}
+-{\left(\frac{\partial^2 v}{\partial x \partial y}\right)}^2 \leq 0$.
 \end{exercise}
 \end{exbox}
 
@@ -3774,6 +3801,11 @@ integral does not depend on $r$.
 \begin{exercise}
 Prove that if $k\not= 0$ then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
 \end{exercise}
+
+\begin{exercise}
+Compute $\int_\gamma \bar{z}^n \, dz$ for all $n \in \Z$ and $\gamma$ as in
+\exampleref{example:integralpowerz}.
+\end{exercise}
 \end{exbox}
 
 Our line integral definition above is equivalent to the definition you
@@ -4473,6 +4505,12 @@ go to zero as $z \to z_0$.  So $f$ is not complex differentiable at $z_0$.
 
 \begin{exbox}
 \begin{exercise}
+Suppose $T \subset \C$ is a triangle and $f \colon T \to \C$ a
+continuous function whose restriction to the interior of $T$ is holomorphic.
+Prove that $\int_{\partial T} f(z) \, dz = 0$.
+\end{exercise}
+
+\begin{exercise}
 A closed rectangle $R \subset \C$ is a set
 $\bigl\{ z \in \C : a \leq \Re z \leq b , c \leq \Im z \leq d \bigr\}$
 for real numbers $a < b$, $c < d$.  The boundary
@@ -4485,8 +4523,8 @@ Let $R$ be a rectangle with vertices
 $-1-i$, $1-i$, $1+i$, and $-1+i$ and notice that $0$ is in the interior.
 Compute $\int_{\partial R} \frac{1}{z} \, dz$,
 notice that it is nonzero, and argue why it does not violate the
-Cauchy--Goursat theorem (for rectangles, see the previous exercise).
-Hint: We do not yet have complex logarithm, so you can't use that
+Cauchy--Goursat theorem for rectangles (see the previous exercise).
+Hint: We do not yet have complex logarithm, so you can't use that,
 but notice that for example:
 $\frac{1}{t-i} = \frac{t}{t^2+1} + i \frac{1}{t^2+1}$.
 \end{exercise}
@@ -4558,6 +4596,10 @@ A convex set is star-like, but not vice-versa.
 Prove that if $U \subset \C$ is star-like with respect to $z_0$ and $[a,b]
 \subset U$, then the triangle $T$ with vertices $z_0$, $a$, and $b$ is entirely
 contained in $U$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open and star-like.  Prove that $U$ is connected.
 \end{exercise}
 \end{exbox}
 
@@ -4694,6 +4736,14 @@ Suppose $U_1, U_2 \subset \C$ are star-like domains such that $U_1 \cap U_2$
 is connected.  Prove Cauchy's theorem for $U = U_1 \cup U_2$, that is,
 if $f \colon U \to \C$ is holomorphic and $\gamma$ is a cycle in $U$
 then $\int_\gamma f(z) \, dz = 0$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open and star-like and
+$f \colon U \to \C$ is antiholomorphic, that is, it is the conjugate of a
+holomorphic function.  Let $d\bar{z} = dx + i \, dy$ as before.  Prove
+if $\gamma$ is a cycle in $U$, then
+$\int_\gamma f(z) \, d\bar{z} = 0$.
 \end{exercise}
 \end{exbox}
 
@@ -5381,6 +5431,28 @@ more of its (nonexistent) primitive, the logarithm, shortly.
 \begin{exercise}
 Show that if $f \colon \C \to \C$ is continuous and holomorphic on $\C
 \setminus \R$, then $f$ is holomorphic everywhere.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
+Write $d\bar{z} = dx + i \, dy$.
+Suppose that
+\begin{equation*}
+\int_{\partial T} f(z) \, d\bar{z} = 0
+\end{equation*}
+for every triangle such that $T \subset U$.  Prove that $f$
+is antiholomorphic, that is, the conjugate of $f$ is holomorphic.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
+Suppose that
+\begin{equation*}
+\int_{\partial T} \Re f(z) \, dz = 0
+\qquad \text{and} \qquad
+\int_{\partial T} \Im f(z) \, dz = 0
+\end{equation*}
+for every triangle such that $T \subset U$.  Then $f$ is constant.
 \end{exercise}
 \end{exbox}
 
@@ -6235,20 +6307,21 @@ a primitive is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
 the entire punctured plane.
 
 We proved that in any star-like domain, a holomorphic function has a
-primitive.  Consider
+primitive.  Consider the so-called \emph{\myindex{slit plane}}
 \begin{equation*}
-U = \C \setminus (-\infty,0] = \C \setminus \bigl\{ z \in \C : \Re z \leq 0 , \Im z = 0 \bigr\},
+U = \C \setminus (-\infty,0] = \C \setminus \bigl\{ z \in \C : \Re z \leq 0 , \Im z = 0 \bigr\}.
 \end{equation*}
-the so-called \emph{\myindex{slit plane}}.  It is a star-like domain and
+It is a star-like domain and
 so there exists a
 primitive for $\frac{1}{z}$ in $U$.
-We could require that this primitive is $0$ at $z=1$,
-and from this we get a function
+If we
+require that this primitive is $0$ at $z=1$,
+we get a function
 \begin{equation*}
 \operatorname{Log} \colon U \to \C ,
 \end{equation*}
-called the \emph{\myindex{principal branch}} of the logarithm.  You should
-recall that we had before another thing called the principal branch, 
+called the \emph{\myindex{principal branch}} of the logarithm.
+We had another thing before called the principal branch, 
 the principal branch of the argument.  Let us show that
 \begin{equation*}
 \Log z = \log \sabs{z} + i \Arg z ,
@@ -6263,7 +6336,7 @@ e^{\log \sabs{z}} e^{i \Arg z}
 \sabs{z} e^{i \Arg z} = z .
 \end{equation*}
 So $L$ is the inverse of the exponential, at least for $z \in U$.
-Now take the derivative of both sides of $z = e^{L(z)}$
+Take the derivative of both sides of $z = e^{L(z)}$,
 \begin{equation*}
 1 = L'(z) e^{L(z)} = L'(z) z .
 \end{equation*}
@@ -6291,7 +6364,7 @@ what sort of things are being plugged into it.
 
 While $\log$ is not really a function---it is a multivalued
 function\footnote{%
-And countless insufferable smartypants on the internet will try to convince
+Countless insufferable smartypants on the internet will try to convince
 you that a ``multivalued function'' isn't a thing.}---it is really
 the definition that we want.  In fact, it is rarely what we want.
 The principal branch, while 
@@ -8979,7 +9052,7 @@ compact subsets to $f^{-1}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Montel, Riemann, and Weierstrass} \label{ch:montelriemannweier}
+\chapter{Montel and Riemann} \label{ch:montelriemann}
 
 \begin{myquote}
 A round man cannot be expected to fit in a square hole right away. He must
@@ -9678,72 +9751,6 @@ $f \colon U \to U$ is holomorphic such that $f(p) = p$ and $f(q)=q$.
 Prove that $f$ is the identity, that is, $f(z)=z$ for all $z \in U$.
 \end{exercise}
 \end{exbox}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Weierstrass factorization}
-\label{sec:weier}
-
-It is useful to factor out all the zeros of a holomorphic function,
-not just finitely many.  Similarly, we can work with poles.  Basically, if a
-function has zeros at $0$, $1$, and $i$, we could consider
-$\frac{f(z)}{z(z-1)(z-i)}$.  If those are the only zeros of $f$, then we
-could write $f$ as
-$f(z) = g(z) z(z-1)(z-i)$ where $g$ is never zero.
-
-Now the question is, what about infinitely many
-zeros.  Can we for example factor out the zeros out of $\sin z$?  Can we
-write $\sin z$ as something times $\prod_{n \in \Z} (z-2\pi n)$?  Sort of,
-though we have to be more careful about convergence.  So we need to use
-more complicated factors to make convergence happen the way we want to.
-
-\begin{defn}
-The product
-$\prod_{j=1}^\infty (1+a_j)$
-\emph{converges}\index{converges!infinite product} if the sequence partial products
-$\prod_{j=1}^n (1+a_j)$ converges.  We say that the product
-\emph{converges absolutely}\index{converges!infinite product}
-if $\prod_{j=1}^\infty (1+\sabs{a_j})$
-converges, which is equivalent to $\sum_{j=1}^\infty \sabs{a_j}$ converging.
-
-Define the \emph{\myindex{elementary factors}}
-\begin{equation*}
-E_0(z) = (1-z), \qquad
-E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
-.
-\end{equation*}
-\end{defn}
-
-Notice that the function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
-
-\begin{thm}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
-Let $f$ be an entire function with zeros (with multiplicity) at points of
-the sequence $\{ a_k \}$ except the zero at
-the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
-entire function $g$ and a sequence $p_k$ such that
-\begin{equation*}
-f(z) = z^m e^{g(z)} \prod_{k=1}^\infty E_{p_k}\left(\frac{z}{a_k}\right) ,
-\end{equation*}
-converges absolutely and uniformly on all compact subsets.
-\end{thm}
-
-FIXME: The $p_k$ are chosen such that
-\begin{equation*}
-\sum_{j=1}^\infty {\abs{\frac{r}{a_k}}}^{1+p_k}
-\end{equation*}
-converges for all $r > 0$.
-
-FIXME:
-
-\begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
-Suppose $U \subset \C$ is a domain, $\{ a_k \}$, $\{ b_k \}$ are
-countable sets in $U$
-with no limit points in $U$, and $\{ n_k \}$, $\{ m_k \}$ any countable sets of
-natural numbers.
-Then there exists a meromorphic function $f$ of $U$ whose
-zeros are exactly at $a_k$, with orders given by $n_k$, and
-poles are exactly at $b_k$, with orders given by $m_k$.
-\end{thm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10995,20 +11002,79 @@ FIXME
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\chapter{Weierstrass Factorization} \label{ch:weier}
-%
-%\begin{myquote}
-%I became insane, with long intervals of horrible sanity.
-%
-%---Edgar Allan Poe
-%\end{myquote}
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\section{FIXME}
-%\label{sec:FIXMEweier}
-%
-%FIXME
+\chapter{Weierstrass Factorization} \label{ch:weier}
+
+\begin{myquote}
+I became insane, with long intervals of horrible sanity.
+
+---Edgar Allan Poe
+\end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Weierstrass factorization}
+\label{sec:weier}
+
+It is useful to factor out all the zeros of a holomorphic function,
+not just finitely many.  Similarly, we can work with poles.  Basically, if a
+function has zeros at $0$, $1$, and $i$, we could consider
+$\frac{f(z)}{z(z-1)(z-i)}$.  If those are the only zeros of $f$, then we
+could write $f$ as
+$f(z) = g(z) z(z-1)(z-i)$ where $g$ is never zero.
+
+Now the question is, what about infinitely many
+zeros.  Can we for example factor out the zeros out of $\sin z$?  Can we
+write $\sin z$ as something times $\prod_{n \in \Z} (z-2\pi n)$?  Sort of,
+though we have to be more careful about convergence.  So we need to use
+more complicated factors to make convergence happen the way we want to.
+
+\begin{defn}
+The product
+$\prod_{j=1}^\infty (1+a_j)$
+\emph{converges}\index{converges!infinite product} if the sequence partial products
+$\prod_{j=1}^n (1+a_j)$ converges.  We say that the product
+\emph{converges absolutely}\index{converges!infinite product}
+if $\prod_{j=1}^\infty (1+\sabs{a_j})$
+converges, which is equivalent to $\sum_{j=1}^\infty \sabs{a_j}$ converging.
+
+Define the \emph{\myindex{elementary factors}}
+\begin{equation*}
+E_0(z) = (1-z), \qquad
+E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+.
+\end{equation*}
+\end{defn}
+
+Notice that the function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
+
+\begin{thm}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
+Let $f$ be an entire function with zeros (with multiplicity) at points of
+the sequence $\{ a_k \}$ except the zero at
+the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
+entire function $g$ and a sequence $p_k$ such that
+\begin{equation*}
+f(z) = z^m e^{g(z)} \prod_{k=1}^\infty E_{p_k}\left(\frac{z}{a_k}\right) ,
+\end{equation*}
+converges absolutely and uniformly on all compact subsets.
+\end{thm}
+
+FIXME: The $p_k$ are chosen such that
+\begin{equation*}
+\sum_{j=1}^\infty {\abs{\frac{r}{a_k}}}^{1+p_k}
+\end{equation*}
+converges for all $r > 0$.
+
+FIXME:
+
+\begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
+Suppose $U \subset \C$ is a domain, $\{ a_k \}$, $\{ b_k \}$ are
+countable sets in $U$
+with no limit points in $U$, and $\{ n_k \}$, $\{ m_k \}$ any countable sets of
+natural numbers.
+Then there exists a meromorphic function $f$ of $U$ whose
+zeros are exactly at $a_k$, with orders given by $n_k$, and
+poles are exactly at $b_k$, with orders given by $m_k$.
+\end{thm}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
