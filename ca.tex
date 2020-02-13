@@ -975,10 +975,11 @@ We say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
 \int_a^b u(t) \, dt + i \int_a^b v(t) \, dt .
 \end{equation*}
 This is precisely the way one integrates vector-valued functions
-for any vector space.  From basic analysis, if you have a Riemann integrable
-real valued function $u \colon [a,b] \to \R$, then $\abs{u}$ is Riemann
+for any vector space.  Basic analysis tells us that
+if you have a Riemann integrable
+real-valued function $u \colon [a,b] \to \R$, then $\abs{u}$ is Riemann
 integrable and $\abs{\int_a^b u(t) \, dt} \leq \int_a^b \sabs{u(t)} \, dt$.
-Similarly for complex value functions.
+Similar result holds for complex-valued functions.
 
 \begin{prop} \label{prop:inttriangleineq}
 Suppose $f \colon [a,b] \to \C$ is (Riemann) integrable.  Then $\sabs{f}$ is
@@ -2817,12 +2818,14 @@ $\gamma(0)=\alpha(0) = p \in \R^2$, then by preserving angles we
 mean that the curves $f \circ \gamma$ and $f \circ \alpha$ meet at the same
 angle at $f(p)$, see \figureref{fig:conform}.  In other words,
 \begin{equation*}
-\text{angle of } Df|_p \gamma'(0) \text{ and }
+\text{angle between } Df|_p \gamma'(0) \text{ and }
 Df|_p \alpha'(0)
 \qquad = \qquad
-\text{angle of } \gamma'(0) \text{ and } \alpha'(0) .
+\text{angle between } \gamma'(0) \text{ and } \alpha'(0) .
 \end{equation*}
 Hence, we are really dealing with linear algebra.
+We can take the angle to be the signed angle starting at one vector and
+ending at the other vector, as we are preserving orientation.
 
 \begin{myfig}
 \subimport*{figures/}{conform.pdf_t}
@@ -3106,7 +3109,7 @@ We have proved the following proposition:
 
 \begin{prop}[Cauchy--Hadamard theorem\footnote{%
 Cauchy published this result in 1821, and Hadamard, despite also being
-French, didn't know about it and published it in 1888.}]
+French, didn't know about it and published it in his thesis in 1888.}]
 \index{Cauchy--Hadamard theorem}
 A power series $\sum c_n {(z-p)}^n$ converges absolutely if
 $\sabs{z-p} < R$ and diverges if
@@ -3172,7 +3175,7 @@ are arbitrary we get convergence everywhere.
 \begin{exercise}
 Prove the triangle inequality for series.  If $\sum_{n=0}^\infty c_n$
 converges, then $\abs{\sum_{n=0}^\infty c_n} \leq \sum_{n=0}^\infty
-\sabs{c_n}$.
+\sabs{c_n}$ (possibly the right hand side is $\infty$).
 \end{exercise}
 \end{exbox}
 
@@ -4976,10 +4979,10 @@ $\limsup_{z \to p} \sabs{f(z)} \leq M$ for all $p \in \partial U$,
 and if $U$ is unbounded then also 
 $\limsup_{z \to \infty} \sabs{f(z)} \leq M$.  Prove that
 $\sabs{f(z)} \leq M$ for all $z \in U$.
-Note: For a real valued real-valued $g \colon U \to \R$,
-by definition
-$\limsup\limits_{z\to p} g(z) = \inf\limits_{r > 0} \sup \{ g(z) : z \in U
-\cap \Delta_r(p) \}$.
+Note: For a real-valued $g \colon U \to \R$,
+by definition,
+$\limsup\limits_{z\to p} g(z) = \inf\limits_{r > 0} \sup \bigl\{ g(z) : z \in U
+\cap \Delta_r(p) \bigr\}$.
 \end{exercise}
 
 \begin{exercise}
@@ -5212,13 +5215,24 @@ Even worse, the real derivative could even be discontinuous.
 \begin{exbox}
 \begin{exercise}
 Let $f \colon \R \to \R$ be defined by $f(0) = 0$ and $f(x) = x^2
-\sin\bigl( \frac{1}{x} \bigr)$ for $x \not= 0$.  Show that $f$ is
+\sin\bigl( \frac{1}{x} \bigr)$ for $x \not= 0$.
+\begin{exparts}
+\item
+Show that $f$ is
 differentiable everywhere (including at $0$), but $f'$ is not continuous.
+\item
+Modify $f$ so that it is still differentiable everywhere, but $f'$ is not
+even bounded.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
 The derivatives of a holomorphic function can be computed by
-integration via the Cauchy formula as well (yeah that does sound weird).
+integration\footnote{Complex analysis allows you to integrate to find the
+derivative and to differentiate to find an integral.  Now tell that to your
+calculus students.} via the Cauchy formula as well.  Yeah that does sound
+weird.  It is definitely not something that you should expect for any old
+functions.
 
 \begin{thm}[Cauchy integral formula for derivatives]
 \index{Cauchy integral formula!derivatives}
@@ -5871,15 +5885,19 @@ the closed discs $\overline{\Delta_{d/2}(p)}$ is marked in dashed line.\label{fi
 \end{myfig}
 
 The set $K'$ is also compact: It is clearly
-bounded, let us show it is closed.  Suppose that $p$ is not in $K'$,
-then $p$ is strictly further than
-$\frac{d}{2}$ from $K$, and thus so is every point in some neighborhood of
-$p$, so complement of $K'$ is open.
+bounded, let us show it is closed.  Suppose that $p$ is not in $K'$.
+By compactness of $K$, there is a $q \in K$ such that $\sabs{p-q}$
+is the distance of $p$ to $K$.  Thus the
+distance of $p$ to $K$ is $\sabs{p-q} > \frac{d}{2}$.
+So every point in a neighborhood of $p$
+is also further than $\frac{d}{2}$ from $K$, so
+complement of $K'$ is open.
 
 As $\{ f_n \}$ converges uniformly on compact subsets, it converges uniformly
-on $K'$.  So given $\epsilon > 0$ find an $N$ such that for all $n \geq N$
-we have $\sabs{f(z)-f_n(z)} < \epsilon$ for all $z \in K'$.
-For any $p \in K$, we expand the $k$\textsuperscript{th} derivative
+on $K'$.  Given an $\epsilon > 0$, find an $N$ such that 
+$\sabs{f(z)-f_n(z)} < \epsilon$ for all $z \in K'$ and
+all $n \geq N$.
+For any $p \in K$, expand the $k$\textsuperscript{th} derivative
 using Cauchy's formula for derivatives and estimate:
 \begin{equation*}
 \begin{split}
@@ -5925,9 +5943,7 @@ Thus $f_n^{(k)}$ converges uniformly to $f^{(k)}$ on $K$.
 \end{proof}
 
 The fact that we can write all the derivatives as
-integrals\footnote{Complex analysis allows you to integrate to find the
-derivative and to differentiate to find an integral.  Now tell that to your
-calculus students.} of the function
+integrals of the function
 allows us to use a far weaker topology than one would think.
 
 \begin{exbox}
@@ -5944,7 +5960,7 @@ fact that uniform limit of continuous functions is continuous.
 \end{exercise}
 
 \begin{exercise}
-The functions $f_n(z) = \frac{\sin(nz)}{n}$.  Note that $f_n|_{\R}$ converge
+Consider the functions $f_n(z) = \frac{\sin(nz)}{n}$.  Note that $f_n|_{\R}$ converge
 uniformly.
 \begin{exparts}
 \item
@@ -5955,6 +5971,15 @@ $f_n$ converges uniformly on the rectangle $R = \bigl\{ z \in \C : a \leq \Re z
 In any $[a,b] \subset \R$, find 
 an $x$ such that $f_n'(x)$ does not converge.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Weierstrass approximation theorem says that any continuous function on an
+interval $[a,b] \subset \R$ can be uniformly approximated (on $[a,b]$) by
+polynomials $P(z)$.  Prove why such a theorem cannot be proved
+on a closed curve such as the unit circle $\partial \D$.  That is,
+find a continuous function $f \colon \partial \D \to \C$ that is
+not the uniform limit of a sequence polynomials $P_n(z)$ on $\partial \D$.
 \end{exercise}
 \end{exbox}
 
@@ -8819,7 +8844,7 @@ Prove that $f(U) = \D$.
 
 \begin{exercise}
 Let $f \colon \C \to \C$ be an entire holomorphic function such that
-$f$ is real valued on the unit circle $\partial \D$.  Show that $f$ is
+$f$ is real-valued on the unit circle $\partial \D$.  Show that $f$ is
 constant.  What if $\partial \D$ is replaced by the real line?
 \end{exercise}
 \end{exbox}
@@ -9738,7 +9763,7 @@ dance.
 \section{Harmonic functions}
 \label{sec:harmonic}
 
-We have so far studied holomorphic functions as complex valued functions.
+We have so far studied holomorphic functions as complex-valued functions.
 However, to do analysis one needs inequalities, and complex numbers are not
 ordered.  Hence let us study the real and imaginary parts of holomorphic
 functions, the so-called harmonic functions.  Interestingly harmonic
@@ -9925,7 +9950,7 @@ then $\psi_1 = \psi_2 + C$ for some $C \in \R$.
 \end{prop}
 
 The proof is trivial: The hypothesis implies that $\psi_1-\psi_2$ is
-holomorphic and it is real valued on $U$, and thus constant.
+holomorphic and it is real-valued on $U$, and thus constant.
 
 The real and imaginary parts of a holomorphic function are harmonic,
 however, the modulus $\sabs{f(z)}$ is not however.  Not to fear,
@@ -10515,7 +10540,7 @@ In particular, we can take the $g$ that is equal to $f$ at the endpoints.
 
 So \emph{convex} is the same as \emph{subharmonic} in
 $\R$.
-Graphs of real valued functions of one real variable
+Graphs of real-valued functions of one real variable
 are also much easier to draw than functions on $\C$, see
 \figureref{fig:convexfunc}.
 
