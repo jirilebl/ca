@@ -5195,10 +5195,27 @@ for a holomorphic $f \colon U \to \C$ converges.%
 \label{fig:largestr}}
 \end{myfig}
 
+Let us state the main conclusion of this subsection once more.
+
+\begin{cor}
+Let $U \subset \C$ be an open set.  A function $f \colon U \to \C$
+is holomorphic if and only if $f$ is analytic.
+\end{cor}
+
+As a corollary of this corollary we find that all the results that we proved
+for analytic functions are true for holomorphic functions.
+
 \begin{exbox}
 \begin{exercise}
-Show that for so called real-analytic functions, the above statement
-does not hold.  Show that the function $f(x) = \frac{1}{1+x^2}$,
+Find the radius of convergence of the series at zero of the holomorphic
+function $f(z) =
+e^{z^7}\sin\left(\cos\left(\frac{e^z}{z^2-5}\right)\right)\sin\left(\frac{z}{z+4}\right)$.
+\end{exercise}
+
+\begin{exercise}
+Show that for the so-called real-analytic functions, the radius of
+convergence cannot be read-off from the domain.
+Show that the function $f(x) = \frac{1}{1+x^2}$,
 which is defined on the
 entire real line, can be expressed as a real power series
 $\sum_{n=0}^\infty c_n {(x-a)}^n$ for every $a \in \R$, but
@@ -5221,6 +5238,15 @@ given by the formula you found above.
 \end{exercise}
 
 \begin{exercise}
+Suppose $U \subset \C$ is a domain such that $\overline{\D} \subset U$,
+the function $f \colon U \to \C$ is holomorphic, and
+\begin{equation*}
+\int_{\partial \D} f(z) \bar{z}^n \, dz = 0
+\end{equation*}
+for all $n \in \N$.  Prove that $f$ is identically zero.
+\end{exercise}
+
+\begin{exercise}
 Suppose that $g(z)$ is such that
 \begin{equation*}
 \lim_{h \to 0}
@@ -5234,13 +5260,6 @@ g(z) = \sum_{n=0}^\infty c_n \bar{z}^n .
 \end{equation*}
 \end{exercise}
 \end{exbox}
-
-Let us state the main conclusion of this subsection once more.
-
-\begin{cor}
-Let $U \subset \C$ be an open set.  A function $f \colon U \to \C$
-is holomorphic if and only if $f$ is analytic.
-\end{cor}
 
 \subsection{Derivative is holomorphic and Morera}
 
@@ -8886,7 +8905,8 @@ $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
 \begin{exbox}
 \begin{exercise}
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic
-and let $V = f(U)$.  Prove that if $f(z) \in \partial V$
+and let $f(U) \subset V$ for some closed set $V$.
+Prove that if $f(z) \in \partial V$
 for some $z \in U$, then $f$ is constant.
 \end{exercise}
 
@@ -9037,6 +9057,17 @@ we have that $f^{-1}$ is holomorphic.
 \end{proof}
 
 \begin{exbox}
+\begin{exercise}
+Suppose $f$ is holomorphic in a neighborhood of the closed unit disc
+$\overline{\D}$ such that for every $z_0 \in \D$
+\begin{equation*}
+\int_{\partial \D}
+\frac{f'(z)}{f(z)-f(z_0)}
+\, dz = 2\pi i .
+\end{equation*}
+Prove that $f|_{\D}$ is a biholomorphism of $\D$ and $f(\D)$.
+\end{exercise}
+
 \begin{exercise}
 Suppose $U,V \subset \C$ are domains.
 Suppose $f_n \colon U \to V$ are bijective holomorphic mappings
