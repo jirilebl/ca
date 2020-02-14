@@ -3854,7 +3854,7 @@ there exist continuous (complex-valued) $F$ and $G$ such that
 =
 \int_{\gamma} F \, dz + G \, d\bar{z} .
 \end{equation*}
-In other words, the line integral we defined above is just the $dz$ part of
+Namely, the line integral we defined is just the $dz$ part of
 the general line integral in $\R^2$.
 \end{exercise}
 \end{exbox}
@@ -3995,8 +3995,8 @@ re^{it}$, and then we write
 =
 \int_{\gamma} f(z) \, dz .
 \end{equation*}
-This equality could be simply taken as a definition of what it means to
-integrate over $\partial \Delta_r(p)$.
+This equality could be simply taken as a definition of integration over
+$\partial \Delta_r(p)$.
 
 \medskip
 
@@ -4124,10 +4124,10 @@ be two piecewise $C^1$ paths and $\gamma_1(b)=\gamma_2(b)$.
 Prove that the function $\gamma \colon [a,c] \to
 \C$ defined by $\gamma(t) = \gamma_1(t)$ if $t \in [a,b]$ and $\gamma(t)
 = \gamma_2(t)$ if $t \in [b,c]$ is a piecewise $C^1$ path and
+for all $f$ continuous on the image of $\gamma$ we have
 \begin{equation*}
-\int_{\gamma} f(z)\,dz = \int_{\gamma_1 + \gamma_2} f(z) \, dz
+\int_{\gamma} f(z)\,dz = \int_{\gamma_1 + \gamma_2} f(z) \, dz .
 \end{equation*}
-for all $f$ continuous on the image of $\gamma$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:nonconstantnonzerochain}
@@ -4176,6 +4176,8 @@ beginning and end point, such that
 \begin{equation*}
 \abs{\int_\alpha f(z)\, dz - \int_{\gamma} f(z) \, dz} < \epsilon .
 \end{equation*}
+Hint: Consider the Riemann sum.  Also $f$ is uniformly continuous on some
+smaller $U$.
 \end{exercise}
 \end{exbox}
 
@@ -4990,7 +4992,7 @@ In addition, $f(0)-\sabs{f(re^{it})} \geq 0$ and
 \end{equation*}
 so $\sabs{f(re^{it})} = f(0)$ for all $t$.
 By applying Cauchy's formula
-again we find
+again, we find
 \begin{equation*}
 \frac{1}{2\pi}
 \int_0^{2\pi}
@@ -5011,12 +5013,13 @@ or
 \int_0^{2\pi}
 \Bigl(\sabs{f(re^{it})}-\Re f(re^{it})\Bigr)\, dt .
 \end{equation*}
-For any complex number $w$ we have $\sabs{w} - \Re w \geq 0$, so
+The inequality $\sabs{w} - \Re w \geq 0$ holds for any $w \in \C$,
+so
 $\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence
 $\sabs{f(re^{it})}=\Re f(re^{it})$.  Thus $\Im f(re^{it}) = 0$
 and 
 $f(re^{it})=\sabs{f(re^{it})} = f(0)$ for all $t$.
-This is true for all small enough $r$, and consequently the set where
+This is all true for every small enough $r$, and consequently the set where
 $f(z) = f(0)$ is open.  The set is also closed by continuity, and as $U$ is
 connected, $f(z) = f(0)$ for all $z \in U$.
 \end{proof}
@@ -5103,7 +5106,6 @@ $p$ oriented counterclockwise.
 First fix an $r$ such that $0 < r < R$.
 We have $\overline{\Delta_r(p)} \subset U$,
 the boundary of the disc of radius $r$ is in $U$.
-
 For $z \in \Delta_r(p)$ and $\zeta \in \partial \Delta_r(p)$, 
 \begin{equation*}
 \abs{\frac{z-p}{\zeta-p}} =
