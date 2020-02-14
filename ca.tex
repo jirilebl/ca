@@ -4692,7 +4692,7 @@ triangles is always zero if $f$ is holomorphic.  Thus we get
 the following immediate corollary.
 
 \begin{cor} \label{cor:primitiveinstarlike}
-Suppose $U \subset \C$ is open and star-like,
+Suppose $U \subset \C$ is open and star-like
 and $f \colon U \to \C$ is holomorphic.
 Then $f$ has a primitive, that is,
 there exists a holomorphic $F \colon U \to \C$
@@ -4932,17 +4932,16 @@ $\sabs{f(z)} \leq \sabs{f(0)}$ whenever $\sabs{z} \leq r$.
 Then Cauchy's formula says
 \begin{equation*}
 \begin{split}
-f(0) = \sabs{f(0)} & =
+f(0) = \sabs{f(0)} =
 \abs{\frac{1}{2\pi i}
 \int_{\gamma_r}
 \frac{f(z)}{z} \, dz
 }
-\\
 & =
-\frac{1}{2\pi}
 \abs{
+\frac{1}{2\pi i}
 \int_0^{2\pi}
-\frac{f(re^{it})}{e^{it}} \, i e^{it} \, dt
+\frac{f(re^{it})}{re^{it}} \, ri e^{it} \, dt
 }
 \\
 & \leq
@@ -4957,9 +4956,6 @@ f(0) = \sabs{f(0)} & =
 f(0)\, dt = f(0) .
 \end{split}
 \end{equation*}
-%And that is a contradiction.  Hence $\sabs{f(z)} = f(0)$ for
-%all $z$ near 0, and the inequalities (including the strict inequality)
-%in the computation above are all equalities.
 So all the inequalities above are equalities.
 In addition, $f(0)-\sabs{f(re^{it})} \geq 0$ and
 \begin{equation*}
@@ -4990,9 +4986,12 @@ or
 \end{equation*}
 For any complex number $w$ we have $\sabs{w} - \Re w \geq 0$, so
 $\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence
-$\sabs{f(re^{it})}=\Re f(re^{it})$, and thus $\Im f(re^{it}) = 0$,
-and so 
-$\sabs{f(re^{it})}=f(re^{it})$.
+$\sabs{f(re^{it})}=\Re f(re^{it})$.  Thus $\Im f(re^{it}) = 0$
+and 
+$f(re^{it})=\sabs{f(re^{it})} = f(0)$ for all $t$.
+This is true for all small enough $r$, and consequently the set where
+$f(z) = f(0)$ is open.  The set is also closed by continuity, and as $U$ is
+connected, $f(z) = f(0)$ for all $z \in U$.
 \end{proof}
 
 \begin{cor}[Maximum principle, part deux]
@@ -5637,6 +5636,11 @@ Suppose that $f$ is entire and $\sabs{f(z)} \leq e^{\Re z}$ for all $z \in
 Suppose that $f$ is entire, $n \in \N$, $M > 0$, and
 $\sabs{f(z)} \leq M {(1+\sabs{z})}^n$ for all $z \in \C$.
 Show that $f$ is a polynomial of degree at most $n$.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $f$ is entire and $\Im f(z) > 0$ for all $z \in \C$.
+Prove that $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
