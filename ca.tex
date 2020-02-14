@@ -2998,7 +2998,16 @@ r^{1/n} e^{i\theta/n + 2\pi i /n}
 r^{1/n} e^{i\theta/n + 2\pi i (n-1)/n} .
 \end{equation*}
 Those are the $n$ different $z$s such that $z^n=w$.  They are equally
-spaced out on a circle of radius $r^{1/n}$.
+spaced out on a circle of radius $r^{1/n}$.  See
+\figureref{fig:roots}.  If the roots are of $w=1$, then they are
+called \emph{\myindex{roots of unity}}.
+
+\begin{myfig}
+\subimport*{figures/}{roots.pdf_t}
+\caption{The $8$\textsuperscript{th} roots of a positive number $r$:
+$r^{1/8}$, $r^{1/8} e^{i \pi / 4}$,  $r^{1/8} e^{i \pi / 2}$,
+etc.\label{fig:roots}}
+\end{myfig}
 
 Another important thing about $z^n$ is what it does to angles.
 If $z = re^{i\theta}$, then
@@ -3168,6 +3177,10 @@ $0 < r < R$ there exists an $M > 0$ such that for all $n$,
 \sabs{c_n} \leq \frac{M}{r^n} .
 \end{equation*}
 \end{prop}
+
+Note that it is not necessarily true that $\bigl\{ \sabs{c_n} R^n \bigr\}$
+is bounded.  For example, both $\sum z^n$ and $\sum n z^n$ have
+radius of convergence 1.
 
 \begin{proof}
 Suppose the series converges in $\Delta_{R}(p)$ and
@@ -3377,6 +3390,7 @@ Then $f$ is complex differentiable at every $z \in \Delta_R(p)$ and
 f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1} ,
 \end{equation*}
 which converges in $\Delta_R(p)$.
+\pagebreak[2]
 \end{prop}
 
 \begin{proof}
@@ -4125,6 +4139,7 @@ is a nonconstant piecewise $C^1$
 path and $\gamma|_{[a,b)}$ is one-to-one (so possibly closed,
 $\gamma(a)=\gamma(b)$,
 but otherwise injective).  Show that as chains, $\gamma$ is not equivalent to the zero chain.
+Note: Closed $\gamma$ is trickier.
 \item
 Find a nonconstant piecewise $C^1$ path $\gamma \colon [a,b] \to \C$ that is
 equivalent to the zero chain.
@@ -4153,7 +4168,7 @@ The paths that come up in applications are often constructed out of
 segments and arcs anyhow.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}[Tricky]
 Suppose $U \subset \C$ is open, $\gamma \colon [a,b] \to U$ is a piecewise
 $C^1$ path, and $f \colon U \to \C$ is continuous.  Then for every $\epsilon
 > 0$, there exists a polygonal path (or chain) $\alpha$ in $U$ with the same
@@ -4778,38 +4793,8 @@ values on the circle (a relatively small set).
 Fix $z \in \Delta_r(p)$ and write
 $\gamma$ for the boundary of $\Delta_r(p)$ oriented counterclockwise.
 Let $\Delta_s(z)$ be a small disc with $\overline{\Delta_s(z)} \subset
-\Delta_r(p)$.
-Let $\alpha(t) = z+s e^{i t}$ parametrize $\partial \Delta_s(z)$.  Then
-\begin{equation*}
-\frac{1}{2\pi i}
-\int_{\alpha}
-\frac{f(\zeta)}{\zeta-z}
-\,
-d \zeta
-=
-\frac{1}{2\pi i}
-\int_0^{2\pi} \frac{f(z+se^{it})}{z + se^{it} - z} s i e^{it} \, dt
-=
-\frac{1}{2\pi}
-\int_0^{2\pi} f(z+se^{it}) \, dt .
-\end{equation*}
-By continuity of $f$ at $z$,
-\begin{equation*}
-\lim_{s \to 0}
-\frac{1}{2\pi i}
-\int_{\alpha}
-\frac{f(\zeta)}{\zeta-z}
-\,
-d \zeta
-=
-\lim_{s \to 0}
-\frac{1}{2\pi}
-\int_0^{2\pi} f(z+se^{it}) \, dt
-=
-f(z) .
-\end{equation*}
+\Delta_r(p)$, and write $\alpha$ for the boundary of $\Delta_s(z)$.
 
-Now fix $\alpha$ (that is, fix $s$).
 We connect $\alpha$ to $\gamma$
 via two straight lines as in \figureref{fig:disccauchy}.
 The two resulting regions between $\alpha$ and $\gamma$
@@ -4839,18 +4824,57 @@ So
 \frac{1}{2\pi i}
 \int_{\alpha} \frac{f(\zeta)}{\zeta-z} \, d\zeta .
 \end{equation*}
-Now let $s$ go to zero
+
+Let $\alpha(t) = z+s e^{i t}$ be the parametrization.
+Then
 \begin{equation*}
 \frac{1}{2\pi i}
-\int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
+\int_{\alpha}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+=
+\frac{1}{2\pi i}
+\int_0^{2\pi} \frac{f(z+se^{it})}{z + se^{it} - z} s i e^{it} \, dt
+=
+\frac{1}{2\pi}
+\int_0^{2\pi} f(z+se^{it}) \, dt .
+\end{equation*}
+As the integral over $\gamma$ (which does not depend on $s$)
+is equal to the integral over $\alpha$ for any $s$ small enough,
+we can take the limit as $s \to 0$.
+By continuity of $f$ at $z$,
+\begin{equation*}
 \lim_{s \to 0}
 \frac{1}{2\pi i}
-\int_{\alpha} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
-= f(z) .  \qedhere
+\int_{\alpha}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+=
+\lim_{s \to 0}
+\frac{1}{2\pi}
+\int_0^{2\pi} f(z+se^{it}) \, dt
+=
+f(z) . \qedhere
 \end{equation*}
 \end{proof}
 
 \begin{exbox}
+\begin{exercise}
+Make the construction of $c_1$ and $c_2$ and the two star-like domains
+in the proof explicit.  That is, exactly describe the ``cut'' that makes
+$c_1$ and $c_2$, and describe two starlike domains (you don't have to do the
+two pictured).
+\end{exercise}
+
+\begin{exercise}
+Show why the theorem should be surprising.  Given any $a,b \in \C$ and $z
+\in \D$, construct a continuous function
+$f \colon \C \to \C$ such that $\frac{1}{2\pi i}\int_{\partial \D}
+\frac{f(\zeta)}{\zeta -z} \, d\zeta = a$ and $f(z) = b$.
+\end{exercise}
+
 \begin{exercise}
 Suppose $f$ is holomorphic in a neighborhood of $\overline{\Delta_r(p)}$.
 Show that $f$ at $p$ is the average of the values on $\partial \Delta_r(p)$.
@@ -4889,7 +4913,7 @@ The circle of radius 5 centered at $i+1$ oriented clockwise.
 \end{exercise}
 
 \begin{exercise} \label{exercise:cauchycont}
-Strenghten the theorem.  Show that the conclusion holds if
+Strenghten the theorem:  Show that the conclusion holds if
 we only assume that $f \colon \overline{\Delta_r(p)} \to \C$
 is continuous and $f$ is holomorphic on $\Delta_r(p)$.
 \end{exercise}
@@ -4902,9 +4926,12 @@ is continuous and $f$ is holomorphic on $\Delta_r(p)$.
 
 \subsection{The maximum principle}
 
-A consequence of Cauchy's formula is the so-called maximum principle, which
-has several different versions.  We prove the basic statement and leave
-other versions as exercises.
+A simple and yet surprisingly useful consequence of Cauchy's formula is the
+so-called maximum principle, which has several different versions.
+We prove the basic statement and leave other versions as exercises.
+The basic statement is that the modulus of a holomorphic function never
+achieves a maximum.  So if you wish to bound $\sabs{f(z)}$, you only need to
+get a bound near the boundary.
 
 \begin{thm}[Maximum principle]
 \index{maximum principle!holomorphic functions}%
@@ -5508,6 +5535,18 @@ As the coefficients of the power series at zero are unique, we get
 $c_n = (n+1) c_{n+1}$.  By induction we see that $c_n = \frac{1}{n!}$.
 
 \begin{exbox}
+\begin{exercise}
+Compute the series for $\sin z$ and $\cos z$, then show that these satisfy
+$f''(z) = -f(z)$.
+\end{exercise}
+
+\begin{exercise}
+Show that there exists a holomorphic $f \colon \C \to \C$ that
+solves $f'(z) + z f(z) = 0$ and such that $f(0) = 1$.  Hint: Solve formally,
+then see if you can guess the answer in ``closed form,'' that is, in terms
+of the exponential.  Hint \#2: What is $f'(0)$?
+\end{exercise}
+
 \begin{exercise}
 For any $a,b \in \C$, show that there exists a holomorphic $f \colon \C \to
 \C$ such that $f''(z) = z f(z)$, and $f(0) = a$ and $f'(0) = b$.
@@ -10892,8 +10931,8 @@ If $U = \D$ and $p_n = \frac{1}{n}$, show that $f$ is discontinuous at $0$
 \item
 If $\{ p_n \}$ is dense in $U$, show that $f$ 
 is nowhere continuous.
-Hint: Prove that $f^{-1}(-\infty)$ is a small (but dense) set.  Another
-hint: Integrate the partial sums, and use polar coordinates.
+Hint: Prove $f^{-1}(-\infty)$ is a small (but dense) set.
+Hint \#2: Integrate the partial sums, and use polar coordinates.
 \end{exparts}
 \end{exercise}
 \end{exbox}
