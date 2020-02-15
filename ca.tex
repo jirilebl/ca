@@ -2783,7 +2783,6 @@ $S$ to the unit disc $\D$.
 \end{exercise}
 
 \begin{exercise}
-\pagebreak[2]
 \begin{exparts}
 \item
 Show that $z^2$ is 2-to-1 on $\C \setminus \{ 0 \}$ while its
@@ -3004,7 +3003,7 @@ called \emph{\myindex{roots of unity}}.
 
 \begin{myfig}
 \subimport*{figures/}{roots.pdf_t}
-\caption{The $8$\textsuperscript{th} roots of a positive number $r$:
+\caption{The eight $8$\textsuperscript{th} roots of a positive number $r$:
 $r^{1/8}$, $r^{1/8} e^{i \pi / 4}$,  $r^{1/8} e^{i \pi / 2}$,
 etc.\label{fig:roots}}
 \end{myfig}
@@ -4566,7 +4565,6 @@ The closure of a convex set is convex.
 \end{exercise}
 
 \begin{exercise}
-\pagebreak[2]
 Let $X \subset \C$ be a convex set and $\xi \in \partial X$, then prove that
 there exists a nonzero $w$ such that for all $z \in X$ we have
 \begin{equation*}
@@ -4761,6 +4759,31 @@ $f \colon U \to \C$ is antiholomorphic, that is, it is the conjugate of a
 holomorphic function.  Let $d\bar{z} = dx + i \, dy$ as before.  Prove
 if $\gamma$ is a cycle in $U$, then
 $\int_\gamma f(z) \, d\bar{z} = 0$.
+\end{exercise}
+\end{exbox}
+
+\begin{remark}
+A complex-valued function can be thought of as a vector-field on $\R^2$.
+\corref{cor:primitiveinstarlike}
+is in fact a special case of a theorem you have seen
+in vector calculus:  \emph{In a star-like domain $U \subset \R^2$, if a
+$C^1$ vector field $(u,v) \colon U \to \R^2$
+satisfies $\frac{\partial u}{\partial y} = \frac{\partial v}{\partial x}$
+(the vector field is \emph{irrotational}\index{irrotational vector field}),
+then there exists a real-valued $f \colon \R^2 \to \R$ such that
+$\nabla f = (u,v)$ (the vector field is conservative).}
+More concisely, \emph{an irrotational vector field
+in a star-like domain is conservative.}  See the ``conservative vector
+fields'' section of your favorite calculus textbook.  You can gain a lot of
+intuition on the current material on holomorphic functions by reviewing the
+vector calculus analogues.
+\end{remark}
+
+\begin{exbox}
+\begin{exercise}
+Use the result on irrotational vector fields above to prove 
+\corref{cor:primitiveinstarlike}.
+Assume you know that holomorphic functions are $C^1$.
 \end{exercise}
 \end{exbox}
 
@@ -5923,10 +5946,9 @@ When dealing with a class of functions, any analyst worth their
 salt will ask\footnote{Apparently the salt thing
 comes from Roman times, soldiers were
 paid partly with salt to preserve their meats.  So if you didn't ask,
-your meats will not be salty.} about the correct topology for this class of
+your meats will not be salty.} about the right topology for this class of
 functions.
-
-Another consequence of Cauchy's formula is that the correct topology for
+Another consequence of Cauchy's formula is that the right topology for
 holomorphic functions is the same as that for continuous functions: uniform
 convergence on compact subsets.  In fact, that's the convergence that we
 used for the convergence of power series.
@@ -5952,11 +5974,10 @@ In other words, uniform convergence on compact subsets is the right topology
 for continuous functions.
 
 It is rather surprising that this is the right topology for holomorphic
-functions, since for real
+functions.  For real
 differentiable functions nothing like that holds: $\sabs{x}^{1+1/n}$
 is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$
-which is not differentiable.  And for infinitely differentiable functions?
-Just forget it.
+which is not differentiable.
 So the following result should be surprising.
 
 \begin{thm} \label{thm:unifoncompact}
@@ -5976,7 +5997,7 @@ f_n(z) = \frac{1}{2\pi i}
 \end{equation*}
 The set $\partial \Delta_r(p)$ is compact.  If the distance of $z$ to
 $\partial \Delta_r(p)$ is $\delta > 0$, then for $\zeta \in \partial
-\Delta_r(p)$ we have
+\Delta_r(p)$
 \begin{equation*}
 \abs{\frac{f_n(\zeta)}{\zeta-z}
 -
@@ -6005,9 +6026,8 @@ the Cauchy transform
 $C[f|_{\partial \Delta_r(p)}]$, which is holomorphic.  In other words,
 $f$ is holomorphic.
 
-Suppose $K \subset U$ is compact.  Then the distance the distance of
-$K$ and $\partial U$ is positive, say $d > 0$.  If $U=\C$, then the distance
-to $\partial U$ is infinite, so take $d$ to be any positive number.  Consider 
+Suppose $K \subset U$ is compact.  If $U \not= \C$, then the distance of
+$K$ and $\partial U$ is positive, say $d > 0$.  If $U=\C$, then take $d$ to be any positive number.  Consider 
 \begin{equation*}
 K' = \bigcup_{p \in K} \overline{\Delta_{d/2}(p)} .
 \end{equation*}
