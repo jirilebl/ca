@@ -1,3 +1,9 @@
 Things not marked with FIXMEs in the file (not sure where to stick them yet):
 
-* Perhaps an extra bonus section on Cauchy via Green's and hence Cauchy--Pompeiu?
+* ?
+
+Various questions to resolve:
+
+* Should we just assume that $\gamma'$ is never zero for paths?  It may make
+  some arguments in exercises easier, and really that's what we want to
+  think of anyway.

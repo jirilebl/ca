@@ -3844,7 +3844,7 @@ line integral in the plane can be obtained if we also include $d\bar{z}$.  See t
 exercise below.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise} \label{exercise:realpathintegral}
 Let $dz = dx + i \, dy$ and 
 $d\bar{z} = dx - i \, dy$.  Show that for every (real- or complex-valued) continuous $P$ and $Q$,
 there exist continuous (complex-valued) $F$ and $G$ such that
@@ -7449,6 +7449,254 @@ if and only if it is simply connected
 \end{prop}
 
 FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Cauchy via Green's *}
+
+\subsection{Green's theorem in the complex plane}
+
+Cauchy's theorem and Cauchy's integral formula can be obtained via 
+Green's theorem.
+Let us review Green's theorem first.
+We write $dz = dx + i\, dy$ and $d\bar{z} = dx + i \, dy$ as before.
+Given a piecewise $C^1$ path $\gamma \colon [a,b] \to \C$, we define
+\begin{align*}
+& \int_\gamma
+F(z) \, dz + G(z) \, d\bar{z}
+\overset{\text{def}}{=}
+\int_a^b 
+\Bigl(F\bigl(\gamma(t)\bigr) \gamma'(t) + G\bigl(\gamma(t)\bigr)
+\overline{\gamma'(t)} \Bigr) \, dt ,
+\\
+& \int_\gamma
+P(z) \, dx + Q(z) \, dy
+\overset{\text{def}}{=}
+\int_a^b 
+\Bigl(P\bigl(\gamma(t)\bigr) \Re \gamma'(t) + Q\bigl(\gamma(t)\bigr) \Im
+\gamma'(t) \Bigr) \, dt .
+\end{align*}
+Actually we only need to define one and then get the other via a simple
+computation, see \exerciseref{exercise:realpathintegral}.
+
+Let us state a version of Green's theorem without proof.
+The hypotheses on the domain $U$ and the $f$ are given variously in the literature,
+so if the reader is working off of a different version of Green's, then the
+hypotheses of its corollaries in this section must be modified to suit.
+We're using a version that is simplest to state in our context, and we
+state it without proof.
+
+\begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
+Let $\Gamma$ be a cycle
+such that $n(z;\Gamma) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
+Suppose 
+$P,Q$ are continuously differentiable functions defined in a neighborhood
+of $\overline{U}$.
+Then
+\begin{equation*}
+\int_{\Gamma} P(z) \, dx + Q(z) \, dy
+=
+\int_{U}
+\left(
+\frac{\partial Q}{\partial x}(z)
+-
+\frac{\partial P}{\partial y}(z)
+\right)
+\, dA .
+\end{equation*}
+Suppose $F,G$ are continuously differentiable functions defined in a neighborhood
+of $\overline{U}$.
+In terms of the Wirtinger derivatives, $dz$, and $d \bar{z}$,
+\begin{equation*}
+\int_{\Gamma} F(z) \, dz + G(z) \, d\bar{z}
+=
+(-2i)
+\int_{U}
+\left(
+\frac{\partial G}{\partial z}(z)
+-
+\frac{\partial F}{\partial \bar{z}}(z)
+\right)
+\, dA .
+\end{equation*}
+\end{thm}
+
+\begin{exbox}
+\begin{exercise}
+Derive the second form in terms of the Wirtinger derivatives from the first
+form.
+\end{exercise}
+
+\begin{exercise}
+Show that to prove Green's it would be sufficient to prove
+\begin{equation*}
+\int_{\Gamma} F(z) \, dz
+=
+2i
+\int_{U}
+\frac{\partial F}{\partial \bar{z}}(z)
+\, dA .
+\end{equation*}
+\end{exercise}
+\end{exbox}
+
+Note that we have Cauchy's theorem as an immediate corollary.  Simply let
+$G=0$ and $F$ be holomorphic and apply the Wirtinger version of the formula.
+
+\begin{cor}\label{thm:cauchybygreen}
+Let $\Gamma$ be a cycle
+such that $n(z;\Gamma) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
+Suppose $f$ is a holomorphic function defined in a neighborhood of $\overline{U}$.
+\begin{equation*}
+\int_{\Gamma} f(z) \, dz  = 0.
+\end{equation*}
+\end{cor}
+
+\subsection{Generalized Cauchy integral formula}
+
+Let us prove a more general version of Cauchy's formula for all functions,
+not just holomorphic functions.
+This version is called the \emph{\myindex{Cauchy--Pompeiu integral formula}}.
+
+\begin{thm}[Cauchy--Pompeiu] \label{thm:generalizedcauchy}
+Let $\Gamma$ be a cycle
+such that $n(z;\Gamma) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
+Suppose $f$ is a continuously differentiable function defined in a neighborhood
+of $\overline{U}$.
+Then for $z \in U$:
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i}
+\int_{\Gamma}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+-
+\frac{1}{\pi}
+\int_{U}
+\frac{\frac{\partial f}{\partial \bar{z}}(\zeta)}{\zeta-z}
+\,
+dA .
+\end{equation*}
+\end{thm}
+
+If $f$ is holomorphic, then the second term is zero, and we
+obtain the standard Cauchy formula.  Note that we have cheated above.  The
+integral on the right hand side is not an integral of a continuous function.
+There is a singularity, but it turns out that it is still integrable.  That
+is, we write the improper integral
+\begin{equation*}
+\int_{U}
+\frac{\frac{\partial f}{\partial \bar{z}}(\zeta)}{\zeta-z}
+\,
+dA 
+=
+\lim_{r \downarrow 0}
+\int_{U \setminus \Delta_r(z)}
+\frac{\frac{\partial f}{\partial \bar{z}}(\zeta)}{\zeta-z}
+\,
+dA .
+\end{equation*}
+That the integral exists is left as an exercise.
+
+\begin{exbox}
+\begin{exercise}
+Observe the singularity in the second term of the Cauchy--Pompeiu formula,
+and prove that the integral still makes
+sense (the function is integrable).  Hint: polar coordinates.
+\end{exercise}
+
+\begin{exercise}
+The reader may be tempted to
+differentiate in $\bar{z}$ under the second integral in the 
+Cauchy--Pompeiu formula.  Why is this not possible?
+Notice that it would lead to an impossible result.
+\end{exercise}
+\end{exbox}
+
+\begin{proof}
+Fix $z \in U$.  We wish to apply Green's theorem,
+but the integrand is not smooth at $z$.
+Let $\Delta_r(z)$ be a small disc such that
+$\overline{\Delta_r(z)} \subset U$.  Green's now applies on $U \setminus \Delta_r(z)$.  See
+\figureref{fig:cauchypompeiu}.
+
+\begin{myfig}
+\subimport*{figures/}{cauchy-pompeiu.pdf_t}
+\caption{Proof of Cauchy--Pompeiu.\label{fig:cauchypompeiu}}
+\end{myfig}
+
+We compute
+\begin{equation*}
+\int_{\Gamma} \frac{f(\zeta)}{\zeta-z}\,  d\zeta - 
+\int_{\partial \Delta_r(z)} \frac{f(\zeta)}{\zeta-z}\,  d\zeta
+=
+2i
+\int_{U \setminus \Delta_r(z)} \frac{\partial}{\partial \bar{\zeta}} \left(
+\frac{f(\zeta)}{\zeta-z} \right) \, dA
+=
+2i
+\int_{U \setminus \Delta_r(z)}  
+\frac{\frac{\partial f}{\partial \bar{\zeta}}(\zeta)}{\zeta-z} \, dA .
+\end{equation*}
+The second equality follows because the denominator is holomorphic in
+$\zeta$.
+We now wish to let the radius $r$ go to zero.
+%Via the exercise above,
+%$\frac{\frac{\partial f}{\partial \bar{\zeta}}(\zeta)}{\zeta-z} \, d\bar{\zeta} \wedge d\zeta$
+%is integrable over all of $U$.
+The integral over $U$ is computed as the improper integral
+\begin{equation*}
+\int_{U} \frac{\frac{\partial f}{\partial
+\bar{\zeta}}(\zeta)}{\zeta-z} \, dA
+=
+\lim_{r \downarrow 0}
+\int_{U \setminus \Delta_r(z)} \frac{\frac{\partial f}{\partial
+\bar{\zeta}}(\zeta)}{\zeta-z} \, dA
+=
+\frac{1}{2i}
+\int_{\Gamma} \frac{f(\zeta)}{\zeta-z}\,  d\zeta
+- 
+\lim_{r \downarrow 0}
+\frac{1}{2i}
+\int_{\partial \Delta_r(z)} \frac{f(\zeta)}{\zeta-z}\,  d\zeta .
+\end{equation*}
+By continuity of $f$,
+\begin{equation*}
+\lim_{r \downarrow 0}
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(z)} \frac{f(\zeta)}{\zeta-z}\,  d\zeta
+=
+\lim_{r \to 0}
+\frac{1}{2\pi}
+\int_0^{2\pi} f(z + r e^{i\theta})\, d\theta
+=
+f(z) .
+\end{equation*}
+The theorem follows.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Let $U \subset \C$, $\Gamma$, and $f$ be as in the theorem, but let $z \notin
+\overline{U}$.  Show that
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_{\partial U}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+-
+\frac{1}{\pi}
+\int_{U}
+\frac{\frac{\partial f}{\partial \bar{z}}(\zeta)}{\zeta-z}
+\,
+dA
+= 0 .
+\end{equation*}
+\end{exercise}
+\end{exbox}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
