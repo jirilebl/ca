@@ -10742,7 +10742,8 @@ Prove the maximum principle for harmonic functions directly from the
 mean-value property.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:meanvaluesmallronly}
+%FIXME: needed
 It is not necessary to assume the mean-value property for all discs.  Prove
 that given a continuous $f$ as in the theorem such that for every $p \in U$
 there is an $s > 0$ (depending on $p$) such that $f$ satisfies the mean-value
@@ -10826,13 +10827,67 @@ We will prove the corresponding holomorphic version later, although
 a sufficiently good version already follows by just applying the harmonic
 version and finding harmonic conjugate.
 
-Basically it says that if a harmonic function vanishes one a nice enough
+Basically it says that if a harmonic function vanishes on a nice enough
 curve (such as the real line) then it extends across.
 
 \begin{thm}[Schwarz reflection principle for harmonic functions]
 \index{Schwarz reflection principle!harmonic functions}
-FIXME
+Suppose $U \subset \C$ is a domain symmetric across the real axis, that is,
+$z \in U$ if and only if $\bar{z} \in U$.
+Let $U_+ = \{ z \in U : \Im z > 0 \}$ and $L = U \cap \R$.
+Suppose $f \colon U_+ \cup L \to \R$ be continuous function that is
+harmonic on $U_+$ and $f(z) = 0$ for all $z \in L$.
+
+Then there exists a harmonic function $F \colon U \to \R$ such that
+$F|_{U_+ \cup L} = f$.
 \end{thm}
+
+FIXME: needs a figure
+
+\begin{proof}
+The trick is to explicitly define what we want the function to be and then
+check that it is harmonic.
+For $z \in U$ define
+\begin{equation*}
+F(z) =
+\begin{cases}
+f(z) & \text{if } \Im z \geq 0, \\
+-f(\bar{z}) & \text{else} .
+\end{cases}
+\end{equation*}
+
+If $z \in U$ and $\Im z > 0$, then $F$ is harmonic at $z$ by hypothesis.
+Suppose $z \in U$ and $\Im z < 0$.  Write $F(z) = F(x,y) = -f(x,-y)$, then
+\begin{equation*}
+\nabla^2|_{(x,y)} F
+=
+\nabla^2|_{(x,y)} \bigl( -f(x,-y) \bigr)
+=
+- \frac{\partial^2 f}{\partial x^2}|_{(x,-y)}
+- \frac{\partial^2 f}{\partial y^2}|_{(x,-y)}
+=
+- \nabla^2|_{(x,-y)} f = 0 .
+\end{equation*}
+So suppose that $z \in L$, that is, $z \in \R$.
+Let us compute the mean value at $z$ around any
+$\partial \Delta_r(z)$ where $\overline{\Delta_r(z)} \subset U$:
+\begin{equation*}
+\frac{1}{2\pi} \int_{-\pi}^{\pi} F(z+re^{i\theta})\, d\theta
+=
+\frac{1}{2\pi} \int_{-\pi}^{0} -f(z+re^{-i\theta})\, d\theta
++
+\frac{1}{2\pi} \int_{0}^{\pi} f(z+re^{i\theta})\, d\theta
+=
+0 .
+\end{equation*}
+In other words the mean value equals $F(z) = 0$.
+So the mean-value property is satisfied for all small enough
+$r$ at all the $z \in L$.  The mean-value property
+is also satisfied for small enough
+$r$ around any other point since $F$ is harmonic on the open set $U
+\setminus L$.
+Thus, by \exerciseref{exercise:meanvaluesmallronly}, $F$ is harmonic in $U$.
+\end{proof}
 
 FIXME:
 
