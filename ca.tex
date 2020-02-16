@@ -2814,12 +2814,12 @@ circle.
 \item
 Suppose $f$ is antiholomorphic, that is assume $f$ is real differentiable
 and $\frac{\partial f}{\partial z} = 0$.  Show that
-$\det Df\big|_p = - \abs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.  In other words,
+$\det Df\big|_p = - \babs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.  In other words,
 the Jacobian determinant is nonpositive, and $f$ flips orientation.
 \item
 More generally, if $f$ is (real) differentiable then
-$\det Df\big|_p = \abs{\frac{\partial f}{\partial z}(p)}^2 -
-\abs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.
+$\det Df\big|_p = \babs{\frac{\partial f}{\partial z}(p)}^2 -
+\babs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.
 \end{exparts}
 \end{exercise}
 
@@ -3178,8 +3178,10 @@ $0 < r < R$ there exists an $M > 0$ such that for all $n$,
 \end{prop}
 
 Note that it is not necessarily true that $\bigl\{ \sabs{c_n} R^n \bigr\}$
-is bounded.  For example, both $\sum z^n$ and $\sum n z^n$ have
-radius of convergence 1.
+is bounded if $R$ is the radius of convergence.
+For example, both $\sum z^n$ and $\sum n z^n$ have
+radius of convergence 1 and the sequence is bounded in the first case and
+not in the second.  However, $\{ n r^n \}$ is bounded for every $r < 1$.
 
 \begin{proof}
 Suppose the series converges in $\Delta_{R}(p)$ and
@@ -4866,18 +4868,18 @@ d \zeta
 \int_0^{2\pi} f(z+se^{it}) \, dt .
 \end{equation*}
 As the integral over $\gamma$ (which does not depend on $s$)
-is equal to the integral over $\alpha$ for any $s$ small enough,
+is equal to the integral over $\alpha$ for any $s > 0$ small enough,
 we can take the limit as $s \to 0$.
 By continuity of $f$ at $z$,
 \begin{equation*}
-\lim_{s \to 0}
+\lim_{s \downarrow 0}
 \frac{1}{2\pi i}
 \int_{\alpha}
 \frac{f(\zeta)}{\zeta-z}
 \,
 d \zeta
 =
-\lim_{s \to 0}
+\lim_{s \downarrow 0}
 \frac{1}{2\pi}
 \int_0^{2\pi} f(z+se^{it}) \, dt
 =
@@ -5127,15 +5129,16 @@ $p$ oriented counterclockwise.
 
 \begin{proof}
 First fix an $r$ such that $0 < r < R$.
-We have $\overline{\Delta_r(p)} \subset U$,
+In particular, we have $\overline{\Delta_r(p)} \subset U$,
 the boundary of the disc of radius $r$ is in $U$.
-For $z \in \Delta_r(p)$ and $\zeta \in \partial \Delta_r(p)$, 
+Fix a $z \in \Delta_r(p)$.
+
+For $\zeta \in \partial \Delta_r(p)$, 
 \begin{equation*}
 \abs{\frac{z-p}{\zeta-p}} =
 \frac{\sabs{z-p}}{r} < 1 .
 \end{equation*}
-If $\sabs{z-p} \leq s < r$, then
-$\abs{\frac{z-p}{\zeta-p}} \leq \frac{s}{r} < 1$.  Therefore,
+Therefore,
 the geometric series
 \begin{equation*}
 \sum_{n=0}^\infty
@@ -5145,10 +5148,7 @@ the geometric series
 =
 \frac{\zeta-p}{\zeta-z}
 \end{equation*}
-converges uniformly absolutely for $(z,\zeta) \in \overline{\Delta_{s}(p)}
-\times \partial \Delta_r(p)$ (that is,
-$\sum_n {\bigl\lvert \frac{z-p}{\zeta-p} \bigr\rvert}^n$
-converges uniformly).
+converges uniformly absolutely for $\zeta \in \partial \Delta_r(p)$.
 
 We write $f(z)$ using the Cauchy integral formula:
 \begin{equation*}
@@ -5197,7 +5197,7 @@ interchange the limit on the sum with the integral
 %either
 %via Fubini's theorem or
 via uniform convergence (uniform in the $\zeta \in \partial \Delta_r(p)$):
-$z$ is fixed and if $M$ is the supremum of $\abs{\frac{f(\zeta)}{\zeta-p}} =
+$z$ is fixed and if $M$ is the supremum of $\babs{\frac{f(\zeta)}{\zeta-p}} =
 \frac{\sabs{f(\zeta)}}{r}$ on $\partial \Delta_r(p)$,
 then
 \begin{equation*}
@@ -5214,7 +5214,7 @@ M
 
 We proved convergence in $\Delta_r(p)$.
 By the uniqueness of the power series (see \corref{cor:convpowserinfdif}),
-the $c_n$ we computed are the same for every $r < R$, and hence
+the $c_n$ we compute are the same for every $r < R$, and hence
 we get convergence in $\Delta_R(p)$.
 \end{proof}
 
@@ -5415,8 +5415,8 @@ Here, we are really passing the partial derivatives in the real and
 imaginary parts (the $x$ and the $y$ if $z=x+iy$) under the integral,
 which can be done by 
 the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
-Actually it requires \exerciseref{exercise:severalvariableLiebniz},
-but that is a simple generalization.  We have used that the
+Actually it requires the simple generalization \exerciseref{exercise:severalvariableLiebniz}.
+We have used that the
 $x$ and $y$ derivatives of 
 $\frac{f(\zeta)}{(\zeta-z)^{k+2}}$ are continuous
 (as functions of both $\zeta$ and $z$), as long as $z = x+iy$
@@ -6313,7 +6313,7 @@ In other words, $\sabs{g(z)}$ must get close to $1$ as $z$
 approaches the boundary $\partial \D$.  Then so must $\sabs{h(z)}$.
 The function
 $\sabs{h(z)}$ must attain a minimum inside $\D$, or in other
-words $\abs{\frac{1}{h(z)}}$ must attain a maximum inside $\D$.  So $h(z)$
+words $\babs{\frac{1}{h(z)}}$ must attain a maximum inside $\D$.  So $h(z)$
 is a constant, and $g(z) = \alpha z$ for some constant $\alpha$.
 Clearly, 
 $\sabs{\alpha} = 1$ or $\alpha = e^{i\theta}$.  Applying
@@ -6338,7 +6338,7 @@ for real numbers $a,b,c,d$ such that $ad-bc \not= 0$.
 
 \begin{exercise}
 Prove the \emph{\myindex{Schwarz--Pick lemma}}.
-Suppose $f \colon \D \to \D$ is holomorphic.  For all $z,\zeta \in \D$
+If $f \colon \D \to \D$ is holomorphic, then
 \begin{equation*}
 \frac{f(z)-f(\zeta)}{1-\overline{f(z)}f(\zeta)} \leq
 \frac{z-\zeta}{1-\bar{z}\zeta} 
@@ -6346,8 +6346,9 @@ Suppose $f \colon \D \to \D$ is holomorphic.  For all $z,\zeta \in \D$
 \text{and}
 \qquad
 \frac{\abs{f'(z)}}{1-\abs{f(z)}^2} \leq
-\frac{1}{1-\abs{z}^2} ,
+\frac{1}{1-\abs{z}^2}
 \end{equation*}
+for all $z,\zeta \in \D$,
 with equality if and only if $f$ is an automorphism of $\D$.
 \end{exercise}
 \end{exbox}
@@ -7064,7 +7065,9 @@ One can also define a series for a holomorphic function around a hole, or a sing
 \begin{defn}
 Given two numbers $0 \leq r_1 < r_2 < \infty$ and $p \in \C$, the set
 \begin{equation*}
-\ann(p,r_1,r_2) = \{ z \in \C : r_1 < \sabs{z - p} < r_2 \}
+\ann(p;r_1,r_2)
+\overset{\text{def}}{=}
+\{ z \in \C : r_1 < \sabs{z - p} < r_2 \}
 \end{equation*}
 is called an \emph{\myindex{annulus}}\footnote{%
 Q: What do you call a banana with a hole?
@@ -7074,23 +7077,23 @@ A: A banannulus.}.
 A common case we will see often is when $r_1 = 0$, that is
 the punctured disc
 \begin{equation*}
-\ann(p,0,r) = \Delta_r(p) \setminus \{ p \} .
+\ann(p;0,r) = \Delta_r(p) \setminus \{ p \} .
 \end{equation*}
 Sometimes $r_2 = \infty$ is also allowed, in which case
-$\ann(p,r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  We will,
-however, avoid temptation calling $\ann(p,r,\infty)$ an ``annulus.''%
+$\ann(p;r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  We will,
+however, avoid temptation calling $\ann(p;r,\infty)$ an ``annulus.''%
 \footnote{``Holey plane'' perhaps?}
 
 \begin{thm}[\myindex{Existence of Laurent series}]
 \index{Laurent series!existence}%
 Suppose that $0 \leq r_1 < r_2 \leq \infty$ and
-$f \colon \ann(p,r_1,r_2) \to \C$ is holomorphic.
+$f \colon \ann(p;r_1,r_2) \to \C$ is holomorphic.
 Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^{\infty} c_n {(z-p)}^n ,
 \end{equation*}
 where the convergence is uniformly absolute on every compact subset of
-$\ann(p,r_1,r_2)$.  The numbers $c_n$ are given by
+$\ann(p;r_1,r_2)$.  The numbers $c_n$ are given by
 \begin{equation*}
 c_n = 
 \frac{1}{2\pi i}
@@ -7130,17 +7133,17 @@ Define the cycle
 That is, $\Gamma$ goes around the larger ($s_2$) circle counterclockwise and
 around the smaller ($s_1$) circle clockwise.
 
-If $z \in \C \setminus \ann(p,r_1,r_2)$, then $n(\Gamma;z) = 0$:
+If $z \in \C \setminus \ann(p;r_1,r_2)$, then $n(\Gamma;z) = 0$:
 If $z$ is in the ``hole'' of the annulus, then
 $n\bigl(\partial \Delta_{s_j}(p);z\bigr) = 1$ for both $j=1,2$, and 
 if $z$ is outside the annulus altogether then
 $n\bigl(\partial \Delta_{s_j}(p);z\bigr) = -1$ for both $j=1,2$,
 see \exerciseref{exercise:windingcircle} or.
 \exerciseref{exercise:windingcircles}.
-On the other hand if $z$ is in the (smaller) annulus $\ann(p,s_1,s_2)$,
+On the other hand if $z$ is in the (smaller) annulus $\ann(p;s_1,s_2)$,
 then for similar reasons, $n(\Gamma;z) = 1$.
 
-Thus, via Cauchy's theorem, for every $z \in \ann(p,s_1,s_2)$,
+Thus, via Cauchy's theorem, for every $z \in \ann(p;s_1,s_2)$,
 \begin{equation*}
 f(z) = 
 \frac{1}{2\pi i}
@@ -7154,7 +7157,7 @@ f(z) =
 \end{equation*}
 Let us expand the two bits separately.  First
 if $\zeta \in \partial \Delta_{s_2}$, then
-$\abs{\frac{z-p}{\zeta-p}} < 1$ and so
+$\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} < 1$ and so
 we follow the logic of \thmref{thm:holpower}.  The reason that we can
 swap the integral and the series limit is the same as in that theorem.
 \begin{equation*}
@@ -7187,7 +7190,7 @@ swap the integral and the series limit is the same as in that theorem.
 
 Similarly, 
 if $\zeta \in \partial \Delta_{s_1}$, then
-$\abs{\frac{\zeta-p}{z-p}} < 1$ and so
+$\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} < 1$ and so
 \begin{equation*}
 \begin{split}
 -\frac{1}{2\pi i}
@@ -7247,20 +7250,20 @@ So we get the same $c_n$ no matter which $s$ we pick.
 
 Next, convergence.
 The geometric series used for the first part converges uniformly
-absolutely when $\abs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} \leq
+absolutely when $\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} \leq
 1-\epsilon$.  In other words, the series converges uniformly absolutely
 on compact subsets of $\Delta_{s_2}(p)$ (when $\sabs{z-p} < s_2$).
 
 The geometric series used for the second part converges uniformly
-absolutely when $\abs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} \leq
+absolutely when $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} \leq
 1-\epsilon$.  In other words, the series converges uniformly absolutely
 on compact subsets of $\C \setminus \Delta_{s_1}(p)$ (when $\sabs{z-p} > s_1$).
 
 Hence both parts (and so the entire series) 
-converges uniformly absolutely on compact
-subsets of $\ann(p,s_1,s_2)$.  As $s_1$ and $s_2$ were arbitrary such that
+converge uniformly absolutely on compact
+subsets of $\ann(p;s_1,s_2)$.  As $s_1$ and $s_2$ were arbitrary such that
 $r_1 < s_1 < s_2 < r_2$, we get that the series
-converges uniformly absolutely on compact subsets of $\ann(p,r_1,r_2)$.
+converges uniformly absolutely on compact subsets of $\ann(p;r_1,r_2)$.
 
 Finally, uniqueness of $c_n$.  Suppose
 \begin{equation*}
@@ -7268,7 +7271,7 @@ f(z)
 =
 \sum_{n=-\infty}^{\infty} \tilde{c}_n {(z-p)}^{n} 
 \end{equation*}
-with uniform absolute convergence on compact subsets of $\ann(p,r_1,r_2)$.
+with uniform absolute convergence on compact subsets of $\ann(p;r_1,r_2)$.
 Then
 \begin{equation*}
 \begin{split}
@@ -7316,7 +7319,7 @@ $\C \setminus \{ 0 \}$.
 
 The rational function $\frac{1}{1-z}$ that leads to the geometric series can
 be expanded in a slightly different way if we want its Laurent series
-expansion in $\ann(0,1,\infty) = \C \setminus \overline{\D}$.
+expansion in $\ann(0;1,\infty) = \C \setminus \overline{\D}$.
 \begin{equation*}
 \frac{1}{1-z}
 =
@@ -7330,7 +7333,7 @@ expansion in $\ann(0,1,\infty) = \C \setminus \overline{\D}$.
 \sum_{n=-\infty}^{-1}
 - z^{n} ,
 \end{equation*}
-which converges in $\ann(0,1,\infty)$.
+which converges in $\ann(0;1,\infty)$.
 
 Finally, a Laurent series could very well just be a power
 series when all the $c_n$ for negative $n$ are zero.
@@ -7338,14 +7341,14 @@ series when all the $c_n$ for negative $n$ are zero.
 \begin{exbox}
 \begin{exercise}[Easy]
 Suppose $f \colon \Delta_r(p) \to \C$ is holomorphic, and suppose you expand
-$f$ in a Laurent series in $\ann(p,r_1,r_2)$ for $0 \leq r_1 < r_2 \leq r$.
+$f$ in a Laurent series in $\ann(p;r_1,r_2)$ for $0 \leq r_1 < r_2 \leq r$.
 Prove that $c_n = 0$ for all negative $n$ and that $c_n$ for nonnegative $n$
 are just the coefficients of the power series of $f$ at $p$.
 \end{exercise}
 
 \begin{exercise}[Easy]
 Suppose $f$ and $g$ are holomorphic functions defined on
-$\ann(p,r_1,r_2)$.  Let $a_n$ be the coefficients in the Laurent series for
+$\ann(p;r_1,r_2)$.  Let $a_n$ be the coefficients in the Laurent series for
 $f$ and $b_n$ be the coefficients in the Laurent series for $g$.  Suppose
 that $\alpha,\beta \in \C$.  Show that the Laurent series for the function
 $\alpha f + \beta g$ has coefficients $\alpha a_n + \beta b_n$.
@@ -7355,13 +7358,13 @@ $\alpha f + \beta g$ has coefficients $\alpha a_n + \beta b_n$.
 Expand the function $\frac{1}{(z-1)(z-2)}$ using Laurent (or power) series in 
 \begin{exparts}
 \item $\D \setminus \{ 0 \}$
-\item $\ann(0,1,2)$
-\item $\ann(0,2,\infty)$
+\item $\ann(0;1,2)$
+\item $\ann(0;2,\infty)$
 \end{exparts}
 \end{exercise}
 
 \begin{exercise}
-Suppose $f \colon \ann(p,r_1,r_2) \to \C$ is holomorphic,
+Suppose $f \colon \ann(p;r_1,r_2) \to \C$ is holomorphic,
 $r_1 < s < r_2$, and
 \begin{equation*}
 \int_{\partial \Delta_{s}(p)} f(z){(z-p)}^n
@@ -7369,7 +7372,7 @@ $r_1 < s < r_2$, and
 \end{equation*}
 for all nonnegative integers $n$.  Prove that $f$ extends through the hole:
 There exists a holomorphic $g \colon \Delta_{r_2}(p) \to \C$ such that 
-$f = g$ on $\ann(p,r_1,r_2)$.
+$f = g$ on $\ann(p;r_1,r_2)$.
 \end{exercise}
 
 \begin{exercise}
@@ -7488,7 +7491,7 @@ state it without proof.
 
 \begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
 Let $\Gamma$ be a cycle
-such that $n(z;\Gamma) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
 Suppose 
 $P,Q$ are continuously differentiable functions defined in a neighborhood
 of $\overline{U}$.
@@ -7545,7 +7548,7 @@ $G=0$ and $F$ be holomorphic and apply the Wirtinger version of the formula.
 
 \begin{cor}\label{thm:cauchybygreen}
 Let $\Gamma$ be a cycle
-such that $n(z;\Gamma) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
 Suppose $f$ is a holomorphic function defined in a neighborhood of $\overline{U}$.
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz  = 0.
@@ -7560,7 +7563,7 @@ This version is called the \emph{\myindex{Cauchy--Pompeiu integral formula}}.
 
 \begin{thm}[Cauchy--Pompeiu] \label{thm:generalizedcauchy}
 Let $\Gamma$ be a cycle
-such that $n(z;\Gamma) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
 Suppose $f$ is a continuously differentiable function defined in a neighborhood
 of $\overline{U}$.
 Then for $z \in U$:
@@ -7667,7 +7670,7 @@ By continuity of $f$,
 \frac{1}{2\pi i}
 \int_{\partial \Delta_r(z)} \frac{f(\zeta)}{\zeta-z}\,  d\zeta
 =
-\lim_{r \to 0}
+\lim_{r \downarrow 0}
 \frac{1}{2\pi}
 \int_0^{2\pi} f(z + r e^{i\theta})\, d\theta
 =
@@ -9018,7 +9021,7 @@ These are not the ideal estimates (largest zero of $P$ has modulus less than
 
 \begin{exbox}
 \begin{exercise}
-Count the number of zeros of $z^7-4z^3-11$ in $\ann(p,1,2)$.
+Count the number of zeros of $z^7-4z^3-11$ in $\ann(p;1,2)$.
 \end{exercise}
 
 \begin{exercise}
