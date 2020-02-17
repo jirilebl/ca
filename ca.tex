@@ -1006,8 +1006,13 @@ a Riemann sum and the regular triangle inequality.
 As $\C$ is $\R^2$, we can think of
 $\C$ as a real two-dimensional vector space by forgetting about the
 complex multiplication.  A standard basis is then $1$ and $i$.
-To put multiplication back into the picture, we think of an object that
-acts on $\R^2$: a matrix.
+To put multiplication back into the picture we think of linear operators
+on $\R^2$.
+Given a complex number $\xi$, the map $z \mapsto  \xi z$ is a
+real-linear operator\footnote{$L \colon \C \to \C$ is real-linear if
+$L(a z + b w) = aL(z)+bL(z)$ for all $a,b \in \R$ and $z,w \in \C$.}.
+A real-linear operator on $\R^2$ is given by a matrix $2 \times 2$ real
+matrix.
 The complex number $x+iy$ can be represented by the $2 \times 2$ matrix
 \begin{equation*}
 \begin{bmatrix}
@@ -1015,6 +1020,7 @@ x & -y \\
 y & x
 \end{bmatrix} .
 \end{equation*}
+Let us check.
 If we think of a complex number $a+ib$ as a matrix
 and $c+id$ as a column vector,
 then complex multiplication makes sense as matrices
@@ -1459,7 +1465,7 @@ $\sabs{f(z)-L} < \epsilon$ whenever $\sabs{z} > M$.
 Suppose that $z_0 \in \C$.
 Show that $\lim_{z\to \infty} f(z) = \infty$ in the sense of the Riemann sphere
 if and only if, for every $M > 0$ there exists a $\delta > 0$ such that
-$\sabs{f(z)} > <$ whenever $\sabs{z-z_0} < \delta$.
+$\sabs{f(z)} > M$ whenever $\sabs{z-z_0} < \delta$.
 \end{exercise}
 
 \begin{exercise}
