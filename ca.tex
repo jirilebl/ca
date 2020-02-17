@@ -669,11 +669,11 @@ crushes the student's hopes and dreams.  Most reasonable statements
 are false and bizarre counterexamples abound.
 On the other hand, a complex analysis course fills the student with
 unrealistic optimism.  It is replete with na\"ive and silly statements
-that only a bad calculus student could entertain\footnote{%
+that only a bad calculus student could entertain.\footnote{%
 E.g., if you can differentiate once, you can differentiate twice.
 Every function acts sort of like a linear function.
 If all derivatives are zero at a point, the function is constant.
-Etc.}.
+Etc.}
 The two are the good-cop bad-cop, the yin-yang,
 of modern analysis.
 
@@ -1384,8 +1384,8 @@ and think of the corresponding neighborhood of the origin.
 More concretely, we can give $\C_{\infty}$ a metric space structure.
 Let $S^2$ be the unit sphere in $\R^3$,
 that is, the set described by $x^2 + y^2 + z^2 = 1$ if $(x,y,z)$ are the
-coordinates\footnote{This is possibly the only instance in this book where
-$z$ is a real number.}.  The plane $\R^2$ with coordinates $(x,y)$ can be
+coordinates.\footnote{This is possibly the only instance in this book where
+$z$ is a real number.}  The plane $\R^2$ with coordinates $(x,y)$ can be
 identified with $\C$ with coordinate $\xi$ by taking $x+iy = \xi$.
 Given any point $p \in S^2$ that is not the north pole $(0,0,1) \in S^2$,
 there is a unique line in $\R^3$ through the point $(0,0,1)$ and $p$.
@@ -2741,10 +2741,11 @@ g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} \qquad \text{for all $w \in W$}.
 \end{thm}
 
 The hypothesis that $f$ is continuously differentiable is completely
-superfluous\footnote{Cauchy (early 1800s)
+superfluous.\footnote{Cauchy (early 1800s)
 assumed continuity of the derivative for his work, it was
 Goursat more than half a century later that showed that continuity of the
-derivative came for free.}.  Every holomorphic function is continuously
+derivative came for free.}
+Every holomorphic function is continuously
 differentiable, although you will have to wait till around
 \thmref{thm:holfuncinfder} for why that is true.
 
@@ -3373,9 +3374,9 @@ using the geometric series.
 \subsection{Analytic functions are holomorphic}
 
 Eventually, we will see that analytic functions and holomorphic functions are
-one and the same\footnote{%
+one and the same.\footnote{%
 For this reason, some authors define ``analytic'' to mean complex differentiable,
-which is no problem eventually, but right now it would be.}.
+which is no problem eventually, but right now it would be.}
 Let us start by proving that
 analytic functions are holomorphic, that is, they are complex
 differentiable.
@@ -3690,9 +3691,14 @@ Pinky:  Uh, I think so, Brain, but we'll never get a monkey to use dental floss.
 \label{sec:lineints}
 
 \begin{defn}
-A continuous complex-valued piecewise continuously
+A \emph{\myindex{piecewise $C^1$ path}} or a \emph{\myindex{path}} for short
+is
+a continuous complex-valued piecewise continuously
 differentiable (piecewise $C^1$) function $\gamma \colon [a,b] \to \C$ 
-is called a \emph{\myindex{path}} or a \emph{\myindex{piecewise $C^1$ path}}.
+such that $\gamma'(t)$ and all its one sided limits are never
+0.\footnote{Some authors do not require the derivative not being zero, and
+in fact in the way that we use the paths, the requirement is not crucial,
+but leaving it off does lead to allowing some strange paths.}
 \end{defn}
 
 All of our paths will be piecewise $C^1$, so we may forget to mention it
@@ -3701,16 +3707,17 @@ By ``piecewise $C^1$,''
 we mean that there exist numbers $t_0 = a < t_1 < \cdots
 < t_k = b$ for some $k$ such that $\gamma|_{[t_{\ell-1},t_\ell]}$ is
 continuously differentiable ($C^1$) up to
-the boundary for every $\ell$.
+the boundary for every $\ell$ and its derivative is never zero.
 In other words, $\gamma$ is continuously differentiable inside all the
 subintervals $(t_{\ell-1},t_\ell)$ and the one sided limits
 \begin{equation*}
 \lim_{t \uparrow t_\ell} \gamma'(t) \qquad
 \lim_{t \downarrow t_\ell} \gamma'(t)
 \end{equation*}
-exist for all $\ell$ (except of course only one exists at $a$ or $b$).
-Another way to say it is that $\gamma'(t)$ extends to a continuous
-function on each closed interval $[t_{\ell-1},t_{\ell}]$.
+exist for all $\ell$ (except of course only one exists at $a$ or $b$),
+and these limits are nonzero.
+Another way to say it is that $\gamma'(t)$ extends to a nonzero
+continuous function on each closed interval $[t_{\ell-1},t_{\ell}]$.
 Allowing these ``corners'' makes working with path easier
 as we can define them easily piece-wise, and finitely many corners like
 this will make no difference on the calculations.
@@ -3721,9 +3728,10 @@ When we say that $\gamma$ is a path in $U \subset \C$, we mean that
 $\gamma \colon [a,b] \to U$ is a path.  Another common abuse of language we
 will freely and shamelessly commit is that if we refer to $\gamma$
 as if it were a set we mean the image $\gamma\bigl([a,b]\bigr)$.
-As you will see in the exercises,
-we should also morally require that $\gamma'(t) \not= 0$ for all $t$,
-although we will not require it in the definition.
+Nowhere will we really use or need that $\gamma'$ is never zero,
+but leaving that off would allow some paths that one would generally not
+call piecewise $C^1$,
+As you will see in the exercises.
 
 \begin{example}
 The path $\gamma \colon [0,4] \to \C$, given by
@@ -3855,8 +3863,10 @@ there exist continuous (complex-valued) $F$ and $G$ such that
 =
 \int_{\gamma} F \, dz + G \, d\bar{z} .
 \end{equation*}
-Namely, the line integral we defined is just the $dz$ part of
-the general line integral in $\R^2$.
+%Namely, the line integral we defined is just the $dz$ part of
+%the general line integral in $\R^2$.
+Then show that any path integral
+can be computed if you only know how to compute integrals of the form $\int_\gamma f(z) \, dz$.
 \end{exercise}
 \end{exbox}
 
@@ -3934,11 +3944,12 @@ Hint: First prove $\gamma^{-1}$ is a continuous function on
 $\gamma\bigl([a,b]\bigr)$ using that closed subsets of $[a,b]$
 are compact.
 \item
-Assume that $f=1$.  Prove the next two items first for $C^1$ paths,
-then for piecewise $C^1$ paths.  Hint: fundamental theorem of calculus.
+Prove in the case when $f=1$.
+Hint: fundamental theorem of calculus.
 \item
-For general $f$, cut the path into small enough pieces so that
-on each piece you can approximate $f$ by a constant and apply the
+Prove the proposition for any continuous $f$.
+Hint: Cut the path into small pieces where
+you can approximate $f$ by a constant and apply the
 last part.
 \end{exparts}
 \end{exercise}
@@ -3953,7 +3964,7 @@ $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \begin{exercise}
 Any one-to-one piecewise $C^1$ path $\gamma \colon [a,b] \to \C$
 can be reparametrized
-to a $C^1$ path (as long as $\gamma'$ is allowed to vanish at some points).
+to a $C^1$ ``path'' as long as $\gamma'$ is allowed to vanish at some points.
 That is, there exists a strictly increasing
 continuous $h \colon [a,b] \to [a,b]$ such that
 $\gamma \circ h$ is $C^1$.
@@ -3965,8 +3976,8 @@ Consider infinitely many nested circles all touching at one point
 and let that point be the origin: Suppose $r_n$ be the radius of the
 $n$\textsuperscript{th}
 circle and the $n$\textsuperscript{th} circle is given by $r_n e^{i\theta} - r_n$, for $0 \leq
-\theta \leq 2\pi$.  If $\sum r_n < \infty$, then you can find a $C^1$ path
-$\gamma \colon
+\theta \leq 2\pi$.  If $\sum r_n < \infty$, then you can find a continuous
+$C^1$ function $\gamma \colon
 [0,1] \to \C$ that traverses all the circles.  If $\sum r_n = \infty$, then
 you can find a continuous $\gamma \colon [0,1] \to \C$ that is $C^1$ on
 $(0,1]$, but necessarily $\lim_{t \to 0} \gamma'(t)$ does not exist.
@@ -3974,15 +3985,14 @@ $(0,1]$, but necessarily $\lim_{t \to 0} \gamma'(t)$ does not exist.
 \end{exbox}
 
 \begin{remark}
-The last two exercises above show why we should morally
+The last two exercises above show why we must morally
 require that $\gamma'(t)$ never vanishes (including the one sided limits)
 for piecewise $C^1$ paths.  The point is, are we thinking of the path
 as the parametrization $\gamma$ or as the set $\gamma\bigl([a,b]\bigr)$.
-In practical terms, we lose nothing of real value by the extra requirement,
-and the reader is free to assume so, although we will not need it.
+In practical terms, we lose nothing of real value by the extra requirement.
 \end{remark}
 
-Due to the exercises above,
+Due to the reparametrization result above,
 we often write down the ``boundary'' of a certain open set
 (as long as that boundary is piecewise $C^1$ of course)
 and consider any parametrization going counterclockwise
@@ -4256,13 +4266,13 @@ of the expression.
 The hypothesis that $f=F'$ is continuous is extraneous,
 we will soon prove that a derivative of a holomorphic function is
 holomorphic.  As that is not yet proved, we need $F'$ to be at least
-continuous so that the integral makes sense\footnote{%
+continuous so that the integral makes sense.\footnote{%
 A real derivative is only integrable
 by a so-called gauge or Henstock--Kurzweil integral, Riemann or
 even Lebesgue are not enough, so integrability is not an idle concern.
 If the reader is willing to hunt ants with a sledgehammer, then
 the statement and proof of the proposition is perfectly fine at this stage
-if one uses the gauge integral even without any hypothesis on $f$.}.
+if one uses the gauge integral even without any hypothesis on $f$.}
 \end{remark}
 
 \begin{defn}
@@ -4448,9 +4458,9 @@ but of exactly half the size.
 In particular,
 the largest possible distance for two points in the triangle 
 gets halved each iteration.
-In more formal language\footnote{%
+In more formal language:\footnote{%
 Here $\operatorname{diam}(T)= \sup \{ \sabs{p-q} : p,q \in T \}$
-means the maximum distance between two points in $T$.}:
+means the maximum distance between two points in $T$.}
 \begin{equation*}
 \operatorname{diam}(T^k) =
 \frac{1}{2} \operatorname{diam}(T^{k-1})
@@ -5598,7 +5608,7 @@ standard proof of their fundamental theorem uses analysis.
 One can take this even further.
 It is not a theorem of algebra at all!
 It is a theorem in
-complex analysis\footnote{There! It's ours now and you can't have it back.}.
+complex analysis.\footnote{There! It's ours now and you can't have it back.}
 
 For a set $K$, denote the \emph{\myindex{supremum norm}}:
 \glsadd{not:supnorm}%
@@ -6148,13 +6158,14 @@ not the uniform limit of a sequence polynomials $P_n(z)$ on $\partial \D$.
 
 Recall $\D = \Delta_1(0)$ is the unit disc.  The following statement may
 seem technical and specialized, but surprisingly it is incredibly
-powerful\footnote{In my first year of graduate school, on an exam in complex
+powerful.\footnote{In my first year of graduate school, on an exam in complex
 analysis, I solved all the problems with a combination of
 Schwarz's lemma and
 the Riemann
 mapping theorem (which we will see later).  My advisor
 felt compelled to remind me that there do exist other theorems in complex
-analysis.}.  Any disc can be translated and rescaled to $\D$, and any
+analysis.}
+Any disc can be translated and rescaled to $\D$, and any
 bounded function can be rescaled to be valued in $\D$.
 
 \begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}
@@ -9816,9 +9827,9 @@ bound on the derivative gives equicontinuity, and
 so it comes as no
 surprise that if we have a uniformly bounded set of holomorphic functions
 on a common domain, then this set is equicontinuous.
-Let us use some of the traditional language\footnote{%
+Let us use some of the traditional language.\footnote{%
 We wouldn't want the reader to miss out on all the possibilities of making
-jokes about ``normal families.''}.
+jokes about ``normal families.''}
 
 \begin{defn}
 Let $U \subset \C$ be open.
@@ -9950,7 +9961,7 @@ Every simply connected domain of $\C$ (except $\C$ itself) is really
 equivalent (biholomorphically, conformally) to $\D$.
 This is the content of the so-called Riemann mapping theorem.
 It is a theorem that gets cited a lot in all sorts of branches of
-mathematics\footnote{For example, a beginning course on topology will cite
+mathematics.\footnote{For example, a beginning course on topology will cite
 the theorem to say that any simply connected domain in $\R^2$
 is homeomorphic to the disc, and that's despite the topologists only
 needing the mapping to be continuous.  It still seems to be the easiest way.}
