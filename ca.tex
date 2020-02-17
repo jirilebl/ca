@@ -2540,7 +2540,7 @@ That is, write $x$ and $y$ in terms of $z$ and $\bar{z}$, and then show
 that $\bar{z}$ cancels.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:wirtingerandbar}
 Suppose $f \colon U \to \C$ is real differentiable and let $\bar{f}$
 denote the complex conjugate of $f$.  Show that
 \begin{equation*}
@@ -2557,7 +2557,7 @@ Suppose $f \colon U \to \C$ is such that both $f$ and its conjugate
 $\bar{f}$ is holomorphic.  Show that $f$ is constant.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:wirtingerchain}
 Prove a Wirtinger operator version of
 the chain rule\index{chain rule!Wirtinger operators}
 for real differentiable
@@ -4758,8 +4758,8 @@ then $\int_\gamma f(z) \, dz = 0$.
 \begin{exercise}
 Suppose $U \subset \C$ is open and star-like and
 $f \colon U \to \C$ is antiholomorphic, that is, it is the conjugate of a
-holomorphic function.  Let $d\bar{z} = dx + i \, dy$ as before.  Prove
-if $\gamma$ is a cycle in $U$, then
+holomorphic function.  Let $d\bar{z} = dx + i \, dy$ as before.  Suppose
+$\gamma$ is a cycle in $U$.  Prove that
 $\int_\gamma f(z) \, d\bar{z} = 0$.
 \end{exercise}
 \end{exbox}
@@ -10752,13 +10752,53 @@ harmonic.
 \end{exercise}
 \end{exbox}
 
-\subsection{Harnack inequality}
+\subsection{Harnack's inequality}
 
-FIXME:
+Just like holomorphic functions, harmonic functions that are defined in a
+disc cannot just do what they want inside the disc, and their behavior is
+somewhat controlled by the size of the disc.  That is, the further
+``inside'' their domain of definition they live, the more control one has.
+The basic example of this is \emph{\myindex{Harnack's inequality}}.
 
-\subsection{Hopf lemma}
+\begin{thm}[Harnack]
+Suppose $f \colon \Delta_R(p) \to \R$ is harmonic and nonnegative.
+Suppose $z \in \Delta_R(p)$ with $\sabs{z-p} = r$.  Then
+\begin{equation*}
+\frac{R-r}{R+r} f(p) \leq f(z) \leq \frac{R+r}{R-r} f(p) .
+\end{equation*}
+\end{thm}
 
-FIXME: do Hopf lemma in a disc
+\begin{proof}
+FIXME
+\end{proof}
+
+There is also the general Harnack inequality in any domain.
+
+\begin{cor}[Harnack]
+Suppose $U \subset \C$ is a domain.  Then there exists a $C > 0$ such
+that
+\begin{equation*}
+\sup_{z \in U} f(z) \leq C \inf_{z\in U} f(z)
+\end{equation*}
+for every harmonic and nonnegative function $f$ defined on $U$.
+\end{cor}
+
+FIXME
+
+\subsection{Harnack's theorem}
+
+FIXME?
+
+\begin{thm}
+FIXME: convergence?
+\end{thm}
+
+FIXME: Montel?
+
+%FIXME: maybe just skip for now
+%\subsection{Hopf lemma}
+%
+%FIXME: do Hopf lemma in a disc
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -10823,15 +10863,15 @@ Prove that the Dirichlet problem is not solvable in the punctured disc $\D
 
 Classically, the Schwarz reflection principle is a theorem for holomorphic
 functions, but we will state and prove it for harmonic functions.
-We will prove the corresponding holomorphic version later, although
-a sufficiently good version already follows by just applying the harmonic
-version and finding harmonic conjugate.
+We will prove the corresponding holomorphic version
+(\thmref{thm:schwarzreflectionholo}) later separately.
 
 Basically it says that if a harmonic function vanishes on a nice enough
 curve (such as the real line) then it extends across.
 
 \begin{thm}[Schwarz reflection principle for harmonic functions]
 \index{Schwarz reflection principle!harmonic functions}
+\label{thm:schwarzreflectionharm}
 Suppose $U \subset \C$ is a domain symmetric across the real axis, that is,
 $z \in U$ if and only if $\bar{z} \in U$.
 Let $U_+ = \{ z \in U : \Im z > 0 \}$ and $L = U \cap \R$.
@@ -11504,10 +11544,89 @@ FIXME
 FIXME: perhaps not a separate section here?  But this is a chapter where it
 makes sense
 
+The Schwarz reflection principle works for both harmonic and holomorphic
+functions (see \thmref{thm:schwarzreflectionharm}).  The proof for both is
+very similar in fact: We simply write down the candidate function by using
+the right reflection and then show that the reflection is harmonic or
+holomorphic.  Then over the line where they meet, we use either the
+mean-value property or Morera's theorem.
+
 \begin{thm}[Schwarz reflection principle]
 \index{Schwarz reflection principle!holomorphic functions}
-FIXME
+\label{thm:schwarzreflectionholo}
+Suppose $U \subset \C$ is a domain symmetric across the real axis, that is,
+$z \in U$ if and only if $\bar{z} \in U$.
+Let $U_+ = \{ z \in U : \Im z > 0 \}$ and $L = U \cap \R$.
+Suppose $f \colon U_+ \cup L \to \C$ be continuous function that is
+holomorphic on $U_+$ and real-valued on $L$, that is,
+$\Im f(z) = 0$ for all $z \in L$.
+
+Then there exists a holomorphic function $F \colon U \to \R$ such that
+$F|_{U_+ \cup L} = f$.
 \end{thm}
+
+FIXME: refer to the figure in the harmonic version.
+
+
+\begin{proof}
+For $z \in U$, define
+\begin{equation*}
+F(z) =
+f(z) \quad \text{if } \Im z \geq 0,
+\qquad
+F(z) =
+\overline{f(\bar{z})} \quad \text{else} .
+\end{equation*}
+
+If $z \in U$ and $\Im z > 0$, then $F$ is holomorphic at $z$ by hypothesis.
+Suppose $z \in U$ and $\Im z < 0$.  The easiest to see that $F$
+if holomorphic is by using the Wirtinger derivative and the
+identities proved in \exerciseref{exercise:wirtingerandbar} and
+the Wirtinger chain rule \exerciseref{exercise:wirtingerchain}:
+\begin{equation*}
+\frac{\partial}{\partial \bar{z}}
+F(z)
+=
+\frac{\partial}{\partial \bar{z}}
+\overline{f(\bar{z})}
+=
+\overline{
+\frac{\partial}{\partial z}
+f(\bar{z})
+}
+=
+0 .
+\end{equation*}
+The chain rule came up because we are taking the $z$ derivative of $f$
+composed with a conjugation map, and the $z$ derivative of the conjugation
+map is zero.
+Another way to see it is to write down the power series representation.
+
+In any case, it is enough to prove that $F$ is holomorphic on $L$.
+For this, it is enough to apply Morera's theorem.  It is enough to check
+triangles that intersect the real line.  Such a triangle can be split into
+several triangles, each of which lies on one side of the line $L$ and
+intersects $L$ either at a vertex or side. 
+
+FIXME: figure
+
+Call such a triangle $T$, and suppose it is above the axis.
+In either case, we can translate the triangle by $\epsilon$, that is
+consider $T_\epsilon = \{ z \in T : z-\epsilon \in T \}$.
+The triangle $T_\epsilon \in U_+$ and so
+the integral over $\partial T_\epsilon$
+is zero.  We can write the integral over $\partial T_\epsilon$
+as
+\begin{equation*}
+0 = \int_{\partial T_\epsilon} F(z) \, dz =
+\int_{\partial T} F(z+\epsilon) \, dz .
+\end{equation*}
+Using continuity of $F$ we can
+take a limit as $\epsilon \to 0$, to find that the integral over $\partial T$
+is also zero.  Morera then implies that $F$ is holomorphic.
+\end{proof}
+
+FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
