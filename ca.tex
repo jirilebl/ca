@@ -1013,13 +1013,13 @@ real-linear operator\footnote{$L \colon \C \to \C$ is real-linear if
 $L(a z + b w) = aL(z)+bL(z)$ for all $a,b \in \R$ and $z,w \in \C$.}.
 A real-linear operator on $\R^2$ is given by a matrix $2 \times 2$ real
 matrix.
-The complex number $x+iy$ can be represented by the $2 \times 2$ matrix
-\begin{equation*}
+Namely , the complex number $a+ib$ can be represented by the $2 \times 2$ matrix
+\begin{equation} \label{eq:complexnumbermatrix}
 \begin{bmatrix}
-x & -y \\
-y & x
+a & -b \\
+b & a
 \end{bmatrix} .
-\end{equation*}
+\end{equation}
 Let us check.
 If we think of a complex number $a+ib$ as a matrix
 and $c+id$ as a column vector,
@@ -1065,10 +1065,11 @@ That is, we can view the field of complex numbers as a subring of $M_2(\R)$.
 
 \begin{exbox}
 \begin{exercise}
-Prove that the matrix multiplication on these matrices is commutative
-and reproduces the complex
+Prove that a) the matrix multiplication on matrices of the form
+\eqref{eq:complexnumbermatrix}
+is commutative and b) reproduces the complex
 number multiplication, and that these matrices form a subring of $M_2(\R)$.
-Prove that the nonzero matrices of this form are
+c) Prove that nonzero matrices of this form are
 invertible (the subring is a field).  Specifically, notice the
 determinant appearing in the denominator for the multiplicative inverse.
 \end{exercise}
@@ -1081,10 +1082,9 @@ eigenvectors $\left[ \begin{smallmatrix} 1 \\ \pm i \end{smallmatrix}
 \end{exercise}
 
 \begin{exercise} \label{exercise:reallinmap}
-Prove that
-in terms of the complex notation an arbitrary $2 \times 2$ real matrix $M$
-thought of as a (real) linear map of $\C$ to $\C$
-can be represented by two complex numbers $\xi$ and $\zeta$, and the formula
+Prove that any real-linear operator on $\C$ (that is, any 
+$2 \times 2$ real matrix $M$) can be represented 
+by two complex numbers $\xi$ and $\zeta$, and the formula
 $z \mapsto \xi z + \zeta \bar{z}$.
 \end{exercise}
 
@@ -1124,7 +1124,8 @@ multiplication by a complex number.
 \subsection{The exponential}
 
 The exponential is the most fundamental and useful functions in complex
-analysis.  Let us define it for all complex numbers:
+analysis.  Let us define it for all complex numbers (see
+\figureref{fig:complexexpgraphs}):
 \begin{equation*}
 e^{z} = 
 e^{x+iy}
@@ -1133,6 +1134,19 @@ e^x e^{iy}
 =
 e^x\cos y + i e^x \sin y .
 \end{equation*}
+\begin{myfig}
+\includegraphics{figures/realexp}
+\qquad
+\includegraphics{figures/imagexp}
+\caption{Graphs of the real part (left) and imaginary part (right)
+of the complex exponential $e^z = e^{x+iy}$.  The $x$-axis goes from $-4$ to
+$4$, the $y$-axis goes from $-6$ to $6$, and the vertical axis goes from
+$-e^{6} \approx -54.6$
+to
+$e^{6} \approx 54.6$.  The plot of the real exponential ($y=0$)
+is marked in a bold line.\label{fig:complexexpgraphs}}
+\end{myfig}
+
 This definition agrees with the standard definition for real numbers (when
 $y=0$).  Furthermore,
 \begin{equation*}
@@ -1280,8 +1294,9 @@ We define the \emph{\myindex{principal branch of $\arg$}} as
 \end{equation*}
 It may seem like a good solution to the multivaluedness of $\arg$, but
 one's hopes are dashed by the cruel reality of $\Arg$ not being continuous
-on the negative real axis.  See \figureref{fig:arggraph}.  The principal branch ends up being somewhat less
-useful than one may think.  There is also the issue that not everyone agrees
+on the negative real axis.  See \figureref{fig:arggraph}.
+The principal branch is somewhat less useful than one may think.
+There is also the issue that not everyone agrees
 on what ``principal branch'' means; some mathematicians sacrifice the
 positive real axis and let $\theta$ be in the range $[0,2\pi)$.
 
@@ -1292,7 +1307,7 @@ positive real axis and let $\theta$ be in the range $[0,2\pi)$.
 
 \begin{exbox}
 \begin{exercise}
-Show that $\Arg$ as defined above is not a continuous function on all of
+Show that $\Arg$ as defined above is not a continuous function on 
 $\C \setminus \{ 0 \}$.
 \end{exercise}
 \end{exbox}
@@ -1334,8 +1349,7 @@ e^{x+iy} =
 e^x e^{iy} ,
 \end{equation*}
 and since $\sabs{e^{iy}} =1$, we find that the vertical line $x=c$ is taken to a
-circle of radius $e^c$.
-
+circle of radius $e^c$.  See \figureref{fig:expplotlines}.
 Thus, the exponential takes the strip $a < x < b$ to the
 annulus
 \begin{equation*}
@@ -1344,8 +1358,8 @@ annulus
 
 On the other hand, the horizontal line $y=c$
 is taken to the ray from the origin to infinity where $\theta = c$ in polar
-coordinates.  Hence,
-the exponential takes the strip $a < y < b$ to the
+coordinates.  Again see \figureref{fig:expplotlines}.
+Hence, the exponential takes the strip $a < y < b$ to the
 sector
 \begin{equation*}
 \bigl\{ z \in \C : ``a < \arg z < b'' \bigr\} .
@@ -1357,6 +1371,13 @@ of $\arg z$ is between $a$ and $b$.
 In particular, the exponential $e^z$ takes the set given by
 $2k\pi < \Im z \leq 2(k+1)\pi$ in a one-to-one (see the exercise above)
 way onto $\C \setminus \{ 0 \}$.
+
+\begin{myfig}
+\includegraphics{figures/expplotlines}
+\caption{Horizontal and vertical lines mapped by the exponential.  Note that
+each horizontal line only goes to a ray from the
+origin.\label{fig:expplotlines}}
+\end{myfig}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1993,8 +2014,8 @@ y}\big|_{z_0} \\[5pt]
 As we have seen in the last chapter, only a matrix of the form
 $\left[ \begin{smallmatrix}
 a & -b \\ b & a
-\end{smallmatrix} \right]$ corresponds to the complex number $a+ib$.
-So the derivative $Df|_{z_0}$ corresponds to a
+\end{smallmatrix} \right]$ corresponds to multiplication a complex number $a+ib$.
+So the derivative $Df|_{z_0}$ corresponds to multiplication by a
 complex number only if it is of the form
 $\left[ \begin{smallmatrix}
 a & -b \\ b & a
@@ -2332,8 +2353,10 @@ The so-called \emph{\myindex{Wirtinger operators}},
 \right)
 ,
 \end{equation*}
-provide an easier way to understand the
-Cauchy--Riemann equations.
+provide a way to understand the
+Cauchy--Riemann equations.\footnote{Despite the notation, these are
+\emph{not} partial derivatives in $z$ and $\bar{z}$
+(whatever that would mean).}
 These operators are determined by insisting
 \glsadd{not:wirt}%
 \begin{equation*}
@@ -4106,12 +4129,12 @@ If $\Gamma_1 = 2 \gamma_1 + \gamma_2$ and $\Gamma_2 = 3 \gamma_2 +
 \gamma_3$, then $\Gamma_1 + \Gamma_2 = 2 \gamma_1 + 4 \gamma_2 + \gamma_3$.
 Similarly for scalar multiplication: $3 \Gamma_1 = 6 \gamma_1 + 3 \gamma_2$.
 We write $-\Gamma$ for $(-1)\Gamma$.
-A chain is equivalent to the zero chain if
+A chain $\Gamma$ is equivalent to the zero chain if
 \begin{equation*}
 \int_\Gamma f(z)\, dz = 0
 \end{equation*}
 for all continuous $f$, and
-two chains are equivalent if $\Gamma_1 - \Gamma_2 = 0$.
+the chains $\Gamma_1$ and $\Gamma_2$ are equivalent if $\Gamma_1 - \Gamma_2 = 0$.
 Chains in this book are always composed of piecewise $C^1$ paths,
 although that is not the most general definition used in the literature.
 
