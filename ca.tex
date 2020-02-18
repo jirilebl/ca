@@ -136,6 +136,9 @@
 \MakePerPage{footnote}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
+% Enumitem extra penalties
+\setlist[enumerate]{beginpenalty=50,midpenalty=-5}
+
 
 % useful
 \newcommand{\ignore}[1]{}
@@ -2275,7 +2278,6 @@ where defined (outside the origin if $n$ negative) and $(z^n)' = n z^{n-1}$.
 \item Polynomials $P(z)$ are holomorphic.
 \item Rational functions $\frac{P(z)}{Q(z)}$
 are holomorphic on the set where $Q$ is not zero.
-\pagebreak[2]
 \end{enumerate}
 \end{prop}
 
@@ -3425,7 +3427,6 @@ Then $f$ is complex differentiable at every $z \in \Delta_R(p)$ and
 f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1} ,
 \end{equation*}
 which converges in $\Delta_R(p)$.
-\pagebreak[2]
 \end{prop}
 
 \begin{proof}
@@ -3967,7 +3968,6 @@ If $h$ is decreasing, then for every $f$ continuous on the path,
 
 \begin{exbox}
 \begin{exercise}
-\pagebreak[2]
 Prove the first case of the reparametrization proposition, that is,
 suppose $\gamma$ and $\alpha$ are one-to-one.
 \begin{exparts}
@@ -8951,7 +8951,7 @@ that only goes around any particular point either once or not at all.
 We then want to count the number of zeros and poles inside the path.
 
 Often the theorem is only applied for holomorphic functions, that is,
-without poles:
+functions without poles:
 
 \begin{cor}[Rouch\`e]\label{thm:rouche2}
 Let $U$,  $\gamma$ and $V$ be as in \thmref{thm:rouche}.
@@ -8974,7 +8974,7 @@ inequality
 \end{equation*}
 as hypothesis.
 The weaker statement is enough for vast majority of
-applications, and has a more geometric meaning.  The number of zeros (or
+applications, and has a simpler geometric meaning.  The number of zeros (or
 poles) of $f$
 inside $\gamma$ corresponds to the number times $f(z)$ winds around zero
 as $z$ traverses $\gamma$.  The theorem says that if $f$ is modified a
@@ -11362,7 +11362,6 @@ the function is upper-semicontinuous.
 \end{exercise}
 
 \begin{exercise}
-\pagebreak[2]
 Suppose $U \subset \C$ is a bounded open set, and $\{ p_n \}$ a sequence of points in
 $U$. For $z \in U$, define
 $f(z) = \sum_{n=1}^\infty 2^{-n} \log \sabs{z-p_n}$, possibly taking on the
