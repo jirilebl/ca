@@ -2197,7 +2197,7 @@ The proof then follows by continuity of complex multiplication and taking
 the limit as $h \to 0$.
 
 Let's see the second proof.
-Complex differentiable functions are differentiable in the real sense, so
+Complex differentiable functions are real differentiable, so
 the proof follows from the standard real chain rule (\thmref{thm:realchain}).
 Let $w = f(z) \in V$.  Then
 \begin{equation*}
@@ -2265,9 +2265,21 @@ proof for functions of one real variable.
 Note that
 a holomorphic function is continuous, and so the set
 $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
-Similarly (also an exercise below) the derivative
-of a constant is zero, the derivative of $z$ is $1$, and in general,
-derivative of $z^n$ is $nz^{n-1}$.
+
+\begin{prop}[Power rule] \label{prop:powerrule}
+\leavevmode
+\begin{enumerate}[(i)]
+\item A constant function is holomorphic and $(c)' = 0$.
+\item For nonzero integers $n$, the function $z \mapsto z^n$ is holomorphic
+where defined (outside the origin if $n$ negative) and $(z^n)' = n z^{n-1}$.
+\item Polynomials $P(z)$ are holomorphic.
+\item Rational functions $\frac{P(z)}{Q(z)}$
+are holomorphic on the set where $Q$ is not zero.
+\pagebreak[2]
+\end{enumerate}
+\end{prop}
+
+The proof is again left as an exercise.
 
 \begin{exbox}
 \begin{exercise}
@@ -2279,34 +2291,25 @@ f(z)g(z+h) - f(z)g(z)$.
 \end{exercise}
 
 \begin{exercise}
-\begin{samepage}
-\begin{exparts}
-\item
-Prove that the complex derivative of a constant is zero, $(1)' = 0$.
-\item
-Prove $(z)' = 1$.
-\item
-Prove $(z^n)' = n z^{n-1}$ for positive integers $n$.
-\\
-Hint: Use product rule
-and induction: $z^n = z^{n-1} z$.
-\item
-Prove $(z^n)' = n z^{n-1}$ for negative integers $n$.
-\end{exparts}
+Prove the first two items of \propref{prop:powerrule}.
+Hint: For the power rule, first prove that $z$ is complex differentiable,
+then prove $z^n$ is differentiable for positive $n$ (use product rule and
+induction) and finally prove
+that $z^n$ is differentiable for negative $n$.
 Note: You are proving both that the complex derivative exists and
 computing it.
-\end{samepage}
 \end{exercise}
 
 \begin{exercise}
-Prove that any polynomial $P(z)$ is holomorphic.  More generally
-prove that a rational function $\frac{P(z)}{Q(z)}$ is holomorphic on the
-set where $Q$ is nonzero.
+Prove the last two items of \propref{prop:powerrule}:
+Polynonomials $P(z)$ are holomorphic on $\C$,
+and rational functions
+$\frac{P(z)}{Q(z)}$ is holomorphic on the set where $Q$ is nonzero.
 \end{exercise}
 \end{exbox}
 
 Perhaps the reader may ask:
-Is any solution to
+Is every solution to
 the Cauchy--Riemann equations holomorphic?  Above, we saw that the answer
 is affirmative for continuously differentiable functions, or at least
 functions differentiable as functions of two variables.
@@ -2333,7 +2336,8 @@ even continuous.
 
 \subsection{Wirtinger operators}
 
-Let us concentrate a bit more on the equations.  Suppose $z=x+iy$.
+%Let us concentrate a bit more on the equations.
+Suppose $z=x+iy$.
 The so-called \emph{\myindex{Wirtinger operators}},
 \begin{equation*}
 \frac{\partial}{\partial z}
