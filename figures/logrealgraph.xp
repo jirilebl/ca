@@ -1,0 +1,52 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P F(double x, double y)
+{
+  	return P(x, y, log(sqrt(x*x+y*y)));
+}
+
+P FF(double r, double th)
+{
+	double x = r*Cos(th);
+	double y = r*Sin(th);
+	return F(x,y);
+}
+
+domain RR(P(sqrt(0.01),-M_PI+0.00001), P(sqrt(2), M_PI-0.00001), mesh(5,40), mesh(10,80));
+
+int main()
+{
+  picture(P(-1.5,-M_PI*0.7), P(1.5,M_PI*0.7), "2.5x2.5in");
+
+  begin();
+  //border();
+
+  camera.at(P(8,8,10));
+
+  arrow(P(-1.9,0,0), P(1.9,0,0));
+  label(P(1.9,0), P(0,-2), "$\\operatorname{Re} z$", br); 
+
+  arrow(P(0,-1.9), P(0,1.9,0));
+  label(P(0,1.9), P(0,-2), "$\\operatorname{Im} z$", bl);
+
+  plain ();
+  fill(White());
+  surface(FF, RR); // polar
+  fill(false);
+
+  pen(2);
+  plot(FF, RR.resize2(-M_PI,M_PI).slice1(1));
+  dot(P(1,0,0));
+  plain();
+
+  // that bit of the axes that's above the graph
+  line(P(0,-1,0), P(0,1,0));
+  line(P(-1,0,0), P(1,0,0));
+
+  arrow(P(0,0,0), P(0,0,1.7));
+
+  tikz_format();
+  end();
+}

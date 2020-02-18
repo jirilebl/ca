@@ -4876,8 +4876,8 @@ orientations marked in the figure.
 \label{fig:disccauchy}}
 \end{myfig}
 
-As chains $c_1+c_2 = \gamma - \alpha$.  Further, each
-$c_j$ lies in a star-like domain (marked by dashed lines in the figure),
+As chains $c_1+c_2 = \gamma - \alpha$.  Each
+$c_j$ lies in a star-like domain (some possibilities marked by dashed lines in the figure),
 where $\frac{f(\zeta)}{\zeta-z}$ is holomorphic
 as a function of $\zeta$ (since $z$ is outside each of these domains).
 By Cauchy's theorem for star-like sets
@@ -4967,16 +4967,16 @@ where $dA = dx \, dy = r \, dr \, d\theta$ is the area measure.
 \begin{exercise}
 Compute 
 \begin{equation*}
-\int_\gamma \frac{\cos ( z^2 ) +z}{z-\sqrt{\pi}} \, dz
+\int_\gamma \frac{\cos ( z^2 ) +z}{z(z-\sqrt{\pi})} \, dz
 \end{equation*}
 if $\gamma$ is:
 \begin{exparts}
 \item
-The circle of radius 2 centered at the origin oriented
+The circle of radius $1$ centered at the origin oriented
 counterclockwise.
 \item
-The circle of radius 1 centered at the origin oriented
-counterclockwise.
+The circle of radius $2$ centered at the origin oriented
+counterclockwise.  Hint: partial fractions.
 \item
 The circle of radius 5 centered at $i+1$ oriented clockwise.
 \end{exparts}
@@ -5002,6 +5002,9 @@ We prove the basic statement and leave other versions as exercises.
 The basic statement is that the modulus of a holomorphic function never
 achieves a maximum.  So if you wish to bound $\sabs{f(z)}$, you only need to
 get a bound near the boundary.
+The basic idea of the proof is that Cauchy's integral formula tells us that
+$f(z)$ is an average of the values of $f$ in a circle around $z$, and the
+average can't be bigger than the numbers we're averaging.
 
 \begin{thm}[Maximum principle]
 \index{maximum principle!holomorphic functions}%
@@ -5138,6 +5141,21 @@ $f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
 is holomorphic, and there is a constant $M$ such that $\sabs{f(z)} = M$
 for all $z \in \partial U$.  Prove that $f$ is either constant or $f(z) = 0$
 for some $z \in U$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is an open set and $f \colon U \to \C$ be holomorphic.
+Let $M > 0$ be fixed and
+define $X = \bigl\{ z \in U : \sabs{f(z)} < M \bigr\}$.
+Prove that $X$ is open and the closure of $X$ (in $U$, so $\overline{X} \cap U$) is the set
+$\bigl\{ z \in U : \sabs{f(z)} \leq M \bigr\}$.
+\end{exercise}
+
+\begin{exercise}
+Let $P(z)$ be a nonconstant polynomial.  Show that for each $c > 0$,
+each component of the set $\bigl\{ z \in \C : \sabs{P(z)} < c \bigr\}$
+contains at least one zero (root) of $P$.  Hint: Do the two previous
+exercises first.
 \end{exercise}
 \end{exbox}
 
@@ -5705,8 +5723,11 @@ $\sabs{f^{(n)}(0)} = n!$.
 \end{exercise}
 \end{exbox}
 
+\begin{defn}
 A holomorphic function $f \colon \C \to \C$ is called
-\emph{entire}\index{entire function}.
+an \emph{\myindex{entire holomorphic function}} or perhaps
+just \emph{entire} for short.
+\end{defn}
 
 \begin{thm}[Liouville\footnote{%
 Liouville proved a different (though similar) theorem.  This particular one
@@ -6485,7 +6506,17 @@ is now not even a function, it has infinitely many values for every $z$,
 since the $\arg$ on the right hand side has infinitely many values.
 The value of $\log -1$ is $\pi i$, but also $-\pi i$, $3\pi i$,
 or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So $\log$ is a function just as much
-as $\arg$ is a function.
+as $\arg$ is a function.  See \figureref{fig:loggraph}.
+
+\begin{myfig}
+\includegraphics{figures/logrealgraph}
+\qquad
+\includegraphics{figures/arggraph2}
+\caption{``Graphs'' of the real part (left) and imaginary part (right)
+of the complex logarithm $\log z = \log \sabs{z} + i \arg z$.  The imaginary
+part is an infinite spiral, only two turns are pictured.  A path on the
+graph around the unit circle is marked.\label{fig:loggraph}}
+\end{myfig}
 
 The double duty of ``$\log$'' is a small price to pay.  It is almost never a
 problem and it is generally clear which $\log$ one is talking about based on
@@ -6530,7 +6561,9 @@ interpreted correctly, it is exactly what is happening.  You really do subtract
 one of the values of $\log 1$ from another value of $\log 1$.  To figure
 out which from which, you start with say $\log 1 = 0$, and you follow the
 function along the circle slowly and notice that the $i \arg z$ grows from $0$ to
-$2\pi i$.  So the $\log 1$ at the end is $2 \pi i$.
+$2\pi i$.  So the $\log 1$ at the end is $2 \pi i$.  See the path
+marked on \figureref{fig:loggraph}, the jump in the imaginary part between
+the beginning and the end is precisely that $2\pi i$.
 
 To make working with $\log$ easier we usually talk about a
 \emph{\myindex{branch of the logarithm}}.  So $L \colon U \to \C$ is a branch
