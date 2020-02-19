@@ -10371,8 +10371,10 @@ domain has a harmonic conjugate.  On the other hand, on the punctured plane
 $\C \setminus \{ 0 \}$, the function $\log \sabs{z}$ is harmonic, but
 fails to have a harmonic conjugate.  If it did have a harmonic conjugate
 then $\log$ would have a branch in $\C \setminus \{0\}$, which it does not.
-So much follows from the following proposition.
-
+See \figureref{fig:loggraph}, the graph of the real part on the left is
+continuous, but the correspoding imaginary part is not a function.
+That we cannot find a different conjugate for $\log \sabs{z}$
+follows from the following proposition.
 
 \begin{prop}
 If $U \subset \C$ is a domain $\varphi \colon U \to \R$ is harmonic
@@ -10380,8 +10382,11 @@ and $\psi_1$ and $\psi_2$ are two harmonic conjugates of $\varphi$,
 then $\psi_1 = \psi_2 + C$ for some $C \in \R$.
 \end{prop}
 
-The proof is trivial: The hypothesis implies that $\psi_1-\psi_2$ is
-holomorphic and it is real-valued on $U$, and thus constant.
+The proof is trivial: The hypothesis implies that
+\begin{equation*}
+\frac{(\varphi + i \psi_1) - (\varphi + i \psi_2)}{i} =  \psi_1-\psi_2
+\end{equation*}
+is holomorphic and it is real-valued on $U$, and thus constant.
 
 The real and imaginary parts of a holomorphic function are harmonic,
 however, the modulus $\sabs{f(z)}$ is not however.  Not to fear,
