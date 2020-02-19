@@ -1,0 +1,77 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P F(double x, double y)
+{
+ 	return sph(1,x,y);
+}
+
+P FLAT(double x, double y)
+{
+ 	return P(x,y,0);
+}
+
+domain R1(P(-M_PI, -0.5*M_PI), P(M_PI,0), mesh(20,8), mesh(40,16));
+domain R2(P(-2.0, -2.0), P(2.0,2.0), mesh(10,10), mesh(10,10));
+domain R3(P(-M_PI, 0), P(M_PI,0.5*M_PI), mesh(20,8), mesh(40,16));
+
+int main()
+{
+  picture(P(-2.5,-1.00), P(2.9,1.2), "4.05x1.65in");
+
+  begin();
+  //border();
+
+  plain();
+
+  camera.at(P(5,10,3));
+
+  plain ();
+  fill(White());
+  surface(F, R1);
+  surface(FLAT, R2);
+  surface(F, R3);
+
+  bbold();
+  dot(P(0,0,1));
+  {
+	  double x,y;
+
+	  double sx,sy,sz;
+
+	  double t;
+
+	  x = 1.5; y=0.5;
+
+	  t = 2.0/(x*x+y*y+1.0);
+
+
+	  plain();
+
+	  bbold();
+	  line_style("- - - - ");
+	  line(P(0,0,1),P(t*x,t*y,1-t));
+	  line(P(t*x,t*y,1-t),P(1.1*x,1.1*y,1-1.1));
+	  solid();
+	  line(P(t*x,t*y,1-t),P(x,y,0));
+	  line(P(0,0,1),P(-0.1*x,-0.1*y,1-(-0.1)));
+
+	  bbold();
+
+	  dot(P(x,y,0));
+	  dot(P(t*x,t*y,1-t));
+
+	  plain();
+
+	  arrow(P(2,0,1),P(x,y,0));
+	  arrow(P(1,0,1),P(t*x,t*y,1-t));
+  }
+
+  label(P(0,0,1), P(-2,4), "$\\infty$", t);
+  label(P(2,0,1), P(-2,4), "$\\xi = \\Phi(p)$", t);
+  label(P(1,0,1), P(-2,4), "$p$", t);
+
+  tikz_format();
+  end();
+}
