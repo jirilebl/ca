@@ -3605,7 +3605,8 @@ in a neighborhood you know them everywhere.  In fact, a much more general
 statement is true; you only need to know an analytic function on a set with
 a limit point.
 
-\begin{thm}[Identity]\index{identity theorem!holomorphic functions}
+\begin{thm}[Identity]\index{identity theorem!holomorphic functions}%
+\label{thm:identity}
 Suppose $U \subset \C$ is a domain, 
 and $f \colon U \to \C$ analytic.
 If $Z_f = \bigl\{ z \in U : f(z) = 0 \bigr\}$
@@ -4994,176 +4995,11 @@ is continuous and $f$ is holomorphic on $\Delta_r(p)$.
 \section{Consequences of Cauchy}
 \label{sec:consequencescauchy}
 
-\subsection{The maximum principle}
-
-A simple and yet surprisingly useful consequence of Cauchy's formula is the
-so-called maximum principle, which has several different versions.
-We prove the basic statement and leave other versions as exercises.
-The basic statement is that the modulus of a holomorphic function never
-achieves a maximum.  So if you wish to bound $\sabs{f(z)}$, you only need to
-get a bound near the boundary.
-The basic idea of the proof is that Cauchy's integral formula tells us that
-$f(z)$ is an average of the values of $f$ in a circle around $z$, and the
-average can't be bigger than the numbers we're averaging.
-
-\begin{thm}[Maximum principle]
-\index{maximum principle!holomorphic functions}%
-Suppose $U \subset \C$ is a domain and
-$f \colon U \to \C$ is holomorphic.
-If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
-\end{thm}
-
-\begin{proof}
-Suppose $\sabs{f(z)}$ achieves a (local) maximum at $p \in U$.
-Without loss of generality suppose $p = 0$.  By multiplying by some
-$e^{i\theta}$, also assume that $f(0)$ is positive and real.
-We write\footnote{%
-Perhaps you're thinking to yourself: Of course we write that $\xi$ is
-positive by writing $\xi > 0$.  But we mean that ``$\xi > 0$''
-is a shortcut to ``$\xi \in \R$ and $\xi > 0$.''}
-that as $f(0) > 0$ (if $f(0) = 0$ then we are done).
-
-Let $\gamma_r$ be a small circle of radius $r$ traversed counterclockwise
-centered at $0$.  Suppose that $r$ is small enough so that
-$\sabs{f(z)} \leq \sabs{f(0)}$ whenever $\sabs{z} \leq r$.
-%Suppose for contradiction that for some $z$ on the circle $\sabs{z} = r$
-%we have $\sabs{f(z)} < \sabs{f(0)} = f(0)$.  By continuity,
-%$\sabs{f(re^{it})} < \sabs{f(0)} = f(0)$ for $t$ in a small interval.
-Then Cauchy's formula says
-\begin{equation*}
-\begin{split}
-f(0) = \sabs{f(0)} =
-\abs{\frac{1}{2\pi i}
-\int_{\gamma_r}
-\frac{f(z)}{z} \, dz
-}
-& =
-\abs{
-\frac{1}{2\pi i}
-\int_0^{2\pi}
-\frac{f(re^{it})}{re^{it}} \, ri e^{it} \, dt
-}
-\\
-& \leq
-\frac{1}{2\pi}
-\int_0^{2\pi}
-\sabs{f(re^{it})}\, dt
-\\
-&
-\leq
-\frac{1}{2\pi}
-\int_0^{2\pi}
-f(0)\, dt = f(0) .
-\end{split}
-\end{equation*}
-So all the inequalities above are equalities.
-In addition, $f(0)-\sabs{f(re^{it})} \geq 0$ and
-\begin{equation*}
-\int_0^{2\pi}\Bigl( f(0)-\sabs{f(re^{it})} \Bigr) \ dt = 0 ,
-\end{equation*}
-so $\sabs{f(re^{it})} = f(0)$ for all $t$.
-By applying Cauchy's formula
-again, we find
-\begin{equation*}
-\frac{1}{2\pi}
-\int_0^{2\pi}
-\sabs{f(re^{it})}\, dt
-=
-f(0)
-=
-\frac{1}{2\pi}
-\int_0^{2\pi}
-f(re^{it})\, dt
-\end{equation*}
-or
-\begin{equation*}
-0 =
-\Re \int_0^{2\pi}
-\Bigl(\sabs{f(re^{it})}-f(re^{it})\Bigr)\, dt
-=
-\int_0^{2\pi}
-\Bigl(\sabs{f(re^{it})}-\Re f(re^{it})\Bigr)\, dt .
-\end{equation*}
-The inequality $\sabs{w} - \Re w \geq 0$ holds for any $w \in \C$,
-so
-$\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence
-$\sabs{f(re^{it})}=\Re f(re^{it})$.  Thus $\Im f(re^{it}) = 0$
-and 
-$f(re^{it})=\sabs{f(re^{it})} = f(0)$ for all $t$.
-This is all true for every small enough $r$, and consequently the set where
-$f(z) = f(0)$ is open.  The set is also closed by continuity, and as $U$ is
-connected, $f(z) = f(0)$ for all $z \in U$.
-\end{proof}
-
-\begin{cor}[Maximum principle, part deux]
-\index{maximum principle!holomorphic functions}%
-Suppose $U \subset \C$ is open and bounded (so $\overline{U}$ is compact).
-If $f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
-is holomorphic, then $\sabs{f(z)}$ achieves a maximum on $\partial U$.  In
-other words,
-\begin{equation*}
-\sup_{z \in U} \sabs{f(z)} \leq
-\sup_{z \in \partial U} \sabs{f(z)} .
-\end{equation*}
-\end{cor}
-
-\begin{exbox}
-\begin{exercise}
-Prove the second version of the maximum principle above.
-That is for a bounded $U$ a holomorphic $f$ continuous
-on $\overline{U}$ achieves a maximum on $\partial U$.
-\end{exercise}
-
-\begin{exercise}[Minimum principle]\index{minimum principle}
-Suppose $U \subset \C$ is a domain and
-$f \colon U \to \C$ is holomorphic.
-If $\sabs{f(z)}$ achieves a minimum at $p \in U$ and $f(p) \not= 0$,
-then $f$ is constant.  Also show by example that the hypothesis
-$f(p) \not= 0$ is necessary.
-\end{exercise}
-
-\begin{exercise}[Maximum principle, part trois]
-Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ is a holomorphic
-function, and $M > 0$ is a number such that
-$\limsup_{z \to p} \sabs{f(z)} \leq M$ for all $p \in \partial U$,
-and if $U$ is unbounded then also 
-$\limsup_{z \to \infty} \sabs{f(z)} \leq M$.  Prove that
-$\sabs{f(z)} \leq M$ for all $z \in U$.
-Note: For a real-valued $g \colon U \to \R$,
-by definition,
-$\limsup\limits_{z\to p} g(z) = \inf\limits_{r > 0} \sup \bigl\{ g(z) : z \in U
-\cap \Delta_r(p) \bigr\}$.
-\end{exercise}
-
-\begin{exercise}
-Suppose $U \subset \C$ is a bounded domain,
-$f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
-is holomorphic, and there is a constant $M$ such that $\sabs{f(z)} = M$
-for all $z \in \partial U$.  Prove that $f$ is either constant or $f(z) = 0$
-for some $z \in U$.
-\end{exercise}
-
-\begin{exercise}
-Suppose $U \subset \C$ is an open set and $f \colon U \to \C$ be holomorphic.
-Let $M > 0$ be fixed and
-define $X = \bigl\{ z \in U : \sabs{f(z)} < M \bigr\}$.
-Prove that $X$ is open and the closure of $X$ (in $U$, so $\overline{X} \cap U$) is the set
-$\bigl\{ z \in U : \sabs{f(z)} \leq M \bigr\}$.
-\end{exercise}
-
-\begin{exercise}
-Let $P(z)$ be a nonconstant polynomial.  Show that for each $c > 0$,
-each component of the set $\bigl\{ z \in \C : \sabs{P(z)} < c \bigr\}$
-contains at least one zero (root) of $P$.  Hint: Do the two previous
-exercises first.
-\end{exercise}
-\end{exbox}
-
 \subsection{Holomorphic functions are analytic}
 
-The next, and perhaps the most profound consequence of Cauchy's formula, is
+Perhaps the most profound consequence of Cauchy's formula is
 that holomorphic functions are analytic.  We have already seen
-that analytic functions are holomorphic, and now prove the converse.
+that analytic functions are holomorphic, and now we prove the converse.
 
 \begin{thm} \label{thm:holpower}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
@@ -5190,8 +5026,8 @@ $p$ oriented counterclockwise.
 
 \begin{proof}
 First fix an $r$ such that $0 < r < R$.
-In particular, we have $\overline{\Delta_r(p)} \subset U$,
-the boundary of the disc of radius $r$ is in $U$.
+In particular, $\overline{\Delta_r(p)} \subset U$,
+the disc of radius $r$ (including the boundary) is in $U$.
 Fix a $z \in \Delta_r(p)$.
 
 For $\zeta \in \partial \Delta_r(p)$, 
@@ -5297,7 +5133,7 @@ That is a surprisingly powerful result.
 Nothing like that is true for power series in real variable.
 It allows for computation of the radius of convergence (or at least a lower
 bound for it) just from knowing the 
-domain of definition of of a holomorphic function.
+domain of definition of a holomorphic function.
 
 \begin{myfig}
 \subimport*{figures/}{largestr.pdf_t}
@@ -5488,7 +5324,10 @@ inside of $\Delta_r(p)$.
 We could have also simply used the difference quotient instead of the
 Wirtinger operator.  That requires slightly more care, you have to show
 uniform convergence of the right limit of functions, but this technique
-would have avoided the proof that holomorphic functions are analytic.
+would not have needed the result
+that holomorphic functions are analytic.  In fact,
+it could give an independent proof that holomorphic functions are infinitely
+complex differentiable.
 We leave it as an exercise.
 
 \begin{exbox}
@@ -5566,7 +5405,7 @@ Show that if $f \colon \C \to \C$ is continuous and holomorphic on $\C
 
 \begin{exercise}
 Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
-Write $d\bar{z} = dx + i \, dy$.
+Write $d\bar{z} = dx - i \, dy$.
 Suppose that
 \begin{equation*}
 \int_{\partial T} f(z) \, d\bar{z} = 0
@@ -5642,6 +5481,175 @@ interesting behavior; on the real line they oscillate like sine and cosine
 for negative $z$ and behave like an exponential for positive $z$.
 \end{exercise}
 \end{exbox}
+
+\subsection{The maximum principle}
+
+A simple and yet surprisingly useful consequence of Cauchy's formula is the
+so-called maximum principle, which has several different versions.
+We prove the basic statement and leave other versions as exercises.
+The basic statement is that the modulus of a holomorphic function never
+achieves a maximum.  So if we wish to bound $\sabs{f(z)}$, we only need to
+get a bound near the boundary.
+The basic idea of the proof is that Cauchy's integral formula tells us that
+$f(z)$ is an average of the values of $f$ in a circle around $z$, and the
+average can't be bigger than the numbers we're averaging.
+
+\begin{thm}[Maximum principle]
+\index{maximum principle!holomorphic functions}%
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \C$ is holomorphic.
+If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
+\end{thm}
+
+\begin{proof}
+Suppose $\sabs{f(z)}$ achieves a (local) maximum at $p \in U$.
+Without loss of generality suppose $p = 0$.
+By multiplying by some
+$e^{i\theta}$, also assume that $f(0)$ is positive and real.
+We write\footnote{%
+Perhaps you're thinking to yourself: Of course we write that $\xi$ is
+positive by writing $\xi > 0$.  But we mean that ``$\xi > 0$''
+is a shortcut to ``$\xi \in \R$ and $\xi > 0$.''}
+that as $f(0) > 0$ (if $f(0) = 0$ then we are done).
+
+Let $\gamma_r$ be a small circle of radius $r$ traversed counterclockwise
+centered at $0$.  As $0$ is a local maximum, suppose that $r$ is small enough
+so that
+$\sabs{f(z)} \leq \sabs{f(0)} = f(0)$ whenever $\sabs{z} \leq r$.
+%Suppose for contradiction that for some $z$ on the circle $\sabs{z} = r$
+%we have $\sabs{f(z)} < \sabs{f(0)} = f(0)$.  By continuity,
+%$\sabs{f(re^{it})} < \sabs{f(0)} = f(0)$ for $t$ in a small interval.
+Cauchy's formula says
+\begin{equation*}
+\begin{split}
+f(0) = \sabs{f(0)} =
+\abs{\frac{1}{2\pi i}
+\int_{\gamma_r}
+\frac{f(z)}{z} \, dz
+}
+& =
+\abs{
+\frac{1}{2\pi i}
+\int_0^{2\pi}
+\frac{f(re^{it})}{re^{it}} \, ri e^{it} \, dt
+}
+\\
+& \leq
+\frac{1}{2\pi}
+\int_0^{2\pi}
+\sabs{f(re^{it})}\, dt
+\\
+&
+\leq
+\frac{1}{2\pi}
+\int_0^{2\pi}
+f(0)\, dt = f(0) .
+\end{split}
+\end{equation*}
+So all the inequalities above are equalities.
+In addition, $f(0)-\sabs{f(re^{it})} \geq 0$ and
+\begin{equation*}
+\int_0^{2\pi}\Bigl( f(0)-\sabs{f(re^{it})} \Bigr) \ dt = 0 ,
+\end{equation*}
+so $\sabs{f(re^{it})} = f(0)$ for all $t$.
+By applying Cauchy's formula
+again, we find
+\begin{equation*}
+\frac{1}{2\pi}
+\int_0^{2\pi}
+\sabs{f(re^{it})}\, dt
+=
+f(0)
+=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+f(re^{it})\, dt
+\end{equation*}
+or
+\begin{equation*}
+0 =
+\Re \int_0^{2\pi}
+\Bigl(\sabs{f(re^{it})}-f(re^{it})\Bigr)\, dt
+=
+\int_0^{2\pi}
+\Bigl(\sabs{f(re^{it})}-\Re f(re^{it})\Bigr)\, dt .
+\end{equation*}
+The inequality $\sabs{w} - \Re w \geq 0$ holds for any $w \in \C$,
+so
+$\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence
+$\sabs{f(re^{it})}=\Re f(re^{it})$.  Thus $\Im f(re^{it}) = 0$
+and 
+$f(re^{it})=\sabs{f(re^{it})} = f(0)$ for all $t$.
+This is all true for every small enough $r$, and consequently the set where
+$f(z) = f(0)$ contains a small disc.  As holomorphic functions are analytic
+the identity theorem (\thmref{thm:identity}) implies that $f$ is constant in
+$U$.
+\end{proof}
+
+\begin{cor}[Maximum principle, part deux]
+\index{maximum principle!holomorphic functions}%
+Suppose $U \subset \C$ is open and bounded (so $\overline{U}$ is compact).
+If $f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
+is holomorphic, then $\sabs{f(z)}$ achieves a maximum on $\partial U$.  In
+other words,
+\begin{equation*}
+\sup_{z \in U} \sabs{f(z)} \leq
+\sup_{z \in \partial U} \sabs{f(z)} .
+\end{equation*}
+\end{cor}
+
+\begin{exbox}
+\begin{exercise}
+Prove the second version of the maximum principle above.
+That is for a bounded $U$ a holomorphic $f$ continuous
+on $\overline{U}$ achieves a maximum on $\partial U$.
+\end{exercise}
+
+\begin{exercise}[Minimum principle]\index{minimum principle}
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \C$ is holomorphic.
+If $\sabs{f(z)}$ achieves a minimum at $p \in U$ and $f(p) \not= 0$,
+then $f$ is constant.  Also show by example that the hypothesis
+$f(p) \not= 0$ is necessary.
+\end{exercise}
+
+\begin{exercise}[Maximum principle, part trois]
+Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ is a holomorphic
+function, and $M > 0$ is a number such that
+$\limsup_{z \to p} \sabs{f(z)} \leq M$ for all $p \in \partial U$,
+and if $U$ is unbounded then also 
+$\limsup_{z \to \infty} \sabs{f(z)} \leq M$.  Prove that
+$\sabs{f(z)} \leq M$ for all $z \in U$.
+Note: For a real-valued $g \colon U \to \R$,
+by definition,
+$\limsup\limits_{z\to p} g(z) = \inf\limits_{r > 0} \sup \bigl\{ g(z) : z \in U
+\cap \Delta_r(p) \bigr\}$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a bounded domain,
+$f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
+is holomorphic, and there is a constant $M$ such that $\sabs{f(z)} = M$
+for all $z \in \partial U$.  Prove that $f$ is either constant or $f(z) = 0$
+for some $z \in U$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is an open set and $f \colon U \to \C$ be holomorphic.
+Let $M > 0$ be fixed and
+define $X = \bigl\{ z \in U : \sabs{f(z)} < M \bigr\}$.
+Prove that $X$ is open and the closure of $X$ (in $U$, so $\overline{X} \cap U$) is the set
+$\bigl\{ z \in U : \sabs{f(z)} \leq M \bigr\}$.
+\end{exercise}
+
+\begin{exercise}
+Let $P(z)$ be a nonconstant polynomial.  Show that for each $c > 0$,
+each component of the set $\bigl\{ z \in \C : \sabs{P(z)} < c \bigr\}$
+contains at least one zero (root) of $P$.  Hint: Do the two previous
+exercises first.
+\end{exercise}
+\end{exbox}
+
 
 \subsection{Cauchy estimates, Liouville, and the fundamental theorem of
 algebra}
