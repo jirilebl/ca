@@ -2138,7 +2138,7 @@ $\frac{\partial^2 v}{\partial x^2} +  \frac{\partial^2 v}{\partial y^2} = 0$.
 
 \begin{exercise}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
-Let $f = u+iv$.  Show that whenever the second derivative test applies to
+Let $f = u+iv$.  Show that whenever the second derivative test applies 
 to $u$ or $v$, you get a saddle, that is, prove that
 $\frac{\partial^2 u}{\partial x^2} \frac{\partial^2 u}{\partial y^2}
 -{\left(\frac{\partial^2 u}{\partial x \partial y}\right)}^2 \leq 0$
@@ -5095,7 +5095,7 @@ interchange the limit on the sum with the integral
 %via Fubini's theorem or
 via uniform convergence (uniform in the $\zeta \in \partial \Delta_r(p)$):
 $z$ is fixed and if $M$ is the supremum of $\babs{\frac{f(\zeta)}{\zeta-p}} =
-\frac{\sabs{f(\zeta)}}{r}$ on $\partial \Delta_r(p)$,
+\frac{\sabs{f(\zeta)}}{r}$ on $\partial \Delta_r(p)$ (a compact set),
 then
 \begin{equation*}
 \abs{
@@ -5108,6 +5108,15 @@ M
 \qquad \text{and} \qquad
 \frac{\abs{z-p}}{r} < 1 .
 \end{equation*}
+Thus, $\sum 
+\abs{
+\frac{f(\zeta)}{\zeta-p}
+{\left(\frac{z-p}{\zeta-p}\right)}^n
+}$ converges uniformly in $\zeta \in \partial \Delta_r(p)$, and so
+$\sum 
+\frac{f(\zeta)}{\zeta-p}
+{\left(\frac{z-p}{\zeta-p}\right)}^n$ converges uniformly absolutely
+(and hence uniformly).
 
 We proved convergence in $\Delta_r(p)$.
 By the uniqueness of the power series (see \corref{cor:convpowserinfdif}),
@@ -5123,7 +5132,9 @@ $\frac{1}{\zeta-z}$ as
 \frac{1}{\zeta-p}
 \frac{\zeta-p}{\zeta-z}
 \end{equation*}
-and then using the geometric series.
+and then using the geometric series.  This is a common technique, take a
+feature of the kernel, in this case having a series, and proving that the
+integral has that same feature.
 
 Not only have we proved
 that $f$ has a power series, but we computed
@@ -5151,13 +5162,29 @@ is holomorphic if and only if $f$ is analytic.
 \end{cor}
 
 As a corollary of this corollary we find that all the results that we proved
-for analytic functions are true for holomorphic functions.
+for analytic functions are true for holomorphic functions.  And it goes the
+other way too.  For example, it is very easy to show that the composition of
+holomorphic functions is holomorphic (just the chain rule).  It is much
+harder to prove directly that say composition of power series is again a
+power series.  Similarly for product of power series.
+And we have just proved what we postponed in a remark: A convergent power
+series defines an analytic function.  We only proved before that it defines
+a holomorphic function.
 
 \begin{exbox}
 \begin{exercise}
+Consider $f(z) = \frac{\sin(z)}{z}$ defined on $\C \setminus \{ 0 \}$.
+The theorem gives you that the power series at $z=1$ convergs in a disc of
+radius 1.  Prove that the radius of convergence is actually infinity.  Hint:
+Write $\sin(z)$ as a power series at the origin first.
+\end{exercise}
+
+\begin{exercise}
 Find the radius of convergence of the series at zero of the holomorphic
 function $f(z) =
-e^{z^7}\sin\left(\cos\left(\frac{e^z}{z^2-5}\right)\right)\sin\left(\frac{z}{z+4}\right)$.
+e^{z^7}\sin\left(\cos\left(\frac{e^z}{z^2-25}\right)\right)e^{\frac{z}{z+4}}$.
+Hint: Showing that it is at least something is the easier part, showing it
+can be no larger than what you think it is, that is the harder part.
 \end{exercise}
 
 \begin{exercise}
@@ -5861,6 +5888,17 @@ then $P$ is an automorphism of $\C$, that is $P(z) = az+b$ and $a \not= 0$.
 Let $P \colon \C \to \C$ be a nonconstant polynomial.  Show that $P$ is
 onto.
 \end{exercise}
+
+\begin{exercise}
+Suppose $f$ is entire and is never zero.  For any $M > 0$ let
+$X_M = \bigl\{ z \in \C : \sabs{f(z)} = M \bigr\}$ (Note that $X_M$
+is closed).
+\begin{exparts}
+\item Show that $X_M$ is nonempty for any $M > 0$.
+\item Show that for any $M$, the set $X_M$ has no bounded topological components.
+\end{exparts}
+Hint: See the exercises for the maximum principle.
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6048,7 +6086,7 @@ for continuous functions.
 It is rather surprising that this is the right topology for holomorphic
 functions.  For real
 differentiable functions nothing like that holds: $\sabs{x}^{1+1/n}$
-is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$
+is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$,
 which is not differentiable.
 So the following result should be surprising.
 
@@ -6167,7 +6205,7 @@ f^{(k)}(p)
 \epsilon .
 \end{split}
 \end{equation*}
-Thus $f_n^{(k)}$ converges uniformly to $f^{(k)}$ on $K$.
+Thus $\bigl\{ f_n^{(k)} \bigr\}$ converges uniformly to $f^{(k)}$ on $K$.
 \end{proof}
 
 The fact that we can write all the derivatives as
@@ -7913,7 +7951,7 @@ $g'(z) = (z-p) q'(z) + q(z)$, we have $g'(p) = q(p) \not= 0$.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is a domain and $f$ has
+Suppose $U \subset \C$ is a domain and $f$ 
 has zeros at $z_1, z_2, \ldots, z_n$ of
 orders $k_1, k_2, \ldots, k_n$ and no other zeros.
 Then there exists a holomorphic
@@ -9386,8 +9424,8 @@ A function $f \colon \R \to \R$ such as $f(x) = x^3$
 is one-to-one, but its derivative is zero at $x=0$, and $f^{-1}(x) =
 \sqrt[3]{x}$ is not differentiable at $x=0$.
 Intuitively the way to think about it is that a holomorphic function is
-locally like $z^k$ for some $k$, and the only way that that is injective is
-if $k=1$ in which case the derivative is nonzero.  You can make that
+locally like $z^k$ for some $k$, and the only way that $z^k$ is injective is
+if $k=1$, in which case the derivative is nonzero.  You can make that
 argument into a proof as well, but it is a bit more complicated.
 
 \begin{lemma} \label{lemma:dernonzero}
