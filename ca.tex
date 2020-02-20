@@ -3604,6 +3604,97 @@ $\sabs{f^{(n)}(0)} \leq n! M$ for all $n$.
 \end{exercise}
 \end{exbox}
 
+\subsection{The exponential}
+
+We have met the complex exponential $e^z$ before, and we have proved
+that it is holomorphic and it is its own derivative
+(\exerciseref{exercise:exponentialholomorphic}).  We can now see this fact
+from a different vantage point.\footnote{%
+That vantage point being the same as that dark place in your past
+that is the undergraduate differential equations class when you covered
+power series methods for solving ODEs.}
+We claim we could have defined the exponential
+using a power series.
+
+\begin{prop}
+The power series
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n ,
+\end{equation*}
+is the unique convergent power series at the origin
+such that $f(0)=1$ and $f'=f$.
+Moreover, the series converges on all of $\C$ and
+\begin{equation*}
+e^z = \exp(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+It is not hard to check directly (exercise)
+that the series converges in all of $\C$.
+And we now know that it is holomorphic and how to take its complex derivative.
+
+Let $f$ be a convergent power series at the origin
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty c_n z^n ,
+\end{equation*}
+and suppose $f(0)=1$ and $f'=f$.
+Obviously, $f(0)=1$ implies that $c_0 = 1$.
+The trick is to figure out the rest of the series.
+We now know how to
+differentiate such a series, we just do it term-by-term, ``formally.''
+So
+\begin{equation*}
+f'(z) =
+\sum_{n=1}^\infty n c_n z^{n-1} =
+\sum_{n=0}^\infty (n+1) c_{n+1} z^{n} .
+\end{equation*}
+As the coefficients of the power series at zero are unique, we get
+$c_n = (n+1) c_{n+1}$.  By induction we see that $c_n = \frac{1}{n!}$.
+
+Now let's prove that $f$ is the exponential.  We know both functions are
+holomorphic, the exponential is never zero, and both are equal to their
+derivatives.  So,
+\begin{equation*}
+\frac{d}{dz} \left[ \frac{f(z)}{\exp(z)} \right]
+=
+\frac{f'(z)\exp(z) - f(z) \exp'(z)}{{\bigl(\exp(z)\bigr)}^2}
+=
+\frac{f(z)\exp(z) - f(z) \exp(z)}{{\bigl(\exp(z)\bigr)}^2}
+= 0.
+\end{equation*}
+So, $f(z) = C \exp(z)$ for some constant.  As $f(0) = \exp(0) = 1$,
+we conclude $C=1$.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove that the series for the exponential above converges by computing
+the radius of convergence.
+\end{exercise}
+
+\begin{exercise}
+Compute the series for $\sin z$ and $\cos z$, then show that these satisfy
+$f''(z) = -f(z)$.
+\end{exercise}
+
+\begin{exercise}
+Show that there exists a holomorphic $f \colon \C \to \C$ that
+solves $f'(z) + z f(z) = 0$ and such that $f(0) = 1$.  Hint: Solve formally,
+then see if you can guess the answer in ``closed form,'' that is, in terms
+of the exponential.  Hint \#2: What is $f'(0)$?
+\end{exercise}
+
+\begin{exercise}
+For any $a,b \in \C$, show that there exists a holomorphic $f \colon \C \to
+\C$ such that $f''(z) = z f(z)$, and $f(0) = a$ and $f'(0) = b$.
+Hint: Define formally and show convergence.
+Note: These are the \emph{\myindex{Airy functions}}, and they have some
+interesting behavior; on the real line they oscillate like sine and cosine
+for negative $z$ and behave like an exponential for positive $z$.
+\end{exercise}
+\end{exbox}
+
 \subsection{The identity theorem}
 
 One of the main properties of analytic functions is that once you know them
@@ -3702,8 +3793,11 @@ given $f(z_0) = c$ is unique if it exists.
 \end{exbox}
 
 One of the downsides of analytic functions is that there are no compactly
-supported analytic functions on $\C$.  The support of a function $f \colon U
-\to \C$ is the closure of $\{ z \in U : f(z) \not= 0 \} = U \setminus Z_f$.
+supported analytic functions on $\C$.  The \emph{\myindex{support}}
+of a function $f \colon U
+\to \C$ is the closure (in $U$) of the set
+$\bigl\{ z \in U : f(z) \not= 0 \bigr\}$, that is, 
+the support is $\overline{U \setminus Z_f} \cap U$.
 
 \begin{exbox}
 \begin{exercise}
@@ -3713,6 +3807,8 @@ Show that the support of $f$ is $U$.
 In particular, the support cannot be compact.
 \end{exercise}
 \end{exbox}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -5140,7 +5236,9 @@ $\frac{1}{\zeta-z}$ as
 \end{equation*}
 and then using the geometric series.  This is a common technique, take a
 feature of the kernel, in this case having a series, and proving that the
-integral has that same feature.
+integral has that same feature.  So in this case the thing is to figure out
+how to massage the kernel so that in the geometric series we get terms
+that are something times ${(z-p)}^n$.
 
 Not only have we proved
 that $f$ has a power series, but we computed
@@ -5255,7 +5353,8 @@ holomorphic.
 \end{thm}
 
 The ``in particular'' is an important consequence.  It is also a somewhat
-surprising consequence, it says that if $f$ is differentiable in some way,
+surprising consequence.
+It says that if $f$ is differentiable in some way,
 then so is the derivative.  Nothing like that is true for real functions:
 Any continuous function $g \colon (a,b) \to \R$ is a derivative
 of a real differentiable function, e.g.\ $f(x) = \int_a^x g(t)\,dt$,
@@ -5456,62 +5555,6 @@ Suppose that
 \int_{\partial T} \Im f(z) \, dz = 0
 \end{equation*}
 for every triangle such that $T \subset U$.  Then $f$ is constant.
-\end{exercise}
-\end{exbox}
-
-\subsection{The exponential}
-
-We have met the complex exponential $e^z$ before, and we have proved
-that it is holomorphic and it is its own derivative
-(\exerciseref{exercise:exponentialholomorphic}).  We can now see this fact
-from a different vantage point.  We could have defined the exponential
-using a power series:
-\begin{equation*}
-e^z = \exp(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n .
-\end{equation*}
-It is not hard to compute that our previous definition and the results
-of this section give us the above series.  It is also not hard to check
-directly that the series converges in all of $\C$.
-
-We claim that the series is the unique holomorphic function $f \colon \C
-\to \C$, such that $f(0)=1$ and $f' = f$.  If $f$ were such a function, then
-it would have a power series
-\begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n z^n ,
-\end{equation*}
-which would converge uniformly in any disc.  Obviously, $c_0 = 1$
-as $f(0) = 1$.  The trick is to figure out the rest of the series.
-We now know how to
-differentiate such a series, we just do it term-by-term, ``formally.''
-So
-\begin{equation*}
-f'(z) =
-\sum_{n=1}^\infty n c_n z^{n-1} =
-\sum_{n=0}^\infty (n+1) c_{n+1} z^{n} .
-\end{equation*}
-As the coefficients of the power series at zero are unique, we get
-$c_n = (n+1) c_{n+1}$.  By induction we see that $c_n = \frac{1}{n!}$.
-
-\begin{exbox}
-\begin{exercise}
-Compute the series for $\sin z$ and $\cos z$, then show that these satisfy
-$f''(z) = -f(z)$.
-\end{exercise}
-
-\begin{exercise}
-Show that there exists a holomorphic $f \colon \C \to \C$ that
-solves $f'(z) + z f(z) = 0$ and such that $f(0) = 1$.  Hint: Solve formally,
-then see if you can guess the answer in ``closed form,'' that is, in terms
-of the exponential.  Hint \#2: What is $f'(0)$?
-\end{exercise}
-
-\begin{exercise}
-For any $a,b \in \C$, show that there exists a holomorphic $f \colon \C \to
-\C$ such that $f''(z) = z f(z)$, and $f(0) = a$ and $f'(0) = b$.
-Hint: Define formally and show convergence.
-Note: These are the \emph{\myindex{Airy functions}}, and they have some
-interesting behavior; on the real line they oscillate like sine and cosine
-for negative $z$ and behave like an exponential for positive $z$.
 \end{exercise}
 \end{exbox}
 
@@ -6233,7 +6276,7 @@ fact that uniform limit of continuous functions is continuous.
 
 \begin{exercise}
 Consider the functions $f_n(z) = \frac{\sin(nz)}{n}$.  Note that $f_n|_{\R}$ converge
-uniformly.
+uniformly to the zero function.
 \begin{exparts}
 \item
 Show that for no $a < b$ is there a $\delta > 0$ such that
