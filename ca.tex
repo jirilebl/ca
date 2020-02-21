@@ -139,6 +139,11 @@
 % Enumitem extra penalties
 \setlist[enumerate]{beginpenalty=50,midpenalty=-5}
 
+% discourage pagebreak at end of display, put before \end{equation}
+\newcommand{\avoidbreak}{\postdisplaypenalty=100}
+
+\clubpenalty=500
+\widowpenalty=500
 
 % useful
 \newcommand{\ignore}[1]{}
@@ -3663,7 +3668,8 @@ derivatives.  So,
 \frac{f(z)\exp(z) - f(z) \exp(z)}{{\bigl(\exp(z)\bigr)}^2}
 = 0.
 \end{equation*}
-So, $f(z) = C \exp(z)$ for some constant.  As $f(0) = \exp(0) = 1$,
+So, $f(z) = C \exp(z)$ for some constant (\propref{prop:zeroder}).
+As $f(0) = \exp(0) = 1$,
 we conclude $C=1$.
 \end{proof}
 
@@ -3680,7 +3686,8 @@ $f''(z) = -f(z)$.
 
 \begin{exercise}
 Show that there exists a holomorphic $f \colon \C \to \C$ that
-solves $f'(z) + z f(z) = 0$ and such that $f(0) = 1$.  Hint: Solve formally,
+solves $f'(z) + z f(z) = 0$ and such that $f(0) = 1$.  Hint: Solve formally
+as a power series,
 then see if you can guess the answer in ``closed form,'' that is, in terms
 of the exponential.  Hint \#2: What is $f'(0)$?
 \end{exercise}
@@ -5770,10 +5777,10 @@ In other words, the sequence $\bigl\{ \sabs{c_n} r^n \bigr\}$ is bounded by
 $\snorm{f}_{\partial \Delta_r(p)}$.  Compare to \propref{prop:cnrnbounded}.
 
 \begin{proof}
-The proof is a brute force estimation.  Parametrize 
-the circle $\partial \Delta_r(p)$ in the counterclockwise direction.  Then
+The proof is a brute force estimation:
 \begin{equation*}
-\sabs{c_n} = 
+\begin{split}
+\sabs{c_n} & = 
 \abs{
 \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)}
@@ -5781,7 +5788,8 @@ the circle $\partial \Delta_r(p)$ in the counterclockwise direction.  Then
 \,
 d \zeta 
 }
-\leq
+\\
+& \leq
 \frac{1}{2\pi}
 \int_{\partial \Delta_r(p)}
 \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n+1}}
@@ -5790,6 +5798,7 @@ d \zeta
 =
 \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n}} .
 \qedhere
+\end{split}
 \end{equation*}
 \end{proof}
 
@@ -5804,6 +5813,14 @@ Prove that $\sabs{f^{(n)}(0)}
 For every $n$, find an example $f \colon \D \to \D$ such that
 $\sabs{f^{(n)}(0)} = n!$.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Let $\bH = \{ z \in \C : \Im z > 0 \}$ be the upper half-plane
+and suppose $f \colon \bH \to \D$ is holomorphic.  Show that
+\begin{equation*}
+\lim_{\substack{t \to \infty\\t \in \R, t > 0}} f'(it) = 0 .
+\end{equation*}
 \end{exercise}
 \end{exbox}
 
@@ -6074,8 +6091,10 @@ If $u \colon \partial \Delta_r(p) \to \C$ is continuous, then
 the Cauchy transform $Cu \colon \Delta_r(p) \to \C$ is holomorphic.
 \end{cor}
 
-It is not necessarily true that $Cu$ tends to $u$ unless $u$ came from 
-a holomorphic function to begin with.
+It is not necessarily true that $Cu$ tends to $u$ as we approach the
+boundary of the disc unless $u$ came from 
+a holomorphic function to begin with.  That is, $Cu$ might have limits at
+the boundary of the disc, but they need not be equal to what $u$ is.
 
 \begin{exbox}
 \begin{exercise}
@@ -6289,6 +6308,7 @@ an $x$ such that $f_n'(x)$ does not converge.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Weierstrass approximation theorem says that any continuous function on an
 interval $[a,b] \subset \R$ can be uniformly approximated (on $[a,b]$) by
 polynomials $P(z)$.  Prove why such a theorem cannot be proved
@@ -6367,8 +6387,8 @@ function $f \colon \Delta_r(p) \to \Delta_R(q)$ with $f(p)=q$.
 \end{exercise}
 
 \begin{exercise}
-Prove that if $\bH = \{ z \in \C : \Im z > 0 \}$ is the upper half-plane
-and $f \colon \bH \to \bH$ holomorphic such that $f(i) = i$, then
+Let $\bH = \{ z \in \C : \Im z > 0 \}$ be the upper half-plane.
+Prove that if $f \colon \bH \to \bH$ holomorphic such that $f(i) = i$, then
 \begin{equation*}
 \abs{\frac{f(z)-i}{\overline{f(z)}-i}} \leq
 \abs{\frac{z-i}{\bar{z}-i}} 
@@ -6635,13 +6655,13 @@ circle $\partial \D$, oriented counterclockwise as usual (parametrized
 by, say, $e^{it}$).  Let's suppose we start and end the integration at the
 point $1$:
 \begin{equation*}
-\int_{\partial D} \frac{1}{z} \, dz
+\int_{\partial \D} \frac{1}{z} \, dz
 = \log 1 - \log 1 = 2\pi i.
 \end{equation*}
 That makes no sense, no?  Well, it should really only be done
 with quotation marks:
 \begin{equation*}
-\int_{\partial D} \frac{1}{z} \, dz
+\int_{\partial \D} \frac{1}{z} \, dz
 \enspace
 \text{``$=$''}
 \enspace
@@ -6708,7 +6728,7 @@ n(\gamma;p)
 \end{equation*}
 is called the
 \emph{\myindex{winding number}} of $\gamma$ around $p$, or
-sometimes the 
+the 
 \emph{\myindex{index}} of $\gamma$ with respect to $p$.
 \end{defn}
 
@@ -7107,7 +7127,7 @@ the primitive of $f$ for star-like domains.
 \begin{cor}
 Let $U \subset \C$ be open and simply connected and
 let $f \colon U \to \C \setminus \{ 0 \}$ be a nowhere zero holomorphic
-function.  Then there exists a holomorphic function $g \colon U \to \C$
+function.  Then there exists a holomorphic $g \colon U \to \C$
 such that
 \begin{equation*}
 e^{g(z)} = f(z) .
@@ -7134,10 +7154,11 @@ Find a primitive $g(z)$.  Compute
 \end{equation*}
 In other words, $\frac{e^{g(z)}}{f(z)}$ is constant
 (\propref{prop:zeroder}).  It follows that
+there is a $C \in \C$ such that
 \begin{equation*}
-e^{g(z) + C} = f(z)
+e^{g(z) + C} = f(z) .
+\qedhere
 \end{equation*}
-for some $C \in \C$.
 \end{proof}
 
 If we have the logarithm, we can take roots.
@@ -7146,7 +7167,7 @@ If we have the logarithm, we can take roots.
 Let $U \subset \C$ be open and simply connected,
 let $f \colon U \to \C$ be a nowhere zero holomorphic
 function, and let $k \in \N$.
-Then there exists a holomorphic function $g \colon U \to \C$
+Then there exists a holomorphic $g \colon U \to \C$
 such that
 \begin{equation*}
 {\bigl(g(z)\bigr)}^k = f(z) .
@@ -7795,12 +7816,10 @@ but the integrand is not smooth at $z$.
 Let $\Delta_r(z)$ be a small disc such that
 $\overline{\Delta_r(z)} \subset U$.  Green's now applies on $U \setminus \Delta_r(z)$.  See
 \figureref{fig:cauchypompeiu}.
-
 \begin{myfig}
 \subimport*{figures/}{cauchy-pompeiu.pdf_t}
 \caption{Proof of Cauchy--Pompeiu.\label{fig:cauchypompeiu}}
 \end{myfig}
-
 We compute
 \begin{equation*}
 \int_{\Gamma} \frac{f(\zeta)}{\zeta-z}\,  d\zeta - 
