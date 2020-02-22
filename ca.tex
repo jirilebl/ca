@@ -5767,8 +5767,8 @@ For a set $K$, denote the \emph{\myindex{supremum norm}}:
 \begin{thm}[Cauchy estimates]\index{Cauchy estimates}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
 holomorphic, and $p \in U$, and $\overline{\Delta_r(p)} \subset U$
-a disc.
-Then for all $n$
+a disc.  Expand $f(z) = \sum c_n {(z-p)}^n$.
+Then for all $n$,
 \begin{equation*}
 \sabs{c_n} =
 \abs{\frac{f^{(n)}(p)}{n!}}
@@ -5895,7 +5895,7 @@ an entire holomorphic function.
 In \exerciseref{exercise:polygoesinf} you proved that
 $\lim_{z \to \infty} P(z) = \infty$ and so
 $\lim_{z \to \infty} R(z) = 0$.  In other words, $R(z)$ is bounded, but then
-it would be constant (a contradiction).
+it would be constant, so $P(z)$ is constant.
 %
 %Without loss of generality we can assume that $P$ is monic, that is,
 %the leading coefficient is $1$.  So
@@ -5998,8 +5998,7 @@ and as they are both useful in other places, let us do both of them.
 
 \begin{proof}[Proof A]
 One proof is to use Morera's theorem (\thmref{thm:Morera}) and Fubini's theorem.
-Let $T$ be a triangle inside this small neighborhood.  Suppose $w \in U$
-first.  Then
+Let $T \subset U$ be a triangle.  Then
 \begin{equation*}
 \int_{\partial T}
 h(z)
@@ -6016,10 +6015,12 @@ h(z)
 \, dt
 = \int_0^1 0 \, dt = 0.
 \end{equation*}
-For this of course you need Fubini's theorem, which applies because both
-$\partial T$ and $\gamma$ are compact and so parametrized by a finite
-interval, and the integrand is continuous, and hence bounded,
-on $\partial T \times \gamma$.
+We used Fubini's theorem to swap the integrals.  In particular,
+the integral over $\partial T$ is an integral over a compact set.
+Also both
+$\partial T$ and $[0,1]$ are compact,
+the integrand is continuous, and hence bounded,
+on $\partial T \times [0,1]$, so Fubini applies.
 Morera's theorem now says that $h(z)$ is
 holomorphic.
 \end{proof}
@@ -6113,7 +6114,7 @@ see also \exerciseref{exercise:cauchycont}.
 \end{exercise}
 
 \begin{exercise}
-Suppose $g \colon [0,1] \to \C$ is continuous and define
+Suppose $g \colon [-1,1] \to \C$ is continuous and define
 \begin{equation*}
 f(z) = \int_{-1}^1 \frac{g(t)}{t-z} \, dt .
 \end{equation*}
