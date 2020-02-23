@@ -137,7 +137,7 @@
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 % Enumitem extra penalties
-\setlist[enumerate]{beginpenalty=50,midpenalty=-5}
+\setlist[enumerate]{beginpenalty=100,midpenalty=-5}
 
 % discourage pagebreak at end of display, put before \end{equation}
 \newcommand{\avoidbreak}{\postdisplaypenalty=100}
@@ -2844,6 +2844,19 @@ and the slit plane $\C \setminus (-\infty,0] = \{ z \in \C : \Im z \not= 0 \text
 \end{exparts}
 \end{exercise}
 
+\begin{exercise} \label{exercise:segmentcomplement}
+Consider $f(z) = z+ \frac{1}{z}$.  Show that $f$ takes $\C \setminus
+\overline{\D}$ biholomorphically to $\C \setminus [-2,2]$, and it also takes
+$\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.
+\end{exercise}
+
+\begin{exercise}
+Consider $\Delta_1$ a closed disc of radius 1 centered at $i$ and $\Delta_2$ a closed disc of radius 1 centered $-i$.
+Find a biholomorphism of $\C \setminus (\Delta_1 \cup \Delta_2)$
+onto the unit disc.
+Hint: Figure out what $\frac{1}{z}$ does to the two circles.
+\end{exercise}
+
 \begin{exercise}
 \begin{exparts}
 \item
@@ -2871,12 +2884,6 @@ More generally, if $f$ is (real) differentiable then
 $\det Df\big|_p = \babs{\frac{\partial f}{\partial z}(p)}^2 -
 \babs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.
 \end{exparts}
-\end{exercise}
-
-\begin{exercise} \label{exercise:segmentcomplement}
-Consider $f(z) = z+ \frac{1}{z}$.  Show that $f$ takes $\C \setminus
-\overline{\D}$ biholomorphically to $\C \setminus [-2,2]$, and it also takes
-$\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.
 \end{exercise}
 \end{exbox}
 
@@ -4344,6 +4351,7 @@ $C^1$ path, and $f \colon U \to \C$ is continuous.  Then for every $\epsilon
 beginning and end point, such that
 \begin{equation*}
 \abs{\int_\alpha f(z)\, dz - \int_{\gamma} f(z) \, dz} < \epsilon .
+\avoidbreak
 \end{equation*}
 Hint: Consider the Riemann sum.  Also $f$ is uniformly continuous on some
 smaller $U$.
@@ -4495,6 +4503,7 @@ and $g'(p) = 0$ such that $\int_\gamma g(z)\, dz = \int_\gamma f(z) \, dz$.
 Compute
 \begin{equation*}
 \int_\gamma z^n \, dz
+\avoidbreak
 \end{equation*}
 for any integer $n \not= -1$ and any cycle $\gamma$ in
 $\C \setminus \{ 0 \}$.
@@ -4518,6 +4527,7 @@ of $\{ a,b,c \}$, that is
 the set of all points
 \begin{equation*}
 t_1 a + t_2 b + t_3 c ,
+\avoidbreak
 \end{equation*}
 where $t_1,t_2,t_3 \in [0,1]$ and $t_1+t_2+t_3 = 1$.
 \end{defn}
@@ -4786,6 +4796,21 @@ contained in $U$.
 \begin{exercise}
 Suppose $U \subset \C$ is open and star-like.  Prove that $U$ is connected.
 \end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+Prove that if $U_1,\ldots,U_n \subset \C$ are convex and $U_1 \cap 
+\cap \cdots U_n \not= \emptyset$, then the union $U_1 \cup \cdots \cup U_n$
+is star-like.
+\item
+Find an example of convex $U_1,U_2,U_3 \subset \C$ where
+$U_1 \cap U_2 \not= \emptyset$,
+$U_1 \cap U_3 \not= \emptyset$, and
+$U_2 \cap U_3 \not= \emptyset$, but such that $U_1 \cup U_2 \cup U_3$
+is not star-like.
+\end{exparts}
+\end{exercise}
 \end{exbox}
 
 \begin{prop} \label{prop:primitiveinstarlike1}
@@ -4823,7 +4848,7 @@ $z_0$, $z$, and $z+h$.\label{fig:triangantidef}}
 \end{myfig}
 
 The
-hypothesis then says
+hypothesis says
 \begin{equation*}
 \int_{[z_0,z]+[z,z+h]-[z_0,z+h]} f(\zeta) \, d\zeta = 0 .
 \end{equation*}
@@ -5065,7 +5090,7 @@ two pictured).
 
 \begin{exercise}
 Show why the theorem should be surprising.  Given any $a,b \in \C$ and $z
-\in \D$, construct a continuous function
+\in \D$, construct a continuous 
 $f \colon \C \to \C$ such that $\frac{1}{2\pi i}\int_{\partial \D}
 \frac{f(\zeta)}{\zeta -z} \, d\zeta = a$ and $f(z) = b$.
 \end{exercise}
@@ -5130,12 +5155,11 @@ Let $U \subset \C$ be open, $f \colon U \to \C$ be
 holomorphic, and $p \in U$, and $\Delta_R(p) \subset U$
 is a disc.
 Then there exists a power series $\sum c_n {(z-p)}^n$
-such that
+such that for all $z \in \Delta_R(p)$,
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n ,
+f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
 \end{equation*}
-for all $z \in \Delta_R(p)$.
-Furthermore,
+Moreover,
 \begin{equation*}
 c_n = 
 \frac{1}{2\pi i}
@@ -5143,6 +5167,7 @@ c_n =
 \frac{f(z)}{{(z-p)}^{n+1}}
 \,
 dz  ,
+\avoidbreak
 \end{equation*}
 where $\gamma$ is any circle of radius $r$, $0 < r < R$ centered at
 $p$ oriented counterclockwise.
@@ -5153,13 +5178,12 @@ First fix an $r$ such that $0 < r < R$.
 In particular, $\overline{\Delta_r(p)} \subset U$,
 the disc of radius $r$ (including the boundary) is in $U$.
 Fix a $z \in \Delta_r(p)$.
-
 For $\zeta \in \partial \Delta_r(p)$, 
 \begin{equation*}
 \abs{\frac{z-p}{\zeta-p}} =
 \frac{\sabs{z-p}}{r} < 1 .
 \end{equation*}
-Therefore,
+So
 the geometric series
 \begin{equation*}
 \sum_{n=0}^\infty
@@ -5263,7 +5287,7 @@ how to massage the kernel so that in the geometric series we get terms
 that are something times ${(z-p)}^n$.
 
 Not only have we proved
-that $f$ has a power series, but we computed
+that $f$ has a power series, we computed
 that the radius of convergence is at least $R$, where $R$ is the maximum $R$
 such that $\Delta_R(p) \subset U$.  See \figureref{fig:largestr}.
 That is a surprisingly powerful result.
@@ -5289,9 +5313,9 @@ is holomorphic if and only if $f$ is analytic.
 
 As a corollary of this corollary we find that all the results that we proved
 for analytic functions are true for holomorphic functions.  And it goes the
-other way too.  For example, it is very easy to show that the composition of
-holomorphic functions is holomorphic (just the chain rule).  It is much
-harder to prove directly that say composition of power series is again a
+other way too.  For example, it is easy to show that the composition of
+holomorphic functions is holomorphic (the chain rule).  It is much
+harder to prove directly that composition of power series is again a
 power series.  Similarly for product of power series.
 And we have just proved what we postponed in a remark: A convergent power
 series defines an analytic function.  We only proved before that it defines
@@ -5476,7 +5500,7 @@ is kept to
 inside of $\Delta_r(p)$.
 \end{proof}
 
-We could have also simply used the difference quotient instead of the
+We could have also used the difference quotient instead of the
 Wirtinger operator.  That requires slightly more care, you have to show
 uniform convergence of the right limit of functions, but this technique
 would not have needed the result
@@ -5532,6 +5556,7 @@ Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
 Suppose that
 \begin{equation*}
 \int_{\partial T} f(z) \, dz = 0
+\avoidbreak
 \end{equation*}
 for every triangle such that $T \subset U$.  Then $f$ is holomorphic.
 \end{thm}
@@ -5561,11 +5586,13 @@ Show that if $f \colon \C \to \C$ is continuous and holomorphic on $\C
 \begin{exercise}
 Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
 Write $d\bar{z} = dx - i \, dy$.
-Suppose that
+Suppose that 
+for every triangle such that $T \subset U$ we have
 \begin{equation*}
 \int_{\partial T} f(z) \, d\bar{z} = 0
+\avoidbreak
 \end{equation*}
-for every triangle such that $T \subset U$.  Prove that $f$
+Prove that $f$
 is antiholomorphic, that is, the conjugate of $f$ is holomorphic.
 \end{exercise}
 
@@ -5576,6 +5603,7 @@ Suppose that
 \int_{\partial T} \Re f(z) \, dz = 0
 \qquad \text{and} \qquad
 \int_{\partial T} \Im f(z) \, dz = 0
+\avoidbreak
 \end{equation*}
 for every triangle such that $T \subset U$.  Then $f$ is constant.
 \end{exercise}
@@ -5585,8 +5613,8 @@ for every triangle such that $T \subset U$.  Then $f$ is constant.
 
 A simple and yet surprisingly useful consequence of Cauchy's formula is the
 so-called maximum principle, which has several different versions.
-We prove the basic statement and leave other versions as exercises.
-The basic statement is that the modulus of a holomorphic function never
+We prove the one statement and leave other versions as exercises.
+The main idea is that the modulus of a holomorphic function never
 achieves a maximum.  So if we wish to bound $\sabs{f(z)}$, we only need to
 get a bound near the boundary.
 The basic idea of the proof is that Cauchy's integral formula tells us that
@@ -5637,8 +5665,8 @@ f(0) = \sabs{f(0)} =
 \frac{1}{2\pi}
 \int_0^{2\pi}
 \sabs{f(re^{it})}\, dt
-\\
-&
+%\\
+%&
 \leq
 \frac{1}{2\pi}
 \int_0^{2\pi}
@@ -5998,6 +6026,7 @@ holomorphic.  Then
 \begin{equation*}
 h(z) =
 \int_0^1 \psi(z,t) \, dt
+\avoidbreak
 \end{equation*}
 is a holomorphic function on $U$.
 \end{lemma}
@@ -6084,6 +6113,7 @@ holomorphic.  Then
 \begin{equation*}
 h(z) =
 \int_\gamma \psi(z,w) \, dw
+\avoidbreak
 \end{equation*}
 is a holomorphic function $U$.
 \end{cor}
@@ -6099,7 +6129,7 @@ Cu(z)
 \end{equation*}
 
 \begin{cor}
-If $u \colon \partial \Delta_r(p) \to \C$ is continuous, then
+For a continuous $u \colon \partial \Delta_r(p) \to \C$,
 the Cauchy transform $Cu \colon \Delta_r(p) \to \C$ is holomorphic.
 \end{cor}
 
@@ -6124,6 +6154,7 @@ see also \exerciseref{exercise:cauchycont}.
 Suppose $g \colon [-1,1] \to \C$ is continuous and define
 \begin{equation*}
 f(z) = \int_{-1}^1 \frac{g(t)}{t-z} \, dt .
+\avoidbreak
 \end{equation*}
 Show that $f$ is holomorphic in $\C \setminus [-1,1]$ and
 $\lim_{z \to \infty} f(z) = 0$.
@@ -6367,7 +6398,7 @@ e^{i\theta} z$ for all $z \in \D$.
 As $f(0) = 0$, the constant term is zero when $f$ is expanded about the
 origin, and hence
 \begin{equation*}
-f(z) = \sum_{n=1}^\infty c_n z^n = z \sum_{n=1}^\infty c_n z^{n-1} = z g(z) .
+f(z) = \sum_{n=1}^\infty c_n z^n = z \sum_{n=1}^\infty c_n z^{n-1} = z g(z) ,
 \end{equation*}
 where $g(z)$ is a holomorphic function of $\D$.  For
 $z \in \partial \Delta_r(0) \setminus \{ 0 \}$
@@ -6524,8 +6555,31 @@ Prove that if $\bH = \{ z \in \C : \Im z > 0 \}$ is the upper half-plane
 and $f \colon \bH \to \bH$ is an automorphism of $\bH$, then
 \begin{equation*}
 f(z) = \frac{a z +b}{c z + d}
+\avoidbreak
 \end{equation*}
 for real numbers $a,b,c,d$ such that $ad-bc \not= 0$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open, $\overline{\D} \subset U$,
+and $f \colon U \to \C$ is holomorphic.
+Suppose $\sabs{f(z)}=1$ whenever $\sabs{z}=1$,
+that is, $f(\partial \D) \subset \partial \D$.
+Find a formula for $f$.  Use the following outline:
+\begin{exparts}
+\item
+Show that $f$ must have finitely many zeros in $\D$.  That is, $f(z) = 0$
+for at most finitely many $z \in \D$.
+\item
+Suppose that $f$ has no zeros in $\D$.  Prove that $f$ is constant
+(and what sort of constant).
+\item
+If $f(a) = 0$, then prove that
+$z \mapsto \frac{f(z)}{\phi_a(z)}$ is still holomorphic in $U$ and
+still takes the circle to the circle.
+\item
+Now find a general formula for $f$.
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -6539,6 +6593,7 @@ If $f \colon \D \to \D$ is holomorphic, then
 \qquad
 \frac{\abs{f'(z)}}{1-\abs{f(z)}^2} \leq
 \frac{1}{1-\abs{z}^2}
+\avoidbreak
 \end{equation*}
 for all $z,\zeta \in \D$,
 with equality if and only if $f$ is an automorphism of $\D$.
@@ -6723,6 +6778,15 @@ Points where the branches are supposed to equal
 are marked.\label{fig:followbranch}}
 \end{myfig}
 
+\begin{exbox}
+\begin{exercise}
+Suppose $a \in \C$ is a nonzero complex number, and
+$R_a = \{ \lambda a \in \C : \lambda \geq 0 \}$
+is the ray from the origin through $a$.  Prove
+that there exists a branch of the log in $\C \setminus R_a$.
+\end{exercise}
+\end{exbox}
+
 \subsection{Winding numbers}
 
 OK.  Let's get more rigorous.  In the following, it is enough
@@ -6760,6 +6824,7 @@ Suppose $\gamma$ is a closed piecewise $C^1$ path (or a cycle)
 and $p \notin \gamma$.  Then
 \begin{equation*}
 n(\gamma;p) = \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
+\avoidbreak
 \end{equation*}
 is an integer.
 \end{prop}
@@ -7148,7 +7213,7 @@ e^{g(z)} = f(z) .
 
 In particular, using $f(z) = z$ we find that if
 $U \subset \C \setminus \{ 0 \}$ is open and simply connected, then
-there exists a holomorphic function $L \colon U \to \C$ such that
+there exists a holomorphic $L \colon U \to \C$ such that
 \begin{equation*}
 e^{L(z)} = z .
 \end{equation*}
@@ -7212,7 +7277,7 @@ Every holomorphic $f \colon U \to \C$ has a primitive.
 \item \label{thm:simplyconnected:iii}
 $\frac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
 \item \label{thm:simplyconnected:iv}
-For every holomorphic function $f \colon U \to \C$ and every
+For every holomorphic $f \colon U \to \C$ and every
 closed
 piecewise $C^1$ path (or a cycle) $\gamma$ in $U$, we have
 \begin{equation*}
@@ -8006,7 +8071,7 @@ Suppose $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic.
 Suppose $p \in U$ is a zero\footnote{In this theorem, do note
 that $k \in \N$, in particular $k > 0$, and so this really is an actual zero
 of $f$.} of $f$ of order $k \in \N$.  Then there exists a neighborhood $V$
-of $p$ and a holomorphic function $g \colon V \to \C$ such that
+of $p$ and a holomorphic $g \colon V \to \C$ such that
 \begin{equation*}
 f(z) = {\bigl( g(z) \bigr)}^k
 \end{equation*}
@@ -8030,6 +8095,23 @@ $g'(z) = (z-p) q'(z) + q(z)$, we have $g'(p) = q(p) \not= 0$.
 \end{proof}
 
 \begin{exbox}
+\begin{exercise}
+Suppose $U \subset \C$ is open and
+$f \colon U \to \C$ holomorphic.
+Show that $f$ has a zero of order $k$ at $p$
+if and only if
+there is a disc $\Delta_r(p) \subset U$ and some $C_1 > 0$ and $C_2 > 0$
+such that for
+all $z \in \Delta_r(p)$:
+\begin{equation*}
+C_1 {\sabs{z-p}}^k
+\leq
+\sabs{f(z)}
+\leq
+C_2 {\sabs{z-p}}^k .
+\end{equation*}
+\end{exercise}
+
 \begin{exercise}
 Suppose $U \subset \C$ is a domain and $f$ 
 has zeros at $z_1, z_2, \ldots, z_n$ of
@@ -8102,7 +8184,7 @@ an \emph{\myindex{isolated singularity}} at $p$.
 
 An isolated singularity is \emph{removable}\index{removable singularity}
 if 
-there exists a holomorphic function $F \colon U \to \C$
+there exists a holomorphic $F \colon U \to \C$
 such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
 
 An isolated singularity $p$ is a \emph{\myindex{pole}} if 
@@ -8180,6 +8262,13 @@ $\sabs{f(z)} \leq e^{\sabs{\Im z}}$ for all $z$ and such that
 $f'(0) =1$ and $f(n\pi) = 0$ for all integers $n$.
 Prove that $f(z) = \sin z$.
 \end{exercise}
+
+\begin{exercise}
+Prove that there does \emph{not} exist a nonzero holomorphic
+$f \colon \Delta_r(0) \to \C$ (for any $r > 0$)
+such that
+$f(z) e^{1/z}$ is bounded in $\Delta_r(0) \setminus \{ 0 \}$.
+\end{exercise}
 \end{exbox}
 
 Using the Riemann extension, we find a criterion for poles, and classify
@@ -8188,6 +8277,7 @@ at nonessential isolated singularities
 the function blows up to a finite integral order.
 
 \begin{cor}
+\pagebreak[2]
 Suppose $U \subset \C$ is an open set, $p \in U$,
 and $f \colon U \setminus \{p\} \to \C$ holomorphic.
 \begin{enumerate}[(i)]
@@ -8195,6 +8285,7 @@ and $f \colon U \setminus \{p\} \to \C$ holomorphic.
 If $p$ is a pole, then there exists a $k \in \N$ such that
 \begin{equation*}
 g(z) = {(z-p)}^k f(z)
+\avoidbreak
 \end{equation*}
 is bounded near $p$ and hence $g$ has a removable singularity at $p$.
 \item
@@ -8358,7 +8449,7 @@ origin.
 \end{exercise}
 
 \begin{exercise}
-Show that an entire function $f \colon \C \to \C$ has a pole at infinity
+Show that an entire holomorphic $f \colon \C \to \C$ has a pole at infinity
 if and only if it is a polynomial.  The order of the pole is the degree of
 the polynomial.
 \end{exercise}
@@ -8507,12 +8598,12 @@ if $f\bigl(\frac{1}{z}\bigr)$ is holomorphic at $0$.
 
 \begin{exbox}
 \begin{exercise}
-Show that a holomorphic function $f \colon \C_\infty \to \C_\infty$ has
+Show that a holomorphic $f \colon \C_\infty \to \C_\infty$ has
 at most finitely many poles and finitely many zeros.
 \end{exercise}
 
 \begin{exercise}
-Show that a holomorphic function $f \colon \C_\infty \to \C_\infty$ is a
+Show that a holomorphic $f \colon \C_\infty \to \C_\infty$ is a
 rational function (a polynomial divided by a polynomial).
 \end{exercise}
 
@@ -10142,6 +10233,40 @@ functions such that $\{ f' : f \in \sF \}$ is a normal family.
 Is $\sF$ a normal family?  If not, can you add a simple
 hypothesis that would make it a normal family?
 \end{exercise}
+
+\begin{exercise}
+Given $c \in [0,1)$ let $\sF_c$ be the set of holomorphic
+$f \colon \D \to \D$ such that $f(0) = 0$ and $f\bigl(\frac{1}{2}\bigr) = c$.
+\begin{exparts}
+\item
+Prove that $\sF_c = \emptyset$ if and only if $c \in
+\bigl(\frac{1}{2},1\bigr)$.
+\item
+Prove that for any $c \in \bigl[0,\frac{1}{2}\bigr]$, there exists an
+$f \in \sF_c$
+such that $\sabs{f'(0)}$ is minimal (among the functions in $\sF_c$),
+and let $m_c = \inf \bigl\{ \sabs{f'(0)} : f \in \sF_c \bigr\}$.
+\item
+Prove that $m_c > 0$ if $c > \frac{1}{4}$ and $m_c = 0$ if $c \leq \frac{1}{4}$.
+(Note that you only need to worry about $c \in \bigl[0,\frac{1}{2}\bigr]$.)
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain, $p \in U$,
+and suppose there exists a nonconstant
+bounded holomorphic function on $U$.
+\begin{exparts}
+\item
+Prove that there exists a holomorphic $F \colon U \to \D$
+such that
+$F'(p) \not= 0$, and if
+$f \colon U \to \D$ is holomorphic
+then $\sabs{f'(z_0)} \leq \sabs{F'(z_0)}$.
+\item
+Prove that necessarily $F(p) = 0$.
+\end{exparts}
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -10299,6 +10424,14 @@ Suppose $U \subset \C$ is a simply connected domain, $U \not= \C$,
 $p,q \in U$ are distinct points, and
 $f \colon U \to U$ is holomorphic such that $f(p) = p$ and $f(q)=q$.
 Prove that $f$ is the identity, that is, $f(z)=z$ for all $z \in U$.
+\end{exercise}
+
+\begin{exercise}
+A Riemann-mapping like theorem for multiply connected domains (domains with
+holes) is not true
+(at least not in the most obvious way):
+Show that the annuli $\ann(0;0,1) = \D \setminus \{ 0 \}$
+and $\ann(0;1,2)$ are not biholomorphic.
 \end{exercise}
 \end{exbox}
 
@@ -10459,7 +10592,7 @@ Let $U \subset \C$ be a domain and $f \colon U \to \R$ a function.
 \item
 If $f$ is harmonic,
 then for every point $p$ there exists a neighborhood $V$ of $p$ and a
-holomorphic function $\varphi \colon V \to \C$ such that $f = \Re \varphi$
+holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
 on $V$.
 \item
 If $f$ is harmonic, then it is infinitely (real) differentiable.  In fact,
@@ -10482,7 +10615,7 @@ have such a primitive.
 
 \begin{prop}
 Let $U \subset \C$ be a simply connected domain and $f \colon U \to \R$ a
-harmonic function.  Then there exists a holomorphic function $\varphi \colon
+harmonic function.  Then there exists a holomorphic $\varphi \colon
 U \to \C$ such that $f = \Re \varphi$.
 \end{prop}
 
@@ -10522,6 +10655,22 @@ as that the real and imaginary parts of $f$ are.
 
 \begin{savenotes}
 \begin{exbox}
+\begin{exercise}
+Show that the following functions of $x$ and $y$ (where
+$z = x+iy$) are
+harmonic (either on $\C$ or on the set given)
+and find their harmonic conjugate.
+
+\enspace a) $y$
+\hfill
+b) $xy$
+\hfill
+c) $\arctan(y/x)$ on $x > 0$
+\hfill
+d) $\frac{x}{x^2+y^2}$
+\hspace*{\fill}
+\end{exercise}
+
 \begin{exercise}
 Let $U \subset \C$ be open and
 $f \colon U \to \C$ holomorphic.  Prove that $\log \sabs{f(z)}$ is harmonic
@@ -10854,13 +11003,44 @@ f(z) =
 \end{exercise}
 
 \begin{exercise}
-Prove that given any continuous function $f \colon \partial \D \to \C$
-there exists a function $F \colon \D \to \C$ such that $\Re F$ extends
+Prove that given any continuous $f \colon \partial \D \to \C$,
+there exists a holomorphic $F \colon \D \to \C$ such that $\Re F$ extends
 continuously to $\partial \D$ (agrees with a continuous function on
 $\overline{\D}$) and such that $\Re F = \Re f$ on $\partial \D$.
 That is, given arbitrary boundary data, we cannot in general find a
 holomorphic function with those boundary values, but we can do it at least
 for the real part.
+\end{exercise}
+
+\begin{exercise}
+Let $q_1,q_2,\ldots$ be an enumeration of rational
+numbers in $[0,1]$.
+\begin{exparts}
+\item
+Define $\varphi \colon [0,1] \to {\mathbb R}$
+by $\varphi(t) = \sum_{j=1}^\infty 2^{-j} \chi_{[q_j,1]}(t)$,
+where $\chi_{[q_j,1]}(t) = 1$ if $t \in [q_j,1]$ and
+zero otherwise (the indicator function).  Show that
+$\varphi$ is discontinuous at every rational number in $(0,1]$,
+nondecreasing and bounded (hence Riemann integrable).
+\item
+Define $\Phi(t) = \int_0^t \varphi(s)\, ds$, show that $\Phi$
+is increasing, continuous, but not differentiable
+on a dense set in $[0,1]$.  Use it to construct a
+$\psi(t)$ that is $2\pi$-periodic, continuous and 
+not differentiable on a dense subset of $\R$.
+\item
+Find a continuous $u \colon \overline{\D} \to \R$
+such that $u|_{\D}$ is harmonic and
+$u(e^{it}) = \psi(t)$, then find a holomorphic $h \colon \D \to \C$
+such that $\Re h = u$.
+\item
+Show that $h$ does not extend through any point of
+the boundary, that is for every
+$z_0 \in \partial \D$ and every neighbourhood
+$U$ of $z_0$, there exists no holomorphic $f \colon U \to \C$
+such that $f = h$ on $\D \cap U$.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -11028,7 +11208,7 @@ Suppose $U \subset \C$ is open, $p \in U$, and $f \colon U \setminus \{ p \}
 \begin{equation*}
 \lim_{z\to p} \frac{f(z)}{\log \sabs{z}} = 0 .
 \end{equation*}
-Then there exists a harmonic function $\tilde{f} \colon U \to \R$ such that
+Then there exists a harmonic $\tilde{f} \colon U \to \R$ such that
 $f = \tilde{f}$ on $U \setminus \{ p \}$.
 \end{thm}
 
@@ -11088,7 +11268,7 @@ Let $U_+ = \{ z \in U : \Im z > 0 \}$ and $L = U \cap \R$.
 Suppose $f \colon U_+ \cup L \to \R$ be continuous function that is
 harmonic on $U_+$ and $f(z) = 0$ for all $z \in L$.
 
-Then there exists a harmonic function $F \colon U \to \R$ such that
+Then there exists a harmonic $F \colon U \to \R$ such that
 $F|_{U_+ \cup L} = f$.
 \end{thm}
 
@@ -11836,6 +12016,41 @@ is also zero.  Morera then implies that $F$ is holomorphic.
 \end{proof}
 
 FIXME
+
+\begin{exbox}
+\begin{exercise}
+Let $U = \{ z : \Re z > 0 \}$ and
+$g \colon U  \to \C$ be holomorphic
+such that $(g(z))^2 = z$ for
+all $z \in U$ and $g(1) = 1$ ($g$ is one of the square roots).
+\begin{exparts}
+\item
+Show that
+$\sabs{\Im g(z)} \leq \Re g(z)$
+for all $z \in U$.
+\item
+Show that $f(z) = e^{-1/g(z)}$ is holomorphic in $U$
+and extends to a continuous function on the closure
+$\overline{U}$.  (The hard part is continuity at $z=0$).
+\item
+Show that $f$ does not extend holomorphically through the
+origin.  That is, for any neighbourhood $V$ of $0$ there
+exists no holomorphic
+$\varphi \colon V \to \C$ such that $\varphi = f$ on $U \cap V$.
+\item
+Show that $f$ actually extends as a
+$C^\infty$ smooth (infinitely real differentiable) function on $\overline{U}$.
+It is enough to show that
+all real partial derivatives of $f$ of all orders on $U$
+are locally bounded 
+for any $z \in \partial U$ (bounded in some compact neighborhood of $z$).
+\end{exparts}
+This is an example for 
+boundary behavior of holomorphic functions.  A
+holomorphic function can be smooth up to the
+boundary but still not extend.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
