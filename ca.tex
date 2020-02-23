@@ -306,8 +306,8 @@
   {}% Theorem head spec (can be left empty, meaning "normal")
 
 \newenvironment{exbox}{%
-    \def\FrameCommand{\vrule width 1pt \relax\hspace {10pt}}%
-    \MakeFramed {\advance \hsize -\width \FrameRestore }%
+    \def\FrameCommand{\vrule width 1pt \relax\hspace{10pt}}%
+    \MakeFramed{\advance\hsize-\width\FrameRestore}%
 }{%
     \endMakeFramed
 }
@@ -536,7 +536,7 @@ complex analysis for incoming graduate students.
 It is a natural first semester in a two semester sequence where the second
 semester could be several complex variables (e.g. \cite{scv:book})
 or perhaps harmonic analysis.
-Whe assume basic knowledge of undergraduate
+We assume basic knowledge of undergraduate
 analysis in the real variable, called advanced calculus in some schools.
 The text assumes knowledge of metric spaces
 and differential analysis in several variables, but if the reader is not
@@ -1007,7 +1007,6 @@ Prove the proposition.  Hint: After you know integrability, consider
 a Riemann sum and the regular triangle inequality.
 \end{exercise}
 \end{exbox}
-
 
 \subsection{Matrix representation of complex numbers}
 
@@ -3838,6 +3837,8 @@ Pinky:  Uh, I think so, Brain, but we'll never get a monkey to use dental floss.
 \section{Line integrals}
 \label{sec:lineints}
 
+\subsection{Paths}
+
 \begin{defn}
 A \emph{\myindex{piecewise $C^1$ path}} or a \emph{\myindex{path}} for short
 is
@@ -3903,6 +3904,8 @@ $\lim_{t \downarrow 1} \gamma'(t) = i$, and so on.
 \caption{The path $\gamma$ traversing the unit square.\label{fig:squarepath}}
 \end{myfig}
 \end{example}
+
+\subsection{The line integral}
 
 \begin{defn}
 Given a piecewise $C^1$ path $\gamma \colon [a,b] \to \C$ and a continuous
@@ -4109,7 +4112,7 @@ $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \end{exercise}
 
 \begin{exercise}
-Any one-to-one piecewise $C^1$ path $\gamma \colon [a,b] \to \C$
+Any piecewise $C^1$ path $\gamma \colon [a,b] \to \C$
 can be reparametrized
 to a $C^1$ ``path'' as long as $\gamma'$ is allowed to vanish at some points.
 That is, there exists a strictly increasing
@@ -4122,8 +4125,9 @@ Hint: Make the derivative at the ``corners'' zero.
 Consider infinitely many nested circles all touching at one point
 and let that point be the origin: Suppose $r_n$ be the radius of the
 $n$\textsuperscript{th}
-circle and the $n$\textsuperscript{th} circle is given by $r_n e^{i\theta} - r_n$, for $0 \leq
-\theta \leq 2\pi$.  If $\sum r_n < \infty$, then you can find a continuous
+circle and the $n$\textsuperscript{th} circle is given by $r_n e^{i(-1)^n\theta} - r_n$, for $0 \leq
+\theta \leq 2\pi$ (they are traversed in alternating directions).
+If $\sum r_n < \infty$, then you can find a continuous
 $C^1$ function $\gamma \colon
 [0,1] \to \C$ that traverses all the circles.  If $\sum r_n = \infty$, then
 you can find a continuous $\gamma \colon [0,1] \to \C$ that is $C^1$ on
@@ -4132,11 +4136,16 @@ $(0,1]$, but necessarily $\lim_{t \to 0} \gamma'(t)$ does not exist.
 \end{exbox}
 
 \begin{remark}
-The last two exercises above show why we must morally
+The last two exercises show why we must morally
 require that $\gamma'(t)$ never vanishes (including the one sided limits)
-for piecewise $C^1$ paths.  The point is, are we thinking of the path
-as the parametrization $\gamma$ or as the set $\gamma\bigl([a,b]\bigr)$.
-In practical terms, we lose nothing of real value by the extra requirement.
+for piecewise $C^1$ paths.
+We thinking of the path
+as the set
+$\gamma\bigl([a,b]\bigr)$,
+not the parametrization, and where the path is $C^1$
+we want it to not have ``corners.''
+In practical terms, we won't really use that the derivative never vanishes,
+but we lose nothing of real value by the extra requirement.
 \end{remark}
 
 Due to the reparametrization result above,
@@ -4156,7 +4165,7 @@ re^{it}$, and then we write
 This equality could be simply taken as a definition of integration over
 $\partial \Delta_r(p)$.
 
-\medskip
+\subsection{Arclength integral}
 
 We can also integrate with respect to arclength, the $ds$ from calculus.
 We will write $ds$ as $\sabs{dz}$.  That is, for an $f$ continuous on
@@ -4199,6 +4208,8 @@ M
 \qedhere
 \end{equation*}
 \end{proof}
+
+\subsection{Chains}
 
 It is useful to combine paths; to have a certain ``arithmetic'' of paths.
 The resulting objects are called \emph{chains}, and they
@@ -5303,6 +5314,7 @@ can be no larger than what you think it is, that is the harder part.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Show that for the so-called real-analytic functions, the radius of
 convergence cannot be read-off from the domain.
 Show that the function $f(x) = \frac{1}{1+x^2}$,
@@ -5741,8 +5753,8 @@ exercises first.
 \subsection{Cauchy estimates, Liouville, and the fundamental theorem of
 algebra}
 
-It may seem like we are cramming quite a bit into one subsection, but
-we have all the tools making three fundamental results just pop out
+It may seem we are cramming quite a bit into one subsection, but
+we have the tools to make three fundamental results just pop out
 with little work.  The triangle inequality on
 the Cauchy integral formula obtains an estimate on the size of the
 coefficients of the power series.  These estimates immediately give
@@ -5783,8 +5795,7 @@ $\snorm{f}_{\partial \Delta_r(p)}$.  Compare to \propref{prop:cnrnbounded}.
 \begin{proof}
 The proof is a brute force estimation:
 \begin{equation*}
-\begin{split}
-\sabs{c_n} & = 
+\sabs{c_n}  = 
 \abs{
 \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)}
@@ -5792,8 +5803,7 @@ The proof is a brute force estimation:
 \,
 d \zeta 
 }
-\\
-& \leq
+\leq
 \frac{1}{2\pi}
 \int_{\partial \Delta_r(p)}
 \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n+1}}
@@ -5802,7 +5812,6 @@ d \zeta
 =
 \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n}} .
 \qedhere
-\end{split}
 \end{equation*}
 \end{proof}
 
@@ -5821,7 +5830,7 @@ $\sabs{f^{(n)}(0)} = n!$.
 
 \begin{exercise}
 Let $\bH = \{ z \in \C : \Im z > 0 \}$ be the upper half-plane
-and suppose $f \colon \bH \to \D$ is holomorphic.  Show that
+and $f \colon \bH \to \D$ holomorphic.  Prove
 \begin{equation*}
 \lim_{\substack{t \to \infty\\t \in \R, t > 0}} f'(it) = 0 .
 \end{equation*}
@@ -5861,23 +5870,23 @@ words, $f(z) = c_0$ for all $z$.
 
 \begin{exbox}
 \begin{exercise}
-Suppose that $f$ is entire and $\sabs{f(z)} \leq e^{\Re z}$ for all $z \in
+Suppose $f$ is entire and $\sabs{f(z)} \leq e^{\Re z}$ for all $z \in
 \C$.  Show that $f(z) = c e^z$ for all $z$.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $f$ is entire, $n \in \N$, $M > 0$, and
+Suppose $f$ is entire, $n \in \N$, $M > 0$, and
 $\sabs{f(z)} \leq M {(1+\sabs{z})}^n$ for all $z \in \C$.
 Show that $f$ is a polynomial of degree at most $n$.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $f$ is entire and $\Im f(z) > 0$ for all $z \in \C$.
-Prove that $f$ is constant.
+Suppose $f$ is entire and $\Im f(z) > 0$ for all $z \in \C$.
+Prove $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $f \colon \C \to \C$ is holomorphic and misses a segment,
+Suppose $f \colon \C \to \C$ is holomorphic and misses a segment,
 that is, there exists a segment
 $[a,b]$ such that $f(\C) \subset \C \setminus [a,b]$.
 Show that $f$ is constant.  Hint: See the map from
@@ -6015,22 +6024,20 @@ h(z)
 \, dt
 = \int_0^1 0 \, dt = 0.
 \end{equation*}
-We used Fubini's theorem to swap the integrals.  In particular,
-the integral over $\partial T$ is an integral over a compact set.
-Also both
-$\partial T$ and $[0,1]$ are compact,
-the integrand is continuous, and hence bounded,
-on $\partial T \times [0,1]$, so Fubini applies.
+We used Fubini's theorem to swap the integrals:
+The integral over $\partial T$ is an integral over a compact interval,
+$[0,1]$ is also compact,
+the integrand is continuous, and hence bounded, so Fubini applies.
 Morera's theorem now says that $h(z)$ is
 holomorphic.
 \end{proof}
 
 \begin{proof}[Proof B]
-Another way to do this\footnote{%
-For no good rational reason, this is the one us several complex variables
-(SCV) people seem to prefer, possibly because SCV people are often PDE
-people and we rather differentiate than integrate.}
-is to apply Wirtinger derivatives and differentiation under the integral:
+The second proof\footnote{%
+For no good rational reason, this is the one I have seen more often,
+possibly because complex analysts are often PDE
+people and they rather differentiate than integrate.}
+is to apply Wirtinger derivatives and differentiate under the integral:
 \begin{equation*}
 \frac{\partial}{\partial \bar{z}}
 \bigl[
@@ -6081,8 +6088,8 @@ h(z) =
 is a holomorphic function $U$.
 \end{cor}
 
-Given any continuous $u \colon \partial \Delta_r(p) \to \C$ define
-the \emph{\myindex{Cauchy transform}} $Cu \colon \Delta_r(p) \to \C$ is defined by
+For a continuous $u \colon \partial \Delta_r(p) \to \C$, define
+the \emph{\myindex{Cauchy transform}} $Cu \colon \Delta_r(p) \to \C$ by
 \begin{equation*}
 Cu(z)
 \overset{\text{def}}{=}
@@ -10525,9 +10532,11 @@ outside the zero set of $f$, that is on $U \setminus f^{-1}(0)$.
 %most likely on the right page.
 \begin{exercise}
 Prove the Lioville\footnote{%
-Nelson has a really short proof (one of the runner ups for the shortest
-mathematical papers ever), but you can't use it since you don't have the
-tools for it yet.} theorem\index{Liouville theorem!harmonic functions} for
+Nelson has a really short proof (one of the shortest
+mathematical papers), but you can't use it since you don't have the
+tools for it yet.  See Nelson, Edward
+\emph{A proof of Liouville's theorem.}
+Proc.\ Amer.\ Math.\ Soc.\ {\textbf{12}} (1961), 995.} theorem\index{Liouville theorem!harmonic functions} for
 harmonic functions.  That is, suppose that $f \colon \C \to \R$ is harmonic
 and bounded from above, then $f$ is constant.
 \end{exercise}
