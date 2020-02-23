@@ -5324,7 +5324,7 @@ a holomorphic function.
 \begin{exbox}
 \begin{exercise}
 Consider $f(z) = \frac{\sin(z)}{z}$ defined on $\C \setminus \{ 0 \}$.
-The theorem gives you that the power series at $z=1$ convergs in a disc of
+The theorem gives you that the power series at $z=1$ converges in a disc of
 radius 1.  Prove that the radius of convergence is actually infinity.  Hint:
 Write $\sin(z)$ as a power series at the origin first.
 \end{exercise}
@@ -5402,7 +5402,8 @@ holomorphic.
 The ``in particular'' is an important consequence.  It is also a somewhat
 surprising consequence.
 It says that if $f$ is differentiable in some way,
-then so is the derivative.  Nothing like that is true for real functions:
+then so is the derivative.  Nothing like that is true for the real
+derivative:
 Any continuous function $g \colon (a,b) \to \R$ is a derivative
 of a real differentiable function, e.g.\ $f(x) = \int_a^x g(t)\,dt$,
 and continuous functions need not be differentiable anywhere.
@@ -5520,7 +5521,7 @@ work.
 \end{exercise}
 
 \begin{exercise} \label{exercise:partialderscont}
-Suppose that $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$
+Suppose $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$,
 where $U \subset \C$ is open, and for any fixed $t \in (a,b)$, the function
 $z \mapsto f(z,t)$ is holomorphic.  Prove that
 $\frac{\partial f}{\partial z}$ is a continuous function of $U \times
@@ -6783,7 +6784,33 @@ are marked.\label{fig:followbranch}}
 Suppose $a \in \C$ is a nonzero complex number, and
 $R_a = \{ \lambda a \in \C : \lambda \geq 0 \}$
 is the ray from the origin through $a$.  Prove
-that there exists a branch of the log in $\C \setminus R_a$.
+that there exists a branch of the $\log$ in $\C \setminus R_a$.
+\end{exercise}
+
+\begin{exercise}
+For $n \in \N$ let $\gamma \colon [0,2\pi] \to \C$ be $\gamma(t) = e^{int}$,
+the unit circle traversed $n$ times counterclockwise.  Compute
+$\int_\gamma \frac{1}{z} \, dz$.  Try to argue by splitting up the integral
+into pieces and using branches of the $\log$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \C \to \C$ is a holomorphic function such that
+$f(z)$ is never negative real (it is allowed to be positive and real)
+and such that $f$ is never zero on $\partial \D$.  Compute
+$\int_\gamma \frac{f'(z)}{f(z)} \, dz$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ is a piecewise $C^1$
+path such that $\gamma(a) = \gamma(b) = -1$ but $\gamma(t)$ is never
+negative real for any $t \in (a,b)$.  Using the principal branch of the
+$\log$, prove that
+\begin{equation*}
+\int_\gamma \frac{1}{z} \, dz = -2\pi i, 0, \text{ or } 2\pi i.
+\avoidbreak
+\end{equation*}
+Find an explicit $\gamma$ that achieves each of these possibilities.
 \end{exercise}
 \end{exbox}
 
@@ -10415,6 +10442,7 @@ Show that there exists
 a holomorphic $f \colon \D \to \D$ such that
 \begin{equation*}
 \int_{\D} \abs{f'(x+iy)}^2 \, dx \, dy
+\avoidbreak
 \end{equation*}
 is maximal.
 \end{exercise}
@@ -10677,22 +10705,23 @@ $f \colon U \to \C$ holomorphic.  Prove that $\log \sabs{f(z)}$ is harmonic
 outside the zero set of $f$, that is on $U \setminus f^{-1}(0)$.
 \end{exercise}
 
-%best for this to be the last in this exbox, so that the footnote appears
-%most likely on the right page.
+% Best for this to be the last in this exbox,
+% so that the footnote (due to the savenotes) appears
+% (most likely) on the right page.
 \begin{exercise}
 Prove the Lioville\footnote{%
-Nelson has a really short proof (one of the shortest
-mathematical papers), but you can't use it since you don't have the
-tools for it yet.  See Nelson, Edward
+A short proof is in
+Nelson, Edward
 \emph{A proof of Liouville's theorem.}
-Proc.\ Amer.\ Math.\ Soc.\ {\textbf{12}} (1961), 995.} theorem\index{Liouville theorem!harmonic functions} for
+Proc.\ Amer.\ Math.\ Soc.\ {\textbf{12}} (1961), 995
+(one of the shortest mathematical papers).
+But you can't use it, you don't have the
+tools for it yet.} theorem\index{Liouville theorem!harmonic functions} for
 harmonic functions.  That is, suppose that $f \colon \C \to \R$ is harmonic
 and bounded from above, then $f$ is constant.
 \end{exercise}
 \end{exbox}
 \end{savenotes}
-
-
 
 \subsection{Identity and the maximum principle}
 
