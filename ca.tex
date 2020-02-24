@@ -938,7 +938,9 @@ very nice way.
 
 The following definition is perhaps somewhat unnecessary, but it is so much
 easier to write and say than \emph{open and connected}, and it is commonly
-used in complex analysis.
+used in complex analysis.\footnote{We generally consider our sets
+also nonempty, but usually the statements of results for empty open sets or
+domains are simply vacuous.}
 
 \begin{defn}
 An open and connected set $U \subset \C$ is called a
@@ -1993,7 +1995,7 @@ at the origin, but nowhere else.
 
 \subsection{Cauchy--Riemann equations}
 
-For an open $U \subset \C$,
+Suppose $U \subset \C$ is open, and
 let $f \colon U \to \C$ be a
 differentiable (in the real sense
 and as a function of two real variables,
@@ -2139,7 +2141,7 @@ Prove that $f$ is constant.
 
 \begin{exercise}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
-Let $f = u+iv$.  Show that $u$ and $v$ are \emph{\myindex{harmonic}},
+Write $f = u+iv$.  Show that $u$ and $v$ are \emph{\myindex{harmonic}},
 that is,
 $\frac{\partial^2 u}{\partial x^2} +  \frac{\partial^2 u}{\partial y^2} = 0$
 and
@@ -2150,7 +2152,7 @@ differentiable.
 
 \begin{exercise}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
-Let $f = u+iv$.  Show that whenever the second derivative test applies 
+Write $f = u+iv$.  Show that whenever the second derivative test applies 
 to $u$ or $v$, you get a saddle, that is, prove that
 $\frac{\partial^2 u}{\partial x^2} \frac{\partial^2 u}{\partial y^2}
 -{\left(\frac{\partial^2 u}{\partial x \partial y}\right)}^2 \leq 0$
@@ -2455,8 +2457,8 @@ we state this result as a proposition.
 
 \begin{prop}
 \label{prop:WirtCR}
-Let $U \subset \C$ be open and $f \colon U \to \C$ be a function.
-Then $f$ is holomorphic if and only if
+Let $U \subset \C$ be open.  Then $f \colon U \to \C$ is
+holomorphic if and only if
 $f$ is (real) differentiable such that
 \begin{equation*}
 \frac{\partial f}{\partial \bar{z}} \equiv 0 .
@@ -2696,7 +2698,7 @@ $\bH = \{ z \in \C : \Im z > 0 \}$ to the unit disc $\D$,
 in other words $C \colon \bH \to \D$ is a biholomorphism
 making $\bH$ and $\D$ biholomorphic.
 
-The reader can check that for any open $U \subset \C$, the set
+The reader can check that for any nonempty open $U \subset \C$, the set
 $\operatorname{Aut}(U)$ is a group under
 composition, although we will not be too worried about the group
 structure.
@@ -5152,8 +5154,7 @@ that analytic functions are holomorphic, and now we prove the converse.
 
 \begin{thm} \label{thm:holpower}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
-holomorphic, and $p \in U$, and $\Delta_R(p) \subset U$
-is a disc.
+holomorphic, $p \in U$, and $\Delta_R(p) \subset U$.
 Then there exists a power series $\sum c_n {(z-p)}^n$
 such that for all $z \in \Delta_R(p)$,
 \begin{equation*}
@@ -5716,7 +5717,7 @@ $U$.
 
 \begin{cor}[Maximum principle, part deux]
 \index{maximum principle!holomorphic functions}%
-Suppose $U \subset \C$ is open and bounded (so $\overline{U}$ is compact).
+Suppose $U \subset \C$ is nonempty, open, and bounded (so $\overline{U}$ is compact).
 If $f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
 is holomorphic, then $\sabs{f(z)}$ achieves a maximum on $\partial U$.  In
 other words,
@@ -5807,7 +5808,7 @@ For a set $K$, denote the \emph{\myindex{supremum norm}}:
 
 \begin{thm}[Cauchy estimates]\index{Cauchy estimates}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
-holomorphic, and $p \in U$, and $\overline{\Delta_r(p)} \subset U$
+holomorphic, and $\overline{\Delta_r(p)} \subset U$
 a disc.  Expand $f(z) = \sum c_n {(z-p)}^n$.
 Then for all $n$,
 \begin{equation*}
@@ -6991,8 +6992,8 @@ $n(\Gamma;z) = 0$.
 \begin{thm}[Cauchy integral formula (homology version)]
 \index{Cauchy integral formula!homology}
 \label{thm:CIFhomology}
-Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-$\gamma$ a closed piecewise $C^1$ path (or a cycle) in $U$
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic, and
+$\gamma$ is a closed piecewise $C^1$ path (or a cycle) in $U$
 such that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
 Then for $z \in U \setminus \gamma$,
 \begin{equation*}
@@ -7186,7 +7187,7 @@ for every $\gamma$.  Now having Cauchy's theorem in simply connected
 domains, we have primitives (antiderivatives).
 
 \begin{thm}
-Let $U \subset \C$ be open and simply connected and
+Let $U \subset \C$ be a simply connected domain and
 let $f \colon U \to \C$ be holomorphic.  Then $f$ has a
 primitive in $U$.
 \end{thm}
@@ -7229,7 +7230,7 @@ the primitive of $f$ for star-like domains.
 \end{proof}
 
 \begin{cor}
-Let $U \subset \C$ be open and simply connected and
+Let $U \subset \C$ be a simply connected domain and
 let $f \colon U \to \C \setminus \{ 0 \}$ be a nowhere zero holomorphic
 function.  Then there exists a holomorphic $g \colon U \to \C$
 such that
@@ -7239,7 +7240,7 @@ e^{g(z)} = f(z) .
 \end{cor}
 
 In particular, using $f(z) = z$ we find that if
-$U \subset \C \setminus \{ 0 \}$ is open and simply connected, then
+$U \subset \C \setminus \{ 0 \}$ is a simply connected domain, then
 there exists a holomorphic $L \colon U \to \C$ such that
 \begin{equation*}
 e^{L(z)} = z .
@@ -7268,7 +7269,7 @@ e^{g(z) + C} = f(z) .
 If we have the logarithm, we can take roots.
 
 \begin{cor}
-Let $U \subset \C$ be open and simply connected,
+Let $U \subset \C$ be a simply connected domain,
 let $f \colon U \to \C$ be a nowhere zero holomorphic
 function, and let $k \in \N$.
 Then there exists a holomorphic $g \colon U \to \C$
@@ -9036,7 +9037,8 @@ the value of the function (its argument really) go around a circle, although
 we will simply apply the residue theorem.
 
 By \emph{\myindex{zeros counted with multiplicity}} we mean that for
-example $f(z) = z^2{(z-1)}^3$ has the zeros $0,0,1,1,1$.  Same with poles.
+example $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
+Same with poles.
 
 \begin{thm}[Argument principle]\index{argument principle}\label{thm:argprinc}
 Suppose $U \subset \C$ is open, and $\gamma$ is a closed piecewise $C^1$
@@ -9044,18 +9046,18 @@ path (or a cycle) in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C
 \setminus U$.
 Suppose $f \colon U \to \C_\infty$ is a meromorphic function with no zeros
 or poles on $\gamma$.
-Let $z_1,z_2,\ldots$ be the zeros of $f$ counted with multiplicity,
-and $p_1,p_2,\ldots$ be the poles of $f$ counted with multiplicity.
+Let $z_j$, $j \in J$, be the zeros of $f$ counted with multiplicity,
+and $p_j$, $j \in J$, be the poles of $f$ counted with multiplicity.
 Then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\gamma \frac{f'(z)}{f(z)} \, dz
 =
-\sum_{j} n(\gamma;z_j)
+\sum_{j \in J} n(\gamma;z_j)
 \quad
 -
 \quad
-\sum_{j} n(\gamma;p_j) .
+\sum_{j \in J} n(\gamma;p_j) .
 \end{equation*}
 
 Furthermore, if $h \colon U \to \C$ is holomorphic, then
@@ -9063,15 +9065,16 @@ Furthermore, if $h \colon U \to \C$ is holomorphic, then
 \frac{1}{2\pi i}
 \int_\gamma h(z) \frac{f'(z)}{f(z)} \, dz
 =
-\sum_{j} n(\gamma;z_j)h(z_j) 
+\sum_{j \in J} n(\gamma;z_j)h(z_j) 
 \quad
 -
 \quad
-\sum_{j} n(\gamma;p_j)h(p_j) .
+\sum_{j \in J} n(\gamma;p_j)h(p_j) .
 \end{equation*}
 \end{thm}
 
-The number of zeros or poles inside an open set is always countable, but
+The number of zeros or poles inside an open set is always countable (unless
+$f$ is identically zero in that open set), but
 in the theorem we could really assume there are only finitely many zeros and
 poles, as there are only finitely many zeros and poles for which 
 $n(\gamma;z) \not= 0$ (see exercise below).
@@ -9132,8 +9135,10 @@ The theorem follows.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is open, $\gamma$ is a cycle in $U$,
-and $f \colon U \to \C_\infty$ is meromorphic.
+Suppose $U \subset \C$ is open, $\gamma$ is a cycle in $U$
+such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$,
+and $f \colon U \to \C_\infty$ is meromorphic and
+has no zeros or poles on $\gamma$.
 Show that there are only finitely many zeros and poles of $f$
 such that $n(\gamma;z) \not= 0$.
 \end{exercise}
@@ -9190,9 +9195,9 @@ Z_g - P_g.
 \end{thm}
 
 The condition on $\gamma$ means that the
-path that is simple in the sense
+path (cycle) is simple in the sense
 that only goes around any particular point either once or not at all.
-We then want to count the number of zeros and poles inside the path.
+We then want to count the number of zeros and poles inside $\gamma$.
 
 Often the theorem is only applied for holomorphic functions, that is,
 functions without poles:
@@ -9556,7 +9561,7 @@ then $f$ is constant.
 \begin{exercise}
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
 Suppose $\abs{f''(z)} \leq M$ for all $z \in U$ for some $M > 0$.
-Suppose $f'(p) \not= 0$ and $r > 0$ is such that
+Suppose $p \in U$ where $f'(p) \not= 0$ and $r > 0$ is such that
 $\frac{M}{2}r < \abs{f'(p)}$ and $\overline{\Delta_r(p)} \subset U$.
 Let $\delta = \abs{f'(p)}r - \frac{M}{2} r^2
 = r\left(\abs{f'(p)} - \frac{M}{2} r\right) > 0$.  Prove that
@@ -9564,7 +9569,8 @@ $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl( \Delta_r(p) \bigr)$.
 \end{exercise}
 
 \begin{exercise}
-Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
+Let $U \subset \C$ be a nonempty bounded domain and
+let $f \colon U \to \C$ be holomorphic.
 Suppose that $f$ is nonconstant and for every $p \in \partial U$,
 \begin{equation*}
 \lim_{z \to p} \abs{f(z)}=1 .
@@ -9573,8 +9579,8 @@ Prove that $f(U) = \D$.
 \end{exercise}
 
 \begin{exercise}
-Let $f \colon \C \to \C$ be an entire holomorphic function such that
-$f$ is real-valued on the unit circle $\partial \D$.  Show that $f$ is
+Let $f \colon \C \to \C$ be an entire holomorphic function 
+that is real-valued on the unit circle $\partial \D$.  Show that $f$ is
 constant.  What if $\partial \D$ is replaced by the real line?
 \end{exercise}
 \end{exbox}
