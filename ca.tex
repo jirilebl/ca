@@ -5634,12 +5634,12 @@ If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
 Suppose $\sabs{f(z)}$ achieves a (local) maximum at $p \in U$.
 Without loss of generality suppose $p = 0$.
 By multiplying by some
-$e^{i\theta}$, also assume that $f(0)$ is positive and real.
+$e^{i\theta}$, also assume that $f(0)$ is nonnegative and real.
 We write\footnote{%
 Perhaps you're thinking to yourself: Of course we write that $\xi$ is
-positive by writing $\xi > 0$.  But we mean that ``$\xi > 0$''
-is a shortcut to ``$\xi \in \R$ and $\xi > 0$.''}
-that as $f(0) > 0$ (if $f(0) = 0$ then we are done).
+nonnegative by writing $\xi \geq 0$.  But we mean that ``$\xi \geq 0$''
+is a shortcut to ``$\xi \in \R$ and $\xi \geq 0$.''}
+that as $f(0) \geq 0$.
 
 Let $\gamma_r$ be a small circle of radius $r$ traversed counterclockwise
 centered at $0$.  As $0$ is a local maximum, suppose that $r$ is small enough
@@ -5809,7 +5809,7 @@ For a set $K$, denote the \emph{\myindex{supremum norm}}:
 \begin{thm}[Cauchy estimates]\index{Cauchy estimates}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
 holomorphic, and $\overline{\Delta_r(p)} \subset U$
-a disc.  Expand $f(z) = \sum c_n {(z-p)}^n$.
+a closed disc.  Expand $f(z) = \sum c_n {(z-p)}^n$.
 Then for all $n$,
 \begin{equation*}
 \sabs{c_n} =
@@ -6148,8 +6148,8 @@ given by $u(z) = \bar{z}$.  Then note that $Cu$ does not tend to $u$
 as $z$ goes to $\partial \D$.
 Hint: $\bar{\zeta} = \frac{1}{\zeta}$ for
 $\zeta \in \partial \D$
-and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$,
-see also \exerciseref{exercise:cauchycont}.
+and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$.
+%see also \exerciseref{exercise:cauchycont}.
 \end{exercise}
 
 \begin{exercise}
