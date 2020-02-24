@@ -3730,8 +3730,17 @@ has a limit point in $U$, then $f$ is identically zero.
 In other words, all points of $Z_f$ are isolated unless $f \equiv 0$.
 \end{thm}
 
-A common application of this theorem is the following weaker statement: ``If $Z_f$
-contains an open subset, then $f \equiv 0$.''
+\begin{defn}
+The points in the set $Z_f$ are called the \emph{zeros}\index{zero} of $f$.
+\end{defn}
+
+The first common application of this theorem is that the zeros of
+nonconstant functions are isolated.  That is, if $f(p)=0$, but $f$ is not
+identically zero, then there is a disc $\Delta_r(p)$ such that $f(z) \not=
+0$ for all $z \in \Delta_r(p) \setminus \{ 0 \}$.
+
+Another common application of the theorem is the following weaker statement:
+``If the function is zero on a nonempty open subset, then $f \equiv 0$.''
 
 \begin{proof}
 Suppose $f$ is not identically zero.
@@ -8172,17 +8181,13 @@ all $k=0,1,2,\ldots$.  That is, the origin is a zero of infinite order.
 Suppose $U \subset \C$ is open and $p \in U$.
 A holomorphic function $f \colon U \setminus \{ p \} \to \C$ is said to have
 an \emph{\myindex{isolated singularity}} at $p$.
-
 An isolated singularity is \emph{removable}\index{removable singularity}
-if 
-there exists a holomorphic $F \colon U \to \C$
+if there exists a holomorphic $F \colon U \to \C$
 such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
-
 An isolated singularity $p$ is a \emph{\myindex{pole}} if 
 \begin{equation*}
 \lim_{z \to p} f(z) = \infty.
 \end{equation*}
-
 An isolated singularity that is neither removable nor a pole is said to be
 \emph{essential}\index{essential singularity}.
 \end{defn}
