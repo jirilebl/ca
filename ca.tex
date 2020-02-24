@@ -5931,49 +5931,12 @@ If $P(z)$ is a nonconstant polynomial, then $P$ has a root.
 \begin{proof}
 If $P(z)$ does not have a root, then $R(z) = \frac{1}{P(z)}$ is
 an entire holomorphic function.
-In \exerciseref{exercise:polygoesinf} you proved that
+If $P(z)$ is constant, $R(z)$ is bounded.
+If $P(z)$ is nonconstant, then
+in \exerciseref{exercise:polygoesinf} you proved that
 $\lim_{z \to \infty} P(z) = \infty$ and so
-$\lim_{z \to \infty} R(z) = 0$.  In other words, $R(z)$ is bounded, but then
-it would be constant, so $P(z)$ is constant.
-%
-%Without loss of generality we can assume that $P$ is monic, that is,
-%the leading coefficient is $1$.  So
-%Let $P(z) = z^d + c_{d-1} z^{d-1} + \cdots c_1 z + c_0$.
-%Then as long as $\sabs{z} \geq 1$,
-%\begin{equation*}
-%\begin{split}
-%\abs{\frac{c_{d-1} z^{d-1} + \cdots + b_1 z + b_0}{z^d}}
-%& \leq
-%\frac{\sabs{c_{d-1}} \sabs{z}^{d-1} + \cdots + \sabs{c_1} \sabs{z} + \sabs{c_0}}{\sabs{z}^d}
-%\\
-%& \leq
-%\frac{\sabs{c_{d-1}} \sabs{z}^{d-1} + \cdots + \sabs{c_1} \sabs{z}^{d-1} +
-%\sabs{c_0}\sabs{z}^{d-1}}{\sabs{z}^d}
-%\\
-%& =
-%\frac{\sabs{c_{d-1}} + \cdots + \sabs{c_1} + \sabs{c_0}}{\sabs{z}} .
-%\end{split}
-%\end{equation*}
-%In other words, for large enough $z$ we have
-%\begin{equation*}
-%\abs{c_{d-1} z^{d-1} + \cdots + b_1 z + b_0} \leq \frac{1}{2} \sabs{z^d}
-%=\frac{1}{2} \sabs{z}^d .
-%\end{equation*}
-%And so as 
-%\begin{equation*}
-%\sabs{P(z)} = 
-%\abs{z^d + c_{d-1} z^{d-1} + \cdots + b_1 z + b_0} 
-%\geq
-%\abs{z^d} - \abs{c_{d-1} z^{d-1} + \cdots + b_1 z + b_0} 
-%\geq \frac{1}{2} \sabs{z}^d .
-%\end{equation*}
-%We have $\sabs{P(z)}
-%
-%Therefore
-%\begin{equation*}
-%\lim_{n\to\infty} \frac{b_{d-1} n^{d-1} + \cdots + b_1 n + b_0}{n^d}
-%= 0 .
-%\end{equation*}
+$\lim_{z \to \infty} R(z) = 0$.  In other words, $R(z)$ is bounded.
+Liouville says that $R(z)$ and therefore $P(z)$ must be constant.
 \end{proof}
 
 \begin{exbox}
@@ -7841,8 +7804,8 @@ Show that to prove Green's it would be sufficient to prove
 \end{exercise}
 \end{exbox}
 
-Note that we have Cauchy's theorem as an immediate corollary.  Simply let
-$G=0$ and $F$ be holomorphic and apply the Wirtinger version of the formula.
+Cauchy's theorem is an immediate corollary of Green's theorem: Simply let
+$G=0$, $F$ be holomorphic, and apply the Wirtinger version of the formula.
 
 \begin{cor}\label{thm:cauchybygreen}
 Let $\Gamma$ be a cycle
