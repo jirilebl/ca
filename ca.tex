@@ -5504,11 +5504,9 @@ which can be done by
 the Leibniz integral rule, \thmref{thm:Leibnizrule}, for example.
 Actually it requires the simple generalization \exerciseref{exercise:severalvariableLiebniz}.
 We have used that the
-$x$ and $y$ derivatives of 
+$x$ and $y$ partial derivatives of 
 $\frac{f(\zeta)}{(\zeta-z)^{k+2}}$ are continuous
-(as functions of both $\zeta$ and $z$), as long as $z = x+iy$
-is kept to
-inside of $\Delta_r(p)$.
+functions of $(z,\zeta) \in \Delta_r(p) \times \partial \Delta_r(p)$.
 \end{proof}
 
 We could have also used the difference quotient instead of the
@@ -5538,7 +5536,7 @@ $\frac{\partial f}{\partial z}$ is a continuous function of $U \times
 (a,b)$.  In particular,
 $\frac{\partial f}{\partial x}$
 and
-$\frac{\partial f}{\partial y}$ are continuous as well (where $z=x+iy$).
+$\frac{\partial f}{\partial y}$ are continuous (where $z=x+iy$).
 \end{exercise}
 
 \begin{exercise}
@@ -12014,9 +12012,10 @@ as
 0 = \int_{\partial T_\epsilon} F(z) \, dz =
 \int_{\partial T} F(z+\epsilon) \, dz .
 \end{equation*}
-Using continuity of $F$ we can
-take a limit as $\epsilon \to 0$, to find that the integral over $\partial T$
-is also zero.  Morera then implies that $F$ is holomorphic.
+The function $F$ is uniformly continuous on some neighborhood of $T$,
+thus $F(z+\epsilon)$ converges uniformly to $F(z)$ as $\epsilon \to 0$.
+Thus $\int_{\partial T} F(z) \, dz = 0$.
+Morera then implies that $F$ is holomorphic.
 \end{proof}
 
 FIXME
