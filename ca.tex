@@ -6963,8 +6963,6 @@ $n(\Gamma;z) = 0$.
 
 \section{Homology versions of Cauchy}
 
-%\subsection{Cauchy theorems}
-
 \begin{thm}[Cauchy integral formula (homology version)]
 \index{Cauchy integral formula!homology}
 \label{thm:CIFhomology}
@@ -6984,6 +6982,9 @@ d \zeta .
 \end{equation*}
 \end{thm}
 
+The condition that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$ is
+sometimes referred to as $\gamma$ being \emph{\myindex{homologous to zero}}
+in $U$.
 Before we prove the theorem let us remark
 that in the proof, rather strangely, we will define an entire
 function (even though $U$ may be small) and then we will use
@@ -7172,8 +7173,8 @@ Prove that any star-like domain is simply connected.
 \end{exercise}
 \end{exbox}
 
-A special case of the homology version of Cauchy,
-\thmref{thm:CThomology}, can be stated as follows.
+A special (but common) case of the homology version of Cauchy,
+\thmref{thm:CThomology}, can be stated as the simply connected case of Cauchy.
 
 \begin{thm}[Cauchy's theorem (simply connected version)]
 \index{Cauchy's theorem!simply connected}%
@@ -7186,9 +7187,11 @@ piecewise $C^1$ path (or a cycle) in $U$, then
 \end{equation*}
 \end{thm}
 
-The proof is trivial since for a simply connected $U$, $n(\gamma;p) = 0$
-for every $\gamma$.  Now having Cauchy's theorem in simply connected
-domains, we have primitives (antiderivatives).
+The proof is trivial since if $U$ is simply connected, then
+$n(\gamma;p) = 0$ for every closed $\gamma$ in $U$.
+Having Cauchy's theorem in simply connected
+domains, we have primitives (antiderivatives) in simply connected
+domains.
 
 \begin{thm}
 Let $U \subset \C$ be a simply connected domain and
@@ -7204,7 +7207,7 @@ and define
 F(z) = \int_\gamma f(\xi) \, d\xi .
 \end{equation*}
 A priory, the function $F$ depends on $\gamma$, but Cauchy's
-theorem says that if $\alpha$ is another such path then
+theorem says that if $\alpha$ is another path from $p$ to $z$,then
 \begin{equation*}
 \int_\gamma f(\xi) \, d\xi -
 \int_\alpha f(\xi) \, d\xi 
@@ -7303,7 +7306,7 @@ versions of simply connectedness for domains.
 Let $U \subset \C$ be a domain.  The following are equivalent:
 \begin{enumerate}[(i)]
 \item \label{thm:simplyconnected:i}
-$U$ is simply connected.
+$U$ is simply connected (in the homology sense).
 \item \label{thm:simplyconnected:ii}
 Every holomorphic $f \colon U \to \C$ has a primitive.
 \item \label{thm:simplyconnected:iii}
@@ -7715,6 +7718,13 @@ for all $s$ and $t$
 \end{equation*}
 \end{defn}
 
+\begin{exbox}
+\begin{exercise}
+Show that homotopy is an equivalence relation on continuous functions
+$\gamma \colon [a,b] \to \C$ with $\gamma(a)=\gamma(b)$.
+\end{exercise}
+\end{exbox}
+
 \begin{example} \label{example:homotopydiscsc}
 Let $\gamma \colon [a,b] \to \D$ be a continuous function.  Define
 $\Gamma \colon [a,b] \times [0,1] \to \D$ by
@@ -7889,10 +7899,8 @@ We can now tell how does $n(\gamma;p)$ change (or not) by a homotopy.
 Suppose $U \subset \C$ is open and suppose $\gamma_0$ and $\gamma_1$ are closed
 piecewise $C^1$ paths in $U$ that are homotopic in $U$.  Then
 \begin{equation*}
-n(\gamma_0;p) = n(\gamma_1;p)
-\avoidbreak
+n(\gamma_0;p) = n(\gamma_1;p) \qquad \text{for all } p \in \C \setminus U .
 \end{equation*}
-for all $p \in \C \setminus U$.
 \end{prop}
 
 \begin{proof}
@@ -7959,6 +7967,21 @@ Show that there exists a homotopy (possibly different one) such that
 each $\gamma_s(t) = \Gamma(t,s)$ is a closed piecewise $C^1$ path.
 Hint: See previous exercise.
 \end{exercise}
+
+\begin{exercise}
+Let $\gamma$ be a closed piecewise $C^1$ path in $\C \setminus \{ 0 \}$.
+\begin{exparts}
+\item
+Show that $\gamma$ is homotopic in $\C \setminus \{ 0 \}$ to a
+a piecewise $C^1$ path whose image is in $\partial \D$.
+Note that the tricky bit is to make sure that the derivative is never zero.
+\item
+Now show that any $\gamma$ is in fact homotopic to a path
+$\alpha \colon [0,2\pi] \to \C$ given by $\alpha(t) = e^{int}$ for some
+$n \in \Z$.
+\end{exparts}
+\end{exercise}
+
 \end{exbox}
 
 \subsection{The real definition of simply connected}
@@ -8019,8 +8042,6 @@ and $\gamma$ is a piecewise $C^1$ path in $U$.  Then
 \end{equation*}
 \end{thm}
 
-FIXME
-
 \begin{exbox}
 \begin{exercise}
 Prove that a star-like domain is simply connected in the sense of homotopy.
@@ -8035,9 +8056,7 @@ and only if $V$ is simply connected in the sense of homotopy.
 \end{exercise}
 \end{exbox}
 
-\subsection{Fixed endpoint homotopy}
-
-FIXME
+%FIXME: Fixed endpoint homotopy?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
