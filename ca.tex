@@ -2341,7 +2341,7 @@ Analytic?}  The American Mathematical Monthly, Vol.\ 85, No.\ 4 (Apr.,
 as the following exercise shows.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise} \label{exercise:nonholCRsol}
 Let $f(0) = 0$ and $f(z) = e^{-z^{-4}}$ for $z \not=0$.  Prove that partial
 derivatives exist at every point (including the origin) and $f$
 satisfies the Cauchy--Riemann equations at every point.
@@ -2644,7 +2644,7 @@ $\bar{z}$.
 \begin{exercise}
 A function satisfying $\frac{\partial f}{\partial z} = 0$ is called
 \emph{\myindex{antiholomorphic}}.
-Suppose $U \subset \C$ is a domain and $f \colon U \to \C$.
+Suppose $U \subset \C$ is open and $f \colon U \to \C$.
 Prove that if the following
 limit exists
 \begin{equation*}
@@ -2657,6 +2657,25 @@ for all $z \in U$ (note the bar on the $h$), then $f$ is real differentiable, an
 \frac{\partial f}{\partial z} \equiv 0, \qquad \text{and} \qquad
 \frac{\partial f}{\partial \bar{z}}\Big|_{z} = g(z).
 \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+Suppose $U \subset \C$ is open and $f \colon U \to \C$
+is holomorphic.  Show that if $\frac{\partial f}{\partial z}$ is
+continuous, then $\frac{\partial f}{\partial x}$ and
+$\frac{\partial f}{\partial y}$ are continuous.
+\item
+Find an example of a function $f \colon \C \to \C$ for which 
+$\frac{\partial f}{\partial x}$ and 
+$\frac{\partial f}{\partial y}$ exist at all points,
+$\frac{\partial f}{\partial z}$ is continuous, but
+$\frac{\partial f}{\partial x}$ and
+$\frac{\partial f}{\partial y}$ are discontinuous.
+Hint: Consider the conjugate of the function from
+\exerciseref{exercise:nonholCRsol}.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -2674,12 +2693,12 @@ is called a
 \emph{\myindex{biholomorphism}}.
 If there exists a biholomorphism $f \colon U \to V$, we say that
 $U$ and $V$ are \emph{\myindex{biholomorphic}}.
-
 Traditionally,
 a biholomorphism
 $f \colon U \to V$ is also called a \emph{\myindex{conformal mapping}} and
-then $U$ and $V$ are said to be \emph{\myindex{conformally equivalent}}.
-
+then $U$ and $V$ are said to be
+\emph{\myindex{conformally equivalent}}.\footnote{In one complex variable only!
+In higher dimensions the definitions differ.}
 If $U = V$, then a biholomorphism $f$ is called an
 \emph{\myindex{automorphism}}\footnote{%
 The word automorphism is used in other contexts as well, it always means
@@ -2896,16 +2915,16 @@ is a real differentiable bijective mapping $f \colon U \to V$ for open
 $U, V \subset \R^2$ that preserves
 a)~orientation, and b)~angles.
 Both of these are taken in the infinitesimal sense, that is, they are
-statements about $Df$.  If we have two continuously differentiable curves
+statements about $Df$.  Consider two continuously differentiable curves
 $\gamma \colon (-\epsilon,\epsilon) \to \R^2$ and
 $\alpha \colon (-\epsilon,\epsilon) \to \R^2$, such that
-$\gamma(0)=\alpha(0) = p \in \R^2$, then by preserving angles we
+$\gamma(0)=\alpha(0) = p \in \R^2$.  By preserving angles, we
 mean that the curves $f \circ \gamma$ and $f \circ \alpha$ meet at the same
 angle at $f(p)$, see \figureref{fig:conform}.  In other words,
 \begin{equation*}
 \text{angle between } Df|_p \gamma'(0) \text{ and }
 Df|_p \alpha'(0)
-\qquad = \qquad
+\quad = \quad
 \text{angle between } \gamma'(0) \text{ and } \alpha'(0) .
 \end{equation*}
 Hence, we are really dealing with linear algebra.
@@ -2917,10 +2936,9 @@ ending at the other vector, as we are preserving orientation.
 \caption{Preserving angles (and orientation).\label{fig:conform}}
 \end{myfig}
 
-By preserving angles we clearly mean that no vector can be taken to zero
-as that does not make any well defined angle with anything else.  That
-means among other things
-that $Df$ must be automatically invertible at every point for a conformal map.
+By preserving angles also mean that no vector can be taken to zero,
+as zero does not make any well-defined angle with anything else.
+Thus $Df$ must be invertible at every point for a conformal map.
 
 
 \begin{prop}
@@ -2931,16 +2949,16 @@ complex number.
 \end{prop}
 
 \begin{proof}
-Let us suppose that $M$ preserve orientation and angles.
+Suppose that $M$ preserves orientation and angles.
 As we said $M$ must be nonsingular.
 Let $M =
 \left[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right]$.
 If it preserves angles then this means that given any two vectors $v$ and
 $w$ in $\R^2$, then the angle between $Mv$ and $Mw$ is the same as the angle
-between $v$ and $w$.  For example take the vectors
+between $v$ and $w$.  For example, take the vectors
 $v=\left[\begin{smallmatrix}1\\0\end{smallmatrix}\right]$ and
 $w=\left[\begin{smallmatrix}0\\1\end{smallmatrix}\right]$.  These are
-orthogonal and so we have that $Mv$ and $Mw$ are orthogonal:
+orthogonal and so $Mv$ and $Mw$ are orthogonal:
 \begin{equation*}
 0 = Mv \cdot Mw = 
 \begin{bmatrix} a\\b \end{bmatrix}
@@ -2949,7 +2967,7 @@ orthogonal and so we have that $Mv$ and $Mw$ are orthogonal:
 =
 ac+bd .
 \end{equation*}
-As $M$ is nonsingular then either $a$ or $b$ is nonzero.  In either case 
+As $M$ is nonsingular, then either $a$ or $b$ is nonzero.  In either case,
 there must exist some nonzero $r \in \R$ such that
 \begin{equation*}
 M =
@@ -2972,11 +2990,11 @@ a & -c \\
 c &  a
 \end{bmatrix} .
 \end{equation*}
-In other words $M$ corresponds to multiplication by the complex number
+In other words, $M$ corresponds to multiplication by the complex number
 $a+ic$.
 
-For the converse, we may assume that $M$ is multiplication by the
-nonzero complex number $\xi$.
+For the converse, assume $M$ is multiplication by the
+nonzero complex number~$\xi$.
 If $z = \sabs{z} e^{i\theta}$ and $w = \sabs{w} e^{i\psi}$ are two nonzero
 complex numbers, then the angle between them, $\theta-\psi$, can be
 computed using
@@ -2985,7 +3003,7 @@ e^{i(\theta-\psi)}
 =
 \frac{z\bar{w}}{\sabs{z}\sabs{w}} .
 \end{equation*}
-So the angle between 
+Similarly the angle between 
 $\xi z$ and $\xi w$ can be computed using
 \begin{equation*}
 \frac{\Re \xi z\overline{\xi w}}{\sabs{\xi z}\sabs{\xi w}} 
@@ -2995,7 +3013,7 @@ $\xi z$ and $\xi w$ can be computed using
 \frac{\Re z\overline{w}}{\sabs{z}\sabs{w}} e^{i(\theta-\psi)}.
 \end{equation*}
 So the angle is the same.  We have already seen that $\det M =
-\sabs{\xi}^2$ so $M$ preserves orientation.
+\sabs{\xi}^2 > 0$, so $M$ preserves orientation.
 \end{proof}
 
 Applying the proposition to $Df$ we find:
@@ -3230,9 +3248,9 @@ bounded whenever $0 < r < R$.
 The series $\sum c_n {(z-p)}^n$ converges in $\Delta_{R}(p)$ for some
 $R > 0$ if and only if
 for every $r$ with
-$0 < r < R$ there exists an $M > 0$ such that for all $n$,
+$0 < r < R$ there exists an $M > 0$ such that
 \begin{equation*}
-\sabs{c_n} \leq \frac{M}{r^n} .
+\sabs{c_n} \leq \frac{M}{r^n} \qquad \text{for all } n .
 \end{equation*}
 \end{prop}
 
@@ -3688,7 +3706,8 @@ we conclude $C=1$.
 \begin{exbox}
 \begin{exercise}
 Prove that the series for the exponential above converges by computing
-the radius of convergence.
+the radius of convergence directly
+(e.g. show that the series converges for every $z \in \C$).
 \end{exercise}
 
 \begin{exercise}
@@ -3891,14 +3910,15 @@ this will make no difference on the calculations.
 Do note also that we are saying that paths are continuous.  We will allow
 discontinuities just a little later with ``chains.''
 
-When we say that $\gamma$ is a path in $U \subset \C$, we mean that
+When we say that $\gamma$ is a path in $U \subset \C$\index{path in $U$},
+we mean that
 $\gamma \colon [a,b] \to U$ is a path.  Another common abuse of language we
 will freely and shamelessly commit is that if we refer to $\gamma$
 as if it were a set we mean the image $\gamma\bigl([a,b]\bigr)$.
 Nowhere will we really use or need that $\gamma'$ is never zero,
 but leaving that off would allow some paths that one would generally not
-call piecewise $C^1$,
-As you will see in the exercises.
+wish to call piecewise $C^1$,
+as you will see in the exercises.
 
 \begin{example}
 The path $\gamma \colon [0,4] \to \C$, given by
@@ -4227,6 +4247,29 @@ M
 \end{equation*}
 \end{proof}
 
+Arclength is not preserved under uniform convergence of the paths.
+In other words, just because the images of two paths are very close to each
+other, does not mean that the integrals over them will be the same.
+So one has to be careful when saying that two paths are close to each other.  You
+would need that the derivatives are close as well.
+
+\begin{exbox}
+\begin{exercise}
+\begin{exparts}
+\item
+Find a sequence of piecewise $C^1$ paths $\gamma_n \colon [0,1] \to \C$
+that uniformly converge to a constant function (one could say a path of
+length zero), but such that $\int_{\gamma_n} \sabs{dz} \geq n$.
+\item
+Suppose a sequence of $C^1$ paths $\gamma_n \colon [0,1] \to \C$
+converges uniformly to a $C^1$ path $\gamma \colon [0,1] \to \C$
+such that $\gamma_n'$ converges uniformly to $\gamma'$, then
+$\int_{\gamma_n} \sabs{dz} \to
+\int_{\gamma} \sabs{dz}$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
 \subsection{Chains}
 
 It is useful to combine paths; to have a certain ``arithmetic'' of paths.
@@ -4316,6 +4359,13 @@ for all $f$ continuous on the image of $\gamma$ we have
 \begin{equation*}
 \int_{\gamma} f(z)\,dz = \int_{\gamma_1 + \gamma_2} f(z) \, dz .
 \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Let $\partial \D$ denote the counterclockwise path around the unit disc.
+Show that for any integer $n$, the chain $n \partial \D$ is equivalent to
+the path $\gamma \colon [0,2\pi] \to \C$ given by $\gamma(t) = e^{int}$,
+the path that goes $n$ times around the unit disc counterclockwise.
 \end{exercise}
 
 \begin{exercise} \label{exercise:nonconstantnonzerochain}
@@ -5536,7 +5586,7 @@ Suppose $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$,
 where $U \subset \C$ is open, and for any fixed $t \in (a,b)$, the function
 $z \mapsto f(z,t)$ is holomorphic.  Prove that
 $\frac{\partial f}{\partial z}$ is a continuous function of $U \times
-(a,b)$.  In particular,
+(a,b)$.  Then show that this means that
 $\frac{\partial f}{\partial x}$
 and
 $\frac{\partial f}{\partial y}$ are continuous (where $z=x+iy$).
@@ -6114,6 +6164,19 @@ a holomorphic function to begin with.  That is, $Cu$ might have limits at
 the boundary of the disc, but they need not be equal to what $u$ is.
 
 \begin{exbox}
+\begin{exercise}[Easy]
+Prove a converse to the Cauchy formula.  Suppose $f \colon \overline{\D} \to
+\C$ is continuous and
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i}
+\int_{\partial \D} \frac{f(\zeta)}{\zeta-z} \, d\zeta
+\qquad \text{for all } z \in \D.
+\avoidbreak
+\end{equation*}
+Then $f|_{\D}$ is holomorphic.
+\end{exercise}
+
 \begin{exercise}
 Compute explicitly
 the Cauchy transform $Cu$ on $\D$ for $u \colon \partial \D \to \C$
@@ -6333,6 +6396,21 @@ polynomials $P(z)$.  Prove why such a theorem cannot be proved
 on a closed curve such as the unit circle $\partial \D$.  That is,
 find a continuous function $f \colon \partial \D \to \C$ that is
 not the uniform limit of a sequence polynomials $P_n(z)$ on $\partial \D$.
+\end{exercise}
+
+\begin{exercise}
+\pagebreak[2]
+\begin{exparts}
+\item
+Show that for every holomorphic function $f \colon \D \to \C$ there
+is a sequence of polynomials $P_n(z)$ that converges uniformly on compact
+subsets of $\D$ to $f$.
+\item
+Show that for every holomorphic function $f \colon \bH \to \C$
+($\bH$ is the upper half-plane) there
+is a sequence of polynomials $P_n(z)$ that converges uniformly on compact
+subsets of $\bH$ to $f$.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -7974,7 +8052,7 @@ Let $\gamma$ be a closed piecewise $C^1$ path in $\C \setminus \{ 0 \}$.
 \item
 Show that $\gamma$ is homotopic in $\C \setminus \{ 0 \}$ to a
 a piecewise $C^1$ path whose image is in $\partial \D$.
-Note that the tricky bit is to make sure that the derivative is never zero.
+The tricky bit is to make sure that the derivative is never zero.
 \item
 Now show that any $\gamma$ is in fact homotopic to a path
 $\alpha \colon [0,2\pi] \to \C$ given by $\alpha(t) = e^{int}$ for some
