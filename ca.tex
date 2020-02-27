@@ -2827,7 +2827,7 @@ function theorem to show that the inverse is holomorphic.
 \item
 Find a biholomorphism from the horizontal strip
 $S = \{ z \in \C : 0 < \Im z < \pi \}$ to
-the upper half plane $\bH = \{ z \in \C : \Im z > 0 \}$.
+the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$.
 \item
 Find a biholomorphism from the horizontal strip
 $S$ to the unit disc $\D$.
@@ -4764,7 +4764,7 @@ there exists a nonzero $w$ such that for all $z \in X$ we have
 \begin{equation*}
 \Re z\bar{w} \geq \Re \xi\bar{w} .
 \end{equation*}
-In other words, $X$ is in the closed half-space
+In other words, $X$ is in the closed half-plane
 bounded by a straight line containing $\xi$ and
 orthogonal to $w$.
 Notice that $\Re z\bar{w}$ is the standard dot product from
@@ -4773,7 +4773,7 @@ vector calculus in $\R^2$.
 
 \begin{exercise}
 Let $X \subset \C$ be a closed convex set and $\xi \in \partial X$.
-Prove that $X$ is an intersection of closed half-spaces (see previous
+Prove that $X$ is an intersection of closed half-plane (see previous
 exercise).
 \end{exercise}
 
@@ -7128,11 +7128,11 @@ $n(\gamma_0 - \gamma_1;p) = 0$ for all $p \in \C \setminus U$.
 
 \begin{exbox}
 \begin{exercise}
-Show that being homologous is an equivalence relation.
+Show that being homologous is an equivalence relation on cycles.
 \end{exercise}
 \end{exbox}
 
-\begin{cor}
+\begin{cor} \label{cor:homologoussameint}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
 If two closed piecewise $C^1$ maps (or cycles) $\gamma_0$ and $\gamma_1$ in $U$
 are homologous in $U$, then
@@ -7152,7 +7152,8 @@ The proof is immediate by applying Cauchy's theorem to $\gamma_0-\gamma_1$.
 A simply connected domain is one without any holes.  The following is
 perhaps not the standard definition, but for domains (connected open sets)
 it is sufficient.  We will define the term ``properly'' once we get 
-to homotopy.
+to homotopy.  We sometimes say this is ``simply connected in the sense of
+homology,'' but in this book, a simply connected domain is this definition.
 
 \begin{defn} \label{defn:simplyconnected:homology}
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
@@ -7167,7 +7168,7 @@ is not simply connected.
 \end{exercise}
 
 \begin{exercise}
-Prove that any star-shaped domain is simply connected.
+Prove that any star-like domain is simply connected.
 \end{exercise}
 \end{exbox}
 
@@ -7714,6 +7715,16 @@ for all $s$ and $t$
 \end{equation*}
 \end{defn}
 
+\begin{example} \label{example:homotopydiscsc}
+Let $\gamma \colon [a,b] \to \D$ be a continuous function.  Define
+$\Gamma \colon [a,b] \times [0,1] \to \D$ by
+\begin{equation*}
+\Gamma(t,s) = (1-s) \gamma(t) .
+\end{equation*}
+This is clearly a homotopy in $U$, $\Gamma(t,0) = \gamma(t)$
+and $\Gamma(t,1) = 0$, so $\gamma$ is homotopic to the zero function.
+\end{example}
+
 What we want to do is to prove that if $\gamma_0$ is homotopic to $\gamma_1$
 in $U$ and $f \colon U \to \C$ is holomorphic, then
 $\int_{\gamma_0} f(z)\,dz = \int_{\gamma_1} f(z)\, dz$.
@@ -7861,9 +7872,9 @@ $\widetilde{\theta}_0 = \Im L_1\bigl(\gamma(a)\bigr)$.
 
 So
 \begin{equation*}
-\abs{\theta(t) - \widetilde{\theta}(t)}
+\babs{\theta(t) - \widetilde{\theta}(t)}
 \leq
-\abs{
+\babs{
 L_j\bigl(\gamma(t)\bigr)
 -
 L_j\bigl(\widetilde{\gamma}(t)\bigr)
@@ -7874,7 +7885,7 @@ L_j\bigl(\widetilde{\gamma}(t)\bigr)
 
 We can now tell how does $n(\gamma;p)$ change (or not) by a homotopy.
 
-\begin{prop}
+\begin{prop} \label{prop:homotopicmeanshomologous}
 Suppose $U \subset \C$ is open and suppose $\gamma_0$ and $\gamma_1$ are closed
 piecewise $C^1$ paths in $U$ that are homotopic in $U$.  Then
 \begin{equation*}
@@ -7892,9 +7903,20 @@ be constant.
 \end{proof}
 
 In particular we've prove that $\gamma_0$ and $\gamma_1$ are homologous if
-they are homotopic.  The converse is not true, though perhaps that is not
-that important to us.  The following corollary is an immediate consequence
-of FIXME and FIXME.
+they are homotopic.  The converse is not true.  Let us just mention that 
+the path in \figureref{fig:homologousnothomotopic} 
+is not homotopic to a constant but it is homologous to the zero chain.
+
+\begin{myfig}
+\subimport*{figures/}{homologousnothomotopic.pdf_t}
+\caption{A path that is homologous to the zero chain in $\C \setminus \{
+-1,1\}$ but not homotopic to a constant in
+$\C \setminus \{ -1,1 \}$.\label{fig:homologousnothomotopic}}
+\end{myfig}
+
+The following corollary is an immediate consequence
+of \corref{cor:homologoussameint} and
+\propref{prop:homotopicmeanshomologous}.
 
 \begin{cor}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
@@ -7941,33 +7963,47 @@ Hint: See previous exercise.
 
 \subsection{The real definition of simply connected}
 
-Let us give the real definition of simply connected.  For domains in $\C$ it
+Let us give the real definition of simply connected.
+For domains in $\C$ it
 turns out that both definitions we give are equivalent.
+We will prove one direction of this equivalence in this section,
+and we will wait with the other direction until we prove the Riemann
+mapping theorem in \sectionref{sec:RMT},
+because that theorem makes the other direction trivial, see
+\corref{cor:simplyconnhard}.
 
 \begin{defn}
-A domain $U \subset \C$ is \emph{\myindex{simply connected}}
+A domain $U \subset \C$ is
+\emph{\myindex{simply connected in the sense of homotopy}}
 if every continuous $\gamma \colon [a,b] \to U$ such that $\gamma(a) =
 \gamma(b)$ is homotopic to a constant function.
 \end{defn}
 
-FIXME:
+Without further ado, here is the simple direction of the equivalence.
 
-
-\begin{prop}
-A domain $U \subset \C$ is simply connected (in the sense of this section)
-if and only if it is simply connected
-(in the sense of \defnref{defn:simplyconnected:homology}).
+\begin{prop} \label{prop:simplyconneasy}
+If a domain $U \subset \C$ is simply connected in the sense of homotopy,
+then it is simply connected in the sense
+of \defnref{defn:simplyconnected:homology}.
 \end{prop}
 
 \begin{proof}
-We know (FIXME) that $U$ is simply connected in the sense of homology if
-$n(\gamma;p) = 0$ for all closed piecewise $C^1$ paths and $p \in \C
-\setminus U$.
-
-FIXME
+Let $\gamma$ be a closed piecewise $C^1$ path.  We need to show
+that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
+We know that $\gamma$ is homotopic to a constant $C \in U$, and it is
+trivial to see that $n(C;p) = 0$ (the $\theta$
+is a constant, also notice that $p \not= C$).
+Thus $n(\gamma;p) = 0$.
 \end{proof}
 
-FIXME
+\begin{example}
+In lieu of a proof of the other direction, let us simply note that
+$\C$, $\D$, or the upper half-plane $\bH$ are simply connected in the 
+sense of homotopy.  For $\C$ and $\D$ we employ the homotopy of
+example \exampleref{example:homotopydiscsc}.  For the half-plane,
+we modify the homotopy of to $\Gamma(t,s) = (1-s)\gamma(t) + si$ to
+get $\gamma$ homotopic to the constant $i$.
+\end{example}
 
 So the simply connected version of Cauchy's theorem holds in the same
 sense if we define simple connectedness in terms of homotopy.  For
@@ -7984,6 +8020,20 @@ and $\gamma$ is a piecewise $C^1$ path in $U$.  Then
 \end{thm}
 
 FIXME
+
+\begin{exbox}
+\begin{exercise}
+Prove that a star-like domain is simply connected in the sense of homotopy.
+\end{exercise}
+
+\begin{exercise}
+Let $U,V \subset \C$ be domains such 
+there exists a homeomorphism
+$f \colon U \to V$, that is, $f$ is bijective, and $f$ and $f^{-1}$ are
+continuous.  Prove that $U$ is simply connected in the sense of homotopy if
+and only if $V$ is simply connected in the sense of homotopy.
+\end{exercise}
+\end{exbox}
 
 \subsection{Fixed endpoint homotopy}
 
@@ -10541,6 +10591,8 @@ Prove that necessarily $F(p) = 0$.
 \section{Riemann mapping theorem}
 \label{sec:RMT}
 
+\section{The theorem}
+
 Every simply connected domain of $\C$ (except $\C$ itself) is really
 equivalent (biholomorphically, conformally) to $\D$.
 This is the content of the so-called Riemann mapping theorem.
@@ -10702,6 +10754,54 @@ Show that the annuli $\ann(0;0,1) = \D \setminus \{ 0 \}$
 and $\ann(0;1,2)$ are not biholomorphic.
 \end{exercise}
 \end{exbox}
+
+\subsection{Application: simply connected is simply connected}
+
+Let us finally prove that simply connected (in the sense of homology,
+\defnref{defn:simplyconnected:homology} that we have been using all this
+time), is equivalent to simply connected in the sense of homotopy.
+The proof of this corollary is a wonderful example of something that would
+be quite difficult without the Riemann mapping theorem, and it is almost
+trivial with the mapping theorem.
+
+\begin{cor} \label{cor:simplyconnhard}
+A domain $U \subset \C$ is simply connected in the sense of homotopy
+if and only if
+it is simply connected in the sense of \defnref{defn:simplyconnected:homology}.
+\end{cor}
+
+The key idea is that any path is trivially homotopic to the zero path in the
+disc just by scaling.  See also \exampleref{example:homotopydiscsc}.
+
+\begin{proof}
+We have proved in \propref{prop:simplyconneasy} that if $U$ is
+simply connected in the sense of homotopy means that $U$ is simply connected
+in the sense of homology.
+
+So suppose now that $U$ is simply connected in
+the sense of homology.
+Let $\gamma \colon [a,b] \to \C$ be a continuous function with
+$\gamma(a)=\gamma(b)$.  We wish to show that $\gamma$ is homotopic to a
+constant.
+The Riemann mapping theorem says that either $U =
+\C$ or there is a biholomorphism $f \colon U \to \D$.
+
+If $U = \C$, then define the homotopy $\Gamma \colon [a,b] \times [0,1] \to
+\C$ as
+\begin{equation*}
+\Gamma(t,s) = (1-s) \gamma(t) .
+\end{equation*}
+
+If $U \not= \C$, consider the function, define
+\begin{equation*}
+\Gamma(t,s) = f^{-1} \Bigl( (1-s) f \bigl( \gamma(t) \bigr) \Bigr) .
+\end{equation*}
+In other words, we map $U$ to $\D$ and consider $f \circ \gamma$.
+Then we define $\Gamma$ in the same way as we did for $\C$, and then we
+take the whole thing back to $U$.
+\end{proof}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
