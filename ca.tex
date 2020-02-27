@@ -4247,7 +4247,7 @@ A \emph{\myindex{chain}} in $U \subset \C$ is an expression
 \begin{equation*}
 \Gamma = a_1 \gamma_1 + \cdots + a_n \gamma_n ,
 \end{equation*}
-where $a_1,\ldots,a_n$ are numbers and $\gamma_1,\ldots,\gamma_n$
+where $a_1,\ldots,a_n \in \Z$ and $\gamma_1,\ldots,\gamma_n$
 are paths in $U$.  We integrate over $\Gamma$ as
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz
@@ -4300,8 +4300,9 @@ The way we defined things, we do not need Tietze.
 It is important that the definition of equivalence is for all continuous
 functions.  We will show later that if $U$ is say the disc, then for
 any closed $\Gamma$ in $U$, $\int_\Gamma f(z) \, dz = 0$ for all holomorphic $f$.
-Clearly that should not imply that $\Gamma$ is equivalent to the zero chain
-(or a constant path).  See also \exerciseref{exercise:nonconstantnonzerochain}.
+Clearly that should not imply that $\Gamma$ is equivalent to the zero
+chain.
+See also \exerciseref{exercise:nonconstantnonzerochain}.
 \end{remark}
 
 \begin{exbox}
@@ -4322,14 +4323,15 @@ for all $f$ continuous on the image of $\gamma$ we have
 \item
 Suppose $U \subset \C$ is open and
 $\gamma \colon [a,b] \to U$
-is a nonconstant piecewise $C^1$
+is a piecewise $C^1$
 path and $\gamma|_{[a,b)}$ is one-to-one (so possibly closed,
 $\gamma(a)=\gamma(b)$,
 but otherwise injective).  Show that as chains, $\gamma$ is not equivalent to the zero chain.
 Note: Closed $\gamma$ is trickier.
 \item
-Find a nonconstant piecewise $C^1$ path $\gamma \colon [a,b] \to \C$ that is
-equivalent to the zero chain.
+Find a piecewise $C^1$ path $\gamma \colon [a,b] \to \C$
+that is equivalent to the zero chain.  Note that our definition of ``path''
+prevents $\gamma$ being constant.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -4457,7 +4459,8 @@ A path $\gamma \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if
 $\gamma(a) = \gamma(b)$.
 A chain $\Gamma$ that is equivalent to
 $a_1 \gamma_1 + \cdots + a_n \gamma_n$, where $\gamma_1, \ldots, \gamma_n$
-are closed paths,
+are closed paths
+and $a_1,\ldots,a_n \in \Z$,
 is called a \emph{\myindex{cycle}}.
 \end{defn}
 
@@ -6817,7 +6820,7 @@ clockwise direction, and the winding number is $-1$.
 
 The first thing to prove is to show that the winding number is an integer.
 
-\begin{prop}
+\begin{prop} \label{prop:indexinteger}
 Suppose $\gamma$ is a closed piecewise $C^1$ path (or a cycle)
 and $p \notin \gamma$.  Then
 \begin{equation*}
@@ -6834,11 +6837,14 @@ and we have gone some number of times around $p$ along $\gamma$, the
 argument has changed by some multiple of $2\pi$.
 
 \begin{proof}
+As a cycle is (equivalent to) a linear combination (over the integers) of closed paths,
+then we only need to prove the result for closed piecewise $C^1$ paths.
 Let $\gamma \colon [0,1] \to \C$ be the path.
 The path $\gamma$ as a set is compact.  It can be covered by finitely many
 discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
 partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ such that
 $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
+do not contain $p$,
 so in each one there exists a branch of $\log (z-p)$, call it $L_j$
 such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j-1}\bigl(\gamma(t_j)\bigr)$.
 Call $z_0 = \gamma(0) = \gamma(1)$.  So
@@ -7081,7 +7087,7 @@ Cauchy's theorem actually follows immediately using the integral formula.
 \begin{thm}[Cauchy's theorem (homology version)]
 \index{Cauchy's theorem!homology}%
 \label{thm:CThomology}%
-Let $U \subset \C$ be a domain and $f \colon U \to \C$ holomorphic.  If
+Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.  If
 $\gamma$ is a
 closed
 piecewise $C^1$ path (or a cycle) in $U$ such that $n(\gamma;p) = 0$ for
@@ -7111,6 +7117,33 @@ implies Cauchy's theorem.  So prove that
 Cauchy's theorem implies the Cauchy integral formula.
 \end{exercise}
 \end{exbox}
+
+\begin{defn}
+Two closed piecewise $C^1$ maps (or cycles) $\gamma_0$ and $\gamma_1$ in $U
+\subset \C$ are \emph{\myindex{homologous}} in $U$
+if $n(\gamma_0;p) = n(\gamma_1;p)$ for all $p \in \C \setminus U$.
+Equivalently, $\gamma_0$ and $\gamma_1$ are homologous in $U$ if
+$n(\gamma_0 - \gamma_1;p) = 0$ for all $p \in \C \setminus U$.
+\end{defn}
+
+\begin{exbox}
+\begin{exercise}
+Show that being homologous is an equivalence relation.
+\end{exercise}
+\end{exbox}
+
+\begin{cor}
+Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
+If two closed piecewise $C^1$ maps (or cycles) $\gamma_0$ and $\gamma_1$ in $U$
+are homologous in $U$, then
+\begin{equation*}
+\int_{\gamma_0} f(z)\, dz = 
+\int_{\gamma_1} f(z)\, dz .
+\end{equation*}
+\end{cor}
+
+The proof is immediate by applying Cauchy's theorem to $\gamma_0-\gamma_1$.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -7647,10 +7680,10 @@ $f = g$ on $\ann(p;r_1,r_2)$.
 Suppose $f$ is a holomorphic function defined in a domain that contains
 the unit circle $\partial \D$, such that
 \begin{equation*}
-\int_{\partial \D} f(z)z^n
+\int_{\partial \D} f(z)\bar{z}^n
  \, dz = 0
 \end{equation*}
-for all integers $n$.  Prove that $f \equiv 0$.
+for all integers $n \in \Z$.  Prove that $f \equiv 0$.
 \end{exercise}
 \end{exbox}
 
@@ -7658,19 +7691,44 @@ for all integers $n$.  Prove that $f \equiv 0$.
 
 \section{Homotopy version of Cauchy *}
 
-FIXME: define homotopy
+\subsection{Homotopy}
+
+We wish to make precise the notion of slowly deforming one path into
+another.  This notion is usually called \emph{\myindex{homotopy}}.
+First, let us define this concept for closed paths.
 
 \begin{defn}
-A domain $U \subset \C$ is \emph{\myindex{simply connected}}
-... FIXME FIXME
-%
-%if $n(\gamma;p) = 0$ for every
-%piecewise $C^1$ path $\gamma$ in $U$ and every $p \in \C \setminus U$.
+Let $U \subset \C$ be open.
+Two closed piecewise $C^1$ paths\footnote{This definition
+works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
+$\gamma_j(a)=\gamma_j(b)$, but we only need it for paths.}
+$\gamma_0 \colon [a,b] \to U$ and
+$\gamma_1 \colon [a,b] \to U$ are \emph{\myindex{homotopic}} in $U$
+(or relative to $U$) if there exists a continuous function
+$\Gamma \colon [a,b] \times [0,1] \to U$ such that
+for all $s$ and $t$
+\begin{equation*}
+\Gamma(t,0) = \gamma_0(t), \qquad
+\Gamma(t,1) = \gamma_1(t), \qquad \text{and} \qquad
+\Gamma(a,s) = \Gamma(b,s) .
+\end{equation*}
 \end{defn}
 
-FIXME:
+What we want to do is to prove that if $\gamma_0$ is homotopic to $\gamma_1$
+in $U$ and $f \colon U \to \C$ is holomorphic, then
+$\int_{\gamma_0} f(z)\,dz = \int_{\gamma_1} f(z)\, dz$.
+Well what we could do is to define $\gamma_s(t) = \Gamma(t,s)$.
+The $\gamma_s$ is very close to
+$\gamma_{s+\epsilon}$ and so it should not be hard to prove that their
+winding number around various points is the same.
+Everything is going swimmingly until we realize that $\int_{\gamma_s} f(z)
+\, dz$ makes no sense whatsoever.  The problem is that $\gamma_s$ is only
+continuous and not a piecewise $C^1$ path.  So in particular we can't
+even define $n(\gamma_s;z)$ using our prior definition.
+OK, so first we need to define $n(\gamma_s;z)$ in a way that makes sense for
+any continuous closed path.
 
-\begin{lemma}
+\begin{lemma} \label{lemma:existenceoftheta}
 Suppose $\gamma \colon [a,b] \to \C$ is continuous and $p \notin
 \gamma$.  Given any $\theta_0$ such that
 $\gamma(a)-p = \sabs{\gamma(a)-p} e^{i\theta_0}$, that is $\theta_0$ is
@@ -7685,15 +7743,82 @@ for all $t \in [a,b]$, that is $\theta(t)$ is an argument of $\gamma(t)-p$.
 Furthermore, if $\gamma$ is a piecewise $C^1$ path then
 \begin{equation*}
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz =
-\frac{\theta(b)-\theta(a)}{2\pi} .
+\frac{\theta(b)-\theta(a)}{2\pi} 
+- i \frac{\log \sabs{\gamma(b)} - \log \sabs{\gamma(a)}}{2\pi} .
 \end{equation*}
 \end{lemma}
 
+Again, what we'll do is follow $\log$ (or $\arg$) around $\gamma$ and see
+how much it changes.  The proof follows the same logic as in
+\propref{prop:indexinteger}.
+
 \begin{proof}
-FIXME
+The image $\gamma\bigl([a,b]\bigr)$ is compact, so it can be covered by finitely many
+discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
+partition $a = t_0 < t_1 < t_2 < \cdots < t_n = b$ such that
+$\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
+do not contain $p$,
+so in each one there exists a branch of $\log (z-p)$, call it $L_j$
+such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j-1}\bigl(\gamma(t_j)\bigr)$.
+We can also make sure that $\Im L_1\bigl(\gamma(a)\bigr) = \theta_0$.
+On each $[t_{j-1},t_j]$ define
+\begin{equation*}
+\theta(t)
+=
+\Im L_j\bigl(\gamma(t)\bigr) .
+\end{equation*}
+On $[t_{j-1},t_j]$ the function is continuous as $L_j$ is continuous on 
+$\gamma\bigl([t_{j-1},t_j]\bigr)$, the definitions match up at $t_{j-1}$
+and $t_{j}$ with $L_{j-1}$ and $L_{j+1}$ respectively.  Thus
+$\theta$ is a continuous function on $[a,b]$.
+The formula follows $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ by
+definition of $L_j$.
+
+The furthermore follows as before.
+\begin{multline*}
+\frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
+=
+%\frac{1}{2\pi i} \int_a^b \frac{\gamma'(t)}{\gamma(t)-p} \, dt
+%=
+\frac{1}{2\pi i} \sum_{j=1}^n \int_{t_{j-1}}^{t_j} \frac{\gamma'(t)}{\gamma(t)-p} \, dt
+=
+\frac{1}{2\pi i} \sum_{j=1}^n L_j\bigl(\gamma(t_j)\bigr) -
+L_j\bigl(\gamma(t_{j-1})\bigr)
+\\
+=
+\frac{1}{2\pi i} \Bigl( L_n\bigl(\gamma(b)\bigr) - L_1\bigl(\gamma(a)\bigr) \Bigr) 
+=
+\frac{\theta(b)-\theta(a)}{2\pi}
+- i \frac{\log \sabs{\gamma(b)} - \log \sabs{\gamma(a)}}{2\pi} .
+\qedhere
+\end{multline*}
 \end{proof}
 
-\begin{lemma}
+The lemma allows us to define the winding number for continuous closed paths
+by simply using $\theta$ from the lemma above.  The ``Furthermore'' part of the
+lemma makes sure that the following definition agrees with our previous
+definition.
+
+\begin{defn}
+Let $\gamma \colon [a,b] \to \C$ be continuous, $\gamma(a) = \gamma(b)$, and
+$p \notin \gamma\bigl([a,b]\bigr)$.  Let $\theta$ be as in
+\lemmaref{lemma:existenceoftheta}.  Define the
+\emph{\myindex{winding number}} of $\gamma$ around $p$ or
+the \emph{\myindex{index}} of $\gamma$ with respect to $p$
+as
+\begin{equation*}
+n(\gamma;p)
+\overset{\text{def}}{=}
+\frac{\theta(b)-\theta(a)}{2\pi}.
+\end{equation*}
+\end{defn}
+
+For a closed $\gamma$, as two different arguments of a complex number differ by
+a multiple of $2 \pi$, we see that $n(\gamma;p)$ is always an integer.
+Next let us see how the $\theta$, and therefore $n(\gamma;p)$, changes 
+as $\gamma$ is changed a little bit (for example in a homotopy).
+
+\begin{lemma} \label{lemma:changeintheta}
 Suppose $\gamma \colon [a,b] \to \C$ and $\theta \colon [a,b] \to \C$
 are continuous, $p \notin \gamma$,
 and $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ for all $t$.
@@ -7708,16 +7833,159 @@ e^{i\widetilde{\theta}(t)}$.
 \end{lemma}
 
 \begin{proof}
-FIXME
+Let $t_j$, $D_j$, $L_j$ be the same as in \lemmaref{lemma:existenceoftheta},
+and fix some $\epsilon > 0$.
+Let $\delta > 0$ be small enough so that if $\sabs{z-\zeta}
+< \delta$ and $z,\zeta \in D_j$, then $\sabs{L_j(z)-L_j(\zeta)} < \epsilon$.
+This can be done because $D_j$ could be picked slightly smaller if needed
+to make sure that $p \not\in \overline{D_j}$ and so that each $L_j$
+is uniformly continuous on $\overline{D_j}$ and therefore on $D_j$.
+
+Next make $\delta > 0$ possibly even smaller so that a $\delta$ neighborhood of each
+$\gamma\bigl([t_{j-1},t_j]\bigr)$ is within $D_j$.  Then
+for $\widetilde{\gamma}$ that is uniformly within $\delta$ of $\gamma$ we
+get
+$\widetilde{\gamma}\bigl([t_{j-1},t_j]\bigr) \subset D_j$.
+The $L_j$ and $L_{j-1}$ agree at one point of $D_{j-1} \cap D_j$ (at
+$\gamma(t_{j-1})$) and since they are both branches of $\log (z-p)$, they
+agree in the entire connected set $D_{j-1} \cap D_j$.  Thus they also
+agree at $\widetilde{\gamma}(t_{j-1})$.
+Thus
+\begin{equation*}
+\widetilde{\theta}(t)
+=
+\Im L_j\bigl(\gamma(t)\bigr)
+\end{equation*}
+is the function from \lemmaref{lemma:existenceoftheta} as long as we make
+$\widetilde{\theta}_0 = \Im L_1\bigl(\gamma(a)\bigr)$.
+
+So
+\begin{equation*}
+\abs{\theta(t) - \widetilde{\theta}(t)}
+\leq
+\abs{
+L_j\bigl(\gamma(t)\bigr)
+-
+L_j\bigl(\widetilde{\gamma}(t)\bigr)
+}
+< \epsilon. \qedhere
+\end{equation*}
 \end{proof}
 
-FIXME: homotopy version of Cauchy theorems goes here!
+We can now tell how does $n(\gamma;p)$ change (or not) by a homotopy.
+
+\begin{prop}
+Suppose $U \subset \C$ is open and suppose $\gamma_0$ and $\gamma_1$ are closed
+piecewise $C^1$ paths in $U$ that are homotopic in $U$.  Then
+\begin{equation*}
+n(\gamma_0;p) = n(\gamma_1;p)
+\avoidbreak
+\end{equation*}
+for all $p \in \C \setminus U$.
+\end{prop}
+
+\begin{proof}
+Let $\gamma_s(t) = \Gamma(t,s)$ be the maps from the homotopy.
+\lemmaref{lemma:changeintheta} says that $s \mapsto n(\gamma_s;p)$ is a
+continuous function.  As $s \mapsto n(\gamma_s;p)$ is integer-valued it must
+be constant.
+\end{proof}
+
+In particular we've prove that $\gamma_0$ and $\gamma_1$ are homologous if
+they are homotopic.  The converse is not true, though perhaps that is not
+that important to us.  The following corollary is an immediate consequence
+of FIXME and FIXME.
+
+\begin{cor}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+and suppose $\gamma_0$ and $\gamma_1$ are closed
+piecewise $C^1$ paths in $U$ that are homotopic in $U$.  Then
+\begin{equation*}
+\int_{\gamma_0} f(z) \, dz = \int_{\gamma_1} f(z) \, dz .
+\end{equation*}
+\end{cor}
+
+A corollary of the corollary is the homotopy version of Cauchy's theorem.
+While a constant is not technically a path in the way that we defined
+``path,'' the integral can easily be defined on it (it is zero), and the integral of any
+function over it is zero.  That means that the following version of Cauchy
+is just a special case of the corollary above.
+
+\begin{thm}[Cauchy's theorem (homotopy version)]
+\index{Cauchy's theorem!homotopy}%
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+and $\gamma$ is a piecewise $C^1$ path in $U$ that is homotopic in $U$ to a
+constant.  Then
+\begin{equation*}
+\int_{\gamma} f(z) \, dz = 0 .
+\end{equation*}
+\end{thm}
+
+\begin{exbox}
+\begin{exercise}
+Let $U \subset \C$ be open and let $\gamma \colon [a,b] \to U$ is continuous
+and $\gamma(a)=\gamma(b)$.  Prove that $\gamma$ is homotopic in $U$
+to a closed piecewise $C^1$ path $\alpha$ in $U$.
+Hint: Make $\alpha$ a polygonal path.
+\end{exercise}
+
+\begin{exercise}
+We could take a different approach to solving our issues with homotopy.  Let
+$U \subset \C$ be open and let $\gamma_0$ and $\gamma_1$ be closed
+piecewise $C^1$ paths in $U$ that are homotopic in $U$.
+Show that there exists a homotopy (possibly different one) such that
+each $\gamma_s(t) = \Gamma(t,s)$ is a closed piecewise $C^1$ path.
+Hint: See previous exercise.
+\end{exercise}
+\end{exbox}
+
+\subsection{The real definition of simply connected}
+
+Let us give the real definition of simply connected.  For domains in $\C$ it
+turns out that both definitions we give are equivalent.
+
+\begin{defn}
+A domain $U \subset \C$ is \emph{\myindex{simply connected}}
+if every continuous $\gamma \colon [a,b] \to U$ such that $\gamma(a) =
+\gamma(b)$ is homotopic to a constant function.
+\end{defn}
+
+FIXME:
+
 
 \begin{prop}
 A domain $U \subset \C$ is simply connected (in the sense of this section)
 if and only if it is simply connected
 (in the sense of \defnref{defn:simplyconnected:homology}).
 \end{prop}
+
+\begin{proof}
+We know (FIXME) that $U$ is simply connected in the sense of homology if
+$n(\gamma;p) = 0$ for all closed piecewise $C^1$ paths and $p \in \C
+\setminus U$.
+
+FIXME
+\end{proof}
+
+FIXME
+
+So the simply connected version of Cauchy's theorem holds in the same
+sense if we define simple connectedness in terms of homotopy.  For
+completeness, let us state the theorem again in the context of this section.
+
+\begin{thm}[Cauchy's theorem (simply connected version)]
+\index{Cauchy's theorem!simply connected}%
+Suppose $U \subset \C$ is a simply connected domain (in the sense of
+homotopy), $f \colon U \to \C$ is holomorphic,
+and $\gamma$ is a piecewise $C^1$ path in $U$.  Then
+\begin{equation*}
+\int_{\gamma} f(z) \, dz = 0 .
+\end{equation*}
+\end{thm}
+
+FIXME
+
+\subsection{Fixed endpoint homotopy}
 
 FIXME
 
