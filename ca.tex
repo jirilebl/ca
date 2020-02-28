@@ -6158,25 +6158,24 @@ For a continuous $u \colon \partial \Delta_r(p) \to \C$,
 the Cauchy transform $Cu \colon \Delta_r(p) \to \C$ is holomorphic.
 \end{cor}
 
+The corollary gives a converse to the Cauchy formula.
+If $f \colon \overline{\Delta_r(p)} \to \C$ is continuous and
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta
+\qquad \text{for all } z \in \Delta_r(p).
+\avoidbreak
+\end{equation*}
+Then $f|_{\Delta_r(p)}$ is not holomorphic.
+
 It is not necessarily true that $Cu$ tends to $u$ as we approach the
 boundary of the disc unless $u$ came from 
 a holomorphic function to begin with.  That is, $Cu$ might have limits at
 the boundary of the disc, but they need not be equal to what $u$ is.
 
-\begin{exbox}
-\begin{exercise}[Easy]
-Prove a converse to the Cauchy formula.  Suppose $f \colon \overline{\D} \to
-\C$ is continuous and
-\begin{equation*}
-f(z) =
-\frac{1}{2\pi i}
-\int_{\partial \D} \frac{f(\zeta)}{\zeta-z} \, d\zeta
-\qquad \text{for all } z \in \D.
-\avoidbreak
-\end{equation*}
-Then $f|_{\D}$ is holomorphic.
-\end{exercise}
 
+\begin{exbox}
 \begin{exercise}
 Compute explicitly
 the Cauchy transform $Cu$ on $\D$ for $u \colon \partial \D \to \C$
@@ -6187,6 +6186,8 @@ $\zeta \in \partial \D$
 and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$.
 %see also \exerciseref{exercise:cauchycont}.
 \end{exercise}
+
+
 
 \begin{exercise}
 Suppose $g \colon [-1,1] \to \C$ is continuous and define
@@ -6272,13 +6273,13 @@ In other words,
 $\zeta \mapsto \frac{f_n(\zeta)}{\zeta-z}$ converges uniformly to 
 $\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ on $\partial \Delta_r(p)$.
 
-We can therefore take the limit as $n \to \infty$ underneath the integral
+We can, therefore, take the limit as $n \to \infty$ underneath the integral
 to obtain
 \begin{equation*}
 f(z) = \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta .
 \end{equation*}
-And this formula holds for all $z \in \Delta_r(p)$.
+This formula holds for all $z \in \Delta_r(p)$.
 The function $f|_{\partial \Delta_r(p)}$ is continuous by uniform
 convergence, and $f$ on $\Delta_r(p)$ is equal to
 the Cauchy transform
@@ -6302,8 +6303,8 @@ the closed discs $\overline{\Delta_{d/2}(p)}$ is marked in dashed line.\label{fi
 The set $K'$ is also compact: It is clearly
 bounded, let us show it is closed.  Suppose that $p$ is not in $K'$.
 By compactness of $K$, there is a $q \in K$ such that $\sabs{p-q}$
-is the distance of $p$ to $K$.  Thus the
-distance of $p$ to $K$ is $\sabs{p-q} > \frac{d}{2}$.
+is the distance of $p$ to $K$.  As $p \not\in K'$,
+$\sabs{p-q} > \frac{d}{2}$.
 So every point in a neighborhood of $p$
 is also further than $\frac{d}{2}$ from $K$, so
 complement of $K'$ is open.
@@ -6312,53 +6313,24 @@ As $\{ f_n \}$ converges uniformly on compact subsets, it converges uniformly
 on $K'$.  Given an $\epsilon > 0$, find an $N$ such that 
 $\sabs{f(z)-f_n(z)} < \epsilon$ for all $z \in K'$ and
 all $n \geq N$.
-For any $p \in K$, expand the $k$\textsuperscript{th} derivative
-using Cauchy's formula for derivatives and estimate:
+For any $p \in K$, use the Cauchy estimates in a $\frac{d}{2}$ disc
+on $f(z)-f_n(z)$:
 \begin{equation*}
-\begin{split}
 \abs{
 f_n^{(k)}(p)
 -
 f^{(k)}(p)
 }
-& =
-\abs{
-\frac{1}{2\pi i}
-\int_{\partial \Delta_{d/2}(p)}
-\frac{f_n(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta 
--
-\frac{1}{2\pi i}
-\int_{\partial \Delta_{d/2}(p)}
-\frac{f(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta 
-}
-\\
-& =
-\abs{
-\frac{1}{2\pi i}
-\int_{\partial \Delta_{d/2}(p)}
-\frac{f_n(\zeta)-f(\zeta)}{{(\zeta-p)}^{k+1}} \, d\zeta 
-}
-\\
-& \leq
-\frac{1}{2\pi}
-\int_{\partial \Delta_{d/2}(p)}
-\frac{\sabs{f_n(\zeta)-f(\zeta)}}{{\sabs{\zeta-p}}^{k+1}} \, \sabs{d\zeta}
-\\
-&
 \leq
-\frac{1}{2\pi}
-\int_{\partial \Delta_{d/2}(p)}
-\frac{\epsilon}{{(d/2)}^{k+1}} \, \sabs{d\zeta}
-=
-\frac{2^{k+1}\pi}{d^k} 
-\epsilon .
-\end{split}
+\frac{k! \, \snorm{f-f_n}_{\partial \Delta_{d/2}(p)}}{{(d/2)}^{k}}
+\leq
+\frac{k!2^k}{d^k}\epsilon .
 \end{equation*}
 Thus $\bigl\{ f_n^{(k)} \bigr\}$ converges uniformly to $f^{(k)}$ on $K$.
 \end{proof}
 
 The fact that we can write all the derivatives as
-integrals of the function
+integrals of the function, and hence obtain Cauchy estimates,
 allows us to use a far weaker topology than one would think.
 
 \begin{exbox}
@@ -6443,7 +6415,7 @@ then
 Furthermore, if $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus
 \{ 0 \}$
 or $\sabs{f'(0)} = 1$, then
-for some $\theta \in \R$ we have $f(z) =
+there is a $\theta \in \R$ such that $f(z) =
 e^{i\theta} z$ for all $z \in \D$.
 \end{lemma}
 
