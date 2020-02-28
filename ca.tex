@@ -2898,6 +2898,13 @@ Hint: Figure out what $\frac{1}{z}$ does to the two circles.
 \end{exercise}
 
 \begin{exercise}
+Let $f(z) = \frac{1-z^4}{1+z^4}$ and $g(z) = i {\left( \frac{1-z^2}{1+z^2}
+\right)}^2$.  Let $S = \{ z \in \C : \sabs{z} < 1, \Re z > 0, \Im z > 0 \}$.
+Find $f(S)$ and $g(S)$.  Then show that they are both biholomorphisms onto their
+image.  Think about the functions as composition.
+\end{exercise}
+
+\begin{exercise}
 \begin{exparts}
 \item
 Show that if $\Delta \subset \C$ is a disc such that $0 \notin \Delta$, then
@@ -8740,6 +8747,12 @@ Prove that $f(z) = \sin z$.
 \end{exercise}
 
 \begin{exercise}
+Suppose that $f$ and $g$ are entire functions and $\sabs{f} \leq \sabs{g}$
+everywhere.  Show that $f = c g$ for some $c \in \C$.
+Hint: Liouville.  Make sure to handle the zeros of $f$ and $g$.
+\end{exercise}
+
+\begin{exercise}
 Prove that there does \emph{not} exist a nonzero holomorphic
 $f \colon \Delta_r(0) \to \C$ (for any $r > 0$)
 such that
@@ -8829,11 +8842,6 @@ f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
 \end{exercise}
 
 \begin{exercise}
-Suppose that $f$ and $g$ are entire functions and $\sabs{f} \leq \sabs{g}$
-everywhere.  Show that $f = c g$ for some $c \in \C$.  Hint: Liouville.
-\end{exercise}
-
-\begin{exercise}
 Suppose $f$ has an isolated singularity at $p$.  Suppose that
 $\{ z_n \}$ and $\{ \zeta_n \}$ are two sequences such that
 $\lim z_n = \lim \zeta_n = p$ and $\lim f(z_n) \not= \lim f(\zeta_n)$
@@ -8914,14 +8922,30 @@ $e^z$ has an essential singularity at infinity.
 
 \begin{exbox}
 \begin{exercise}
-If $f$ has a pole at $p$, then $e^{f(z)}$ has an essential singularity at
-$p$.
-\end{exercise}
-
-\begin{exercise}
 Prove that if $f$ has a pole at the origin and $g$ has an essential
 singularity at the origin, then $f+g$ has an essential singularity at the
 origin.
+\end{exercise}
+
+\begin{exercise}
+Find an example two holomorphic functions $f$ and $g$ with an essential
+singularity at the origin such that a)~$fg$ has a removable singularity.
+Find different $f$ and $g$ such that b)~$f+g$ has a removable singularity.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is a nonconstant holomorphic function defined in a neighborhood of the
+origin such that $f(0)=0$ and $g$ is holomorphic function with
+an isolated singularity at the origin.  Write $g \circ f$ for the
+composition where it is defined.  Show that $g \circ f$ has an isolated
+singularity of the same type (removable, pole, essential) as $g$.
+Moreover, if $f'(0) \not= 0$ and $g$ has a pole of order $k$, then $g \circ f$ has a
+pole of order $k$.
+\end{exercise}
+
+\begin{exercise}
+If $f$ has a pole at $p$, then $e^{f(z)}$ has an essential singularity at
+$p$.  Hint: First do it for a simple pole.
 \end{exercise}
 
 \begin{exercise}
@@ -8952,6 +8976,7 @@ German).  But really it first appeared in a book by Briot and Bouquet in
 1859 (in French), so really it should be called the Briot--Bouquet theorem,
 no?  If we still all published in Latin, we wouldn't be in this
 mess.}]\index{Casorati--Weierstrass theorem}
+\pagebreak[2]
 Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
 an essential singularity at $p \in U$.  Then for every punctured disc
 $\Delta_r(p) \setminus \{ p \} \subset U$, the image
@@ -9409,10 +9434,16 @@ one inside and one outside the unit circle.  Thus
 \frac{2\pi}{\sqrt{c^2-1}}
 .
 \end{equation*}
-
 \end{example}
 
 \begin{exbox}
+\begin{exercise}
+For all integers $n \in \Z$, compute
+\begin{equation*}
+\int_{\partial \D} z^n e^{1/z} \, dz .
+\end{equation*}
+\end{exercise}
+
 \begin{exercise}
 Compute
 \begin{exparts}
