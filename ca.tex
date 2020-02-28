@@ -2162,6 +2162,24 @@ $\frac{\partial^2 v}{\partial x^2} \frac{\partial^2 v}{\partial y^2}
 Feel free to assume that both $u$ and $v$ are twice continuous
 differentiable.
 \end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+Show that in polar coordinates $z=re^{i\theta}$,
+the Cauchy--Riemann equations (outside the origin) on $f=u+iv$ are
+\begin{equation*}
+\frac{\partial u}{\partial r} = \frac{1}{r} \frac{\partial v}{\partial \theta},
+\qquad
+\frac{\partial v}{\partial r} = \frac{-1}{r} \frac{\partial u}{\partial \theta}.
+\end{equation*}
+\item
+Use the computation to (locally) find the form of all solutions to 
+the Cauchy--Riemann equations where $\Re f = u$ does not depend on the
+argument $\theta$.  By locally we mean only in some neighborhood $U$ of a
+point $p \not= 0$.
+\end{exparts}
+\end{exercise}
 \end{exbox}
 
 
@@ -2854,6 +2872,7 @@ $S$ to the unit disc $\D$.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 \begin{exparts}
 \item
 Show that $z^2$ is 2-to-1 on $\C \setminus \{ 0 \}$ while its
@@ -6238,14 +6257,14 @@ functions.  For real
 differentiable functions nothing like that holds: $\sabs{x}^{1+1/n}$
 is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$,
 which is not differentiable.
-So the following result should be surprising.
+%So the following result should be surprising.
 
 \begin{thm} \label{thm:unifoncompact}
 Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
 of holomorphic functions converging uniformly on compact subsets to
 $f \colon U \to \C$.  Then $f$ is holomorphic.
-Furthermore, for any $k$, the $k$\textsuperscript{th} derivative
-$f_n^{(k)}$ converges uniformly on compact subsets to $f^{(k)}$.
+Furthermore, for any $\ell$, the $\ell$\textsuperscript{th} derivative
+$f_n^{(\ell)}$ converges uniformly on compact subsets to $f^{(\ell)}$.
 \end{thm}
 
 \begin{proof}
@@ -6272,7 +6291,6 @@ $\partial \Delta_r(p)$ is $\delta > 0$, then for $\zeta \in \partial
 In other words,
 $\zeta \mapsto \frac{f_n(\zeta)}{\zeta-z}$ converges uniformly to 
 $\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ on $\partial \Delta_r(p)$.
-
 We can, therefore, take the limit as $n \to \infty$ underneath the integral
 to obtain
 \begin{equation*}
@@ -6289,7 +6307,7 @@ $f$ is holomorphic.
 Suppose $K \subset U$ is compact.  If $U \not= \C$, then the distance of
 $K$ and $\partial U$ is positive, say $d > 0$.  If $U=\C$, then take $d$ to be any positive number.  Consider 
 \begin{equation*}
-K' = \bigcup_{p \in K} \overline{\Delta_{d/2}(p)} .
+K' = \bigcup_{z \in K} \overline{\Delta_{d/2}(z)} .
 \end{equation*}
 Clearly $K \subset K' \subset U$.
 See \figureref{fig:kkprime}.
@@ -6305,7 +6323,7 @@ bounded, let us show it is closed.  Suppose that $p$ is not in $K'$.
 By compactness of $K$, there is a $q \in K$ such that $\sabs{p-q}$
 is the distance of $p$ to $K$.  As $p \not\in K'$,
 $\sabs{p-q} > \frac{d}{2}$.
-So every point in a neighborhood of $p$
+So every point in $\Delta_{\sabs{p-q}-d/2}(p)$
 is also further than $\frac{d}{2}$ from $K$, so
 complement of $K'$ is open.
 
@@ -6317,23 +6335,38 @@ For any $p \in K$, use the Cauchy estimates in a $\frac{d}{2}$ disc
 on $f(z)-f_n(z)$:
 \begin{equation*}
 \abs{
-f_n^{(k)}(p)
+f_n^{(\ell)}(p)
 -
-f^{(k)}(p)
+f^{(\ell)}(p)
 }
 \leq
-\frac{k! \, \snorm{f-f_n}_{\partial \Delta_{d/2}(p)}}{{(d/2)}^{k}}
+\frac{\ell! \, \snorm{f-f_n}_{\partial \Delta_{d/2}(p)}}{{(d/2)}^{\ell}}
 \leq
-\frac{k!2^k}{d^k}\epsilon .
+\frac{\ell!2^\ell}{d^\ell}\epsilon .
 \end{equation*}
-Thus $\bigl\{ f_n^{(k)} \bigr\}$ converges uniformly to $f^{(k)}$ on $K$.
+Thus $\bigl\{ f_n^{(\ell)} \bigr\}$ converges uniformly to $f^{(\ell)}$ on $K$.
 \end{proof}
 
-The fact that we can write all the derivatives as
+It is the fact that we can write all the derivatives as
 integrals of the function, and hence obtain Cauchy estimates,
 allows us to use a far weaker topology than one would think.
+Integration is a far nicer operation than differentiation, and for
+holomorphic functions, we can differentiate by integrating.
 
 \begin{exbox}
+\begin{exercise}
+Let $U \subset \C$ be open, $K \subset U$ be compact, $r > 0$, and
+$K' = \bigcup_{z\in K} \overline{\Delta_r(z)}$
+is such that $K' \subset U$.  If $f \colon U \to \C$ is holomorphic,
+prove that for any nonnegative integer $\ell$
+\begin{equation*}
+\snorm{f^{(\ell)}}_{K}
+\leq
+\frac{\ell!}{r^\ell}
+\snorm{f}_{K'} .
+\end{equation*}
+\end{exercise}
+
 \begin{exercise}
 Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \overline{U} \to
 \C$ continuous functions that are holomorphic on $U$, and such that
@@ -6384,6 +6417,22 @@ is a sequence of polynomials $P_n(z)$ that converges uniformly on compact
 subsets of $\bH$ to $f$.
 \end{exparts}
 \end{exercise}
+
+\begin{exercise}
+\pagebreak[2]
+Suppose $f \colon [0,\infty) \to \R$ is a continuous function such that
+there is some $c > 0$ and some $M > 0$ and some $T > 0$ such that 
+$\sabs{f(t)} \leq M e^{-ct}$ for all $t \geq T$ ($f$ is of
+\emph{\myindex{exponential order}}.  Let $U = \{ z \in \C : \Re z > c \}$.  Prove that the Laplace transform
+exists on $U$ and is holomorphic, that is, prove that
+\begin{equation*}
+F(z) = \int_0^\infty f(t) e^{-zt} \, dt = \lim_{r \to \infty} \int_0^r f(t)
+e^{-zt} \, dt
+\end{equation*}
+converges uniformly on compact subsets to a holomorphic function on $U$.
+Note: To use our setup, take every sequence $\{ r_n \}$
+of real numbers converging to $+\infty$.
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -6395,11 +6444,11 @@ subsets of $\bH$ to $f$.
 
 Recall $\D = \Delta_1(0)$ is the unit disc.  The following statement may
 seem technical and specialized, but surprisingly it is incredibly
-powerful.\footnote{In my first year of graduate school, on an exam in complex
+powerful.\footnote{In graduate school, on an exam in complex
 analysis, I solved all the problems with a combination of
-Schwarz's lemma and
-the Riemann
-mapping theorem (which we will see later).  My advisor
+Schwarz's lemma and the Riemann
+mapping theorem (which we will see later).
+My advisor
 felt compelled to remind me that there do exist other theorems in complex
 analysis.}
 Any disc can be translated and rescaled to $\D$, and any
@@ -6431,7 +6480,9 @@ where $r < 1$, we have
 \begin{equation*}
 \sabs{g(z)} = \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r} .
 \end{equation*}
-The maximum principle says that the inequality also holds in $\Delta_r(0)$.
+The maximum principle says that the inequality
+$r \sabs{f(z)} \leq \sabs{z}$
+holds for all $z \in \Delta_r(0)$.
 Taking limit as $r \to 1$ shows that $\sabs{f(z)} \leq \sabs{z}$ or
 $\sabs{g(z)} \leq 1$ for all $z
 \in \D$.  Then
@@ -6447,6 +6498,19 @@ It must be that $f(z) = e^{i \theta} z$.
 As $g(0) = f'(0)$, the same conclusion, for the same reason,
 holds if $\sabs{f'(0)} = 1$.
 \end{proof}
+
+Perhaps it is good to look at what the theorem says about $f(z) = z^n$
+for an integer $n > 1$.  That $f$ is a function from the disc to the
+disc and $f(0) = 0$.  Then
+\begin{equation*}
+\sabs{z^n} =
+\sabs{z}^n < \sabs{z}
+\end{equation*}
+for $z \in \D \setminus \{ 0 \}$.  As $f'(z) = n z^{n-1}$ we get
+that $\sabs{f'(0)} = 0 < 1$, but now notice that a bound on the derivative
+does not hold at other points.
+By picking the right $z$ and $n$,
+we can make $\sabs{f'(z)}$ as large as we want.
 
 \begin{exbox}
 \begin{exercise}
@@ -6554,13 +6618,14 @@ Schwarz's lemma, if $z \in \D \setminus \{ 0 \}$, then
 Consequently, $h$ is a map of the disc to the closed disc.
 
 But $h$ can have no zeros:
-$h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is one-to-one,
+$h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is one-to-one
+and its one allowed zero is at $z=0$,
 and $h(0) = g'(0) \not= 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
 continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
-In other words, $\sabs{g(z)}$ must get close to $1$ as $z$
+In other words, $\sabs{g(z)}$ must approach $1$ as $z$
 approaches the boundary $\partial \D$.  Then so must $\sabs{h(z)}$.
 The function
-$\sabs{h(z)}$ must attain a minimum inside $\D$, or in other
+$\sabs{h(z)}$ must, therefore, attain a minimum inside $\D$, or in other
 words $\babs{\frac{1}{h(z)}}$ must attain a maximum inside $\D$.  So $h(z)$
 is a constant, and $g(z) = \alpha z$ for some constant $\alpha$.
 Clearly, 
