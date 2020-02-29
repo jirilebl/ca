@@ -877,25 +877,31 @@ and this makes $\C$ into a complete metric space.  By complete, we mean that
 Cauchy sequences have limits.  See \Appendixref{ap:metric}
 for an introduction to metric spaces.
 
-\begin{exbox}
-\begin{exercise}
-Prove that complex addition, multiplication, and division is continuous.
-That is, suppose $\{ a_n \}$ and $\{ b_n \}$ are two convergent sequences
-of complex numbers.  Prove (including the existence of the limits)
-\begin{exparts}
+\begin{prop}
+Complex addition, multiplication, division, and conjugation are continuous:
+Suppose $\{ a_n \}$ and $\{ b_n \}$ are two convergent sequences
+of complex numbers.  Then,
+\begin{enumerate}[(i)]
 \item
 $\lim\limits_{n\to\infty} (a_n + b_n) = 
 \left(\lim\limits_{n\to\infty} a_n \right) +
-\left(\lim\limits_{n\to\infty} b_n \right)$.
+\left(\lim\limits_{n\to\infty} b_n \right)$,
 \item
 $\lim\limits_{n\to\infty} a_n b_n = 
 \left(\lim\limits_{n\to\infty} a_n \right)
-\left(\lim\limits_{n\to\infty} b_n \right)$.
+\left(\lim\limits_{n\to\infty} b_n \right)$,
 \item
-If $\lim\limits_{n\to\infty} a_n \not= 0$, then
-$\lim\limits_{n\to\infty} \frac{1}{a_n} = \frac{1}{\lim\limits_{n\to\infty}
-a_n}$.
-\end{exparts}
+$\lim\limits_{n\to\infty} \frac{1}{a_n} = \frac{1}{\lim\limits_{n\to\infty} a_n}$,
+as long as $\lim\limits_{n\to\infty} a_n \not= 0$,
+\item
+$\lim\limits_{n\to\infty} \bar{a}_n = 
+\overline{\lim\limits_{n\to\infty} a_n}$.
+\end{enumerate}
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
 \end{exercise}
 \end{exbox}
 
@@ -1148,11 +1154,11 @@ e^x\cos y + i e^x \sin y .
 \qquad
 \includegraphics{figures/imagexp}
 \caption{Graphs of the real part (left) and imaginary part (right)
-of the complex exponential $e^z = e^{x+iy}$.  The $x$-axis goes from $-4$ to
-$4$, the $y$-axis goes from $-6$ to $6$, and the vertical axis goes from
-$-e^{6} \approx -54.6$
-to
-$e^{6} \approx 54.6$.  The plot of the real exponential ($y=0$)
+of the complex exponential $e^z = e^{x+iy}$.
+%The $x$-axis goes from $-4$ to $4$, the $y$-axis goes from $-6$ to $6$,
+%and the vertical axis goes from $-e^{6} \approx -54.6$ to
+%$e^{6} \approx 54.6$.
+The plot of the real exponential ($y=0$)
 is marked in a bold line.\label{fig:complexexpgraphs}}
 \end{myfig}
 
@@ -3517,7 +3523,7 @@ term-wise.  As long as $z_0$ and $z$ are in $\Delta_R(0)$, then
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k} .
 \end{equation*}
 The right hand side is defined even if $z_0 = z$.
-We must show that the above expression is continuous as a function of $z$
+We must show that the expression above is continuous as a function of $z$
 at $z_0$.
 It is continuous provided that the series above
 %(the series whose terms are $c_n z_0^k z^{n-1-k}$)
@@ -5599,7 +5605,7 @@ We leave it as an exercise.
 
 \begin{exbox}
 \begin{exercise}
-Give a different proof of the above formula by using the difference
+Give a different proof of the formula above by using the difference
 quotient.  First show the formula for $f'$, then again using the difference
 quotient and the fact that the kernel (the function inside) is holomorphic
 in $z$, show the formula for $f''$, etc.  For this to work it is
@@ -11261,7 +11267,7 @@ and bounded from above, then $f$ is constant.
 
 \subsection{Identity and the maximum principle}
 
-A consequence of the above propositions is the identity theorem
+A consequence of the propositions above is the identity theorem
 for harmonic functions.  For harmonic functions, the zero set is allowed to
 have limit points. For example, $\Re z$ is zero on the entire imaginary
 axis.  However, we are still not allowed open sets.

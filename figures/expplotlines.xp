@@ -25,7 +25,7 @@ int main()
   }
 
   clip_box(P(1.1+1,-1.1),P(1.1+1+2.2,1.1));
-  for (x = -3.0; x <= 1.0001; x += 0.2) {
+  for (x = -3.2; x <= 1.0001; x += 0.2) {
 	  circle(P(1.1+1+1.1,0),exp(x));
   }
   clip_box();
@@ -48,6 +48,10 @@ int main()
   plain();
 
   arrow(P(1.2,0),P(2.0,0));
+
+  fill(Black());
+  circle(P(1.1+1+1.1,0),exp(-3.4));
+
 
   tikz_format();
   end();
