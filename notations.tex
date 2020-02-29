@@ -70,6 +70,12 @@
   description={unit disc},
 }
 
+\newglossaryentry{not:H}{
+  type=notation,
+  name={$\bH$},
+  description={upper half space $\{ z \in \C : \Im z > 0 \}$},
+}
+
 \newglossaryentry{not:laplacian}{
   type=notation,
   name={$\nabla^2$},
@@ -78,110 +84,74 @@
 
 \newglossaryentry{not:disc}{
   type=notation,
-  name={$\Delta_\rho(a)$},
-  description={disc, polydisc},
-}
-
-\newglossaryentry{not:identeq}{
-  type=notation,
-  name={$\equiv$},
-  description={identically equal, equal at all points},
+  name={$\Delta_r(a)$},
+  description={disc},
 }
 
 \newglossaryentry{not:dz}{
   type=notation,
-  name={$dz$, $dz_j$},
+  name={$dz$},
   description={$dz = dx+i\,dy$},
 }
 
 \newglossaryentry{not:dzbar}{
   type=notation,
-  name={$d\bar{z}$, $d\bar{z}_j$},
+  name={$d\bar{z}$},
   description={$d\bar{z} = dx-i\,dy$},
 }
 
-\newglossaryentry{not:supnorm}{
+\newglossaryentry{not:exp}{
   type=notation,
-  name={$\snorm{f}_K$},
-  description={supremum norm over $K$},
+  name={$\exp(z), e^z$},
+  description={the exponential},
 }
 
-\newglossaryentry{not:N0}{
+\newglossaryentry{not:arg}{
   type=notation,
-  name={$\N_0$},
-  description={nonnegative integers $\{ 0,1,2,\ldots\}$},
+  name={$\arg z$},
+  description={argument of $z$},
 }
 
-\newglossaryentry{not:O}{
+\newglossaryentry{not:Arg}{
   type=notation,
-  name={$\sO(U)$},
-  description={the set/ring of holomorphic functions on $U$},
-}
-
-\newglossaryentry{not:composition}{
-  type=notation,
-  name={$f \circ g$},
-  description={composition, $p \mapsto f\bigl(g(p)\bigr)$},
-}
-
-\newglossaryentry{not:Df}{
-  type=notation,
-  name={$Df$, $Df(a)$},
-  description={Jacobian matrix / derivative (at $a$)},
-}
-
-\newglossaryentry{not:DRf}{
-  type=notation,
-  name={$D_{\R}f$, $D_{\R}f(a)$},
-  description={real Jacobian matrix / real derivative (at $a$)},
-}
-
-\newglossaryentry{not:DCf}{
-  type=notation,
-  name={$D_{\C}f$, $D_{\C}f(a)$},
-  description={complexified real derivative},
-}
-
-\newglossaryentry{not:inverse}{
-  type=notation,
-  name={$f^{-1}$},
-  description={function inverse},
-}
-
-\newglossaryentry{not:pullback}{
-  type=notation,
-  name={$f^{-1}(S)$},
-  description={pullback of a set, $\{ q : f(q) \in S \}$},
-}
-
-\newglossaryentry{not:compact}{
-  type=notation,
-  name={$\subset \subset$},
-  description={compact or relatively compact subset},
-}
-
-\newglossaryentry{not:Ck}{
-  type=notation,
-  name={$C^k$},
-  description={$k$ times continuously differentiable},
+  name={$\Arg z$},
+  description={principal branch of the argument},
 }
 
 \newglossaryentry{not:Cinfty}{
   type=notation,
-  name={$C^\infty$},
-  description={infinitely differentiable},
+  name={$\C_\infty$},
+  description={the Riemann sphere},
 }
 
-\newglossaryentry{not:Comega}{
+\newglossaryentry{not:infty}{
   type=notation,
-  name={$C^\omega$},
-  description={real-analytic},
+  name={$\infty$},
+  description={the Riemann sphere infinity},
 }
 
-\newglossaryentry{not:gradient}{
+\newglossaryentry{not:CP1}{
   type=notation,
-  name={$\nabla r$},
-  description={gradient of $r$},
+  name={$\C \bP^1$},
+  description={one-dimensional projective space},
+}
+
+\newglossaryentry{not:CP1pt}{
+  type=notation,
+  name={$[z:w]$},
+  description={point in $\C\bP^1$},
+}
+
+\newglossaryentry{not:crossratio}{
+  type=notation,
+  name={$(z_1,z_2;z_3,z_4)$},
+  description={cross ratio},
+}
+
+\newglossaryentry{not:cplxder}{
+  type=notation,
+  name={$f'(z)$},
+  description={complex derivative},
 }
 
 \newglossaryentry{not:Pr}{
@@ -190,22 +160,16 @@
   description={Poisson kernel for the unit disc},
 }
 
-\newglossaryentry{not:convolution}{
+\newglossaryentry{not:Pu}{
   type=notation,
-  name={$f * g$},
-  description={convolution},
+  name={$Pu$, $P[u]$},
+  description={Poisson integral of $u$},
 }
 
 \newglossaryentry{not:dA}{
   type=notation,
-  name={$dA$, $dA(w)$},
-  description={area form, $dA = dx \wedge dy$},
-}
-
-\newglossaryentry{not:dist}{
-  type=notation,
-  name={$\operatorname{dist}(x,y)$},
-  description={distance between points, point and a set, or two sets},
+  name={$dA$},
+  description={area form, $dA = dx \, dy = r \, dr \, d\theta$},
 }
 
 \newglossaryentry{not:pathint}{
@@ -214,10 +178,58 @@
   description={path integral},
 }
 
-\newglossaryentry{not:graph}{
+\newglossaryentry{not:arclength}{
   type=notation,
-  name={$\Gamma_f$},
-  description={graph of $f$},
+  name={$\displaystyle \int_\gamma f(z) \,\sabs{dz}$},
+  description={arclength integral},
+}
+
+\newglossaryentry{not:segment}{
+  type=notation,
+  name={$[z,w]$},
+  description={line segment from $z$ to $w$},
+}
+
+\newglossaryentry{not:log}{
+  type=notation,
+  name={$\log z$, $\log \sabs{z}$},
+  description={the logarithm},
+}
+
+\newglossaryentry{not:Log}{
+  type=notation,
+  name={$\operatorname{Log} z$},
+  description={principal branch of the log},
+}
+
+\newglossaryentry{not:windnum}{
+  type=notation,
+  name={$n(\gamma;p)$},
+  description={the winding number of $\gamma$ around $p$},
+}
+
+\newglossaryentry{not:annulus}{
+  type=notation,
+  name={$\ann(p;r_1,r_2)$},
+  description={annulus},
+}
+
+\newglossaryentry{not:Res}{
+  type=notation,
+  name={$\operatorname{Res}(f;p)$},
+  description={residue of $f$ at $p$},
+}
+
+\newglossaryentry{not:Cauchytransform}{
+  type=notation,
+  name={$Cu$},
+  description={Cauchy transform},
+}
+
+\newglossaryentry{not:varphia}{
+  type=notation,
+  name={$\varphi_a$},
+  description={Automorphism of $\D$, $\varph_a(a)=0$, $\varphi_a(0) = -a$},
 }
 
 \newglossaryentry{not:boundary}{
@@ -271,14 +283,14 @@
 
 \newglossaryentry{not:contfuncs}{
   type=notation,
-  name={$C(S,\R)$},
-  description={continuous functions $f \colon S \to \R$},
+  name={$C(X,Y)$},
+  description={continuous functions $f \colon X \to Y$},
 }
 
 \newglossaryentry{not:contdifffuncs}{
   type=notation,
-  name={$C^1(S,\R)$},
-  description={continuously differentiable functions $f \colon S \to \R$},
+  name={$C^1$, $C^1(X,Y)$},
+  description={continuously differentiable functions $f \colon X \to Y$},
 }
 
 \newglossaryentry{not:closedball}{
@@ -297,6 +309,18 @@
   type=notation,
   name={$A^\circ$},
   description={interior of $A$},
+}
+
+\newglossaryentry{not:identeq}{
+  type=notation,
+  name={$\equiv$},
+  description={identically equal, equal at all points},
+}
+
+\newglossaryentry{not:composition}{
+  type=notation,
+  name={$f \circ g$},
+  description={composition, $p \mapsto f\bigl(g(p)\bigr)$},
 }
 
 \newglossaryentry{not:sequence}{
@@ -325,8 +349,8 @@
 
 \newglossaryentry{not:uniformnorm}{
   type=notation,
-  name={$\norm{f}_S$},
-  description={uniform norm of $f$},
+  name={$\norm{f}_K$},
+  description={supremum or uniform norm of $f$},
 }
 
 \newglossaryentry{not:arg}{
@@ -343,6 +367,6 @@
 
 \newglossaryentry{not:mvder}{
   type=notation,
-  name={$Df$},
-  description={real derivative of a mapping of vector spaces},
+  name={$Df$, $Df|_p$},
+  description={real derivative of a mapping (at $p$)},
 }
