@@ -52,6 +52,8 @@ int main()
   fill(Black());
   circle(P(1.1+1+1.1,0),exp(-3.4));
 
+  fill(White());
+  circle(P(1.1+1+1.1,0),exp(-4.6));
 
   tikz_format();
   end();
