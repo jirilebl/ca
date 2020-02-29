@@ -365,6 +365,7 @@
 \newcommand{\appendixref}[1]{\hyperref[#1]{appendix~\ref*{#1}}}
 \newcommand{\Appendixref}[1]{\hyperref[#1]{Appendix~\ref*{#1}}}
 \newcommand{\sectionref}[1]{\hyperref[#1]{section~\ref*{#1}}}
+\newcommand{\subsectionref}[1]{\hyperref[#1]{\S~\ref*{#1}}}
 \newcommand{\exerciseref}[1]{\hyperref[#1]{Exercise~\ref*{#1}}}
 \newcommand{\exampleref}[1]{\hyperref[#1]{Example~\ref*{#1}}}
 \newcommand{\thmref}[1]{\hyperref[#1]{Theorem~\ref*{#1}}}
@@ -1070,13 +1071,20 @@ i \quad ``{}={}'' \quad
 are the identity and the rotation counterclockwise by $90$ degrees
 respectively.  Precisely what we expect multiplication by $1$ and $i$
 to do.
-The complex conjugate is represented by the
-matrix transpose, and a symmetric matrix represents a real number.
 
-We can also multiply the $2 \times 2$ matrices themselves,
-and likewise this matrix multiplication is the same as multiplication of complex
+Complex conjugation is a real-linear
+operator represented and can be represented by the matrix $\left[ \begin{smallmatrix} 1 & 0 \\ 0 &
+-1 \end{smallmatrix} \right]$.  Note that complex conjugation is
+not representing multiplication by a complex number.  Below you will prove
+however that multiplications by complex numbers together with conjugation do 
+in fact ``generate'' all the real-linear operators.
+
+For those matrices representing complex numbers,
+we can also multiply the $2 \times 2$ matrices themselves,
+and this matrix multiplication is the same as multiplication of the complex
 numbers.  Similarly with addition.
-That is, we can view the field of complex numbers as a subring of $M_2(\R)$.
+That is, we can view the field of complex numbers as a subring of $M_2(\R)$
+(exercise below).
 
 \begin{exbox}
 \begin{exercise}
@@ -1116,8 +1124,9 @@ then show that $\det M = \sabs{\xi}^2 - \sabs{\zeta}^2$.
 \end{exercise}
 \end{exbox}
 
-We will see this representation of complex numbers come up when we introduce the
-Cauchy--Riemann equations.  But it comes up quite often in applications.
+%We will see this representation of complex numbers come up when we introduce the
+%Cauchy--Riemann equations.
+This representation of complex numbers comes up quite often in applications.
 For example, 
 an $m \times n$ complex matrix can be represented by a
 $2m \times 2n$ real matrix by replacing each entry by a $2 \times 2$ matrix.
@@ -1136,12 +1145,13 @@ multiplication by a complex number.
 
 \section{Polar form and the exponential}
 
-\subsection{The exponential}
+\subsection{The exponential} \label{subsection:firstdefexp}
 
 The exponential is the most fundamental and useful functions in complex
 analysis.  Let us define it for all complex numbers (see
 \figureref{fig:complexexpgraphs}):
 \begin{equation*}
+\exp(z) =
 e^{z} = 
 e^{x+iy}
 \overset{\text{def}}{=}
@@ -1179,17 +1189,22 @@ It is possible to not resort to the real exponentials, sines, and cosines
 to define the complex exponential, and we will do so in due course.
 But we want to have something to play around with now without waiting.
 
-\begin{exbox}
-\begin{exercise}
-Using the definition and trigonometric identities, prove
+\begin{prop}
+For any two complex numbers $z,w \in \C$,
 \begin{equation*}
 e^{z+w} = e^z e^w .
 \end{equation*}
-Remark: In fact, $e^z$ is the unique continuous
-function that satisfies the identity above
-and $e^0 = 1$, but let us not worry about this now.
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition using the definition and trigonometric identities.
 \end{exercise}
 \end{exbox}
+
+We remark that $e^z$ is the unique continuous
+function on $\C$ that satisfies $e^{z+w} = e^z e^w$ and $e^0 = 1$.
+But let us not worry about that.
 
 For real $\theta$, the definition
 of the exponential gives the so-called
@@ -1958,6 +1973,7 @@ for some $\xi \in \C$, where $o(\sabs{h})$ means any function of $h$
 that goes to zero faster than $\sabs{h}$.
 
 \begin{defn}
+Suppose $U \subset \C$ is open.
 Given $f \colon U \to \C$ and $z_0 \in U$, we say 
 $f$ is \emph{\myindex{complex differentiable}} at $z_0$ if
 the limit
@@ -1978,15 +1994,28 @@ if it is complex differentiable at every point.  That is, if
 %FIXME: do we every really use $\sO(U)$
 \end{defn}
 
-The most basic result is that a holomorphic function is continuous
-(exercise).  This can be proved either directly from the definition,
+Above, we proved the following proposition that justifies our motivation
+for the complex derivative:
+
+\begin{prop}
+If $P(z)$ is a polynomial, then $P \colon \C \to \C$ is holomorphic.
+\end{prop}
+
+The most basic result about holomorphic functions is that they are
+continuous.
+This can be proved (exercise) either directly from the definition,
 or using that a holomorphic function is
 (real) differentiable as we will see shortly.
+
+\begin{prop}
+If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic, then $f$
+is continuous.
+\end{prop}
 
 \begin{exbox}
 \begin{exercise}
 Directly from the definition of the complex derivative, show that a
-holomorphic function is continuous.
+holomorphic function is continuous (prove the proposition above).
 \end{exercise}
 
 \begin{exercise}
@@ -2206,7 +2235,7 @@ Then $f$ is a constant.
 \end{prop}
 
 \begin{proof}
-The proof follows immediately from the standard real result,
+Follows from the standard real result,
 see \thmref{thm:svzerodersol} in the appendix.
 \end{proof}
 
@@ -2312,10 +2341,12 @@ $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
 \begin{prop}[Power rule] \label{prop:powerrule}
 \leavevmode
 \begin{enumerate}[(i)]
-\item A constant function is holomorphic and $(c)' = 0$.
 \item For nonzero integers $n$, the function $z \mapsto z^n$ is holomorphic
 where defined (outside the origin if $n$ negative) and $(z^n)' = n z^{n-1}$.
-\item Polynomials $P(z)$ are holomorphic.
+\item
+If $P(z) = \sum_{n=0}^d c_n z^n$ is a polynomial,
+then
+$P'(z) = \sum_{n=0}^{d-1} (n+1) c_{n+1} z^n$.
 \item Rational functions $\frac{P(z)}{Q(z)}$
 are holomorphic on the set where $Q$ is not zero.
 \end{enumerate}
@@ -2717,12 +2748,6 @@ is called a
 \emph{\myindex{biholomorphism}}.
 If there exists a biholomorphism $f \colon U \to V$, we say that
 $U$ and $V$ are \emph{\myindex{biholomorphic}}.
-Traditionally,
-a biholomorphism
-$f \colon U \to V$ is also called a \emph{\myindex{conformal mapping}} and
-then $U$ and $V$ are said to be
-\emph{\myindex{conformally equivalent}}.\footnote{In one complex variable only!
-In higher dimensions the definitions differ.}
 If $U = V$, then a biholomorphism $f$ is called an
 \emph{\myindex{automorphism}}\footnote{%
 The word automorphism is used in other contexts as well, it always means
@@ -2730,6 +2755,12 @@ that it is the right sort of equivalence in whatever context you are in.
 In topology it may mean homeomorphism, in differential geometry a
 diffeomorphism, in group theory it may mean a bijective homomorphism.}.
 Let $\operatorname{Aut(U)}$ denote the set of all automorphisms of $U$.
+Traditionally,
+a biholomorphism
+$f \colon U \to V$ is called a \emph{\myindex{conformal mapping}} and
+then $U$ and $V$ are said to be
+\emph{\myindex{conformally equivalent}}.\footnote{In one complex variable only!
+In higher dimensions the definitions differ.}
 \end{defn}
 
 For example, the Cayley map
@@ -2813,8 +2844,8 @@ neighborhood $V$ of $p$ bijectively to a neighborhood $f(V)$
 of $f(p)$ and the inverse on that neighborhood is continuously
 differentiable with $D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
 
-An inverse of a $2 \times 2$ matrix that represents a complex number is
-again one that represents a complex number (the reciprocal), so if $f$
+An inverse of a $2 \times 2$ matrix that represents a complex number also
+represents a complex number (the reciprocal).  So if $f$
 satisfied the Cauchy--Riemann equations, so does the inverse.  We 
 instantly obtain the holomorphic inverse function theorem.
 
@@ -2942,8 +2973,8 @@ $\det Df\big|_p = \babs{\frac{\partial f}{\partial z}(p)}^2 -
 
 \subsection{Conformality *}
 
-The actual definition of ``conformal mapping'' is that it
-is a real differentiable bijective mapping $f \colon U \to V$ for open
+The actual definition of ``conformal mapping'' is 
+a real differentiable bijective mapping $f \colon U \to V$ of open
 $U, V \subset \R^2$ that preserves
 a)~orientation, and b)~angles.
 Both of these are taken in the infinitesimal sense, that is, they are
@@ -3106,7 +3137,7 @@ r^{1/n} e^{i\theta/n + 2\pi i /n}
 r^{1/n} e^{i\theta/n + 2\pi i (n-1)/n} .
 \end{equation*}
 Those are the $n$ different $z$s such that $z^n=w$.  They are equally
-spaced out on a circle of radius $r^{1/n}$.  See
+spaced out on a circle of radius $r^{1/n}$, see
 \figureref{fig:roots}.  If the roots are of $w=1$, then they are
 called \emph{\myindex{roots of unity}}.
 
@@ -3286,10 +3317,11 @@ $0 < r < R$ there exists an $M > 0$ such that
 \end{equation*}
 \end{prop}
 
-Note that it is not necessarily true that $\bigl\{ \sabs{c_n} R^n \bigr\}$
+It is not necessarily true that $\bigl\{ \sabs{c_n} R^n \bigr\}$
 is bounded if $R$ is the radius of convergence.
 For example, both $\sum z^n$ and $\sum n z^n$ have
-radius of convergence 1 and the sequence is bounded in the first case and
+radius of convergence 1 and the sequence of coefficients
+is bounded in the first case and
 not in the second.  However, $\{ n r^n \}$ is bounded for every $r < 1$.
 
 \begin{proof}
@@ -3504,7 +3536,7 @@ which converges in $\Delta_R(p)$.
 
 \begin{proof}
 Without loss of generality, let $p=0$.
-We differentiate $z^n$ at $z_0$ by considering the difference
+Differentiate $z^n$ at $z_0$ by considering the difference
 quotient
 \begin{equation*}
 \frac{z^n-z_0^n}{z-z_0}
@@ -3513,8 +3545,8 @@ quotient
 z^k z_0^{n-1-k} ,
 \end{equation*}
 which goes to $n z_0^{n-1}$ as $z \to z_0$.
-Let us apply formula to $f$
-term-wise.  As long as $z_0$ and $z$ are in $\Delta_R(0)$, then
+Apply the formula to $f$
+term-wise.  If $z_0$ and $z$ are in $\Delta_R(0)$, then
 \begin{equation*}
 \frac{f(z) - f(z_0)}{z-z_0}
 =
@@ -3572,7 +3604,7 @@ the root test shows that
 %\end{equation*}
 $\sum n \sabs{c_n} s^{n-1}$
 converges.
-Hence the series for the difference quotient,
+So the series for the difference quotient,
 \begin{equation*}
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k} ,
 \end{equation*}
@@ -3618,11 +3650,12 @@ Fill in the details of the proof of the corollary.
 \end{exercise}
 \end{exbox}
 
-Perhaps a subtle consequence of
-this corollary that should be
-noted is that if $f$ is given by the convergent power series in
+An important consequence of this corollary that should be
+emphasized is that if $f$ is given by the convergent power series in
 $\Delta_R(p)$ as above, then the power series is unique.  This conclusion
-follows from the formula for the coefficients $c_n$.
+follows from the formula for the coefficients $c_n$.  In fact, the
+coefficients depend only on the values of $f$ in an arbitrarily small
+neighborhood of $p$.
 
 If we apply the corollary to analytic functions at every point,
 we find that they are infinitely differentiable:
@@ -3633,10 +3666,10 @@ derivative is analytic.
 \end{cor}
 
 \begin{remark}
-A subtle issue is that while we have proved that analytic functions are
+A subtle issue is that while we proved that analytic functions are
 complex differentiable because they have a power series representation,
-we have not yet proved that a convergent power series defines an analytic
-function.  What would be left to prove is that a power series convergent
+we did not yet prove that a convergent power series defines an analytic
+function.  What is left is to prove that a power series convergent
 in $\Delta_R(p)$ can be
 expanded about a different point in $\Delta_R(p)$.  That will follow
 once we prove that holomorphic functions are analytic.
@@ -3673,8 +3706,9 @@ $\sabs{f^{(n)}(0)} \leq n! M$ for all $n$.
 
 \subsection{The exponential}
 
-We have met the complex exponential $e^z$ before, and we have proved
-that it is holomorphic and it is its own derivative
+We met the complex exponential $e^z$ before
+(\subsectionref{subsection:firstdefexp}), and we proved
+that it is holomorphic and its own derivative
 (\exerciseref{exercise:exponentialholomorphic}).  We can now see this fact
 from a different vantage point.\footnote{%
 That vantage point being the same as that dark place in your past
@@ -3690,10 +3724,8 @@ f(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n ,
 \end{equation*}
 is the unique convergent power series at the origin
 such that $f(0)=1$ and $f'=f$.
-Moreover, the series converges on all of $\C$ and
-\begin{equation*}
-e^z = \exp(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n .
-\end{equation*}
+Moreover, the series converges on $\C$ and
+$f(z) = e^z$.
 \end{prop}
 
 \begin{proof}
@@ -3719,7 +3751,7 @@ f'(z) =
 As the coefficients of the power series at zero are unique, we get
 $c_n = (n+1) c_{n+1}$.  By induction we see that $c_n = \frac{1}{n!}$.
 
-Now let's prove that $f$ is the exponential.  We know both functions are
+Let's prove that $f$ is the exponential.  Both functions are
 holomorphic, the exponential is never zero, and both are equal to their
 derivatives.  So,
 \begin{equation*}
@@ -5869,6 +5901,12 @@ each component of the set $\bigl\{ z \in \C : \sabs{P(z)} < c \bigr\}$
 contains at least one zero (root) of $P$.  Hint: Do the two previous
 exercises first.
 \end{exercise}
+
+\begin{exercise}
+Let $f \colon \Delta_R(p) \to \C$ be holomorphic and nonconstant.
+Prove that $M(r) = \sup \bigl\{ \sabs{f(z)} : z \in \partial \Delta_r(p)
+\bigr\}$ is a strictly increasing function of $r \in [0,R)$.
+\end{exercise}
 \end{exbox}
 
 
@@ -5956,6 +5994,16 @@ and $f \colon \bH \to \D$ holomorphic.  Prove
 \begin{equation*}
 \lim_{\substack{t \to \infty\\t \in \R, t > 0}} f'(it) = 0 .
 \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Prove by example that a better estimate of $\sabs{c_n}$ than Cauchy's
+is impossible if we are only given
+$\snorm{f}_{\partial \Delta_r(p)}$.  That is, given an $n$ and $r$ find
+a function holomorphic on a neighborhood of $\overline{\Delta_r(p)}$
+such that $\sabs{c_n} = \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^n}$.
+In fact, for each $n$ you can find a function that works for all $r$.
+Hint: Think simple!
 \end{exercise}
 \end{exbox}
 
@@ -6190,16 +6238,16 @@ For a continuous $u \colon \partial \Delta_r(p) \to \C$,
 the Cauchy transform $Cu \colon \Delta_r(p) \to \C$ is holomorphic.
 \end{cor}
 
-The corollary gives a converse to the Cauchy formula.
+The corollary gives a converse to Cauchy's formula.
 If $f \colon \overline{\Delta_r(p)} \to \C$ is continuous and
 \begin{equation*}
 f(z) =
 \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta
-\qquad \text{for all } z \in \Delta_r(p).
+\qquad \text{for all } z \in \Delta_r(p),
 \avoidbreak
 \end{equation*}
-Then $f|_{\Delta_r(p)}$ is not holomorphic.
+then $f|_{\Delta_r(p)}$ is holomorphic.
 
 It is not necessarily true that $Cu$ tends to $u$ as we approach the
 boundary of the disc unless $u$ came from 
@@ -6209,7 +6257,7 @@ the boundary of the disc, but they need not be equal to what $u$ is.
 
 \begin{exbox}
 \begin{exercise}
-Compute explicitly
+Explicitly compute
 the Cauchy transform $Cu$ on $\D$ for $u \colon \partial \D \to \C$
 given by $u(z) = \bar{z}$.  Then note that $Cu$ does not tend to $u$
 as $z$ goes to $\partial \D$.
@@ -6219,7 +6267,18 @@ and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$.
 %see also \exerciseref{exercise:cauchycont}.
 \end{exercise}
 
-
+\begin{exercise}
+Suppose $g \colon U \times [a,b] \to \C$ is continuous, 
+for each fixed $t \in [a,b]$, $z\mapsto g(z,t)$ is holomorphic,
+and $\sabs{g(z,t)} \leq M$ for all $(z,t) \in U \times
+[a,b]$.  Prove that
+\begin{equation*}
+f(z) = \int_a^b g(z,t)  \, dt
+\avoidbreak
+\end{equation*}
+is a holomorphic function on $U$
+such that $\sabs{f(z)} \leq M(b-a)$ for all $z \in U$.
+\end{exercise}
 
 \begin{exercise}
 Suppose $g \colon [-1,1] \to \C$ is continuous and define
@@ -7084,6 +7143,15 @@ $n(\Gamma;z) = 0$.  If $r_1 < \sabs{z-p} < r_2$, then
 $n(\Gamma;z) = 1$.  If $r_2 < \sabs{z-p}$, then
 $n(\Gamma;z) = 0$.
 \end{exercise}
+
+\begin{exercise}
+Suppose $\gamma \colon [a,b] \to \C$ be a closed $C^1$ path such that
+$\gamma(a) = \gamma(b)$ is some real negative number.  Suppose
+that $\gamma(t)$ is real and negative for $k$ distinct $t$ (and it
+includes $a$ and $b$) and whenever $\gamma(t)$ is real and negative,
+then $\Im \gamma'(t) < 0$.  Prove that $n(\gamma;0) = k-1$.  Hint: Use
+the principal branch.
+\end{exercise}
 \end{exbox}
 
 
@@ -7173,8 +7241,9 @@ Next we show that $h$ is
 holomorphic.
 Holomorphicity is a local property, so we only need to prove it 
 in a neighborhood of any point.
-The set where $n(\gamma;w) = 0$ is open as $n(\gamma;w)$ is
-continuous, and so each point has a neighborhood where $h$ is defined
+The set where $n(\gamma;w) = 0$ is open as it is a
+union of topological components of $\C \setminus \gamma$.
+So each point has a neighborhood where $h$ is defined
 entirely by one or the other expression above.  Given any point,
 take a neighborhood where one of the expressions defines
 $h$ and then apply \lemmaref{lemma:holfuncbyintegral}.
@@ -7238,32 +7307,17 @@ the Cauchy integral formula for the function $\zeta \mapsto
 \end{equation*}
 \end{proof}
 
-\begin{exbox}
-\begin{exercise}
-Prove that the two theorems are equivalent logically, that is, one follows
-from the other.  We have already proved that Cauchy integral formula
-implies Cauchy's theorem.  So prove that
-Cauchy's theorem implies the Cauchy integral formula.
-\end{exercise}
-\end{exbox}
-
 \begin{defn}
-Two closed piecewise $C^1$ maps (or cycles) $\gamma_0$ and $\gamma_1$ in $U
+Two closed piecewise $C^1$ paths (or cycles) $\gamma_0$ and $\gamma_1$ in $U
 \subset \C$ are \emph{\myindex{homologous}} in $U$
 if $n(\gamma_0;p) = n(\gamma_1;p)$ for all $p \in \C \setminus U$.
 Equivalently, $\gamma_0$ and $\gamma_1$ are homologous in $U$ if
 $n(\gamma_0 - \gamma_1;p) = 0$ for all $p \in \C \setminus U$.
 \end{defn}
 
-\begin{exbox}
-\begin{exercise}
-Show that being homologous is an equivalence relation on cycles.
-\end{exercise}
-\end{exbox}
-
 \begin{cor} \label{cor:homologoussameint}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
-If two closed piecewise $C^1$ maps (or cycles) $\gamma_0$ and $\gamma_1$ in $U$
+If two closed piecewise $C^1$ paths (or cycles) $\gamma_0$ and $\gamma_1$ in $U$
 are homologous in $U$, then
 \begin{equation*}
 \int_{\gamma_0} f(z)\, dz = 
@@ -7272,6 +7326,45 @@ are homologous in $U$, then
 \end{cor}
 
 The proof is immediate by applying Cauchy's theorem to $\gamma_0-\gamma_1$.
+
+\begin{exbox}
+\begin{exercise}
+Prove that the two theorems are equivalent logically, that is, one follows
+from the other.  We have already proved that Cauchy integral formula
+implies Cauchy's theorem.  So prove that
+Cauchy's theorem implies the Cauchy integral formula.
+\end{exercise}
+
+\begin{exercise}
+Show that being homologous is an equivalence relation on cycles.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $\gamma$ is a closed piecewise $C^1$ path (or cycle) such that
+$n(\gamma;0) = k$.  Compute
+\begin{equation*}
+\int_{\gamma} \frac{1}{z} \, dz .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open and $\gamma$ 
+is a closed piecewise $C^1$ path (or cycle) in $U$ such that
+$n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
+Suppose that $n(\gamma;z_1) = k_1$ and  $n(\gamma;z_2) = k_2$ for
+some two distinct $z_1,z_2 \in U \setminus \gamma$.
+Suppose $f \colon U \setminus \{z_1,z_2\} \to \C$ is
+holomorphic.
+Suppose $0< \epsilon < \sabs{z_1-z_2}$ and 
+$\int_{\partial \Delta_\epsilon(z_1)} f(z) \, dz = A$ and 
+$\int_{\partial \Delta_\epsilon(z_2)} f(z) \, dz = B$.
+Compute
+\begin{equation*}
+\int_{\gamma} f(z) \, dz
+\end{equation*}
+in terms of $k_1$, $k_2$, $A$, and $B$.
+\end{exercise}
+\end{exbox}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7457,6 +7550,17 @@ piecewise $C^1$ path (or a cycle) $\gamma$ in $U$, we have
 \end{thm}
 
 \begin{proof}
+The logic of the proof is the following diagram:
+\begin{equation*}
+\begin{tikzcd}[cramped, row sep=small]
+& \text{\ref{thm:simplyconnected:ii}} \arrow[d, Rightarrow] \arrow[dr, Rightarrow] & \\
+\text{\ref{thm:simplyconnected:i}} \arrow[ur, Rightarrow] & 
+\text{\ref{thm:simplyconnected:iv}} \arrow[d, Rightarrow] &
+\text{\ref{thm:simplyconnected:iii}} \arrow[dl, Rightarrow] \\
+& \text{\ref{thm:simplyconnected:v}} \arrow[ul, Leftrightarrow] &
+\end{tikzcd}
+\end{equation*}
+
 We proved
 \ref{thm:simplyconnected:i} $\Rightarrow$
 \ref{thm:simplyconnected:ii} above,
