@@ -5253,7 +5253,7 @@ That is, show
 \begin{equation*}
 f(p) = \frac{1}{\pi r^2} \int_{\Delta_r(p)} f(z) \, dA ,
 \end{equation*}
-\glsnot{not:dA}%
+\glsadd{not:dA}%
 where $dA = dx \, dy = r \, dr \, d\theta$ is the area measure.
 \end{exercise}
 
@@ -17826,57 +17826,63 @@ book, that is perhaps not described elsewhere.
 We use $\C$, $\R$ for complex and real numbers, and $i$ for imaginary unit
 (a square root of $-1$).  We use
 $\N = \{ 1,2,3, \ldots \}$ for 
-the natural numbers, 
-$\N_0 = \{ 0,1,2,3, \ldots \}$ for the zero-based natural numbers,
-and $\Z$ for all integers.
+the natural numbers,
+$\Z$ for all integers, and
+$\Q$ for rational real numbers,
+
+\glsadd{not:setminus}%
+We denote the set subtraction by 
+$A \setminus B$,
+meaning all elements of
+$A$ that are not in $B$.
+We the complement of a set is $X^c$, in which case
+the ambient set should be clear.
+\glsadd{not:closure}%
+The topological closure of a set $S$ is denoted by $\overline{S}$, its
+boundary is denoted by
+\glsadd{not:boundary}%
+$\partial S$.  By $\partial S$ we may also mean the path that gives the
+topological boundary traversed counterclockwise.
+We write the interior of $S$ as
+\glsadd{not:interior}%
+$S^\circ$.
 
 \glsadd{not:function}%
-The notation $f \colon X \to Y$ means a function with domain $X$ and
+The notation $f \colon X \to Y$ is a function with domain $X$ and
 codomain $Y$.  By $f(S)$ we mean the direct image of $S$ by $f$.
-We use the notation $f^{-1}$ for the inverse image of sets and
+The notation $f^{-1}$ means the inverse image of sets and
 single points, and when the mapping is bijective (one-to-one and onto),
 we use it for the inverse mapping.  So for example $f^{-1}(T)$ for
 a set $T \subset Y$ denotes all the points of $X$ that $f$ maps to $T$.
-Similarly, $f^{-1}(q)$ could denote all the points that map to $q$,
-but if the mapping is bijective, then it would just mean the unique point
+If $q$ is a point, then $f^{-1}(q)$ denotes the set of all the points that map to $q$.
+If the mapping is bijective, then $f^{-1}(q)$ just denotes the unique point
 mapping to $q$.
-
-If we wish to define a function without necessarily giving it a name, we use
-the notation
+To define a function without necessarily giving it a name, we use
 \glsadd{not:mapsto}%
 \begin{equation*}
 x \mapsto F(x) ,
 \end{equation*}
 where $F(x)$ would generally be some formula giving the output.
-
+The notation
 \glsadd{not:restriction}%
-The notation $f|_S$ means the restriction of $f$ to $S$, that is,
-it is a function
+\begin{equation*}
+f|_S
+\end{equation*}
+means the restriction of $f$ to $S$:
+a function
 $f|_S \colon S \to Y$ such that $f|_S(x) = f(x)$ for all $x \in S$.
-
-\glsadd{not:setminus}%
-We denote the set subtraction by $A \setminus B$, meaning all elements of
-$A$ which are not in $B$.
-We denote the complement of a set by $X^c$.  In this case, the ambient set
-should be clear.  So, for example, if $X \subset \C$ naturally,
-then $X^c = \C \setminus X$.
-
-\glsadd{not:closure}%
-The topological closure of a set $S$ is denoted by $\overline{S}$, its
-boundary is denoted by
-\glsadd{not:boundary}%
-$\partial S$.  We write the interior of $S$ as
-\glsadd{not:interior}%
-$S^\circ$.
-
-When we wish to say that two functions are identically equal, we write
+To say that two functions are identically equal, we write
 \glsadd{not:identeq}%
-$f \equiv g$.  This means that $f(x) = g(x)$ for all $x$ in the domain.
-
+\begin{equation*}
+f \equiv g .
+\end{equation*}
+This means that $f(x) = g(x)$ for all $x$ in the domain.
 The notation
 \glsadd{not:composition}%
-$f \circ g$ denotes the composition defined by $x \mapsto
-f\bigl(g(x)\bigr)$.
+\begin{equation*}
+f \circ g
+\end{equation*}
+denotes the composition defined by $x \mapsto f\bigl(g(x)\bigr)$.
 
 We write
 \glsadd{not:definition}%
