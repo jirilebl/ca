@@ -10920,7 +10920,7 @@ Prove that necessarily $F(p) = 0$.
 \section{Riemann mapping theorem}
 \label{sec:RMT}
 
-\section{The theorem}
+\subsection{The theorem}
 
 Every simply connected domain of $\C$ (except $\C$ itself) is really
 equivalent (biholomorphically, conformally) to $\D$.
@@ -11498,7 +11498,7 @@ $P_r(\theta) > 0$ for all $0 \leq r < 1$ and all $\theta$.
 $\int_{-\pi}^{\pi} P_r(\theta) \, d\theta = 1$.
 \item
 For any given $\delta > 0$,
-$\sup \{P_r(\theta) : \delta \leq \abs{\theta} \leq \pi \} \to 0$ as
+$\sup \bigl\{P_r(\theta) : \delta \leq \abs{\theta} \leq \pi \bigr\} \to 0$ as
 $r \to 1$.
 \end{enumerate}
 \end{prop}
@@ -11631,14 +11631,85 @@ Pu(re^{i\theta})
 \end{equation*}
 is harmonic for $z = re^{i\theta} \in \D$.
 
-FIXME: steps:
+Suppose $M$ is the supremum of
+$u$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
+As $u$ is uniformly continuous on $\partial \D$, suppose $\delta > 0$
+is small enough so that $\sabs{u(e^{it})-u(e^{i\theta})} <
+\frac{\epsilon}{2}$ whenever $\sabs{t-\theta} < 2 \delta$.
+Using the proposition above,
+suppose $\delta' > 0$ is also small enough so that if
+$r > 1-\delta'$, then $0 < P_r(\theta) <
+\frac{\epsilon}{8M\pi}$ whenever $\sabs{\theta} \geq \delta$.
 
-FIXME: (step2)
-$P$ acts like an
-approximate identity: Prove that
-$Pu(re^{i\theta}) \to u(e^{i\theta})$ uniformly as
-$r \to 1$ (Split the integral to $[-\delta,\delta]$ and the rest
-and use the proposition)
+Write
+\begin{equation*}
+\begin{split}
+\sabs{
+Pu(r e^{i\theta} ) - u(e^{i\theta})
+}
+& =
+\abs{
+\int_{-\pi}^{\pi} \bigl( u(e^{it})-u(e^{i\theta}) \bigr) P_r(\theta-t) \, dt
+}
+\\
+& \leq 
+\abs{
+\int_{-\pi}^{-\delta} \cdots \, dt
+}
++
+\abs{
+\int_{-\delta}^{\delta} \cdots \, dt
+}
++
+\abs{
+\int_{\delta}^\pi \cdots \, dt
+} .
+\end{split}
+\end{equation*}
+Let us estimate the three integrals.
+First suppose $M$ is the supremum of
+$u$ on $\partial \D$.  So
+\begin{equation*}
+\begin{split}
+\abs{
+\int_{-\pi}^{-\delta} \bigl( u(e^{it})-u(e^{i\theta}) \bigr) P_r(\theta-t) \, dt
+}
+& \leq
+\int_{-\pi}^{-\delta} \abs{ u(e^{it})-u(e^{i\theta}) }
+P_r(\theta-t) \, dt
+\\
+& \leq (\pi-\delta) 2M \frac{\epsilon}{8M\pi} \leq \frac{\epsilon}{4} .
+\end{split}
+\end{equation*}
+
+Next,
+\begin{equation*}
+\begin{split}
+\abs{
+\int_{-\delta}^{\delta} \bigl( u(e^{it})-u(e^{i\theta}) \bigr) P_r(\theta-t) \, dt
+}
+& \leq
+\int_{-\delta}^{\delta} \abs{u(e^{it})-u(e^{i\theta})}
+P_r(\theta-t) \, dt
+\\
+& \leq
+\int_{-\delta}^{\delta} \frac{\epsilon}{2} P_r(\theta-t) \, dt
+\leq
+\int_{-\pi}^{\pi} \frac{\epsilon}{2} P_r(\theta-t) \, dt
+=\frac{\epsilon}{2} .
+\end{split}
+\end{equation*}
+
+In other words,
+\begin{equation*}
+\sabs{
+Pu(r e^{i\theta} ) - u(e^{i\theta})
+} \leq \frac{\epsilon}{4} + \frac{\epsilon}{2} + \frac{\epsilon}{4} =
+\epsilon.
+\end{equation*}
+And so $Pu(re^{i\theta}) \to u(e^{i\theta})$ as $r \uparrow 1$.
+
+FIXME: steps:
 
 FIXME: (step3)
 Prove that $Pu(z)$ tends to $u(z_0)$ as
