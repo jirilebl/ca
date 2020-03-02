@@ -6572,7 +6572,8 @@ where $r < 1$, we have
 The maximum principle says that the inequality
 $r \sabs{f(z)} \leq \sabs{z}$
 holds for all $z \in \Delta_r(0)$.
-Taking limit as $r \to 1$ shows that $\sabs{f(z)} \leq \sabs{z}$ or
+Fix $z \in \D$ and take limit as $r \uparrow 1$. 
+You find $\sabs{f(z)} \leq \sabs{z}$ or
 $\sabs{g(z)} \leq 1$ for all $z
 \in \D$.  Then
 \begin{equation*}
@@ -6651,45 +6652,54 @@ of the one for $f$.  Then apply Cauchy estimates.
 Let us compute the automorphism group of the disc using
 Schwarz's lemma.
 We start with certain specific automorphisms of the disc.
-For $a \in \D$, define
+For $a \in \D$, define\footnote{%
+Careful when reading literature, some authors use $\frac{a-z}{1-\bar{a}z}$ as the definition.}
 \glsadd{not:varphia}%
 \begin{equation*}
 \varphi_a(z) \overset{\text{def}}{=} \frac{z-a}{1-\bar{a}z}.
 \end{equation*}
 
-\begin{exbox}
-\begin{exercise}
-Show that for every $a \in \D$, the LFT $\varphi_a$ takes
-$\partial \D$ to $\partial \D$, and $\D$ to $\D$.  Hint: Remember that
-$\varphi_a$ is an LFT and what LFTs do to circles.
-\end{exercise}
-
-\begin{exercise}
-Show that for every $a \in \D$, the map $\varphi_a$ gives a biholomorphism
-of $\D$.
-In particular, show that when restricted to the disc $\D$,
+\begin{prop}
+For every $a \in \D$,
+\begin{enumerate}[(i)]
+\item
+\begin{equation*}
+\varphi_a(a) = 0, \qquad
+\varphi_a(0) = -a, \qquad
+\varphi_a'(0) = 1 - \sabs{a}^2, \qquad
+\varphi_a'(a) = \frac{1}{1 - \sabs{a}^2},
+\end{equation*}
+\item
+$\varphi_a(\partial \D) = \partial \D$,
+and
+$\varphi_a(\D) = \D$
+\item
+$\varphi_a$ restricted to the disc is an automorphism of the disc and
 \begin{equation*}
 \varphi_a^{-1} = \varphi_{-a} .
 \end{equation*}
+\end{enumerate}
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+Hint: (i) is a direct computation, for (ii)
+remember that
+$\varphi_a$ is an LFT and what an LFT does to circles,
+and (iii) is a direct computation.
 \end{exercise}
 \end{exbox}
 
-So, $\varphi_a$ is an automorphism of the disc.
-See \figureref{fig:varphiplot} for an example of it does to the disc.
-A direct computation shows that
-\begin{equation*}
-\varphi_a(a) = 0, \qquad
-\varphi_a'(0) = 1 - \sabs{a}^2, \qquad
-\varphi_a'(a) = \frac{1}{1 - \sabs{a}^2} .
-\end{equation*}
+See \figureref{fig:varphiplot} for an example of what $\varphi_a$ does to the disc.
+Next, we prove that up to a rotation, all automorphisms of $\D$ are
+$\varphi_a$.
 \begin{myfig}
 \includegraphics{figures/varphiplot}
 \caption{What $\varphi_a$ does to the unit disc.   In this case,
 $a=-0.4$ and the position of $a$ and $\varphi_a(a)=0$ is marked with a dot.%
 \label{fig:varphiplot}}
 \end{myfig}
-
-Up to a rotation, $\varphi_a$ are all the automorphisms of $\D$.
 
 \begin{prop}
 If $f \in \operatorname{Aut}(\D)$, then there exists an $a \in \D$
@@ -6718,7 +6728,8 @@ and its one allowed zero is at $z=0$,
 and $h(0) = g'(0) \not= 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
 continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
 In other words, $\sabs{g(z)}$ must approach $1$ as $z$
-approaches the boundary $\partial \D$.  Then so must $\sabs{h(z)}$.
+approaches the boundary $\partial \D$.
+Then so must $\sabs{h(z)}$.
 The function
 $\sabs{h(z)}$ must, therefore, attain a minimum inside $\D$, or in other
 words $\babs{\frac{1}{h(z)}}$ must attain a maximum inside $\D$.  So $h(z)$
@@ -6732,6 +6743,14 @@ $f(z) = \varphi_{-a}(ze^{i\theta})
 \end{proof}
 
 \begin{exbox}
+\begin{exercise}
+Justify the claim in the proof.  If a continuous
+$g \colon \D \to \D$ is is such that $g^{-1}(K)$ is compact
+for every compact $K \subset \D$, then if $\{ z_n \}$ is a sequence
+in $\D$ such that $\sabs{z_n} \to 1$ then
+$\sabs{g(z_n)} \to 1$.
+\end{exercise}
+
 \begin{exercise}
 Given two distinct $a,b \in \D$, show that there exists a unique automorphism
 $f$ such that $f(a) = b$ and $f(b) = a$.
@@ -6770,7 +6789,7 @@ Now find a general formula for $f$.
 \end{exercise}
 
 \begin{exercise}
-Prove the \emph{\myindex{Schwarz--Pick lemma}}.
+Prove the \emph{\myindex{Schwarz--Pick lemma}}:
 If $f \colon \D \to \D$ is holomorphic, then
 \begin{equation*}
 \frac{f(z)-f(\zeta)}{1-\overline{f(z)}f(\zeta)} \leq
@@ -6783,7 +6802,7 @@ If $f \colon \D \to \D$ is holomorphic, then
 \avoidbreak
 \end{equation*}
 for all $z,\zeta \in \D$,
-with equality if and only if $f$ is an automorphism of $\D$.
+with equality at some $z,\zeta \in \D$ if and only if $f$ is an automorphism of $\D$.
 \end{exercise}
 \end{exbox}
 
@@ -6913,10 +6932,11 @@ when it doesn't make any sense.
 
 So how do we use $\log$?  Well it comes up in line integrals, which are used
 to count and classify zeros and/or singularities of functions, or vice
-versa.  Let us compute the integral of $\frac{1}{z}$ around the unit
+versa---zeros and singularities are used to compute line integrals.
+Let us compute the integral of $\frac{1}{z}$ around the unit
 circle $\partial \D$, oriented counterclockwise as usual (parametrized
-by, say, $e^{it}$).  Suppose we start and end the integration at the
-point $1$:
+by $e^{it}$).  Suppose we start and end the integration at 
+$z=1$:
 \begin{equation*}
 \int_{\partial \D} \frac{1}{z} \, dz
 = \log 1 - \log 1 = 2\pi i.
@@ -6934,10 +6954,12 @@ with quotation marks:
 \enspace
 2\pi i.
 \end{equation*}
-That's a lot better, no?  The equalities are only true morally.  But
-interpreted correctly, it is exactly what is happening.  You really do subtract
+That's a lot better,
+no?\footnote{Non! Je veux aussi devenir plombier maintenant!}
+The equalities are only true morally.
+Interpreted correctly, it is exactly what is happening.  You really do subtract
 one of the values of $\log 1$ from another value of $\log 1$.  To figure
-out which from which, you start with say $\log 1 = 0$, and you follow the
+out which from which, start with say $\log 1 = 0$, and follow the
 function along the circle slowly and notice that $i \arg z$ grows from $0$ to
 $2\pi i$.  So the $\log 1$ at the end is $2 \pi i$.  See the path
 marked on \figureref{fig:loggraph}, the jump in the imaginary part between
