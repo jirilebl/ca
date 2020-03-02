@@ -6494,13 +6494,14 @@ not the uniform limit of a sequence polynomials $P_n(z)$ on $\partial \D$.
 
 \begin{exercise}
 \pagebreak[2]
+Show that
 \begin{exparts}
 \item
-Show that for every holomorphic function $f \colon \D \to \C$ there
+For every holomorphic $f \colon \D \to \C$ there
 is a sequence of polynomials $P_n(z)$ that converges uniformly on compact
 subsets of $\D$ to $f$.
 \item
-Show that for every holomorphic function $f \colon \bH \to \C$
+For every holomorphic $f \colon \bH \to \C$
 ($\bH$ is the upper half-plane) there
 is a sequence of polynomials $P_n(z)$ that converges uniformly on compact
 subsets of $\bH$ to $f$.
@@ -6558,8 +6559,7 @@ e^{i\theta} z$ for all $z \in \D$.
 \end{lemma}
 
 \begin{proof}
-As $f(0) = 0$, the constant term is zero when $f$ is expanded about the
-origin, and hence
+As $f(0) = 0$, the constant term is zero when $f$ is expanded at $0$, and hence
 \begin{equation*}
 f(z) = \sum_{n=1}^\infty c_n z^n = z \sum_{n=1}^\infty c_n z^{n-1} = z g(z) ,
 \end{equation*}
@@ -6588,18 +6588,22 @@ As $g(0) = f'(0)$, the same conclusion, for the same reason,
 holds if $\sabs{f'(0)} = 1$.
 \end{proof}
 
-Perhaps it is good to look at what the theorem says about $f(z) = z^n$
-for an integer $n > 1$.  That $f$ is a function from the disc to the
-disc and $f(0) = 0$.  Then
+It is good to notice what the theorem says about $f(z) = z^n$
+for an integer $n > 1$.  The function $f$ takes the disc to the disc
+and $f(0) = 0$.  For $z \in z \in \D \setminus \{ 0 \}$,
 \begin{equation*}
 \sabs{z^n} =
-\sabs{z}^n < \sabs{z}
+\sabs{z}^n < \sabs{z} .
 \end{equation*}
-for $z \in \D \setminus \{ 0 \}$.  As $f'(z) = n z^{n-1}$ we get
-that $\sabs{f'(0)} = 0 < 1$, but now notice that a bound on the derivative
-does not hold at other points.
+As $f'(z) = n z^{n-1}$ we get
+$\sabs{f'(0)} = 0 < 1$, but notice that a bound on the derivative
+does not hold at other points:
 By picking the right $z$ and $n$,
 we can make $\sabs{f'(z)}$ as large as we want.
+We can also make $\sabs{z^n}$ arbitrarily small for $z \in \D$ by picking
+large enough $n$, though we cannot make it bigger than $\sabs{z}$.  What is
+interesting is that Schwarz's lemma says that all holomorphic functions
+behave this way, not just $z^n$.
 
 \begin{exbox}
 \begin{exercise}
@@ -6631,13 +6635,12 @@ Show that if $f'(p) = 1$ then $f(z) = z$ for all $z \in U$.
 \item
 Find counterexamples to both statements for some unbounded $U$.
 \end{exparts}
-Hint: First normalize to have $p=0$.  Consider the power series
+Hint: Normalize to have $p=0$.  Consider the power series
 expansions of
 $f^{\ell}$, the $\ell$\textsuperscript{th} composition of $f$ with itself,
 $f(f(f(\cdots f(z) \cdots)))$.
-For the first part, consider the linear term of $f^{\ell}$ when $\abs{f'(p)}
-> 1$.  For the second part,
-consider the first term other
+For a), consider the linear term of $f^{\ell}$ when $\abs{f'(p)}
+> 1$.  For b), consider the first term other
 than the linear term that is nonzero, and compute it for $f^{\ell}$ in terms
 of the one for $f$.  Then apply Cauchy estimates.
 \end{exercise}
@@ -6645,9 +6648,10 @@ of the one for $f$.  Then apply Cauchy estimates.
 
 \subsection{Automorphisms of the disc}
 
-Schwarz's lemma can also be used to classify the automorphisms of the disc.
-Let us start with certain specific automorphisms of the disc.
-Let $a \in \D$, and let
+Let us compute the automorphism group of the disc using
+Schwarz's lemma.
+We start with certain specific automorphisms of the disc.
+For $a \in \D$, define
 \glsadd{not:varphia}%
 \begin{equation*}
 \varphi_a(z) \overset{\text{def}}{=} \frac{z-a}{1-\bar{a}z}.
@@ -6656,11 +6660,12 @@ Let $a \in \D$, and let
 \begin{exbox}
 \begin{exercise}
 Show that for every $a \in \D$, the LFT $\varphi_a$ takes
-$\partial \D$ to $\partial \D$.
+$\partial \D$ to $\partial \D$, and $\D$ to $\D$.  Hint: Remember that
+$\varphi_a$ is an LFT and what LFTs do to circles.
 \end{exercise}
 
 \begin{exercise}
-Show that for every $a \in \D$, the map $\varphi_a(z)$ gives a biholomorphism
+Show that for every $a \in \D$, the map $\varphi_a$ gives a biholomorphism
 of $\D$.
 In particular, show that when restricted to the disc $\D$,
 \begin{equation*}
@@ -6721,7 +6726,9 @@ is a constant, and $g(z) = \alpha z$ for some constant $\alpha$.
 Clearly, 
 $\sabs{\alpha} = 1$ or $\alpha = e^{i\theta}$.  Applying
 $\varphi_{-a}$ to both sides of $e^{i\theta} z = \varphi_a \circ f$
-we obtain $f(z) = e^{-i\theta} \varphi_{-a}(z)$.
+we obtain
+$f(z) = \varphi_{-a}(ze^{i\theta})
+= e^{i \theta} \varphi_{-ae^{-i\theta}}(z)$.
 \end{proof}
 
 \begin{exbox}
@@ -6810,12 +6817,14 @@ Never doubt the courage of the French. They were the ones who discovered that sn
 
 \subsection{The logarithm}
 
-Let us look at the function $z^n$ for $n \in \Z$.  When $n \geq 0$, 
+Let us look at the function $z^n$ for $n \in \Z$.\footnote{It appears,
+doesn't it, that elementary complex analysis is the study of $z^n$.}
+When $n \geq 0$, 
 then $z^n$ is defined in the entire plane, and a primitive is
 simply $\frac{z^{n+1}}{n+1}$.  If $n < -1$, then $z^n$ is defined
 in the punctured plane $\C \setminus \{0\}$, but again
 a primitive is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
-\frac{1}{z}$.  It turns out it has a primitive, but never defined in
+\frac{1}{z}$?  It has a primitive, but never defined in
 the entire punctured plane.
 
 We proved that in any star-like domain, a holomorphic function has a
@@ -6834,7 +6843,7 @@ we get a function
 \operatorname{Log} \colon U \to \C ,
 \end{equation*}
 called the \emph{\myindex{principal branch}} of the logarithm.
-We had another thing before called the principal branch, 
+We had another thing before called the ``principal branch,'' 
 the principal branch of the argument.  Let us show that
 \begin{equation*}
 \Log z = \log \sabs{z} + i \Arg z ,
@@ -6849,13 +6858,16 @@ e^{\log \sabs{z}} e^{i \Arg z}
 \sabs{z} e^{i \Arg z} = z .
 \end{equation*}
 So $L$ is the inverse of the exponential, at least for $z \in U$.
+This means in particular that $L$ is holomorphic by the inverse function
+theorem.
 Take the derivative of both sides of $z = e^{L(z)}$,
 \begin{equation*}
 1 = L'(z) e^{L(z)} = L'(z) z .
 \end{equation*}
-Et voil\`a!  We have $L'(z) = \frac{1}{z}$, so $L = \Log$.
+Et voil\`a!\footnote{Cauchy was French, n'est pas?}
+We have $L'(z) = \frac{1}{z}$, so $L = \Log$.
 
-We could have used any branch of the argument.  So we 
+We could have used any branch of the argument.  We 
 make the definition
 \glsadd{not:log}%
 \begin{equation*}
@@ -6868,7 +6880,7 @@ where $\log 0 = 1$.
 But the $\log$ on the left
 is now not even a function, it has infinitely many values for every $z$,
 since the $\arg$ on the right hand side has infinitely many values.
-The value of $\log -1$ is $\pi i$, but also $-\pi i$, $3\pi i$,
+The value of $\log (-1)$ is $\pi i$, but also $-\pi i$, $3\pi i$,
 or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So $\log$ is a function just as much
 as $\arg$ is a function.  See \figureref{fig:loggraph}.
 
@@ -6889,8 +6901,9 @@ what sort of things are being plugged into it.
 While $\log$ is not really a function---it is a multivalued
 function\footnote{%
 Countless insufferable smartypants on the internet will try to convince
-you that a ``multivalued function'' isn't a thing.}---it is really
-the definition that we want.  In fact, it is rarely what we want.
+you that a ``multivalued function'' isn't a thing.  So better not ask about
+it there.}---it is really
+the definition that we want.
 The principal branch, while 
 useful when one wants to get some actual numbers, is not always what we
 want.  It is not as useful as one would think.
@@ -6901,7 +6914,7 @@ So how do we use $\log$?  Well it comes up in line integrals, which are used
 to count and classify zeros and/or singularities of functions, or vice
 versa.  Let us compute the integral of $\frac{1}{z}$ around the unit
 circle $\partial \D$, oriented counterclockwise as usual (parametrized
-by, say, $e^{it}$).  Let's suppose we start and end the integration at the
+by, say, $e^{it}$).  Suppose we start and end the integration at the
 point $1$:
 \begin{equation*}
 \int_{\partial \D} \frac{1}{z} \, dz
@@ -6924,7 +6937,7 @@ That's a lot better, no?  The equalities are only true morally.  But
 interpreted correctly, it is exactly what is happening.  You really do subtract
 one of the values of $\log 1$ from another value of $\log 1$.  To figure
 out which from which, you start with say $\log 1 = 0$, and you follow the
-function along the circle slowly and notice that the $i \arg z$ grows from $0$ to
+function along the circle slowly and notice that $i \arg z$ grows from $0$ to
 $2\pi i$.  So the $\log 1$ at the end is $2 \pi i$.  See the path
 marked on \figureref{fig:loggraph}, the jump in the imaginary part between
 the beginning and the end is precisely that $2\pi i$.
@@ -7581,14 +7594,12 @@ The logic of the proof is the following diagram:
 & \text{\ref{thm:simplyconnected:v}} \arrow[ul, Leftrightarrow] &
 \end{tikzcd}
 \end{equation*}
-
 We proved
 \ref{thm:simplyconnected:i} $\Rightarrow$
 \ref{thm:simplyconnected:ii} above,
 and
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iii} is immediate.
-
 Using Cauchy's theorem for derivatives,
 \ref{thm:simplyconnected:iii} implies
 \begin{equation*}
@@ -7597,7 +7608,6 @@ Using Cauchy's theorem for derivatives,
 for every $p \in \C \setminus U$,
 and hence 
 \ref{thm:simplyconnected:v} is true.
-
 As 
 \begin{equation*}
 n(\gamma;p) = 
@@ -7606,7 +7616,6 @@ n(\gamma;p) =
 \end{equation*}
 \ref{thm:simplyconnected:v} is simply a restatement of
 \ref{thm:simplyconnected:i}.
-
 Again Cauchy's theorem for derivatives,
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iv}.
@@ -8079,7 +8088,7 @@ $\theta$ is a continuous function on $[a,b]$.
 The formula follows $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ by
 definition of $L_j$.
 
-The furthermore follows as before.
+The furthermore follows as before:
 \begin{multline*}
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
 =
@@ -8164,7 +8173,6 @@ Thus
 \end{equation*}
 is the function from \lemmaref{lemma:existenceoftheta} as long as we make
 $\widetilde{\theta}_0 = \Im L_1\bigl(\gamma(a)\bigr)$.
-
 So
 \begin{equation*}
 \babs{\theta(t) - \widetilde{\theta}(t)}
@@ -8223,8 +8231,8 @@ piecewise $C^1$ paths in $U$ that are homotopic in $U$.  Then
 A corollary of the corollary is the homotopy version of Cauchy's theorem.
 While a constant is not technically a path in the way that we defined
 ``path,'' the integral can easily be defined on it (it is zero), and the integral of any
-function over it is zero.  That means that the following version of Cauchy
-is just a special case of the corollary above.
+function over it is zero.  The following version of Cauchy
+is then just a special case of the corollary above.
 
 \begin{thm}[Cauchy's theorem (homotopy version)]
 \index{Cauchy's theorem!homotopy}%
@@ -11636,12 +11644,20 @@ $u$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
 As $u$ is uniformly continuous on $\partial \D$, suppose $\delta > 0$
 is small enough so that $\sabs{u(e^{it})-u(e^{i\theta})} <
 \frac{\epsilon}{2}$ whenever $\sabs{t-\theta} < 2 \delta$.
-Using the proposition above,
-suppose $\delta' > 0$ is also small enough so that if
-$r > 1-\delta'$, then $0 < P_r(\theta) <
-\frac{\epsilon}{8M\pi}$ whenever $\sabs{\theta} \geq \delta$.
+Using the proposition above, for $r < 1$ large enough, say
+$r > 1-\delta'$ for some $\delta'$,
+we get $0 < P_r(\theta) < \frac{\epsilon}{8M\pi}$
+whenever $\sabs{\theta} \geq \delta$.
 
-Write
+Using the fact that
+$\int_{-\pi}^\pi P_r(\theta-t) \, dt = 1$,
+we have\footnote{This is a trick you see all over in analysis, it is good to
+remember it.} that
+\begin{equation*}
+u(e^{i\theta})=
+\int_{-\pi}^\pi u(e^{i\theta}) P_r(\theta-t) \, dt ,
+\end{equation*}
+so
 \begin{equation*}
 \begin{split}
 \sabs{
@@ -11681,8 +11697,8 @@ P_r(\theta-t) \, dt
 & \leq (\pi-\delta) 2M \frac{\epsilon}{8M\pi} \leq \frac{\epsilon}{4} .
 \end{split}
 \end{equation*}
-
-Next,
+The integral from $\delta$ to $\pi$ is exactly the same.
+Next the middle integral,
 \begin{equation*}
 \begin{split}
 \abs{
@@ -11699,24 +11715,47 @@ P_r(\theta-t) \, dt
 =\frac{\epsilon}{2} .
 \end{split}
 \end{equation*}
-
-In other words,
+Putting it all together,
 \begin{equation*}
 \sabs{
 Pu(r e^{i\theta} ) - u(e^{i\theta})
 } \leq \frac{\epsilon}{4} + \frac{\epsilon}{2} + \frac{\epsilon}{4} =
 \epsilon.
 \end{equation*}
-And so $Pu(re^{i\theta}) \to u(e^{i\theta})$ as $r \uparrow 1$.
+And so $Pu(re^{i\theta}) \to u(e^{i\theta})$ uniformly in $\theta$
+as $r \uparrow 1$.
 
-FIXME: steps:
-
-FIXME: (step3)
-Prove that $Pu(z)$ tends to $u(z_0)$ as
-$z \in \D \to z_0 \in \partial \D$.
+Now we have to show that for any $z_0 = e^{i\theta_0}$ we have that
+$Pu(z)$ tends to $Pu(z_0)=u(z_0)$ as $z \in \overline{\D}$ tends to $z_0$.
+Let $\epsilon > 0$ be given.  Then pick $\delta > 0$ such that
+if $\sabs{\theta-\theta_0} < \delta$ then
+$\sabs{Pu(e^{i\theta}-Pu(e^{i\theta_0})} < \frac{\epsilon}{2}$.
+Also make $\delta$ small enough so that $\sabs{Pu(re^{i
+\theta})-Pu(e^{i\theta})} < \frac{\epsilon}{2}$
+when $1 - \delta < r \leq 1$ for all $\theta$.
+Putting the two estimates together we have that together we get that
+$\sabs{Pu(re^{i\theta}-Pu(e^{i\theta_0})} < \epsilon$, and so $Pu$ is
+continuous at $z_0$.
 \end{proof}
 
-A particularly useful to notice is that
+We remark that in the proof we used the topology on $\overline{\D}$
+given by the polar coordinates, and we estimated the coordinates separately.
+Polar coordinates give a nice homemorphism
+(a continuous bijective map with a continuous inverse) at least outside of
+the origin, which is sufficient for us as we only needed to worry about points
+on or near the boundary of $\D$.  The reader that is still unconvinced
+should write out the details for an exercise.
+
+\begin{exbox}
+\begin{exercise}
+We proved $\sabs{Pu(re^{i\theta}-Pu(e^{i\theta_0})} < \epsilon$
+when $\sabs{\theta-\theta_0} < \delta$ and
+$1 - \delta < r \leq 1$.  Prove that this really does mean that
+$\lim_{z \to z_0} Pu(z) = u(z_0) = Pu(z_0)$.
+\end{exercise}
+\end{exbox}
+
+It is particularly useful to notice is that
 \begin{equation*}
 Pu(0) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(e^{it}) \, dt ,
 \end{equation*}
