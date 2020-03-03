@@ -8,3 +8,11 @@ Things not marked with FIXMEs in the file (not sure where to stick them yet):
 
 * check if we are using "constant path" or some such somewhere (check some
   more that is)
+
+* "piecewise C^1 cycle" "piecewise C^1 chain"?
+
+* make all the cycles into \Gamma from \gamma
+
+* use "homologous to zero" in all places where it is used (especially
+  chapter 5)?  Or perhaps never and just always spell it out.  It does
+  not actually make things shorter.

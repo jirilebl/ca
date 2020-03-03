@@ -4504,7 +4504,7 @@ smaller $U$.
 \section{Starter versions of Cauchy}
 \label{sec:simplecauchy}
 
-\subsection{Primitives and Cauchy for derivatives}
+\subsection{Primitives, cycles, and Cauchy for derivatives}
 
 \begin{defn}
 Let $U \subset \C$ be open and $f \colon U \to \C$
@@ -4587,7 +4587,7 @@ A path $\gamma \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if
 $\gamma(a) = \gamma(b)$.
 A chain $\Gamma$ that is equivalent to
 $a_1 \gamma_1 + \cdots + a_n \gamma_n$, where $\gamma_1, \ldots, \gamma_n$
-are closed paths
+are closed piecewise $C^1$ paths
 and $a_1,\ldots,a_n \in \Z$,
 is called a \emph{\myindex{cycle}}.
 \end{defn}
@@ -4599,7 +4599,10 @@ immediate corollary.
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is continuous with a primitive
 $F \colon U \to \C$.
-Let $\gamma$ be a closed piecewise $C^1$ path (or a cycle) in $U$.
+Let $\gamma$ be
+%a closed piecewise $C^1$ path (or a cycle)
+a cycle
+in $U$.
 Then
 \begin{equation*}
 \int_\gamma f(z) \, dz = 0 .
@@ -4622,8 +4625,10 @@ subsumed into the more general version of Cauchy we will prove later,
 but right now it is rather appealing.
 
 \begin{cor}[Cauchy's theorem for polynomials]
-Suppose $P(z)$ is a polynomial and $\gamma$ is a closed
-piecewise $C^1$ path (or a cycle).  Then
+Suppose $P(z)$ is a polynomial and $\gamma$ is
+%a closed piecewise $C^1$ path (or a cycle).
+a cycle.
+Then
 \begin{equation*}
 \int_\gamma P(z) \, dz = 0 .
 \end{equation*}
@@ -5057,7 +5062,10 @@ as a theorem, as it is one of the fundamental results.
 \begin{thm}[Cauchy's theorem for star-like domains]
 \index{Cauchy's theorem!star-like domains}%
 Suppose $U \subset \C$ is open and star-like, $f \colon U \to \C$ is holomorphic,
-and $\gamma$ is a closed piecewise $C^1$ path (or a cycle) in $U$.  Then
+and $\gamma$ is
+%a closed piecewise $C^1$ path (or a cycle)
+a cycle
+in $U$.  Then
 \begin{equation*}
 \int_{\gamma} f(z) \, dz = 0 .
 \end{equation*}
@@ -7065,7 +7073,9 @@ clockwise direction, and the winding number is $-1$.
 The first thing to prove is to show that the winding number is an integer.
 
 \begin{prop} \label{prop:indexinteger}
-Suppose $\gamma$ is a closed piecewise $C^1$ path (or a cycle)
+Suppose $\gamma$ is
+%a closed piecewise $C^1$ path (or a cycle)
+a cycle
 and $p \notin \gamma$.  Then
 \begin{equation*}
 n(\gamma;p) = \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
@@ -7116,7 +7126,10 @@ The second thing to notice is that $n(\gamma;z)$ is constant as long as we
 do not cross $\gamma$.
 
 \begin{prop}
-Given a piecewise $C^1$ path (or a cycle) $\gamma$ then
+Given
+%a piecewise $C^1$ path (or a cycle)
+a cycle
+$\gamma$ then
 the function $z \mapsto n(\gamma;z)$ is constant on the
 topological components of $\C \setminus \gamma$.
 Furthermore, $n(\gamma;z) = 0$ for $z$ on the unbounded component
@@ -7216,12 +7229,25 @@ the principal branch.
 
 \section{Homology versions of Cauchy}
 
+\begin{defn}
+Let $U \subset \C$ be a domain and $\gamma$
+a cycle
+%closed piecewise $C^1$ path (or a cycle)
+in $U$ such that
+$n(\gamma;p) = 0$ for all $p \in \C \setminus U$, then we
+say $\gamma$ is \emph{\myindex{homologous to zero}} in $U$.
+\end{defn}
+
 \begin{thm}[Cauchy integral formula (homology version)]
 \index{Cauchy integral formula!homology}
 \label{thm:CIFhomology}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic, and
-$\gamma$ is a closed piecewise $C^1$ path (or a cycle) in $U$
-such that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
+$\gamma$ is
+a cycle
+%a closed piecewise $C^1$ path (or a cycle)
+in $U$
+that is homologous to zero in $U$.
+%such that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
 Then for $z \in U \setminus \gamma$,
 \begin{equation*}
 n(\gamma;z)
@@ -7235,9 +7261,6 @@ d \zeta .
 \end{equation*}
 \end{thm}
 
-The condition that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$ is
-sometimes referred to as $\gamma$ being \emph{\myindex{homologous to zero}}
-in $U$.
 Before we prove the theorem let us remark
 that in the proof, rather strangely, we will define an entire
 function (even though $U$ may be small) and then we will use
@@ -7343,10 +7366,14 @@ Cauchy's theorem actually follows immediately using the integral formula.
 \index{Cauchy's theorem!homology}%
 \label{thm:CThomology}%
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.  If
-$\gamma$ is a
-closed
-piecewise $C^1$ path (or a cycle) in $U$ such that $n(\gamma;p) = 0$ for
-every $p \in \C \setminus U$, then
+$\gamma$ is
+a cycle
+%closed piecewise $C^1$ path (or a cycle)
+in $U$
+that is homologous to zero in $U$,
+%such that $n(\gamma;p) = 0$ for
+%every $p \in \C \setminus U$,
+then
 \begin{equation*}
 \int_\gamma f(z) \, dz = 0 .
 \end{equation*}
@@ -7365,7 +7392,10 @@ the Cauchy integral formula for the function $\zeta \mapsto
 \end{proof}
 
 \begin{defn}
-Two closed piecewise $C^1$ paths (or cycles) $\gamma_0$ and $\gamma_1$ in $U
+Two
+cycles
+%closed piecewise $C^1$ paths (or cycles)
+$\gamma_0$ and $\gamma_1$ in $U
 \subset \C$ are \emph{\myindex{homologous}} in $U$
 if $n(\gamma_0;p) = n(\gamma_1;p)$ for all $p \in \C \setminus U$.
 Equivalently, $\gamma_0$ and $\gamma_1$ are homologous in $U$ if
@@ -7374,7 +7404,10 @@ $n(\gamma_0 - \gamma_1;p) = 0$ for all $p \in \C \setminus U$.
 
 \begin{cor} \label{cor:homologoussameint}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
-If two closed piecewise $C^1$ paths (or cycles) $\gamma_0$ and $\gamma_1$ in $U$
+If two
+cycles
+%closed piecewise $C^1$ paths (or cycles)
+$\gamma_0$ and $\gamma_1$ in $U$
 are homologous in $U$, then
 \begin{equation*}
 \int_{\gamma_0} f(z)\, dz = 
@@ -7397,7 +7430,10 @@ Show that being homologous is an equivalence relation on cycles.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $\gamma$ is a closed piecewise $C^1$ path (or cycle) such that
+Suppose that $\gamma$ is
+a cycle
+%a closed piecewise $C^1$ path (or cycle)
+such that
 $n(\gamma;0) = k$.  Compute
 \begin{equation*}
 \int_{\gamma} \frac{1}{z} \, dz .
@@ -7406,7 +7442,10 @@ $n(\gamma;0) = k$.  Compute
 
 \begin{exercise}
 Suppose $U \subset \C$ is open and $\gamma$ 
-is a closed piecewise $C^1$ path (or cycle) in $U$ such that
+is
+%a closed piecewise $C^1$ path (or cycle)
+a cycle
+in $U$ such that
 $n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
 Suppose that $n(\gamma;z_1) = k_1$ and  $n(\gamma;z_2) = k_2$ for
 some two distinct $z_1,z_2 \in U \setminus \gamma$.
@@ -7437,7 +7476,9 @@ homology,'' but in this book, a simply connected domain is this definition.
 \begin{defn} \label{defn:simplyconnected:homology}
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
 if $n(\gamma;p) = 0$ for every
-piecewise $C^1$ path $\gamma$ in $U$ and every $p \in \C \setminus U$.
+cycle
+%closed piecewise $C^1$ path
+$\gamma$ in $U$ and every $p \in \C \setminus U$.
 \end{defn}
 
 \begin{exbox}
@@ -7457,9 +7498,10 @@ A special (but common) case of the homology version of Cauchy,
 \begin{thm}[Cauchy's theorem (simply connected version)]
 \index{Cauchy's theorem!simply connected}%
 Let $U \subset \C$ be a simply connected domain and $f \colon U \to \C$
-holomorphic.  If $\gamma$ is a
-closed
-piecewise $C^1$ path (or a cycle) in $U$, then
+holomorphic.  If $\gamma$ is
+a cycle
+%a closed piecewise $C^1$ path (or a cycle)
+in $U$, then
 \begin{equation*}
 \int_\gamma f(z) \, dz = 0 .
 \end{equation*}
@@ -7591,15 +7633,17 @@ Every holomorphic $f \colon U \to \C$ has a primitive.
 $\frac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
 \item \label{thm:simplyconnected:iv}
 For every holomorphic $f \colon U \to \C$ and every
-closed
-piecewise $C^1$ path (or a cycle) $\gamma$ in $U$, we have
+cycle
+%closed piecewise $C^1$ path (or a cycle)
+$\gamma$ in $U$, we have
 \begin{equation*}
 \int_\gamma f(z) \, dz = 0 .
 \end{equation*}
 \item \label{thm:simplyconnected:v}
 For every $p \in \C \setminus U$ and every
-closed
-piecewise $C^1$ path (or a cycle) $\gamma$ in $U$, we have
+cycle
+%closed piecewise $C^1$ path (or a cycle)
+$\gamma$ in $U$, we have
 \begin{equation*}
 \int_\gamma \frac{1}{z-p} \, dz = 0 .
 \end{equation*}
@@ -7654,18 +7698,26 @@ not simply connected.
 
 \begin{exercise}
 Let $U_1,U_2 \subset \C$ be two simply connected domains such that $U_1 \cap
-U_2$ is connected.  Prove that $U = U_1 \cup U_2$ is simply connected.
+U_2$ is nonempty and connected.
+Prove that $U = U_1 \cup U_2$ is a simply connected domain.
 \end{exercise}
 
 \begin{exercise}
-Find nonempty simply connected domains
-Let $U_1,U_2 \subset \C$ such that:
-\begin{exparts}
+Let $U_1,U_2 \subset \C$ be two simply connected domains such that $U_1 \cap
+U_2$ is nonempty and connected.
+Prove that $U = U_1 \cap U_2$ is a simply connected domain.
+Note: This is true in the plane but it is no longer true in the Riemann sphere.
+\end{exercise}
+
+\begin{exercise}
+Find two nonempty simply connected domains
+$U_1,U_2 \subset \C$ such that $U_1 \cap U_2$ is nonempty and both
+\begin{exnumparts}
 \item
-$U_1 \cup U_2$ is not simply connected.
+$U_1 \cup U_2$ is not a simply connected domain.
 \item
-$U_1 \cap U_2$ is not simply connected.
-\end{exparts}
+$U_1 \cap U_2$ is not a simply connected domain (emphasis on domain).
+\end{exnumparts}
 \end{exercise}
 
 \begin{exercise}
@@ -9321,8 +9373,11 @@ a cycle to the residues that lie inside the cycle.
 
 \begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
 Suppose $U \subset \C$ is an open set, $S \subset U$ is a finite subset,
-and $\gamma$ is a closed piecewise $C^1$ path (or cycle) in $U \setminus S$
-such that $n(\gamma;w) = 0$ for all $w \in \C \setminus U$.
+and $\gamma$ is
+%a closed piecewise $C^1$ path (or cycle)
+a cycle
+in $U \setminus S$
+such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$.
 Suppose $f \colon U \setminus S \to \C$ is a holomorphic function (with isolated
 singularities on $S$).
 Then
@@ -9643,6 +9698,7 @@ around all the poles.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Compute
 \begin{exparts}
 \item
@@ -9685,8 +9741,10 @@ example $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
 Same with poles.
 
 \begin{thm}[Argument principle]\index{argument principle}\label{thm:argprinc}
-Suppose $U \subset \C$ is open, and $\gamma$ is a closed piecewise $C^1$
-path (or a cycle) in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C
+Suppose $U \subset \C$ is open, and $\gamma$ is
+a cycle
+%a closed piecewise $C^1$ path (or a cycle)
+in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C
 \setminus U$.
 Suppose $f \colon U \to \C_\infty$ is a meromorphic function with no zeros
 or poles on $\gamma$.
@@ -9817,8 +9875,10 @@ whatsoever, then the theorem says that the number of zeros does not change.
 
 \begin{thm}[Rouch\`e\footnote{%
 The stronger version we state was actually proved by Estermann in 1962.}]\index{Rouch\`e's theorem}\label{thm:rouche}
-Suppose $U \subset \C$ is an open set, and $\gamma$ is a closed piecewise $C^1$
-path (or cycle) in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$
+Suppose $U \subset \C$ is an open set, and $\gamma$ is
+%a closed piecewise $C^1$ path (or cycle)
+a cycle
+in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$
 and $n(\gamma;z)$ is either $1$ or $0$ for $z \in U$.  Let $V = \{ z \in U
 : n(\gamma;z) = 1 \}$.
 
@@ -10024,8 +10084,10 @@ functions converge uniformly on compact sets, the limit is holomorphic
 \begin{thm}[Hurwitz]\index{Hurwitz's theorem}
 Let $U \subset \C$ be open and $f_n \colon U \to \C$ is a sequence of
 holomorphic functions converging uniformly on compact subsets
-to a holomorphic $f \colon U \to \C$.  Suppose $\gamma$ is a piecewise $C^1$
-path (or cycle) in $U$ such that $n(\gamma;z) = 0$ or $1$ for all $z \in U$,
+to a holomorphic $f \colon U \to \C$.  Suppose $\gamma$ is
+a cycle
+%a piecewise $C^1$ path (or cycle)
+in $U$ such that $n(\gamma;z) = 0$ or $1$ for all $z \in U$,
 and $n(\gamma;z) = 0$ for all $z \in \C \setminus U$.  Let
 $V = \{ z \in U : n(\gamma;z) = 1 \}$.
 Suppose that $f$ has no zeros on $\gamma$ and $k$ zeros (counting
