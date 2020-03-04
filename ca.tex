@@ -7106,7 +7106,8 @@ partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ such that
 $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
 do not contain $p$,
 so in each one there exists a branch of $\log (z-p)$, call it $L_j$
-such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j-1}\bigl(\gamma(t_j)\bigr)$.
+such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)$
+(pick $L_1$ arbitrarily, then pick $L_2,\ldots,L_n$ accordingly).
 Call $z_0 = \gamma(0) = \gamma(1)$.  So
 \begin{multline*}
 n(\gamma;p)
@@ -7127,6 +7128,14 @@ As $L_n$ and $L_1$ are both branches of $\log$, their difference is
 $2\pi k i$ for some $k \in \Z$, as each is $\log\sabs{z_0} + i \arg z_0$ for some value of
 $\arg$.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Fill in the details in the existence of the partition.  That is, once you
+cover $\gamma$ by finitely many discs that do not contain $p$ show that
+the partition $t_0,\ldots,t_n$ exists.
+\end{exercise}
+\end{exbox}
 
 The second thing to notice is that $n(\gamma;z)$ is constant as long as we
 do not cross $\gamma$.
