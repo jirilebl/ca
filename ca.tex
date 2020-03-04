@@ -4599,25 +4599,25 @@ immediate corollary.
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is continuous with a primitive
 $F \colon U \to \C$.
-Let $\gamma$ be
+Let $\Gamma$ be
 %a closed piecewise $C^1$ path (or a cycle)
 a cycle
 in $U$.
 Then
 \begin{equation*}
-\int_\gamma f(z) \, dz = 0 .
+\int_\Gamma f(z) \, dz = 0 .
 \end{equation*}
 \end{cor}
 
 We will prove several versions of Cauchy's theorem, although this one is
 somewhat different from the others.  Usually there will be a restriction on
-the $U$ or perhaps the path $\gamma$ rather
+the $U$ or perhaps the path or cycle $\Gamma$ rather
 than on the function being integrated.
 A version of Cauchy's theorem can be taken as an ``independence of path''
 result saying that we can define a function at $z$ by a line integral
 from some fixed point to $z$.  The result will be that such a function has a
 primitive.  So the other versions of Cauchy's theorem will generally
-either restrict which $\gamma$ can be taken or
+either restrict which $\Gamma$ can be taken or
 restrict to only those $U$ where every holomorphic function has a primitive.
 
 The next corollary will be entirely
@@ -4625,12 +4625,12 @@ subsumed into the more general version of Cauchy we will prove later,
 but right now it is rather appealing.
 
 \begin{cor}[Cauchy's theorem for polynomials]
-Suppose $P(z)$ is a polynomial and $\gamma$ is
+Suppose $P(z)$ is a polynomial and $\Gamma$ is
 %a closed piecewise $C^1$ path (or a cycle).
 a cycle.
 Then
 \begin{equation*}
-\int_\gamma P(z) \, dz = 0 .
+\int_\Gamma P(z) \, dz = 0 .
 \end{equation*}
 \end{cor}
 
@@ -4641,18 +4641,18 @@ Prove Cauchy's theorem for polynomials.
 
 \begin{exercise}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ holomorphic, and
-$\gamma$ is a closed piecewise $C^1$ path in $U$.  
+$\Gamma$ is a cycle in $U$.  
 For $p \in U$, find a holomorphic $g \colon U \to \C$ with $g(p) = 0$
-and $g'(p) = 0$ such that $\int_\gamma g(z)\, dz = \int_\gamma f(z) \, dz$.
+and $g'(p) = 0$ such that $\int_\Gamma g(z)\, dz = \int_\Gamma f(z) \, dz$.
 \end{exercise}
 
 \begin{exercise}
 Compute
 \begin{equation*}
-\int_\gamma z^n \, dz
+\int_\Gamma z^n \, dz
 \avoidbreak
 \end{equation*}
-for any integer $n \not= -1$ and any cycle $\gamma$ in
+for any integer $n \not= -1$ and any cycle $\Gamma$ in
 $\C \setminus \{ 0 \}$.
 \end{exercise}
 
@@ -5062,12 +5062,12 @@ as a theorem, as it is one of the fundamental results.
 \begin{thm}[Cauchy's theorem for star-like domains]
 \index{Cauchy's theorem!star-like domains}%
 Suppose $U \subset \C$ is open and star-like, $f \colon U \to \C$ is holomorphic,
-and $\gamma$ is
+and $\Gamma$ is
 %a closed piecewise $C^1$ path (or a cycle)
 a cycle
 in $U$.  Then
 \begin{equation*}
-\int_{\gamma} f(z) \, dz = 0 .
+\int_{\Gamma} f(z) \, dz = 0 .
 \end{equation*}
 \end{thm}
 
@@ -5094,16 +5094,16 @@ dx = \pi$.  Compute $\int_\gamma f(z^2) \, dz$.
 \begin{exercise}
 Suppose $U_1, U_2 \subset \C$ are star-like domains such that $U_1 \cap U_2$
 is connected.  Prove Cauchy's theorem for $U = U_1 \cup U_2$, that is,
-if $f \colon U \to \C$ is holomorphic and $\gamma$ is a cycle in $U$
-then $\int_\gamma f(z) \, dz = 0$.
+if $f \colon U \to \C$ is holomorphic and $\Gamma$ is a cycle in $U$
+then $\int_\Gamma f(z) \, dz = 0$.
 \end{exercise}
 
 \begin{exercise}
 Suppose $U \subset \C$ is open and star-like and
 $f \colon U \to \C$ is antiholomorphic, that is, it is the conjugate of a
 holomorphic function.  Let $d\bar{z} = dx + i \, dy$ as before.  Suppose
-$\gamma$ is a cycle in $U$.  Prove that
-$\int_\gamma f(z) \, d\bar{z} = 0$.
+$\Gamma$ is a cycle in $U$.  Prove that
+$\int_\Gamma f(z) \, d\bar{z} = 0$.
 \end{exercise}
 \end{exbox}
 
@@ -6234,14 +6234,16 @@ path in a chain as an integral of one real variable we obtain the following
 corollary.
 
 \begin{cor} \label{cor:holfuncbyintegral}
-Suppose $U \subset \C$ is open, $\gamma$ is a
-piecewise $C^1$ path (or a chain), and
-$\psi \colon U \times \gamma \to \C$ is a continuous function such that
-for each fixed $w \in \gamma$, the function $z \mapsto \psi(z,w)$ is
+Suppose $U \subset \C$ is open, $\Gamma$ is a 
+%piecewise $C^1$ path (or a chain),
+chain,
+and
+$\psi \colon U \times \Gamma \to \C$ is a continuous function such that
+for each fixed $w \in \Gamma$, the function $z \mapsto \psi(z,w)$ is
 holomorphic.  Then
 \begin{equation*}
 h(z) =
-\int_\gamma \psi(z,w) \, dw
+\int_\Gamma \psi(z,w) \, dw
 \avoidbreak
 \end{equation*}
 is a holomorphic function $U$.
@@ -7023,7 +7025,7 @@ into pieces and using branches of the $\log$.
 Suppose $f \colon \C \to \C$ is a holomorphic function such that
 $f(z)$ is never negative real (it is allowed to be positive and real)
 and such that $f$ is never zero on $\partial \D$.  Compute
-$\int_\gamma \frac{f'(z)}{f(z)} \, dz$.
+$\int_{\partial \D} \frac{f'(z)}{f(z)} \, dz$.
 \end{exercise}
 
 \begin{exercise}
@@ -7041,27 +7043,30 @@ Find an explicit $\gamma$ that achieves each of these possibilities.
 
 \subsection{Winding numbers}
 
-OK.  Let's get more rigorous.  In the following, it is enough
-to consider closed paths, although everything automatically works
-also for cycles (chains that can be written as sums of closed paths,
-or in other words, chains with empty boundary).
+OK.  Let's get more rigorous.
+%In the following, it is enough
+%to consider closed paths, although everything automatically works
+%also for cycles (chains that can be written as sums of closed paths,
+%or in other words, chains with empty boundary).
 
 \begin{defn}
-Let $\gamma$ be a closed piecewise $C^1$ path, or more generally a cycle,
-and $p \notin \gamma$.  Then
+Let $\Gamma$ be
+%a closed piecewise $C^1$ path, or more generally
+a cycle,
+and $p \notin \Gamma$.  Then
 \glsadd{not:windnum}%
 \begin{equation*}
-n(\gamma;p)
+n(\Gamma;p)
 \overset{\text{def}}{=}
-\frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
+\frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz
 \end{equation*}
 is called the
-\emph{\myindex{winding number}} of $\gamma$ around $p$, or
+\emph{\myindex{winding number}} of $\Gamma$ around $p$, or
 the 
-\emph{\myindex{index}} of $\gamma$ with respect to $p$.
+\emph{\myindex{index}} of $\Gamma$ with respect to $p$.
 \end{defn}
 
-Intuitively, the winding number is the number of times that $\gamma$ winds
+Intuitively, the winding number is the number of times that $\Gamma$ winds
 around $p$.  This intuition is confirmed by trying to integrate
 $\frac{1}{z}$ for the path $e^{it}$ for $t \in [0,2\pi]$, that gets you 
 a winding number $1$, as it goes once counterclockwise direction around zero.  If we do
@@ -7073,18 +7078,19 @@ clockwise direction, and the winding number is $-1$.
 The first thing to prove is to show that the winding number is an integer.
 
 \begin{prop} \label{prop:indexinteger}
-Suppose $\gamma$ is
+Suppose $\Gamma$ is
 %a closed piecewise $C^1$ path (or a cycle)
 a cycle
-and $p \notin \gamma$.  Then
+and $p \notin \Gamma$.  Then
 \begin{equation*}
-n(\gamma;p) = \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
+n(\gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz
 \avoidbreak
 \end{equation*}
 is an integer.
 \end{prop}
 
-Intuitively, the proof is to follow a branch of $\log$ around $\gamma$, and
+Intuitively, the proof is to take a closed path $\gamma$
+and to follow a branch of $\log$ around $\gamma$, and
 see by how much it changes.  See \figureref{fig:followbranch}, and we
 go all the way around a loop.  Since we really just follow the argument
 and we have gone some number of times around $p$ along $\gamma$, the
@@ -7129,21 +7135,21 @@ do not cross $\gamma$.
 Given
 %a piecewise $C^1$ path (or a cycle)
 a cycle
-$\gamma$ then
-the function $z \mapsto n(\gamma;z)$ is constant on the
-topological components of $\C \setminus \gamma$.
-Furthermore, $n(\gamma;z) = 0$ for $z$ on the unbounded component
-of $\C \setminus \gamma$.
+$\Gamma$ then
+the function $z \mapsto n(\Gamma;z)$ is constant on the
+topological components of $\C \setminus \Gamma$.
+Furthermore, $n(\Gamma;z) = 0$ for $z$ on the unbounded component
+of $\C \setminus \Gamma$.
 \end{prop}
 
-As $\gamma$ is compact, there must be a unique unbounded component
-of the complement $\C \setminus \gamma$, and possibly several bounded
+As $\Gamma$ is compact, there must be a unique unbounded component
+of the complement $\C \setminus \Gamma$, and possibly several bounded
 components.
 See \figureref{fig:indexconstant} for example.
 
 \begin{myfig}
 \subimport*{figures/}{indexconstant.pdf_t}
-\caption{Components of $\C \setminus \gamma$ with the 
+\caption{Components of $\C \setminus \Gamma$ with the 
 winding number around points in those components
 marked.\label{fig:indexconstant}}
 \end{myfig}

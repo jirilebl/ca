@@ -11,7 +11,8 @@ Things not marked with FIXMEs in the file (not sure where to stick them yet):
 
 * "piecewise C^1 cycle" "piecewise C^1 chain"?
 
-* make all the cycles into \Gamma from \gamma
+* make all the chains / cycles into \Gamma from \gamma
+  * done up to around page 94 (up to the figure 4.3)
 
 * use "homologous to zero" in all places where it is used (especially
   chapter 5)?  Or perhaps never and just always spell it out.  It does
