@@ -7414,11 +7414,11 @@ the Cauchy integral formula for the function $\zeta \mapsto
 Two
 cycles
 %closed piecewise $C^1$ paths (or cycles)
-$\gamma_0$ and $\gamma_1$ in $U
+$\Gamma_0$ and $\Gamma_1$ in $U
 \subset \C$ are \emph{\myindex{homologous}} in $U$
-if $n(\gamma_0;p) = n(\gamma_1;p)$ for all $p \in \C \setminus U$.
-Equivalently, $\gamma_0$ and $\gamma_1$ are homologous in $U$ if
-$n(\gamma_0 - \gamma_1;p) = 0$ for all $p \in \C \setminus U$.
+if $n(\Gamma_0;p) = n(\Gamma_1;p)$ for all $p \in \C \setminus U$.
+Equivalently, $\Gamma_0$ and $\Gamma_1$ are homologous in $U$ if
+$n(\Gamma_0 - \Gamma_1;p) = 0$ for all $p \in \C \setminus U$.
 \end{defn}
 
 \begin{cor} \label{cor:homologoussameint}
@@ -7426,7 +7426,7 @@ Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
 If two
 cycles
 %closed piecewise $C^1$ paths (or cycles)
-$\gamma_0$ and $\gamma_1$ in $U$
+$\Gamma_0$ and $\Gamma_1$ in $U$
 are homologous in $U$, then
 \begin{equation*}
 \int_{\gamma_0} f(z)\, dz = 
@@ -7434,7 +7434,7 @@ are homologous in $U$, then
 \end{equation*}
 \end{cor}
 
-The proof is immediate by applying Cauchy's theorem to $\gamma_0-\gamma_1$.
+The proof is immediate by applying Cauchy's theorem to $\Gamma_0-\Gamma_1$.
 
 \begin{exbox}
 \begin{exercise}
@@ -7489,10 +7489,12 @@ in terms of $k_1$, $k_2$, $A$, and $B$.
 \section{Simply connected domains}
 
 A simply connected domain is one without any holes.  The following is
-perhaps not the standard definition, but for domains (connected open sets)
+perhaps not the standard definition, but for domains of $\C$
+(connected open sets)
 it is sufficient.  We will define the term ``properly'' once we get 
-to homotopy.  We sometimes say this is ``simply connected in the sense of
-homology,'' but in this book, a simply connected domain is this definition.
+to homotopy.  We may sometimes say ``simply connected in the sense of
+homology'' to emphasize that we are using this definition, but in this book,
+a ``simply connected domain'' is this particular definition.
 
 \begin{defn} \label{defn:simplyconnected:homology}
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
@@ -7541,14 +7543,14 @@ primitive in $U$.
 \end{thm}
 
 \begin{proof}
-Fix some $p \in U$, then for any $z \in U$ we pick
+Fix some $p \in U$. Then for any $z \in U$, pick
 some piecewise $C^1$ path $\gamma$ from $p$ to $z$
 and define
 \begin{equation*}
 F(z) = \int_\gamma f(\xi) \, d\xi .
 \end{equation*}
 A priory, the function $F$ depends on $\gamma$, but Cauchy's
-theorem says that if $\alpha$ is another path from $p$ to $z$,then
+theorem says that if $\alpha$ is another path from $p$ to $z$, then
 \begin{equation*}
 \int_\gamma f(\xi) \, d\xi -
 \int_\alpha f(\xi) \, d\xi 
@@ -7557,7 +7559,7 @@ theorem says that if $\alpha$ is another path from $p$ to $z$,then
 \end{equation*}
 So $F$ is well-defined without specifying the path.
 
-The rest of the proof can be done very analogous to the proof for star-like
+The rest of the proof can be done analogously to the proof for star-like
 domains (\propref{prop:primitiveinstarlike1} and
 \corref{cor:primitiveinstarlike}) .  Let us just reduce it to that case.
 Let $z_0 \in U$ be a point and consider a disc $\Delta_r(z_0) \subset U$
@@ -7713,7 +7715,7 @@ And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
 
 \begin{exbox}
 \begin{exercise}
-Let $K \subset \C$ be compact.  Prove that $\C \setminus K$ is
+Let $K \subset \C$ be nonempty and compact.  Prove that $\C \setminus K$ is
 not simply connected.
 \end{exercise}
 
@@ -7727,7 +7729,8 @@ Prove that $U = U_1 \cup U_2$ is a simply connected domain.
 Let $U_1,U_2 \subset \C$ be two simply connected domains such that $U_1 \cap
 U_2$ is nonempty and connected.
 Prove that $U = U_1 \cap U_2$ is a simply connected domain.
-Note: This is true in the plane but it is no longer true in the Riemann sphere.
+Note: This is true in the plane but it is no longer true in the Riemann
+sphere, or any more general topological space.
 \end{exercise}
 
 \begin{exercise}
@@ -7991,7 +7994,7 @@ Then
 \tilde{c}_m ,
 \end{split}
 \end{equation*}
-as the only time that 
+as the only $n$ for which
 $\int_{\partial \Delta_{s}(p)}
 {(\zeta-p)}^{n-m-1}
  \, d\zeta$ is nonzero is when $n=m$, that is when we are integrating
@@ -8150,7 +8153,7 @@ $\theta \colon [a,b] \to \R$ with $\theta(a) = \theta_0$ such that
 \end{equation*}
 for all $t \in [a,b]$, that is $\theta(t)$ is an argument of $\gamma(t)-p$.
 
-Furthermore, if $\gamma$ is a piecewise $C^1$ path then
+Furthermore, if $\gamma$ is a piecewise $C^1$ path, then
 \begin{equation*}
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz =
 \frac{\theta(b)-\theta(a)}{2\pi} 
@@ -8167,9 +8170,9 @@ The image $\gamma\bigl([a,b]\bigr)$ is compact, so it can be covered by finitely
 discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
 partition $a = t_0 < t_1 < t_2 < \cdots < t_n = b$ such that
 $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
-do not contain $p$,
-so in each one there exists a branch of $\log (z-p)$, call it $L_j$
-such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j-1}\bigl(\gamma(t_j)\bigr)$.
+does not contain $p$,
+so in each one there exists a branch of $\log (z-p)$, call it $L_j$,
+such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)$.
 We can also make sure that $\Im L_1\bigl(\gamma(a)\bigr) = \theta_0$.
 On each $[t_{j-1},t_j]$ define
 \begin{equation*}
@@ -8677,7 +8680,7 @@ Let $U \subset \C$, $\Gamma$, and $f$ be as in the theorem, but let $z \notin
 \overline{U}$.  Show that
 \begin{equation*}
 \frac{1}{2\pi i}
-\int_{\partial U}
+\int_{\Gamma}
 \frac{f(\zeta)}{\zeta-z}
 \,
 d \zeta
