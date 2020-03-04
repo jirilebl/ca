@@ -4368,7 +4368,7 @@ A \emph{\myindex{chain}} in $U \subset \C$ is an expression
 \Gamma = a_1 \gamma_1 + \cdots + a_n \gamma_n ,
 \end{equation*}
 where $a_1,\ldots,a_n \in \Z$ and $\gamma_1,\ldots,\gamma_n$
-are paths in $U$.  We integrate over $\Gamma$ as
+are piecewise $C^1$ paths in $U$.  We integrate over $\Gamma$ as
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz
 =
@@ -4410,9 +4410,10 @@ For the equivalence,
 the set where the continuous $f$ is defined is not a big deal.  We could
 take $f$ to be continuous on $U$, $\C$, or just the images of
 $\Gamma_1$ and $\Gamma_2$.
-By Tietze's extension theorem, any continuous function on a closed subset of
+By Tietze's extension theorem (a theorem in any metric space),
+any continuous function on a closed subset of
 $\C$ (such as the images of $\Gamma_1$ and $\Gamma_2$) extends to a
-continuous function on $\C$ (a theorem in any metric space).
+continuous function on $\C$.
 The way we defined things, we do not need Tietze.
 \end{remark}
 
@@ -7083,7 +7084,7 @@ Suppose $\Gamma$ is
 a cycle
 and $p \notin \Gamma$.  Then
 \begin{equation*}
-n(\gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz
+n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz
 \avoidbreak
 \end{equation*}
 is an integer.
@@ -7104,8 +7105,8 @@ The path $\gamma$ as a set is compact.  It can be covered by finitely many
 discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
 partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ such that
 $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
-do not contain $p$,
-so in each one there exists a branch of $\log (z-p)$, call it $L_j$
+does not contain $p$,
+so in each one there exists a branch of $\log (z-p)$, call it $L_j$,
 such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j-1}\bigl(\gamma(t_j)\bigr)$.
 Call $z_0 = \gamma(0) = \gamma(1)$.  So
 \begin{multline*}
@@ -7128,8 +7129,8 @@ $2\pi k i$ for some $k \in \Z$, as each is $\log\sabs{z_0} + i \arg z_0$ for som
 $\arg$.
 \end{proof}
 
-The second thing to notice is that $n(\gamma;z)$ is constant as long as we
-do not cross $\gamma$.
+The second thing to notice is that $n(\Gamma;z)$ is constant as long as we
+do not cross $\Gamma$.
 
 \begin{prop}
 Given
@@ -7157,39 +7158,39 @@ marked.\label{fig:indexconstant}}
 \begin{proof}
 Consider the function
 \begin{equation*}
-p \mapsto n(\gamma;p) = \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz .
+p \mapsto n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz .
 \end{equation*}
-Fix $p_0 \in \C \setminus \gamma$, and let $d(p_0,\gamma)$ be the distance from 
-$p_0$ to $\gamma$, namely
-$d(p_0,\gamma) = \inf \bigl\{ \sabs{z-p_0} : z \in \gamma \bigr\}$.
-As $\gamma$ is compact, $d(p_0,\gamma) > 0$.  Suppose $p$ is
-such that $\sabs{p-p_0} < \frac{d(p_0,\gamma)}{2}$, so $\sabs{z-p} \geq
-\frac{d(p_0,\gamma)}{2}$ for every $z \in \gamma$.  Let $\ell$ be the length of
-$\gamma$, that is $\ell = \int_\gamma \sabs{dz}$.  Then
+Fix $p_0 \in \C \setminus \Gamma$, and let $d(p_0,\Gamma)$ be the distance from 
+$p_0$ to $\Gamma$, namely
+$d(p_0,\Gamma) = \inf \bigl\{ \sabs{z-p_0} : z \in \Gamma \bigr\}$.
+As $\Gamma$ is compact, $d(p_0,\Gamma) > 0$.  Suppose $p$ is
+such that $\sabs{p-p_0} < \frac{d(p_0,\Gamma)}{2}$, so $\sabs{z-p} \geq
+\frac{d(p_0,\Gamma)}{2}$ for every $z \in \Gamma$.  Let $\ell$ be the length of
+$\Gamma$, that is $\ell = \int_\Gamma \sabs{dz}$.  Then
 \begin{equation*}
 \begin{split}
-\abs{n(\gamma;p_0)-n(\gamma;p)}
+\abs{n(\Gamma;p_0)-n(\Gamma;p)}
 =
-\abs{\frac{1}{2\pi i} \int_\gamma \frac{p_0-p}{(z-p_0)(z-p)} \, dz}
+\abs{\frac{1}{2\pi i} \int_\Gamma \frac{p_0-p}{(z-p_0)(z-p)} \, dz}
 & \leq
-\frac{1}{2\pi} \int_\gamma \frac{\sabs{p_0-p}}{\sabs{z-p_0}\sabs{z-p}} \, \sabs{dz}
+\frac{1}{2\pi} \int_\Gamma \frac{\sabs{p_0-p}}{\sabs{z-p_0}\sabs{z-p}} \, \sabs{dz}
 \\
 & \leq 
-\frac{1}{2\pi} \frac{2\ell}{{d(p_0,\gamma)}^2} \sabs{p_0-p} .
+\frac{1}{2\pi} \frac{2\ell}{{d(p_0,\Gamma)}^2} \sabs{p_0-p} .
 \end{split}
 \end{equation*}
-In other words, $n(\gamma;p)$ is a continuous function of $p$.
+In other words, $n(\Gamma;p)$ is a continuous function of $p$.
 As it is continuous
 and integer valued, it is constant on any connected component of
-$\C \setminus \gamma$ (the set where it is defined).
+$\C \setminus \Gamma$ (the set where it is defined).
 
 Next,
 \begin{equation*}
-\sabs{n(\gamma;p)} \leq \frac{1}{2\pi} \int_\gamma \frac{1}{\sabs{z-p}} \,
-\sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d(p,\gamma)} .
+\sabs{n(\Gamma;p)} \leq \frac{1}{2\pi} \int_\Gamma \frac{1}{\sabs{z-p}} \,
+\sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d(p,\Gamma)} .
 \end{equation*}
-On the unbounded component---as $\gamma$ is compact---we can find $p$
-with $d(p,\gamma)$ arbitrarily large, meaning $n(\gamma;p)$ is arbitrarily small
+On the unbounded component---as $\Gamma$ is compact---we can find $p$
+with $d(p,\Gamma)$ arbitrarily large, meaning $n(\Gamma;p)$ is arbitrarily small
 on this component, and as it is constant, it must be zero.
 \end{proof}
 
@@ -7223,8 +7224,8 @@ $n(\Gamma;z) = 0$.
 \begin{exercise}
 Suppose $\gamma \colon [a,b] \to \C$ be a closed $C^1$ path such that
 $\gamma(a) = \gamma(b)$ is some real negative number.  Suppose
-that $\gamma(t)$ is real and negative for $k$ distinct $t$ (and it
-includes $a$ and $b$) and whenever $\gamma(t)$ is real and negative,
+that $\gamma(t)$ is real and negative for only $k$ distinct $t$ (and it
+includes $a$ and $b$), and whenever $\gamma(t)$ is real and negative,
 then $\Im \gamma'(t) < 0$.  Prove that $n(\gamma;0) = k-1$.  Hint: Use
 the principal branch.
 \end{exercise}
@@ -7236,31 +7237,32 @@ the principal branch.
 \section{Homology versions of Cauchy}
 
 \begin{defn}
-Let $U \subset \C$ be a domain and $\gamma$
+Let $U \subset \C$ be a domain and $\Gamma$
 a cycle
 %closed piecewise $C^1$ path (or a cycle)
-in $U$ such that
-$n(\gamma;p) = 0$ for all $p \in \C \setminus U$, then we
-say $\gamma$ is \emph{\myindex{homologous to zero}} in $U$.
+in $U$
+such that $n(\Gamma;p) = 0$ for all $p \in \C \setminus U$,
+ then we
+say $\Gamma$ is \emph{\myindex{homologous to zero} in $U$}.
 \end{defn}
 
 \begin{thm}[Cauchy integral formula (homology version)]
 \index{Cauchy integral formula!homology}
 \label{thm:CIFhomology}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic, and
-$\gamma$ is
+$\Gamma$ is
 a cycle
 %a closed piecewise $C^1$ path (or a cycle)
 in $U$
-that is homologous to zero in $U$.
-%such that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
-Then for $z \in U \setminus \gamma$,
+homologous to zero in $U$.
+%such that $n(\Gamma;p) = 0$ for all $p \in \C \setminus U$.
+Then for $z \in U \setminus \Gamma$,
 \begin{equation*}
-n(\gamma;z)
+n(\Gamma;z)
 f(z)
 =
 \frac{1}{2\pi i}
-\int_{\gamma}
+\int_{\Gamma}
 \frac{f(\zeta)}{\zeta-z}
 \,
 d \zeta .
@@ -7299,27 +7301,29 @@ Define
 \begin{equation*}
 h(w) = 
 \begin{cases}
-\int_\gamma g(z,w) \, dz & \text{if } w \in U , \\
-\int_\gamma \frac{f(z)}{z-w} \, dz & \text{if } n(\gamma;w) = 0 .
+\int_\Gamma g(z,w) \, dz & \text{if } w \in U , \\
+\int_\Gamma \frac{f(z)}{z-w} \, dz & \text{if } n(\Gamma;w) = 0 .
 \end{cases}
 \end{equation*}
-As $n(\gamma;w) = 0$ for all $w \in \C \setminus U$ we have at least
-defined $h(w)$ for every $w \in \C$.  Unfortunately, at some points
+As $n(\Gamma;w) = 0$ for all $w \in \C \setminus U$
+($\Gamma$ is homologous to zero)
+the function $h(w)$ is defined for every $w \in \C$.
+Unfortunately, at some points
 we have two definitions.
-To show that $h(w)$ is well defined, we must show that if
-$n(\gamma;w) = 0$ and $w \in U$, that we get the same number.
+To show that $h(w)$ is well-defined, we must show that if
+$n(\Gamma;w) = 0$ and $w \in U$, that we get the same number.
 Suppose
-we have such a $w$ (in particular $w \notin \gamma$).
+we have such a $w$ (in particular $w \notin \Gamma$).
 \begin{equation*}
-\int_\gamma g(z,w) \, dz
+\int_\Gamma g(z,w) \, dz
 =
-\int_\gamma \frac{f(z)-f(w)}{z-w} \, dz
+\int_\Gamma \frac{f(z)-f(w)}{z-w} \, dz
 =
-\int_\gamma \frac{f(z)}{z-w} \, dz
+\int_\Gamma \frac{f(z)}{z-w} \, dz
 -
-f(w) n(\gamma;w)
+f(w) n(\Gamma;w)
 =
-\int_\gamma \frac{f(z)}{z-w} \, dz .
+\int_\Gamma \frac{f(z)}{z-w} \, dz .
 \end{equation*}
 So $h \colon \C \to \C$ is well-defined.
 
@@ -7327,42 +7331,42 @@ Next we show that $h$ is
 holomorphic.
 Holomorphicity is a local property, so we only need to prove it 
 in a neighborhood of any point.
-The set where $n(\gamma;w) = 0$ is open as it is a
-union of topological components of $\C \setminus \gamma$.
+The set where $n(\Gamma;w) = 0$ is open as it is a
+union of topological components of $\C \setminus \Gamma$.
 So each point has a neighborhood where $h$ is defined
 entirely by one or the other expression above.  Given any point,
 take a neighborhood where one of the expressions defines
 $h$ and then apply \lemmaref{lemma:holfuncbyintegral}.
 
-The unbounded component of $\C \setminus \gamma$ is contained in the
-set where $n(\gamma;w) = 0$, so on this component, $h$ is defined by the
+The unbounded component of $\C \setminus \Gamma$ is contained in the
+set where $n(\Gamma;w) = 0$, so on this component, $h$ is defined by the
 second expression, so take such a $w$.
-Suppose $M$ is a bound on $f$ on $\gamma$, let $\ell$ be the length of
-$\gamma$, and let $d(w,\gamma)$ be the distance of $w$ from $\gamma$.
+Suppose $M$ is a bound on $f$ on $\Gamma$, let $\ell$ be the length of
+$\Gamma$, and let $d(w,\Gamma)$ be the distance of $w$ from $\Gamma$.
 \begin{equation*}
 \sabs{h(w)}
 =
 \abs{
-\int_\gamma \frac{f(z)}{z-w} \, dz
+\int_\Gamma \frac{f(z)}{z-w} \, dz
 }
 \leq
-\int_\gamma \abs{\frac{f(z)}{z-w}} \, \sabs{dz}
+\int_\Gamma \abs{\frac{f(z)}{z-w}} \, \sabs{dz}
 %\leq
-%\int_\gamma \frac{M}{\sabs{z-w}} \, \sabs{dz}
+%\int_\Gamma \frac{M}{\sabs{z-w}} \, \sabs{dz}
 \leq
-\frac{M \ell}{d(w,\gamma)} .
+\frac{M \ell}{d(w,\Gamma)} .
 \end{equation*}
-So as $w \to \infty$, so does $d(w,\gamma) \to \infty$ and so $h(w) \to 0$.
+So as $w \to \infty$, so does $d(w,\Gamma) \to \infty$ and so $h(w) \to 0$.
 In particular, $h$ is an entire bounded function and
 Liouville says that $h$ is constant, and that constant must be zero.
-So suppose that $w \in U \setminus \gamma$.  Then
+So suppose that $w \in U \setminus \Gamma$.  Then
 \begin{equation*}
 0 = h(w) =
-\int_\gamma \frac{f(z)-f(w)}{z-w} \, dz
+\int_\Gamma \frac{f(z)-f(w)}{z-w} \, dz
 =
-\int_\gamma \frac{f(z)}{z-w} \, dz
+\int_\Gamma \frac{f(z)}{z-w} \, dz
 -
-f(w) n(\gamma;w) . \qedhere
+f(w) n(\Gamma;w) . \qedhere
 \end{equation*}
 \end{proof}
 
@@ -7372,28 +7376,28 @@ Cauchy's theorem actually follows immediately using the integral formula.
 \index{Cauchy's theorem!homology}%
 \label{thm:CThomology}%
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.  If
-$\gamma$ is
+$\Gamma$ is
 a cycle
 %closed piecewise $C^1$ path (or a cycle)
 in $U$
-that is homologous to zero in $U$,
-%such that $n(\gamma;p) = 0$ for
+homologous to zero in $U$,
+%such that $n(\Gamma;p) = 0$ for
 %every $p \in \C \setminus U$,
 then
 \begin{equation*}
-\int_\gamma f(z) \, dz = 0 .
+\int_\Gamma f(z) \, dz = 0 .
 \end{equation*}
 \end{thm}
 
 \begin{proof}
-Fix $z \in \C \setminus \gamma$.  Apply 
+Fix $z \in \C \setminus \Gamma$.  Apply 
 the Cauchy integral formula for the function $\zeta \mapsto
 (\zeta-z)f(\zeta)$ at $\zeta=z$:
 \begin{equation*}
-0 = n(\gamma;z) (z-z)f(z) =
-\frac{1}{2\pi i} \int_\gamma \frac{(\zeta-z)f(\zeta)}{\zeta-z} \, d\zeta
+0 = n(\Gamma;z) (z-z)f(z) =
+\frac{1}{2\pi i} \int_\Gamma \frac{(\zeta-z)f(\zeta)}{\zeta-z} \, d\zeta
 =
-\frac{1}{2\pi i} \int_\gamma f(\zeta) \, d\zeta . \qedhere
+\frac{1}{2\pi i} \int_\Gamma f(\zeta) \, d\zeta . \qedhere
 \end{equation*}
 \end{proof}
 
@@ -7436,25 +7440,27 @@ Show that being homologous is an equivalence relation on cycles.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $\gamma$ is
+Suppose that $\Gamma$ is
 a cycle
 %a closed piecewise $C^1$ path (or cycle)
 such that
-$n(\gamma;0) = k$.  Compute
+$n(\Gamma;0) = k$.  Compute
 \begin{equation*}
-\int_{\gamma} \frac{1}{z} \, dz .
+\int_{\Gamma} \frac{1}{z} \, dz .
 \end{equation*}
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open and $\gamma$ 
+Suppose $U \subset \C$ is open and $\Gamma$ 
 is
 %a closed piecewise $C^1$ path (or cycle)
 a cycle
-in $U$ such that
-$n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
-Suppose that $n(\gamma;z_1) = k_1$ and  $n(\gamma;z_2) = k_2$ for
-some two distinct $z_1,z_2 \in U \setminus \gamma$.
+in $U$
+homologous to zero in $U$.
+%such that
+%$n(\Gamma;p) = 0$ for all $p \in \C \setminus U$.
+Suppose that $n(\Gamma;z_1) = k_1$ and  $n(\Gamma;z_2) = k_2$ for
+some two distinct $z_1,z_2 \in U \setminus \Gamma$.
 Suppose $f \colon U \setminus \{z_1,z_2\} \to \C$ is
 holomorphic.
 Suppose $0< \epsilon < \sabs{z_1-z_2}$ and 
@@ -7462,7 +7468,7 @@ $\int_{\partial \Delta_\epsilon(z_1)} f(z) \, dz = A$ and
 $\int_{\partial \Delta_\epsilon(z_2)} f(z) \, dz = B$.
 Compute
 \begin{equation*}
-\int_{\gamma} f(z) \, dz
+\int_{\Gamma} f(z) \, dz
 \end{equation*}
 in terms of $k_1$, $k_2$, $A$, and $B$.
 \end{exercise}
@@ -7481,10 +7487,10 @@ homology,'' but in this book, a simply connected domain is this definition.
 
 \begin{defn} \label{defn:simplyconnected:homology}
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
-if $n(\gamma;p) = 0$ for every
+if $n(\Gamma;p) = 0$ for every
 cycle
 %closed piecewise $C^1$ path
-$\gamma$ in $U$ and every $p \in \C \setminus U$.
+$\Gamma$ in $U$ and every $p \in \C \setminus U$.
 \end{defn}
 
 \begin{exbox}
@@ -7504,17 +7510,17 @@ A special (but common) case of the homology version of Cauchy,
 \begin{thm}[Cauchy's theorem (simply connected version)]
 \index{Cauchy's theorem!simply connected}%
 Let $U \subset \C$ be a simply connected domain and $f \colon U \to \C$
-holomorphic.  If $\gamma$ is
+holomorphic.  If $\Gamma$ is
 a cycle
 %a closed piecewise $C^1$ path (or a cycle)
 in $U$, then
 \begin{equation*}
-\int_\gamma f(z) \, dz = 0 .
+\int_\Gamma f(z) \, dz = 0 .
 \end{equation*}
 \end{thm}
 
 The proof is trivial since if $U$ is simply connected, then
-$n(\gamma;p) = 0$ for every closed $\gamma$ in $U$.
+$n(\Gamma;p) = 0$ for every cycle $\Gamma$ in $U$.
 Having Cauchy's theorem in simply connected
 domains, we have primitives (antiderivatives) in simply connected
 domains.
@@ -7624,7 +7630,7 @@ e^{\psi(z)} = f(z) . \qedhere
 \end{proof}
 
 On the other hand, the existence of primitives or
-Cauchy's theorem without restriction on $\gamma$ guarantees simply
+Cauchy's theorem without restriction on $\Gamma$ guarantees simply
 connectedness.  In particular, we have the following set of equivalent
 versions of simply connectedness for domains.
 
@@ -7641,17 +7647,17 @@ $\frac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
 For every holomorphic $f \colon U \to \C$ and every
 cycle
 %closed piecewise $C^1$ path (or a cycle)
-$\gamma$ in $U$, we have
+$\Gamma$ in $U$, we have
 \begin{equation*}
-\int_\gamma f(z) \, dz = 0 .
+\int_\Gamma f(z) \, dz = 0 .
 \end{equation*}
 \item \label{thm:simplyconnected:v}
 For every $p \in \C \setminus U$ and every
 cycle
 %closed piecewise $C^1$ path (or a cycle)
-$\gamma$ in $U$, we have
+$\Gamma$ in $U$, we have
 \begin{equation*}
-\int_\gamma \frac{1}{z-p} \, dz = 0 .
+\int_\Gamma \frac{1}{z-p} \, dz = 0 .
 \end{equation*}
 \end{enumerate}
 \end{thm}
@@ -7676,16 +7682,16 @@ and
 Using Cauchy's theorem for derivatives,
 \ref{thm:simplyconnected:iii} implies
 \begin{equation*}
-\int_\gamma \frac{1}{z-p} \, dz = 0 
+\int_\Gamma \frac{1}{z-p} \, dz = 0 
 \end{equation*}
 for every $p \in \C \setminus U$,
 and hence 
 \ref{thm:simplyconnected:v} is true.
 As 
 \begin{equation*}
-n(\gamma;p) = 
+n(\Gamma;p) = 
 \frac{1}{2\pi i}
-\int_\gamma \frac{1}{z-p} \, dz ,
+\int_\Gamma \frac{1}{z-p} \, dz ,
 \end{equation*}
 \ref{thm:simplyconnected:v} is simply a restatement of
 \ref{thm:simplyconnected:i}.
@@ -8083,12 +8089,12 @@ $\gamma_j(a)=\gamma_j(b)$, but we only need it for paths.}
 $\gamma_0 \colon [a,b] \to U$ and
 $\gamma_1 \colon [a,b] \to U$ are \emph{\myindex{homotopic}} in $U$
 (or relative to $U$) if there exists a continuous function
-$\Gamma \colon [a,b] \times [0,1] \to U$ such that
+$H \colon [a,b] \times [0,1] \to U$ such that
 for all $s$ and $t$
 \begin{equation*}
-\Gamma(t,0) = \gamma_0(t), \qquad
-\Gamma(t,1) = \gamma_1(t), \qquad \text{and} \qquad
-\Gamma(a,s) = \Gamma(b,s) .
+H(t,0) = \gamma_0(t), \qquad
+H(t,1) = \gamma_1(t), \qquad \text{and} \qquad
+H(a,s) = H(b,s) .
 \end{equation*}
 \end{defn}
 
@@ -8101,18 +8107,18 @@ $\gamma \colon [a,b] \to \C$ with $\gamma(a)=\gamma(b)$.
 
 \begin{example} \label{example:homotopydiscsc}
 Let $\gamma \colon [a,b] \to \D$ be a continuous function.  Define
-$\Gamma \colon [a,b] \times [0,1] \to \D$ by
+$H \colon [a,b] \times [0,1] \to \D$ by
 \begin{equation*}
-\Gamma(t,s) = (1-s) \gamma(t) .
+H(t,s) = (1-s) \gamma(t) .
 \end{equation*}
-This is clearly a homotopy in $U$, $\Gamma(t,0) = \gamma(t)$
-and $\Gamma(t,1) = 0$, so $\gamma$ is homotopic to the zero function.
+This is clearly a homotopy in $U$, $H(t,0) = \gamma(t)$
+and $H(t,1) = 0$, so $\gamma$ is homotopic to the zero function.
 \end{example}
 
 What we want to do is to prove that if $\gamma_0$ is homotopic to $\gamma_1$
 in $U$ and $f \colon U \to \C$ is holomorphic, then
 $\int_{\gamma_0} f(z)\,dz = \int_{\gamma_1} f(z)\, dz$.
-Well what we could do is to define $\gamma_s(t) = \Gamma(t,s)$.
+Well what we could do is to define $\gamma_s(t) = H(t,s)$.
 The $\gamma_s$ is very close to
 $\gamma_{s+\epsilon}$ and so it should not be hard to prove that their
 winding number around various points is the same.
@@ -8278,7 +8284,7 @@ n(\gamma_0;p) = n(\gamma_1;p) \qquad \text{for all } p \in \C \setminus U .
 \end{prop}
 
 \begin{proof}
-Let $\gamma_s(t) = \Gamma(t,s)$ be the maps from the homotopy.
+Let $\gamma_s(t) = H(t,s)$ be the maps from the homotopy.
 \lemmaref{lemma:changeintheta} says that $s \mapsto n(\gamma_s;p)$ is a
 continuous function.  As $s \mapsto n(\gamma_s;p)$ is integer-valued it must
 be constant.
@@ -8338,7 +8344,7 @@ We could take a different approach to solving our issues with homotopy.  Let
 $U \subset \C$ be open and let $\gamma_0$ and $\gamma_1$ be closed
 piecewise $C^1$ paths in $U$ that are homotopic in $U$.
 Show that there exists a homotopy (possibly different one) such that
-each $\gamma_s(t) = \Gamma(t,s)$ is a closed piecewise $C^1$ path.
+each $\gamma_s(t) = H(t,s)$ is a closed piecewise $C^1$ path.
 Hint: See previous exercise.
 \end{exercise}
 
@@ -8398,7 +8404,7 @@ In lieu of a proof of the other direction, let us simply note that
 $\C$, $\D$, or the upper half-plane $\bH$ are simply connected in the 
 sense of homotopy.  For $\C$ and $\D$ we employ the homotopy of
 example \exampleref{example:homotopydiscsc}.  For the half-plane,
-we modify the homotopy of to $\Gamma(t,s) = (1-s)\gamma(t) + si$ to
+we modify the homotopy of to $H(t,s) = (1-s)\gamma(t) + si$ to
 get $\gamma$ homotopic to the constant $i$.
 \end{example}
 
@@ -8470,7 +8476,7 @@ state it without proof.
 
 \begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
 Let $\Gamma$ be a cycle
-such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\Gamma) = 1 \}$.
 Suppose 
 $P,Q$ are continuously differentiable functions defined in a neighborhood
 of $\overline{U}$.
@@ -8527,7 +8533,7 @@ $G=0$, $F$ be holomorphic, and apply the Wirtinger version of the formula.
 
 \begin{cor}\label{thm:cauchybygreen}
 Let $\Gamma$ be a cycle
-such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\Gamma) = 1 \}$.
 Suppose $f$ is a holomorphic function defined in a neighborhood of $\overline{U}$.
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz  = 0.
@@ -8542,7 +8548,7 @@ This version is called the \emph{\myindex{Cauchy--Pompeiu integral formula}}.
 
 \begin{thm}[Cauchy--Pompeiu] \label{thm:generalizedcauchy}
 Let $\Gamma$ be a cycle
-such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\gamma) = 1 \}$.
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\Gamma) = 1 \}$.
 Suppose $f$ is a continuously differentiable function defined in a neighborhood
 of $\overline{U}$.
 Then for $z \in U$:
@@ -9379,16 +9385,17 @@ a cycle to the residues that lie inside the cycle.
 
 \begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
 Suppose $U \subset \C$ is an open set, $S \subset U$ is a finite subset,
-and $\gamma$ is
+and $\Gamma$ is
 %a closed piecewise $C^1$ path (or cycle)
 a cycle
 in $U \setminus S$
-such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$.
+homologous to zero in $U$.\footnote{As usual, $n(\Gamma;z) = 0$ for all $z
+\in \C \setminus U$.}
 Suppose $f \colon U \setminus S \to \C$ is a holomorphic function (with isolated
 singularities on $S$).
 Then
 \begin{equation*}
-\frac{1}{2\pi i} \int_{\gamma} f(z) \, dz = \sum_{p \in S} n(\gamma;p) \operatorname{Res}(f;p) .
+\frac{1}{2\pi i} \int_{\Gamma} f(z) \, dz = \sum_{p \in S} n(\Gamma;p) \operatorname{Res}(f;p) .
 \end{equation*}
 \end{thm}
 
@@ -9399,28 +9406,28 @@ the closed discs
 $\overline{\Delta_{r_1}(w_1)},\ldots, \overline{\Delta_{r_\ell}(w_\ell)}$
 are mutually disjoint (no pair of them intersects),
 $\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$, and
-$\overline{\Delta_{r_j}(w_j)} \cap \gamma = \emptyset$ for all $j$.
+$\overline{\Delta_{r_j}(w_j)} \cap \Gamma = \emptyset$ for all $j$.
 
 Define the cycle
 \begin{equation*}
-\Gamma = \gamma \,
-- \, n(\gamma;w_1) \, \partial \Delta_{r_1} (w_1)
+\Lambda = \Gamma \,
+- \, n(\Gamma;w_1) \, \partial \Delta_{r_1} (w_1)
 \, -
 \cdots
-- \, n(\gamma;w_\ell) \, \partial \Delta_{r_\ell} (w_\ell) .
+- \, n(\Gamma;w_\ell) \, \partial \Delta_{r_\ell} (w_\ell) .
 \end{equation*}
 We claim that
 \begin{equation*}
-n(\Gamma;p) = 0
+n(\Lambda;p) = 0
 \end{equation*}
 for all $p \notin U \setminus S$.
 By definition,
 \begin{equation*}
-n(\Gamma;p) = n(\gamma;p)
-- n(\gamma;w_1) \, n(\partial \Delta_{r_1} (w_1) ; p)
+n(\Lambda;p) = n(\Gamma;p)
+- n(\Gamma;w_1) \, n(\partial \Delta_{r_1} (w_1) ; p)
 -
 \cdots
-- n(\gamma;w_\ell) \, n(\partial \Delta_{r_\ell} (w_\ell) ; p) .
+- n(\Gamma;w_\ell) \, n(\partial \Delta_{r_\ell} (w_\ell) ; p) .
 \end{equation*}
 If $p \notin U$, then as 
 $\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$ we get
@@ -9434,13 +9441,13 @@ By the homology version of the Cauchy theorem, we find
 \begin{equation*}
 0 = 
 \frac{1}{2 \pi i}
-\int_\Gamma f(z) \, dz
+\int_\Lambda f(z) \, dz
 =
 \frac{1}{2 \pi i}
-\int_\gamma f(z) \, dz
+\int_\Gamma f(z) \, dz
 -
 \sum_{j=1}^\ell
-n(\gamma;w_j)
+n(\Gamma;w_j)
 \frac{1}{2 \pi i}
 \int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz .
 \end{equation*}
@@ -9747,37 +9754,37 @@ example $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
 Same with poles.
 
 \begin{thm}[Argument principle]\index{argument principle}\label{thm:argprinc}
-Suppose $U \subset \C$ is open, and $\gamma$ is
+Suppose $U \subset \C$ is open, and $\Gamma$ is
 a cycle
 %a closed piecewise $C^1$ path (or a cycle)
-in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C
-\setminus U$.
+in $U$
+homologous to zero in $U$.
+%such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
 Suppose $f \colon U \to \C_\infty$ is a meromorphic function with no zeros
-or poles on $\gamma$.
+or poles on $\Gamma$.
 Let $z_j$, $j \in J$, be the zeros of $f$ counted with multiplicity,
 and $p_j$, $j \in J$, be the poles of $f$ counted with multiplicity.
 Then
 \begin{equation*}
 \frac{1}{2\pi i}
-\int_\gamma \frac{f'(z)}{f(z)} \, dz
+\int_\Gamma \frac{f'(z)}{f(z)} \, dz
 =
-\sum_{j \in J} n(\gamma;z_j)
+\sum_{j \in J} n(\Gamma;z_j)
 \quad
 -
 \quad
-\sum_{j \in J} n(\gamma;p_j) .
+\sum_{j \in J} n(\Gamma;p_j) .
 \end{equation*}
-
 Furthermore, if $h \colon U \to \C$ is holomorphic, then
 \begin{equation*}
 \frac{1}{2\pi i}
-\int_\gamma h(z) \frac{f'(z)}{f(z)} \, dz
+\int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
 =
-\sum_{j \in J} n(\gamma;z_j)h(z_j) 
+\sum_{j \in J} n(\Gamma;z_j)h(z_j) 
 \quad
 -
 \quad
-\sum_{j \in J} n(\gamma;p_j)h(p_j) .
+\sum_{j \in J} n(\Gamma;p_j)h(p_j) .
 \end{equation*}
 \end{thm}
 
@@ -9785,17 +9792,17 @@ The number of zeros or poles inside an open set is always countable (unless
 $f$ is identically zero in that open set), but
 in the theorem we could really assume there are only finitely many zeros and
 poles, as there are only finitely many zeros and poles for which 
-$n(\gamma;z) \not= 0$ (see exercise below).
+$n(\Gamma;z) \not= 0$ (see exercise below).
 
 The reason for saying that this counts the number of zeros and poles,
-suppose that $\gamma$ only goes around every point in $z \in U$ at most once
+suppose that $\Gamma$ only goes around every point in $z \in U$ at most once
 in the positive direction or not at all.  That is,
-$n(\gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the ``inside of
-$\gamma$'' as the points such as $n(\gamma;z)=1$.  Suppose that there are
+$n(\Gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the ``inside of
+$\Gamma$'' as the points such as $n(\Gamma;z)=1$.  Suppose that there are
 $N$ zeros and $P$ poles (counting multiplicity).  Then
 \begin{equation*}
 \frac{1}{2\pi i}
-\int_\gamma \frac{f'(z)}{f(z)} \, dz
+\int_\Gamma \frac{f'(z)}{f(z)} \, dz
 = N - P ,
 \end{equation*}
 
@@ -9807,13 +9814,13 @@ The function $h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
 at the zeros and poles of $f$.  We apply the residue theorem to find
 \begin{multline*}
 \frac{1}{2\pi i}
-\int_\gamma h(z) \frac{f'(z)}{f(z)} \, dz
+\int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
 =
 \\
-\sum_{j} n(\gamma;z_j)\operatorname{Res}\left(h(z)
+\sum_{j} n(\Gamma;z_j)\operatorname{Res}\left(h(z)
 \frac{f'(z)}{f(z)};z_j\right)
 -
-\sum_{j} n(\gamma;p_j)\operatorname{Res}\left(h(z)
+\sum_{j} n(\Gamma;p_j)\operatorname{Res}\left(h(z)
 \frac{f'(z)}{f(z)};p_j\right) .
 \end{multline*}
 We simply need to compute the residues.  Consider a zero of $f$ of
@@ -9843,12 +9850,13 @@ The theorem follows.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is open, $\gamma$ is a cycle in $U$
-such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$,
+Suppose $U \subset \C$ is open, $\Gamma$ is a cycle in $U$
+homologous to zero in $U$,
+%such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$,
 and $f \colon U \to \C_\infty$ is meromorphic and
-has no zeros or poles on $\gamma$.
+has no zeros or poles on $\Gamma$.
 Show that there are only finitely many zeros and poles of $f$
-such that $n(\gamma;z) \not= 0$.
+such that $n(\Gamma;z) \not= 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -9862,7 +9870,8 @@ One thing to notice is that the theorem is a generalization of the integral
 of $\frac{1}{z}$ around zero via taking the antiderivative, that is,
 $\log z$ and evaluating it (taking care to follow the branch).  In this case
 the function $\frac{f'(z)}{f(z)}$ has the antiderivative $\log f(z)$.
-In other words the argument principle is about counting the number of times
+In other words given a path $\gamma$,
+the argument principle is about counting the number of times
 the curve $f \circ \gamma$ winds around zero.
 This intuitive idea could even be worked into a proof if one wants to.
 
@@ -9881,20 +9890,20 @@ whatsoever, then the theorem says that the number of zeros does not change.
 
 \begin{thm}[Rouch\`e\footnote{%
 The stronger version we state was actually proved by Estermann in 1962.}]\index{Rouch\`e's theorem}\label{thm:rouche}
-Suppose $U \subset \C$ is an open set, and $\gamma$ is
+Suppose $U \subset \C$ is an open set, and $\Gamma$ is
 %a closed piecewise $C^1$ path (or cycle)
 a cycle
-in $U$ such that $n(\gamma;z) = 0$ for all $z \in \C \setminus U$
-and $n(\gamma;z)$ is either $1$ or $0$ for $z \in U$.  Let $V = \{ z \in U
-: n(\gamma;z) = 1 \}$.
-
+in $U$ homologous to zero in $U$,
+%such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$
+and $n(\Gamma;z)$ is either $1$ or $0$ for $z \in U$.
+Let $V = \{ z \in U : n(\Gamma;z) = 1 \}$.
 Suppose that $f \colon U \to \C_\infty$ and $g \colon U \to \C_\infty$
 are meromorphic functions with no zeros or poles on
-$\gamma$ such that
+$\Gamma$ such that
 \begin{equation*}
 \sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
 \end{equation*}
-for all $z \in \gamma$.  Let $N_f$, $N_g$ be the number of zeros in $V$
+for all $z \in \Gamma$.  Let $N_f$, $N_g$ be the number of zeros in $V$
 and $P_g$, $P_f$ the number of poles in $V$ (both up to multiplicity)
 of $f$ and $g$ respectively.
 Then
@@ -9904,26 +9913,26 @@ N_g - P_g.
 \end{equation*}
 \end{thm}
 
-The condition on $\gamma$ means that the
-path (cycle) is simple in the sense
+The condition on $\Gamma$ means that the
+cycle is simple in the sense
 that only goes around any particular point either once or not at all.
-We then want to count the number of zeros and poles inside $\gamma$.
+We then want to count the number of zeros and poles inside $\Gamma$.
 
 Often the theorem is only applied for holomorphic functions, that is,
 functions without poles:
 
 \begin{cor}[Rouch\`e]\label{thm:rouche2}
-Let $U$,  $\gamma$ and $V$ be as in \thmref{thm:rouche}.
+Let $U$, $\Gamma$ and $V$ be as in \thmref{thm:rouche}.
 Suppose $f \colon U \to \C$ and $g \colon U \to \C$
 are holomorphic such that
 $\sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}$
-for all $z \in \gamma$.  Then $f$ and $g$ have the same number of zeros (up
+for all $z \in \Gamma$.  Then $f$ and $g$ have the same number of zeros (up
 to multiplicity) in $V$.
 \end{cor}
 
 Observe that for holomorphic functions,
 the inequality precludes any zeros of $f$ or
-$g$ on $\gamma$.  This observation is actually quite convenient in the
+$g$ on $\Gamma$.  This observation is actually quite convenient in the
 applications as it avoids having to show some technicalities.
 
 The classical statement of the theorem uses the weaker
@@ -9935,8 +9944,8 @@ as hypothesis.
 The weaker statement is enough for vast majority of
 applications, and has a simpler geometric meaning.  The number of zeros (or
 poles) of $f$
-inside $\gamma$ corresponds to the number times $f(z)$ winds around zero
-as $z$ traverses $\gamma$.  The theorem says that if $f$ is modified a
+inside $\Gamma$ corresponds to the number times $f(z)$ winds around zero
+as $z$ traverses $\Gamma$.  The theorem says that if $f$ is modified a
 little this does not change.  The classical visual ``proof'' is a dog on a leash
 with the master going around a tree.  The master is at $f(z)$, the tree is
 at the origin, and the dog is at $g(z)$, so the length of the leash is
@@ -9961,18 +9970,18 @@ Write the inequality as
 \abs{\frac{f(z)}{g(z)}} + 1 .
 \end{equation*}
 This inequality precludes $\frac{f(z)}{g(z)}$ ever being positive on
-$\gamma$, and hence in a neighborhood of $\gamma$.  Let $L$ be a branch of
+$\Gamma$, and hence in a neighborhood of $\Gamma$.  Let $L$ be a branch of
 the logarithm defined on the set $\C \setminus [0,\infty)$.
 Let $\phi(z) = \frac{f(z)}{g(z)}$.
 The function
 $\frac{\varphi'}{\varphi}$ then has a well-defined antiderivative
-$L \circ \varphi$ on a neighborhood of $\gamma$.  As $\gamma$
-is a closed path (cycle) we find
+$L \circ \varphi$ on a neighborhood of $\Gamma$.  As $\Gamma$
+is a cycle,
 \begin{equation*}
 0
-= \frac{1}{2\pi i} \int_{\gamma} \frac{\varphi'(z)}{\varphi(z)} \, dz
-= \frac{1}{2\pi i} \int_{\gamma} \left( \frac{f'(z)}{f(z)} -
-\frac{g'(z)}{g(z)} \right) \, dz .
+= \frac{1}{2\pi i} \int_{\Gamma} \frac{\varphi'(z)}{\varphi(z)} \, dz
+= \frac{1}{2\pi i} \int_{\Gamma}
+\left( \frac{f'(z)}{f(z)} - \frac{g'(z)}{g(z)} \right) \, dz .
 \end{equation*}
 The argument principle finishes the proof.
 \end{proof}
@@ -9984,8 +9993,8 @@ but let us forget we can do so,
 and show using Rouch\`e that they are all on the unit circle.
 
 First
-consider $\gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
-around the origin.  Then on $\gamma$ we have
+consider $\Gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
+around the origin.  Then on $\Gamma$ we have
 \begin{equation*}
 \abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
 \end{equation*}
@@ -9993,8 +10002,8 @@ We apply Rouch\`e ($P(z)$ is the dog and $1$ is the master).  So $P(z)$
 has the same number of zeros as the constant $1$ (that is, no zeros) in
 $\Delta_{1-\epsilon}(0)$.
 
-Similarly, take $z^n$ instead of $1$, and make $\gamma$ be the circle of
-radius $1+\epsilon$ around the origin.  Then on $\gamma$,
+Similarly, take $z^n$ instead of $1$, and make $\Gamma$ be the circle of
+radius $1+\epsilon$ around the origin.  Then on $\Gamma$,
 \begin{equation*}
 \abs{P(z) - z^n} = 1 < \abs{z^n} .
 \end{equation*}
@@ -10010,8 +10019,8 @@ but let us forget we can do so,
 and show using Rouch\`e that they are all on the unit circle.
 
 First
-consider $\gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
-around the origin.  Then on $\gamma$ we have
+consider $\Gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
+around the origin.  Then on $\Gamma$ we have
 \begin{equation*}
 \abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
 \end{equation*}
@@ -10019,8 +10028,8 @@ We apply Rouch\`e ($P(z)$ is the dog and $1$ is the master).  So $P(z)$
 has the same number of zeros as the constant $1$ (that is, no zeros) in
 $\Delta_{1-\epsilon}(0)$.
 
-Similarly, take $z^n$ instead of $1$, and make $\gamma$ be the circle of
-radius $1+\epsilon$ around the origin.  Then on $\gamma$,
+Similarly, take $z^n$ instead of $1$, and make $\Gamma$ be the circle of
+radius $1+\epsilon$ around the origin.  Then on $\Gamma$,
 \begin{equation*}
 \abs{P(z) - z^n} = 1 < \abs{z^n} .
 \end{equation*}
@@ -10090,25 +10099,27 @@ functions converge uniformly on compact sets, the limit is holomorphic
 \begin{thm}[Hurwitz]\index{Hurwitz's theorem}
 Let $U \subset \C$ be open and $f_n \colon U \to \C$ is a sequence of
 holomorphic functions converging uniformly on compact subsets
-to a holomorphic $f \colon U \to \C$.  Suppose $\gamma$ is
+to a holomorphic $f \colon U \to \C$.  Suppose $\Gamma$ is
 a cycle
 %a piecewise $C^1$ path (or cycle)
-in $U$ such that $n(\gamma;z) = 0$ or $1$ for all $z \in U$,
-and $n(\gamma;z) = 0$ for all $z \in \C \setminus U$.  Let
-$V = \{ z \in U : n(\gamma;z) = 1 \}$.
-Suppose that $f$ has no zeros on $\gamma$ and $k$ zeros (counting
+in $U$ homologous to zero in $U$,
+such that $n(\Gamma;z)$ is $0$ or $1$ for all $z \in U$.
+%and $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
+Let
+$V = \{ z \in U : n(\Gamma;z) = 1 \}$.
+Suppose that $f$ has no zeros on $\Gamma$ and $k$ zeros (counting
 multiplicity) in $V$.
 Then there exists an $N$ such that for all $n \geq N$,
 $f_n$ has $k$ zeros (counting multiplicity) in $V$.
 \end{thm}
 
 \begin{proof}
-As $\gamma$ is compact, the functions $f_n$ and $f_n'$
-converge uniformly to $f$ and $f'$ on $\gamma$.
+As $\Gamma$ is compact, the functions $f_n$ and $f_n'$
+converge uniformly to $f$ and $f'$ on $\Gamma$.
 There is a $\delta > 0$ and $M > 0$ such that $\delta < \sabs{f(z)} < M$
-and $\sabs{f'(z)} < M$ for all $z \in \gamma$.
+and $\sabs{f'(z)} < M$ for all $z \in \Gamma$.
 Then for all large enough $n$, we have
-$\delta < \sabs{f_n(z)} < M$ and $\sabs{f_n'(z)} < M$ for all $z \in \gamma$.  So
+$\delta < \sabs{f_n(z)} < M$ and $\sabs{f_n'(z)} < M$ for all $z \in \Gamma$.  So
 \begin{equation*}
 \abs{
 \frac{f_n'(z)}{f_n(z)}-
@@ -10121,13 +10132,13 @@ $\delta < \sabs{f_n(z)} < M$ and $\sabs{f_n'(z)} < M$ for all $z \in \gamma$.  S
 \end{equation*}
 By the uniform convergence of $f_n$ and $f_n'$, we find that
 $\frac{f_n'(z)}{f_n(z)}$ converges uniformly to
-$\frac{f'(z)}{f(z)}$ on $\gamma$.  Then, using the argument principle,
+$\frac{f'(z)}{f(z)}$ on $\Gamma$.  Then, using the argument principle,
 \begin{equation*}
-\lim_{n\to\infty} \frac{1}{2\pi i} \int_\gamma
-\frac{f_n'(z)}{f_n(z)} \, dz
+\lim_{n\to\infty} \frac{1}{2\pi i}
+\int_\Gamma \frac{f_n'(z)}{f_n(z)} \, dz
 =
-\frac{1}{2\pi i} \int_\gamma
-\frac{f'(z)}{f(z)} \, dz
+\frac{1}{2\pi i}
+\int_\Gamma \frac{f'(z)}{f(z)} \, dz
 =
 k .
 \end{equation*}
@@ -10834,9 +10845,9 @@ pointwise.  Show that it converges uniformly.
 Define $f_n \colon [0,1] \to \C$ by $f_n(t) = e^{i(2\pi t + n)}$.
 This is a uniformly equicontinuous uniformly bounded sequence.
 Prove more than just
-the conclusion of Arzel\`a--Ascoli for this sequence.  Let $\gamma \in \R$
+the conclusion of Arzel\`a--Ascoli for this sequence.  Let $\delta \in \R$
 be given,
-and define $g(t) = e^{i(2\pi t + \gamma)}$.  Show that there exists 
+and define $g(t) = e^{i(2\pi t + \delta)}$.  Show that there exists 
 a subsequence of $\{ f_n \}$ converging uniformly to $g$.
 \\
 Hint: Feel free to use the \emph{\myindex{Kronecker density theorem}}:
@@ -11214,18 +11225,18 @@ constant.
 The Riemann mapping theorem says that either $U =
 \C$ or there is a biholomorphism $f \colon U \to \D$.
 
-If $U = \C$, then define the homotopy $\Gamma \colon [a,b] \times [0,1] \to
+If $U = \C$, then define the homotopy $H \colon [a,b] \times [0,1] \to
 \C$ as
 \begin{equation*}
-\Gamma(t,s) = (1-s) \gamma(t) .
+H(t,s) = (1-s) \gamma(t) .
 \end{equation*}
 
 If $U \not= \C$, consider the function, define
 \begin{equation*}
-\Gamma(t,s) = f^{-1} \Bigl( (1-s) f \bigl( \gamma(t) \bigr) \Bigr) .
+H(t,s) = f^{-1} \Bigl( (1-s) f \bigl( \gamma(t) \bigr) \Bigr) .
 \end{equation*}
 In other words, we map $U$ to $\D$ and consider $f \circ \gamma$.
-Then we define $\Gamma$ in the same way as we did for $\C$, and then we
+Then we define $H$ in the same way as we did for $\C$, and then we
 take the whole thing back to $U$.
 \end{proof}
 
@@ -16975,7 +16986,7 @@ x \,\sin \left(\frac{y}{x^2+y^2}\right) & \text{if } (x,y) \not= (0,0),\\
 \begin{exparts}
 \item
 Prove $f$ is continuous on all of $\R^2$.
-Therefore the following function is well defined for every $y \in \R$:
+Therefore the following function is well-defined for every $y \in \R$:
 \begin{equation*}
 g(y) = \int_0^1 f(x,y) \, dx .
 \end{equation*}

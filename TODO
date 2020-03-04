@@ -9,11 +9,6 @@ Things not marked with FIXMEs in the file (not sure where to stick them yet):
 * check if we are using "constant path" or some such somewhere (check some
   more that is)
 
-* "piecewise C^1 cycle" "piecewise C^1 chain"?
-
-* make all the chains / cycles into \Gamma from \gamma
-  * done up to around page 94 (up to the figure 4.3)
-
-* use "homologous to zero" in all places where it is used (especially
-  chapter 5)?  Or perhaps never and just always spell it out.  It does
-  not actually make things shorter.
+* "piecewise C^1 cycle" "piecewise C^1 chain"?  Probably not, it's getting
+  to "verbiagy" and we don't have any other types of chains.  We already
+  probably overdo it with the "piecewise C^1 path" stuff.
