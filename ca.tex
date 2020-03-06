@@ -7169,13 +7169,15 @@ Consider the function
 \begin{equation*}
 p \mapsto n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz .
 \end{equation*}
-Fix $p_0 \in \C \setminus \Gamma$, and let $d(p_0,\Gamma)$ be the distance from 
+Let us show that this function is continuous on $\C \setminus \Gamma$.
+Fix $p_0 \in \C \setminus \Gamma$, and let $d = d(p_0,\Gamma)$ be the
+distance from 
 $p_0$ to $\Gamma$, namely
-$d(p_0,\Gamma) = \inf \bigl\{ \sabs{z-p_0} : z \in \Gamma \bigr\}$.
-As $\Gamma$ is compact, $d(p_0,\Gamma) > 0$.  Suppose $p$ is
-such that $\sabs{p-p_0} < \frac{d(p_0,\Gamma)}{2}$, so $\sabs{z-p} \geq
-\frac{d(p_0,\Gamma)}{2}$ for every $z \in \Gamma$.  Let $\ell$ be the length of
-$\Gamma$, that is $\ell = \int_\Gamma \sabs{dz}$.  Then
+$d = \inf \bigl\{ \sabs{z-p_0} : z \in \Gamma \bigr\}$.
+As $\Gamma$ is compact, $d > 0$.  
+For any $p \in \Delta_{d/2}(p_0)$, we have $\sabs{z-p} \geq
+\frac{d}{2}$ for every $z \in \Gamma$.  Let $\ell$ be the length of
+$\Gamma$, that is $\ell = \int_\Gamma \sabs{dz}$.  Then,
 \begin{equation*}
 \begin{split}
 \abs{n(\Gamma;p_0)-n(\Gamma;p)}
@@ -7185,15 +7187,15 @@ $\Gamma$, that is $\ell = \int_\Gamma \sabs{dz}$.  Then
 \frac{1}{2\pi} \int_\Gamma \frac{\sabs{p_0-p}}{\sabs{z-p_0}\sabs{z-p}} \, \sabs{dz}
 \\
 & \leq 
-\frac{1}{2\pi} \frac{2\ell}{{d(p_0,\Gamma)}^2} \sabs{p_0-p} .
+\frac{\ell}{\pi {d}^2} \sabs{p_0-p} .
 \end{split}
 \end{equation*}
-In other words, $n(\Gamma;p)$ is a continuous function of $p$.
+So, $n(\Gamma;p)$ is a continuous function of $p$.
 As it is continuous
 and integer valued, it is constant on any connected component of
 $\C \setminus \Gamma$ (the set where it is defined).
 
-Next,
+Next, for any $p \in \C \setminus \Gamma$,
 \begin{equation*}
 \sabs{n(\Gamma;p)} \leq \frac{1}{2\pi} \int_\Gamma \frac{1}{\sabs{z-p}} \,
 \sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d(p,\Gamma)} .
@@ -7206,7 +7208,7 @@ on this component, and as it is constant, it must be zero.
 \begin{exbox}
 \begin{exercise} \label{exercise:windingcircle}
 %FIXME: mark needed/used exercises
-Let $\partial \Delta_r(p)$ be the path oriented counterclockwise.
+%Let $\partial \Delta_r(p)$ be the path oriented counterclockwise.
 Show that $n\bigl(\partial \Delta_r(p);z\bigr) = 0$ if $z \notin
 \overline{\Delta_r(p)}$ and 
 $n\bigl(\partial \Delta_r(p);z\bigr) = 1$ if $z \in \Delta_r(p)$.
@@ -7214,9 +7216,10 @@ $n\bigl(\partial \Delta_r(p);z\bigr) = 1$ if $z \in \Delta_r(p)$.
 
 \begin{exercise}
 Let $n \in \Z$ and $\gamma \colon [0,2\pi] \to \C$, where
-$\gamma(t) = p + re^{in t}$ be a path.
+$\gamma(t) = p + re^{in t}$ be a path, a path that goes $n$ times
+counterclockwise around $\partial \Delta_r(p)$.
 Prove that
-$n\bigl(\partial \Delta_r(p);z\bigr) = n$ if $z \in \Delta_r(p)$.
+$n\bigl(\gamma;z\bigr) = n$ if $z \in \Delta_r(p)$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:windingcircles}
@@ -7255,6 +7258,9 @@ such that $n(\Gamma;p) = 0$ for all $p \in \C \setminus U$,
 say $\Gamma$ is \emph{\myindex{homologous to zero} in $U$}.
 \end{defn}
 
+What homologous to zero means is that $\Gamma$ does not wind around any
+point in the complement of $U$.
+
 \begin{thm}[Cauchy integral formula (homology version)]
 \index{Cauchy integral formula!homology}
 \label{thm:CIFhomology}
@@ -7290,49 +7296,50 @@ derivative, so it is not a surprise it appears in the development of
 holomorphic functions.
 Define
 \begin{equation*}
-g(z,w) =
+g(\zeta,z) =
 \begin{cases}
-\frac{f(z)-f(w)}{z-w} & \text{if } z \not= w , \\
-f'(z)                 & \text{if } z = w .
+\frac{f(\zeta)-f(z)}{\zeta-z} & \text{if } \zeta \not= z , \\
+f'(\zeta)                 & \text{if } \zeta = z .
 \end{cases}
 \end{equation*}
 
 \begin{exbox}
 \begin{exercise}
-Prove that $g(z,w)$ is continuous in $U \times U$, and 
-the function $g_z(w) = g(z,w)$ is holomorphic for every fixed $z \in U$.
-Hint: The only mildly tricky piece of this proof is showing that $g_z$ is
-holomorphic at $w=z$.
+Prove that $g(\zeta,z)$ is continuous in $U \times U$, and that
+the function $z \mapsto g(\zeta,z)$ is holomorphic for every fixed $\zeta \in U$.
+Hint: The only mildly tricky piece of this proof is showing that $z \mapsto
+g(\zeta,z)$ is
+holomorphic at $z=\zeta$.
 \end{exercise}
 \end{exbox}
 
 Define
 \begin{equation*}
-h(w) = 
+h(z) = 
 \begin{cases}
-\int_\Gamma g(z,w) \, dz & \text{if } w \in U , \\
-\int_\Gamma \frac{f(z)}{z-w} \, dz & \text{if } n(\Gamma;w) = 0 .
+\int_\Gamma g(\zeta,z) \, d\zeta & \text{if } z \in U , \\
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta & \text{if } n(\Gamma;z) = 0 .
 \end{cases}
 \end{equation*}
-As $n(\Gamma;w) = 0$ for all $w \in \C \setminus U$
+As $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$
 ($\Gamma$ is homologous to zero)
-the function $h(w)$ is defined for every $w \in \C$.
+the function $h(z)$ is defined for every $z \in \C$.
 Unfortunately, at some points
 we have two definitions.
-To show that $h(w)$ is well-defined, we must show that if
-$n(\Gamma;w) = 0$ and $w \in U$, that we get the same number.
+To show that $h(z)$ is well-defined, we must show that if
+$n(\Gamma;z) = 0$ and $z \in U$, that we get the same number.
 Suppose
-we have such a $w$ (in particular $w \notin \Gamma$).
+we have such a $z$ (in particular $z \notin \Gamma$).  Then,
 \begin{equation*}
-\int_\Gamma g(z,w) \, dz
+\int_\Gamma g(\zeta,z) \, d\zeta
 =
-\int_\Gamma \frac{f(z)-f(w)}{z-w} \, dz
+\int_\Gamma \frac{f(\zeta)-f(z)}{\zeta-z} \, d\zeta
 =
-\int_\Gamma \frac{f(z)}{z-w} \, dz
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta
 -
-f(w) n(\Gamma;w)
+f(z) n(\Gamma;z)
 =
-\int_\Gamma \frac{f(z)}{z-w} \, dz .
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta .
 \end{equation*}
 So $h \colon \C \to \C$ is well-defined.
 
@@ -7340,42 +7347,42 @@ Next we show that $h$ is
 holomorphic.
 Holomorphicity is a local property, so we only need to prove it 
 in a neighborhood of any point.
-The set where $n(\Gamma;w) = 0$ is open as it is a
+The set where $n(\Gamma;z) = 0$ is open as it is a
 union of topological components of $\C \setminus \Gamma$.
 So each point has a neighborhood where $h$ is defined
 entirely by one or the other expression above.  Given any point,
 take a neighborhood where one of the expressions defines
-$h$ and then apply \lemmaref{lemma:holfuncbyintegral}.
+$h$ and apply \corref{cor:holfuncbyintegral}.
 
 The unbounded component of $\C \setminus \Gamma$ is contained in the
-set where $n(\Gamma;w) = 0$, so on this component, $h$ is defined by the
-second expression, so take such a $w$.
-Suppose $M$ is a bound on $f$ on $\Gamma$, let $\ell$ be the length of
-$\Gamma$, and let $d(w,\Gamma)$ be the distance of $w$ from $\Gamma$.
+set where $n(\Gamma;z) = 0$, so on this component, $h$ is defined by the
+second expression.  Take such a $z$.
+Suppose $\sabs{f(\zeta)} \leq M$ for $\zeta \in \Gamma$, let $\ell$ be the length of
+$\Gamma$, and let $d(z,\Gamma)$ be the distance of $z$ to $\Gamma$.
 \begin{equation*}
-\sabs{h(w)}
+\sabs{h(z)}
 =
 \abs{
-\int_\Gamma \frac{f(z)}{z-w} \, dz
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta
 }
 \leq
-\int_\Gamma \abs{\frac{f(z)}{z-w}} \, \sabs{dz}
+\int_\Gamma \abs{\frac{f(\zeta)}{\zeta-z}} \, \sabs{d\zeta}
 %\leq
-%\int_\Gamma \frac{M}{\sabs{z-w}} \, \sabs{dz}
+%\int_\Gamma \frac{M}{\sabs{\zeta-z}} \, \sabs{d\zeta}
 \leq
-\frac{M \ell}{d(w,\Gamma)} .
+\frac{M \ell}{d(z,\Gamma)} .
 \end{equation*}
-So as $w \to \infty$, so does $d(w,\Gamma) \to \infty$ and so $h(w) \to 0$.
+As $z \to \infty$, so does $d(z,\Gamma) \to \infty$, and so $h(z) \to 0$.
 In particular, $h$ is an entire bounded function and
 Liouville says that $h$ is constant, and that constant must be zero.
-So suppose that $w \in U \setminus \Gamma$.  Then
+So suppose that $z \in U \setminus \Gamma$.  Then
 \begin{equation*}
-0 = h(w) =
-\int_\Gamma \frac{f(z)-f(w)}{z-w} \, dz
+0 = h(z) =
+\int_\Gamma \frac{f(\zeta)-f(z)}{\zeta-z} \, d\zeta
 =
-\int_\Gamma \frac{f(z)}{z-w} \, dz
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta
 -
-f(w) n(\Gamma;w) . \qedhere
+f(z) n(\Gamma;z) . \qedhere
 \end{equation*}
 \end{proof}
 
@@ -7417,9 +7424,11 @@ cycles
 $\Gamma_0$ and $\Gamma_1$ in $U
 \subset \C$ are \emph{\myindex{homologous}} in $U$
 if $n(\Gamma_0;p) = n(\Gamma_1;p)$ for all $p \in \C \setminus U$.
-Equivalently, $\Gamma_0$ and $\Gamma_1$ are homologous in $U$ if
-$n(\Gamma_0 - \Gamma_1;p) = 0$ for all $p \in \C \setminus U$.
 \end{defn}
+
+Equivalently, $\Gamma_0$ and $\Gamma_1$ are homologous in $U$ if
+$n(\Gamma_0 - \Gamma_1;p) = 0$ for all $p \in \C \setminus U$,
+that is, $\Gamma_0-\Gamma_1$ is homologous to zero in $U$.
 
 \begin{cor} \label{cor:homologoussameint}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
@@ -7429,8 +7438,8 @@ cycles
 $\Gamma_0$ and $\Gamma_1$ in $U$
 are homologous in $U$, then
 \begin{equation*}
-\int_{\gamma_0} f(z)\, dz = 
-\int_{\gamma_1} f(z)\, dz .
+\int_{\Gamma_0} f(z)\, dz = 
+\int_{\Gamma_1} f(z)\, dz .
 \end{equation*}
 \end{cor}
 
@@ -7438,14 +7447,14 @@ The proof is immediate by applying Cauchy's theorem to $\Gamma_0-\Gamma_1$.
 
 \begin{exbox}
 \begin{exercise}
+Show that being homologous is an equivalence relation on cycles.
+\end{exercise}
+
+\begin{exercise}
 Prove that the two theorems are equivalent logically, that is, one follows
 from the other.  We have already proved that Cauchy integral formula
 implies Cauchy's theorem.  So prove that
 Cauchy's theorem implies the Cauchy integral formula.
-\end{exercise}
-
-\begin{exercise}
-Show that being homologous is an equivalence relation on cycles.
 \end{exercise}
 
 \begin{exercise}
@@ -7607,7 +7616,7 @@ Find a primitive $g(z)$.  Compute
 =
 0 .
 \end{equation*}
-In other words, $\frac{e^{g(z)}}{f(z)}$ is constant
+Thus, $\frac{e^{g(z)}}{f(z)}$ is constant
 (\propref{prop:zeroder}).  It follows that
 there is a $C \in \C$ such that
 \begin{equation*}
