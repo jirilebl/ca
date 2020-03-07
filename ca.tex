@@ -8430,7 +8430,8 @@ we modify the homotopy of to $H(t,s) = (1-s)\gamma(t) + si$ to
 get $\gamma$ homotopic to the constant $i$.
 \end{example}
 
-So the simply connected version of Cauchy's theorem holds in the same
+A consequence of the proposition is that
+the simply connected version of Cauchy's theorem holds in the same
 sense if we define simple connectedness in terms of homotopy.  For
 completeness, let us state the theorem again in the context of this section.
 
@@ -11766,23 +11767,33 @@ Pu(re^{i\theta})
 \end{equation*}
 is harmonic for $z = re^{i\theta} \in \D$.
 
+Now as both $P_r$ and $u(e^{it})$ is $2 \pi$-periodic we 
+can change variables:
+\begin{equation*}
+Pu(re^{i\theta})
+=
+\int_{-\pi}^\pi u(e^{it}) P_r(\theta-t) \, dt
+=
+\int_{-\pi}^\pi u\bigl(e^{i(\theta-t)}\bigr) P_r(t) \, dt .
+\end{equation*}
+
 Suppose $M$ is the supremum of
 $u$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
 As $u$ is uniformly continuous on $\partial \D$, suppose $\delta > 0$
-is small enough so that $\sabs{u(e^{it})-u(e^{i\theta})} <
-\frac{\epsilon}{2}$ whenever $\sabs{t-\theta} < 2 \delta$.
+is small enough so that $\sabs{u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta})} <
+\frac{\epsilon}{2}$ whenever $\sabs{t} < \delta$.
 Using the proposition above, for $r < 1$ large enough, say
 $r > 1-\delta'$ for some $\delta'$,
-we get $0 < P_r(\theta) < \frac{\epsilon}{8M\pi}$
-whenever $\sabs{\theta} \geq \delta$.
+we get $0 < P_r(t) < \frac{\epsilon}{8M\pi}$
+whenever $\sabs{t} \geq \delta$.
 
 Using the fact that
-$\int_{-\pi}^\pi P_r(\theta-t) \, dt = 1$,
+$\int_{-\pi}^\pi P_r(t) \, dt = 1$,
 we have\footnote{This is a trick you see all over in analysis, it is good to
 remember it.} that
 \begin{equation*}
 u(e^{i\theta})=
-\int_{-\pi}^\pi u(e^{i\theta}) P_r(\theta-t) \, dt ,
+\int_{-\pi}^\pi u(e^{i\theta}) P_r(t) \, dt ,
 \end{equation*}
 so
 \begin{equation*}
@@ -11792,7 +11803,7 @@ Pu(r e^{i\theta} ) - u(e^{i\theta})
 }
 & =
 \abs{
-\int_{-\pi}^{\pi} \bigl( u(e^{it})-u(e^{i\theta}) \bigr) P_r(\theta-t) \, dt
+\int_{-\pi}^{\pi} \Bigl( u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta}) \Bigr) P_r(t) \, dt
 }
 \\
 & \leq 
@@ -11815,11 +11826,11 @@ $u$ on $\partial \D$.  So
 \begin{equation*}
 \begin{split}
 \abs{
-\int_{-\pi}^{-\delta} \bigl( u(e^{it})-u(e^{i\theta}) \bigr) P_r(\theta-t) \, dt
+\int_{-\pi}^{-\delta} \Bigl( u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta}) \Bigr) P_r(t) \, dt
 }
 & \leq
-\int_{-\pi}^{-\delta} \abs{ u(e^{it})-u(e^{i\theta}) }
-P_r(\theta-t) \, dt
+\int_{-\pi}^{-\delta} \abs{ u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta}) }
+P_r(t) \, dt
 \\
 & \leq (\pi-\delta) 2M \frac{\epsilon}{8M\pi} \leq \frac{\epsilon}{4} .
 \end{split}
@@ -11829,20 +11840,20 @@ Next the middle integral,
 \begin{equation*}
 \begin{split}
 \abs{
-\int_{-\delta}^{\delta} \bigl( u(e^{it})-u(e^{i\theta}) \bigr) P_r(\theta-t) \, dt
+\int_{-\delta}^{\delta} \Bigl( u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta}) \Bigr) P_r(t) \, dt
 }
 & \leq
-\int_{-\delta}^{\delta} \abs{u(e^{it})-u(e^{i\theta})}
-P_r(\theta-t) \, dt
+\int_{-\delta}^{\delta} \abs{u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta})}
+P_r(t) \, dt
 \\
 & \leq
-\int_{-\delta}^{\delta} \frac{\epsilon}{2} P_r(\theta-t) \, dt
+\int_{-\delta}^{\delta} \frac{\epsilon}{2} P_r(t) \, dt
 \leq
-\int_{-\pi}^{\pi} \frac{\epsilon}{2} P_r(\theta-t) \, dt
+\int_{-\pi}^{\pi} \frac{\epsilon}{2} P_r(t) \, dt
 =\frac{\epsilon}{2} .
 \end{split}
 \end{equation*}
-Putting it all together,
+Putting it all together, as long as $1-\delta' < r < 1$,
 \begin{equation*}
 \sabs{
 Pu(r e^{i\theta} ) - u(e^{i\theta})
@@ -11852,22 +11863,24 @@ Pu(r e^{i\theta} ) - u(e^{i\theta})
 And so $Pu(re^{i\theta}) \to u(e^{i\theta})$ uniformly in $\theta$
 as $r \uparrow 1$.
 
-Now we have to show that for any $z_0 = e^{i\theta_0}$ we have that
+Finally, we must show that for any $z_0 = e^{i\theta_0} \in \partial \D$
+we have that
 $Pu(z)$ tends to $Pu(z_0)=u(z_0)$ as $z \in \overline{\D}$ tends to $z_0$.
-Let $\epsilon > 0$ be given.  Then pick $\delta > 0$ such that
-if $\sabs{\theta-\theta_0} < \delta$ then
-$\sabs{Pu(e^{i\theta}-Pu(e^{i\theta_0})} < \frac{\epsilon}{2}$.
+Let $\epsilon > 0$ be given.  As $u = Pu|_{\partial \D}$ is
+continuous, pick a $\delta > 0$ such that
+$\sabs{Pu(e^{i\theta})-Pu(e^{i\theta_0})} < \frac{\epsilon}{2}$
+whenever $\sabs{\theta-\theta_0} < \delta$.
 Also make $\delta$ small enough so that $\sabs{Pu(re^{i
 \theta})-Pu(e^{i\theta})} < \frac{\epsilon}{2}$
 when $1 - \delta < r \leq 1$ for all $\theta$.
-Putting the two estimates together we have that together we get that
-$\sabs{Pu(re^{i\theta}-Pu(e^{i\theta_0})} < \epsilon$, and so $Pu$ is
+Putting the two estimates together we get 
+$\sabs{Pu(re^{i\theta})-Pu(e^{i\theta_0})} < \epsilon$, and so $Pu$ is
 continuous at $z_0$.
 \end{proof}
 
 We remark that in the proof we used the topology on $\overline{\D}$
 given by the polar coordinates, and we estimated the coordinates separately.
-Polar coordinates give a nice homemorphism
+Polar coordinates give a nice local homemorphism
 (a continuous bijective map with a continuous inverse) at least outside of
 the origin, which is sufficient for us as we only needed to worry about points
 on or near the boundary of $\D$.  The reader that is still unconvinced
@@ -11875,7 +11888,8 @@ should write out the details for an exercise.
 
 \begin{exbox}
 \begin{exercise}
-We proved $\sabs{Pu(re^{i\theta}-Pu(e^{i\theta_0})} < \epsilon$
+We proved that given $\epsilon > 0$, there is a $\delta > 0$ such that
+$\sabs{Pu(re^{i\theta})-Pu(e^{i\theta_0})} < \epsilon$
 when $\sabs{\theta-\theta_0} < \delta$ and
 $1 - \delta < r \leq 1$.  Prove that this really does mean that
 $\lim_{z \to z_0} Pu(z) = u(z_0) = Pu(z_0)$.
@@ -12859,10 +12873,83 @@ May the forces of evil become confused on the way to your house.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{FIXME}
-\label{sec:FIXMEanalcont}
+\section{Analytic continuation}
+\label{sec:analcontelts}
+
+One of the consequences of the identity theorem is that once we know a
+function in a neighborhood we know it in the whole domain, if it was defined
+in a domain that is.  We have seen elementary analytic continuation when
+defining the logarithm.  We could define it locally and then ``continue'' it
+uniquely to another point of the domain.  This idea will always give a nice
+function in a simply connected domain, but as we saw, when dealing with the
+log in the punctured plane, we could go around the origin and not end up
+where we started.
+
+\begin{defn}
+Suppose $p$ is a point and $D$ is a disc with $p \in D$.
+A holomorphic function $f \colon D \to \C$ can be
+\emph{analytically continued}\index{analytic continuation}
+along the path
+$\gamma \colon [0,1] \to \C$, $\gamma(0) = p$,
+if for every $t \in [0,1]$ there exists
+a disc $D_t$ centered at $\gamma(t)$ and a holomorphic function
+$f_t \colon D_t \to \C$ and for each $t_0 \in [0,1]$ there is an
+$\epsilon > 0$ such that if $\sabs{t-t_0} < \epsilon$, then
+$f_t = f_{t_0}$
+in $D_t \cap D_{t_0}$.
+\end{defn}
+
+FIXME: is this the definition we want?
+
+In particular we get a unique definition of $f\bigl(\gamma(t)\bigr)$ via the
+identity theorem.
+
+\begin{exbox}
+\begin{exercise}
+Suppose a holomorphic $f$ can be continued along $\gamma \colon [0,1] \to
+\C$ as in the definition.  Show that $f\bigl(\gamma(t)\bigr)$ is uniquely
+defined for every $t \in [0,1]$.
+\end{exercise}
+%
+%\begin{exercise}
+%Suppose that $f$ and $\gamma$ is as in the definition.  Suppose there exist
+%finitely many discs $D_1,\ldots,D_n$ that cover $\gamma$ (as a set)
+%FIXME
+%\end{exercise}
+\end{exbox}
+
+\begin{defn}
+Let $U \subset \C$ be a domain, $p \in U$, and $D \subset U$
+a disc with $p \in D$.  We say that
+$f$ can be \emph{analytically continued} to every $q \in U$,
+if for every path 
+$\gamma \colon [0,1] \to U$, $\gamma(0) = p$, $\gamma(1) = q$,
+there exists an analytic continuation of $f$.
+\end{defn}
+
+FIXME:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Monodromy theorem}
+\label{sec:monodromythm}
+
+FIXME: homotopy of paths ...
+
+The monodromy theorem says that as long as there are
+no holes, analytic continuation defines a function uniquely.
+
+\begin{thm}[Monodromy theorem]\index{Monodromy theorem}
+If $U \subset \C$ is a simply connected domain, $D \subset U$ a disc and
+$f \colon D \to \C$ a holomorphic function that can be analytically
+continued from $p \in D$ to every $q \in U$, then there exists
+a unique holomorphic function $F \colon U \to \C$ such that $F|_D = f$.
+\end{thm}
 
 FIXME
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -12990,13 +13077,6 @@ holomorphic function can be smooth up to the
 boundary but still not extend.
 \end{exercise}
 \end{exbox}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Monodromy theorem}
-
-FIXME
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
