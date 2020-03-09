@@ -7291,10 +7291,10 @@ Liouville's theorem (\thmref{thm:Liouville}).
 
 \begin{proof}
 %[Proof of \thmref{thm:CIFhomology}]
-We begin with an expression you have probably seen in the development of the real
-derivative, so it is not a surprise it appears in the development of
-holomorphic functions.
-Define
+%We begin with a expression you have probably seen in the development of the real
+%derivative, so it is not a surprise it appears in the development of
+%holomorphic functions.
+Define $g \colon U \times U \to \C$ by
 \begin{equation*}
 g(\zeta,z) =
 \begin{cases}
@@ -7313,7 +7313,7 @@ holomorphic at $z=\zeta$.
 \end{exercise}
 \end{exbox}
 
-Define
+Let
 \begin{equation*}
 h(z) = 
 \begin{cases}
@@ -7392,22 +7392,23 @@ Cauchy's theorem actually follows immediately using the integral formula.
 \begin{thm}[Cauchy's theorem (homology version)]
 \index{Cauchy's theorem!homology}%
 \label{thm:CThomology}%
-Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.  If
-$\Gamma$ is
+Suppose $U \subset \C$ is open,
+$f \colon U \to \C$ is holomorphic,
+and $\Gamma$ is
 a cycle
 %closed piecewise $C^1$ path (or a cycle)
 in $U$
-homologous to zero in $U$,
+homologous to zero in $U$.
 %such that $n(\Gamma;p) = 0$ for
 %every $p \in \C \setminus U$,
-then
+Then
 \begin{equation*}
 \int_\Gamma f(z) \, dz = 0 .
 \end{equation*}
 \end{thm}
 
 \begin{proof}
-Fix $z \in \C \setminus \Gamma$.  Apply 
+Fix $z \in U \setminus \Gamma$.  Apply 
 the Cauchy integral formula for the function $\zeta \mapsto
 (\zeta-z)f(\zeta)$ at $\zeta=z$:
 \begin{equation*}
@@ -7514,6 +7515,9 @@ cycle
 $\Gamma$ in $U$ and every $p \in \C \setminus U$.
 \end{defn}
 
+Namely, $U$ is simply connected if every cycle in $U$
+is homologous to zero in $U$.
+
 \begin{exbox}
 \begin{exercise}
 Prove that $\C$ and $\D$ are simply connected, and $\C \setminus \{ 0 \}$
@@ -7540,10 +7544,13 @@ in $U$, then
 \end{equation*}
 \end{thm}
 
-The proof is trivial since if $U$ is simply connected, then
-$n(\Gamma;p) = 0$ for every cycle $\Gamma$ in $U$.
+The proof follows at once from \thmref{thm:CThomology},
+since if $U$ is simply connected, then
+every $\Gamma$ in $U$ is homologous to zero in $U$.
+%$n(\Gamma;p) = 0$ for every cycle $\Gamma$ in $U$.
 Having Cauchy's theorem in simply connected
-domains, we have primitives (antiderivatives) in simply connected
+domains for all cycles,
+we have primitives (antiderivatives) in simply connected
 domains.
 
 \begin{thm}
@@ -7553,13 +7560,13 @@ primitive in $U$.
 \end{thm}
 
 \begin{proof}
-Fix some $p \in U$. Then for any $z \in U$, pick
+Fix some $p \in U$. For every $z \in U$, pick
 some piecewise $C^1$ path $\gamma$ from $p$ to $z$
 and define
 \begin{equation*}
 F(z) = \int_\gamma f(\xi) \, d\xi .
 \end{equation*}
-A priory, the function $F$ depends on $\gamma$, but Cauchy's
+A priory, the function $F(z)$ depends on $\gamma$, but Cauchy's
 theorem says that if $\alpha$ is another path from $p$ to $z$, then
 \begin{equation*}
 \int_\gamma f(\xi) \, d\xi -
@@ -7601,7 +7608,8 @@ e^{g(z)} = f(z) .
 
 In particular, using $f(z) = z$ we find that if
 $U \subset \C \setminus \{ 0 \}$ is a simply connected domain, then
-there exists a holomorphic $L \colon U \to \C$ such that
+there exists a branch of the logarithm, that is,
+a holomorphic $L \colon U \to \C$ such that
 \begin{equation*}
 e^{L(z)} = z .
 \end{equation*}
