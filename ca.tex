@@ -6636,7 +6636,7 @@ Prove that if $f \colon \bH \to \bH$ holomorphic such that $f(i) = i$, then
 \end{equation*}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}[Tricky]
 Prove a certain generalization of Schwarz's lemma.  Suppose $U \subset \C$
 is bounded, $p \in U$, and $f \colon U \to U$ is holomorphic, and $f(p)=p$.
 \begin{exparts}
@@ -6674,12 +6674,10 @@ Careful when reading literature, some authors use $\frac{a-z}{1-\bar{a}z}$ as th
 For every $a \in \D$,
 \begin{enumerate}[(i)]
 \item
-\begin{equation*}
-\varphi_a(a) = 0, \qquad
-\varphi_a(0) = -a, \qquad
-\varphi_a'(0) = 1 - \sabs{a}^2, \qquad
-\varphi_a'(a) = \frac{1}{1 - \sabs{a}^2},
-\end{equation*}
+$\varphi_a(a) = 0$, \enspace
+$\varphi_a(0) = -a$, \enspace
+$\varphi_a'(0) = 1 - \sabs{a}^2$, \enspace
+$\varphi_a'(a) = \frac{1}{1 - \sabs{a}^2}$,
 \item
 $\varphi_a(\partial \D) = \partial \D$,
 and
@@ -6817,6 +6815,7 @@ with equality at some $z,\zeta \in \D$ if and only if $f$ is an automorphism of 
 \end{exercise}
 \end{exbox}
 
+\pagebreak[0]
 In particular, the Schwarz--Pick lemma gives a bound on the derivative
 at all points.  If
 $f \colon \D \to \D$ is holomorphic, nonconstant, and $f(a) = b$,
@@ -8034,12 +8033,12 @@ The geometric series used for the first part converges uniformly
 absolutely when $\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} \leq
 1-\epsilon$.  In other words, the series converges uniformly absolutely
 on compact subsets of $\Delta_{s_2}(p)$ (when $\sabs{z-p} < s_2$).
-
+%
 The geometric series used for the second part converges uniformly
 absolutely when $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} \leq
 1-\epsilon$.  In other words, the series converges uniformly absolutely
 on compact subsets of $\C \setminus \Delta_{s_1}(p)$ (when $\sabs{z-p} > s_1$).
-
+%
 Hence both parts (and so the entire series) 
 converge uniformly absolutely on compact
 subsets of $\ann(p;s_1,s_2)$.  As $s_1$ and $s_2$ were arbitrary such that
@@ -8116,8 +8115,8 @@ expansion in $\ann(0;1,\infty) = \C \setminus \overline{\D}$.
 \end{equation*}
 which converges in $\ann(0;1,\infty)$.
 
-Finally, a Laurent series could very well just be a power
-series when all the $c_n$ for negative $n$ are zero.
+Finally, while in general a Laurent series is not a power series,
+it could very well be when all the $c_n$ for negative $n$ are zero.
 
 \begin{exbox}
 \begin{exercise}[Easy]
@@ -8833,7 +8832,7 @@ We will also call the order, for reasons that will be obvious very soon,
 the \emph{multiplicity}\index{multiplicity of a zero}\footnote{%
 To be anally retentive: $f$ is of order $k$ at $p$,
 and $p$ is a zero of $f$ of multiplicity $k$.  Potayto, potahto.}
-the zero at $p$.
+of the zero at $p$.
 \end{defn}
 
 Another way\footnote{Which is really the standard way of defining order of a
@@ -9066,7 +9065,8 @@ is an automorphism then $f(z) = z$ or $f(z) = \frac{1-2z}{2-z}$.
 The Riemann extension theorem is (of course) not true for functions that are
 not holomorphic.  Prove that $\frac{xy}{x^2+y^2}$ is a bounded infinitely 
 (real) differentiable function
-on $\R^2 \setminus \{ (0,0) \}$ with an isolated singularity that does not
+on $\R^2 \setminus \{ (0,0) \}$ with an isolated singularity, and this
+function does not
 extend through the singularity even continuously.
 \end{exercise}
 
