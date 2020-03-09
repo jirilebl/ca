@@ -7260,6 +7260,10 @@ say $\Gamma$ is \emph{\myindex{homologous to zero} in $U$}.
 
 What homologous to zero means is that $\Gamma$ does not wind around any
 point in the complement of $U$.
+Do note that ``homologous to zero'' in no way means ``equivalent to zero.''
+For example, if $U = \C$ then every $\Gamma$ is homologous to zero trivially.
+Also note the dependence on $U$.  The unit circle is homologous to zero in
+$U = \C$, but it is not homologous to zero in $U = \C \setminus \{ 0 \}$.
 
 \begin{thm}[Cauchy integral formula (homology version)]
 \index{Cauchy integral formula!homology}
@@ -7449,14 +7453,25 @@ The proof is immediate by applying Cauchy's theorem to $\Gamma_0-\Gamma_1$.
 
 \begin{exbox}
 \begin{exercise}
-Show that being homologous is an equivalence relation on cycles.
+Suppose that $\Gamma$ is
+a cycle in $\C \setminus \{ 0 \}$.
+Prove that $\Gamma$ is homologous in $\C \setminus \{ 0 \}$
+to $n \partial \D$ for some $n \in \Z$.
 \end{exercise}
 
-\begin{exercise}
-Prove that the two theorems are equivalent logically, that is, one follows
-from the other.  We have already proved that Cauchy integral formula
-implies Cauchy's theorem.  So prove that
-Cauchy's theorem implies the Cauchy integral formula.
+\begin{exercise} \label{exercise:H1U}
+\begin{exparts}
+\item
+Show that being homologous in $U$ is an equivalence relation on cycles.
+\item
+Prove that the addition of cycles makes the set of equivelence classes
+into an abelian group, the
+first \emph{\myindex{homology group}}\index{first homology group} of $U$,
+usually written $H_1(U)$.
+\item
+Compute $H_1(\C \setminus \{ 0 \})$ (that is find what group you know
+is it isomorphic to).
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -7468,6 +7483,15 @@ $n(\Gamma;0) = k$.  Compute
 \begin{equation*}
 \int_{\Gamma} \frac{1}{z} \, dz .
 \end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Prove that the two theorems
+(Cauchy's theorem and the Cauchy integral formula)
+are equivalent logically, that is, one follows
+from the other.  We have already proved that the Cauchy integral formula
+implies Cauchy's theorem.  So prove that
+Cauchy's theorem implies the Cauchy integral formula.
 \end{exercise}
 
 \begin{exercise}
@@ -7525,6 +7549,13 @@ is not simply connected.
 \end{exercise}
 
 \begin{exercise}
+Prove that $U \subset \C$ is simply connected if and only if
+the first homology group
+$H_1(U)$ is isomorphic to the trivial group $\{ 0 \}$.
+See \exerciseref{exercise:H1U}.
+\end{exercise}
+
+\begin{exercise}
 Prove that any star-like domain is simply connected.
 \end{exercise}
 \end{exbox}
@@ -7560,19 +7591,19 @@ primitive in $U$.
 \end{thm}
 
 \begin{proof}
-Fix some $p \in U$. For every $z \in U$, pick
+Fix some $p \in U$. As $U$ is path connected, for every $z \in U$, pick
 some piecewise $C^1$ path $\gamma$ from $p$ to $z$
 and define
 \begin{equation*}
-F(z) = \int_\gamma f(\xi) \, d\xi .
+F(z) = \int_\gamma f(\zeta) \, d\zeta .
 \end{equation*}
 A priory, the function $F(z)$ depends on $\gamma$, but Cauchy's
 theorem says that if $\alpha$ is another path from $p$ to $z$, then
 \begin{equation*}
-\int_\gamma f(\xi) \, d\xi -
-\int_\alpha f(\xi) \, d\xi 
+\int_\gamma f(\zeta) \, d\zeta -
+\int_\alpha f(\zeta) \, d\zeta 
 =
-\int_{\gamma-\alpha} f(\xi) \, d\xi  =  0 .
+\int_{\gamma-\alpha} f(\zeta) \, d\zeta  =  0 .
 \end{equation*}
 So $F$ is well-defined without specifying the path.
 
@@ -7586,11 +7617,11 @@ As $F$ does not depend on the path taken, for $z \in \Delta_r(z_0)$,
 then
 \begin{equation*}
 F(z) =
-\int_{\gamma+[z_0,\xi]} f(\xi) \, d\xi
+\int_{\gamma+[z_0,\zeta]} f(\zeta) \, d\zeta
 =
-\int_{\gamma} f(\xi) \, d\xi
+\int_{\gamma} f(\zeta) \, d\zeta
 +
-\int_{[z_0,\xi]} f(\xi) \, d\xi .
+\int_{[z_0,\zeta]} f(\zeta) \, d\zeta .
 \end{equation*}
 The first term in the sum is a constant, and the second term is precisely
 the primitive of $f$ for star-like domains.
@@ -7598,7 +7629,7 @@ the primitive of $f$ for star-like domains.
 
 \begin{cor}
 Let $U \subset \C$ be a simply connected domain and
-let $f \colon U \to \C \setminus \{ 0 \}$ be a nowhere zero holomorphic
+let $f \colon U \to \C$ be a nowhere zero holomorphic
 function.  Then there exists a holomorphic $g \colon U \to \C$
 such that
 \begin{equation*}
@@ -7663,7 +7694,7 @@ Cauchy's theorem without restriction on $\Gamma$ guarantees simply
 connectedness.  In particular, we have the following set of equivalent
 versions of simply connectedness for domains.
 
-\begin{thm}
+\begin{prop}
 Let $U \subset \C$ be a domain.  The following are equivalent:
 \begin{enumerate}[(i)]
 \item \label{thm:simplyconnected:i}
@@ -7689,7 +7720,7 @@ $\Gamma$ in $U$, we have
 \int_\Gamma \frac{1}{z-p} \, dz = 0 .
 \end{equation*}
 \end{enumerate}
-\end{thm}
+\end{prop}
 
 \begin{proof}
 The logic of the proof is the following diagram:
@@ -7731,7 +7762,41 @@ And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
 \ref{thm:simplyconnected:v} is immediate.
 \end{proof}
 
+There is actually a simple topological criterion for simple connectedness
+of domains.  The theorem is actually an if and only if but the other
+direction is more difficult and so let's just prove one direction.
+
+\begin{prop}
+Let $U \subset \C$ be a domain.  If
+$\C_\infty \setminus U$ is connected, then $U$ simply connected.
+\end{prop}
+
+\begin{proof}
+Take $S = \C_\infty \setminus U$ and let $\Gamma$ be a cycle in $U$.
+The function $\varphi(z)= n(\Gamma;z)$ is continuous on 
+$\C \setminus \Gamma$,
+therefore $\varphi$ is a continuous function on $S \setminus \{
+\infty \}$.  On the unbounded component of $\C \setminus \Gamma$ the
+function is zero, and so $\varphi$ is zero in a neighborhood of $\infty$ and so
+if we set $\varphi(\infty) = 0$, the function is continuous
+on $\C_\infty \setminus \Gamma$.  As $S$ is connected
+one single component of $\C_\infty \setminus \Gamma$ so $\varphi$ is
+constant on $S$, and as $\varphi(\infty) = 0$, $\varphi|_S \equiv 0$.  In
+other words, $U$ is simply connected.
+\end{proof}
+
+It is of course important to use $\C_\infty$ and not $\C$ in the proposition
+above.  If $U = \C \setminus \{ 0 \}$ is the punctured plane then
+$\C \setminus U = \{ 0 \}$ which would be connected, but 
+$\C_\infty \setminus U = \{ 0, \infty \}$ is not connected.
+
 \begin{exbox}
+\begin{exercise}
+Suppose $U \subset \C$ is a domain $\partial \Delta_r(p) \subset U$,
+but there is a $z \in \Delta_r(p)$ such that $z \notin U$.
+Prove that $U$ is not simply connected.
+\end{exercise}
+
 \begin{exercise}
 Let $K \subset \C$ be nonempty and compact.  Prove that $\C \setminus K$ is
 not simply connected.
@@ -7764,8 +7829,8 @@ $U_1 \cap U_2$ is not a simply connected domain (emphasis on domain).
 
 \begin{exercise}
 Suppose $U \subset \C$ is a simply connected domain such that $0 \notin U$,
-there exists some real numbers in $U$, and $r \in \R$.
-Show that there exists a holomorphic function $f \colon U \to \C$ such
+there exist some positive real numbers in $U$, and that $r \in \R$.
+Show that there exists a holomorphic $f \colon U \to \C$ such
 that $f(x) = x^r$ for all $x > 0$ in $U$.
 \end{exercise}
 \end{exbox}
@@ -7797,7 +7862,8 @@ the punctured disc
 Sometimes $r_2 = \infty$ is also allowed, in which case
 $\ann(p;r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  We will,
 however, avoid temptation calling $\ann(p;r,\infty)$ an ``annulus.''%
-\footnote{``Holey plane'' perhaps?}
+\footnote{``Holey plane'' perhaps?  And calling $\ann(0;0,\infty) = \C \setminus
+\{ 0 \}$ an annulus is right out!}
 
 \begin{thm}[\myindex{Existence of Laurent series}]
 \index{Laurent series!existence}%
@@ -8076,6 +8142,12 @@ Expand the function $\frac{1}{(z-1)(z-2)}$ using Laurent (or power) series in
 \item $\ann(0;1,2)$
 \item $\ann(0;2,\infty)$
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose $U = \ann(p;r_1,r_2)$ is an annulus and $r_1 < r < r_2$.
+Show that every cycle $\Gamma$ in $U$ is homologous in $U$
+to $n \partial \Delta_r(p)$ for some integer $n$.
 \end{exercise}
 
 \begin{exercise}
