@@ -9005,8 +9005,8 @@ An isolated singularity $p$ is a \emph{\myindex{pole}} if
 \begin{equation*}
 \lim_{z \to p} f(z) = \infty.
 \end{equation*}
-An isolated singularity that is neither removable nor a pole is said to be
-\emph{essential}\index{essential singularity}.
+An isolated singularity that is neither removable nor a pole is 
+an \emph{\myindex{essential singularity}}.
 \end{defn}
 
 In other words, $f$ has an isolated singularity at $p$ if it is defined
@@ -9059,6 +9059,15 @@ Prove that if
 $f \colon \D \setminus \bigl\{ 0, \frac{1}{2} \bigr\} \to \D \setminus
 \bigl\{ 0 , \frac{1}{2} \bigr\}$
 is an automorphism then $f(z) = z$ or $f(z) = \frac{1-2z}{2-z}$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open, $p \in U$, and
+$\{ z_n \}$ a sequence in $U$ converging to $p$.
+Let $S = \{ z_n : n \in \N \}$ be the image of the sequence.
+If $f \colon U \setminus S \to \C$ is a bounded holomorphic function,
+then $f$ extends through $S$.  That is, there exists a holomorphic
+$F \colon U \to \C$ such that $F|_{U \setminus S} = f$.
 \end{exercise}
 
 \begin{exercise}
@@ -9169,6 +9178,21 @@ Show that there exists a holomorphic function $g$ defined near $p$
 such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
 \begin{equation*}
 f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is holomorphic in $U \setminus \{0\}$ where $\overline{\D}
+\subset U$.  Suppose $f$ has a simple pole at $0$.  Prove that for all $z
+\in \D \setminus \{ 0 \}$
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i} \int_{\partial \D}
+\frac{f(\zeta)}{\zeta-z} \, d\zeta
++
+\frac{1}{z}
+\frac{1}{2\pi i} \int_{\partial \D}
+f(\zeta) \, d\zeta .
 \end{equation*}
 \end{exercise}
 
