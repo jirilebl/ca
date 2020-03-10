@@ -6761,8 +6761,9 @@ $\sabs{g(z_n)} \to 1$.
 \end{exercise}
 
 \begin{exercise}
-Given two distinct $a,b \in \D$, show that there exists a unique automorphism
-$f$ such that $f(a) = b$ and $f(b) = a$.
+Given two distinct $a,b \in \D$, show that there exists a unique 
+$f \in \Aut(\D)$
+such that $f(a) = b$ and $f(b) = a$.
 \end{exercise}
 
 \begin{exercise}
@@ -6801,8 +6802,13 @@ Now find a general formula for $f$.
 Prove the \emph{\myindex{Schwarz--Pick lemma}}:
 If $f \colon \D \to \D$ is holomorphic, then
 \begin{equation*}
-\frac{f(z)-f(\zeta)}{1-\overline{f(z)}f(\zeta)} \leq
+\abs{
+\frac{f(z)-f(\zeta)}{1-\overline{f(z)}f(\zeta)}
+}
+\leq
+\abs{
 \frac{z-\zeta}{1-\bar{z}\zeta} 
+}
 \qquad
 \text{and}
 \qquad
@@ -7522,7 +7528,13 @@ in terms of $k_1$, $k_2$, $A$, and $B$.
 
 \section{Simply connected domains}
 
-A simply connected domain is one without any holes.  The following is
+A simply connected domain\footnote{%
+There is no agreement among various mathematicians (I've asked a few) if
+a disconnected set can be ``simply connected.''
+To avoid heated arguments with topologists of various stripes,
+it's best to just not define the term for (path-)disconnected sets.
+Hence, we only define it for domains.}
+is one without any holes.  The following is
 perhaps not the standard definition, but for domains of $\C$
 (connected open sets)
 it is sufficient.  We will define the term ``properly'' once we get 
@@ -7532,14 +7544,15 @@ a ``simply connected domain'' is this particular definition.
 
 \begin{defn} \label{defn:simplyconnected:homology}
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
-if $n(\Gamma;p) = 0$ for every
-cycle
-%closed piecewise $C^1$ path
-$\Gamma$ in $U$ and every $p \in \C \setminus U$.
+if every cycle in $U$
+is homologous to zero in $U$.
 \end{defn}
 
-Namely, $U$ is simply connected if every cycle in $U$
-is homologous to zero in $U$.
+More precisely, $U$ is simply connected
+if for every cycle $\Gamma$, we have $n(\Gamma;p) = 0$
+every $p \in \C \setminus U$.
+That is, no cycle in $U$ can wind around any piece of $\C \setminus U$.
+
 
 \begin{exbox}
 \begin{exercise}
@@ -7831,6 +7844,12 @@ Suppose $U \subset \C$ is a simply connected domain such that $0 \notin U$,
 there exist some positive real numbers in $U$, and that $r \in \R$.
 Show that there exists a holomorphic $f \colon U \to \C$ such
 that $f(x) = x^r$ for all $x > 0$ in $U$.
+\end{exercise}
+
+\begin{exercise}
+Find a simply connected domain $U \subset \C$ such that $\C \setminus U$
+has infinitely many components ($\C_\infty \setminus U$ is still going to
+have just one component).
 \end{exercise}
 \end{exbox}
 
@@ -11300,7 +11319,7 @@ and $\ann(0;1,2)$ are not biholomorphic.
 \end{exercise}
 \end{exbox}
 
-\subsection{Application: simply connected is simply connected}
+\subsection{Application: simply connected is simply connected *}
 
 Let us finally prove that simply connected (in the sense of homology,
 \defnref{defn:simplyconnected:homology} that we have been using all this
@@ -12856,10 +12875,78 @@ It has been said that man is a rational animal. All my life I have been searchin
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{FIXME}
-\label{sec:ratFIXME}
+\section{Rational functions and pushing poles}
+\label{sec:rational}
 
 FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Runge's theorem}
+\label{sec:runge}
+
+FIXME:
+
+\begin{lemma}[Runge on a compact set]\index{Runge on a compact set}
+Suppose $U \subset \C$ is open, $K \subset U$ is compact, $S \subset \C_{\infty} \setminus K$
+is a set that intersects every component of $\C_\infty \setminus K$,
+and $f \colon U \to \C$ is holomorphic.
+Then for every $\epsilon > 0$,
+there exists a rational function $R$ with poles in $S$ such that
+\begin{equation*}
+\abs{f(z)-R(z)} < \epsilon \qquad \text{for all $z \in K$.}
+\end{equation*}
+\end{lemma}
+
+FIXME
+
+\begin{thm}[Runge]\index{Runge's theorem}
+Suppose $U \subset \C$ is open, $S \subset \C_{\infty} \setminus U$
+is a set that intersects every component of $\C_\infty \setminus U$,
+and $f \colon U \to \C$ is holomorphic.
+Then there exists a sequence $\{ R_n \}$ of rational functions with poles in $S$
+that converges to $f$ uniformly on compact subsets.
+\end{thm}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Mittag-Leffler}
+\label{sec:mittaglefler}
+
+Given a principal part of a function with a pole at $p$:
+\begin{equation*}
+P(z) = \sum_{n=1}^{k} \frac{c_n}{{(z-p)}^n}
+\end{equation*}
+we could ask for a meromorphic function with that pole exactly.  Well, that
+is not hard: $P(z)$.  How about two principal parts, $P_1(z)$ and $P_2(z)$
+for two different poles.  Well again $P_1(z)+P_2(z)$ is your function.
+In general, if we have a sequence of poles and principal parts
+$P_1(z),P_2(z),\ldots$, then we could take
+\begin{equation*}
+\sum_{j=1}^\infty P_j(z) .
+\end{equation*}
+Or can we?  In general that sum will not converge.  We have to be a little
+trickier, and this is where Runge's theorem will be useful.  We obtain the
+Mittag-Leffler theorem.
+
+\begin{thm}[Mittag-Leffler]\index{Mittag-Leffler theorem}
+Suppose $U \subset \C$ is open, $S \subset U$ is a countable set with no
+limit point in $U$, and for every $p \in S$ there is a principal part
+\begin{equation*}
+P_p(z) = \sum_{n=1}^{k_p} \frac{c_{p,n}}{{(z-p)}^n}
+\end{equation*}
+of some order $k_p$.  Then there exists a meromorphic function $f$ in $U$
+with poles precisely at points of $S$, and for each $p \in S$,
+the principal part of $f$ at $p$ is $P_p$.
+\end{thm}
+
+\begin{proof}
+FIXME:
+\end{proof}
+
+FIXME:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
