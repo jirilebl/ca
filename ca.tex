@@ -7702,9 +7702,9 @@ e^{\psi(z)} = f(z) . \qedhere
 \end{proof}
 
 On the other hand, the existence of primitives or
-Cauchy's theorem without restriction on $\Gamma$ guarantees simply
-connectedness.  In particular, we have the following set of equivalent
-versions of simply connectedness for domains.
+Cauchy's theorem without restriction on $\Gamma$ guarantees
+simply-connectedness.  In particular, we have the following set of equivalent
+versions of simply-connectedness for domains.
 
 \begin{prop}
 Let $U \subset \C$ be a domain.  The following are equivalent:
@@ -7774,8 +7774,9 @@ And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
 \ref{thm:simplyconnected:v} is immediate.
 \end{proof}
 
-There is actually a simple topological criterion for simple connectedness
-of domains.  The theorem is actually an if and only if but the other
+There is actually a simple topological criterion for
+simply-connectedness of domains.
+The theorem is actually an if and only if but the other
 direction is more difficult and so let's just prove one direction.
 
 \begin{prop}
@@ -7861,28 +7862,30 @@ have just one component).
 One can also define a series for a holomorphic function around a hole, or a singularity.
 
 \begin{defn}
-Given two numbers $0 \leq r_1 < r_2 < \infty$ and $p \in \C$, the set
+Given $0 \leq r_1 < r_2 \leq \infty$ and $p \in \C$, define
 \glsadd{not:annulus}%
 \begin{equation*}
 \ann(p;r_1,r_2)
 \overset{\text{def}}{=}
-\{ z \in \C : r_1 < \sabs{z - p} < r_2 \}
+\{ z \in \C : r_1 < \sabs{z - p} < r_2 \} .
 \end{equation*}
-is called an \emph{\myindex{annulus}}\footnote{%
+When $0 < r_1 < r_2 < \infty$ we call this set an
+\emph{\myindex{annulus}}\footnote{%
 Q: What do you call a banana with a hole?
 A: A banannulus.}.
 \end{defn}
 
-A common case we will see often is when $r_1 = 0$, that is
+A common case we see often is when $r_1 = 0$, that is,
 the punctured disc
 \begin{equation*}
 \ann(p;0,r) = \Delta_r(p) \setminus \{ p \} .
 \end{equation*}
-Sometimes $r_2 = \infty$ is also allowed, in which case
+When $r_2 = \infty$ on the other hand, we get
 $\ann(p;r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  We will,
 however, avoid temptation calling $\ann(p;r,\infty)$ an ``annulus.''%
-\footnote{``Holey plane'' perhaps?  And calling $\ann(0;0,\infty) = \C \setminus
-\{ 0 \}$ an annulus is right out!}
+\footnote{``Holey plane'' perhaps?  A punctured disc also ought not to be
+called an ``annulus'', and calling $\ann(0;0,\infty) = \C \setminus
+\{ 0 \}$ an ``annulus'' is right out!}
 
 \begin{thm}[\myindex{Existence of Laurent series}]
 \index{Laurent series!existence}%
@@ -7920,9 +7923,9 @@ means
 \lim_{M\to \infty}
 \sum_{n=0}^{M} a_n .
 \end{equation*}
-That is, the limits are taken independently.  However, as for the series we
+That is, the limits are taken independently.  However, for the series we
 are interested in, we are generally talking
-about absolute convergence, the limit may be taken in any way, and in any order.
+about absolute convergence, so the limit may be taken in any way, and in any order.
 
 \begin{proof}
 Choose two numbers $s_1$ and $s_2$ such that $r_1 < s_1 < s_2 < r_2$.
@@ -7940,10 +7943,11 @@ if $z$ is outside the annulus altogether then
 $n\bigl(\partial \Delta_{s_j}(p);z\bigr) = -1$ for both $j=1,2$,
 see \exerciseref{exercise:windingcircle} or.
 \exerciseref{exercise:windingcircles}.
+So $\Gamma$ is homologous to zero in the annulus.
 On the other hand if $z$ is in the (smaller) annulus $\ann(p;s_1,s_2)$,
 then for similar reasons, $n(\Gamma;z) = 1$.
 
-Thus, via Cauchy's theorem, for every $z \in \ann(p;s_1,s_2)$,
+Via Cauchy's theorem, for every $z \in \ann(p;s_1,s_2)$,
 \begin{equation*}
 f(z) = 
 \frac{1}{2\pi i}
@@ -8106,7 +8110,7 @@ ${(\zeta-p)}^{-1}$, in which case we get $2 \pi i$.
 
 Similarly to the power series, due to the uniqueness of the Laurent series,
 it does not matter how we obtain it.  For example, the function $e^{1/z}$
-has Laurent series
+has the Laurent series
 \begin{equation*}
 e^{1/z}
 =
@@ -8531,7 +8535,7 @@ get $\gamma$ homotopic to the constant $i$.
 
 A consequence of the proposition is that
 the simply connected version of Cauchy's theorem holds in the same
-sense if we define simple connectedness in terms of homotopy.  For
+sense if we define simply-connectedness in terms of homotopy.  For
 completeness, let us state the theorem again in the context of this section.
 
 \begin{thm}[Cauchy's theorem (simply connected version)]
