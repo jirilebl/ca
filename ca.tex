@@ -7636,8 +7636,16 @@ F(z) =
 \int_{[q,\zeta]} f(\zeta) \, d\zeta .
 \end{equation*}
 The first term in the sum is a constant, and the second term is precisely
-the primitive of $f$ for star-like domains.
+the primitive of $f$ for star-like domains, that is, the primitive in
+$\Delta_r(q)$.
+See \figureref{fig:anyantidef}.
 \end{proof}
+
+\begin{myfig}
+\subimport*{figures/}{anyantidef.pdf_t}
+\caption{Existence of primitive in a simply connected
+domain with the disc $\Delta_r(q)$ marked.\label{fig:anyantidef}}
+\end{myfig}
 
 \begin{cor}
 Let $U \subset \C$ be a simply connected domain and
@@ -7936,16 +7944,16 @@ Define the cycle
 That is, $\Gamma$ goes around the larger ($s_2$) circle counterclockwise and
 around the smaller ($s_1$) circle clockwise.
 
-If $z \in \C \setminus \ann(p;r_1,r_2)$, then $n(\Gamma;z) = 0$:
-If $z$ is in the ``hole'' of the annulus, then
-$n\bigl(\partial \Delta_{s_j}(p);z\bigr) = 1$ for both $j=1,2$, and 
-if $z$ is outside the annulus altogether then
-$n\bigl(\partial \Delta_{s_j}(p);z\bigr) = -1$ for both $j=1,2$,
+If $q \in \C \setminus \ann(p;r_1,r_2)$, then $n(\Gamma;q) = 0$:
+If $q$ is in the ``hole'' of the annulus, then
+$n\bigl(\partial \Delta_{s_j}(p);q\bigr) = 1$ for both $j=1,2$, and 
+if $q$ is outside the annulus altogether then
+$n\bigl(\partial \Delta_{s_j}(p);q\bigr) = -1$ for both $j=1,2$,
 see \exerciseref{exercise:windingcircle} or.
 \exerciseref{exercise:windingcircles}.
 So $\Gamma$ is homologous to zero in the annulus.
-On the other hand if $z$ is in the (smaller) annulus $\ann(p;s_1,s_2)$,
-then for similar reasons, $n(\Gamma;z) = 1$.
+On the other hand if $q$ is in the (smaller) annulus $\ann(p;s_1,s_2)$,
+then for similar reasons, $n(\Gamma;q) = 1$.
 
 Via Cauchy's theorem, for every $z \in \ann(p;s_1,s_2)$,
 \begin{equation*}
@@ -7959,6 +7967,16 @@ f(z) =
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta  .
 \end{equation*}
+See \figureref{fig:twoannuli}.
+
+
+\begin{myfig}
+\subimport*{figures/}{twoannuli.pdf_t}
+\caption{The two annuli, the smaller annulus is shaded darker.  The two
+pieces of $\Gamma$ are noted with the circular arrows.\label{fig:twoannuli}}
+\end{myfig}
+
+
 Let us expand the two bits separately.  First
 if $\zeta \in \partial \Delta_{s_2}$, then
 $\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} < 1$ and so
