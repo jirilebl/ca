@@ -6814,10 +6814,14 @@ If $f \colon \D \to \D$ is holomorphic, then
 \qquad
 \frac{\abs{f'(z)}}{1-\abs{f(z)}^2} \leq
 \frac{1}{1-\abs{z}^2}
-\avoidbreak
 \end{equation*}
-for all $z,\zeta \in \D$,
-with equality at some $z,\zeta \in \D$ if and only if $f$ is an automorphism of $\D$.
+for all $z,\zeta \in \D$.
+If equality holds in one of the 
+inequalities for some $z \not= \zeta$,
+then $f$ is an automorphism of $\D$.
+Conversely if $f$ is an automorphism of $\D$
+then equality holds in both inequalities for
+all $z,\zeta \in \D$.
 \end{exercise}
 \end{exbox}
 
@@ -7028,9 +7032,14 @@ into pieces and using branches of the $\log$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f \colon \C \to \C$ is a holomorphic function such that
-$f(z)$ is never negative real (it is allowed to be positive and real)
-and such that $f$ is never zero on $\partial \D$.  Compute
+Suppose
+$U \subset \C$ is an open set with
+$\partial \D \subset U$,
+$f \colon U \to \C$ is a holomorphic
+function,
+such that
+$f(z)$ is never negative real or zero.
+Compute
 $\int_{\partial \D} \frac{f'(z)}{f(z)} \, dz$.
 \end{exercise}
 
