@@ -7905,6 +7905,7 @@ called an ``annulus'', and calling $\ann(0;0,\infty) = \C \setminus
 
 \begin{thm}[\myindex{Existence of Laurent series}]
 \index{Laurent series!existence}%
+\label{thm:laurent}%
 Suppose that $0 \leq r_1 < r_2 \leq \infty$ and
 $f \colon \ann(p;r_1,r_2) \to \C$ is holomorphic.
 Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
@@ -7942,8 +7943,25 @@ means
 That is, the limits are taken independently.  However, for the series we
 are interested in, we are generally talking
 about absolute convergence, so the limit may be taken in any way, and in any order.
+When working with Laurent series in particular we know even more.
+Write a Laurent series as 
+\begin{multline*}
+\sum_{n=-\infty}^{\infty} c_n {(z-p)}^n
+=
+\sum_{n=0}^{\infty} c_n {(z-p)}^n
++
+\sum_{n=-\infty}^{-1} c_n {(z-p)}^n
+\\
+=
+\sum_{n=0}^{\infty} c_n {(z-p)}^n
++
+\sum_{n=1}^{\infty} c_{-n} {\left(\frac{1}{z-p}\right)}^n .
+\end{multline*}
+So the Laurent series behaves like two power series: one in $z-p$ and one
+in $\frac{1}{z-p}$.  You can therefore apply what you know about power
+series.
 
-\begin{proof}
+\begin{proof}[Proof of the theorem]
 Choose two numbers $s_1$ and $s_2$ such that $r_1 < s_1 < s_2 < r_2$.
 Define the cycle
 \begin{equation*}
@@ -8059,7 +8077,12 @@ $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} < 1$ and so
 \end{equation*}
 Adding these together we have the right thing, except the formula for $c_n$
 is not quite right.  Given any $s$ such that
-$r_1 < s < r_2$, we apply Cauchy as before to find
+$r_1 < s < r_2$,
+the cycle
+$\partial \Delta_{s}(p) - \partial \Delta_{s_1}(p)$ is homologous to zero in
+$\ann(p;r_1,r_2)$, and 
+$z \mapsto \frac{f(z)}{{(z-p)}^{n+1}}$ is holomorphic in 
+$\ann(p;r_1,r_2)$.  Cauchy's theorem thus says
 \begin{equation*}
 0 = \int_{\partial \Delta_{s}(p) - \partial \Delta_{s_1}(p)}
 \frac{f(\zeta)}{{(\zeta-p)}^{n+1}} \, d\zeta
@@ -8184,6 +8207,14 @@ $\ann(p;r_1,r_2)$.  Let $a_n$ be the coefficients in the Laurent series for
 $f$ and $b_n$ be the coefficients in the Laurent series for $g$.  Suppose
 that $\alpha,\beta \in \C$.  Show that the Laurent series for the function
 $\alpha f + \beta g$ has coefficients $\alpha a_n + \beta b_n$.
+\end{exercise}
+
+\begin{exercise}[Easy]
+Suppose $\sum_{n=-\infty}^m c_n {(z-p)}^n$ is a Laurent series with only
+finitely many positive terms.  Show that either the series converges
+nowhere, or there exists a number $r \geq 0$ such that the series
+converges uniformly and absolutely on compact subsets of $\C \setminus
+\overline{\Delta_r(p)}$.
 \end{exercise}
 
 \begin{exercise}
@@ -8989,7 +9020,7 @@ C_2 {\sabs{z-p}}^k .
 \end{equation*}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}[Easy]
 Suppose $U \subset \C$ is a domain and $f$ 
 has zeros at $z_1, z_2, \ldots, z_n$ of
 orders $k_1, k_2, \ldots, k_n$ and no other zeros.
@@ -9041,10 +9072,18 @@ saddle point at the origin.
 \end{exercise}
 
 \begin{exercise}
+\begin{exparts}
+\item
 For $x \in \R$, let $f(x) = e^{-1/x^2}$ if $x \not=0$ and $f(0) = 0$.
 Prove that $f$ is infinitely (real) differentiable, the origin is
 an isolated zero (the only zero in fact), and $f^{(k)}(0) = 0$ for
 all $k=0,1,2,\ldots$.  That is, the origin is a zero of infinite order.
+\item
+Prove that for $z \in \C \setminus \{ 0 \}$,
+if we define $f(z) = e^{-1/z^2}$, then the function (while holomorphic in
+all of $\C \setminus \{ 0 \}$) cannot be even
+continuous at the origin, no matter how we'd try to define $f(0)$.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -9303,11 +9342,15 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
+\begin{defn}
 Given an isolated singularity, the negative part of the series
 \begin{equation*}
 \sum_{n=-\infty}^{-1} c_n {(z-p)}^n 
 \end{equation*}
-is called the \emph{\myindex{principal part}}.  So a singularity is
+is called the \emph{\myindex{principal part}}.
+\end{defn}
+
+So a singularity is
 removable if the principal part is zero, it is a pole if the principle part
 is a finite series, and it is essential if the principal part is infinite.
 For example,
@@ -9320,7 +9363,7 @@ so the principal part is infinite and $e^{1/z}$ has an essential
 singularity at $0$.  In fact, this is the first example anyone ever thinks of
 if asked for an example of an essential singularity.
 
-Suppose $P(z)$ is the principal part of $f(z)$ at a removable singularity.
+Suppose $P(z)$ is the principal part of $f(z)$ at an isolated singularity.
 It is sometimes useful to consider $f(z)-P(z)$, which then has a removable
 singularity, as it is defined by a power series.
 
@@ -9489,28 +9532,36 @@ A holomorphic function $f \colon U \setminus S \to \C$ with poles on a
 discrete set $S \subset U$ is said to be \emph{\myindex{meromorphic}}.
 \end{defn}
 
-A meromorphic function can be extended to
+A meromorphic function can be extended to a function
 \begin{equation*}
 f \colon U \to \C_{\infty}
 \end{equation*}
-by simply setting $f(p) = \infty$ at all poles, and by the definition of a
-pole, the function is then continuous.  In fact, a way to define
-a meromorphic function is as a holomorphic function
-$f \colon U \to \C_{\infty}$.  Holomorphicity at a pole can be
+by simply setting $f(p) = \infty$ at all the poles.
+By the definition of a pole, the extended function is then continuous.
+In fact, a way to define
+a meromorphic function is as a ``holomorphic function
+$f \colon U \to \C_{\infty}$.''  Holomorphicity at a pole can be
 rephrased as holomorphicity of a function $\frac{1}{f(z)}$ at $p$.
-There is a small technicality, if one should consider the function
-that is constantly $\infty$ as a meromorphic function or not, and we
-will take the view that it is not a meromorphic function.
+There is a small technicality: Should one consider the function
+that is constantly $\infty$ as a meromorphic function or not.
+We will take the view that it is not a meromorphic function.
 
-So from now on, when we say that $f \colon U \to \C_\infty$ is
-meromorphic, we mean that it is a holomorphic function possible
-poles in $U$, where we set the value as $\infty$ at the poles.
+So from now on, when we say that $f$ is
+meromorphic, we mean that it is a holomorphic function with possible
+poles in $U$, where we set the value as $\infty$ at the poles, and
+we will write this as $f \colon U \to \C_\infty$.  That is, even though we
+could just say $f \colon U \to \C_\infty$ is holomorphic, we will say
+for emphasis ``$f \colon U \to \C_\infty$ is meromorphic.''
 
 Similarly, we can define a function on subsets of $\C_\infty$, just as
 we did with LFTs.
 We define holomorphicity at $\infty$ when $U \subset
 \C_\infty$ by saying that $f$ is \emph{\myindex{holomorphic at $\infty$}}
 if $f\bigl(\frac{1}{z}\bigr)$ is holomorphic at $0$.
+So with this terminology, an LFT is a biholomorphic mapping $f \colon
+\C_\infty \to \C_\infty$.  It is left as an exercise that
+these are the only biholomorphisms of the Riemann sphere and so
+$\Aut(\C_\infty)$ consists of all the LFTs.
 
 \begin{exbox}
 \begin{exercise}
