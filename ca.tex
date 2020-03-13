@@ -6993,8 +6993,8 @@ a branch of the logarithm in every $U$, but for example we can do it in every
 star-like $U$ where $0 \notin U$.  In general, one can define a branch of
 the logarithm in every simply connected domain, that is, a domain without holes,
 that does not contain zero.
-More on this later.  Similarly we can define branches of $\log (z-p)$, which
-should be a primitive of $\frac{1}{z-p}$, in which case the domain
+More on this later.  Similarly we can define branches of $\log (z-p)$,
+a primitive of $\frac{1}{z-p}$, in which case the domain
 should not contain $p$.
 
 We may also talk about branches more loosely, and talk
@@ -7045,7 +7045,7 @@ $\int_{\partial \D} \frac{f'(z)}{f(z)} \, dz$.
 
 \begin{exercise}
 Suppose $\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ is a piecewise $C^1$
-path such that $\gamma(a) = \gamma(b) = -1$ but $\gamma(t)$ is never
+path such that $\gamma(a) = \gamma(b) = -1$, but $\gamma(t)$ is never
 negative real for any $t \in (a,b)$.  Using the principal branch of the
 $\log$, prove that
 \begin{equation*}
@@ -8079,7 +8079,8 @@ c_n = \frac{1}{2\pi i}
 So we get the same $c_n$ no matter which $s$ we pick.
 
 Next, convergence.
-The geometric series used for the first part converges uniformly
+For any $\epsilon > 0$,
+the geometric series used for the first part converges uniformly
 absolutely when $\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} \leq
 1-\epsilon$.  In other words, the series converges uniformly absolutely
 on compact subsets of $\Delta_{s_2}(p)$ (when $\sabs{z-p} < s_2$).
@@ -8095,36 +8096,37 @@ subsets of $\ann(p;s_1,s_2)$.  As $s_1$ and $s_2$ were arbitrary such that
 $r_1 < s_1 < s_2 < r_2$, we get that the series
 converges uniformly absolutely on compact subsets of $\ann(p;r_1,r_2)$.
 
-Finally, uniqueness of $c_n$.  Suppose
+Finally, uniqueness of $c_n$.  Suppose $\{ d_n \}$ is another sequence such
+that
 \begin{equation*}
 f(z)
 =
-\sum_{n=-\infty}^{\infty} \tilde{c}_n {(z-p)}^{n} 
+\sum_{n=-\infty}^{\infty} d_n {(z-p)}^{n} 
 \end{equation*}
 with uniform absolute convergence on compact subsets of $\ann(p;r_1,r_2)$.
 Then
 \begin{equation*}
 \begin{split}
-\frac{1}{2\pi i}
+c_m = \frac{1}{2\pi i}
 \int_{\partial \Delta_{s}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{m+1}}
  \, d\zeta 
 & =
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{s}(p)}
-\left(\sum_{n=-\infty}^{\infty} \tilde{c}_n {(\zeta-p)}^{n} \right)
+\left(\sum_{n=-\infty}^{\infty} d_n {(\zeta-p)}^{n} \right)
 \frac{1}{{(\zeta-p)}^{m+1}}
  \, d\zeta 
 \\
 & =
 \frac{1}{2\pi i}
 \sum_{n=-\infty}^{\infty}
-\tilde{c}_n
+d_n
 \int_{\partial \Delta_{s}(p)}
 {(\zeta-p)}^{n-m-1}
  \, d\zeta 
 \\
 & =
-\tilde{c}_m ,
+d_m ,
 \end{split}
 \end{equation*}
 as the only $n$ for which
@@ -8149,7 +8151,7 @@ $\C \setminus \{ 0 \}$.
 
 The rational function $\frac{1}{1-z}$ that leads to the geometric series can
 be expanded in a slightly different way if we want its Laurent series
-expansion in $\ann(0;1,\infty) = \C \setminus \overline{\D}$.
+expansion in $\ann(0;1,\infty) = \C \setminus \overline{\D}$:
 \begin{equation*}
 \frac{1}{1-z}
 =
@@ -8873,7 +8875,7 @@ derivative $f^{(k)}(p) \not= 0$.
 \end{lemma}
 
 \begin{defn}
-We call the point $p$ such that $f(p) = 0$ a \emph{\myindex{zero}} of
+We call a point $p$ such that $f(p) = 0$ a \emph{\myindex{zero}} of
 $f$.
 The $k$ from the lemma is called the \emph{order}\index{order of a zero}
 of the zero at $p$.
@@ -8896,7 +8898,7 @@ For completeness, the conclusion of the lemma holds also when $f(p) \not= 0$,
 in which case
 $k=0$ and $g = f$.  So we can say that when $f(p) \not= 0$, then $p$ is
 a zero of order $0$, which sounds somewhat idiotic, but it all fits a general
-picture, and we will see negative orders a couple of sections from now.
+picture, and we will see negative orders in just a little while.
 
 Another remark (which is hidden in the lemma)
 that may be good to emphasize is that if $f^{(k)}(p) = 0$
@@ -8940,25 +8942,24 @@ that $k \in \N$, in particular $k > 0$, and so this really is an actual zero
 of $f$.} of $f$ of order $k \in \N$.  Then there exists a neighborhood $V$
 of $p$ and a holomorphic $g \colon V \to \C$ such that
 \begin{equation*}
-f(z) = {\bigl( g(z) \bigr)}^k
+f(z) = {\bigl( g(z) \bigr)}^k,
 \end{equation*}
 where $g(p) = 0$ and $g'(p) \not= 0$.
 \end{thm}
 
 In more fancy language, $g$ is a local biholomorphic change of variables near
 $p$ (see \thmref{thm:inversehol})
-that makes $p$ into the origin, and it makes $f$ into $z^k$.
+that makes $p$ into the origin, and makes $f$ into $z^k$.
 
 \begin{proof}
 Let $V = \Delta_r(p)$ be a disc such that $f(z) \not= 0$ for any $z \in
 \Delta_r(p) \setminus \{ p \}$.  Use the lemma to get a function $h$ holomorphic
 on $\Delta_r(p)$ such that $h(p) \not= 0$ and $f(z) = {(z-p)}^k h(z)$.  In particular,
 $h(z) \not= 0$ for any $z \in \Delta_r(p)$.
-
 Now $h$ is nowhere zero on $\Delta_r(p)$, which is simply connected,
-and so there exists a holomorphic function $q$ on $\Delta_r(p)$ such that
-$q^k = h$.  Then let $g(z) = (z-p)q(z)$.  As
-$g'(z) = (z-p) q'(z) + q(z)$, we have $g'(p) = q(p) \not= 0$.
+and so there exists a holomorphic function $\varphi$ on $\Delta_r(p)$ such that
+$\varphi^k = h$.  Then let $g(z) = (z-p)\varphi(z)$.  As
+$g'(z) = (z-p) \varphi'(z) + \varphi(z)$, we have $g'(p) = \varphi(p) \not= 0$.
 \end{proof}
 
 \begin{exbox}
