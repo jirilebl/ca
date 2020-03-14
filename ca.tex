@@ -6803,11 +6803,11 @@ Prove the \emph{\myindex{Schwarz--Pick lemma}}:
 If $f \colon \D \to \D$ is holomorphic, then
 \begin{equation*}
 \abs{
-\frac{f(z)-f(\zeta)}{1-\overline{f(z)}f(\zeta)}
+\frac{f(z)-f(\zeta)}{1-\overline{f(\zeta)}f(z)}
 }
 \leq
 \abs{
-\frac{z-\zeta}{1-\bar{z}\zeta} 
+\frac{z-\zeta}{1-\widebar{\zeta}z} 
 }
 \qquad
 \text{and}
@@ -10237,7 +10237,7 @@ and show using Rouch\`e that they are all on the unit circle.
 
 First
 consider $\Gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
-around the origin.  Then on $\Gamma$ we have
+around the origin.  On $\Gamma$,
 \begin{equation*}
 \abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
 \end{equation*}
@@ -10250,35 +10250,9 @@ radius $1+\epsilon$ around the origin.  Then on $\Gamma$,
 \begin{equation*}
 \abs{P(z) - z^n} = 1 < \abs{z^n} .
 \end{equation*}
-So by Rouch\`e, $P(z)$ and $z^n$ have the same number of zeros in
-$\Delta_{1+\epsilon}(0)$, that is $n$ zeros.  As $\epsilon$ was arbitrary,
-all the zeros must be on the unit circle.
-\end{example}
-
-\begin{example}
-A typical application of Rouch\`e is to approximately locate zeros of
-polynomials.  Consider $P(z) = z^n - 1$.  We can explicitly find the roots,
-but let us forget we can do so,
-and show using Rouch\`e that they are all on the unit circle.
-
-First
-consider $\Gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
-around the origin.  Then on $\Gamma$ we have
-\begin{equation*}
-\abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
-\end{equation*}
-We apply Rouch\`e ($P(z)$ is the dog and $1$ is the master).  So $P(z)$
-has the same number of zeros as the constant $1$ (that is, no zeros) in
-$\Delta_{1-\epsilon}(0)$.
-
-Similarly, take $z^n$ instead of $1$, and make $\Gamma$ be the circle of
-radius $1+\epsilon$ around the origin.  Then on $\Gamma$,
-\begin{equation*}
-\abs{P(z) - z^n} = 1 < \abs{z^n} .
-\end{equation*}
-So by Rouch\`e, $P(z)$ and $z^n$ have the same number of zeros in
-$\Delta_{1+\epsilon}(0)$, that is $n$ zeros.  As $\epsilon$ was arbitrary,
-all the zeros must be on the unit circle.
+By Rouch\`e, $P(z)$ and $z^n$ have the same number of zeros in
+$\Delta_{1+\epsilon}(0)$, that is, $n$ zeros.  As $\epsilon$ was arbitrary,
+all the zeros of $P(z)$ must be on the unit circle.
 \end{example}
 
 \begin{example}
@@ -10293,7 +10267,7 @@ Then on $\sabs{z}=1$,
 \end{multline*}
 It is easy to see that $z^4+24z^2$ has zeros at $\pm \sqrt{24} i$ (outside
 the unit circle), and two zeros at the origin (inside the unit circle).
-Thus, $P(z)$ also has two zeros inside the unit circle.
+Thus, $P(z)$ also has two zeros in $\D$.
 
 On the other hand, if $\sabs{z} > 46$ then
 \begin{equation*}
@@ -10320,7 +10294,7 @@ is a monic polynomial that has no zeros on the unit circle and $k \leq n$ zeros
 in the unit disc.  Show that there exists an $\epsilon > 0$ such that
 if $\sabs{b_j-a_j} < \epsilon$ for $j=0,\ldots,n-1$, then
 $Q(z) = z^n + b_{n-1} z^{n-1} + \cdots + b_0$ has
-exactly $k$ zeros (counting multiplicity) in the unit disc.
+exactly $k$ zeros (counting multiplicity) in $\D$.
 \end{exercise}
 
 \begin{exercise}
@@ -10329,6 +10303,13 @@ $P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$
 is a monic polynomial.  Prove that all the zeros of $P$ are
 in the closed disc $\overline{\Delta_M(0)}$ where $M =
 \max\left\{ 1, \sum_{j=0}^{n-1} \sabs{a_j} \right\}$.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $U \subset \C$ is open, $\overline{\D} \subset U$,
+and $f \colon U \to \C$ is a holomorphic function with no zeros on
+$\overline{\D}$.  Prove that there exists a $z \in \partial \D$
+such that $\sabs{f(z)-z} \geq 1$.
 \end{exercise}
 \end{exbox}
 
