@@ -10311,6 +10311,14 @@ and $f \colon U \to \C$ is a holomorphic function with no zeros on
 $\overline{\D}$.  Prove that there exists a $z \in \partial \D$
 such that $\sabs{f(z)-z} \geq 1$.
 \end{exercise}
+
+\begin{exercise}
+Suppose that $U \subset \C$ is open, $\overline{\D} \subset U$,
+and $f \colon U \to \C$ is a holomorphic function such
+that $\sabs{f(z)} \geq 1$ whenever $z \in \partial \D$,
+and such that for at least one $p \in \D$ we have $f(p) \in \D$.
+Prove that $\D \subset f(\D)$.
+\end{exercise}
 \end{exbox}
 
 \subsection{Hurwitz's theorem}
@@ -10331,43 +10339,24 @@ such that $n(\Gamma;z)$ is $0$ or $1$ for all $z \in U$.
 %and $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
 Let
 $V = \{ z \in U : n(\Gamma;z) = 1 \}$.
-Suppose that $f$ has no zeros on $\Gamma$ and $k$ zeros (counting
+Suppose $f$ has no zeros on $\Gamma$ and $k$ zeros (counting
 multiplicity) in $V$.
 Then there exists an $N$ such that for all $n \geq N$,
 $f_n$ has $k$ zeros (counting multiplicity) in $V$.
 \end{thm}
 
 \begin{proof}
-As $\Gamma$ is compact, the functions $f_n$ and $f_n'$
-converge uniformly to $f$ and $f'$ on $\Gamma$.
-There is a $\delta > 0$ and $M > 0$ such that $\delta < \sabs{f(z)} < M$
-and $\sabs{f'(z)} < M$ for all $z \in \Gamma$.
-Then for all large enough $n$, we have
-$\delta < \sabs{f_n(z)} < M$ and $\sabs{f_n'(z)} < M$ for all $z \in \Gamma$.  So
+As a set $\Gamma$ is compact, and so
+there is a $\delta > 0$ such that $\delta < \sabs{f(z)}$
+for all $z \in \Gamma$.  Furthermore,
+the functions $f_n$
+converge uniformly to $f$ on $\Gamma$.
+So for all $n$ large enough we have that
 \begin{equation*}
-\abs{
-\frac{f_n'(z)}{f_n(z)}-
-\frac{f'(z)}{f(z)}
-}
-<
-\frac{\abs{f_n'(z)f(z) - f_n(z)f'(z)}}{\delta^2}
-<
-\frac{\abs{f_n'(z)-f'(z)} M + \abs{f(z) - f_n(z)} M}{\delta^2} .
+\sabs{f(z)-f_n(z)} < \delta < \sabs{f(z)}
 \end{equation*}
-By the uniform convergence of $f_n$ and $f_n'$, we find that
-$\frac{f_n'(z)}{f_n(z)}$ converges uniformly to
-$\frac{f'(z)}{f(z)}$ on $\Gamma$.  Then, using the argument principle,
-\begin{equation*}
-\lim_{n\to\infty} \frac{1}{2\pi i}
-\int_\Gamma \frac{f_n'(z)}{f_n(z)} \, dz
-=
-\frac{1}{2\pi i}
-\int_\Gamma \frac{f'(z)}{f(z)} \, dz
-=
-k .
-\end{equation*}
-As the integral is integer valued we find that the limit is achieved
-for large enough $n$ and we are finished.
+for all $z \in \Gamma$.  \hyperref[thm:rouche]{Rouch\`e's theorem}
+says that $f$ and $f_n$ have the same number of zeros.
 \end{proof}
 
 An interesting application of Hurwitz's theorem is that limits of
@@ -10605,7 +10594,7 @@ has more than one distinct zero, and consequently, $f$ is not one-to-one.
 \begin{lemma} \label{lemma:inverseasintegral}
 If $f \colon U \to \C$ is holomorphic and one-to-one, and
 $\overline{\Delta_r(p)} \subset U$.  Then for all $w \in
-f\bigl(\Delta_r(p)\bigr)$, we have
+f\bigl(\Delta_r(p)\bigr)$,
 \begin{equation*}
 f^{-1}(w) = \frac{1}{2\pi i} \int_{\partial \Delta_r(p)}
 \frac{f'(z)z}{f(z)-w} \, dz .
@@ -10649,7 +10638,7 @@ we have that $f^{-1}$ is holomorphic.
 \begin{exbox}
 \begin{exercise}
 Suppose $f$ is holomorphic in a neighborhood of the closed unit disc
-$\overline{\D}$ such that for every $z_0 \in \D$
+$\overline{\D}$ such that for every $z_0 \in \D$,
 \begin{equation*}
 \int_{\partial \D}
 \frac{f'(z)}{f(z)-f(z_0)}
