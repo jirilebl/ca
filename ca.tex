@@ -6467,7 +6467,7 @@ prove that for any nonnegative integer $\ell$
 \end{equation*}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:convergeboundary}
 Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \overline{U} \to
 \C$ continuous functions that are holomorphic on $U$, and such that
 the restrictions $f_n|_{\partial U}$ converge uniformly.  Prove that
@@ -6493,7 +6493,7 @@ an $x$ such that $f_n'(x)$ does not converge.
 \end{exparts}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:weiercircle}
 \pagebreak[2]
 Weierstrass approximation theorem says that any continuous function on an
 interval $[a,b] \subset \R$ can be uniformly approximated (on $[a,b]$) by
@@ -6503,7 +6503,7 @@ find a continuous function $f \colon \partial \D \to \C$ that is
 not the uniform limit of a sequence polynomials $P_n(z)$ on $\partial \D$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:polylimits}
 \pagebreak[2]
 Show that
 \begin{exparts}
@@ -12961,10 +12961,86 @@ It has been said that man is a rational animal. All my life I have been searchin
 ---Bertrand Russell
 \end{myquote}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Polynomial approximation}
+\label{sec:polyapprox}
+
+In real analysis, you may have seen the very useful
+Weierstrass approximation theorem (and more generally the
+Stone--Weierstrass approximation theorem), which says that a continuous function
+on a compact interval $[a,b]$ can be uniformly approximated by polynomials
+of a real variable.  For holomorphic polynomials, that is polynomials in $z$
+we have a similar theorem, but not for continuous functions but for
+holomorphic functions.  That makes sense.  After all, uniform limits of
+holomorphic functions are holomorphic.
+
+\begin{example}
+Let $z = x+iy$.
+By Stone--Weierstrass
+any continuous function on the closed unit disc $\overline{\D}$
+is a uniform limit of a sequence of polynomials
+$Q_n(x,y)$ (polynomials of both $x$ and $y$), but only a function that is
+holomorphic on $\D$ can be the uniform limit of polynomials
+$P_n(z)$ (polynomial of $z$).
+
+More explicitly the function $z \mapsto \bar{z}=x-iy$ is not only a limit of
+polynomials in $x$ and $y$, it is a polynomial in $x$ and $y$.  However as
+the function is not holomorphic on $\D$, it cannot be a
+uniform limit of holomorphic polynomials on $\overline{\D}$.
+\end{example}
+
+From now on, all polynomials will be polynomials in $z$, as they were
+up until the example above in fact.  So when we say polynomial, it will be
+a polynomial in $z$, in other words, a holomorphic polynomial.
+
+A function holomorphic on a disc $\Delta_r(p)$ is limit of the partial sums
+of the power series $\sum_{n=0}^m c_n {(z-p)}^n$.  See also
+\exerciseref{exercise:polylimits}.  However, suppose we take a function that
+is holomorphic on a neighborhood of the square $[-1,1] \times [-1,1]$, say
+$f(z) = \frac{1}{(z-1.1)(z+1.1)}$.  If we expand $f$ around any point, the
+series will never converge on all of $[-1,1] \times [-1,1]$.  However we can
+(exercise below) still find a sequence of polynomials that converge to $f$
+on $[-1,1] \times [-1,1]$.
+
+\begin{exbox}
+\begin{exercise}
+Let 
+$f(z) = \frac{1}{(z-1.1)(z+1.1)}$.  Find an explicit (that is, find a
+formula for it, do not just prove that it exists) sequence of polynomials
+$P_n(z)$
+that converges uniformly to $f$ on the square $[-1,1] \times [-1,1]$.
+\end{exercise}
+\end{exbox}
+
+Sometimes, we are thwarted in polynomial approximation by topology.  For
+example, consider $\frac{1}{z}$ on $\partial \D$.  There is no sequence of
+polynomials $P_n(z)$ that converge to $\frac{1}{z}$ uniformly on $\partial
+\D$.  This follows by Rouch\`e (or
+\exerciseref{exercise:convergeboundary} and Cauchy's theorem), see the
+following exercise.
+
+\begin{exbox}
+\begin{exercise}
+For any polynomial $P(z)$, there exists a $z_0 \in \partial \D$ such that
+$\abs{P(z_0)-\frac{1}{z_0}} \geq 1$.
+\end{exercise}
+\end{exbox}
+
+The problem with the unit circle is that it has a hole.  We can approximate
+any function holomorphic in a neighbourhood of $\partial \D$ by rational
+functions if we allow a pole at $0$.  The function $\frac{1}{z}$ is already
+a rational function with a pole at zero.
+
+A polynomial is really just a rational function that has a pole at infinity.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Rational functions and pushing poles}
 \label{sec:rational}
+
+
 
 FIXME
 
