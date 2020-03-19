@@ -4279,6 +4279,48 @@ re^{it}$, and then we write
 This equality could be simply taken as a definition of integration over
 $\partial \Delta_r(p)$.
 
+A version of reparametrization is the following ``$u$-substitution'' type of
+result.
+
+\begin{prop} \label{prop:usubst}
+Let $U,V \subset \C$ be open sets, $\gamma \colon [a,b] \to V$ be a piecewise
+$C^1$ path, $h \colon V \to U$ be holomorphic, and $f \colon U \to \C$
+is continuous.  Then $h \circ \gamma$ is a piecewise $C^1$ path in $V$ and
+\begin{equation*}
+\int_{\gamma} f\bigl(h(z)\bigr) h'(z) \, dz
+=
+\int_{h \circ \gamma} f(w) \, dw .
+\end{equation*}
+\end{prop}
+
+\begin{proof}
+That $h \circ \gamma$ is a piecewise $C^1$ path is obvious.  To prove the
+equality we just parametrize and apply the chain rule, in particular
+$(h \circ \gamma)'(t) = h'\bigl(\gamma(t)\bigr) \gamma'(t)$:
+\begin{multline*}
+\int_{\gamma} f\bigl(h(z)\bigr) h'(z) \, dz
+=
+\int_a^b
+f\Bigl(h\bigl(\gamma(t)\bigr)\Bigr) h'\bigl(\gamma(t)\bigr) \gamma'(t) \, dt
+\\
+=
+\int_a^b
+f\bigl((h \circ \gamma)(t)\bigr) (h \circ \gamma)'(t) \, dt
+=
+\int_{h \circ \gamma} f(w) \, dw . \qedhere
+\end{multline*}
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Let $f \colon \partial \D \to \C$ be a continuous function.  Prove that
+\begin{equation*}
+\int_{\partial \D} f(z) \, dz =
+\int_{\partial \D} \frac{f\bigl(\frac{1}{z}\bigr)}{z^2} \, dz .
+\end{equation*}
+\end{exercise}
+\end{exbox}
+
 \subsection{Arclength integral}
 
 We can also integrate with respect to arclength, the $ds$ from calculus.
@@ -7795,11 +7837,15 @@ And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
 There is a simple topological criterion for
 simply-connectedness of domains in the complex plane.
 The theorem is actually an ``if and only if,'' but the other
-direction is more difficult and so let's just prove the easy direction.
+direction is more difficult and so let's just prove the easy direction
+at this point.
+The other direction will be much easier to prove once we have the Riemann
+mapping theorem, see \subsectionref{subsec:patharoundcomponent}, so we will
+prove it there.
 
-\begin{prop}
+\begin{prop} \label{prop:scbycomplementeasy}
 Let $U \subset \C$ be a domain.  If
-$\C_\infty \setminus U$ is connected, then $U$ simply connected.
+$\C_\infty \setminus U$ is connected, then $U$ is simply connected.
 \end{prop}
 
 \begin{proof}
@@ -11407,7 +11453,7 @@ and $\ann(0;1,2)$ are not biholomorphic.
 \end{exercise}
 \end{exbox}
 
-\subsection{Application: simply connected is simply connected *}
+\subsection{Simply connected is simply connected *}
 
 Let us finally prove that simply connected (in the sense of homology,
 \defnref{defn:simplyconnected:homology} that we have been using all this
@@ -11430,7 +11476,7 @@ We have proved in \propref{prop:simplyconneasy} that if $U$ is
 simply connected in the sense of homotopy means that $U$ is simply connected
 in the sense of homology.
 
-So suppose now that $U$ is simply connected in
+Suppose that $U$ is simply connected in
 the sense of homology.
 Let $\gamma \colon [a,b] \to \C$ be a continuous function with
 $\gamma(a)=\gamma(b)$.  We wish to show that $\gamma$ is homotopic to a
@@ -11443,7 +11489,6 @@ If $U = \C$, then define the homotopy $H \colon [a,b] \times [0,1] \to
 \begin{equation*}
 H(t,s) = (1-s) \gamma(t) .
 \end{equation*}
-
 If $U \not= \C$, consider the function, define
 \begin{equation*}
 H(t,s) = f^{-1} \Bigl( (1-s) f \bigl( \gamma(t) \bigr) \Bigr) .
@@ -11453,6 +11498,208 @@ Then we define $H$ in the same way as we did for $\C$, and then we
 take the whole thing back to $U$.
 \end{proof}
 
+\subsection{Paths around compacts and simply-connectedness *}\label{subsec:patharoundcomponent}
+
+As a second and perhaps much less obvious application of the Riemann
+mapping theorem,
+we will prove a lemma that around any compact set in some domain $U$
+we can find a cycle that goes around this compact set and is homologous to
+zero in $U$.
+What's interesting is that there is no simply connected domain 
+in this problem, but we can still use the Riemann mapping theorem to greatly
+simplify the topology of the situation.
+There are more direct and
+constructive ways of proving this theorem,
+but I have an irrational affinity to using the mapping theorem.
+
+This lemma will allow us to finish the proof that simply
+connected domains in $\C$ are precisely those 
+where the complement in $\C_\infty$ is connected.  That is, we will prove
+the converse of \propref{prop:scbycomplementeasy}.  First the lemma.
+
+\begin{lemma}
+Let $U \subset \C$ be open and suppose that $K \subset U$ is compact.
+Then there exists a cycle
+$\Gamma$ in $U \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in K$ and
+$n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
+\end{lemma}
+
+The intuitive idea of the proof is to first suppose $K$ is connected and
+to take one point of it to infinity by an LFT
+(an inversion).  Then use the Riemann mapping theorem to make the complement
+of $K$ go to the disc.
+Then the path is to go backwards very close to the boundary
+as this will ``go around'' (after the inversion) what's outside the disc.
+The complement of $U$
+will be inside the disc so this way we will not ``go around'' what's inside.
+Then one could repeat it for connected components of $K$.  Of course in
+reality we hit a bunch of technicalities such as $K$ possibly having
+infinitely many connected components, and of course vague intuitive ideas are
+nice, but we need to actually do some grubby computation to prove anything.
+
+\begin{proof}
+First let us simplify $K$.  A priory $K$ may have infinitely many
+connected component.  For some small enough $r > 0$ the set
+\begin{equation*}
+K' = \bigcup_{z \in K} \overline{\Delta_r(z)}
+\end{equation*}
+is a compact subset of $U$
+(see the proof of \thmref{thm:unifoncompact} for example).
+If we find a $\Gamma$ around $K'$ then we are done as $K \subset K'$.
+Furthermore $K'$ has at most finitely many topological components:
+As $K \subset \Delta_R(0)$ for some $R$, then $K' \subset \Delta_{R+r}(0)$.
+Each connected component of $K'$ must contain a closed disc
+$\overline{\Delta_r(z)}$ for some $z$ and there are only finitely many such
+discs in $\Delta_{R+r}(0)$.
+
+Let $K_1,\ldots,K_n$ be the 
+connected components of $K'$.  All the sets $K_j$ are closed and so compact
+as they are connected, and furthermore $K_2 \cup \cdots \cup K_n$ is also
+compact.
+If we prove the lemma for the compact set $K_1$ and
+the domain $U \setminus ( K_2 \cup \cdots \cup K_n )$ to find a cycle
+$\Gamma_1$, then we claim we are done: We could repeat the procedure
+for each $K_j$ to find $\Gamma_j$ and let $\Gamma = \Gamma_1 + \cdots +
+\Gamma_n$.  As $\Gamma_j$ winds exactly once around every point of $K_j$
+and does not wind around any point of the other $K_\ell$,
+then $\Gamma$ will wind exactly once around any point of $K'$,
+and it will still be homologous to zero.
+
+So without loss of generality, we will assume that $K$ is connected.  We can
+also assume that $0 \in K$.  If $K= \{0 \}$ then we are done trivially, so
+assume that $K$ is larger than one point.
+Consider $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
+LFT, that is,
+$\varphi(z) = \frac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
+$\varphi(0) = \infty$ and $\varphi(\infty) = 0$.
+Being an LFT, $\varphi$ is a (bi)holomorphic
+mapping of $\C_\infty$ to itself, where $\varphi^{-1} = \varphi$.  Let
+\begin{equation*}
+V = \varphi(\C_\infty \setminus K)
+\end{equation*}
+Notice that $\infty \notin V$, $0 \in V$, and
+$\C_\infty \setminus V = \varphi(K)$ is connected.
+So by \propref{prop:scbycomplementeasy} $V$ is a simply connected.
+As $K$ is more than one point, $V \not= \C$ and so
+by the Riemann mapping theorem we find that there
+is a biholomorphic mapping $\psi \colon V \to \D$ such that $\psi(0)=0$
+
+Now note that $\varphi(\C_\infty \setminus U)$ is a compact subset of $V$.
+It is clearly closed, and it is bounded
+because $\Delta_\epsilon(0) \subset U$ for some $\epsilon$ and so
+\begin{equation*}
+\varphi(\C_\infty \setminus U) \subset \overline{\Delta_{1/\epsilon}(0)}.
+\end{equation*}
+Hence
+\begin{equation*}
+S = \psi\bigl(\varphi(\C_\infty \setminus U)\bigr)
+\end{equation*}
+is a compact subset of $\D$.  There is an $r < 1$ such that $S \subset
+\Delta_r(0)$.  Consider the path $\gamma(t) = r e^{-it}$ for $t \in
+[0,2\pi]$.  We let $\Gamma$ be the path
+$\varphi^{-1} \circ \psi^{-1} \circ \gamma$.
+
+Let us compute the winding numbers.
+For any $p$ not on the path $\varphi^{-1} \circ \psi^{-1} \circ \gamma$ compute
+the winding number (see \propref{prop:usubst}):
+\begin{multline*}
+n(\Gamma;p) = 
+\frac{1}{2\pi i}
+\int_{\varphi^{-1} \circ \psi^{-1} \circ \gamma}
+\frac{1}{z-p} \, dz
+=
+\frac{1}{2\pi i}
+\int_{\psi^{-1} \circ \gamma}
+\frac{-1}{(1-\zeta p) \zeta} \, d\zeta
+\\
+=
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{-1}{ \bigl( 1-\psi^{-1}(\xi)p \bigr)
+\psi^{-1}(\xi)
+\psi' \bigl(\psi^{-1}(\xi)\bigr)} \, d \xi .
+\end{multline*}
+
+First suppose that $p \in \C \setminus U$.
+The function 
+\begin{equation*}
+h(\xi) =
+\frac{-1}{ \bigl( 1-\psi^{-1}(\xi)p \bigr)
+\psi^{-1}(\xi)
+\psi' \bigl(\psi^{-1}(\xi)\bigr)}
+\end{equation*}
+defined on $\D$ has two poles.  One at $\psi\bigl(\frac{1}{p}\bigr)$ and one
+at $0$ (the third factor in the denominator is never zero).
+They are both simple poles as is easy to check and the residues are (using
+\propref{prop:residuesimpleratio})
+\begin{equation*}
+\operatorname{Res}(h;0) = 
+\frac{-1}{ \bigl( 1-\psi^{-1}(0)p \bigr)
+\psi' \bigl(\psi^{-1}(0)\bigr)}
+\,
+\frac{1}{1/\psi'\bigl(\psi^{-1}(0)\bigr)}
+=
+-1
+\end{equation*}
+and
+\begin{equation*}
+\operatorname{Res}\bigl(h;\psi(1/p)\bigr)
+=
+\frac{-1}{
+\psi^{-1}\bigl(\psi(1/p)\bigr)
+\psi' \bigl(\psi^{-1}(\psi(1/p))\bigr)
+}
+\,
+\frac{1}{
+-1/\bigl(\psi'(\psi^{-1}(\psi(1/p)))p\bigr)
+}
+=
+1 .
+\end{equation*}
+The path $\gamma$ always goes around $0$.
+As $p \in \C \setminus U$, then $\gamma$ goes around
+$\psi\bigl(\frac{1}{p}\bigr)$, as $r$ was picked sufficiently large
+precisely so that the circle $\gamma$ goes around any point that
+is the image of a $p \in \C \setminus U$, that is, $\psi\bigl(\frac{1}{p}\bigr)$.
+By the residue theorem, as the sum of the residues which is zero,
+\begin{equation*}
+n(\Gamma;p) = 0 .
+\end{equation*}
+
+Next suppose $p \in K$.  As before
+$n(\Gamma;p) = 
+\frac{1}{2\pi i}
+\int_{\gamma} h(\xi) \, d\xi$.
+But now, $h$ has just the pole at $0$ as $\psi^{-1}(\xi)$ can
+never be equal to $p$ if $p \in K$.  Thus noting that $\gamma$ traverses
+the circle backwards, we find that 
+\begin{equation*}
+n(\Gamma;p) = 
+\frac{1}{2\pi i}
+\int_{\gamma} h(\xi) \, d\xi 
+= - \operatorname{Res}(h;0) = 1 .  \qedhere
+\end{equation*}
+\end{proof}
+
+We can now prove the main result of this section, which gives the simplest
+topological characterization of simply connected domains in $\C$.
+
+\begin{thm} \label{cor:scbycomplementhard}
+Let $U \subset \C$ be a domain.  Then
+$\C_\infty \setminus U$ is connected if and only if $U$ is simply connected.
+\end{thm}
+
+\begin{proof}
+The forward direction is \propref{prop:scbycomplementeasy}.  So let's the do
+the backwards direction by contrapositive.  Suppose that $\C_\infty
+\setminus U$ is disconnected.  Then there are two disjoint closed
+sets $S$ and $K$ such that $S \cup K = \C_\infty \setminus U$. 
+Assuming that $\infty \in S$.
+The set $U' = U \cup K$ is open as $S$ is closed, $U' \subset \C$,
+and $K \subset U'$ is compact.  Apply the lemma to find a cycle
+$\Gamma$ in $U = U' \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in
+K$.  In other words, $\Gamma$ is not homologous to zero.
+\end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
