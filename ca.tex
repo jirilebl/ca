@@ -599,24 +599,30 @@ My plan for a semester is to go through chapters
 Cauchy, to get through basic theory of holomorphic functions,
 then getting to \ref{ch:montelriemann} (Montel and Riemann mapping),
 \ref{ch:harmonic} (harmonic functions),
-\ref{ch:runge} (Runge).  Then there are some extra topics for a differnt
+\ref{ch:runge} (Runge).
+Then there are some extra topics for a different
 plan such as \ref{ch:weier} (Weierstrass factorization) and
 \ref{ch:analcont} (analytic continuation).
 \begin{equation*}
 \begin{tikzcd}[cramped, row sep=small]
-& & {\text{\Chdotref{ch:complexplane}}} \arrow[d] \\
-& & {\text{\Chdotref{ch:holanal}}} \arrow[d] \\
-& & {\text{\Chdotref{ch:cauchysimple}}} \arrow[d] \\
-& & {\text{\Chdotref{ch:log}}} \arrow[d] \\
-& & {\text{\Chdotref{ch:counting}}} \arrow[dll] \arrow[dl] \arrow[d]
+& {\text{\Chdotref{ch:complexplane}}} \arrow[d] \\
+& {\text{\Chdotref{ch:holanal}}} \arrow[d] \\
+& {\text{\Chdotref{ch:cauchysimple}}} \arrow[d] \\
+& {\text{\Chdotref{ch:log}}} \arrow[d] \\
+& {\text{\Chdotref{ch:counting}}} \arrow[dl] \arrow[d]
 \arrow[dr] \arrow[dr] \arrow[drr] \\
-{\text{\Chdotref{ch:montelriemann}}} &
+{\text{\Chdotref{ch:montelriemann}}} \arrow[d] &
 {\text{\Chdotref{ch:harmonic}}} &
-{\text{\Chdotref{ch:runge}}} &
 {\text{\Chdotref{ch:weier}}} &
 {\text{\Chdotref{ch:analcont}}}
+\\
+{\text{\Chdotref{ch:runge}}}
 \end{tikzcd}
 \end{equation*}
+The only reason why \ref{ch:runge} (Runge) depends on \ref{ch:montelriemann}
+(Montel and Riemann mapping) is that we prove \lemmaref{lemma:patharoundK}
+(around ever compact there exists a cycle homologous to zero)
+as an example application of Riemann mapping.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
