@@ -4315,8 +4315,11 @@ f\bigl((h \circ \gamma)(t)\bigr) (h \circ \gamma)'(t) \, dt
 \begin{exercise}
 Let $f \colon \partial \D \to \C$ be a continuous function.  Prove that
 \begin{equation*}
-\int_{\partial \D} f(z) \, dz =
-\int_{\partial \D} \frac{f\bigl(\frac{1}{z}\bigr)}{z^2} \, dz .
+\int_{\partial \D} f(z) \, dz
+=
+\int_{\partial \D} \frac{f\bigl(\frac{1}{z}\bigr)}{z^2} \, dz
+=
+\int_{\partial \D} f(\bar{z}) \bar{z}^2 \, dz .
 \end{equation*}
 \end{exercise}
 \end{exbox}
@@ -7840,7 +7843,7 @@ The theorem is actually an ``if and only if,'' but the other
 direction is more difficult and so let's just prove the easy direction
 at this point.
 The other direction will be much easier to prove once we have the Riemann
-mapping theorem, see \subsectionref{subsec:patharoundcomponent}, so we will
+mapping theorem, see \subsectionref{subsec:patharoundK}, so we will
 prove it there.
 
 \begin{prop} \label{prop:scbycomplementeasy}
@@ -9968,33 +9971,38 @@ For all integers $n \in \Z$, compute
 
 \begin{exercise}
 Compute
+\smallskip
 \begin{exparts}
 \item
-$\displaystyle \int_{-\infty}^\infty \frac{1}{{(x^2+1)}^2} \, dx$.
-\item
-$\displaystyle \int_{-\infty}^\infty \frac{\cos(3x)}{x^4+1} \, dx$.
+$\displaystyle \int_{-\infty}^\infty \frac{1}{{(x^2+1)}^2} \, dx$,
+\qquad
+%FIXME really faking it!
+b)\enspace$\displaystyle \int_{-\infty}^\infty \frac{\cos(3x)}{x^4+1} \, dx$.
 \end{exparts}
 \end{exercise}
 
 \begin{exercise}[Inverse Laplace transform]
 \index{inverse Laplace transform}
-A common integral that gets computed via the Residue theorem is
+A common integral computed via the Residue theorem is
 the inverse Laplace transform via \emph{\myindex{Mellin's inversion
-formula}}. The point is, given $F(s)$, to find
+formula}}. Given $F(s)$,
 \begin{equation*}
 f(t) = \sL^{-1}\bigl[F(s)\bigr] =
 \frac{1}{2 \pi i }
 \lim_{r \to \infty}
 \int_{c-ir}^{c+ir}
-e^{st}F(s) \, ds .
+e^{st}F(s) \, ds
 \end{equation*}
-for some $c \in \R$ (usually $c \geq 0$).
+for some $c \in \R$ (usually $c \geq 0$) is the inverse.  Compute
+\smallskip
 \begin{exparts}
 \item
-Compute $\sL^{-1}\left[ \frac{1}{s(s+1)} \right]$.
-\item
-Compute $\sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$.
+$\sL^{-1}\left[ \frac{1}{s(s+1)} \right]$,
+%FIXME really faking it!
+\qquad
+b)\enspace$\sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$.
 \end{exparts}
+\smallskip
 Hint: Pick the correct vertical line (pick a $c$) and an arc that goes
 around all the poles.
 \end{exercise}
@@ -10002,11 +10010,13 @@ around all the poles.
 \begin{exercise}
 \pagebreak[2]
 Compute
+\smallskip
 \begin{exparts}
 \item
-$\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$.
-\item
-$\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$.
+$\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$,
+%FIXME really faking it!
+\qquad
+b)\enspace$\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$.
 \end{exparts}
 \end{exercise}
 
@@ -10208,7 +10218,7 @@ that only goes around any particular point either once or not at all.
 We then want to count the number of zeros and poles inside $\Gamma$.
 
 Often the theorem is only applied for holomorphic functions, that is,
-functions without poles:
+functions without poles.
 
 \begin{cor}[Rouch\`e]\label{thm:rouche2}
 Let $U$, $\Gamma$ and $V$ be as in \thmref{thm:rouche}.
@@ -10261,9 +10271,9 @@ Write the inequality as
 This inequality precludes $\frac{f(z)}{g(z)}$ ever being positive on
 $\Gamma$, and hence in a neighborhood of $\Gamma$.  Let $L$ be a branch of
 the logarithm defined on the set $\C \setminus [0,\infty)$.
-Let $\phi(z) = \frac{f(z)}{g(z)}$.
+Let $\varphi(z) = \frac{f(z)}{g(z)}$.
 The function
-$\frac{\varphi'}{\varphi}$ then has a well-defined antiderivative
+$\frac{\varphi'}{\varphi}$ has a well-defined antiderivative
 $L \circ \varphi$ on a neighborhood of $\Gamma$.  As $\Gamma$
 is a cycle,
 \begin{equation*}
@@ -10387,17 +10397,17 @@ Let
 $V = \{ z \in U : n(\Gamma;z) = 1 \}$.
 Suppose $f$ has no zeros on $\Gamma$ and $k$ zeros (counting
 multiplicity) in $V$.
-Then there exists an $N$ such that for all $n \geq N$,
+Then there is an $N$ such that for all $n \geq N$,
 $f_n$ has $k$ zeros (counting multiplicity) in $V$.
 \end{thm}
 
 \begin{proof}
-As a set $\Gamma$ is compact, and so
+As a set, $\Gamma$ is compact, and so
 there is a $\delta > 0$ such that $\delta < \sabs{f(z)}$
-for all $z \in \Gamma$.  Furthermore,
-the functions $f_n$
+for all $z \in \Gamma$.
+The functions $f_n$
 converge uniformly to $f$ on $\Gamma$.
-So for all $n$ large enough we have that
+So for all $n$ large enough,
 \begin{equation*}
 \sabs{f(z)-f_n(z)} < \delta < \sabs{f(z)}
 \end{equation*}
@@ -10416,7 +10426,7 @@ to $f \colon U \to \C$.  Then $f$ is either univalent or constant.
 \end{cor}
 
 \begin{proof}
-Suppose the function $f$ is nonconstant.
+Suppose $f$ is nonconstant.
 Suppose there exist distinct $z_1$ and $z_2$ in $U$ such that $f(z_1) =
 f(z_2) = w$.  Consider $f-w$, which has isolated zeros at $z_1$ and $z_2$.
 Consider two small discs $\Delta_r(z_1)$ and $\Delta_r(z_2)$ contained in
@@ -10519,7 +10529,6 @@ principle.
 If for any $p$,
 $f(p)$ is always in the interior of $f(V)$ for any neighborhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
-
 Notice also that the proof says something stronger than the theorem statement.  It
 gives an explicit bound.  It says that if 
 $\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$,
@@ -10530,8 +10539,8 @@ $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
 \begin{exercise}
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic
 and let $f(U) \subset V$ for some closed set $V$.
-Prove that if $f(z) \in \partial V$
-for some $z \in U$, then $f$ is constant.
+Suppose $f(z) \in \partial V$
+for some $z \in U$.  Prove $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
@@ -11127,7 +11136,7 @@ surprise that if we have a uniformly bounded set of holomorphic functions
 on a common domain, then this set is equicontinuous.
 Let us use some of the traditional language.\footnote{%
 We wouldn't want the reader to miss out on all the possibilities of making
-jokes about ``normal families.''}
+jokes about how Montel had a ``normal family.''}
 
 \begin{defn}
 Let $U \subset \C$ be open.
@@ -11498,7 +11507,7 @@ Then we define $H$ in the same way as we did for $\C$, and then we
 take the whole thing back to $U$.
 \end{proof}
 
-\subsection{Paths around compacts and simply-connectedness *}\label{subsec:patharoundcomponent}
+\subsection{Cycles around compacts and simply-connectedness}\label{subsec:patharoundK}
 
 As a second and perhaps much less obvious application of the Riemann
 mapping theorem,
@@ -11509,94 +11518,97 @@ What's interesting is that there is no simply connected domain
 in this problem, but we can still use the Riemann mapping theorem to greatly
 simplify the topology of the situation.
 There are more direct and
-constructive ways of proving this theorem,
-but I have an irrational affinity to using the mapping theorem.
+constructive (but no less technical) ways of proving this theorem,
+but I have an irrational affinity to using the mapping theorem.\footnote{%
+The typical proof will put a fine enough square grid on $\C$ and then
+show that if we add up all these small cycles whose squares happen to intersect
+the compact set and remove the doubled sides, we get the cycle we want.}
 
 This lemma will allow us to finish the proof that simply
 connected domains in $\C$ are precisely those 
 where the complement in $\C_\infty$ is connected.  That is, we will prove
 the converse of \propref{prop:scbycomplementeasy}.  First the lemma.
 
-\begin{lemma}
+\begin{lemma}\label{lemma:patharoundK}
 Let $U \subset \C$ be open and suppose that $K \subset U$ is compact.
 Then there exists a cycle
 $\Gamma$ in $U \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in K$ and
 $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
 \end{lemma}
 
-The intuitive idea of the proof is to first suppose $K$ is connected and
-to take one point of it to infinity by an LFT
-(an inversion).  Then use the Riemann mapping theorem to make the complement
-of $K$ go to the disc.
-Then the path is to go backwards very close to the boundary
-as this will ``go around'' (after the inversion) what's outside the disc.
+The intuitive idea of the proof is rather simple.  First suppose $K$ is
+connected and
+take one point of it to infinity by an LFT
+(an inversion).
+Then use the Riemann mapping theorem to make the complement of $K$ go to the disc.
+Then the path is a backwards circle very close to the boundary of the disc
+as this will ``go around'' (after the inversion) what's ``outside the disc,''
+that is, it will go around $K$.
 The complement of $U$
-will be inside the disc so this way we will not ``go around'' what's inside.
-Then one could repeat it for connected components of $K$.  Of course in
+will go inside the disc so this way we will not ``go around'' the complement
+of $U$.
+Then one would want to repeat it for all components of $K$.  Of course in
 reality we hit a bunch of technicalities such as $K$ possibly having
 infinitely many connected components, and of course vague intuitive ideas are
 nice, but we need to actually do some grubby computation to prove anything.
 
 \begin{proof}
-First let us simplify $K$.  A priory $K$ may have infinitely many
-connected component.  For some small enough $r > 0$ the set
+Let us first prove that we can enlarge $K$ so that it
+has only finitely many components.  For a small enough $r > 0$ the set
 \begin{equation*}
 K' = \bigcup_{z \in K} \overline{\Delta_r(z)}
 \end{equation*}
 is a compact subset of $U$
 (see the proof of \thmref{thm:unifoncompact} for example).
-If we find a $\Gamma$ around $K'$ then we are done as $K \subset K'$.
-Furthermore $K'$ has at most finitely many topological components:
 As $K \subset \Delta_R(0)$ for some $R$, then $K' \subset \Delta_{R+r}(0)$.
 Each connected component of $K'$ must contain a closed disc
 $\overline{\Delta_r(z)}$ for some $z$ and there are only finitely many such
-discs in $\Delta_{R+r}(0)$.
+discs in $\Delta_{R+r}(0)$.  Thus $K'$ has finitely many topological
+components.
+If we find a $\Gamma$ around $K'$, then we are done as $K \subset K'$.
 
-Let $K_1,\ldots,K_n$ be the 
-connected components of $K'$.  All the sets $K_j$ are closed and so compact
-as they are connected, and furthermore $K_2 \cup \cdots \cup K_n$ is also
-compact.
-If we prove the lemma for the compact set $K_1$ and
-the domain $U \setminus ( K_2 \cup \cdots \cup K_n )$ to find a cycle
+Let $K_1,\ldots,K_n$ be the components of $K'$.
+The components are closed, and as there are finitely many,
+$K_2 \cup \cdots \cup K_n$ is also closed.
+If we prove the lemma for the connected compact set $K_1$ and
+the open set $U \setminus ( K_2 \cup \cdots \cup K_n )$ to find a cycle
 $\Gamma_1$, then we claim we are done: We could repeat the procedure
 for each $K_j$ to find $\Gamma_j$ and let $\Gamma = \Gamma_1 + \cdots +
 \Gamma_n$.  As $\Gamma_j$ winds exactly once around every point of $K_j$
-and does not wind around any point of the other $K_\ell$,
+and does not wind around any point of $K_\ell$ for $\ell \not= j$,
 then $\Gamma$ will wind exactly once around any point of $K'$,
-and it will still be homologous to zero.
+and it still homologous to zero in $U$.
 
-So without loss of generality, we will assume that $K$ is connected.  We can
-also assume that $0 \in K$.  If $K= \{0 \}$ then we are done trivially, so
-assume that $K$ is larger than one point.
+So without loss of generality, assume that $K$ is connected.  
+Also assume that $0 \in K$.  If $K= \{0 \}$, we are done trivially, so
+assume $K$ is larger than one point.
 Consider $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
-LFT, that is,
+LFT:
 $\varphi(z) = \frac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
 $\varphi(0) = \infty$ and $\varphi(\infty) = 0$.
 Being an LFT, $\varphi$ is a (bi)holomorphic
 mapping of $\C_\infty$ to itself, where $\varphi^{-1} = \varphi$.  Let
 \begin{equation*}
-V = \varphi(\C_\infty \setminus K)
+V = \varphi(\C_\infty \setminus K) .
 \end{equation*}
-Notice that $\infty \notin V$, $0 \in V$, and
+Note that $\infty \notin V$, $0 \in V$, $V \not= \C$ ($K$ is more than one
+point), and
 $\C_\infty \setminus V = \varphi(K)$ is connected.
-So by \propref{prop:scbycomplementeasy} $V$ is a simply connected.
-As $K$ is more than one point, $V \not= \C$ and so
-by the Riemann mapping theorem we find that there
-is a biholomorphic mapping $\psi \colon V \to \D$ such that $\psi(0)=0$
+So $V$ is a simply connected
+by \propref{prop:scbycomplementeasy}.
+By the Riemann mapping theorem, there exists
+a biholomorphic mapping $\psi \colon V \to \D$ such that $\psi(0)=0$.
 
-Now note that $\varphi(\C_\infty \setminus U)$ is a compact subset of $V$.
-It is clearly closed, and it is bounded
-because $\Delta_\epsilon(0) \subset U$ for some $\epsilon$ and so
-\begin{equation*}
-\varphi(\C_\infty \setminus U) \subset \overline{\Delta_{1/\epsilon}(0)}.
-\end{equation*}
-Hence
+The set $\C_\infty \setminus U$ is compact: it is a closed subset of
+a compact set $\C_\infty$.  As $\varphi$ is continuous,
+$\varphi(\C_\infty \setminus U)$ is compact, and a subset of $V$.
+And as $\psi$ is continuous,
 \begin{equation*}
 S = \psi\bigl(\varphi(\C_\infty \setminus U)\bigr)
 \end{equation*}
 is a compact subset of $\D$.  There is an $r < 1$ such that $S \subset
 \Delta_r(0)$.  Consider the path $\gamma(t) = r e^{-it}$ for $t \in
-[0,2\pi]$.  We let $\Gamma$ be the path
+[0,2\pi]$.  Let $\Gamma$ be the path
 $\varphi^{-1} \circ \psi^{-1} \circ \gamma$.
 
 Let us compute the winding numbers.
@@ -11616,7 +11628,9 @@ n(\Gamma;p) =
 \frac{1}{2\pi i}
 \int_{\gamma}
 \frac{-1}{ \bigl( 1-\psi^{-1}(\xi)p \bigr)
+\,
 \psi^{-1}(\xi)
+\,
 \psi' \bigl(\psi^{-1}(\xi)\bigr)} \, d \xi .
 \end{multline*}
 
@@ -11625,7 +11639,9 @@ The function
 \begin{equation*}
 h(\xi) =
 \frac{-1}{ \bigl( 1-\psi^{-1}(\xi)p \bigr)
+\,
 \psi^{-1}(\xi)
+\,
 \psi' \bigl(\psi^{-1}(\xi)\bigr)}
 \end{equation*}
 defined on $\D$ has two poles.  One at $\psi\bigl(\frac{1}{p}\bigr)$ and one
@@ -11635,9 +11651,10 @@ They are both simple poles as is easy to check and the residues are (using
 \begin{equation*}
 \operatorname{Res}(h;0) = 
 \frac{-1}{ \bigl( 1-\psi^{-1}(0)p \bigr)
+\,
 \psi' \bigl(\psi^{-1}(0)\bigr)}
 \,
-\frac{1}{1/\psi'\bigl(\psi^{-1}(0)\bigr)}
+\frac{1}{\frac{1}{\psi'(\psi^{-1}(0))}}
 =
 -1
 \end{equation*}
@@ -11647,17 +11664,19 @@ and
 =
 \frac{-1}{
 \psi^{-1}\bigl(\psi(1/p)\bigr)
+\,
 \psi' \bigl(\psi^{-1}(\psi(1/p))\bigr)
 }
 \,
 \frac{1}{
--1/\bigl(\psi'(\psi^{-1}(\psi(1/p)))p\bigr)
+\frac{-1}{\psi'(\psi^{-1}(\psi(1/p)))}
+\, p
 }
 =
 1 .
 \end{equation*}
-The path $\gamma$ always goes around $0$.
-As $p \in \C \setminus U$, then $\gamma$ goes around
+The path $\gamma$ definitely goes around $0$.
+The path goes around
 $\psi\bigl(\frac{1}{p}\bigr)$, as $r$ was picked sufficiently large
 precisely so that the circle $\gamma$ goes around any point that
 is the image of a $p \in \C \setminus U$, that is, $\psi\bigl(\frac{1}{p}\bigr)$.
@@ -11670,9 +11689,9 @@ Next suppose $p \in K$.  As before
 $n(\Gamma;p) = 
 \frac{1}{2\pi i}
 \int_{\gamma} h(\xi) \, d\xi$.
-But now, $h$ has just the pole at $0$ as $\psi^{-1}(\xi)$ can
-never be equal to $p$ if $p \in K$.  Thus noting that $\gamma$ traverses
-the circle backwards, we find that 
+As $p \in K$, $\psi^{-1}(\xi) \not= p$ for all $\xi \in \D$,
+and so $h$ has just the pole at $0$.
+Since $\gamma$ traverses the circle backwards,
 \begin{equation*}
 n(\Gamma;p) = 
 \frac{1}{2\pi i}
@@ -11681,7 +11700,7 @@ n(\Gamma;p) =
 \end{equation*}
 \end{proof}
 
-We can now prove the main result of this section, which gives the simplest
+We can now prove the simplest
 topological characterization of simply connected domains in $\C$.
 
 \begin{thm} \label{cor:scbycomplementhard}
@@ -11694,7 +11713,7 @@ The forward direction is \propref{prop:scbycomplementeasy}.  So let's the do
 the backwards direction by contrapositive.  Suppose that $\C_\infty
 \setminus U$ is disconnected.  Then there are two disjoint closed
 sets $S$ and $K$ such that $S \cup K = \C_\infty \setminus U$. 
-Assuming that $\infty \in S$.
+Assume that $\infty \in S$.
 The set $U' = U \cup K$ is open as $S$ is closed, $U' \subset \C$,
 and $K \subset U'$ is compact.  Apply the lemma to find a cycle
 $\Gamma$ in $U = U' \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in
@@ -12322,7 +12341,7 @@ should write out the details for an exercise.
 
 \begin{exbox}
 \begin{exercise}
-We proved that given $\epsilon > 0$, there is a $\delta > 0$ such that
+We proved that given $\epsilon > 0$, there exists a $\delta > 0$ such that
 $\sabs{Pu(re^{i\theta})-Pu(e^{i\theta_0})} < \epsilon$
 when $\sabs{\theta-\theta_0} < \delta$ and
 $1 - \delta < r \leq 1$.  Prove that this really does mean that
@@ -13211,7 +13230,7 @@ It has been said that man is a rational animal. All my life I have been searchin
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Polynomial approximation}
+\section{Introduction to polynomial approximation}
 \label{sec:polyapprox}
 
 In real analysis, you may have seen the very useful
@@ -13219,8 +13238,8 @@ Weierstrass approximation theorem (and more generally the
 Stone--Weierstrass approximation theorem), which says that a continuous function
 on a compact interval $[a,b]$ can be uniformly approximated by polynomials
 of a real variable.  For holomorphic polynomials, that is polynomials in $z$
-we have a similar theorem, but not for continuous functions but for
-holomorphic functions.  That makes sense.  After all, uniform limits of
+we have a similar theorem, but for holomorphic functions not
+continuous functions.  That makes sense.  After all, uniform limits of
 holomorphic functions are holomorphic.
 
 \begin{example}
@@ -13271,7 +13290,7 @@ following exercise.
 \begin{exbox}
 \begin{exercise}
 For any polynomial $P(z)$, there exists a $z_0 \in \partial \D$ such that
-$\abs{P(z_0)-\frac{1}{z_0}} \geq 1$.
+$\babs{P(z_0)-\frac{1}{z_0}} \geq 1$.
 \end{exercise}
 \end{exbox}
 
@@ -13281,11 +13300,132 @@ functions if we allow a pole at $0$.  The function $\frac{1}{z}$ is already
 a rational function with a pole at zero.
 
 A polynomial is really just a rational function that has a pole at infinity.
+Once we will prove Runge's theorem we will prove that it really is the hole
+that is the problem.  We can approximate a holomorphic function
+by polynomials on any set whose complement is connected.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Rational functions and pushing poles}
 \label{sec:rational}
+
+Let us first prove rational approximation without any control of the poles.
+The key is going to be that we can find a cycle around any compact set $K$
+(see \subsectionref{subsec:patharoundK})
+so that we can apply Cauchy's integral formula.  Then the Riemann sums of the
+integral are the rational functions.
+
+\begin{lemma}
+Let $U \subset \C$ be open, $K \subset U$ compact, $f \colon U \to \C$
+holomorphic, and $\Gamma$ a cycle in $U$ homologous to zero in $U$
+such that $\Gamma \cap K = \emptyset$ and $n(\Gamma;z) = 1$ for all $z \in
+K$.  Then for any $\epsilon > 0$, there exists a rational function $R(z)$ with
+poles on $\Gamma$ such that $\sabs{f(z)-R(z)} < \epsilon$ for all $z \in K$.
+\end{lemma}
+
+\begin{proof}
+The hypotheses mean that we can apply Cauchy's integral formula for any $z
+\in K$:
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i}
+\int_\Gamma
+\frac{f(\zeta)}{\zeta-z} \, d \zeta .
+\end{equation*}
+The cycle $\Gamma$ is a finite sum of closed piecewise $C^1$ paths.
+If we that the Riemann sums of the corresponding to each path
+converge uniformly on $K$, then their sum also converges uniformly
+and it converges to $f$.
+
+Thus consider just one path $\gamma \colon [0,1] \to U$, and
+let $\epsilon > 0$ be given.
+The function
+\begin{equation*}
+(z,t) \mapsto
+\frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}
+\end{equation*}
+is uniformly continuous on the compact set $K \times [0,1]$.  Furthermore,
+as $\gamma'$ is bounded, we can find a $\delta > 0$ such that
+\begin{equation*}
+\abs{
+\frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}\gamma'(t)
+-
+\frac{f\bigl(\gamma(\tau)\bigr)}{\gamma(\tau)-z}\gamma'(t)
+} < \epsilon
+\end{equation*}
+for all $z \in K$ and all $t,\tau \in [0,1]$ such that $\sabs{t-\tau} <
+\delta$.
+Partition $[0,1]$ into $0 = t_0 < \cdots < t_k = 1$ such that
+$t_j-t_{j-1} < \delta$.
+Write
+\begin{equation*}
+\int_\gamma
+\frac{f(\zeta)}{\zeta-z} \, d\zeta
+=
+\sum_{j=1}^k
+\int_{t_{j-1}}^{t_j}
+\frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}
+\gamma'(t)
+\, dt .
+\end{equation*}
+Let us estimate each bit of this integral by a rational function
+(note the use of the fundamental theorem of calculus)
+\begin{multline*}
+\abs{
+\int_{t_{j-1}}^{t_j}
+\frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}
+\gamma'(t)
+\, dt
+\enspace
+-
+\enspace
+\frac{f\bigl(\gamma(t_j)\bigr)}{\gamma(t_j)-z}
+\bigl( \gamma(t_j)-\gamma(t_{j-1}) \bigr)
+}
+\\
+=
+\abs{
+\int_{t_{j-1}}^{t_j}
+\left(
+\frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}
+\gamma'(t)
+-
+\frac{f\bigl(\gamma(t_j)\bigr)}{\gamma(t_j)-z}
+\gamma'(t)
+\right)
+\, dt
+}
+\\
+\leq
+\int_{t_{j-1}}^{t_j}
+\abs{
+\frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}
+\gamma'(t)
+-
+\frac{f\bigl(\gamma(t_j)\bigr)}{\gamma(t_j)-z}
+\gamma'(t)
+}
+\, dt
+\leq \epsilon (t_j-t_{j-1}) .
+\end{multline*}
+Summing these bits together and using the triangle inequality, we find
+\begin{equation*}
+\abs{
+\int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta
+-
+\sum_{j=1}^k
+\frac{f\bigl(\gamma(t_j)\bigr)}{\gamma(t_j)-z}
+\bigl( \gamma(t_j)-\gamma(t_{j-1}) \bigr)
+}
+\leq \sum_{j=1}^k \epsilon (t_j-t_{j-1}) = \epsilon .
+\end{equation*}
+Thus the integral over $\gamma$ converges uniformly for $z \in K$, and
+we are done by summing up over all the paths in $\Gamma$.
+\end{proof}
+
+
+
+
 
 
 
@@ -13318,6 +13458,13 @@ and $f \colon U \to \C$ is holomorphic.
 Then there exists a sequence $\{ R_n \}$ of rational functions with poles in $S$
 that converges to $f$ uniformly on compact subsets.
 \end{thm}
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Polynomial hull and approximation}
+\label{sec:polyhull}
 
 FIXME
 
