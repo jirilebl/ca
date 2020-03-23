@@ -7639,7 +7639,7 @@ See \exerciseref{exercise:H1U}.
 \end{exercise}
 
 \begin{exercise}
-Prove that any star-like domain is simply connected.
+Prove that any star-like domain in $\C$ is simply connected.
 \end{exercise}
 \end{exbox}
 
@@ -7888,14 +7888,15 @@ $\C_\infty \setminus U = \{ 0, \infty \}$ is not connected.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is a domain $\partial \Delta_r(p) \subset U$,
+Suppose $U \subset \C$ is a domain, $\partial \Delta_r(p) \subset U$,
 but there is a $z \in \Delta_r(p)$ such that $z \notin U$.
 Prove that $U$ is not simply connected.
 \end{exercise}
 
 \begin{exercise}
-Let $K \subset \C$ be nonempty and compact.  Prove that $\C \setminus K$ is
-not simply connected.
+Let $K \subset \C$ be nonempty and compact.
+Prove that the unbounded component of $\C \setminus K$ is not a
+simply connected domain.
 \end{exercise}
 
 \begin{exercise}
@@ -7962,8 +7963,8 @@ the punctured disc
 \begin{equation*}
 \ann(p;0,r) = \Delta_r(p) \setminus \{ p \} .
 \end{equation*}
-When $r_2 = \infty$ on the other hand, we get
-$\ann(p;r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$.  We will,
+When $r_2 = \infty$ on the other hand,
+$\ann(p;r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$ (if $r > 0$).  We will,
 however, avoid temptation calling $\ann(p;r,\infty)$ an ``annulus.''%
 \footnote{``Holey plane'' perhaps?  A punctured disc also ought not to be
 called an ``annulus'', and calling $\ann(0;0,\infty) = \C \setminus
@@ -8264,7 +8265,7 @@ it could very well be when all the $c_n$ for negative $n$ are zero.
 Suppose $f \colon \Delta_r(p) \to \C$ is holomorphic, and suppose you expand
 $f$ in a Laurent series in $\ann(p;r_1,r_2)$ for $0 \leq r_1 < r_2 \leq r$.
 Prove that $c_n = 0$ for all negative $n$ and that $c_n$ for nonnegative $n$
-are just the coefficients of the power series of $f$ at $p$.
+are the coefficients of the power series of $f$ at $p$.
 \end{exercise}
 
 \begin{exercise}[Easy]
@@ -8279,21 +8280,21 @@ $\alpha f + \beta g$ has coefficients $\alpha a_n + \beta b_n$.
 Suppose $\sum_{n=-\infty}^m c_n {(z-p)}^n$ is a Laurent series with only
 finitely many positive terms.  Show that either the series converges
 nowhere, or there exists a number $r \geq 0$ such that the series
-converges uniformly and absolutely on compact subsets of $\C \setminus
-\overline{\Delta_r(p)}$.
+converges uniformly and absolutely on compact subsets of
+$\ann(p;r,\infty)$.
 \end{exercise}
 
 \begin{exercise}
 Expand the function $\frac{1}{(z-1)(z-2)}$ using Laurent (or power) series in 
 \begin{exparts}
-\item $\D \setminus \{ 0 \}$
-\item $\ann(0;1,2)$
-\item $\ann(0;2,\infty)$
+\item $\ann(0;0,1) = \D \setminus \{ 0 \}$,
+\item $\ann(0;1,2)$,
+\item $\ann(0;2,\infty)$.
 \end{exparts}
 \end{exercise}
 
 \begin{exercise}
-Suppose $U = \ann(p;r_1,r_2)$ is an annulus and $r_1 < r < r_2$.
+Suppose $U = \ann(p;r_1,r_2)$ and $r_1 < r < r_2$.
 Show that every cycle $\Gamma$ in $U$ is homologous in $U$
 to $n \partial \Delta_r(p)$ for some integer $n$.
 \end{exercise}
@@ -8771,7 +8772,8 @@ In terms of the Wirtinger derivatives, $dz$, and $d \bar{z}$,
 
 \begin{exbox}
 \begin{exercise}
-Derive the second form in terms of the Wirtinger derivatives from the first
+Show that the second form of Green's theorem in terms of the Wirtinger
+derivatives (the second equation in the theorem) is equivalent to the first
 form.
 \end{exercise}
 
@@ -9072,11 +9074,11 @@ $g'(z) = (z-p) \varphi'(z) + \varphi(z)$, we have $g'(p) = \varphi(p) \not= 0$.
 \begin{exercise}
 Suppose $U \subset \C$ is open and
 $f \colon U \to \C$ holomorphic.
-Show that $f$ has a zero of order $k$ at $p$
+Show that $f$ has a zero of order $k$ at $p \in U$
 if and only if
 there is a disc $\Delta_r(p) \subset U$ and some $C_1 > 0$ and $C_2 > 0$
 such that for
-all $z \in \Delta_r(p)$:
+all $z \in \Delta_r(p)$,
 \begin{equation*}
 C_1 {\sabs{z-p}}^k
 \leq
@@ -9132,7 +9134,7 @@ all $t \in (-\epsilon,\epsilon)$.
 \begin{exercise}
 Suppose $f$ is holomorphic in a neighborhood of a point $p$
 and suppose $\Re f$ has a critical point at $p$ (derivative is zero).
-Prove that $p$ is a saddle point (neither minimum nor a maximum).
+Prove that $p$ is a saddle point (neither a local minimum nor a local maximum).
 Hint: Apply the theorem and show that $k \geq 2$.  Note that $\Re z^k$ has a
 saddle point at the origin.
 \end{exercise}
@@ -9209,9 +9211,10 @@ singularity.
 
 \begin{exbox}
 \begin{exercise}
-Suppose that $S \subset \C$ is a discrete set (each point is isolated) and
-$f \colon \C \setminus S \to \C$ is holomorphic and $f(\C \setminus S)
-\subset \D$.  Show that $f$ is constant.
+Suppose that $S \subset \C$ is a discrete set (each point is isolated),
+$f \colon \C \setminus S \to \C$ is holomorphic,
+and $f(\C \setminus S) \subset \D$.
+Show that $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
