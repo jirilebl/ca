@@ -9020,7 +9020,9 @@ thing is true for real differentiable functions (see the exercises).
 
 \begin{proof}[Proof of the lemma]
 On $U \setminus \{ p \}$ the function $g(z) = \frac{f(z)}{{(z-p)}^k}$ is
-holomorphic for any $k$, so the trick is only near $p$.  We expand $f$ at $p$
+holomorphic for any $k$, so the trick is only near $p$.  We expand $f$ at
+$p$,
+that is, for $z$ in some disc $\Delta_r(p)$,
 \begin{equation*}
 f(z) =
 \sum_{n=0}^\infty c_n {(z-p)}^n =
@@ -9030,10 +9032,11 @@ f(z) =
 \end{equation*}
 where $k$ is the smallest $n$ such that $c_n \not= 0$ (Hence the ``Furthermore'').
 Clearly $k > 0$.
-The series on the right is equal to $\frac{f(z)}{{(z-p)}^k}$ on
-some punctured disc $\Delta_r(p)\setminus \{ p \}$ where the series
+The series $\sum_{n=0}^\infty c_{n+k}{(z-p)}^n$
+is equal to $\frac{f(z)}{{(z-p)}^k}$ on
+the punctured disc $\Delta_r(p)\setminus \{ p \}$, where the series
 converged.
-So it can define the $g$ near $p$.  Uniqueness follows rather easily:
+So it can define $g$ near $p$.  Uniqueness follows rather easily:
 If ${(z-p)}^{k_1} g_1(z) = {(z-p)}^{k_2} g_2(z)$, where without loss of generality
 $k_1 \leq k_2$ and $g_1(p) \not= 0$ and $g_2(p) \not= 0$, then 
 $g_1(z) = {(z-p)}^{k_2-k_1} g_2(z)$.  Plug in $z=p$ to see that $k_2 =
@@ -9187,7 +9190,7 @@ with a rather surprisingly simple proof.
 
 \begin{thm}[\emph{\myindex{Riemann extension theorem}}]
 \label{prop:riemannext}
-Suppose $U \subset \C$ is an open set, $p \in U$,
+Suppose $U \subset \C$ is open, $p \in U$,
 and $f \colon U \setminus \{p\} \to \C$ holomorphic.
 If $f$ is bounded (near $p$ is enough), then $p$ is a removable singularity.
 \end{thm}
@@ -9275,7 +9278,7 @@ the function blows up to a finite integral order.
 
 \begin{cor}
 \pagebreak[2]
-Suppose $U \subset \C$ is an open set, $p \in U$,
+Suppose $U \subset \C$ is open, $p \in U$,
 and $f \colon U \setminus \{p\} \to \C$ holomorphic.
 \begin{enumerate}[(i)]
 \item
