@@ -9301,8 +9301,9 @@ We start with the first item.
 The function $f$ cannot be zero in some
 punctured neighborhood $\Delta_r(p) \setminus \{p\}$ as it goes to infinity.
 In fact, as $f$ goes to infinity,
-$\frac{1}{f}$ is bounded in some $\Delta_r(p) \setminus \{p\}$ 
-and thus has a removable singularity at $p$ by Riemann extension.
+$\frac{1}{f}$ goes to zero, and so it is bounded in some $\Delta_r(p)
+\setminus \{p\}$.
+Thus, it has a removable singularity at $p$ by Riemann extension.
 Let $h$ be holomorphic in $\Delta_r(p)$
 such that $h(z) = \frac{1}{f(z)}$ for $z \not= p$.  By continuity $h(p) =
 0$.  Hence $h(z) = {(z-p)}^k q(z)$ for some holomorphic $q$ and $k \in \N$,
@@ -9341,6 +9342,10 @@ order $k$ at $p$.
 If $f$ has a pole of order $k$ at $p$, then $\frac{1}{f}$
 has a removable singularity, and the extended function has a zero of order
 $k$ at $p$.
+In other words, if $f$ has a pole or a removable singularity we can write
+$f(z) = {(z-k)}^\ell g(z)$ for some $\ell$ and some holomorphic $g$ such
+that $g(p) \not= 0$.  The point is going to a zero of order $\ell$ if $\ell
+> 0$, and it is going to be a pole of order $-\ell$ if $\ell < 0$.
 
 \begin{exbox}
 \begin{exercise}
@@ -9384,11 +9389,7 @@ Prove that $f$ has an essential singularity at $0$.
 
 \subsection{Singularities and the Laurent series}
 
-Another way of classifying a singularity is in terms of the Laurent series.
-The key thing to notice is that a Laurent series in a punctured
-disc $\Delta_r(p) \setminus \{p\}$ is unique, so if the singularity is
-removable, the power
-series for the extended function must equal the Laurent series.
+A way of classifying a singularity is in terms of the Laurent series.
 
 \begin{prop}
 Suppose $f \colon \Delta_r(p) \setminus \{p\} \to \C$ is holomorphic,
@@ -9407,6 +9408,11 @@ $c_{-k}
 such that $c_n \not= 0$.
 \end{enumerate}
 \end{prop}
+
+The key point is that a Laurent series in a punctured
+disc $\Delta_r(p) \setminus \{p\}$ is unique,
+so if the singularity is removable, the power
+series for the extended function must equal the Laurent series.
 
 \begin{exbox}
 \begin{exercise}
