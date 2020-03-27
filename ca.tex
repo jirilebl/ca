@@ -9670,7 +9670,7 @@ f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 \end{equation*}
 The only power ${(z-p)}^n$ that does not have a primitive in
 $\Delta_r(p) \setminus \{ p \}$ is ${(z-p)}^{-1}$.  This is the only power
-that a line integral of $f$ ``sees,'' or in other words, it is
+that a line integral of $f$ around $p$ ``sees,'' or in other words, it is
 what's left, or the ``residue'' of integrating $f(z)$ around a closed path.
 With this in mind\footnote{%
 Q: Why did the mathematician name their dog Cauchy?
@@ -9794,6 +9794,7 @@ $\operatorname{Res}(f+g;p) = \operatorname{Res}(g;p)$.
 \end{prop}
 
 \begin{proof}
+For a small enough $\epsilon > 0$,
 \begin{equation*}
 \begin{split}
 \operatorname{Res}(f+g;p)
@@ -9803,15 +9804,15 @@ $\operatorname{Res}(f+g;p) = \operatorname{Res}(g;p)$.
 \bigl(f(z)+g(z)\bigr) \, dz
 \\
 & =
-\frac{1}{2\pi i}
-\int_{\partial \Delta_{\epsilon}(p)}
-f(z) \, dz
-+
 \cancelto{0}{
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{\epsilon}(p)}
-g(z) \, dz
+f(z) \, dz
 }
++
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{\epsilon}(p)}
+g(z) \, dz
 %=
 %\frac{1}{2\pi i}
 %\int_{\partial \Delta_{\epsilon}(p)}
@@ -9894,9 +9895,10 @@ By partial fractions we find
 \frac{i}{2} \frac{1}{z+i} - 
 \frac{i}{2} \frac{1}{z-i} .
 \end{equation*}
-There is an isolated singularity at $\pm i$.  Our cycle
-$\Gamma_r$ goes around $i$ (once so $n(\Gamma_r;i) = 1$),
-but not around $-i$ (exercise), so we only need to compute
+There are isolated singularities at $\pm i$.  Our cycle
+$\Gamma_r$ goes around $i$, once so $n(\Gamma_r;i) = 1$,
+but not around $-i$, that is, $n(\Gamma_r;-i) = 0$.
+So we only need to compute
 the residue around $i$.  We can use any one of the techniques:
 \begin{equation*}
 \operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
@@ -9931,7 +9933,8 @@ $\sabs{1+z^2} \geq r^2-1$.  So
 \int_{\gamma_r} \frac{1}{1+z^2} \, dz 
 }
 \leq
-r \pi \frac{1}{r^2-1} \to 0 \quad \text{as } r \to \infty .
+r \pi \frac{1}{r^2-1}
+\quad\underset{\text{as } r \to \infty}{\to}\quad 0 .
 \end{equation*}
 Hence,
 \begin{equation*}
@@ -9958,7 +9961,7 @@ $n(\Gamma_r;i) = 0$.
 Another application to real integrals is to simply recognize 
 a path integral.  For example integrals of trigonometric functions
 are often integrals over the unit circle.  On the unit
-circle, $\bar{z} = \frac{1}{z}$ and so if $z=e^{i\theta}$,
+circle, $\bar{z} = \frac{1}{z}$.  So if $z=e^{i\theta}$,
 $\cos \theta = \Re z = \frac{z+1/z}{2}$ and
 $\sin \theta = \Im z = \frac{z-1/z}{2i}$.
 
