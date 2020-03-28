@@ -4695,7 +4695,7 @@ The next corollary will be entirely
 subsumed into the more general version of Cauchy we will prove later,
 but right now it is rather appealing.
 
-\begin{cor}[Cauchy's theorem for polynomials]
+\begin{cor}[Cauchy's theorem for polynomials] \label{cor:cauchyforpoly}
 Suppose $P(z)$ is a polynomial and $\Gamma$ is
 %a closed piecewise $C^1$ path (or a cycle).
 a cycle.
@@ -4775,7 +4775,8 @@ of $T$ as
 What makes this the Goursat theorem
 rather than just another statement of Cauchy's theorem
 is that in the proof, we are only assuming that the complex derivative exists
-and not that it is continuous, which is what Cauchy assumed.}]\index{Cauchy--Goursat theorem}
+and not that it is continuous, which is what Cauchy
+assumed.}]\index{Cauchy--Goursat theorem}\label{thm:cauchygoursat}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is
 holomorphic,
 %complex differentiable everywhere (holomorphic),
@@ -4869,7 +4870,7 @@ $\frac{g(z)}{z-z_0}$ go to zero as $z \to z_0$.
 Let us prove that it doesn't for any $\alpha$.  Fix $\alpha$
 and thus $g$.  If $g(z_0) \not= 0$,
 then we are done, so assume $g(z_0) = 0$.
-Cauchy's theorem for polynomials says
+\hyperref[cor:cauchyforpoly]{Cauchy's theorem for polynomials} says
 \begin{equation*}
 \int_{\partial T^k} f(z) \, dz =
 \int_{\partial T^k} \bigl( f(z_0) + \alpha (z-z_0) + g(z) \bigr) \, dz =
@@ -5115,7 +5116,7 @@ f(z) . \qedhere
 \end{equation*}
 \end{proof}
 
-Cauchy--Goursat says that the integral around
+Cauchy--Goursat (\thmref{thm:cauchygoursat}) says that the integral around
 triangles is always zero if $f$ is holomorphic.  Thus we get
 the following immediate corollary.
 
@@ -7571,7 +7572,7 @@ $n(\Gamma;0) = k$.  Compute
 
 \begin{exercise}
 Prove that the two theorems
-(Cauchy's theorem and the Cauchy integral formula)
+(the homology versions of Cauchy's theorem and the Cauchy integral formula)
 are equivalent logically, that is, one follows
 from the other.  We have already proved that the Cauchy integral formula
 implies Cauchy's theorem.  So prove that
@@ -7839,7 +7840,7 @@ We proved
 and
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iii} is immediate.
-Using Cauchy's theorem for derivatives,
+Using Cauchy's theorem for derivatives (\corref{cor:cauchyforders}),
 \ref{thm:simplyconnected:iii} implies
 \begin{equation*}
 \int_\Gamma \frac{1}{z-p} \, dz = 0 
@@ -8058,7 +8059,7 @@ So $\Gamma$ is homologous to zero in the annulus.
 On the other hand if $q$ is in the (smaller) annulus $\ann(p;s_1,s_2)$,
 then for similar reasons, $n(\Gamma;q) = 1$.
 
-Via Cauchy's theorem, for every $z \in \ann(p;s_1,s_2)$,
+Via Cauchy's theorem (\thmref{thm:CThomology}), for every $z \in \ann(p;s_1,s_2)$,
 \begin{equation*}
 f(z) = 
 \frac{1}{2\pi i}
@@ -8159,7 +8160,7 @@ the cycle
 $\partial \Delta_{s}(p) - \partial \Delta_{s_1}(p)$ is homologous to zero in
 $\ann(p;r_1,r_2)$, and 
 $z \mapsto \frac{f(z)}{{(z-p)}^{n+1}}$ is holomorphic in 
-$\ann(p;r_1,r_2)$.  Cauchy's theorem thus says
+$\ann(p;r_1,r_2)$.  Cauchy's theorem (\thmref{thm:CThomology}) thus says
 \begin{equation*}
 0 = \int_{\partial \Delta_{s}(p) - \partial \Delta_{s_1}(p)}
 \frac{f(\zeta)}{{(\zeta-p)}^{n+1}} \, d\zeta
@@ -8528,7 +8529,7 @@ Thus
 =
 \Im L_j\bigl(\gamma(t)\bigr)
 \end{equation*}
-is the function from \lemmaref{lemma:existenceoftheta} as long as we make
+is the function from \lemmaref{lemma:existenceoftheta}, as long as we make
 $\widetilde{\theta}_0 = \Im L_1\bigl(\gamma(a)\bigr)$.
 So
 \begin{equation*}
@@ -8543,7 +8544,7 @@ L_j\bigl(\widetilde{\gamma}(t)\bigr)
 \end{equation*}
 \end{proof}
 
-We can now tell how does $n(\gamma;p)$ change (or not) by a homotopy.
+We can now check how $n(\gamma;p)$ changes, or not, by a homotopy.
 
 \begin{prop} \label{prop:homotopicmeanshomologous}
 Suppose $U \subset \C$ is open and suppose $\gamma_0$ and $\gamma_1$ are closed
@@ -8560,7 +8561,7 @@ continuous function.  As $s \mapsto n(\gamma_s;p)$ is integer-valued it must
 be constant.
 \end{proof}
 
-In particular we've prove that $\gamma_0$ and $\gamma_1$ are homologous if
+In particular, we've proved that $\gamma_0$ and $\gamma_1$ are homologous if
 they are homotopic.  The converse is not true.  Let us just mention that 
 the path in \figureref{fig:homologousnothomotopic} 
 is not homotopic to a constant but it is homologous to the zero chain.
@@ -8592,6 +8593,7 @@ function over it is zero.  The following version of Cauchy
 is then just a special case of the corollary above.
 
 \begin{thm}[Cauchy's theorem (homotopy version)]
+\label{thm:cauchyhomotopy}%
 \index{Cauchy's theorem!homotopy}%
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 and $\gamma$ is a piecewise $C^1$ path in $U$ that is homotopic in $U$ to a
@@ -9731,8 +9733,17 @@ Let $r_1,\ldots,r_\ell$ be positive numbers such that
 the closed discs
 $\overline{\Delta_{r_1}(w_1)},\ldots, \overline{\Delta_{r_\ell}(w_\ell)}$
 are mutually disjoint (no pair of them intersects),
-$\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$, and
-$\overline{\Delta_{r_j}(w_j)} \cap \Gamma = \emptyset$ for all $j$.
+$\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$.
+See \figureref{fig:residues}.
+%, and
+%$\overline{\Delta_{r_j}(w_j)} \cap \Gamma = \emptyset$ for all $j$.
+
+\begin{myfig}
+\subimport*{figures/}{residues.pdf_t}
+\caption{Proof of residue theorem by putting small discs around all
+singularities.  Note that $n(\Gamma;w_1) = 1$, $n(\Gamma;w_2)=0$, and
+$n(\Gamma;w_3) = 2$.\label{fig:residues}}
+\end{myfig}
 
 Define the cycle
 \begin{equation*}
@@ -9747,7 +9758,7 @@ We claim that
 n(\Lambda;p) = 0
 \end{equation*}
 for all $p \notin U \setminus S$.
-By definition,
+The winding number is defined by an integral and so
 \begin{equation*}
 n(\Lambda;p) = n(\Gamma;p)
 - n(\Gamma;w_1) \, n(\partial \Delta_{r_1} (w_1) ; p)
@@ -9766,7 +9777,7 @@ and
 $n( \partial \Delta_{r_k}(w_k) ; p) = 1$.  The claim follows in this case as
 well.
 
-By the homology version of the Cauchy theorem, we find
+By the homology version of the Cauchy theorem, \thmref{thm:CThomology}, we find
 \begin{equation*}
 0 = 
 \frac{1}{2 \pi i}
@@ -9780,14 +9791,13 @@ n(\Gamma;w_j)
 \frac{1}{2 \pi i}
 \int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz .
 \end{equation*}
-
-We recognize
+We recognize the formula for the $c_{-1}$ term of the Laurent series at
+$w_j$, that is,
 \begin{equation*}
 \frac{1}{2 \pi i}
 \int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz
+= \operatorname{Res}(f;w_j) .  \qedhere
 \end{equation*}
-as the formula for the $c_{-1}$ term in the Laurent series
-for $f$ at $w_j$.  In other words, the residue of $f$ at $w_j$.
 \end{proof}
 
 The residue theorem is supposed to be useful in computing line integrals.
@@ -10151,8 +10161,8 @@ at the zeros and poles of $f$.  We apply the residue theorem to find
 \begin{multline*}
 \frac{1}{2\pi i}
 \int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
-=
 \\
+=
 \sum_{j} n(\Gamma;z_j)\operatorname{Res}\left(h(z)
 \frac{f'(z)}{f(z)};z_j\right)
 -
@@ -10448,11 +10458,11 @@ So for all $n$ large enough,
 \begin{equation*}
 \sabs{f(z)-f_n(z)} < \delta < \sabs{f(z)}
 \end{equation*}
-for all $z \in \Gamma$.  \hyperref[thm:rouche]{Rouch\`e's theorem}
+for all $z \in \Gamma$.  \hyperref[thm:rouche2]{Rouch\`e's theorem}
 says that $f$ and $f_n$ have the same number of zeros.
 \end{proof}
 
-An interesting application of Hurwitz's theorem is that limits of
+An interesting application of Hurwitz's theorem is that the limit of
 injective mappings is either injective or constant.  Injective holomorphic
 mappings are called \emph{\myindex{univalent}}.
 
@@ -10552,7 +10562,7 @@ all $z \in \partial \Delta_r(p)$,
 \abs{\bigl( f(z)-w \bigr) - \bigl( f(z)-f(p) \bigr)} = \abs{f(p)-w} <
 \delta < \abs{f(z)-f(p)} .
 \end{equation*}
-By Rouch\`e, $z \mapsto f(z)-w$ has at least one zero in $\Delta_r(p)$.
+By \hyperref[thm:rouche2]{Rouch\`e}, $z \mapsto f(z)-w$ has at least one zero in $\Delta_r(p)$.
 In other words,
 \begin{equation*}
 \Delta_{\delta}\bigl(f(p)\bigr) \subset
@@ -10677,7 +10687,8 @@ The function $z \mapsto f(z) - f(p)$ has a zero of multiplicity at least
 two.
 For $w \in \Delta_{\delta}\bigl(f(p)\bigr) \setminus \bigl\{ f(p) \bigr\}$,
 we have that
-$z \mapsto f(z)-w$ has at least two zeros counting multiplicity via Rouch\`e as
+$z \mapsto f(z)-w$ has at least two zeros counting multiplicity via
+\hyperref[thm:rouche2]{Rouch\`e} as
 before.  As derivative of $f(z)$ and hence also of $f(z)-w$ is nonzero in
 the punctured disc, all these zeros are of multiplicity one.  Ergo, $f(z)-w$
 has more than one distinct zero, and consequently, $f$ is not one-to-one.
@@ -13320,7 +13331,7 @@ that converges uniformly to $f$ on the square $[-1,1] \times [-1,1]$.
 Sometimes, we are thwarted in polynomial approximation by topology.  For
 example, consider $\frac{1}{z}$ on $\partial \D$.  There is no sequence of
 polynomials $P_n(z)$ that converge to $\frac{1}{z}$ uniformly on $\partial
-\D$.  This follows by Rouch\`e (or
+\D$.  This follows by \hyperref[thm:rouche]{Rouch\`e} (or
 \exerciseref{exercise:convergeboundary} and Cauchy's theorem), see the
 following exercise.
 
