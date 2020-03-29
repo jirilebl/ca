@@ -10190,28 +10190,54 @@ at the zeros and poles of $f$.  We apply the residue theorem to find
 \sum_{j} n(\Gamma;p_j)\operatorname{Res}\left(h(z)
 \frac{f'(z)}{f(z)};p_j\right) .
 \end{multline*}
-We simply need to compute the residues.  Consider a zero of $f$ of
-multiplicity $k$, and
-without loss of generality suppose that it is at the origin,
-that is, $f(z) = c_k z^k + c_{k+1} z^{k+1} + \cdots$ for $c_k \not= 0$, and 
-$f'(z) = k c_k z^{k-1} + (k+1)c_{k+1} z^{k} + \cdots$.
-Write also $h(z) = a_0 + a_1 z + \cdots$.  Then
-\begin{equation*}
-h(z)
-\frac{f'(z)}{f(z)}
+We simply need to compute the residues.
+Consider a zero of $f$ of multiplicity $k$ or a pole of order $-k$, and
+without loss of generality suppose that it is at the origin.
+Write $f(z)  = z^k F(z)$ where $F(0) \not=0$
+and $h(z) = h(0) + z H(z)$.
+Then $f'(z) = k z^{k-1} F(z) + z^k F'(z)$, and so
+\begin{multline*}
+h(z) \frac{f'(z)}{f(z)}
 =
-\bigl(
-a_0 + a_1 z + \cdots
-\bigr)
-\frac{k c_k z^{k-1} + \cdots}{c_k z^k + \cdots}
+\bigl( h(0) + z H(z) \bigr)
+\frac{k z^{k-1} F(z) + z^k F'(z)}{z^k F(z)}
+%=
+%\bigl( h(0) + z H(z) \bigr)
+%\frac{k F(z) + z F'(z)}{z F(z)}
+\\
 =
-a_0 k \frac{1}{z} \bigl( 1 + O(\sabs{z}) \bigr) ,
-\end{equation*}
-where $O(\sabs{z})$ is something that vanishes as $z \to 0$.
+k\, h(0) 
+\frac{1}{z}
++
+h(0) 
+\frac{F'(z)}{F(z)}
++
+H(z)
+\frac{k F(z) + z F'(z)}{F(z)} .
+\end{multline*}
+Everything except $k\, h(0) \frac{1}{z}$ is holomorphic.
+%Consider a zero of $f$ of
+%multiplicity $k$, and
+%without loss of generality suppose that it is at the origin,
+%that is, $f(z) = c_k z^k + c_{k+1} z^{k+1} + \cdots$ for $c_k \not= 0$, and 
+%$f'(z) = k c_k z^{k-1} + (k+1)c_{k+1} z^{k} + \cdots$.
+%Write also $h(z) = a_0 + a_1 z + \cdots$.  Then
+%\begin{equation*}
+%h(z)
+%\frac{f'(z)}{f(z)}
+%=
+%\bigl(
+%a_0 + a_1 z + \cdots
+%\bigr)
+%\frac{k c_k z^{k-1} + \cdots}{c_k z^k + \cdots}
+%=
+%a_0 k \frac{1}{z} \bigl( 1 + O(\sabs{z}) \bigr) ,
+%\end{equation*}
+%where $O(\sabs{z})$ is something that vanishes as $z \to 0$.
 In other words, $\operatorname{Res}\left(h(z)
-\frac{f'(z)}{f(z)};0\right) = h(0) k$.
-Same exact computation carries through when $0$ is a pole of $f$
-of multiplicity $-k$ (that is, just let $k$ be negative).
+\frac{f'(z)}{f(z)};0\right) = k\, h(0)$.
+%Same exact computation carries through when $0$ is a pole of $f$
+%of multiplicity $-k$ (that is, just let $k$ be negative).
 The theorem follows.
 \end{proof}
 
@@ -10277,6 +10303,13 @@ Suppose $f(z)$ a degree 3 polynomial, $f(0)=1$, and
 Find $f$.  You may assume $f$ has no zeros on those 3 circles (the
 integrals exist after all).
 \end{exercise}
+
+\begin{exercise}
+Let $P_t(z) = z^n + c_{n-1}(t) z^{n-1} + \cdots + c_1(t) z + c_0(t)$
+be a polynomial where all the coefficients $c_j$ are continuous functions
+of $[a,b]$.  Prove that the power sums of the zeros of $P_t$ are
+continuous functions of $t \in [a,b]$.
+\end{exercise}
 \end{exbox}
 
 \subsection{Rouch\`e's theorem}
@@ -10286,9 +10319,12 @@ close to another function.  In rough terms,
 \emph{the number of zeros minus the
 number of poles (up to multiplicity) inside a curve does not change
 if the function does not change much on the curve}.
+For example, the functions $z^2$ and $(z-\epsilon)(z+\epsilon)$
+are close on $\partial \D$, and they have the same number of
+zeros in the disc.
 A nonzero point might ``split'' into a zero and a
 pole, that is $\frac{z-\epsilon}{z+\epsilon}$ is very close to the function
-$1$ on the unit circle.  So poles are allowed to ``cancel'' zeros, but this
+$1$ on $\partial \D$.  So poles are allowed to ``cancel'' zeros, but this
 balance is always maintained.  Furthermore if we do not allow any poles
 whatsoever, then the theorem says that the number of zeros does not change.
 
@@ -10340,13 +10376,13 @@ the inequality precludes any zeros of $f$ or
 $g$ on $\Gamma$.  This observation is actually quite convenient in the
 applications as it avoids having to show some technicalities.
 
-The classical statement of the theorem uses the weaker
+The classical statement of the theorem uses the
 inequality
 \begin{equation*}
 \sabs{f(z)-g(z)} < \sabs{f(z)}
 \end{equation*}
 as hypothesis.
-The weaker statement is enough for vast majority of
+This weaker statement of the theorem is enough for vast majority of
 applications, and has a simpler geometric meaning.  The number of zeros (or
 poles) of $f$
 inside $\Gamma$ corresponds to the number times $f(z)$ winds around zero
@@ -10380,8 +10416,8 @@ the logarithm defined on the set $\C \setminus [0,\infty)$.
 Let $\varphi(z) = \frac{f(z)}{g(z)}$.
 The function
 $\frac{\varphi'}{\varphi}$ has a well-defined antiderivative
-$L \circ \varphi$ on a neighborhood of $\Gamma$.  As $\Gamma$
-is a cycle,
+$L \circ \varphi$ on a neighborhood of $\Gamma$.
+Cauchy's theorem for derivatives (\corref{cor:cauchyforders}) implies
 \begin{equation*}
 0
 = \frac{1}{2\pi i} \int_{\Gamma} \frac{\varphi'(z)}{\varphi(z)} \, dz
@@ -10403,7 +10439,7 @@ around the origin.  On $\Gamma$,
 \begin{equation*}
 \abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
 \end{equation*}
-We apply Rouch\`e ($P(z)$ is the dog and $1$ is the master).  So $P(z)$
+By Rouch\`e ($P(z)$ is the dog and $1$ is the master), $P(z)$
 has the same number of zeros as the constant $1$ (that is, no zeros) in
 $\Delta_{1-\epsilon}(0)$.
 
@@ -10419,7 +10455,7 @@ all the zeros of $P(z)$ must be on the unit circle.
 
 \begin{example}
 As a more complicated example, consider $P(z) = z^4+12z^3+24z^2+4z+6$.
-Then on $\sabs{z}=1$,
+Then when $\sabs{z}=1$,
 \begin{multline*}
 \abs{P(z)-(z^4+24z^2)} =
 \abs{12z^3+4z+6} \leq
