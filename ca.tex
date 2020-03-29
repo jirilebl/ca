@@ -10103,49 +10103,53 @@ in $U$
 homologous to zero in $U$.
 %such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
 Suppose $f \colon U \to \C_\infty$ is a meromorphic function with no zeros
-or poles on $\Gamma$.
-Let $z_j$, $j \in J$, be the zeros of $f$ counted with multiplicity,
-and $p_j$, $j \in J$, be the poles of $f$ counted with multiplicity.
+or poles on $\Gamma$,
+such that
+$z_1,\ldots,z_n$ are the 
+zeros of $f$ counted with multiplicity,
+and $p_1,\ldots,p_\ell$ are the poles of $f$ counted with multiplicity.
 Then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\Gamma \frac{f'(z)}{f(z)} \, dz
 =
-\sum_{j \in J} n(\Gamma;z_j)
+\sum_{j=1}^n n(\Gamma;z_j)
 \quad
 -
 \quad
-\sum_{j \in J} n(\Gamma;p_j) .
+\sum_{j=1}^\ell n(\Gamma;p_j) .
 \end{equation*}
 Furthermore, if $h \colon U \to \C$ is holomorphic, then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
 =
-\sum_{j \in J} n(\Gamma;z_j)h(z_j) 
+\sum_{j=1}^n n(\Gamma;z_j)h(z_j) 
 \quad
 -
 \quad
-\sum_{j \in J} n(\Gamma;p_j)h(p_j) .
+\sum_{j=1}^\ell n(\Gamma;p_j)h(p_j) .
 \end{equation*}
 \end{thm}
 
 The number of zeros or poles inside an open set is always countable (unless
-$f$ is identically zero in that open set), but
-in the theorem we could really assume there are only finitely many zeros and
-poles, as there are only finitely many zeros and poles for which 
-$n(\Gamma;z) \not= 0$ (see exercise below).
+$f$ is identically zero in that open set).  But there are only ever finitely
+many zeros or poles for which 
+$n(\Gamma;z) \not= 0$ (see exercises below), as long as $\Gamma$ is
+homologous to zero.  So there is always a slightly smaller $U$ that only
+includes finitely many zeros and poles and $\Gamma$ is still homologous to
+zero.
 
 The reason for saying that this counts the number of zeros and poles,
 suppose that $\Gamma$ only goes around every point in $z \in U$ at most once
 in the positive direction or not at all.  That is,
 $n(\Gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the ``inside of
 $\Gamma$'' as the points where $n(\Gamma;z)=1$.  Suppose that there are
-$N$ zeros and $P$ poles (counting multiplicity) inside $\Gamma$.  Then
+$n$ zeros and $\ell$ poles (counting multiplicity) inside $\Gamma$.  Then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\Gamma \frac{f'(z)}{f(z)} \, dz
-= N - P ,
+= n - \ell .
 \end{equation*}
 
 The name ``argument principle'' comes from the fact that for a path
@@ -10184,10 +10188,10 @@ at the zeros and poles of $f$.  We apply the residue theorem to find
 \int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
 \\
 =
-\sum_{j} n(\Gamma;z_j)\operatorname{Res}\left(h(z)
+\sum_{j=1}^n n(\Gamma;z_j)\operatorname{Res}\left(h(z)
 \frac{f'(z)}{f(z)};z_j\right)
 -
-\sum_{j} n(\Gamma;p_j)\operatorname{Res}\left(h(z)
+\sum_{j=1}^\ell n(\Gamma;p_j)\operatorname{Res}\left(h(z)
 \frac{f'(z)}{f(z)};p_j\right) .
 \end{multline*}
 We simply need to compute the residues.
@@ -10280,6 +10284,17 @@ such that $n(\Gamma;z) \not= 0$.
 \end{exercise}
 
 \begin{exercise}
+Suppose $U \subset \C$ is open, $\Gamma$ is a cycle in $U$
+homologous to zero in $U$,
+%such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$,
+and $f \colon U \to \C_\infty$ is meromorphic and
+has no zeros or poles on $\Gamma$.
+Show that there exists an open $U' \subset U$ such that
+the only zeros or poles of the restriction $f|_{U'}$
+are such that $n(\Gamma;z) \not= 0$.
+\end{exercise}
+
+\begin{exercise}
 Compute $\int_{\partial \D} \frac{z^2}{2 z^2+1} \, dz$ using the argument
 principle.  Hint: $\frac{z^2}{2 z^2+1}=\frac{z}{4} \frac{4z}{2z^2+1}$.
 \end{exercise}
@@ -10331,7 +10346,7 @@ whatsoever, then the theorem says that the number of zeros does not change.
 \begin{thm}[Rouch\`e\footnote{%
 The stronger version we state was actually proved by Estermann in 1962.}]\index{Rouch\`e's theorem}\label{thm:rouche}
 \pagebreak[2]
-Suppose $U \subset \C$ is an open set, and $\Gamma$ is
+Suppose $U \subset \C$ is open, and $\Gamma$ is
 %a closed piecewise $C^1$ path (or cycle)
 a cycle
 in $U$ homologous to zero in $U$,
@@ -10345,7 +10360,7 @@ $\Gamma$ such that
 \sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
 \end{equation*}
 for all $z \in \Gamma$.  Let $N_f$, $N_g$ be the number of zeros in $V$
-and $P_g$, $P_f$ the number of poles in $V$ (both up to multiplicity)
+and $P_f$, $P_g$ the number of poles in $V$ (both up to multiplicity)
 of $f$ and $g$ respectively.
 Then
 \begin{equation*}
@@ -10470,7 +10485,7 @@ Thus, $P(z)$ also has two zeros in $\D$.
 On the other hand, if $\sabs{z} > 46$ then
 \begin{equation*}
 \abs{P(z)-z^4} = \abs{12z^3+24z^2+4z+6}
-\leq 46 \sabs{z}^3 < 46^4 = \abs{z^4}.
+\leq 46 \sabs{z}^3 < {\sabs{z}}^4 = \abs{z^4}.
 \end{equation*}
 So $P$ has all four zeros in a disc $\Delta_{46+\epsilon}(0)$ for any
 $\epsilon > 0$,
