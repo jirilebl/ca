@@ -9245,11 +9245,11 @@ is an automorphism then $f(z) = z$ or $f(z) = \frac{1-2z}{2-z}$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open, $p \in U$, and
-$\{ z_n \}$ a sequence in $U$ converging to $p$.
-Let $S = \{ z_n : n \in \N \}$ be the image of the sequence.
-If $f \colon U \setminus S \to \C$ is a bounded holomorphic function,
-then $f$ extends through $S$.  That is, there exists a holomorphic
+Suppose $U \subset \C$ is open, and
+$\{ z_n \}$ a sequence in $U$ converging to $p \in U$.
+Let $S = \{ z_n : n \in \N \} \cup \{ p \}$ and let
+$f \colon U \setminus S \to \C$ be a bounded holomorphic function.
+Prove that $f$ extends through $S$:  There exists a holomorphic
 $F \colon U \to \C$ such that $F|_{U \setminus S} = f$.
 \end{exercise}
 
@@ -9594,10 +9594,11 @@ Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f \colon \C \to \C$ is holomorphic and nonconstant.  Prove that $f(\C)$ is dense in
-$\C$.  Note that the so-called ``little Picard theorem'' says that $f(\C)$
-is actually everything minus possibly one point, but that is much harder to
-prove.
+Suppose $f \colon \C \to \C$ is holomorphic and nonconstant.
+Prove that $f(\C)$ is dense in $\C$.
+Note that the so-called ``little Picard theorem'' says that $f(\C)$
+is actually everything minus possibly one point,
+but that is much harder to prove.
 \end{exercise}
 
 \begin{exercise}
@@ -10089,12 +10090,7 @@ to compute the integral $\int_{-\infty}^\infty e^{-x^2/2} \, dx$.
 \subsection{The argument principle}
 
 As integration picks out singularities, we can use it to count zeros and
-poles of a function.  The following theorem is called the
-``argument principle'' although perhaps the naming is more the idea of
-how one counts the order of a zero, that is, we count how many times does
-the value of the function (its argument really) go around a circle, although
-we will simply apply the residue theorem.
-
+poles of a function.
 By \emph{\myindex{zeros counted with multiplicity}} we mean that for
 example $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
 Same with poles.
@@ -10144,13 +10140,38 @@ The reason for saying that this counts the number of zeros and poles,
 suppose that $\Gamma$ only goes around every point in $z \in U$ at most once
 in the positive direction or not at all.  That is,
 $n(\Gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the ``inside of
-$\Gamma$'' as the points such as $n(\Gamma;z)=1$.  Suppose that there are
-$N$ zeros and $P$ poles (counting multiplicity).  Then
+$\Gamma$'' as the points where $n(\Gamma;z)=1$.  Suppose that there are
+$N$ zeros and $P$ poles (counting multiplicity) inside $\Gamma$.  Then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\Gamma \frac{f'(z)}{f(z)} \, dz
 = N - P ,
 \end{equation*}
+
+The name ``argument principle'' comes from the fact that for a path
+$\gamma$,
+the integral
+$\int_{\gamma} \frac{f'(z)}{f(z)} \, dz$
+computes $i$ times the change in argument of $f$ as we traverse $\gamma$.
+That is, the antiderivative of
+$\frac{f'(z)}{f(z)}$
+is $\log f(z)$.  So
+we take some value of $\log f(z) = \log \sabs{f(z)} + i \arg f(z)$
+at the beginning of $\gamma$, we follow it
+around $\gamma$, and subtract the value of $\log f(z)$ at the end.
+Another way to look at the integral is to write
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_{\gamma} \frac{f'(z)}{f(z)} \, dz = 
+\frac{1}{2\pi i}
+\int_{f \circ \gamma} \frac{1}{\zeta} \, d\zeta 
+=
+n(f \circ \gamma ; 0 )
+.
+\end{equation*}
+The
+argument principle counts the number of times 
+$f \circ \gamma$ winds around zero.
 
 \begin{proof}[Proof of the argument principle]
 We prove the ``Furthermore'' as that proves the rest of the theorem by
@@ -10194,6 +10215,33 @@ of multiplicity $-k$ (that is, just let $k$ be negative).
 The theorem follows.
 \end{proof}
 
+Besides all the theoretical implications we will see,
+the argument principle can be used to locate zeros of polynomials
+(or holomorphic functions more generally)
+by numerical computations.  If we numerically estimate the integral to
+within a precision of at least $0.5$ (so no need to be extremely precise),
+then we know the number of zeros 
+of the polynomial enclosed by the cycle.
+
+Another interesting application is computing the power sums of the zeros of
+polynomials.  Given a polynomial $f(z)$ and a cycle $\Gamma$ going at most
+once around a certain region, such that $z_1,\ldots,z_n$ are the zeros of $f$
+inside $\Gamma$, then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\Gamma z^k \frac{f'(z)}{f(z)} \, dz
+=
+z_1^k + \cdots + z_n^k .
+\end{equation*}
+So for example, if there is at most one simple zero $z_0$ of
+$f$ enclosed within $\Gamma$, then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\Gamma z \frac{f'(z)}{f(z)} \, dz
+=
+z_0 .
+\end{equation*}
+
 \begin{exbox}
 \begin{exercise}
 Suppose $U \subset \C$ is open, $\Gamma$ is a cycle in $U$
@@ -10206,20 +10254,30 @@ such that $n(\Gamma;z) \not= 0$.
 \end{exercise}
 
 \begin{exercise}
-Let $\gamma$ be the unit circle oriented counterclockwise.
-Compute $\int_\gamma \frac{z^2}{2 z^2+1} \, dz$ using the argument
+Compute $\int_{\partial \D} \frac{z^2}{2 z^2+1} \, dz$ using the argument
 principle.  Hint: $\frac{z^2}{2 z^2+1}=\frac{z}{4} \frac{4z}{2z^2+1}$.
 \end{exercise}
-\end{exbox}
 
-One thing to notice is that the theorem is a generalization of the integral
-of $\frac{1}{z}$ around zero via taking the antiderivative, that is,
-$\log z$ and evaluating it (taking care to follow the branch).  In this case
-the function $\frac{f'(z)}{f(z)}$ has the antiderivative $\log f(z)$.
-In other words given a path $\gamma$,
-the argument principle is about counting the number of times
-the curve $f \circ \gamma$ winds around zero.
-This intuitive idea could even be worked into a proof if one wants to.
+\begin{exercise}
+Suppose $f$ is meromorphic function on a neighborhood of $\overline{\D}$
+that has no pole or zero on $\partial \D$.  Suppose $\Re f(z) >
+0$ for all $z \in \partial \D$, and $f(0) = 0$.  Prove that $f$ has a pole
+in $\D$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f(z)$ a degree 3 polynomial, $f(0)=1$, and
+\begin{equation*}
+\int_{\partial \Delta_2(2i)} z \frac{f'(z)}{f(z)} \, dz = 2i+1 ,
+\quad
+\int_{\partial \Delta_2(-2i)} z \frac{f'(z)}{f(z)} \, dz = -i ,
+\quad
+\int_{\partial \Delta_1(5)} z \frac{f'(z)}{f(z)} \, dz = 5 .
+\end{equation*}
+Find $f$.  You may assume $f$ has no zeros on those 3 circles (the
+integrals exist after all).
+\end{exercise}
+\end{exbox}
 
 \subsection{Rouch\`e's theorem}
 
@@ -10236,6 +10294,7 @@ whatsoever, then the theorem says that the number of zeros does not change.
 
 \begin{thm}[Rouch\`e\footnote{%
 The stronger version we state was actually proved by Estermann in 1962.}]\index{Rouch\`e's theorem}\label{thm:rouche}
+\pagebreak[2]
 Suppose $U \subset \C$ is an open set, and $\Gamma$ is
 %a closed piecewise $C^1$ path (or cycle)
 a cycle
