@@ -10536,13 +10536,17 @@ Prove that $\D \subset f(\D)$.
 
 \subsection{Hurwitz's theorem}
 
-Often we approximate one function by other functions and we would like to
-count the zeros of the limit.  Recall that if a sequence of holomorphic
+Let us see how the number of zeros can change under limits of functions.
+That is, if we know the number of zeros of functions in a sequence,
+what can one tell about the number of zeros of the limit.  Alternatively,
+if we have a limit function with $k$ zeros, then what can
+we say about the number of zeros of the functions in the sequence.
+Recall that if a sequence of holomorphic
 functions converge uniformly on compact sets, the limit is holomorphic
 (see \thmref{thm:unifoncompact}).
 
 \begin{thm}[Hurwitz]\index{Hurwitz's theorem}
-Let $U \subset \C$ be open and $f_n \colon U \to \C$ is a sequence of
+Let $U \subset \C$ be open and $f_n \colon U \to \C$ a sequence of
 holomorphic functions converging uniformly on compact subsets
 to a holomorphic $f \colon U \to \C$.  Suppose $\Gamma$ is
 a cycle
@@ -10568,9 +10572,53 @@ So for all $n$ large enough,
 \begin{equation*}
 \sabs{f(z)-f_n(z)} < \delta < \sabs{f(z)}
 \end{equation*}
-for all $z \in \Gamma$.  \hyperref[thm:rouche2]{Rouch\`e's theorem}
-says that $f$ and $f_n$ have the same number of zeros.
+for all $z \in \Gamma$.  By \hyperref[thm:rouche2]{Rouch\`e's theorem},
+$f$ and $f_n$ have the same number of zeros in $V$.
 \end{proof}
+
+Note that it is necessary for $f$
+to not be zero on $\Gamma$.  If $f(z) = z-1$, then it is zero on
+the unit circle but not in the unit disc.
+The sequences of functions $z-(1-\nicefrac{1}{n})$ and 
+$z-(1+\nicefrac{1}{n})$ both converge uniformly to $z-1$, but
+$z-(1-\nicefrac{1}{n})$ has one zero in the unit disc
+and $z-(1+\nicefrac{1}{n})$ does not.
+
+\begin{example}
+For every $r > 0$, there is an $N$ such that
+the polynomial
+\begin{equation*}
+P_d(z) = \sum_{n=0}^d \frac{z^n}{n!}
+\end{equation*}
+has no zeros in $\Delta_r(0)$ for all $d \geq N$.
+This claim follows as $e^z$ has no zeros in the complex plane and the
+polynomials $P_d$ are the partial sums of the power series of the
+exponential, thus $P_d$ converges uniformly on compact subsets to $e^z$.
+\end{example}
+
+The $\Gamma$ in the theorem is there for defining the region
+$V$, a compact set with interior and nice boundary.
+Often the theorem is applied or stated with $\Gamma$ being a small disc:
+That is, suppose $\{ f_n \}$ is a sequence of holomorphic
+functions converging uniformly
+on compact sets to $f$ on some open $U$.  Suppose $z_0$ is a zero of
+$f$ of order $k$.  Then for a small enough disc $\Delta_r(z_0)$,
+there exists an $N$ such that
+for all $n \geq N$, $f_n$ has $k$ zeros up to multiplicity in
+$\Delta_r(z_0)$.
+
+\begin{example}
+Hurwitz theorem does not work for real functions.  Let $f(x) =
+x^2$ a function on $\R$.  Then $f$ has a zero (actually a zero of order 2)
+at the $x=0$.  The functions $f_n(x) = x^2+\nicefrac{1}{n}$ converge uniformly
+to $f$, but $f_n$ has no zero for any $x$.
+
+On the other hand, consider $f(z) = z^2$ as a function of $\C$, and let
+$f_n(z) = z^2+\nicefrac{1}{n}$.  Again $f_n$ converge to $f$ uniformly.  Now for
+any $\epsilon > 0$, there is an $N$ such that $z^2+\nicefrac{1}{n}$ has
+two zeros in $\Delta_\epsilon(0)$ for all $n \geq N$.  In this case we can even compute
+them: $\pm \nicefrac{i}{\sqrt{n}}$.
+\end{example}
 
 An interesting application of Hurwitz's theorem is that the limit of
 injective mappings is either injective or constant.  Injective holomorphic
@@ -10587,9 +10635,10 @@ Suppose $f$ is nonconstant.
 Suppose there exist distinct $z_1$ and $z_2$ in $U$ such that $f(z_1) =
 f(z_2) = w$.  Consider $f-w$, which has isolated zeros at $z_1$ and $z_2$.
 Consider two small discs $\Delta_r(z_1)$ and $\Delta_r(z_2)$ contained in
-$U$, such that $f$ is not zero on their boundaries,
-and $z_1$ and $z_2$ are the only zeros
-in those discs, and the closures of the two discs are disjoint.
+$U$, whose closures are disjoint,
+and such that $f-w$ is not zero on
+$\overline{\Delta_r(z_1)} \setminus \{ z_1 \}$ or
+$\overline{\Delta_r(z_2)} \setminus \{ z_2 \}$.
 The sets $\partial \Delta_r(z_1)$ and 
 $\partial \Delta_r(z_2)$ are compact, so
 for a large enough $n$, the function $f_n-w$ is nonzero on either.
@@ -10660,11 +10709,11 @@ $V \subset U$.
 \begin{proof}
 Suppose $f$ is not constant.  As $U$ is a connected, $f$ is not constant
 near every point.
-Given any $p \in U$ take 
+Given any $p \in U$, take 
 a closed disc $\overline{\Delta_r(p)} \subset U$ small enough such that
 $f(z) \not= f(p)$ for $z \in \partial \Delta_r(p)$, which we can do as $f$
-is not constant.  Take $\delta > 0$ such
-that $\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$.
+is not constant.  There is a $\delta > 0$ such
+that $\abs{f(z)-f(p)} > \delta$ for all $z \in \partial \Delta_r(p)$.
 The function $z \mapsto f(z)-f(p)$ has at least one zero in $\Delta_r(p)$
 (at $p$).  Take any $w \in \Delta_{\delta}\bigl(f(p)\bigr)$.  Then for
 all $z \in \partial \Delta_r(p)$,
