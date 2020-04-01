@@ -1452,7 +1452,7 @@ g(z) =
 0 & \text{if } z = \infty.
 \end{cases}
 \end{equation*}
-The function $g$ is one-to-one and onto.
+The function $g$ is bijective (one-to-one and onto).
 Any neighborhood of the origin in $\C$ is taken to a set that
 includes infinity and we call those the neighborhoods of
 $\infty$.  When talking about a neighborhood of
@@ -1478,7 +1478,7 @@ We let $\Phi\bigl((0,0,1)\bigr) = \infty$ so that we have a map
 $\Phi \colon S^2 \to \C_\infty$.  This map is called the 
 \emph{\myindex{stereographic projection}}.  See
 \figureref{fig:riemannsphere}.
-The map is one-to-one and onto (exercise below),
+The map is bijective (exercise below),
 and so we define a metric in $\C_\infty$ by
 using a metric on $S^2$, which we can just take to be the subspace
 metric coming from the euclidean metric on $\R^3$ (another possibility
@@ -1491,7 +1491,7 @@ could be the great circle distance, \exampleref{ms:greatcircle}).
 
 \begin{exbox}
 \begin{exercise}
-Show that $\Phi$ is one-to-one and onto.
+Show that $\Phi$ is bijective.
 \end{exercise}
 
 \begin{exercise}
@@ -1791,7 +1791,6 @@ Let $\pi \colon \C^2 \setminus \{ 0 \} \to \C \bP^1$ be the map\footnote{The
 $\pi \bigl( (z,w) \bigr) =
 [z:w]$.  The following commutative diagram may
 illustrate the entire situation better:
-one-to-one:
 \begin{equation*}
 \begin{tikzcd}
 \C^2 \setminus \{ 0 \} \arrow[r,"M"] \arrow[d,"\pi"] &
@@ -2765,7 +2764,7 @@ what are the right changes of variables.
 
 \begin{defn}
 Let $U, V \subset \C$ be open sets.
-A holomorphic function $f \colon U \to V$ that is one-to-one, onto, and
+A holomorphic function $f \colon U \to V$ that is bijective and
 such that the inverse $f^{-1}$ is also holomorphic\footnote{%
 Surprisingly, we will (later) show that this condition is superfluous.}
 is called a
@@ -2880,7 +2879,8 @@ Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 $p \in U$, and $f'(p) \not= 0$.  Suppose further that $f$ is continuously
 differentiable.
 Then there exist open sets $V, W \subset \C$ such that
-$p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is one-to-one,
+$p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is injective
+(one-to-one),
 and hence a $g \colon W \to V$ exists such that
 $g(y) = (f|_V)^{-1}(y)$.
 Furthermore, $g$ is holomorphic and
@@ -2902,7 +2902,7 @@ A holomorphic function whose derivative is nonzero
 everywhere need not be globally invertible.  The exponential $e^z$
 is never zero, and thus so is its derivative.  However, $e^{z} = e^{z+2\pi i}$,
 so the
-exponential is not one-to-one.
+exponential is not injective.
 The fact that the inverse of the
 exponential, the logarithm,
 has infinitely many values at each point is key to complex analysis.  So
@@ -4200,10 +4200,10 @@ $\gamma\bigl([a,b]\bigr) = \alpha\bigl([c,d]\bigr)$.
 Suppose either
 \begin{enumerate}[(i)]
 \item
-$\gamma$ and $\alpha$ are one-to-one, or
+$\gamma$ and $\alpha$ are injective, or
 \item
 $\gamma|_{(a,b]}$ and
-$\alpha|_{(c,d]}$ are one-to-one and 
+$\alpha|_{(c,d]}$ are injective and 
 $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \end{enumerate}
 Then there exists a strictly monotone continuous $h \colon [c,d] \to [a,b]$ such
@@ -4225,7 +4225,7 @@ If $h$ is decreasing, then for every $f$ continuous on the path,
 \begin{exbox}
 \begin{exercise}
 Prove the first case of the reparametrization proposition, that is,
-suppose $\gamma$ and $\alpha$ are one-to-one.
+suppose $\gamma$ and $\alpha$ are injective.
 \begin{exparts}
 \item
 Prove the existence of $h$, its monotonicity, and continuity.
@@ -4246,7 +4246,7 @@ last part.
 \begin{exercise}
 Prove the second case of thereparametrization for closed paths,
 assuming only that $\gamma|_{(a,b]}$ and
-$\alpha|_{(c,d]}$ are one-to-one and
+$\alpha|_{(c,d]}$ are injective and
 $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \end{exercise}
 
@@ -4522,7 +4522,7 @@ the path that goes $n$ times around the unit disc counterclockwise.
 Suppose $U \subset \C$ is open and
 $\gamma \colon [a,b] \to U$
 is a piecewise $C^1$
-path and $\gamma|_{[a,b)}$ is one-to-one (so possibly closed,
+path and $\gamma|_{[a,b)}$ is injective (possibly a closed path,
 $\gamma(a)=\gamma(b)$,
 but otherwise injective).  Show that as chains, $\gamma$ is not equivalent to the zero chain.
 Note: Closed $\gamma$ is trickier.
@@ -6803,7 +6803,7 @@ Schwarz's lemma, if $z \in \D \setminus \{ 0 \}$, then
 Consequently, $h$ is a map of the disc to the closed disc.
 
 But $h$ can have no zeros:
-$h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is one-to-one
+$h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is injective
 and its one allowed zero is at $z=0$,
 and $h(0) = g'(0) \not= 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
 continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
@@ -9661,13 +9661,18 @@ at most finitely many poles and finitely many zeros.
 \end{exercise}
 
 \begin{exercise}
+Show that a holomorphic $f \colon \C_\infty \to \C_\infty$ is
+either constant or onto.
+\end{exercise}
+
+\begin{exercise}
 Show that a holomorphic $f \colon \C_\infty \to \C_\infty$ is a
 rational function (a polynomial divided by a polynomial).
 \end{exercise}
 
 \begin{exercise}
 Show that if $f \colon \C_\infty \to \C_\infty$ is holomorphic and
-one-to-one, then it is an LFT.
+injective, then it is an LFT.
 \end{exercise}
 \end{exbox}
 
@@ -10352,7 +10357,7 @@ a cycle
 in $U$ homologous to zero in $U$,
 %such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$
 and $n(\Gamma;z)$ is either $1$ or $0$ for $z \in U$.
-Let $V = \{ z \in U : n(\Gamma;z) = 1 \}$.
+Let $V = \bigl\{ z \in U : n(\Gamma;z) = 1 \bigr\}$.
 Suppose that $f \colon U \to \C_\infty$ and $g \colon U \to \C_\infty$
 are meromorphic functions with no zeros or poles on
 $\Gamma$ such that
@@ -10555,7 +10560,7 @@ in $U$ homologous to zero in $U$,
 such that $n(\Gamma;z)$ is $0$ or $1$ for all $z \in U$.
 %and $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
 Let
-$V = \{ z \in U : n(\Gamma;z) = 1 \}$.
+$V = \bigl\{ z \in U : n(\Gamma;z) = 1 \bigr\}$.
 Suppose $f$ has no zeros on $\Gamma$ and $k$ zeros (counting
 multiplicity) in $V$.
 Then there is an $N$ such that for all $n \geq N$,
@@ -10621,13 +10626,14 @@ them: $\pm \nicefrac{i}{\sqrt{n}}$.
 \end{example}
 
 An interesting application of Hurwitz's theorem is that the limit of
-injective mappings is either injective or constant.  Injective holomorphic
-mappings are called \emph{\myindex{univalent}}.
+injective functions is either injective or constant.
+Injective holomorphic
+functions are sometimes called \emph{\myindex{univalent}}.
 
 \begin{cor} \label{cor:univalentlimit}
 Suppose $U \subset \C$ is a domain and $f_n \colon U \to \C$ are
-univalent holomorphic functions that converge uniformly on compact sets
-to $f \colon U \to \C$.  Then $f$ is either univalent or constant.
+injective holomorphic functions that converge uniformly on compact sets
+to $f \colon U \to \C$.  Then $f$ is either injective or constant.
 \end{cor}
 
 \begin{proof}
@@ -10643,7 +10649,7 @@ For a large enough $n$, Hurwitz says that $f_n-w$ has the same number of
 zeros in $\Delta_r(z_1)$ as $f-w$ and the same for $\Delta_r(z_2)$.
 So there is $z_1' \in \Delta_r(z_1)$ and
 $z_2' \in \Delta_r(z_2)$ such that $f_n(z_1')=f_n(z_2')=w$, in particular
-$f_n$ is not univalent.
+$f_n$ is not injective.
 \end{proof}
 
 \begin{exbox}
@@ -10652,13 +10658,35 @@ Suppose $U \subset \C$ is a domain,
 $f_n \colon U \to \C$ are holomorphic and nowhere zero
 and converge uniformly on compact subsets to $f \colon U \to \C$.
 Show that either $f$ is nowhere zero, or $f$ is identically zero.
-Given examples of both possible conclusions.
+Give examples of both possible conclusions.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open,
+$f_n \colon U \to \C$ holomorphic
+converging uniformly on compact subsets to $f \colon U \to \C$,
+and $f(z_0) = w_0$ for some $z_0, w_0$.  
+Prove that there exists a sequence $\{ z_n \}$ in $U$ such that
+$\lim z_n = z_0$ and $f_n(z_n) = w_0$ for all large enough $n$.
 \end{exercise}
 
 \begin{exercise}
 \begin{exparts}
 \item
-Suppose $f_n \colon \D \to \C$ is a sequence of maps converging
+Find an example sequence of automorphisms of $\D$ converging
+uniformly on compact subsets of $\D$ to a constant.
+\item
+Automorphisms of $\D$ extend to be continuous on
+$\overline{\D}$.  Prove that if a sequence
+of automorphisms converges uniformly on $\overline{\D}$, then
+the limit is an automorphism.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+Suppose $f_n \colon \D \to \C$ is a sequence converging
 to $f \colon \D \to \C$ uniformly on compact sets such that
 for each $0 < r < 1$ the number of zeros (up to multiplicity)
 of $f_n$ in $\Delta_r(0)$ goes to infinity as $n \to \infty$.
@@ -10739,7 +10767,12 @@ then
 $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}[Easy]
+Suppose $U,V \subset \C$ are open and $f \colon U \to \C$ is holomorphic
+and bijective.  Prove that $f^{-1} \colon V \to U$ is continuous.
+\end{exercise}
+
+\begin{exercise}[Easy]
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic
 and let $f(U) \subset V$ for some closed set $V$.
 Suppose $f(z) \in \partial V$
@@ -10785,15 +10818,15 @@ constant.  What if $\partial \D$ is replaced by the real line?
 
 \section{Inverses of holomorphic functions} \label{sec:inverses}
 
-The standard local relationship between derivative and one-to-one-ness of a
+The standard local relationship between derivative and injectivity of a
 function is the inverse function theorem (\thmref{thm:inversehol}).
 It says that if $f'(z)$ is nonzero somewhere, then locally $f$ is
-one-to-one and has an inverse $g$ such that
+injective and has an inverse $g$ such that
 \begin{equation*}
 g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
 \end{equation*}
 
-We now have enough machinery to give a simple proof
+You now have enough machinery to give a simple proof
 of the inverse function theorem for holomorphic functions
 without needing the real inverse function.
 
@@ -10803,7 +10836,7 @@ Prove the inverse function theorem \thmref{thm:inversehol}
 using the following outline, without appealing to the real inverse function
 theorem.
 \begin{exparts}
-\item Show that for some neighborhood $V$ of $p$, $f|_V$ is one-to-one.
+\item Show that for some neighborhood $V$ of $p$, $f|_V$ is injective.
 Hint: $f(z)-f(p)$ has a simple zero at $p$.
 \item Show that $f(V) = W$ is open and the inverse $g \colon W \to V$ is
 continuous.
@@ -10819,7 +10852,7 @@ result that is surprising: being injective
 implies that the derivative is nonzero.
 A priory this should make no sense at all and it is not true for real functions.
 A function $f \colon \R \to \R$ such as $f(x) = x^3$
-is one-to-one, but its derivative is zero at $x=0$, and $f^{-1}(x) =
+is injective, but its derivative is zero at $x=0$, and $f^{-1}(x) =
 \sqrt[3]{x}$ is not differentiable at $x=0$.
 Intuitively the way to think about it is that a holomorphic function is
 locally like $z^k$ for some $k$, and the only way that $z^k$ is injective is
@@ -10827,17 +10860,18 @@ if $k=1$, in which case the derivative is nonzero.  You can make that
 argument into a proof as well, but it is a bit more complicated.
 
 \begin{lemma} \label{lemma:dernonzero}
-If $U \subset \C$ is open and $f \colon \to \C$ is one-to-one, then
+If $U \subset \C$ is open and $f \colon U \to \C$ is injective, then
 $f'$ is never zero.
 \end{lemma}
 
 \begin{proof}
 We will prove the contrapositive.
 Suppose that $f'(p) = 0$ for some $p$.
-Now $f$ is nonconstant and so $f'$ has
-an isolated zero, so let $\overline{\Delta_r(p)} \subset U$
+As $f$ is nonconstant, $f'$ has
+an isolated zero at $p$.
+Let $\overline{\Delta_r(p)} \subset U$
 be small enough so that $f'(z) \not= 0$ for all $z \in \Delta_r(p) \setminus \{ p \}$,
-and such that $\sabs{f(z)-f(p)} > \delta > 0$ for $z \in \partial
+and such that $\sabs{f(z)-f(p)} > \delta > 0$ for all $z \in \partial
 \Delta_r(p)$.
 The function $z \mapsto f(z) - f(p)$ has a zero of multiplicity at least
 two.
@@ -10845,13 +10879,13 @@ For $w \in \Delta_{\delta}\bigl(f(p)\bigr) \setminus \bigl\{ f(p) \bigr\}$,
 we have that
 $z \mapsto f(z)-w$ has at least two zeros counting multiplicity via
 \hyperref[thm:rouche2]{Rouch\`e} as
-before.  As derivative of $f(z)$ and hence also of $f(z)-w$ is nonzero in
+before.  As derivative of $f(z)$, hence also of $f(z)-w$, is nonzero in
 the punctured disc, all these zeros are of multiplicity one.  Ergo, $f(z)-w$
-has more than one distinct zero, and consequently, $f$ is not one-to-one.
+has more than one distinct zero, and consequently, $f$ is not injective.
 \end{proof}
 
 \begin{lemma} \label{lemma:inverseasintegral}
-If $f \colon U \to \C$ is holomorphic and one-to-one, and
+If $f \colon U \to \C$ is holomorphic and injective, and
 $\overline{\Delta_r(p)} \subset U$.  Then for all $w \in
 f\bigl(\Delta_r(p)\bigr)$,
 \begin{equation*}
@@ -10881,12 +10915,12 @@ Let us summarize the main result of this section.
 
 \begin{thm}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
-one-to-one, then $f(U)$ is open, $f'$ is never zero on $U$, and $f^{-1}
+injective, then $f(U)$ is open, $f'$ is never zero on $U$, and $f^{-1}
 \colon f(U) \to U$ is holomorphic.
 \end{thm}
 
 \begin{proof}
-If $f$ is one-to-one, then it is not constant, and so $f(U)$ is open by
+If $f$ is injective, then it is not constant, and so $f(U)$ is open by
 the open mapping theorem.  By \lemmaref{lemma:dernonzero} $f'$ is never zero
 on $U$, and by \lemmaref{lemma:inverseasintegral} and
 \lemmaref{lemma:holfuncbyintegral} (functions defined by integration against
@@ -11525,17 +11559,17 @@ $f'(p) > 0$ (real and positive) is unique.
 The proof of the theorem is a wonderful example of how many problems are
 solved by formulating the correct extremal problem.  In this case, we will
 show that maximizing $\sabs{f'(p)}$ is equivalent to getting an onto
-mapping.  For any map that is not onto, we find one with a bigger
+map.  For any map that is not onto, we find one with a bigger
 $\sabs{f'(p)}$ that still goes into the disc.  Such maps are bounded,
 so Montel gives us a convergent sequence with increasing $\sabs{f'(p)}$
-going to the supremum, and the limit will then have to be onto.
+going to the supremum, and the limit then has to be onto.
 Why would one think of this extremal problem?  Well,
 maximizing the derivative seems like a good way to spread out the values.
 We wish to make the image as large as possible, and we get furthest if the
 velocity is largest, no?
 
 \begin{proof}
-Consider $\sF$ to be the family of univalent (injective) holomorphic
+Consider $\sF$ to be the family of injective (univalent) holomorphic
 $f \colon U \to \D$ such that $f(p) = 0$.  We're trying to find
 an $f \in \sF$ that is onto.
 Before we rush off to Montel, however, we first have to show that any
@@ -11565,12 +11599,12 @@ takes $U$ to $\D$.
 By composing with the right automorphism of the disc we can assume also that
 we have a map that takes $p$ to $0$.  Hence, $\sF$ is nonempty.
 
-OK.  Now suppose that $f \colon U \to \D$ is a univalent holomorphic map
+OK.  Now suppose that $f \colon U \to \D$ is a injective holomorphic map
 such that $f(p) = 0$ and suppose that $f$ is not onto.  Suppose there is a
 $q \in \D \setminus f(\D)$.  Again, we have that $z \mapsto f(z)-q$ is
 nonzero and thus again there exists a holomorphic square root $g$ on $U$ such that
 ${\bigl(g(z)\bigr)}^2 = f(z)-q$.  If $g(z)=g(w)$, then $f(z)=f(w)$ and as
-$f$ is univalent, $z=w$, and so $g$ is univalent.  The function $g$
+$f$ is injective, $z=w$, and so $g$ is injective.  The function $g$
 now takes $p$ to one of the square roots of $q$.  Define
 \begin{equation*}
 h = \varphi_{g(p)} \circ g ,
@@ -11607,7 +11641,7 @@ Montel says that there exists a subsequence that converges uniformly on
 compact sets to some $f$.  Assume $\{ f_n \}$ is that subsequence.
 By the corollary to Hurwitz,
 \corref{cor:univalentlimit},
-the function $f$ is univalent or constant.  It clearly cannot be constant,
+the function $f$ is injective or constant.  It clearly cannot be constant,
 as we know that $f_n'(p)$ also converges (all derivatives do), and so it
 cannot be zero as 
 $\bigl\{ \sabs{f_n'(p)} \bigr\}$ is an increasing sequence.
