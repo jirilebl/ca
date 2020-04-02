@@ -10716,7 +10716,7 @@ It is called a ``blow-up'' and it is used in obtaining a Fields medal.
 Unfortunately, the medal has already been obtained by Hironaka, and you
 have to find your own map if you want your own medal.},
 takes all of $\R^2$, which is both an open and a closed set, to the
-set $\{ (x,y) : x \not= 0 \text{ or } y=0 \}$, which is neither open nor
+set $\bigl\{ (x,y) : x \not= 0 \text{ or } y=0 \bigr\}$, which is neither open nor
 closed.
 
 Holomorphic functions are always nice to your topology.
@@ -10735,10 +10735,11 @@ $V \subset U$.
 \begin{proof}
 Suppose $f$ is not constant.  As $U$ is a connected, $f$ is not constant
 near every point.
-Given any $p \in U$, take 
-a closed disc $\overline{\Delta_r(p)} \subset U$ small enough such that
+Let $V \subset U$ be open and $p \in V$.
+Take 
+a closed disc $\overline{\Delta_r(p)} \subset V$ small enough such that
 $f(z) \not= f(p)$ for $z \in \partial \Delta_r(p)$, which we can do as $f$
-is not constant.  There is a $\delta > 0$ such
+is not constant near $p$.  There is a $\delta > 0$ such
 that $\abs{f(z)-f(p)} > \delta$ for all $z \in \partial \Delta_r(p)$.
 The function $z \mapsto f(z)-f(p)$ has at least one zero in $\Delta_r(p)$
 (at $p$).  Take any $w \in \Delta_{\delta}\bigl(f(p)\bigr)$.  Then for
@@ -10751,9 +10752,8 @@ By \hyperref[thm:rouche2]{Rouch\`e}, $z \mapsto f(z)-w$ has at least one zero in
 In other words,
 \begin{equation*}
 \Delta_{\delta}\bigl(f(p)\bigr) \subset
-f\bigl(\Delta_r(p)\bigr) .
+f\bigl(\Delta_r(p)\bigr) \subset f(V) .  \qedhere
 \end{equation*}
-The theorem follows as any open set is a union of small discs.
 \end{proof}
 
 The open mapping theorem is really a stronger version of the maximum
