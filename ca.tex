@@ -10856,8 +10856,10 @@ A function $f \colon \R \to \R$ such as $f(x) = x^3$
 is injective, but its derivative is zero at $x=0$, and $f^{-1}(x) =
 \sqrt[3]{x}$ is not differentiable at $x=0$.
 Intuitively the way to think about it is that a holomorphic function is
-locally like $z^k$ for some $k$, and the only way that $z^k$ is injective is
-if $k=1$, in which case the derivative is nonzero.  You can make that
+locally like $z^k$ for some $k$, and the only way that $z^k$ is injective
+for complex $z$ is
+if $k=1$, in which case the derivative is nonzero.
+You can make that
 argument into a proof as well, but it is a bit more complicated.
 
 \begin{lemma} \label{lemma:dernonzero}
@@ -10867,8 +10869,9 @@ $f'$ is never zero.
 
 \begin{proof}
 We will prove the contrapositive.
-Suppose that $f'(p) = 0$ for some $p$.
-As $f$ is nonconstant, $f'$ has
+Suppose that $f'(p) = 0$ for some $p$
+and suppose $f$ is nonconstant (near $p$).
+So $f'$ has
 an isolated zero at $p$.
 Let $\overline{\Delta_r(p)} \subset U$
 be small enough so that $f'(z) \not= 0$ for all $z \in \Delta_r(p) \setminus \{ p \}$,
@@ -10912,7 +10915,7 @@ zero at $z=\zeta$.  By the residue theorem and
 \end{equation*}
 \end{proof}
 
-Let us summarize the main result of this section.
+Let us put the two lemmas together to get the main result of this section.
 
 \begin{thm}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
