@@ -673,8 +673,8 @@ and gives us zero and the negative numbers producing the integers
 \glsadd{not:Z}$\Z$, so that we can solve equations such as $n+2 = 1$.
 From \glsadd{not:Z}$\Z$, we define the rational numbers
 \glsadd{not:Z}$\Q$ to solve\footnote{%
-Do we really solve it by writing $x = \frac{1}{2}$?  After all, 
-$\frac{1}{2}$ is just a placeholder for an object that we can't describe
+Do we really solve it by writing $x = \nicefrac{1}{2}$?  After all, 
+$\nicefrac{1}{2}$ is just a placeholder for an object that we can't describe
 in another way other than ``whatever $1$ divided by $2$ would be if it existed.''}
 equations such as $2x=1$.  We extend
 \glsadd{not:Q}$\Q$ to the real numbers \glsadd{not:R}$\R$
@@ -1557,7 +1557,7 @@ $\lim\limits_{z \to z_0} \frac{1}{f(z)} = 0$.
 \end{exercise}
 \end{exbox}
 
-It then makes sense to talk about the value of $\frac{1}{z}$ at the origin
+It then makes sense to talk about the value of $\nicefrac{1}{z}$ at the origin
 as $\infty$, and the value of $z$ at $\infty$ as $\infty$.
 In fact, any nonconstant polynomial is $\infty$ at $\infty$.
 
@@ -1604,8 +1604,8 @@ then $\lim_{z \to \infty} f(z) = \infty$,
 $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
 \bigl(f(z)+g(z)\bigr) = 0$.
 
-On the other hand it is reasonable to define $\frac{c}{0} = \infty$ for
-any $c \not= 0$, $\frac{c}{\infty} = 0$ for any $c \not= \infty$,
+On the other hand it is reasonable to define $\nicefrac{c}{0} = \infty$ for
+any $c \not= 0$, $\nicefrac{c}{\infty} = 0$ for any $c \not= \infty$,
 and $c \cdot \infty = \infty$ for any $c \not= 0$.
 Just make sure to definitely avoid doing any additions and subtractions of
 infinities!
@@ -1627,7 +1627,7 @@ function is nonconstant.
 
 If $c\not=0$,
 the expression is normally defined only on
-$\C \setminus \bigl\{ \frac{-d}{c} \bigr\}$,
+$\C \setminus \bigl\{ \nicefrac{-d}{c} \bigr\}$,
 however, as in the last section, we write
 \begin{equation*}
 f\left(\frac{-d}{c}\right) = \infty, \qquad \text{and} \qquad
@@ -1751,7 +1751,7 @@ c & d
 An invertible $M$ takes one-dimensional subspaces to one-dimensional
 subspaces, so it sounds plausible.
 
-First, $\Phi \circ f$ for $z \in \C \setminus \bigl\{ \frac{-d}{c} \bigr\}$
+First, $\Phi \circ f$ for $z \in \C \setminus \bigl\{ \nicefrac{-d}{c} \bigr\}$
 is equal to
 \begin{equation*}
 \Phi \circ f(z) =
@@ -1760,11 +1760,11 @@ is equal to
 \left[a z + b: c z + d \right] ,
 \end{equation*}
 where the second inequality follows by definition of $\sim$.
-When $z = \frac{-d}{c}$, then $cz+d = 0$, or $f(0) = \infty$
+When $z = \nicefrac{-d}{c}$, then $cz+d = 0$, or $f(0) = \infty$
 and $\Phi(\infty) = [1:0] = [az+b : cz+d]$ as well.
 
 Let us consider $\Phi \circ f \circ \Phi^{-1}$.
-If $w \not= 0$, then $[z:w] = \left[ \frac{z}{w}:1 \right]$.  So
+If $w \not= 0$, then $[z:w] = [ \nicefrac{z}{w}:1 ]$.  So
 \begin{equation*}
 \Phi \circ f \circ \Phi^{-1} \bigl([z:w]\bigr) =
 \Phi \circ f \left(\frac{z}{w}\right) =
@@ -2006,7 +2006,7 @@ f'(z_0) \overset{\text{def}}{=}
 \end{equation}
 exists.
 We call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
-at $z_0$.
+at $z_0$.  The notation $\frac{df}{dz}$ is also useful.
 
 A function $f \colon U \to \C$ is
 \emph{\myindex{holomorphic}}
@@ -2345,12 +2345,12 @@ Let $U \subset \C$ be open, and $f \colon U \to \C$ and
 $g \colon U \to \C$ holomorphic.
 \begin{enumerate}[(i)]
 \item
-$f+g$ is holomorphic and $(f+g)'(z) = f'(z) + g'(z)$.
+$f+g$ is holomorphic and $\frac{d}{dz}\bigl[ f(z)+g(z) \bigr] = f'(z) + g'(z)$.
 \item
-$fg$ is holomorphic and $(fg)'(z) = f'(z)g(z) + f(z)g'(z)$.
+$fg$ is holomorphic and $\frac{d}{dz}\bigl[f(z) g(z) \bigr] = f'(z)g(z) + f(z)g'(z)$.
 \item
-$\frac{1}{g}$ is holomorphic on $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ and
-${\left(\frac{1}{g}\right)}'(z) = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
+$\nicefrac{1}{g}$ is holomorphic on $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ and
+$\frac{d}{dz}\bigl[\frac{1}{g(z)}\bigr] = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
 \end{enumerate}
 \end{prop}
 
@@ -2580,7 +2580,7 @@ the $z$ derivative in two different ways:
 \end{equation*}
 In the second form, we want to think of the derivative in
 the imaginary direction as a derivative in $iy$ and not the partial
-derivative in $y$.  That is why the $\frac{1}{i}$ is there.
+derivative in $y$.  That is why the $\nicefrac{1}{i}$ is there.
 If $f$ is complex differentiable, $h$ can
 approach zero from any direction:
 \begin{equation*}
@@ -2620,9 +2620,16 @@ f' =
 \frac{\partial f}{\partial z} .
 \end{equation*}
 
-Even for real differentiable functions that are not holomorphic,
-where the complex derivative does not exist, the Wirtinger operators still
-make sense.  For example, take a polynomial in $x$ and $y$, or equivalently
+The complex derivative $f'$, which is also sometimes written as $\frac{df}{dz}$,
+only exists for holomorphic functions.
+The Wirtinger operators
+$\frac{\partial f}{\partial z}$ and
+$\frac{\partial f}{\partial \bar{z}}$ make sense for any real differentiable
+function.
+Do not confuse the notation
+even though $\frac{df}{dz}$ and 
+$\frac{\partial f}{\partial z}$ look similar.
+For example, take a polynomial in $x$ and $y$, or equivalently
 in $z$ and $\bar{z}$.
 The Wirtinger operators
 work as if $z$ and $\bar{z}$ really were independent variables.  For example:
@@ -2641,6 +2648,10 @@ z^2 ( 3 \bar{z}^2 ) + 0 .
 \end{equation*}
 In that sense (at least for polynomials) a holomorphic function is a
 function not depending on $\bar{z}$.
+However, the function above is not holomorphic
+and so
+$\frac{d}{dz} \bigl[ z^2 \bar{z}^3 + z^{10} \bigr]$
+does not exist.
 
 \begin{exbox}
 \begin{exercise}
@@ -2792,7 +2803,7 @@ $C(z)
 \frac{z - i}{z + i}$
 takes the upper half-plane
 $\bH = \{ z \in \C : \Im z > 0 \}$ to the unit disc $\D$,
-in other words $C \colon \bH \to \D$ is a biholomorphism
+in other words $C|_{\bH} \colon \bH \to \D$ is a biholomorphism
 making $\bH$ and $\D$ biholomorphic.
 
 The reader can check that for any nonempty open $U \subset \C$, the set
@@ -3538,7 +3549,7 @@ Prove that polynomials $P(z)$ are analytic.
 \end{exercise}
 
 \begin{exercise}
-Prove that $\frac{1}{z}$ is analytic in $\C \setminus \{ 0 \}$
+Prove that $\nicefrac{1}{z}$ is analytic in $\C \setminus \{ 0 \}$
 by explicitly writing down 
 a power series at any $p \in \C \setminus \{ 0 \}$
 using the geometric series.
@@ -8886,6 +8897,7 @@ $\overline{\Delta_r(z)} \subset U$.  Green's now applies on $U \setminus \Delta_
 \subimport*{figures/}{cauchy-pompeiu.pdf_t}
 \caption{Proof of Cauchy--Pompeiu.\label{fig:cauchypompeiu}}
 \end{myfig}
+
 We compute
 \begin{equation*}
 \int_{\Gamma} \frac{f(\zeta)}{\zeta-z}\,  d\zeta - 
@@ -9272,7 +9284,7 @@ Prove that $f(z) = \sin z$.
 \begin{exercise}
 Suppose that $f$ and $g$ are entire functions and $\sabs{f} \leq \sabs{g}$
 everywhere.  Show that $f = c g$ for some $c \in \C$.
-Hint: Liouville.  Make sure to handle the zeros of $f$ and $g$.
+Hint: Make sure to handle the zeros of $f$ and $g$.
 \end{exercise}
 
 \begin{exercise}
@@ -9284,8 +9296,8 @@ $f(z) e^{1/z}$ is bounded in $\Delta_r(0) \setminus \{ 0 \}$.
 \end{exbox}
 
 Using the Riemann extension, we find a criterion for poles, and classify
-poles according to order just like zeros.  That is,
-at nonessential isolated singularities
+poles according to order just like zeros.
+At nonessential isolated singularities
 the function blows up to a finite integral order.
 
 \begin{cor}
@@ -9313,7 +9325,7 @@ We start with the first item.
 The function $f$ cannot be zero in some
 punctured neighborhood $\Delta_r(p) \setminus \{p\}$ as it goes to infinity.
 In fact, as $f$ goes to infinity,
-$\frac{1}{f}$ goes to zero, and so it is bounded in some $\Delta_r(p)
+$\nicefrac{1}{f}$ goes to zero, and so it is bounded in some $\Delta_r(p)
 \setminus \{p\}$.
 Thus, it has a removable singularity at $p$ by Riemann extension.
 Let $h$ be holomorphic in $\Delta_r(p)$
@@ -9347,15 +9359,20 @@ such that ${(z-p)}^k f(z)$ is bounded is called the
 A pole of order $1$ is called a \emph{\myindex{simple pole}}.
 \end{defn}
 
-As can be seen from the proof of the proposition,
-there is a symmetry between zeros and poles:
-If $f$ has a zero of order $k$ at $p$, then $\frac{1}{f}$ has a pole of
+What we've proved is that if $f$
+has a pole at $p$, a function $f$ can be written as
+\begin{equation*}
+f(z) = \frac{g(z)}{{(z-p)}^k}
+\end{equation*}
+for some $g$ holomorphic at $p$ and $k$ is the order of the pole.
+There is a symmetry between zeros and poles:
+If $f$ has a zero of order $k$ at $p$, then $\nicefrac{1}{f}$ has a pole of
 order $k$ at $p$.
-If $f$ has a pole of order $k$ at $p$, then $\frac{1}{f}$
+If $f$ has a pole of order $k$ at $p$, then $\nicefrac{1}{f}$
 has a removable singularity, and the extended function has a zero of order
 $k$ at $p$.
 In other words, if $f$ has a pole or a removable singularity we can write
-$f(z) = {(z-k)}^\ell g(z)$ for some $\ell$ and some holomorphic $g$ such
+$f(z) = {(z-p)}^\ell g(z)$ for some $\ell$ and some holomorphic $g$ such
 that $g(p) \not= 0$.  The point is going to a zero of order $\ell$ if $\ell
 > 0$, and it is going to be a pole of order $-\ell$ if $\ell < 0$.
 
@@ -9475,9 +9492,13 @@ origin.
 \end{exercise}
 
 \begin{exercise}
-Find an example two holomorphic functions $f$ and $g$ with an essential
-singularity at the origin such that a)~$fg$ has a removable singularity.
-Find different $f$ and $g$ such that b)~$f+g$ has a removable singularity.
+\begin{exparts}
+\item
+Find holomorphic functions $f$ and $g$ with an essential
+singularity at the origin such that $fg$ has a removable singularity.
+\item
+Find another pair $f$ and $g$ with an essential singularity such that $f+g$ has a removable singularity.
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
