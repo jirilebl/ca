@@ -5139,8 +5139,8 @@ there exists a holomorphic $F \colon U \to \C$
 such that $F' = f$.
 \end{cor}
 
-We also get another corollary, which we will rather state
-as a theorem, as it is one of the fundamental results.
+We also get another corollary, which we state
+as a theorem as it is one of the fundamental results.
 
 \begin{thm}[Cauchy's theorem for star-like domains]
 \index{Cauchy's theorem!star-like domains}%
@@ -6881,6 +6881,17 @@ Now find a general formula for $f$.
 \end{exercise}
 
 \begin{exercise}
+Suppose $f \colon \D \to \D$ is a holomorphic function with zeros at
+$z_1,\ldots,z_n$, that is $f(z_\ell) = 0$ for $\ell=1,\ldots,n$.  Prove that
+\begin{equation*}
+\sabs{f(z)} \leq \sabs{\varphi_{z_1}(z)  
+\varphi_{z_2}(z)
+\cdots
+\varphi_{z_n}(z)} .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
 Prove the \emph{\myindex{Schwarz--Pick lemma}}:
 If $f \colon \D \to \D$ is holomorphic, then
 \begin{equation*}
@@ -6918,6 +6929,7 @@ then
 \end{equation*}
 If equality holds, then $f(z) = \varphi_{-b}\bigl( e^{i\theta} \varphi_a(z)
 \bigr)$ for some $\theta \in \R$.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -7905,7 +7917,7 @@ other words, $U$ is simply connected.
 
 It is important to use $\C_\infty$ and not $\C$ in the proposition
 above.  If $U = \C \setminus \{ 0 \}$ is the punctured plane then
-$\C \setminus U = \{ 0 \}$ which is connected, but 
+$\C \setminus U = \{ 0 \}$, which is connected, but 
 $\C_\infty \setminus U = \{ 0, \infty \}$ is not connected.
 
 \begin{exbox}
@@ -9542,7 +9554,7 @@ Casorati and Sokhotskii both published it in 1868, (Casorati in Italian
 and Sokhotskii in Russian) while Weierstrass published it in 1876 (in
 German).  But really it first appeared in a book by Briot and Bouquet in
 1859 (in French), so really it should be called the Briot--Bouquet theorem,
-no?  If we still all published in Latin, we wouldn't be in this
+no?  If we all still published in Latin, we wouldn't be in this
 mess.}]\index{Casorati--Weierstrass theorem}
 \pagebreak[2]
 Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
@@ -9563,6 +9575,7 @@ That is,
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C$ or 
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C \setminus \{ z_0 \}$ for
 some $z_0$.
+But that is much harder to prove.
 
 \begin{proof}
 Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic,
@@ -10539,9 +10552,9 @@ exactly $k$ zeros (counting multiplicity) in $\D$.
 \begin{exercise}
 Suppose that
 $P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$
-is a monic polynomial.  Prove that all the zeros of $P$ are
-in the closed disc $\overline{\Delta_M(0)}$ where $M =
-\max\left\{ 1, \sum_{j=0}^{n-1} \sabs{a_j} \right\}$.
+is a monic polynomial.
+If $M > \max\left\{ 1, \sum_{j=0}^{n-1} \sabs{a_j} \right\}$,
+prove that $P$ has $n$ zeros in the disc $\Delta_M(0)$.
 \end{exercise}
 
 \begin{exercise}
@@ -10557,6 +10570,13 @@ and $f \colon U \to \C$ is a holomorphic function such
 that $\sabs{f(z)} \geq 1$ whenever $z \in \partial \D$,
 and such that for at least one $p \in \D$ we have $f(p) \in \D$.
 Prove that $\D \subset f(\D)$.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $U \subset \C$ is open, $\overline{\D} \subset U$,
+and $f \colon U \to \C$ is a holomorphic function such
+that $f\bigl(\overline{\D}\bigr) \subset \D$, then there exists
+exactly one $z_0 \in \D$ such that $f(z_0) = z_0$.
 \end{exercise}
 \end{exbox}
 
@@ -10680,6 +10700,15 @@ $f_n \colon U \to \C$ are holomorphic and nowhere zero
 and converge uniformly on compact subsets to $f \colon U \to \C$.
 Show that either $f$ is nowhere zero, or $f$ is identically zero.
 Give examples of both possible conclusions.
+\end{exercise}
+
+\begin{exercise}
+Suppose 
+$f_n \colon \C \to \C$ is a sequence of holomorphic
+functions
+converging uniformly on compact subsets to $f \colon \C \to \C$.
+Suppose that all the zeros of $f_n$ are real for all $n$.
+Prove that all the zeros of $f$ are real.
 \end{exercise}
 
 \begin{exercise}
