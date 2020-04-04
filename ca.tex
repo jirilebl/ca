@@ -9472,16 +9472,16 @@ is called the \emph{\myindex{principal part}}.
 \end{defn}
 
 So a singularity is
-removable if the principal part is zero, it is a pole if the principle part
-is a finite series, and it is essential if the principal part is infinite.
+removable if the principal part is zero, it is a pole if the principal part
+is finite, and it is essential if the principal part is infinite.
 For example,
 \begin{equation*}
 e^{1/z}
 =
 \sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n .
 \end{equation*}
-so the principal part is infinite and $e^{1/z}$ has an essential
-singularity at $0$.  In fact, this is the first example anyone ever thinks of
+The principal part is infinite and $e^{1/z}$ has an essential
+singularity at $0$.  This is the first example anyone ever thinks of
 if asked for an example of an essential singularity.
 
 Suppose $P(z)$ is the principal part of $f(z)$ at an isolated singularity.
@@ -9507,12 +9507,13 @@ origin.
 \end{exercise}
 
 \begin{exercise}
+Find holomorphic functions $f$ and $g$ (different pairs for each part) with
+essential singularities at $p$, such that
 \begin{exparts}
 \item
-Find holomorphic functions $f$ and $g$ with an essential
-singularity at the origin such that $fg$ has a removable singularity.
+$fg$ has a removable singularity at $p$,
 \item
-Find another pair $f$ and $g$ with an essential singularity such that $f+g$ has a removable singularity.
+$f+g$ has a removable singularity at $p$.
 \end{exparts}
 \end{exercise}
 
@@ -9572,9 +9573,8 @@ is dense in $\C$.
 \end{thm}
 
 There is a stronger version
-of this theorem called the Picard theorem saying that the function in any
-punctured neighborhood achieves all values with at most one exception.
-That is,
+of this theorem called the Picard theorem saying that in any
+punctured neighborhood $f$ achieves all values with at most one exception:
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C$ or 
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C \setminus \{ z_0 \}$ for
 some $z_0$.
@@ -9593,10 +9593,10 @@ g(z) = \frac{1}{f(z) - q} .
 \end{equation*}
 By assumption, $\sabs{f(z)-q} \geq s$ for $z \in \Delta_r(p) \setminus
 \{p\}$.
-Hence $g(z)$ is bounded by $\frac{1}{s}$, and $g$ has a removable
+Hence $\sabs{g(z)} \leq \nicefrac{1}{s}$, and $g$ has a removable
 singularity at $p$.  So
 assume that $g$ is defined and holomorphic on all of
-$\Delta_r(p)$.  But for $z \in \Delta_r(p) \setminus \{ p \}$,
+$\Delta_r(p)$.  For $z \in \Delta_r(p) \setminus \{ p \}$,
 \begin{equation*}
 f(z) = \frac{1}{g(z)} + q .
 \end{equation*}
@@ -9644,7 +9644,7 @@ an essential singularity at $p \in U$.  Then for every punctured disc
 $\Delta_r(p) \setminus \{ p \} \subset U$ and every segment $[a,b] \subset
 \C$, we have
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) \cap [a,b] \not= \emptyset$.
-Hint: See the map from
+Hint: See 
 \exerciseref{exercise:segmentcomplement}.
 \end{exercise}
 \end{exbox}
@@ -9707,8 +9707,7 @@ rational function (a polynomial divided by a polynomial).
 \end{exercise}
 
 \begin{exercise}
-Show that if $f \colon \C_\infty \to \C_\infty$ is holomorphic and
-injective, then it is an LFT.
+Show that an injective holomorphic $f \colon \C_\infty \to \C_\infty$ is an LFT.
 \end{exercise}
 \end{exbox}
 
@@ -9723,18 +9722,17 @@ $f$ in the Laurent series on $\Delta_r(p) \setminus \{ p \}$:
 f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 \end{equation*}
 The only power ${(z-p)}^n$ that does not have a primitive in
-$\Delta_r(p) \setminus \{ p \}$ is ${(z-p)}^{-1}$.  This is the only power
-that a line integral of $f$ around $p$ ``sees,'' or in other words, it is
-what's left, or the ``residue'' of integrating $f(z)$ around a closed path.
-With this in mind\footnote{%
+$\Delta_r(p) \setminus \{ p \}$ is ${(z-p)}^{-1}$.  It is the only power
+a line integral of $f$ around $p$ ``sees,'' that is, it is
+what's left, or the ``residue''\footnote{%
 Q: Why did the mathematician name their dog Cauchy?
-A: Because it left a residue at every pole.},
-we make the following definition.
+A: Because it left a residue at every pole.}
+of integrating $f(z)$ around a closed path.
 
 \begin{defn}
 Let $f$ be a holomorphic function
 with an isolated singularity at $p$.
-The \emph{\myindex{residue}} of $f$ at $p$ is the number
+Let the \emph{\myindex{residue}} of $f$ at $p$ be
 \glsadd{not:Res}%
 \begin{equation*}
 \operatorname{Res}(f;p) = c_{-1} ,
@@ -9749,19 +9747,18 @@ We know how to compute $c_{-1}$: for any small enough $s > 0$,
 =
 \frac{1}{2\pi i} \int_{\partial \Delta_{s}(p)} f(z) \, dz .
 \end{equation*}
-
-In fact, using Cauchy's theorem we can relate any integral around
+Via Cauchy's theorem, we relate any integral around
 a cycle to the residues that lie inside the cycle.
 
 \begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
-Suppose $U \subset \C$ is an open set, $S \subset U$ is a finite subset,
+Suppose $U \subset \C$ is open, $S \subset U$ is a finite subset,
 and $\Gamma$ is
 %a closed piecewise $C^1$ path (or cycle)
 a cycle
 in $U \setminus S$
-homologous to zero in $U$.\footnote{As usual, $n(\Gamma;z) = 0$ for all $z
-\in \C \setminus U$.}
-Suppose $f \colon U \setminus S \to \C$ is a holomorphic function (with isolated
+homologous to zero in $U$.\footnote{As usual, this means that
+$n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.}
+Suppose $f \colon U \setminus S \to \C$ is holomorphic (isolated
 singularities on $S$).
 Then
 \begin{equation*}
@@ -9885,8 +9882,8 @@ g(z) \, dz
 \end{equation*}
 \end{proof}
 
-If $f$ has a pole, and if we have a nice formula for $f$,
-the next proposition makes it easy to compute residues.
+%If $f$ has a pole, and if we have a nice formula for $f$,
+%the next proposition makes it easy to compute residues.
 
 \begin{prop}
 Suppose $f$ has a pole at $p$.
@@ -9907,8 +9904,8 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
-A related and simpler rule for rational functions with simple poles is
-the following.
+%A related and simpler rule for rational functions with simple poles is
+%the following.
 
 \begin{prop} \label{prop:residuesimpleratio}
 Suppose $f(z) = \frac{h(z)}{g(z)}$ where $h$ and $g$ are holomorphic
@@ -9951,14 +9948,14 @@ We ``complexify''\index{complexify}
 $\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.  Really
 that's just a fancy way of saying we are going to plug in complex numbers
 into a real formula that happens to also work for complex numbers.
-By partial fractions we find
+By partial fractions
 \begin{equation*}
 \frac{1}{1+z^2} = \frac{1}{(z+i)(z-i)} =
 \frac{i}{2} \frac{1}{z+i} - 
 \frac{i}{2} \frac{1}{z-i} .
 \end{equation*}
-There are isolated singularities at $\pm i$.  Our cycle
-$\Gamma_r$ goes around $i$, once so $n(\Gamma_r;i) = 1$,
+There are isolated singularities at $\pm i$.  The cycle
+$\Gamma_r$ goes around $i$ once, so $n(\Gamma_r;i) = 1$,
 but not around $-i$, that is, $n(\Gamma_r;-i) = 0$.
 So we only need to compute
 the residue around $i$.  We can use any one of the techniques:
@@ -10007,8 +10004,8 @@ Hence,
 \frac{1}{1+x^2} \, dx
 = \pi .
 \end{equation*}
-It is left to the reader why taking the symmetric limit is sufficient to
-compute the double improper integral here.  After all, usually one has to
+Why taking the symmetric limit is sufficient to compute the double improper
+integral is left to the reader.  After all, usually one has to
 take two independent limits.
 \end{example}
 
@@ -10053,6 +10050,7 @@ one inside and one outside the unit circle.  Thus
 \end{equation*}
 \end{example}
 
+\begin{savenotes}
 \begin{exbox}
 \begin{exercise}
 For all integers $n \in \Z$, compute
@@ -10118,12 +10116,15 @@ subtracting the pole away.
 \end{exercise}
 
 \begin{exercise}
-Use the function $f(z) = \frac{e^{-z^2/2}}{1-e^{-\sqrt{\pi}(1+i)z}}$ and
+Use the function $f(z) = \frac{e^{-z^2/2}}{1+e^{-\sqrt{\pi}(1+i)z}}$ and
 the rectangular path with vertices $-r$, $r$, $r+i\sqrt{\pi}$,
 and $-r+i\sqrt{\pi}$
-to compute the integral $\int_{-\infty}^\infty e^{-x^2/2} \, dx$.
+to compute the integral $\int_{-\infty}^\infty e^{-x^2/2} \, dx$.\footnote{%
+This nifty solution is due to H.\ Kneser. The tricky bit is that
+$e^{-z^2/2}$ has no singularities itself.}
 \end{exercise}
 \end{exbox}
+\end{savenotes}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -10138,6 +10139,7 @@ example $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
 Same with poles.
 
 \begin{thm}[Argument principle]\index{argument principle}\label{thm:argprinc}
+\pagebreak[2]
 Suppose $U \subset \C$ is open, and $\Gamma$ is
 a cycle
 %a closed piecewise $C^1$ path (or a cycle)
@@ -10716,7 +10718,7 @@ Prove that all the zeros of $f$ are real.
 
 \begin{exercise}
 Suppose $U \subset \C$ is open,
-$f_n \colon U \to \C$ holomorphic
+$f_n \colon U \to \C$ are holomorphic
 converging uniformly on compact subsets to $f \colon U \to \C$,
 and $f(z_0) = w_0$ for some $z_0, w_0$.  
 Prove that there exists a sequence $\{ z_n \}$ in $U$ such that
