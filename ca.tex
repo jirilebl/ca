@@ -11056,13 +11056,15 @@ have time to modify his shape.
 
 \subsection{Convergence of subsequences}
 
-The point of Montel's theorem will be a way to easily classify the
+The point of Montel's theorem is to find a simple criterion
+for
 relatively compact subsets of the set of holomorphic functions.  That is,
 we will try to figure out when does a sequence of holomorphic functions
 contain a convergent subsequence.  We would really like something like the
 Bolzano--Weierstrass for sequences of numbers:  \emph{If $\{ z_n \}$ is a
 bounded sequence, then it has a convergent subsequence.}
-Interestingly, Montel provides just that kind of theorem.
+Interestingly, Montel provides just that kind of theorem for holomorphic
+functions.
 However, before we get to Montel, we must find a weaker result
 of this kind for continuous functions, the Arzel\`a--Ascoli theorem.
 For continuous functions we will need something more than just bounded,
@@ -11101,11 +11103,12 @@ a subsequence converging at countably
 many points, but $\R$ (or any interval) is uncountable.
 On the other hand the functions $x^n$ are uniformly bounded
 and converge pointwise to a function on the unit interval $[0,1]$, but the limit
-is discontinuous.  As in the end we will be interested in continuous
-functions we will require better convergence than pointwise, but for now let
-us at least show that we can get pointwise convergence on a countable set
-if we start with pointwise bounded functions, and let us ignore continuity
-for a moment.  The proof is a nice example of a diagonalization argument.
+is discontinuous.  As we are interested in continuous
+functions, we will require better convergence than pointwise.  For now let
+us ignore continuity for a moment and show that we can get pointwise
+convergence on a countable set
+if we start with pointwise bounded functions.
+The proof is a nice example of a diagonalization argument.
 
 \begin{prop} \label{prop:subsequenceoncountableX}
 Let $X$ be a countable set and $f_n \colon X \to \C$ give a pointwise bounded
@@ -11114,7 +11117,7 @@ pointwise.
 \end{prop}
 
 \begin{proof}
-Let $\{ x_n \}_{n=1}^{\infty}$ be an enumeration of the elements of $X$.
+Let $x_1,x_2,x_3,\ldots$ be an enumeration of the elements of $X$.
 The sequence $\{ f_n(x_1) \}_{n=1}^\infty$ is bounded and hence
 there exists a subsequence of $\{ f_n \}_{n=1}^{\infty}$, which we denote by
 $\{ f_{1,k} \}_{k=1}^\infty$,
@@ -11125,9 +11128,11 @@ $\{ f_{1,k}(x_1) \}_{k=1}^\infty$ converges.
 %$\{ f_{2,k} \}_{k=1}^\infty$ such that
 %$\{ f_{2,k}(x_2) \}_{k=1}^\infty$ converges.  Note that
 %$\{ f_{2,k}(x_1) \}_{k=1}^\infty$ is still convergent.
-In general, if we defined a subsequence $\{ f_{m,k} \}_{k=1}^\infty$
-that makes $\{ f_{m,k}(x_j) \}_{k=1}^\infty$ converge for all $j \leq m$,
-we let $\{ f_{m+1,k} \}_{k=1}^\infty$ be a subsequence of
+Suppose we already defined $\{ f_{m,k} \}_{k=1}^\infty$,
+a subsequence of $\{ f_{m-1,k} \}_{k=1}^\infty$,
+such that
+$\{ f_{m,k}(x_j) \}_{k=1}^\infty$ converge for $j=1,2,\ldots,m$.
+Let $\{ f_{m+1,k} \}_{k=1}^\infty$ be a subsequence of
 $\{ f_{m,k} \}_{k=1}^\infty$
 such that
 $\{ f_{m+1,k}(x_{m+1}) \}_{k=1}^\infty$ converges (and hence it converges for all
@@ -11138,7 +11143,7 @@ If $X$ is countably infinite,
 we pick the sequence
 $\{ f_{k,k} \}_{k=1}^\infty$.
 This is a subsequence of the original sequence $\{ f_n \}_{n=1}^\infty$.
-For any $m$ the tail $\{ f_{k,k} \}_{k=m}^\infty$ is a subsequence of $\{ f_{m,k}
+For any $m$, the tail $\{ f_{k,k} \}_{k=m}^\infty$ is a subsequence of $\{ f_{m,k}
 \}_{k=1}^\infty$
 and hence for any $m$ the sequence $\{ f_{k,k}(x_m) \}_{k=1}^\infty$ converges.
 \end{proof}
