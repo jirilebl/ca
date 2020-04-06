@@ -10116,13 +10116,17 @@ $\lim_{n\to \infty} c_n$ exists and compute what it is.  Hint: Try
 subtracting the pole away.
 \end{exercise}
 
+% Best for this to be the last in this exbox,
+% so that the footnote (due to the savenotes) appears
+% (most likely) on the right page.
 \begin{exercise}
 Use the function $f(z) = \frac{e^{-z^2/2}}{1+e^{-\sqrt{\pi}(1+i)z}}$ and
 the rectangular path with vertices $-r$, $r$, $r+i\sqrt{\pi}$,
 and $-r+i\sqrt{\pi}$
 to compute the integral $\int_{-\infty}^\infty e^{-x^2/2} \, dx$.\footnote{%
-This nifty solution is due to H.\ Kneser. The tricky bit is that
-$e^{-z^2/2}$ has no singularities itself.}
+This nifty solution is due to H.\ Kneser. The tricky bit with using the
+residue theorem is that $e^{-z^2/2}$ has no singularities itself,
+so one has to find a function that does.}
 \end{exercise}
 \end{exbox}
 \end{savenotes}
@@ -10541,7 +10545,7 @@ These are not the ideal estimates (largest zero of $P$ has modulus less than
 
 \begin{exbox}
 \begin{exercise}
-Count the number of zeros of $z^7-4z^3-11$ in $\ann(p;1,2)$.
+Using Rouch\`e's theorem, count the number of zeros of $z^7-4z^3-11$ in $\ann(p;1,2)$.
 \end{exercise}
 
 \begin{exercise}
@@ -10556,9 +10560,8 @@ exactly $k$ zeros (counting multiplicity) in $\D$.
 \end{exercise}
 
 \begin{exercise}
-Suppose that
-$P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$
-is a monic polynomial.
+Suppose 
+$P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$.
 If $M > \max\left\{ 1, \sum_{j=0}^{n-1} \sabs{a_j} \right\}$,
 prove that $P$ has $n$ zeros in the disc $\Delta_M(0)$.
 \end{exercise}
