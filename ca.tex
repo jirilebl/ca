@@ -11066,8 +11066,8 @@ Interestingly, Montel provides just that kind of theorem.
 However, before we get to Montel, we must find a weaker result
 of this kind for continuous functions, the Arzel\`a--Ascoli theorem.
 For continuous functions we will need something more than just bounded,
-we need some sort of uniformity in the continuity.
-Let us start with some definitions.
+we will need some sort of uniformity in the continuity.
+But let us start with boundedness.
 
 \begin{defn}
 Let $X$ be any set.
@@ -11087,20 +11087,25 @@ such that
 \end{equation*}
 \end{defn}
 
+A sequence of functions that converges pointwise will be pointwise bounded.
+For example, the sequence $\bigl\{ \frac{n^2x}{1+n^2x^2} \bigr\}$
+for $x \in \R$
+is not uniformly bounded, but it is pointwise bounded as it converges
+pointwise (exercise).
 A sequence of uniformly bounded functions may
 not contain any subsequence that converges even pointwise.
-For example, $\sin(nx)$ on the real line is one such example.
+For example, $\sin(nx)$ on the real line is one such example.\footnote{%
+A proof of this fact requires some measure theory, see the exercises.}
 Below we will show that there must always exist
 a subsequence converging at countably
 many points, but $\R$ (or any interval) is uncountable.
-
 On the other hand the functions $x^n$ are uniformly bounded
-and even converge to a function on the unit interval $[0,1]$, but the limit
-is discontinuous.
-
-Let us prove that for a countable domain, given a bounded (pointwise)
-sequence of functions, we can always find a subsequence
-that converges pointwise via a diagonalization argument.
+and converge pointwise to a function on the unit interval $[0,1]$, but the limit
+is discontinuous.  As in the end we will be interested in continuous
+functions we will require better convergence than pointwise, but for now let
+us at least show that we can get pointwise convergence on a countable set
+if we start with pointwise bounded functions, and let us ignore continuity
+for a moment.  The proof is a nice example of a diagonalization argument.
 
 \begin{prop} \label{prop:subsequenceoncountableX}
 Let $X$ be a countable set and $f_n \colon X \to \C$ give a pointwise bounded
@@ -11111,24 +11116,22 @@ pointwise.
 \begin{proof}
 Let $\{ x_n \}_{n=1}^{\infty}$ be an enumeration of the elements of $X$.
 The sequence $\{ f_n(x_1) \}_{n=1}^\infty$ is bounded and hence
-we have a subsequence of $\{ f_n \}_{n=1}^{\infty}$, which we denote by
-$\{ f_{1,k} \}_{k=1}^\infty$
+there exists a subsequence of $\{ f_n \}_{n=1}^{\infty}$, which we denote by
+$\{ f_{1,k} \}_{k=1}^\infty$,
 such that
 $\{ f_{1,k}(x_1) \}_{k=1}^\infty$ converges.
-Next $\{ f_{1,k}(x_2) \}_{k=1}^\infty$ is bounded and so 
-$\{ f_{1,k} \}_{k=1}^\infty$ has a subsequence
-$\{ f_{2,k} \}_{k=1}^\infty$ such that
-$\{ f_{2,k}(x_2) \}_{k=1}^\infty$ converges.  Note that
-$\{ f_{2,k}(x_1) \}_{k=1}^\infty$ is still convergent.
-
-In general, we have a sequence $\{ f_{m,k}
-\}_{k=1}^\infty$
-that makes $\{ f_{m,k}(x_j) \}_{k=1}^\infty$ converge for all $j \leq m$ and we 
-let $\{ f_{m+1,k} \}_{k=1}^\infty$ be the subsequence of $\{ f_{m,k}
-\}_{k=1}^\infty$
+%Next $\{ f_{1,k}(x_2) \}_{k=1}^\infty$ is bounded and so 
+%$\{ f_{1,k} \}_{k=1}^\infty$ has a subsequence
+%$\{ f_{2,k} \}_{k=1}^\infty$ such that
+%$\{ f_{2,k}(x_2) \}_{k=1}^\infty$ converges.  Note that
+%$\{ f_{2,k}(x_1) \}_{k=1}^\infty$ is still convergent.
+In general, if we defined a subsequence $\{ f_{m,k} \}_{k=1}^\infty$
+that makes $\{ f_{m,k}(x_j) \}_{k=1}^\infty$ converge for all $j \leq m$,
+we let $\{ f_{m+1,k} \}_{k=1}^\infty$ be a subsequence of
+$\{ f_{m,k} \}_{k=1}^\infty$
 such that
 $\{ f_{m+1,k}(x_{m+1}) \}_{k=1}^\infty$ converges (and hence it converges for all
-$x_j$ for $j=1,2,\ldots,m+1$) and we rinse and repeat.
+$x_j$ for $j=1,2,\ldots,m+1$).  Rinse and repeat.
 
 If $X$ is finite, we are done as the process stops at some point.
 If $X$ is countably infinite,
@@ -11140,6 +11143,35 @@ For any $m$ the tail $\{ f_{k,k} \}_{k=m}^\infty$ is a subsequence of $\{ f_{m,k
 and hence for any $m$ the sequence $\{ f_{k,k}(x_m) \}_{k=1}^\infty$ converges.
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+Show that the sequence of functions $\bigl\{ \frac{n^2x}{1+n^2x^2} \bigr\}$
+for $x \in \R$ is not uniformly bounded, but it is pointwise bounded (in
+fact it converges pointwise).
+\end{exercise}
+
+\begin{exercise}
+Find a sequence of continuous functions $f_n \colon \R \to [0,1]$ that
+converges pointwise to a function that is 1 on a dense set and 0 on another
+dense set.
+\end{exercise}
+
+\begin{exercise}
+Let $f_n(k) = e^{ink}$ be a sequence of functions $f_n \colon \N \to
+\C$.  Show that for any $\theta \in \R$, there exists a subsequence
+$\{ f_{n_j} \}$ such that $f_{n_j} \to e^{i\theta}$ pointwise.
+\end{exercise}
+
+\begin{exercise}[Requires measure theory]
+Prove that on no interval $[a,b] \subset \R$ does $\sin(nx)$
+have a convergent subsequence.
+First, if $f$ is the pointwise limit of a subsequence on $[a,b]$,
+use Riemann--Lebesgue lemma to show that $f=0$ almost everywhere.
+Second, use the dominated convergence theorem on $\int_{[a,b]} f^2 dx$ to find 
+a contradiction.
+\end{exercise}
+\end{exbox}
+
 \subsection{Equicontinuity}
 
 For larger than countable sets,
@@ -11147,9 +11179,9 @@ we need the functions of the sequence to be related.  We look at
 continuous functions, and the concept we need is equicontinuity.
 
 \begin{defn}
-Let $X$ be a metric space.
+Let $(X,d)$ be a metric space.
 A set $S$ of functions
-$f \colon X \to \C$ is said to be
+$f \colon X \to \C$ is 
 \emph{\myindex{equicontinuous}} at $x \in X$
 if for every $\epsilon > 0$, there is a $\delta > 0$
 such that if $y \in X$ with $d(x,y) < \delta$ we have
@@ -11173,7 +11205,7 @@ key is what happens to infinite sets.
 \begin{exbox}
 \begin{exercise}
 Prove that a finite set of functions continuous at $x$ is
-equicontinus at $x$, and
+equicontinuous at $x$, and
 a finite set of uniformly functions is uniformly equicontinuous.
 \end{exercise}
 \end{exbox}
@@ -11188,23 +11220,24 @@ Then the sequence $\{ f_n \}$ is uniformly equicontinuous.
 Argue by contrapositive.  Suppose that $\{ f_n \}$ is not
 uniformly equicontinuous.  Then there exists an $\epsilon > 0$
 such that for every $k \in \N$, there
-is an $x_k,y_k \in X$ with $d(x_k,y_k) < \frac{1}{k}$
+is an $x_k,y_k \in X$ with $d(x_k,y_k) < \nicefrac{1}{k}$
 such that $\sabs{f_{n_k}(x_k)-f_{n_k}(y_k)} \geq \epsilon$ for some $n_k$.
 
 By compactness $\{x_k\}$ and $\{ y_k\}$ have convergent subsequences, so
-without loss of generality suppose that they converge, in which case
-they have to converge to the same point $x \in X$.
-For any $\delta > 0$, take $k$ such that $\frac{1}{k} < \delta$ and
-such that $d(x,x_k) < \delta$ and
-$d(x,y_k) < \delta$.  Then
+without loss of generality, suppose that they converge, in which case
+they converge to the same point $x \in X$.
+For any $\delta > 0$, take $k$ such that
+$d(x,x_k) < \delta$ and
+$d(x,y_k) < \delta$.
+Then
 \begin{equation*}
 \epsilon \leq 
 \abs{f_{n_k}(x_k)-f_{n_k}(y_k)}
 \leq
-\abs{f_{n_k}(x_k)-f_{n_k}(x)} + \abs{f(x)-f_{n_k}(y_k)} .
+\abs{f_{n_k}(x_k)-f_{n_k}(x)} + \abs{f_{n_k}(x)-f_{n_k}(y_k)} .
 \end{equation*}
 So either 
-$\abs{f_{n_k}(x_k)-f_{n_k}(x)}$ or $\abs{f(x)-f_{n_k}(y_k)}$ is
+$\abs{f_{n_k}(x_k)-f_{n_k}(x)}$ or $\abs{f_{n_k}(x)-f_{n_k}(y_k)}$ is
 bigger than or equal to the fixed $\epsilon$, no matter how small $\delta$
 was.  So $\{ f_n \}$ is not equicontinuous at $x$.
 \end{proof}
