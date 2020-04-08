@@ -11161,12 +11161,6 @@ converges pointwise to a function that is 1 on a dense set and 0 on another
 dense set.
 \end{exercise}
 
-\begin{exercise}
-Let $f_n(k) = e^{ink}$ be a sequence of functions $f_n \colon \N \to
-\C$.  Show that for any $\theta \in \R$, there exists a subsequence
-$\{ f_{n_j} \}$ such that $f_{n_j} \to e^{i\theta}$ pointwise.
-\end{exercise}
-
 \begin{exercise}[Requires measure theory]
 Prove that on no interval $[a,b] \subset \R$ does $\sin(nx)$
 have a convergent subsequence.
@@ -11254,34 +11248,37 @@ Suppose $(X,d)$ is a compact metric space,
 and a sequence of continuous functions $f_n \colon X \to \C$
 converges uniformly. Prove that $\{ f_n \}$ is uniformly equicontinuous.
 \end{exercise}
+
+\begin{exercise}
+Suppose $S$ is a set of differentiable functions $f \colon [0,1] \to \R$
+such that $\sabs{f'(x)} \leq 1$ for all $x \in [0,1]$.
+Prove that $S$ is uniformly equicontinuous.
+\end{exercise}
 \end{exbox}
 
 \subsection{Arzel\`a--Ascoli}
 
-Let us now prove
-the Arzel\`a--Ascoli theorem for compact metric spaces.  First,
-we start with a lemma, showing that we can always find a countable
+For continuous functions, our analogue of Bolzano--Weierstrass is
+the Arzel\`a--Ascoli theorem.
+Unlike Bolzano--Weierstrass, Arzel\`a--Ascoli requires equicontinuity
+in addition to boundedness.  We will start with the theorem on compact
+metric spaces, and then move to open sets.
+First, we start with a lemma, showing that we can always find a countable
 set in a compact metric space.  We will then be able to apply our
 result about countable sets.
 
 \begin{prop}
-A compact metric space $X$ contains a countable dense subset,
+A compact metric space $(X,d)$ contains a countable dense subset,
 that is, there exists a countable $D \subset X$ such that $\widebar{D} = X$.
 \end{prop}
 
-We will be applying this Arezl\`a--Ascoli for subsets of $\C$, and
-it is rather simple to find a countable dense subset in such sets:
-The set of all $a+ib$ for rational $a$ and $b$ is dense in $\C$.  So if you 
-are impatient, feel free to skip to the main theorem below.
-
-Denote by $B(x,\delta) = \{ y \in X : d(x,y) < \delta \}$ the ball of radius
+Denote by $B(x,\delta) = \bigl\{ y \in X : d(x,y) < \delta \bigr\}$ the ball of radius
 $\delta$.
 
 \begin{proof}
-For each $n \in \N$ there are finitely many
-balls of radius $\frac{1}{n}$ that cover $X$ (as $X$ is compact). That is,
-for every $n$, there exists
-a finite set of points $x_{n,1},x_{n,2},\ldots,x_{n,k_n}$ such that
+As $X$ is compact, for every
+$n \in \N$ there exist
+$x_{n,1},x_{n,2},\ldots,x_{n,k_n} \in X$ such that
 \begin{equation*}
 X= \bigcup_{j=1}^{k_n} B(x_{n,j},\nicefrac{1}{n}) .
 \end{equation*}
@@ -11289,7 +11286,7 @@ Let $D = \bigcup_{n=1}^\infty \{ x_{n,1},x_{n,2},\ldots,x_{n,k_n} \}$.
 The set $D$ is countable as it is a countable union of finite sets.
 For every $x \in X$
 and every $\epsilon > 0$, there exists an $n$ such that
-$\frac{1}{n} < \epsilon$ and an $x_{n,j} \in D$ such that
+$\nicefrac{1}{n} < \epsilon$ and an $x_{n,j} \in D$ such that
 \begin{equation*}
 x \in B(x_{n,j},\nicefrac{1}{n}) \subset B\left(x_{n,j},\epsilon\right) .
 \end{equation*}
@@ -11324,7 +11321,7 @@ such that
 X = \bigcup_{j=1}^k B(x_j,\delta) .
 \end{equation*}
 As $\{ f_n \}$ is pointwise bounded there exists an $M$
-such that for $j=1,2,\ldots,k$ we have
+such that for $j=1,2,\ldots,k$,
 \begin{equation*}
 \sabs{f_n(x_j)} \leq M \qquad \text{for all } n.
 \end{equation*}
@@ -11349,7 +11346,7 @@ Write $g_j = f_{n_j}$ for simplicity.
 The sequence $\{ g_n \}$ is 
 uniformly equicontinuous.
 Let $\epsilon > 0$ be given, then there exists a $\delta > 0$
-such that for all $x \in X$ and all $n \in N$
+such that for all $x \in X$ and all $n \in \N$
 \begin{equation*}
 B(x,\delta) \subset g_n^{-1}\bigl(B(g_n(x),\nicefrac{\epsilon}{3})\bigr).
 \end{equation*}
@@ -11362,18 +11359,18 @@ X = \bigcup_{j=1}^k B(x_j,\delta) .
 \end{equation*}
 As there are finitely many points and $\{ g_n \}$
 converges pointwise on $D$, there exists a single $N$ such that for 
-all $n,m \geq N$ we have
+all $n,m \geq N$,
 \begin{equation*}
-\sabs{g_n(x_j)-g_m(x_j)} < \frac{\epsilon}{3}
+\sabs{g_n(x_j)-g_m(x_j)} < \nicefrac{\epsilon}{3}
  \qquad \text{for all } j=1,2,\ldots,k.
 \end{equation*}
 
 Let $x \in X$ be arbitrary.  There is some $j$ such that
-$x \in B(x_j,\delta)$ and so we have for all $\ell \in \N$
+$x \in B(x_j,\delta)$ and so for all $\ell \in \N$,
 \begin{equation*}
-\sabs{g_\ell(x)-g_\ell(x_j)} < \frac{\epsilon}{3},
+\sabs{g_\ell(x)-g_\ell(x_j)} < \nicefrac{\epsilon}{3}.
 \end{equation*}
-and so $n,m \geq N$ that
+So for $n,m \geq N$,
 \begin{equation*}
 \sabs{g_n(x)-g_m(x)} \leq
 \sabs{g_n(x)-g_n(x_j)} +
@@ -11393,7 +11390,7 @@ following version.
 \label{cor:arzelaascoliplane}
 Let $U \subset \C$ be open and let $\{ f_n \}$
 be pointwise bounded and equicontinuous sequence
-of functions $f_n \colon X \to \C$.  Then
+of functions $f_n \colon U \to \C$.  Then
 $\{ f_n \}$ contains a subsequence
 that converges uniformly on compact subsets.
 \end{cor}
@@ -11401,18 +11398,18 @@ that converges uniformly on compact subsets.
 \begin{proof}
 Let $d(z,\partial U)$ denote the distance to the boundary of $U$.  Define
 \begin{equation*}
-K_\ell = \left\{
-z \in U : d(z,\partial U) \geq \frac{1}{\ell} \text{ and } \sabs{z} \leq
+K_\ell = \bigl\{
+z \in U : d(z,\partial U) \geq \nicefrac{1}{\ell} \text{ and } \sabs{z} \leq
 \ell
-\right\} .
+\bigr\} .
 \end{equation*}
 It is easy to see that $K_\ell$ is compact (as it is closed in $\C$ and bounded).
 It is also easy to see that $U = \bigcup K_\ell$.  The interior of
 $K_\ell$ is given by
 \begin{equation*}
-K^\circ_\ell = \left\{
-z \in U : d(z,\partial U) < \frac{1}{\ell} \text{ and } \sabs{z} < \ell
-\right\} .
+K^\circ_\ell = \bigl\{
+z \in U : d(z,\partial U) > \nicefrac{1}{\ell} \text{ and } \sabs{z} < \ell
+\bigr\} .
 \end{equation*}
 From this it is clear that $K_\ell \subset K^\circ_{\ell+1}$, and
 $U = \bigcup K^\circ_\ell$ (it is an open cover).
@@ -11422,8 +11419,9 @@ find a subsequence $\{ f_{1,n} \}$  of $\{f_n\}$ that converges uniformly
 on $K_1$.  Then find a subsequence
 $\{ f_{2,n} \}$ of
 $\{ f_{1,n} \}$ that converges uniformly on $K_2$, and so on.
-Finally take the diagonal sequence $\{ f_{n,n} \}$.  Given any compact $K$
-it is in some $K^\circ_\ell$.  The $\ell$-tail of the sequence $\{ f_{n,n}
+Finally take the diagonal sequence $\{ f_{n,n} \}$.  Any compact $K
+\subset U$
+is contained in some $K^\circ_\ell$.  The $\ell$-tail of the sequence $\{ f_{n,n}
 \}$ is a subsequence of $\{ f_{\ell,n} \}$ and hence uniformly convergent on
 $K_\ell$ and thus $K$.
 \end{proof}
@@ -11431,7 +11429,7 @@ $K_\ell$ and thus $K$.
 \begin{exbox}
 \begin{exercise}
 Suppose that $f_n \colon [0,1] \to \C$ are functions that are pointwise
-bounded, continuously differentiable and for some $M> 0$ we have
+bounded, (real) differentiable and for some $M> 0$ we have
 $\sabs{f_n'(t)} \leq M$ for all $t \in [0,1]$ and all $n$.  Prove that there
 exists a subsequence that converges uniformly on $[0,1]$.
 \end{exercise}
@@ -11439,9 +11437,9 @@ exists a subsequence that converges uniformly on $[0,1]$.
 \begin{exercise}
 Prove the formula of $K^\circ_\ell$.  That is, prove that the interior
 of $K_\ell$ is
-$K^\circ_\ell = \left\{
-z \in U : d(z,\partial U) < \frac{1}{\ell} \text{ and } \sabs{z} < \ell
-\right\}$.  Then prove that $K_\ell \subset K^\circ_{\ell+1}$ for all $\ell$.
+$K^\circ_\ell = \bigl\{
+z \in U : d(z,\partial U) > \nicefrac{1}{\ell} \text{ and } \sabs{z} < \ell
+\bigr\}$.  Then prove that $K_\ell \subset K^\circ_{\ell+1}$ for all $\ell$.
 \end{exercise}
 
 \begin{exercise}
