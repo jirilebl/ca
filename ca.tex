@@ -5663,7 +5663,7 @@ even bounded.
 The derivatives of a holomorphic function can be computed by
 integration\footnote{Complex analysis allows you to integrate to find the
 derivative and to differentiate to find an integral.  Now tell that to your
-calculus students.} via the Cauchy formula as well.  Yeah that does sound
+calculus students.} via the Cauchy integral formula as well.  Yeah that does sound
 weird.  It is definitely not something that you should expect for any old
 functions.
 
@@ -5844,10 +5844,12 @@ for every triangle such that $T \subset U$.  Then $f$ is constant.
 \end{exercise}
 \end{exbox}
 
-\subsection{The maximum principle}
+\subsection{The maximum modulus principle}
 
 A simple and yet surprisingly useful consequence of Cauchy's formula is the
-so-called maximum principle, which has several different versions.
+so-called \emph{maximum modulus principle}
+(sometimes just \emph{maximum principle}),
+which has several different versions.
 We prove the one statement and leave other versions as exercises.
 The main idea is that the modulus of a holomorphic function never
 achieves a maximum.  So if we wish to bound $\sabs{f(z)}$, we only need to
@@ -5856,7 +5858,8 @@ The basic idea of the proof is that Cauchy's integral formula tells us that
 $f(z)$ is an average of the values of $f$ in a circle around $z$, and the
 average can't be bigger than the numbers we're averaging.
 
-\begin{thm}[Maximum principle]
+\begin{thm}[Maximum modulus principle]
+\index{maximum modulus principle}%
 \index{maximum principle!holomorphic functions}%
 Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.
@@ -5948,7 +5951,8 @@ the identity theorem (\thmref{thm:identity}) implies that $f$ is constant in
 $U$.
 \end{proof}
 
-\begin{cor}[Maximum principle, part deux]
+\begin{cor}[Maximum modulus principle, part deux]
+\index{maximum modulus principle}%
 \index{maximum principle!holomorphic functions}%
 Suppose $U \subset \C$ is nonempty, open, and bounded (so $\overline{U}$ is compact).
 If $f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
@@ -5962,12 +5966,12 @@ other words,
 
 \begin{exbox}
 \begin{exercise}
-Prove the second version of the maximum principle above.
+Prove the second version of the maximum modulus principle above.
 That is for a bounded $U$ a holomorphic $f$ continuous
 on $\overline{U}$ achieves a maximum on $\partial U$.
 \end{exercise}
 
-\begin{exercise}[Minimum principle]\index{minimum principle}
+\begin{exercise}[Minimum modulus principle]\index{minimum modulus principle}
 Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.
 If $\sabs{f(z)}$ achieves a local minimum at $p \in U$ and $f(p) \not= 0$,
@@ -5975,7 +5979,7 @@ then $f$ is constant.  Also show by example that the hypothesis
 $f(p) \not= 0$ is necessary.
 \end{exercise}
 
-\begin{exercise}[Maximum principle, part trois]
+\begin{exercise}[Maximum modulus principle, part trois]
 Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ is a holomorphic
 function, and $M > 0$ is a number such that
 $\limsup_{z \to p} \sabs{f(z)} \leq M$ for all $p \in \partial U$,
@@ -6219,7 +6223,7 @@ is closed).
 \item Show that $X_M$ is nonempty for any $M > 0$.
 \item Show that for any $M$, the set $X_M$ has no bounded topological components.
 \end{exparts}
-Hint: See the exercises for the maximum principle.
+Hint: See the exercises for the maximum modulus principle.
 \end{exercise}
 \end{exbox}
 
@@ -6558,7 +6562,7 @@ Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \overline{U} \to
 the restrictions $f_n|_{\partial U}$ converge uniformly.  Prove that
 $f_n$ converge uniformly on $\overline{U}$ to a continuous
 function $f \colon \overline{U} \to \C$ that is holomorphic in $U$.
-Hint: First use the maximum principle to show that the sequence
+Hint: First use the maximum modulus principle to show that the sequence
 $\{ f_n \}$
 is Cauchy at each point (actually uniformly Cauchy).  Feel free to use the
 fact that uniform limit of continuous functions is continuous.
@@ -6665,7 +6669,7 @@ where $r < 1$, we have
 \begin{equation*}
 \sabs{g(z)} = \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r} .
 \end{equation*}
-The maximum principle says that the inequality
+The maximum modulus principle says that the inequality
 $r \sabs{f(z)} \leq \sabs{z}$
 holds for all $z \in \Delta_r(0)$.
 Fix $z \in \D$ and take limit as $r \uparrow 1$. 
@@ -8869,7 +8873,8 @@ dA .
 \end{thm}
 
 If $f$ is holomorphic, then the second term is zero, and we
-obtain the standard Cauchy formula.  Note that we have cheated above.  The
+obtain the standard Cauchy integral formula.
+Note that we have cheated above.  The
 integral on the right hand side is not an integral of a continuous function.
 There is a singularity, but it turns out that it is still integrable.  That
 is, we write the improper integral
@@ -10814,8 +10819,8 @@ f\bigl(\Delta_r(p)\bigr) \subset f(V) .  \qedhere
 \end{equation*}
 \end{proof}
 
-The open mapping theorem is really a stronger version of the maximum
-principle.
+The open mapping theorem is really a stronger version of
+the maximum modulus principle.
 If for any $p$,
 $f(p)$ is always in the interior of $f(V)$ for any neighborhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
@@ -11451,8 +11456,7 @@ is not satisfied?  Prove your assertion.
 \end{exercise}
 
 \begin{exercise}
-Suppose $\partial \D \subset \C$ is the unit circle
-and
+Suppose 
 $f_n \colon \partial \D \to \C$ are uniformly bounded continuous functions.
 Let $g(z,w)$ be a continuous function on $\overline{\D} \times \partial \D$.
 Define
@@ -11464,9 +11468,9 @@ Show that $\{ F_n \}$ has a uniformly convergent subsequence.
 \end{exercise}
 
 \begin{exercise}
-Suppose $(X,d)$ is a compact metric space, $\{ f_n \}$ a uniformly equicontinuous
-sequence of functions on $X$.  Suppose $\{ f_n \}$ converges
-pointwise.  Show that it converges uniformly.
+Suppose $(X,d)$ is a compact metric space and $\{ f_n \}$ an equicontinuous
+sequence of functions on $X$.  If $\{ f_n \}$ converges
+pointwise, show that it converges uniformly.
 \end{exercise}
 
 \begin{exercise}
@@ -11477,7 +11481,6 @@ the conclusion of Arzel\`a--Ascoli for this sequence.  Let $\delta \in \R$
 be given,
 and define $g(t) = e^{i(2\pi t + \delta)}$.  Show that there exists 
 a subsequence of $\{ f_n \}$ converging uniformly to $g$.
-\\
 Hint: Feel free to use the \emph{\myindex{Kronecker density theorem}}:
 The sequence $\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
 \end{exercise}
@@ -11489,7 +11492,7 @@ The sequence $\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
 \label{sec:montel}
 
 For holomorphic functions, if you have a bound on the function, you have a
-bound on the derivative using the Cauchy formula.  A uniform
+bound on the derivative using the Cauchy integral formula.  A uniform
 bound on the derivative gives equicontinuity, and
 so it comes as no
 surprise that if we have a uniformly bounded set of holomorphic functions
@@ -11504,8 +11507,8 @@ A set $\sF$ of holomorphic functions $f \colon U \to \C$ is called a
 \emph{\myindex{normal family}} if every sequence in $\sF$ has a subsequence
 that converges uniformly on compact sets (the limit need not be in $\sF$).
 
-A set $\sF$ of holomorphic functions on $U$ is \emph{\myindex{locally bounded}}
-if for every $p \in U$, there is a disc $\Delta_r(p) \subset U$ and $M > 0$
+A set $\sF$ of functions on $U$ is \emph{\myindex{locally bounded}}
+if for every $p \in U$, there is a disc $\Delta_r(p) \subset U$ and $M > 0$,
 such that 
 $\snorm{f}_{\Delta_r(p)} \leq M$ for all $f \in \sF$.
 \end{defn}
@@ -11518,7 +11521,7 @@ Let us just start with the statement of Montel.
 
 \begin{thm}[Montel]\index{Montel's theorem}
 Let $U \subset \C$ be open let $\sF$
-be a set of holomorphic functions on $U$ that is locally bounded.
+be a locally bounded set of holomorphic functions on $U$.
 Then $\sF$ is a normal family (every sequence has a subsequence that
 converges uniformly on compact sets).
 \end{thm}
@@ -11533,7 +11536,9 @@ when working with sequences of in $\C$ or $\R$ before (several times in this
 book already in fact).
 
 \begin{proof}
-First, clearly $\sF$ is pointwise bounded as it is bounded on discs around
+The point of the proof is to apply Arzel\`a--Ascoli, so let us go through
+the hypotheses.
+Clearly $\sF$ is pointwise bounded as it is bounded on discs around
 every point.
 We need to show that it is equicontinuous at every point.
 
@@ -12368,8 +12373,8 @@ is open, $Z$ is also closed, so $Z=U$ as $U$ is connected.
 
 The maximum principle is really a theorem about harmonic functions rather
 than holomorphic functions.  We will prove it using holomorphic functions
-and the open mapping theorem (\thmref{thm:OMT})\footnote{I mentioned that
-the open mapping theorem is a strong version of the maximum principle.}
+and the open mapping theorem (\thmref{thm:OMT})\footnote{%
+The open mapping theorem is a stronger version of the maximum modulus principle.}
 although it follows more directly from the mean value property we will see
 later.
 
@@ -12394,7 +12399,7 @@ identity theorem.
 \begin{exbox}
 \begin{exercise}
 Assume the maximum principle for harmonic functions.  Prove the maximum
-principle for holomorphic functions by noting that if $f$ is holomorphic
+modulus principle for holomorphic functions by noting that if $f$ is holomorphic
 then $\log \sabs{f(z)}$ is harmonic.
 \end{exercise}
 
