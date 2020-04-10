@@ -10198,10 +10198,10 @@ many zeros or poles for which
 $n(\Gamma;z) \not= 0$ (see exercises below), as long as $\Gamma$ is
 homologous to zero.  So there is always a slightly smaller $U$ that only
 includes finitely many zeros and poles and $\Gamma$ is still homologous to
-zero.
+zero in that smaller $U$.
 
-The reason for saying that this counts the number of zeros and poles,
-suppose that $\Gamma$ only goes around every point in $z \in U$ at most once
+Why do we say that the theorem counts the number of zeros and poles?
+Suppose $\Gamma$ only goes around every point in $z \in U$ at most once
 in the positive direction or not at all.  That is,
 $n(\Gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the ``inside of
 $\Gamma$'' as the points where $n(\Gamma;z)=1$.  Suppose that there are
@@ -10855,7 +10855,8 @@ for some $z \in U$.  Prove $f$ is constant.
 
 \begin{exercise}
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
-Prove that if $\abs{\Re f(z)}^2 + \abs{\Im f(z)}^2 = 1$ for all $z \in U$,
+Prove that if $\abs{\Im f(z)} = \abs{\Re f(z)}$
+for all $z \in U$,
 then $f$ is constant.
 \end{exercise}
 
@@ -11530,7 +11531,7 @@ we will just use the traditional verbiage.
 Let us just start with the statement of Montel.
 
 \begin{thm}[Montel]\index{Montel's theorem}
-Let $U \subset \C$ be open let $\sF$
+Let $U \subset \C$ be open and let $\sF$
 be a locally bounded set of holomorphic functions on $U$.
 Then $\sF$ is a normal family (every sequence has a subsequence that
 converges uniformly on compact sets).
@@ -11569,7 +11570,7 @@ we have
 & \leq
 \frac{1}{2\pi}
 \int_{\partial \Delta_r(p)}
-\frac{\sabs{f(\zeta)}}{\sabs{(\zeta-z)}^2} \, \sabs{d\zeta}
+\frac{\sabs{f(\zeta)}}{\sabs{\zeta-z}^2} \, \sabs{d\zeta}
 \\
 & \leq
 \frac{1}{2\pi}
@@ -11593,7 +11594,7 @@ f(p) + \int_{[p,z]} f'(\zeta) \, d\zeta
 \leq
 \int_{[p,z]} \abs{f'(\zeta)} \, \sabs{d\zeta}
 \leq
-\frac{4 M}{r} \sabs{z-p} .
+\frac{4 M}{r} \sabs{p-z} .
 \end{equation*}
 As $M$ does not depend on the particular $f$, we get that $\sF$ is
 equicontinuous at $p$ (it is in fact Lipschitz at $p$ with the same
@@ -11632,10 +11633,10 @@ $\snorm{f}_K \leq M$ for all $f \in \sF$.
 
 \begin{exercise}[Vitali's theorem]\index{Vitali's theorem}
 Suppose $U \subset \C$ is a domain, $\{ f_n \}$ is a locally bounded
-sequence of holomorphic functions, $f \colon U \to \C$ is a holomorphic
-function such that $\{ f_n \}$ converges pointwise to $f$ on a set $E \subset U$,
+sequence of holomorphic functions that
+converges pointwise on a set $E \subset U$,
 and $E$ has a limit point in $U$.  Prove that $\{ f_n \}$
-converges uniformly on compact sets to $f$.
+converges uniformly on compact sets in $U$.
 \end{exercise}
 
 \begin{exercise}
@@ -11703,6 +11704,7 @@ is homeomorphic to the disc, and that's despite the topologists only
 needing the mapping to be continuous.  It still seems to be the easiest way.}
 
 \begin{thm}
+\pagebreak[2]
 Let $U \subset \C$ be a simply connected domain such that $U \not= \C$.
 Let $p \in U$ be given.  Then there exists a biholomorphic (conformal)
 map $f \colon U \to \D$ such that $f(p) = 0$, such that $\sabs{f'(p)}$ is
