@@ -9028,8 +9028,9 @@ derivative $f^{(k)}(p) \not= 0$.
 \end{lemma}
 
 \begin{defn}
-We call a point $p$ such that $f(p) = 0$ a \emph{\myindex{zero}} of
-$f$.
+%We call a point $p$ such that $f(p) = 0$ a \emph{\myindex{zero}} of
+%$f$.
+Suppose $f$ has an isolated zero at $p$.
 The $k$ from the lemma is called the \emph{order}\index{order of a zero}
 of the zero at $p$.
 If the order is $1$, we say $p$ is a \emph{\myindex{simple zero}}.
@@ -9045,13 +9046,17 @@ zero for nonholomorphic functions.}
 of saying that a zero of $f$ has order $k$ at $p$ is to say that
 $k$ is the largest integer such that $\frac{f(z)}{{(z-p)}^{k}}$ is bounded
 near $p$.  That these possible definitions are equivalent
-follows immediately from the lemma.
+follows from the lemma.  See \exerciseref{exercise:order} below.
 
 For completeness, the conclusion of the lemma holds also when $f(p) \not= 0$,
 in which case
-$k=0$ and $g = f$.  So we can say that when $f(p) \not= 0$, then $p$ is
+$k=0$ and $g = f$.  So one can (if one is really inclined to)
+say that when $f(p) \not= 0$, then $p$ is
 a zero of order $0$, which sounds somewhat idiotic, but it all fits a general
-picture, and we will see negative orders in just a little while.
+picture, and we will see that negative orders might also make sense
+in just a little while.
+However, when we will say that $f$ has a zero, we will never mean that it has a
+``zero of order zero,'' we will mean an honest zero.
 
 Another remark (which is hidden in the lemma)
 that may be good to emphasize is that if $f^{(k)}(p) = 0$
@@ -9119,7 +9124,7 @@ $g'(z) = (z-p) \varphi'(z) + \varphi(z)$, we have $g'(p) = \varphi(p) \not= 0$.
 \end{proof}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise} \label{exercise:order}
 Suppose $U \subset \C$ is open and
 $f \colon U \to \C$ holomorphic.
 Show that $f$ has a zero of order $k$ at $p \in U$
@@ -9228,7 +9233,6 @@ In other words, $f$ has an isolated singularity at $p$ if it is defined
 and holomorphic in a punctured neighborhood
 $\Delta_r(p) \setminus \{ p \}$.  It is removable if the function extends
 across, a pole if $f$ goes to infinity, and essential otherwise.
-
 A holomorphic function must blow up in some way if a singularity is not
 removable.  That is a rather surprising property of holomorphic functions
 with a rather surprisingly simple proof.
@@ -9345,12 +9349,12 @@ removable singularity at $p$
 We start with the first item.
 The function $f$ cannot be zero in some
 punctured neighborhood $\Delta_r(p) \setminus \{p\}$ as it goes to infinity.
-In fact, as $f$ goes to infinity,
+As $f$ goes to infinity,
 $\nicefrac{1}{f}$ goes to zero, and so it is bounded in some $\Delta_r(p)
 \setminus \{p\}$.
 Thus, it has a removable singularity at $p$ by Riemann extension.
 Let $h$ be holomorphic in $\Delta_r(p)$
-such that $h(z) = \frac{1}{f(z)}$ for $z \not= p$.  By continuity $h(p) =
+such that $h(z) = \frac{1}{f(z)}$ for $z \not= p$.  By continuity, $h(p) =
 0$.  Hence $h(z) = {(z-p)}^k q(z)$ for some holomorphic $q$ and $k \in \N$,
 where $q(p) \not= 0$.  By continuity, $q$ is nonzero near $p$.
 So for $z \not= p$ near $p$,
@@ -9363,7 +9367,7 @@ So for $z \not= p$ near $p$,
 \end{equation*}
 
 The converse statement follows by noting that if $g(z)$ has a removable
-singularity, then we can write $g(z) = {(z-p)}^\ell \varphi(z)$ where
+singularity, then $g(z) = {(z-p)}^\ell \varphi(z)$ where
 $\varphi(p) \not= 0$.
 Then
 \begin{equation*}
@@ -9374,8 +9378,8 @@ bounded if $k \leq \ell$ ($f$ has a removable singularity).
 \end{proof}
 
 \begin{defn}
-Given a holomorphic function $f$ with a pole, the smallest $k \in \N$
-such that ${(z-p)}^k f(z)$ is bounded is called the
+Given a holomorphic function $f$ with a pole at $p$, the smallest $k \in \N$
+such that ${(z-p)}^k f(z)$ is bounded near $p$ is called the
 \emph{order}\index{order of a pole} of the pole.
 A pole of order $1$ is called a \emph{\myindex{simple pole}}.
 \end{defn}
@@ -9394,8 +9398,9 @@ has a removable singularity, and the extended function has a zero of order
 $k$ at $p$.
 In other words, if $f$ has a pole or a removable singularity we can write
 $f(z) = {(z-p)}^\ell g(z)$ for some $\ell$ and some holomorphic $g$ such
-that $g(p) \not= 0$.  The point is going to a zero of order $\ell$ if $\ell
-> 0$, and it is going to be a pole of order $-\ell$ if $\ell < 0$.
+that $g(p) \not= 0$.
+The point $p$ is a zero of order $\ell$ if $\ell
+> 0$, and it is a pole of order $-\ell$ if $\ell < 0$.
 
 \begin{exbox}
 \begin{exercise}
