@@ -486,7 +486,7 @@ use at least one of the licenses.
 %\textbf{Acknowledgments:}
 %\\
 %I would like to thank Adam Cartisano, Josiah Ireland, Hoai Dao, Haridas
-%Das, FIXME
+%Das, Uddhaba Pandey, FIXME
 %and students in my classes for pointing out typos/errors
 %and helpful suggestions. 
 %
@@ -7015,11 +7015,11 @@ make the definition
 \log z \overset{\text{def}}{=} \log \sabs{z} + i \arg z .
 \end{equation*}
 This definition is totally bonkers at first glance.  First, the $\log$ on the
-left, is a different $\log$ than the $\log$ on the right.  On the right, it is the
+left is a different $\log$ than the $\log$ on the right.  On the right, it is the
 standard real $\log$, that is, $\log \colon (0,\infty) \to \R$,
-where $\log 0 = 1$.
+where $\log 1 = 0$.
 But the $\log$ on the left
-is now not even a function, it has infinitely many values for every $z$,
+is not even a function, it has infinitely many values for every $z$,
 since the $\arg$ on the right hand side has infinitely many values.
 The value of $\log (-1)$ is $\pi i$, but also $-\pi i$, $3\pi i$,
 or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So $\log$ is a function just as much
@@ -10753,7 +10753,8 @@ uniformly on compact subsets of $\D$ to a constant.
 Automorphisms of $\D$ extend to be continuous on
 $\overline{\D}$.  Prove that if a sequence
 of automorphisms converges uniformly on $\overline{\D}$, then
-the limit is an automorphism.
+the limit is an automorphism. Hint: Prove it is injective
+and its derivative is never zero.
 \end{exparts}
 \end{exercise}
 
@@ -10783,17 +10784,17 @@ of $P_t$ (up to multiplicity) in $\D$ is constant in $t$.
 \section{The open mapping theorem}
 
 A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
-sorts of things to the topology.  The map $(x,y) \mapsto (x,xy)$, which
-is surprisingly famous\footnote{%
+sorts of things to the topology.  The surprisingly famous\footnote{%
 It is called a ``blow-up'' and it is used in obtaining a Fields medal.
 Unfortunately, the medal has already been obtained by Hironaka, and you
-have to find your own map if you want your own medal.},
+have to find your own map if you want your own medal.}
+map $(x,y) \mapsto (x,xy)$
 takes all of $\R^2$, which is both an open and a closed set, to the
 set $\bigl\{ (x,y) : x \not= 0 \text{ or } y=0 \bigr\}$, which is neither open nor
 closed.
 
 Holomorphic functions are always nice to your topology.
-Remember that for a continuous map, $f^{-1}(V)$ is open whenever
+Recall that for a continuous map, $f^{-1}(V)$ is open whenever
 $V$ is open.  Nonconstant holomorphic functions have this property also in
 reverse.  So while not every holomorphic function is invertible, at least it
 behaves as if it were as far as the topology is concerned.
@@ -11698,10 +11699,10 @@ Every simply connected domain of $\C$ (except $\C$ itself) is really
 equivalent (biholomorphically, conformally) to $\D$.
 This is the content of the so-called Riemann mapping theorem.
 It is a theorem that gets cited a lot in all sorts of branches of
-mathematics.\footnote{For example, a beginning course on topology will cite
+mathematics.\footnote{For example, a beginning course on topology might cite
 the theorem to say that any simply connected domain in $\R^2$
 is homeomorphic to the disc, and that's despite the topologists only
-needing the mapping to be continuous.  It still seems to be the easiest way.}
+needing the mapping to be continuous.}
 
 \begin{thm}
 \pagebreak[2]
