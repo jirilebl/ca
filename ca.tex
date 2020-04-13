@@ -11042,12 +11042,12 @@ has two zeros up to multiplicity for every $w \in V$,
 $z_1(w)$ and $z_2(w)$ (given in some unspecified order).
 \begin{exparts}
 \item
-For $f(z) = z^2$, $U = \C$, show that neither $z_1$ nor $z_2$ are continuous
-functions of $w$,
-no matter how one orders the zeros.
-\item
 Prove that $w \mapsto z_1(w)+z_2(w)$ and 
 $w \mapsto z_1(w)z_2(w)$ are holomorphic functions on $V$.
+\item
+For $f(z) = z^2$, $U = V = \C$, show that neither $z_1$ nor $z_2$ are continuous
+functions of $w$,
+no matter how one orders the zeros.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -11487,11 +11487,12 @@ pointwise, show that it converges uniformly.
 
 \begin{exercise}
 Define $f_n \colon [0,1] \to \C$ by $f_n(t) = e^{i(2\pi t + n)}$.
-This is a uniformly equicontinuous uniformly bounded sequence.
-Prove more than just
-the conclusion of Arzel\`a--Ascoli for this sequence.  Let $\delta \in \R$
-be given,
-and define $g(t) = e^{i(2\pi t + \delta)}$.  Show that there exists 
+First,
+prove that $\{ f_n \}$ is a uniformly equicontinuous
+uniformly bounded sequence.
+Then,
+let $\delta \in \R$ be given, and define $g(t) = e^{i(2\pi t + \delta)}$.
+Prove that there exists 
 a subsequence of $\{ f_n \}$ converging uniformly to $g$.
 Hint: Feel free to use the \emph{\myindex{Kronecker density theorem}}:
 The sequence $\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
