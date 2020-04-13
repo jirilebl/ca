@@ -3532,15 +3532,15 @@ From the beginnings of calculus until the 19\textsuperscript{th} century,
 when mathematicians considered a ``function'' they really meant
 ``analytic function'' (or something like it) in modern language.
 One can talk about
-both complex and real analytic functions depending on if the
+both complex and real-analytic functions depending on if the
 variables are real or complex, and they may depend on one or several variables,
-but we are interested in complex analytic functions of one variable. 
+but we are interested in complex-analytic functions of one variable. 
 As there is little chance of confusion, we say just ``analytic'' instead of
-``complex analytic.''
+``complex-analytic.''
 
 \begin{defn}
 Let $U \subset \C$ be open.  A function $f \colon U \to \C$
-is \emph{\myindex{analytic}}\index{complex analytic}
+is \emph{\myindex{analytic}}\index{complex-analytic}
 if for every $p \in U$, there exists 
 an $r > 0$ and a
 power series $\sum c_n {(z-p)}^n$ converging to $f$ on $\Delta_r(p) \subset
@@ -11705,7 +11705,7 @@ the theorem to say that any simply connected domain in $\R^2$
 is homeomorphic to the disc, and that's despite the topologists only
 needing the mapping to be continuous.}
 
-\begin{thm}
+\begin{thm}[Riemann mapping]
 \pagebreak[2]
 Let $U \subset \C$ be a simply connected domain such that $U \not= \C$.
 Let $p \in U$ be given.  Then there exists a biholomorphic (conformal)
@@ -11744,8 +11744,9 @@ things together.
 Suppose $q \in \C \setminus U$.  Then the function $z \mapsto z-q$ is never
 zero and so there exists a function $g(z)$ which is the holomorphic
 square root in $U$, that is, ${\bigl(g(z)\bigr)}^2 = z-q$.
-The set $g(U)$ is open by the open mapping theorem and
-if $g(z)=g(w)$ then $z=w$, so $g$ is injective.  What's more,
+The set $g(U)$ is open by the open mapping theorem.
+If $g(z)=g(w)$, then ${\bigl(g(z)\bigr)}^2={\bigl(g(w)\bigr)}^2$ and so
+$z=w$.  Thus $g$ is injective.  What's more,
 $g(z)=-g(w)$ also implies $z=w$.  In particular, that means that $g(z) =
 -g(w)$ never happens since $g$ is never zero,
 or in other words $g(U) \cap \bigl( - g(U) \bigr) = \emptyset$.  The set
@@ -11793,9 +11794,12 @@ Prove that for all real $x \in [0,1]$, we have $2x(1-x^2) < 1$.
 \end{exercise}
 \end{exbox}
 
-We can thus construct a sequence $f_n \in \sF$ such that the increasing sequence
-$\bigl\{ \sabs{f_n'(p)} \bigr\}$ converges to $\sup_{f \in \sF}
-\sabs{f'(p)}$.  As all functions in $\sF$ are bounded by $1$,
+We can thus construct a sequence $\{ f_n \}$ in
+$\sF$ such that
+\begin{equation*}
+\lim_{n \to \infty} \sabs{f_n'(p)} = \sup_{f \in \sF} \sabs{f'(p)}
+\end{equation*}
+As all functions in $\sF$ are bounded by $1$,
 Montel says that there exists a subsequence that converges uniformly on
 compact sets to some $f$.  Assume $\{ f_n \}$ is that subsequence.
 By the corollary to Hurwitz,
@@ -11820,6 +11824,36 @@ The uniqueness is left as an exercise.
 Given an open $U \subset \C$ and $p \in U$, prove
 that a biholomorphic map
 $f \colon U \to \D$ such that $f'(p) > 0$ is unique if it exists.
+\end{exercise}
+\end{exbox}
+
+\begin{remark}
+The mapping from the theorem can be useful, but of course the theorem
+itself doesn't tell you how to construct it.  There are entire books
+written on the subject, collecting the techniques for constructing
+these maps for various types of domains.
+For example, there is an explicit formula for the map given any polygon
+called the Schwarz--Christoffel mapping.  Let us not worry about the
+constructions here.
+\end{remark}
+
+\begin{remark}
+Another common question we will not worry about
+is the boundary regularity of the map.  That is, does the map extend to
+the closure $\overline{U}$, and how ``nice'' it is.  For example, if $U$ is
+bounded by a Jordan curve, it is known that $f$ extends to be continuous on
+$\overline{U}$.  If $U$ has smooth boundary (locally a graph of a smooth
+function), then $f$ extends smoothly to $\overline{U}$.
+If $U$ has real-analytic boundary (locally a graph of a real-analytic
+function), then $f$ extends holomorphically a bit past the boundary.
+Again, we refer the reader to more advanced literature.
+\end{remark}
+
+\begin{exbox}
+\begin{exercise}
+Find the unique biholomorphic map from the strip
+$\{ z : -1 < \Im z < 1 \}$ to the
+unit disc such that $f(0)=0$, $f'(0) > 0$.  Hint: Exponential.
 \end{exercise}
 
 \begin{exercise}
