@@ -11995,22 +11995,21 @@ will go inside the disc so this way we will not ``go around'' the complement
 of $U$.
 Then one would want to repeat it for all components of $K$.  Of course in
 reality we hit a bunch of technicalities such as $K$ possibly having
-infinitely many connected components, and of course vague intuitive ideas are
+infinitely many connected components, or that the complement of a connected
+$K$ could have multiple components, and of course vague intuitive ideas are
 nice, but we need to actually do some grubby computation to prove anything.
 
 \begin{proof}
 Let us first prove that we can enlarge $K$ so that it
-has only finitely many components.  For a small enough $r > 0$ the set
+has only finitely many components.  For a small enough $r > 0$ we can cover
+$K$ by finitely many discs $\Delta_r(z)$ such that $\overline{\Delta_r(z)}
+\subset U$.  In particular,
 \begin{equation*}
-K' = \bigcup_{z \in K} \overline{\Delta_r(z)}
+K' = \bigcup_{j=1}^n \overline{\Delta_r(z_j)}
 \end{equation*}
-is a compact subset of $U$
-(see the proof of \thmref{thm:unifoncompact} for example).
-As $K \subset \Delta_R(0)$ for some $R$, then $K' \subset \Delta_{R+r}(0)$.
-Each connected component of $K'$ must contain a closed disc
-$\overline{\Delta_r(z)}$ for some $z$ and there are only finitely many such
-discs in $\Delta_{R+r}(0)$.  Thus $K'$ has finitely many topological
-components.
+is a compact subset of $U$ and $K \subset K'$.
+As $K'$ is a union of finitely many closed discs, it has
+finitely many topological components.
 If we find a $\Gamma$ around $K'$, then we are done as $K \subset K'$.
 
 Let $K_1,\ldots,K_n$ be the components of $K'$.
@@ -12025,7 +12024,13 @@ and does not wind around any point of $K_\ell$ for $\ell \not= j$,
 then $\Gamma$ will wind exactly once around any point of $K'$,
 and it still homologous to zero in $U$.
 
-So without loss of generality, assume that $K$ is connected.  
+So without loss of generality, assume that $K$ is connected.
+%Next issue is that $\C_\infty \setminus K$ could be disconnected.
+%As we can assume that $K$ is a finite union of closed discs,
+%$\C_\infty \setminus K$ has finitely many connected components.
+%
+%FIXME
+%
 Also assume that $0 \in K$.  If $K= \{0 \}$, we are done trivially, so
 assume $K$ is larger than one point.
 Consider $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
@@ -12040,10 +12045,19 @@ V = \varphi(\C_\infty \setminus K) .
 Note that $\infty \notin V$, $0 \in V$, $V \not= \C$ ($K$ is more than one
 point), and
 $\C_\infty \setminus V = \varphi(K)$ is connected.
-So $V$ is a simply connected
+So each connected component of $V$ is a simply connected domain
 by \propref{prop:scbycomplementeasy}.
+As we can assume that $K$ is a finite union of closed discs,
+$\C_\infty \setminus K$ has finitely many connected components.
+Let $V_1,\ldots,V_m$ be the connected
+components of $V$.
 By the Riemann mapping theorem, there exists
-a biholomorphic mapping $\psi \colon V \to \D$ such that $\psi(0)=0$.
+a biholomorphic map from $V_j$ to $\Delta_1(\xi_j)$,
+for $\xi_j$ far enough apart so that the discs are disjoint.
+Write $D = \Delta_1(\xi_1) \cup \cdots \cup \Delta_1(\xi_m)$.
+In other words, there is
+a biholomorphic $\psi \colon V \to D$.
+% such that $\psi(0)=0$.
 
 The set $\C_\infty \setminus U$ is compact: it is a closed subset of
 a compact set $\C_\infty$.  As $\varphi$ is continuous,
@@ -12052,33 +12066,42 @@ And as $\psi$ is continuous,
 \begin{equation*}
 S = \psi\bigl(\varphi(\C_\infty \setminus U)\bigr)
 \end{equation*}
-is a compact subset of $\D$.  There is an $r < 1$ such that $S \subset
-\Delta_r(0)$.  Consider the path $\gamma(t) = r e^{-it}$ for $t \in
-[0,2\pi]$.  Let $\Gamma$ be the path
-$\varphi^{-1} \circ \psi^{-1} \circ \gamma$.
+is a compact subset of $D$.  There is an $r < 1$ such that
+\begin{equation*}
+S \subset \Delta_r(\xi_1) \cup \cdots \cup \Delta_r(\xi_m)
+\end{equation*}
+Consider the paths $\gamma_j(t) = \xi_j + r e^{-it}$ for $t \in
+[0,2\pi]$.  Let $\Gamma_j$ be the path
+$\varphi^{-1} \circ \psi^{-1} \circ \gamma_j$, and $\Gamma = \Gamma_1 +
+\cdots + \Gamma_m$.
 
 Let us compute the winding numbers.
-For any $p$ not on the path $\varphi^{-1} \circ \psi^{-1} \circ \gamma$ compute
+For any $p$ not on the paths $\varphi^{-1} \circ \psi^{-1} \circ \gamma_j$ compute
 the winding number (see \propref{prop:usubst}):
 \begin{multline*}
 n(\Gamma;p) = 
+\sum_{j=1}^m
 \frac{1}{2\pi i}
-\int_{\varphi^{-1} \circ \psi^{-1} \circ \gamma}
+\int_{\varphi^{-1} \circ \psi^{-1} \circ \gamma_j}
 \frac{1}{z-p} \, dz
 =
+\sum_{j=1}^m
 \frac{1}{2\pi i}
-\int_{\psi^{-1} \circ \gamma}
+\int_{\psi^{-1} \circ \gamma_j}
 \frac{-1}{(1-\zeta p) \zeta} \, d\zeta
 \\
 =
+\sum_{j=1}^m
 \frac{1}{2\pi i}
-\int_{\gamma}
+\int_{\gamma_j}
 \frac{-1}{ \bigl( 1-\psi^{-1}(\xi)p \bigr)
 \,
 \psi^{-1}(\xi)
 \,
 \psi' \bigl(\psi^{-1}(\xi)\bigr)} \, d \xi .
 \end{multline*}
+
+FIXME:
 
 First suppose that $p \in \C \setminus U$.
 The function 
