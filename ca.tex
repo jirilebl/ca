@@ -11982,22 +11982,22 @@ $\Gamma$ in $U \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in K$ and
 $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
 \end{lemma}
 
-The intuitive idea of the proof is rather simple.  First suppose $K$ is
-connected and
-take one point of it to infinity by an LFT
+The intuitive idea of the proof is rather simple.  Suppose $K$ is
+connected.
+Take one point of it to infinity by an LFT
 (an inversion).
 Then use the Riemann mapping theorem to make the complement of $K$ go to
 the disc (or several discs).
 Then the path is a backwards circle very close to the boundary of the disc
-as this will ``go around'' (after the inversion) what's ``outside the disc,''
-that is, it will go around $K$.
+as this will ``go around'' (after reversing the inversion) what's
+``outside the disc,'' that is, it will go around $K$.
 The complement of $U$
-will go inside the disc so this way we will not ``go around'' the complement
-of $U$.
+corresponds to a compact set inside the disc so this way we will not
+``go around'' the complement of $U$.
 Then one would want to repeat it for all components of $K$.  Of course in
 reality we hit a bunch of technicalities such as $K$ possibly having
-infinitely many connected components, or that the complement of a connected
-$K$ could have multiple components, and of course vague intuitive ideas are
+infinitely many connected components and that the complement of a connected
+$K$ can have multiple components, and of course vague intuitive ideas are
 nice, but we need to actually do some grubby computation to prove anything.
 
 \begin{proof}
@@ -12049,7 +12049,7 @@ $\C_\infty \setminus V = \varphi(K)$ is connected.
 So each connected component of $V$ is a simply connected domain
 by \propref{prop:scbycomplementeasy} (exercise).
 As we can assume that $K$ is a finite union of closed discs,
-$\C_\infty \setminus K$ has finitely many connected components.
+$\C_\infty \setminus K$ and therefore $V$ has finitely many connected components.
 Let $V_1,\ldots,V_m$ be the connected
 components of $V$.
 By the Riemann mapping theorem, there exists
@@ -12070,11 +12070,13 @@ S = \psi\bigl(\varphi(\C_\infty \setminus U)\bigr)
 \end{equation*}
 is a compact subset of $D$.  There is an $r < 1$ such that
 \begin{equation*}
-S \subset \Delta_r(\xi_1) \cup \cdots \cup \Delta_r(\xi_m)
+S \subset \Delta_r(q_1) \cup \cdots \cup \Delta_r(q_m)
 \end{equation*}
-Consider the paths $\gamma_j(t) = \xi_j + r e^{-it}$ for $t \in
-[0,2\pi]$.  Let $\Gamma_j$ be the path
-$\varphi^{-1} \circ \psi^{-1} \circ \gamma_j$, and $\Gamma = \Gamma_1 +
+Consider the paths $\gamma_j(t) = q_j + r e^{-it}$ for $t \in
+[0,2\pi]$,
+that is, $\gamma_j = -\partial
+\Delta_r(q_j)$.
+Let $\Gamma_j=\varphi^{-1} \circ \psi^{-1} \circ \gamma_j$, and $\Gamma = \Gamma_1 +
 \cdots + \Gamma_m$.
 
 Let us compute the winding numbers.
@@ -12113,7 +12115,7 @@ h(\xi) =
 \,
 \psi' \bigl(\psi^{-1}(\xi)\bigr)}
 \end{equation*}
-defined on $D$ has two poles.  One at $\psi\bigl(\frac{1}{p}\bigr)$ and one
+defined on $D$ has two poles: one at $\psi\bigl(\frac{1}{p}\bigr)$ and one
 at $q_1=0$ (the third factor in the denominator is never zero).
 They are both simple poles as is easy to check and the residues are (using
 \propref{prop:residuesimpleratio})
@@ -12129,7 +12131,7 @@ They are both simple poles as is easy to check and the residues are (using
 \end{equation*}
 and
 \begin{equation*}
-\operatorname{Res}\bigl(h;\psi(1/p)\bigr)
+\operatorname{Res}\Bigl(h;\psi\bigl(\tfrac{1}{p}\bigr)\Bigr)
 =
 \frac{-1}{
 \psi^{-1}\bigl(\psi(1/p)\bigr)
@@ -12144,27 +12146,35 @@ and
 =
 1 .
 \end{equation*}
-The path $\gamma$ definitely goes around $0$.
-The path goes around
+The path $\gamma_1$ goes around $q_1=0$.
+Some $\gamma_j$ goes around
 $\psi\bigl(\frac{1}{p}\bigr)$, as $r$ was picked sufficiently large
-precisely so that the circle $\gamma$ goes around any point that
-is the image of a $p \in \C \setminus U$, that is, $\psi\bigl(\frac{1}{p}\bigr)$.
-By the residue theorem, as the sum of the residues which is zero,
+precisely so that the circles $\gamma_j$ go around $S$, that is points that
+are the image of $\C \setminus U$,
+in particular $\psi\bigl(\frac{1}{p}\bigr)$.
+The sum of the residues which is zero, so 
+by the \hyperref[thm:residue]{residue theorem},
+%by the residue theorem,
 \begin{equation*}
 n(\Gamma;p) = 0 .
 \end{equation*}
 
 Next suppose $p \in K$.  As before
 $n(\Gamma;p) = 
+\sum_j
 \frac{1}{2\pi i}
-\int_{\gamma} h(\xi) \, d\xi$.
+\int_{\gamma_j} h(\xi) \, d\xi$.
 As $p \in K$, $\psi^{-1}(\xi) \not= p$ for all $\xi \in D$,
 and so $h$ has just the pole at $0$.
-Since $\gamma$ traverses the circle backwards,
+Since $\gamma_1$ traverses the circle backwards,
 \begin{equation*}
 n(\Gamma;p) = 
+\sum_{j=1}^m
 \frac{1}{2\pi i}
-\int_{\gamma} h(\xi) \, d\xi 
+\int_{\gamma_j} h(\xi) \, d\xi 
+=
+\frac{1}{2\pi i}
+\int_{\gamma_1} h(\xi) \, d\xi 
 = - \operatorname{Res}(h;0) = 1 .  \qedhere
 \end{equation*}
 \end{proof}
@@ -12186,15 +12196,15 @@ $\C_\infty \setminus U$ is connected if and only if $U$ is simply connected.
 \end{thm}
 
 \begin{proof}
-The forward direction is \propref{prop:scbycomplementeasy}.  So let's the do
-the backwards direction by contrapositive.  Suppose that $\C_\infty
-\setminus U$ is disconnected.  Then there are two disjoint closed
+The forward direction is \propref{prop:scbycomplementeasy}.  Let's the do
+the backwards direction by contrapositive.  Suppose $\C_\infty
+\setminus U$ is disconnected.  Then there are two nonempty disjoint closed
 sets $S$ and $K$ such that $S \cup K = \C_\infty \setminus U$. 
-Assume that $\infty \in S$.
+Assume $\infty \in S$.
 The set $U' = U \cup K$ is open as $S$ is closed, $U' \subset \C$,
 and $K \subset U'$ is compact.  Apply the lemma to find a cycle
 $\Gamma$ in $U = U' \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in
-K$.  In other words, $\Gamma$ is not homologous to zero.
+K$.  In other words, $\Gamma$ is not homologous to zero in $U$.
 \end{proof}
 
 
