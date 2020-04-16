@@ -3942,7 +3942,7 @@ for $k=0,1,2,\ldots$.  Prove that $f = g$ everywhere.
 \begin{exercise}
 Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ is analytic.
 Prove that if $f'(z) = 0$ for
-all $z \in U$ in a neighborhood of some $z_0 \in U$, then $f$ is constant.
+all $z$ in a neighborhood of some $z_0 \in U$, then $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
@@ -5333,7 +5333,7 @@ $f \colon \C \to \C$ such that $\frac{1}{2\pi i}\int_{\partial \D}
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is holomorphic in a neighborhood of $\overline{\Delta_r(p)}$.
+Suppose $f$ is holomorphic in an open neighborhood of $\overline{\Delta_r(p)}$.
 Show that $f$ at $p$ is the average of the values on $\partial \Delta_r(p)$.
 That is, show
 \begin{equation*}
@@ -5342,7 +5342,7 @@ f(p) = \frac{1}{2\pi} \int_0^{2\pi} f(p + r e^{it}) \, dt .
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is holomorphic in a neighborhood of $\overline{\Delta_r(p)}$.
+Suppose $f$ is holomorphic in an open neighborhood of $\overline{\Delta_r(p)}$.
 Show that $f$ at $p$ is the average of the values on $\Delta_r(p)$.
 That is, show
 \begin{equation*}
@@ -6115,7 +6115,7 @@ and $f \colon \bH \to \D$ holomorphic.  Prove
 Prove by example that a better estimate of $\sabs{c_n}$ than Cauchy's
 is impossible if we are only given
 $\snorm{f}_{\partial \Delta_r(p)}$.  That is, given an $n$ and $r$ find
-a function holomorphic on a neighborhood of $\overline{\Delta_r(p)}$
+a function holomorphic on an open neighborhood of $\overline{\Delta_r(p)}$
 such that $\sabs{c_n} = \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^n}$.
 In fact, for each $n$ you can find a function that works for all $r$.
 Hint: Think simple!
@@ -8545,7 +8545,7 @@ This can be done because $D_j$ could be picked slightly smaller if needed
 to make sure that $p \not\in \overline{D_j}$ and so that each $L_j$
 is uniformly continuous on $\overline{D_j}$ and therefore on $D_j$.
 
-Next make $\delta > 0$ possibly even smaller so that a $\delta$ neighborhood of each
+Next make $\delta > 0$ possibly even smaller so that a $\delta$-neighborhood of each
 $\gamma\bigl([t_{j-1},t_j]\bigr)$ is within $D_j$.  Then
 for $\widetilde{\gamma}$ that is uniformly within $\delta$ of $\gamma$ we
 get
@@ -9100,7 +9100,7 @@ function $z^k$ acts near the origin.
 Suppose $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic.
 Suppose $p \in U$ is a zero\footnote{In this theorem, do note
 that $k \in \N$, in particular $k > 0$, and so this really is an actual zero
-of $f$.} of $f$ of order $k \in \N$.  Then there exists a neighborhood $V$
+of $f$.} of $f$ of order $k \in \N$.  Then there exists an open neighborhood $V$
 of $p$ and a holomorphic $g \colon V \to \C$ such that
 \begin{equation*}
 f(z) = {\bigl( g(z) \bigr)}^k,
@@ -9185,7 +9185,7 @@ all $t \in (-\epsilon,\epsilon)$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is holomorphic in a neighborhood of a point $p$
+Suppose $f$ is holomorphic in an open neighborhood of a point $p$
 and suppose $\Re f$ has a critical point at $p$ (derivative is zero).
 Prove that $p$ is a saddle point (neither a local minimum nor a local maximum).
 Hint: Apply the theorem and show that $k \geq 2$.  Note that $\Re z^k$ has a
@@ -9529,7 +9529,7 @@ $f+g$ has a removable singularity at $p$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is a nonconstant holomorphic function defined in a neighborhood of the
+Suppose $f$ is a nonconstant holomorphic function defined in an open neighborhood of the
 origin such that $f(0)=0$ and $g$ is holomorphic function with
 an isolated singularity at the origin.  Write $g \circ f$ for the
 composition where it is defined.  Show that $g \circ f$ has an isolated
@@ -9858,7 +9858,7 @@ almost criminally trivial, but it may be good to emphasize all of them
 by making them propositions.
 
 \begin{prop}
-Suppose $f$ is holomorphic in a neighborhood of $p$ and $g$ is holomorphic
+Suppose $f$ is holomorphic in an open neighborhood of $p$ and $g$ is holomorphic
 with an isolated singularity at $p$, then
 $\operatorname{Res}(f+g;p) = \operatorname{Res}(g;p)$.
 \end{prop}
@@ -10360,7 +10360,7 @@ principle.  Hint: $\frac{z^3}{2 z^2+1}=\frac{z^2}{4} \frac{4z}{2z^2+1}$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is meromorphic function on a neighborhood of $\overline{\D}$
+Suppose $f$ is meromorphic function on an open neighborhood of $\overline{\D}$
 that has no pole or zero on $\partial \D$.  Suppose $\Re f(z) >
 0$ for all $z \in \partial \D$, and $f(0) = 0$.  Prove that $f$ has a pole
 in $\D$.
@@ -11009,7 +11009,7 @@ we have that $f^{-1}$ is holomorphic.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $f$ is holomorphic in a neighborhood of the closed unit disc
+Suppose $f$ is holomorphic in an open neighborhood of the closed unit disc
 $\overline{\D}$ such that for every $z_0 \in \D$,
 \begin{equation*}
 \int_{\partial \D}
@@ -11687,6 +11687,16 @@ then $\sabs{f'(z_0)} \leq \sabs{F'(z_0)}$.
 Prove that necessarily $F(p) = 0$.
 \end{exparts}
 \end{exercise}
+
+\begin{exercise}
+Show that there exists
+a holomorphic $f \colon \D \to \D$ such that
+\begin{equation*}
+\int_{\D} \abs{f'(x+iy)}^2 \, dx \, dy
+\avoidbreak
+\end{equation*}
+is maximal.
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -11883,16 +11893,6 @@ $\psi \in \Aut(U)$ such that $\psi(z) = w$.
 \end{exercise}
 
 \begin{exercise}
-Show that there exists
-a holomorphic $f \colon \D \to \D$ such that
-\begin{equation*}
-\int_{\D} \abs{f'(x+iy)}^2 \, dx \, dy
-\avoidbreak
-\end{equation*}
-is maximal.
-\end{exercise}
-
-\begin{exercise}
 Suppose $U \subset \C$ is a simply connected domain, $U \not= \C$,
 $p,q \in U$ are distinct points, and
 $f \colon U \to U$ is holomorphic such that $f(p) = p$ and $f(q)=q$.
@@ -11905,6 +11905,18 @@ holes) is not true
 (at least not in the most obvious way):
 Show that the annuli $\ann(0;0,1) = \D \setminus \{ 0 \}$
 and $\ann(0;1,2)$ are not biholomorphic.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a domain.  Suppose the component of $\C_\infty
+\setminus U$ that contains $\infty$ is more than one point.  Prove that $U$
+is biholomorphic to $\D \setminus K$ for some (possibly empty) compact set
+$K \subset \D$.
+\end{exercise}
+
+\begin{exercise}
+Let $\{ z_n \}$ be any sequence in $\C$.  Prove that $U = \C \setminus
+\overline{\{ z_1,z_2,\ldots \}}$ is not biholomorphic to any subset of $\D$.
 \end{exercise}
 \end{exbox}
 
@@ -11927,15 +11939,15 @@ The key idea is that any path is trivially homotopic to the zero path in the
 disc just by scaling.  See also \exampleref{example:homotopydiscsc}.
 
 \begin{proof}
-We have proved in \propref{prop:simplyconneasy} that if $U$ is
-simply connected in the sense of homotopy means that $U$ is simply connected
-in the sense of homology.
+\propref{prop:simplyconneasy} says that if $U$ is
+simply connected in the sense of homotopy, then $U$ is simply connected
+in the sense of homology.  So let us prove the converse.
 
-Suppose that $U$ is simply connected in
+Suppose $U$ is simply connected in
 the sense of homology.
-Let $\gamma \colon [a,b] \to \C$ be a continuous function with
+Let $\gamma \colon [a,b] \to U$ be a continuous function with
 $\gamma(a)=\gamma(b)$.  We wish to show that $\gamma$ is homotopic to a
-constant.
+constant in $U$.
 The Riemann mapping theorem says that either $U =
 \C$ or there is a biholomorphism $f \colon U \to \D$.
 
@@ -11944,7 +11956,7 @@ If $U = \C$, then define the homotopy $H \colon [a,b] \times [0,1] \to
 \begin{equation*}
 H(t,s) = (1-s) \gamma(t) .
 \end{equation*}
-If $U \not= \C$, consider the function, define
+If $U \not= \C$, define $H \colon [a,b] \times [0,1] \to U$ as
 \begin{equation*}
 H(t,s) = f^{-1} \Bigl( (1-s) f \bigl( \gamma(t) \bigr) \Bigr) .
 \end{equation*}
@@ -11952,6 +11964,15 @@ In other words, we map $U$ to $\D$ and consider $f \circ \gamma$.
 Then we define $H$ in the same way as we did for $\C$, and then we
 take the whole thing back to $U$.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Without using the Riemann mapping theorem, the corollary above or mapping to
+the disc in any way, prove by constructing an explicit homotopy
+that the slit plane $\C \setminus (-\infty,0]$ is simply connected in
+the sense of homotopy, see the proof of the corollary.
+\end{exercise}
+\end{exbox}
 
 \subsection{Cycles around compacts and simply-connectedness}\label{subsec:patharoundK}
 
@@ -11979,7 +12000,9 @@ the converse of \propref{prop:scbycomplementeasy}.  First the lemma.
 Let $U \subset \C$ be open and suppose that $K \subset U$ is compact.
 Then there exists a cycle
 $\Gamma$ in $U \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in K$ and
-$n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
+$n(\Gamma;z) = 0$ for all $z \in \C \setminus U$ ($\Gamma$ is homologous to
+zero in $U$) and such that $n(\Gamma;z)$ is $0$ or $1$ for all $z \notin
+\Gamma$.
 \end{lemma}
 
 The intuitive idea of the proof is rather simple.  Suppose $K$ is
@@ -12004,7 +12027,7 @@ nice, but we need to actually do some grubby computation to prove anything.
 Let us first prove that we can enlarge $K$ so that it
 has only finitely many components.  For a small enough $r > 0$ we can cover
 $K$ by finitely many discs $\Delta_r(z)$ such that $\overline{\Delta_r(z)}
-\subset U$.  In particular,
+\subset U$.  In particular, for some $z_1,\ldots,z_n$,
 \begin{equation*}
 K' = \bigcup_{j=1}^n \overline{\Delta_r(z_j)}
 \end{equation*}
@@ -12175,8 +12198,12 @@ n(\Gamma;p) =
 =
 \frac{1}{2\pi i}
 \int_{\gamma_1} h(\xi) \, d\xi 
-= - \operatorname{Res}(h;0) = 1 .  \qedhere
+= - \operatorname{Res}(h;0) = 1 .
 \end{equation*}
+
+If $p$ is any other point that's not on $\Gamma$, we see that $n(\Gamma;p)$
+is either $0$ or $1$, depending on if there is a pole at
+$\psi\bigl(\frac{1}{p}\bigr)$ and if $\Gamma$ goes around it or not.
 \end{proof}
 
 \begin{exbox}
@@ -12207,6 +12234,38 @@ $\Gamma$ in $U = U' \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in
 K$.  In other words, $\Gamma$ is not homologous to zero in $U$.
 \end{proof}
 
+\begin{exbox}
+\begin{exercise}
+Prove that if $K \subset \C$ is compact and connected, then there exists a biholomorphic
+map $\psi \colon \C \setminus K \to \C \setminus \overline{\D}$.
+\end{exercise}
+
+\begin{exercise}
+Construct an example compact set $K \subset \C$ with a connected component $K_1$
+such that for every cycle $\Gamma$ such that $n(\Gamma;z)=1$ for all $z \in K_1$
+there exists a $\zeta \in K \setminus K_1$ such that $n(\Gamma;\zeta)= 1$.
+Why does this not contradict the construction in the proof of the lemma?
+\end{exercise}
+
+\begin{exercise}
+Suppose $\{ f_n \}$ is a sequence of holomorphic functions on an open set
+$U \subset \C$ that converges uniformly on compact subsets to
+$f \colon U \to \C$.  Let $K \subset U$ be a compact set.  Prove that
+for every open neighborhood $V$ of $K$ in $U$ (so $K \subset V \subset U$) there exists
+a smaller open neighborhood $W$ (so $K \subset W \subset V$) and an $N \in \N$
+such that $f$ and $f_n$ have the same number of zeros in $W$ for all
+$n \geq N$.
+\end{exercise}
+
+\begin{exercise}
+Given an open $U \subset \C$, a compact $K \subset U$, and a $\delta > 0$,
+prove there
+exists a cycle $\Gamma$ in $U \setminus K$ homologous to zero in $U$,
+such that $n(\Gamma;z)$ is either $0$ or $1$ for all $z \notin \Gamma$,
+and such that for every $p \in \Gamma$ there is a $q \in K$ such that
+$\sabs{p-q} < \delta$ ($\Gamma$ is within $\delta$ of $K$).
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -12365,7 +12424,7 @@ Let $U \subset \C$ be a domain and $f \colon U \to \R$ a function.
 \begin{enumerate}[(i)]
 \item
 If $f$ is harmonic,
-then for every point $p$ there exists a neighborhood $V$ of $p$ and a
+then for every point $p$ there exists an open neighborhood $V$ of $p$ and a
 holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
 on $V$.
 \item
@@ -12929,7 +12988,7 @@ such that $\Re h = u$.
 \item
 Show that $h$ does not extend through any point of
 the boundary, that is for every
-$z_0 \in \partial \D$ and every neighbourhood
+$z_0 \in \partial \D$ and every open neighborhood
 $U$ of $z_0$, there exists no holomorphic $f \colon U \to \C$
 such that $f = h$ on $\D \cap U$.
 \end{exparts}
@@ -13450,7 +13509,7 @@ connected.
 \begin{exercise}
 Prove that subharmonicity is a local property.  That is, given an open set
 $U \subset \C$, a function $f \colon U \to \R \cup \{ -\infty \}$ is subharmonic if
-and only if for every $p \in U$ there exists a neighborhood $W$ of $p$,
+and only if for every $p \in U$ there exists an open neighborhood $W$ of $p$,
 $W \subset U$, such that $f|_{W}$ is subharmonic.  Hint: Perhaps try to use
 the maximum principle and \propref{prop:fplushsubharmonic}.
 \end{exercise}
@@ -13468,7 +13527,7 @@ $f(z) \leq g(z)$ for all $z \in U$.
 Let $g$ be a function
 harmonic on a disc $\Delta \subset \C$ and continuous on
 $\overline{\Delta}$.  Prove that for every $\epsilon > 0$ there exists
-a function $g_\epsilon$, harmonic in a neighborhood of $\overline{\Delta}$,
+a function $g_\epsilon$, harmonic in an open neighborhood of $\overline{\Delta}$,
 such that $g(z) \leq g_\epsilon(z) \leq g(z)+\epsilon$ for all $z \in
 \overline{\Delta}$.
 In particular, to test subharmonicity, we only need to consider those
@@ -13751,7 +13810,7 @@ a polynomial in $z$, in other words, a holomorphic polynomial.
 A function holomorphic on a disc $\Delta_r(p)$ is limit of the partial sums
 of the power series $\sum_{n=0}^m c_n {(z-p)}^n$.  See also
 \exerciseref{exercise:polylimits}.  However, suppose we take a function that
-is holomorphic on a neighborhood of the square $[-1,1] \times [-1,1]$, say
+is holomorphic on an open neighborhood of the square $[-1,1] \times [-1,1]$, say
 $f(z) = \frac{1}{(z-1.1)(z+1.1)}$.  If we expand $f$ around any point, the
 series will never converge on all of $[-1,1] \times [-1,1]$.  However we can
 (exercise below) still find a sequence of polynomials that converge to $f$
@@ -13782,7 +13841,7 @@ $\babs{P(z_0)-\frac{1}{z_0}} \geq 1$.
 \end{exbox}
 
 The problem with the unit circle is that it has a hole.  We can approximate
-any function holomorphic in a neighbourhood of $\partial \D$ by rational
+any function holomorphic in an open neighborhood of $\partial \D$ by rational
 functions if we allow a pole at $0$.  The function $\frac{1}{z}$ is already
 a rational function with a pole at zero.
 
@@ -14272,7 +14331,7 @@ and extends to a continuous function on the closure
 $\overline{U}$.  (The hard part is continuity at $z=0$).
 \item
 Show that $f$ does not extend holomorphically through the
-origin.  That is, for any neighbourhood $V$ of $0$ there
+origin.  That is, for any open neighborhood $V$ of $0$ there
 exists no holomorphic
 $\varphi \colon V \to \C$ such that $\varphi = f$ on $U \cap V$.
 \item
