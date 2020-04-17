@@ -324,10 +324,12 @@
 }{%
     \end{enumerate}
 }
-\newenvironment{expartshor}{%
+\newenvironment{expartshor}[1]{%
     \begingroup%
-    \NumTabs{2}%
-    \leavevmode\par\begin{enumerate*}[a),itemjoin={\tab}]
+    \NumTabs{#1}%
+    \leavevmode%
+    \par%
+    \begin{enumerate*}[a),itemjoin={\tab}]
 }{%
     \end{enumerate*}\endgroup\par
 }
@@ -1599,7 +1601,8 @@ unless either otherwise noted or obvious.
 
 The arithmetic that one can 
 reasonably define with the Riemann sphere $\infty$ is quite different from
-the $\infty$ of the extended reals.
+the $\infty$ of the extended reals
+(we may write the real infinity as $+\infty$ for emphasis).
 No additions or subtractions make sense here.
 Even something like
 $\infty+\infty$ does not make sense, even though this is common for the
@@ -6177,6 +6180,12 @@ $[a,b]$ such that $f(\C) \subset \C \setminus [a,b]$.
 Show that $f$ is constant.  Hint: See the map from
 \exerciseref{exercise:segmentcomplement}.
 \end{exercise}
+
+\begin{exercise}
+While there doesn't exist a nonconstant holomorphic function $f \colon \C
+\to \D$, there do exist surjective holomorphic functions $f \colon \D \to
+\C$.  Find one.
+\end{exercise}
 \end{exbox}
 
 \begin{thm}[Fundamental theorem of algebra]\index{fundamental theorem of algebra}
@@ -10074,7 +10083,7 @@ For all integers $n \in \Z$, compute
 Compute
 (Hint: $\cos(3x) = \Re e^{i3x}$)
 \smallskip
-\begin{expartshor}
+\begin{expartshor}{2}
 \item
 $\displaystyle \int_{-\infty}^\infty \frac{1}{{(x^2+1)}^2} \, dx$,
 \item
@@ -10096,7 +10105,7 @@ e^{st}F(s) \, ds
 \end{equation*}
 for some $c \in \R$ (usually $c \geq 0$) is the inverse.  Compute
 \smallskip
-\begin{expartshor}
+\begin{expartshor}{2}
 \item
 $\sL^{-1}\left[ \frac{1}{s(s+1)} \right]$,
 \item
@@ -10111,7 +10120,7 @@ around all the poles.
 \pagebreak[2]
 Compute
 \smallskip
-\begin{expartshor}
+\begin{expartshor}{2}
 \item
 $\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$,
 \item
@@ -12311,7 +12320,13 @@ A $C^2$ (a twice continuously differentiable) function $f \colon U \to \R$ is
 \end{defn}
 
 The operator $\nabla^2$, sometimes also written $\Delta$,
-is the \emph{\myindex{Laplacian}}.
+is the \emph{\myindex{Laplacian}}.\footnote{%
+The Laplacian is defined in $\R^n$ for any $n$ by
+$\nabla^2 f =
+\frac{\partial^2 f}{\partial x_1^2} + \cdots +
+\frac{\partial^2 f}{\partial x_n^2}$, and so we also have
+harmonic functions in any $n$, although in this book we are interested in
+the $n=2$ case, which is surprisingly quite different from $n \geq 3$ case.}
 It is the trace of the Hessian matrix.  It is convenient 
 to note that
 \begin{equation*}
@@ -12366,10 +12381,8 @@ and so $h$ is holomorphic.  Thus
 \begin{equation*}
 f(z) = g(z) + \overline{h(z)} ,
 \end{equation*}
-where $g$ and $h$ are holomorphic.  This is all only true in some
-neighborhood.  We cannot necessarily find a single $g$ and $h$ in the entire
-domain $U$ of $f$ unless $U$ was simply connected.
-
+where $g$ and $h$ are holomorphic.  This works only in some neighborhood.  We cannot necessarily find a single $g$ and $h$ in the entire
+domain $U$ of $f$, unless $U$ is simply connected.
 Let us continue.  As we are assuming that $f$ is real-valued we have
 \begin{equation*}
 g(z) + \overline{h(z)} = f(z) = \overline{f(z)} = \overline{g(z)} + h(z).
@@ -12381,8 +12394,8 @@ say $g(z) = h(z) + C$.  Take $\varphi(z) = 2 g(z) + C$, then
 f(z) = \frac{1}{2} \bigl( \varphi(z) + \overline{\varphi(z)} \bigr) 
 = \Re \varphi(z).
 \end{equation*}
-So any holomorphic function is locally the real part of a holomorphic
-function.  Similarly it is locally the imaginary part of a holomorphic
+So any harmonic function $f$ is locally the real part of a holomorphic
+function.  Similarly $f$ is locally the imaginary part of a holomorphic
 function.
 
 Conversely,
@@ -12416,33 +12429,32 @@ Then
 =
 0 .
 \end{equation*}
-
 We have thus proved the following proposition.
 
 \begin{prop}
 Let $U \subset \C$ be a domain and $f \colon U \to \R$ a function.
 \begin{enumerate}[(i)]
 \item
-If $f$ is harmonic,
-then for every point $p$ there exists an open neighborhood $V$ of $p$ and a
+The function $f$ is harmonic if and only if
+for every point $p$ there exists an open neighborhood $V$ of $p$ and a
 holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
 on $V$.
 \item
-If $f$ is harmonic, then it is infinitely (real) differentiable.  In fact,
+If $f$ is harmonic, then it is infinitely (real) differentiable and
 %it
 %is so-called real-analytic
 for every $p \in U$, there exists a power series expansion
 \begin{equation*}
 f(z) =
-\sum_{n=0}^\infty c_n {(z-p)}^n + \bar{c}_n {\overline{(z-p)}}^n .
+\sum_{n=0}^\infty c_n {(z-p)}^n + \bar{c}_n {\overline{(z-p)}}^n
 \end{equation*}
 converging uniformly absolutely
-on any $\Delta_r(p)$ if $\overline{\Delta_r(p)} \subset U$.
+on any closed disc $\overline{\Delta_r(p)} \subset U$.
 \end{enumerate}
 \end{prop}
 
-The key point above was the integration.  That is given a harmonic $f$ we wanted to
-find the holomorphic primitive to the holomorphic function
+The key point above was the integration: Given a harmonic $f$ we wanted to
+find the holomorphic primitive of the holomorphic function
 $\frac{\partial f}{\partial z}$.  In a simply connected domain we always
 have such a primitive.
 
@@ -12484,24 +12496,40 @@ The real and imaginary parts of a holomorphic function are harmonic,
 however, the modulus $\sabs{f(z)}$ is not however.  Not to fear,
 $\log \sabs{f(z)}$ is harmonic, at least where $f$ is nonzero.
 The fact that $\log \sabs{f(z)}$ is harmonic is just as useful
-as that the real and imaginary parts of $f$ are.
+as that the real and imaginary parts of $f$ are.  The proof is left
+as an exercise.
+
+\begin{prop} \label{prop:logharm}
+If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic
+and never zero, then
+\begin{equation*}
+z \mapsto \log \sabs{f(z)}
+\end{equation*}
+is harmonic.
+\end{prop}
 
 \begin{savenotes}
 \begin{exbox}
+\begin{exercise}
+Prove \propref{prop:logharm}.
+\end{exercise}
+
 \begin{exercise}
 Show that the following functions of $x$ and $y$ (where
 $z = x+iy$) are
 harmonic (either on $\C$ or on the set given)
 and find their harmonic conjugate.
-
-\enspace a) $y$
-\hfill
-b) $xy$
-\hfill
-c) $\arctan(y/x)$ on $x > 0$
-\hfill
-d) $\frac{x}{x^2+y^2}$
-\hspace*{\fill}
+\smallskip
+\begin{expartshor}{5}
+\item
+$y$
+\item
+$xy$
+\item
+$\arctan(y/x)$ on $x > 0$
+\item
+$\frac{x}{x^2+y^2}$
+\end{expartshor}
 \end{exercise}
 
 \begin{exercise}
@@ -12523,7 +12551,7 @@ Proc.\ Amer.\ Math.\ Soc.\ {\textbf{12}} (1961), 995
 an elegant proof for bounded functions.
 But you can't use it, you don't have the
 tools for it yet.} theorem\index{Liouville theorem!harmonic functions} for
-harmonic functions:  Suppose $f \colon \C \to \R$ is harmonic
+harmonic functions:  If $f \colon \C \to \R$ is harmonic
 and bounded from above, then $f$ is constant.
 \end{exercise}
 \end{exbox}
@@ -12709,16 +12737,24 @@ is purely imaginary.
 \end{proof}
 
 \begin{thm} \label{thm:dirichsol}
-Let $u \colon \partial \D \to \R$ be a continuous function.
-The function
+Let $u \colon \partial \D \to \R$ be continuous.
+Then
 $Pu \colon \overline{\D} \to \R$, defined by
 \glsadd{not:Pu}%
 \begin{equation*}
+%Pu(re^{i\theta})
+%=
+%\int_{-\pi}^\pi u(e^{it}) P_r(\theta-t) \, dt
+%\quad \text{if $r < 1$} \qquad \text{and} \qquad
+%Pu(e^{i\theta}) = u(e^{i\theta}),
 Pu(re^{i\theta})
 =
-\int_{-\pi}^\pi u(e^{it}) P_r(\theta-t) \, dt
-\quad \text{if $r < 1$} \qquad \text{and} \qquad
-Pu(e^{i\theta}) = u(e^{i\theta}),
+\begin{cases}
+\int_{-\pi}^\pi u(e^{it}) P_{r}(\theta-t) \, dt
+&
+\text{if $r < 1$,} \\
+u(e^{i\theta}) & \text{if $r=1$,}
+\end{cases}
 \end{equation*}
 is harmonic in $\D$ and continuous on $\overline{\D}$.
 \end{thm}
@@ -12895,25 +12931,73 @@ $\lim_{z \to z_0} Pu(z) = u(z_0) = Pu(z_0)$.
 \end{exercise}
 \end{exbox}
 
-It is particularly useful to notice is that
+A simple translation and scaling gives the more general version for
+any disc.
+
+\begin{cor} \label{cor:dirichsol}
+Let $u \colon \partial \Delta_R(p) \to \R$ be continuous.
+Then
+$Pu \colon \overline{\Delta_R(p)} \to \R$, defined by
+\glsadd{not:Pu}%
 \begin{equation*}
-Pu(0) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(e^{it}) \, dt ,
+Pu(p + re^{i\theta})
+=
+\begin{cases}
+\int_{-\pi}^\pi u(Re^{it}) P_{r/R}(\theta-t) \, dt
+&
+\text{if $r < R$,} \\
+u(p+Re^{i\theta}) & \text{if $r=R$,}
+\end{cases}
 \end{equation*}
-that is $Pu(0)$ is the average value of $u$.  In general, by applying
-a scaling and a translation, we find a $Pu$ for a function $u \colon
-\partial \Delta_s(p) \to \R$.  We
-leave the exact form of the Poisson kernel for $\Delta_s(p)$ as an
-exercise, but the averaging phenomenon still holds.  That is,
-\begin{equation} \label{eq:averageofPu}
-Pu(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(p + s e^{it}) \, dt .
-\end{equation}
+is harmonic in $\Delta_R(p)$ and continuous on $\overline{\Delta_R(p)}$.
+\end{cor}
 
 \begin{exbox}
 \begin{exercise}
-State and prove a version of \thmref{thm:dirichsol} for an arbitrary disc
-$\Delta_r(p)$.  Evaluate at $p$ to prove the averaging identity above.
+Prove the corollary.
 \end{exercise}
+\end{exbox}
 
+As the Poisson integral gives a solution of the Dirichlet problem on a disc,
+and as the solution to the Dirichlet problem is unique,
+the Poisson integral gives
+a representation of harmonic functions in terms of boundary values, just
+like the Cauchy integral formula does for holomorphic functions.
+That is, if $\overline{\Delta_r(p)} \subset U$ and $f$ is harmonic in $U$
+then $P[f|_{\partial \Delta_r(p)}] = f|_{\overline{\Delta_r(p)}}$.
+A difference with the Cauchy integral formula is that the kernel
+changes based on the domain.  One can find the Poisson kernel for other
+domains than the disc (as long as the boundary is nice enough), although
+in general we do not have an explicit formula for it.  This is different
+from the Cauchy integral formula where the kernel is $\frac{1}{\zeta-z}$
+no matter what the path that we were integrating around, that is, no matter
+what domain we were solving for.
+
+The Poisson kernel is also used as a reproducing kernel for
+holomorphic functions, as holomorphic functions are harmonic
+(their real and imaginary parts are).
+A Poisson kernel also exists for higher dimensions, that is in $\R^n$, and has
+analogous properties, although we will not study those here.
+
+It is particularly useful to notice is that
+%\begin{equation*}
+%Pu(0) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(e^{it}) \, dt ,
+%\end{equation*}
+%that is $Pu(0)$ is the average value of $u$.  In general, by applying
+%a scaling and a translation, we find a $Pu$ for a function $u \colon
+%\partial \Delta_s(p) \to \R$.  We
+%leave the exact form of the Poisson kernel for $\Delta_s(p)$ as an
+%exercise, but the averaging phenomenon still holds.  That is,
+in the corollary if we plug in $r=0$, we get
+\begin{equation} \label{eq:averageofPu}
+Pu(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(p + R e^{it}) \, dt .
+\end{equation}
+That is, the value at the center of the disc, $Pu(p)$, is the average 
+value of $u$ on $\partial \Delta_R(p)$.
+In the next section we will see that this property actually characterizes
+harmonic functions.
+
+\begin{exbox}
 \begin{exercise}
 State and prove a version of \thmref{thm:dirichsol} for a function that is
 bounded on $\partial \D$, and continuous at all but finitely many points on
@@ -12925,6 +13009,7 @@ just $L^1(\partial \D)$ with continuity of $Pu$ wherever $u$ is continuous.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 \begin{exparts}
 \item (Easy)
 Dirichlet problem on the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$
@@ -12997,13 +13082,21 @@ such that $f = h$ on $\D \cap U$.
 
 \subsection{Mean-value property}
 
-The Poisson kernel is also used as a reproducing kernel for
-holomorphic functions, as holomorphic functions are harmonic (their real and
-imaginary parts are).
-A Poisson kernel also exists for higher dimensions, and has
-analogous properties.
-The solution to the Dirichlet problem using the Poisson kernel leads to
-the following proposition.
+We can define harmonic functions in one real variable
+by saying $f$ is harmonic if and only if
+$\frac{\partial^2}{\partial x^2} f = f'' = 0$, that is, $f(x) = Ax+B$, an affine
+linear function.  It is quite useful to think of harmonic functions as one
+particular analogue of affine linear functions to $\C$, although we ought
+not to take this analogy too far of course.
+One property of affine linear functions is a mean-value property, that is,
+given $[a,b]$ then $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
+value at the center of the interval is equal to the average of values at the
+ends.  In fact, if a continuous function satisfies this equality it is
+affine linear.  This mean-value property completely classifies affine
+linear, that is harmonic, functions in $\R$.
+It is rather interesting that the same kind of property characterizes
+harmonic functions in $\C$ as well, although we have to replace an interval
+with a disc.
 
 \begin{thm}[Mean-value property]
 \label{prop:meanprop}
@@ -13068,14 +13161,37 @@ logic to $-\varphi$ we find that $\varphi = 0$ on $\Delta_r(p)$.  In
 particular, we find that $f=h$ and $h$ is harmonic, so $f$ is harmonic.
 \end{proof}
 
-The Poisson kernel and so the Poisson integral easily applies to any disc
-$\Delta_r(p)$ by translation and dilation.  See the exercises.
-The uniqueness of the Dirichlet problem says that if $f \colon U \to \R$
-is harmonic and $\overline{\Delta_r(p)} \subset U$, then applying
-Poisson integral on the disc says that $P\bigl[f|_{\partial
-\Delta_r(p)}\bigr] = f$ on $\Delta_r(p)$.  So the Poisson integral gives
-a representation of harmonic functions in terms of boundary values, just
-like the Cauchy integral formula does for holomorphic functions.
+One immediate consequence of the mean value property is that a uniform limit
+on compact sets of harmonic functions is harmonic.  Just like for
+holomorphic function this result would be hard to prove using the definition
+of harmonic functions.  Given a sequence of any old $C^2$ functions,
+the limit of $\nabla^2 f_n$ is not necessarily
+the $\nabla^2$ of the limit just because the convergence is uniform.  But
+uniform limits do go under the integral.  The following result is one part
+of what is called \emph{\myindex{Harnack's theorem}} (there are several
+results named for Harnack about harmonic functions).
+
+\begin{thm}[Harnack]\label{thm:harnack1}
+Let $U \subset \C$ be open, and let $f_n \colon U \to \R$ be a sequence of
+harmonic functions converging uniformly on compact subsets to $f \colon U
+\to \R$.  Then $f$ is harmonic.
+\end{thm}
+
+\begin{proof}
+First, $f$ is continuous.  Given any disc $\overline{\Delta_r(p)} \subset U$
+we have that $\{ f_n \}$ converges uniformly on the boundary of the disc
+and at $p$ and hence
+\begin{equation*}
+f(p) =
+\lim_{n\to\infty} f_n(p)
+=
+\lim_{n\to\infty} 
+\frac{1}{2\pi} \int_{-\pi}^{\pi} f_n(p+re^{i\theta})\, d\theta
+=
+\frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta .
+\end{equation*}
+The result follows by the mean-value property.
+\end{proof}
 
 \begin{exbox}
 \begin{exercise}
@@ -13101,40 +13217,264 @@ somewhat controlled by the size of the disc.  That is, the further
 ``inside'' their domain of definition they live, the more control one has.
 The basic example of this is \emph{\myindex{Harnack's inequality}}.
 
-\begin{thm}[Harnack]
-Suppose $f \colon \Delta_R(p) \to \R$ is harmonic and nonnegative.
-Suppose $z \in \Delta_R(p)$ with $\sabs{z-p} = r$.  Then
+\begin{thm}[Harnack's inequality]
+\label{thm:harnackineqdisc}
+Suppose $f \colon \Delta_R(p) \to \R$ is harmonic and nonnegative,
+and suppose $0 < r < R$.
+Then for all $z \in \overline{\Delta_r(p)}$,
 \begin{equation*}
 \frac{R-r}{R+r} f(p) \leq f(z) \leq \frac{R+r}{R-r} f(p) .
 \end{equation*}
 \end{thm}
 
 \begin{proof}
-FIXME
+If we prove the inequality for $z$ on 
+$\partial \Delta_r(p)$, i.e.\ $\sabs{z-p}=r$, we are done
+as $\frac{R+r}{R-r}$ is increasing in $r$ and
+$\frac{R-r}{R+r}$ is decreasing in $r$.  So without loss of generality
+assume $\sabs{z-p}=r$.
+
+Let $S < R$.  Using \corref{cor:dirichsol} and the uniqueness of the
+dirichlet problem,
+\begin{multline*}
+f(p + re^{i\theta})
+=
+\int_{-\pi}^\pi f(p+Se^{it}) P_{r/S}(\theta-t) \, dt
+\\
+=
+\frac{1}{2\pi} 
+\int_{-\pi}^\pi f(p+Se^{it})
+\frac{S^2-r^2}{S^2+r^2-2Sr \cos (\theta-t)}
+\, dt .
+\end{multline*}
+We estimate
+\begin{equation*}
+\frac{S-r}{S+r}
+=
+\frac{S^2-r^2}{S^2+r^2+2Sr}
+\leq
+\frac{S^2-r^2}{S^2+r^2-2Sr \cos (\theta-t)}
+\leq
+\frac{S^2-r^2}{S^2+r^2-2Sr}
+=
+\frac{S+r}{S-r} .
+\end{equation*}
+So for $z = p+re^{i\theta}$,
+\begin{equation*}
+f(z)
+=
+\int_{-\pi}^\pi f(p+Se^{it}) P_{r/S}(\theta-t) \, dt
+\leq
+\frac{S+r}{S-r} 
+\frac{1}{2\pi}
+\int_{-\pi}^\pi f(p+Se^{it}) \, dt
+\leq
+\frac{S+r}{S-r} 
+f(p) .
+\end{equation*}
+Notice that we have use the nonnegativity of $f$ in the estimate.
+The lower inequality follows in the same way.
+Next as $S<R$ was arbitrary we obtain the inequality in the theorem 
+by taking a limit.
 \end{proof}
 
-There is also the general Harnack inequality in any domain.
-
-\begin{cor}[Harnack]
-Suppose $U \subset \C$ is a domain.  Then there exists a $C > 0$ such
-that
+The inequalities are optimal.  In the unit disc $\D$ the theorem says
 \begin{equation*}
-\sup_{z \in U} f(z) \leq C \inf_{z\in U} f(z)
+\frac{1-r}{1+r} f(0) \leq f(z) \leq \frac{1+r}{1-r} f(0) .
+\end{equation*}
+Consider the function $f(z) = \Re \frac{1+z}{1-z}$.  Except for the
+$\frac{1}{2\pi}$ that is the Poisson kernel and so we have that
+$f(z) > 0$ on $\D$.  Note that $f(0)=1$.  Plugging in $z=r$ we get
+equality in the right hand inequality above, and plugging in $z=-r$
+we get inequality in the left hand inequality above.  In other words
+the two constants
+$\frac{R-r}{R+r}$ and $\frac{R+r}{R-r}$ in are optimal.
+
+There is also a general version of Harnack's inequality on any domain.
+
+\begin{cor}[Harnack's inequality]
+Suppose $U \subset \C$ is a domain and $K \subset U$ is compact.
+Then there exists a $C > 0$ such that
+\begin{equation*}
+\sup_{z \in K} f(z) \leq C \inf_{z\in K} f(z)
 \end{equation*}
 for every harmonic and nonnegative function $f$ defined on $U$.
 \end{cor}
 
-FIXME
+\begin{proof}
+If we prove the theorem for a larger $K$ we are done.
+As $U$ is connected, we can assume that $K$ is connected:
+First, assume $K$ has only finitely many components by replacing it
+by finitely many closed discs
+(see e.g. the proof of \lemmaref{lemma:patharoundK}).  Then, $U$ is path
+connected and so adding in finitely many paths to $K$ we get that $K$
+is connected.
+
+Suppose $r> 0$ is less than half the distance from $K$ to $\partial U$.
+There exist $N$ (finitely many) discs $\Delta_{r}(z_j)$ that cover $K$
+and $\Delta_{2r}(z_j) \subset U$ for every $j$.
+Fix $\zeta,\xi \in K$.  By reordering the discs, we can assume
+that 
+such that $\zeta \in \Delta_{r}\bigl(z_{1}\bigr)$,
+and
+$\xi \in \Delta_{r}\bigl(z_{n}\bigr)$ for some $n \leq N$.
+As $K$ is connected, we can also arrange that
+$\Delta_{r}\bigl(z_{j}\bigr) \cap \Delta_{r}\bigl(z_{j+1}\bigr)$
+is nonempty for all $j=1,\ldots,n-1$.
+Let $f$ be an arbitrary nonnegative harmonic function on $U$.
+As $\Delta_{2r}(z_1) \subset U$ we apply Harnack's inequality for
+discs,
+\begin{equation*}
+f(\zeta)
+\leq
+\frac{2r + r}{2r-r}
+f(z_1)
+= 3 f(z_1) .
+\end{equation*}
+Let $q$ be the midpoint between $z_1$ and $z_2$.  We know that
+$\sabs{z_1-q} < r$ and
+$\sabs{z_2-q} < r$ as the two discs intersect.
+Furthermore, elementary geometry says that 
+$\Delta_{\sqrt{3} r}(q) \subset U$.
+%FIXME: this requires a figure.
+Applying Harnack's inequality for discs twice:
+\begin{equation*}
+f(z_1) \leq
+\frac{\sqrt{3} r+r}{\sqrt{3} r - r}
+f(q)
+=
+\frac{\sqrt{3}+1}{\sqrt{3}-1}
+f(q)
+\leq
+\frac{\sqrt{3}+1}{\sqrt{3}-1}
+\,
+\frac{2r + r}{2r-r}
+f(z_2)
+=
+\frac{3\bigl(\sqrt{3}+1\bigr)}{\sqrt{3}-1}
+f(z_2) .
+\end{equation*}
+Finally, again $\Delta_{2r}(\xi) \subset U$ and $\xi \in \Delta_r(z_n)$ and so
+\begin{equation*}
+f(z_n)
+\leq
+\frac{2r + r}{2r-r}
+f(\xi)
+= 3 f(\xi) .
+\end{equation*}
+All in all
+\begin{equation*}
+f(\zeta) \leq
+3 {\left( \frac{3\bigl(\sqrt{3}+1\bigr)}{\sqrt{3}-1} \right)}^n 3
+f(\xi)
+\leq
+3^2 {\left( \frac{3\bigl(\sqrt{3}+1\bigr)}{\sqrt{3}-1} \right)}^N
+f(\xi) .
+\end{equation*}
+The number $N$ only depends on $K$, not on $\zeta$, $\xi$, or $f$.
+As $\zeta$ and $\xi$ were arbitrary the theorem follows.
+\end{proof}
+
+While the constant we got in the proof is not optimal, it is explicit, you
+could actually explicitly compute a $C$ this way.
+
+\begin{exbox}
+\begin{exercise}
+Fix some $s > t > 0$.
+Let $U = \{z \in \C : -s < \Re z < s, -1 < \Im z < 1 \}$.
+Let $K = [-t,t]$.  Compute an explicit constant $C$
+(doesn't need to be optimal)
+for this setup for the general
+Harnack's inequality.
+Now do it for $K=\{-t,t\}$.
+\end{exercise}
+
+\begin{exercise}
+As we've seen, affine linear functions $Ax+B$ are the one-real-variable
+versions of harmonic functions.  State and prove Harnack's inequality
+(analogue of \thmref{thm:harnackineqdisc})
+in this setting for an interval $[a,b]$ instead of a disc.  You should get
+the optimal constants in the two inequalities just like we got for a disc,
+and prove that the constants are optimal.
+\end{exercise}
+
+\begin{exercise}
+Let $U = \D$ and $K=\overline{\Delta_r(0)}$ in the general 
+Harnack's inequality.  Prove that the $C$ that we obtain from the theorem
+must necessarily go to infinity as $r \uparrow 1$.
+\end{exercise}
+
+\begin{exercise}
+Use Harnack's inequality to prove a version of Liouville's theorem
+for harmonic functions:\index{Liouville theorem!harmonic functions}
+If $f \colon \C \to \R$ is harmonic
+and nonnegative, then $f$ is constant.
+\end{exercise}
+\end{exbox}
 
 \subsection{Harnack's theorem}
 
-FIXME?
+Using Harnack's inequality we have the following theorem on increasing 
+sequences of harmonic functions.
 
-\begin{thm}
-FIXME: convergence?
+\begin{thm}[Harnack]
+\index{Harnack's theorem}
+Let $U \subset \C$ be a domain and $\{ f_n \}$ a sequence of
+harmonic functions on $U$ such that $f_1 \leq f_2 \leq f_3 \leq \cdots$.
+Then either $f_n \to +\infty$ uniformly on compact subsets, or
+$f_n \to f$ for a harmonic $f \colon U \to \R$ uniformly on compact subsets.
 \end{thm}
 
-FIXME: Montel?
+\begin{proof}
+Without loss of generality we can assume that $f_n \geq 0$ for all $n$.
+If not, simply apply the theorem to the sequence $f_n-f_1$,
+which are all nonnegative.
+
+By the monotonicity, $\{f_n\}$ converges pointwise (possibly to $+\infty$).
+If $p$ is such that $\lim f_n(p) = +\infty$, then let $K \subset U$
+be any compact subset including $p$,
+and Harnack's inequality says there is a $C$ such that
+\begin{equation*}
+f_n(p) \leq \sup_{z \in K} f_n(z) \leq C \inf_{z\in K} f_n(z) .
+\end{equation*}
+In other words, $f_n(z) \to +\infty$ for all $z \in K$.  In particular
+$\{f_n\}$ goes to $+\infty$ uniformly on $K$.
+
+Therefore, suppose that the limit of $\{ f_n(z) \}$ is finite
+for every $z \in U$.  Let $f \colon U \to \R$ be the limit.
+Let $K \subset U$ again be any compact subset and $C$ the corresponding $C$
+from Harnack's inequality.  Given $\epsilon > 0$, suppose $m > n$ are two integers
+such that for some $p \in K$, $f_m(p)-f_n(p) < \nicefrac{\epsilon}{C}$, then
+\begin{equation*}
+\sup_{z \in K} \bigl( f_m(z)- f_n(z) \bigr) \leq
+C \inf_{z\in K} \bigl( f_m(z)-f_n(z) \bigr)
+\leq
+C \bigl( f_m(p)-f_n(p) \bigr)
+< \epsilon .
+\end{equation*}
+In other words, $\{ f_n \}$ is uniformly Cauchy on $K$ and hence converges
+uniformly on $K$ to $f$.  Furthermore, by the first Harnack's theorem, 
+\thmref{thm:harnack1}, we have that $f$ is harmonic.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove yet another version of Harnack.  Suppose $U \subset \C$ is a domain,
+$\{ f_n \}$ is a sequence of nonnegative harmonic functions on
+$U$, and $p \in U$.
+\begin{exparts}
+\item
+If $f_n(p) \to +\infty$, then $\{ f_n \}$ converges to $+\infty$ uniformly on
+compact sets.
+\item
+If $f \colon U \to \R$ is harmonic, $f_n(z) \leq f(z)$ for all $z \in U$,
+and $f_n(p) \to f(p)$, then $\{ f_n \}$ converges to $f$ uniformly on
+compact sets.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
+%FIXME: Montel?
 
 %FIXME: maybe just skip for now
 %\subsection{Hopf lemma}
@@ -13159,13 +13499,13 @@ Suppose $U \subset \C$ is open, $p \in U$, and $f \colon U \setminus \{ p \}
 \begin{equation*}
 \lim_{z\to p} \frac{f(z)}{\log \sabs{z}} = 0 .
 \end{equation*}
-Then there exists a harmonic $\tilde{f} \colon U \to \R$ such that
-$f = \tilde{f}$ on $U \setminus \{ p \}$.
+Then there exists a harmonic $F \colon U \to \R$ such that
+$f = F|_{U \setminus \{ p \}}$.
 \end{thm}
 
 \begin{proof}
 By considering $f(a z + b)$ we may assume, without loss of generality,
-that $p = 0$ and $\overline{D} \subset U$.  Solve the Dirichlet problem
+that $p = 0$ and $\overline{\D} \subset U$.  Solve the Dirichlet problem
 $\nabla^2 u = 0$
 in $\D$ with boundary data $u|_{\partial \D} = f|_{\partial \D}$.
 We wish to show that $u$ equals $f$ in $\D \setminus \{0\}$.
@@ -13208,7 +13548,7 @@ We will prove the corresponding holomorphic version
 (\thmref{thm:schwarzreflectionholo}) later separately.
 
 Basically it says that if a harmonic function vanishes on a nice enough
-curve (such as the real line) then it extends across.
+curve (such as the real line), then it extends across.
 
 \begin{thm}[Schwarz reflection principle for harmonic functions]
 \index{Schwarz reflection principle!harmonic functions}
@@ -13223,10 +13563,10 @@ Then there exists a harmonic $F \colon U \to \R$ such that
 $F|_{U_+ \cup L} = f$.
 \end{thm}
 
-FIXME: needs a figure
+%FIXME: needs a figure
 
 \begin{proof}
-The trick is to explicitly define what we want the function to be and then
+The trick is to explicitly define what we want $F$ to be and then
 check that it is harmonic.
 For $z \in U$ define
 \begin{equation*}
@@ -13270,7 +13610,20 @@ $r$ around any other point since $F$ is harmonic on the open set $U
 Thus, by \exerciseref{exercise:meanvaluesmallronly}, $F$ is harmonic in $U$.
 \end{proof}
 
-FIXME:
+\begin{exbox}
+\begin{exercise}
+Suppose $f \colon \C \to \C$ is an entire holomorphic function.
+Suppose $f(x)$ is real for all $x \in \R$. Prove:
+\begin{exparts}
+\item
+If furthermore $f(iy)$ is purely imaginary for all $y \in \R$,
+then $f(z)=-f(-z)$ for all $z \in \C$.
+\item
+If furthermore $f(iy)$ is real for all $y \in \R$,
+then $f(z)=f(-z)$ for all $z \in \C$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13310,13 +13663,9 @@ In other words, a subharmonic function is a function that is less than every
 harmonic function on every disc.
 
 The best way to think about subharmonic functions is an analogy to convex
-functions.
-We could make similar definitions of harmonic and subharmonic
-in $\R$ rather than $\C$ (in fact one can and often does make these
-definitions in $\R^n$ for any $n$).
-In this case (in $\R$ that is), a function $g(x)$ is harmonic if
-$\frac{\partial^2}{\partial x^2} g = g'' = 0$, that is, $g(x) = Ax+B$, an affine
-linear function.
+functions in $\R$.
+We saw that harmonic functions in $\R$ are just the affine linear functions:
+A function $g(x)$ on $\R$ is harmonic if $g'' = 0$, that is, $g(x) = Ax+B$.
 A function of one real variable is
 \emph{convex}\index{convex function} if 
 for every interval it is less than the affine linear function with the same
@@ -13344,7 +13693,7 @@ are also much easier to draw than functions on $\C$, see
 %FIXME: mark needed/used exercises
 Prove that given an upper-semicontinuous function $f \colon U \to \R \cup
 \{-\infty\}$,
-the set $S = f^{-1}\bigl([a,\infty)\bigr) = \{ z \in U : f(z) \geq a \}$
+the set $S = f^{-1}\bigl([a,+\infty)\bigr) = \{ z \in U : f(z) \geq a \}$
 is closed (in the subspace topology of $U$).
 \end{exercise}
 
@@ -13593,7 +13942,7 @@ is a family of subharmonic functions.  Let
 \varphi(z) = \sup_\alpha\, f_\alpha(z) .
 \end{equation*}
 If the family is finite, then $\varphi$ is subharmonic.
-If the family is infinite, $\varphi(z) \not= \infty$ for
+If the family is infinite, $\varphi(z) \not= +\infty$ for
 all $z$, and $\varphi$
 is upper-semicontinuous, then $\varphi$ is subharmonic.
 \end{prop}
@@ -13620,7 +13969,7 @@ is subharmonic, then $\varphi \circ f$ is subharmonic.
 Let $U \subset \C$ be open, $\{ f_n \}$ a sequence of 
 subharmonic functions uniformly bounded above on compact subsets, and 
 $\{ c_n \}$ a sequence of positive real numbers such that
-$\sum_{n=1}^\infty c_n < \infty$.
+$\sum_{n=1}^\infty c_n < +\infty$.
 Prove that $f = \sum_{n=1}^\infty c_n f_n$ is subharmonic.  Make sure to prove
 the function is upper-semicontinuous.
 \end{exercise}
@@ -13692,7 +14041,7 @@ on $\partial \Delta$.  The function $z \mapsto -t \log \abs{f(z)}$ is
 superharmonic (minus a subharmonic function) on $\Delta'$,
 lower-semicontinuous on $\overline{\Delta'}$ and positive on $\partial
 \Delta$.  On the set $\Delta \setminus \Delta'$ where $f$ is zero, the two functions are $-\infty$ and
-$\infty$ respectively.
+$+\infty$ respectively.
 See \figureref{fig:radosthm}.
 Therefore, for all $t > 0$ and 
 $z \in \partial \Delta \cup (\Delta \setminus \Delta')$,
