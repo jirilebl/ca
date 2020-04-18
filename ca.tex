@@ -13316,7 +13316,7 @@ If we prove the theorem for a larger $K$ we are done.
 As $U$ is connected, we can assume that $K$ is connected:
 First, assume $K$ has only finitely many components by replacing it
 by finitely many closed discs
-(see e.g. the proof of \lemmaref{lemma:patharoundK}).  Then, $U$ is path
+(see e.g.\@ the proof of \lemmaref{lemma:patharoundK}).  Then, $U$ is path
 connected and so adding in finitely many paths to $K$ we get that $K$
 is connected.
 
@@ -13325,12 +13325,24 @@ There exist $N$ (finitely many) discs $\Delta_{r}(z_j)$ that cover $K$
 and $\Delta_{2r}(z_j) \subset U$ for every $j$.
 Fix $\zeta,\xi \in K$.  By reordering the discs, we can assume
 that 
-such that $\zeta \in \Delta_{r}\bigl(z_{1}\bigr)$,
+$\zeta \in \Delta_{r}\bigl(z_{1}\bigr)$
 and
 $\xi \in \Delta_{r}\bigl(z_{n}\bigr)$ for some $n \leq N$.
 As $K$ is connected, we can also arrange that
 $\Delta_{r}\bigl(z_{j}\bigr) \cap \Delta_{r}\bigl(z_{j+1}\bigr)$
 is nonempty for all $j=1,\ldots,n-1$.
+Not all the discs need to be used.
+The proof is illustrated in \figureref{fig:harnacksgeneral}.
+
+\begin{myfig}
+\subimport*{figures/}{harnacksgeneral.pdf_t}
+\caption{A chain of discs with centers $z_1,z_2,z_3,z_4$ connecting
+$\zeta$ to $\xi$ in $K$ (marked in darker shade).  Midpoints of the segments
+between $z_j$ and $z_{j+1}$ are marked as well.
+The solid circles are discs of radius $r$ and
+dashed circles are discs of radius $2r$.\label{fig:harnacksgeneral}}
+\end{myfig}
+
 Let $f$ be an arbitrary nonnegative harmonic function on $U$.
 As $\Delta_{2r}(z_1) \subset U$ we apply Harnack's inequality for
 discs,
@@ -13341,21 +13353,23 @@ f(\zeta)
 f(z_1)
 = 3 f(z_1) .
 \end{equation*}
-Let $q$ be the midpoint between $z_1$ and $z_2$.  We know that
-$\sabs{z_1-q} < r$ and
-$\sabs{z_2-q} < r$ as the two discs intersect.
-Furthermore, elementary geometry says that 
-$\Delta_{\sqrt{3} r}(q) \subset U$.  See \figureref{fig:sqrt3disc}.
+Let $q$ be the midpoint between $z_{j}$ and $z_{j+1}$.  Then
+$\sabs{z_j-q} < r$ and
+$\sabs{z_{j+1}-q} < r$ as the two discs intersect.
+Elementary geometry says that 
+$\Delta_{\sqrt{3}\, r}(q) \subset \Delta_{2r}(z_j) \cup \Delta_{2r}(z_{j+1})
+\subset U$.  See \figureref{fig:sqrt3disc}.
 
 \begin{myfig}
 \subimport*{figures/}{sqrt3disc.pdf_t}
-\caption{A disc of radius $\sqrt{3}r$ around $q$ is in $U$.\label{fig:sqrt3disc}}
+\caption{A disc of radius $\sqrt{3}\,r$ around $q$ (dotted) is in $U$
+because the discs of radius $2r$ (dashed) are in $U$.\label{fig:sqrt3disc}}
 \end{myfig}
 
 Applying Harnack's inequality for discs twice:
 \begin{equation*}
-f(z_1) \leq
-\frac{\sqrt{3} r+r}{\sqrt{3} r - r}
+f(z_j) \leq
+\frac{\sqrt{3}\, r+r}{\sqrt{3}\, r - r}
 f(q)
 =
 \frac{\sqrt{3}+1}{\sqrt{3}-1}
@@ -13364,10 +13378,10 @@ f(q)
 \frac{\sqrt{3}+1}{\sqrt{3}-1}
 \,
 \frac{2r + r}{2r-r}
-f(z_2)
+f(z_{j+1})
 =
 \frac{3\bigl(\sqrt{3}+1\bigr)}{\sqrt{3}-1}
-f(z_2) .
+f(z_{j+1}) .
 \end{equation*}
 Finally, again $\Delta_{2r}(\xi) \subset U$ and $\xi \in \Delta_r(z_n)$ and so
 \begin{equation*}
@@ -13558,7 +13572,7 @@ Prove that the Dirichlet problem is not solvable in the punctured disc $\D
 \subsection{Schwarz reflection principle}
 
 Classically, the Schwarz reflection principle is a theorem for holomorphic
-functions, but we will state and prove it for harmonic functions.
+functions, but it is also a theorem for harmonic functions.
 We will prove the corresponding holomorphic version
 (\thmref{thm:schwarzreflectionholo}) later separately.
 
@@ -13578,7 +13592,13 @@ Then there exists a harmonic $F \colon U \to \R$ such that
 $F|_{U_+ \cup L} = f$.
 \end{thm}
 
-%FIXME: needs a figure
+See \figureref{fig:schwarzreflection} for a diagram.
+
+\begin{myfig}
+%Note this figure is used later as well
+\subimport*{figures/}{schwarzreflection.pdf_t}
+\caption{Schwarz reflection principle.\label{fig:schwarzreflection}}
+\end{myfig}
 
 \begin{proof}
 The trick is to explicitly define what we want $F$ to be and then
@@ -13599,8 +13619,8 @@ Suppose $z \in U$ and $\Im z < 0$.  Write $F(z) = F(x,y) = -f(x,-y)$, then
 =
 \nabla^2|_{(x,y)} \bigl( -f(x,-y) \bigr)
 =
-- \frac{\partial^2 f}{\partial x^2}|_{(x,-y)}
-- \frac{\partial^2 f}{\partial y^2}|_{(x,-y)}
+- \frac{\partial^2 f}{\partial x^2}\Big|_{(x,-y)}
+- \frac{\partial^2 f}{\partial y^2}\Big|_{(x,-y)}
 =
 - \nabla^2|_{(x,-y)} f = 0 .
 \end{equation*}
@@ -14614,8 +14634,8 @@ Then there exists a holomorphic function $F \colon U \to \R$ such that
 $F|_{U_+ \cup L} = f$.
 \end{thm}
 
-FIXME: refer to the figure in the harmonic version.
-
+The setup is the same as for the harmonic version of the theorem.
+See \figureref{fig:schwarzreflection} for a diagram of the setup.
 
 \begin{proof}
 For $z \in U$, define
