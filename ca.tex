@@ -636,7 +636,7 @@ plan such as \ref{ch:weier} (Weierstrass factorization) and
 \end{equation*}
 The only reason why \ref{ch:runge} (Runge) depends on \ref{ch:montelriemann}
 (Montel and Riemann mapping) is that we prove \lemmaref{lemma:patharoundK}
-(around ever compact there exists a cycle homologous to zero)
+(around every compact there exists a cycle homologous to zero)
 as an example application of Riemann mapping.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -12026,11 +12026,21 @@ as this will ``go around'' (after reversing the inversion) what's
 The complement of $U$
 corresponds to a compact set inside the disc so this way we will not
 ``go around'' the complement of $U$.
-Then one would want to repeat it for all components of $K$.  Of course in
+Then one would want to repeat it for all components of $K$.  See
+\figureref{fig:cyclearoundcompact}.  Of course in
 reality we hit a bunch of technicalities such as $K$ possibly having
 infinitely many connected components and that the complement of a connected
 $K$ can have multiple components, and of course vague intuitive ideas are
 nice, but we need to actually do some grubby computation to prove anything.
+
+\begin{myfig}
+\subimport*{figures/}{cyclearoundcompact.pdf_t}
+\caption{The idea of the proof: The complement of $K$ with infinity goes to
+the inside of the disc by Riemann mapping theorem.  The inversion is the
+$\varphi$ and $\psi$ is the mapping from Riemann's theorem.
+The outside of the disc on the right is not really the image of $K$ but
+morally one could think of it that way (hence the quotes).\label{fig:cyclearoundcompact}}
+\end{myfig}
 
 \begin{proof}
 Let us first prove that we can enlarge $K$ so that it
@@ -13335,8 +13345,13 @@ Let $q$ be the midpoint between $z_1$ and $z_2$.  We know that
 $\sabs{z_1-q} < r$ and
 $\sabs{z_2-q} < r$ as the two discs intersect.
 Furthermore, elementary geometry says that 
-$\Delta_{\sqrt{3} r}(q) \subset U$.
-%FIXME: this requires a figure.
+$\Delta_{\sqrt{3} r}(q) \subset U$.  See \figureref{fig:sqrt3disc}.
+
+\begin{myfig}
+\subimport*{figures/}{sqrt3disc.pdf_t}
+\caption{A disc of radius $\sqrt{3}r$ around $q$ is in $U$.\label{fig:sqrt3disc}}
+\end{myfig}
+
 Applying Harnack's inequality for discs twice:
 \begin{equation*}
 f(z_1) \leq
