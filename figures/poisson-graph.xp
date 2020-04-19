@@ -1,0 +1,50 @@
+/* -*-ePiX-*- */
+#include "epix.h"
+using namespace ePiX;
+
+P F(double x, double y)
+{
+	double f = (1/(2*M_PI))*(-(y*y+x*x-1)/(y*y+x*x-2*x+1));
+
+  	return P(x, y, f);
+}
+
+P FF(double r, double th)
+{
+	double x = r*Cos(th);
+	double y = r*Sin(th);
+	return F(x,y);
+}
+
+//domain RR(P(sqrt(0.000001),0), P(0.9999999, 2*M_PI), mesh(15,40), mesh(15*5,40*5)); // mesh(10,120), mesh(10,240));
+domain RR(P(sqrt(0.000001),0.25*M_PI), P(0.9999999, (1.75)*M_PI), mesh(15,30), mesh(15*2,30*2)); // mesh(10,120), mesh(10,240));
+domain RR2(P(sqrt(0.000001),0), P(0.9999999, 0.25*M_PI), mesh(15,5), mesh(15*3,5*3)); // mesh(10,120), mesh(10,240));
+domain RR3(P(sqrt(0.000001),-0.25*M_PI), P(0.9999999, 0), mesh(15,5), mesh(15*3,5*3)); // mesh(10,120), mesh(10,240));
+
+int main()
+{
+  picture(P(-1.08,-0.83), P(1.25,1.55), "2.5x2in");
+
+  begin();
+  //border();
+
+  camera.at(P(2,-8,8));
+
+  arrow(P(-1.1,0,0), P(1.25,0,0));
+  //label(P(2.1,0), P(2,4), "$\\operatorname{Re} z$", r); 
+
+  arrow(P(0,-1.1,0), P(0,1.25,0));
+  //label(P(0,2.2), P( 2,8), "$\\operatorname{Im} z$", br);
+
+  plain ();
+  fill(White());
+  clip_box(P(-1.1,-1.1,0),P(1.1,1.1, 2));
+  surface(FF, RR); // polar
+  surface(FF, RR2); // polar
+  surface(FF, RR3); // polar
+
+  arrow(P(0,0,(1/(2*M_PI))), P(0,0,1.5));
+
+  tikz_format();
+  end();
+}
