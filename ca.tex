@@ -11860,9 +11860,10 @@ The uniqueness is left as an exercise.
 
 \begin{exbox}
 \begin{exercise}
+Finish the proof of the theorem:
 Given an open $U \subset \C$ and $p \in U$, prove
 that a biholomorphic map
-$f \colon U \to \D$ such that $f'(p) > 0$ is unique if it exists.
+$f \colon U \to \D$ such that $f(p) = 0$ and $f'(p) > 0$ is unique if it exists.
 \end{exercise}
 \end{exbox}
 
@@ -11890,9 +11891,9 @@ Again, we refer the reader to more advanced literature.
 
 \begin{exbox}
 \begin{exercise}
-Find the unique biholomorphic map from the strip
+Explicitly find the unique biholomorphic map from the strip
 $\{ z : -1 < \Im z < 1 \}$ to the
-unit disc such that $f(0)=0$, $f'(0) > 0$.  Hint: Exponential.
+unit disc such that $f(0)=0$, $f'(0) > 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -11922,15 +11923,23 @@ and $\ann(0;1,2)$ are not biholomorphic.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is a domain.  Suppose the component of $\C_\infty
-\setminus U$ that contains $\infty$ is more than one point.  Prove that $U$
-is biholomorphic to $\D \setminus K$ for some (possibly empty) compact set
-$K \subset \D$.
+Suppose $U \subset \C$ is a domain.  Suppose one connected component of $\C_\infty
+\setminus U$ is more than one point.
+\begin{exparts}
+\item
+Prove that $U$ is biholomorphic to a subset of $\D$.
+\item
+If $\C_\infty \setminus U$ has finitely many connected components, then
+$U$ is biholomorphic to $\D \setminus K$ for some (possibly empty) compact set
+$K \subset \D$, where $K$ has finitely many components.
+\end{exparts}
+Hint: What if the component contained $\infty$?
 \end{exercise}
 
 \begin{exercise}
-Let $\{ z_n \}$ be any sequence in $\C$.  Prove that $U = \C \setminus
-\overline{\{ z_1,z_2,\ldots \}}$ is not biholomorphic to any subset of $\D$.
+Let $S \subset \C$ be a countable closed subset.
+Prove that $U = \C \setminus S$ is not biholomorphic
+to any subset of $\D$.
 \end{exercise}
 \end{exbox}
 
@@ -12286,6 +12295,8 @@ Given an open $U \subset \C$, a compact $K \subset U$, and a $\delta > 0$,
 prove there
 exists a cycle $\Gamma$ in $U \setminus K$ homologous to zero in $U$,
 such that $n(\Gamma;z)$ is either $0$ or $1$ for all $z \notin \Gamma$,
+such that
+$n(\Gamma;z) = 1$ for all $z \in K$, 
 and such that for every $p \in \Gamma$ there is a $q \in K$ such that
 $\sabs{p-q} < \delta$ ($\Gamma$ is within $\delta$ of $K$).
 \end{exercise}
@@ -12547,17 +12558,11 @@ $\frac{x}{x^2+y^2}$
 \end{expartshor}
 \end{exercise}
 
-\begin{exercise}
-Let $U \subset \C$ be open and
-$f \colon U \to \C$ holomorphic.  Prove that $\log \sabs{f(z)}$ is harmonic
-outside the zero set of $f$, that is on $U \setminus f^{-1}(0)$.
-\end{exercise}
-
 % Best for this to be the last in this exbox,
 % so that the footnote (due to the savenotes) appears
 % (most likely) on the right page.
 \begin{exercise}
-Prove the Lioville\footnote{%
+Prove the Liouville\footnote{%
 See
 Nelson, Edward
 \emph{A proof of Liouville's theorem.}
