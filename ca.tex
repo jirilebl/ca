@@ -12325,21 +12325,21 @@ dance.
 \section{Harmonic functions}
 \label{sec:harmonic}
 
-We have so far studied holomorphic functions as complex-valued functions.
+So far, we studied holomorphic functions as complex-valued functions.
 However, to do analysis one needs inequalities, and complex numbers are not
 ordered.  Hence let us study the real and imaginary parts of holomorphic
 functions, the so-called harmonic functions.  Interestingly harmonic
-functions come up often in applied mathematics as for example steady state
+functions come up often in applied mathematics, for example as steady state
 heat or the distribution of electrostatic potential in a region without
-charge.  It then turns out then that harmonic functions are used to study
+charge.  Harmonic functions are used to study
 holomorphic functions and vice-versa, holomorphic functions are used to
 study harmonic functions.
 
 \subsection{Real and imaginary parts of holomorphic functions}
 
 \begin{defn}
-Let $U \subset \C$ be an open set.
-A $C^2$ (a twice continuously differentiable) function $f \colon U \to \R$ is
+Let $U \subset \C$ be open.
+A twice (real) continuously differentiable ($C^2$ for short) function $f \colon U \to \R$ is
 \emph{\myindex{harmonic}} if
 \glsadd{not:laplacian}%
 \begin{equation*}
@@ -12355,9 +12355,10 @@ is the \emph{\myindex{Laplacian}}.\footnote{%
 The Laplacian is defined in $\R^n$ for any $n$ by
 $\nabla^2 f =
 \frac{\partial^2 f}{\partial x_1^2} + \cdots +
-\frac{\partial^2 f}{\partial x_n^2}$, and so we also have
-harmonic functions in any $n$, although in this book we are interested in
-the $n=2$ case, which is surprisingly quite different from $n \geq 3$ case.}
+\frac{\partial^2 f}{\partial x_n^2}$, and so there
+are harmonic functions in any dimension.
+We are interested in the complex plane, $n=2$,
+which is surprisingly different from the $n \geq 3$ case.}
 It is the trace of the Hessian matrix.  It is convenient 
 to note that
 \begin{equation*}
@@ -12382,7 +12383,7 @@ f
 =
 \left[
 \frac{\partial^2}{\partial x^2} +
-\frac{\partial}{\partial y^2}
+\frac{\partial^2}{\partial y^2}
 \right]
 f
 =
@@ -12395,7 +12396,7 @@ primitive, and we write
 \begin{equation*}
 f(z) = g(z) + c(z) ,
 \end{equation*}
-where $g$ is holomorphic and $\frac{\partial c}{\partial z} \equiv 0$.
+where $g$ is holomorphic, $c$ is at least $C^2$, and $\frac{\partial c}{\partial z} \equiv 0$.
 Let $h = \bar{c}$ be the complex conjugate of $c$.  Then 
 \begin{equation*}
 \frac{\partial h}{\partial \bar{z}}
@@ -12412,22 +12413,42 @@ and so $h$ is holomorphic.  Thus
 \begin{equation*}
 f(z) = g(z) + \overline{h(z)} ,
 \end{equation*}
-where $g$ and $h$ are holomorphic.  This works only in some neighborhood.  We cannot necessarily find a single $g$ and $h$ in the entire
-domain $U$ of $f$, unless $U$ is simply connected.
-Let us continue.  As we are assuming that $f$ is real-valued we have
+where $g$ and $h$ are holomorphic.
+Let $\varphi(z) = g(z) + h(z)$.
+As $f$ is real-valued,
 \begin{equation*}
-g(z) + \overline{h(z)} = f(z) = \overline{f(z)} = \overline{g(z)} + h(z).
+f(z) = \Re f(z) =
+\frac{g(z) + \overline{h(z)} + \overline{g(z)}+h(z)}{2}
+=
+\frac{g(z) + h(z) + \overline{g(z)+h(z)}}{2}
+=
+\Re \varphi(z) .
+%g(z) + \overline{h(z)} = f(z) = \overline{f(z)} = \overline{g(z)} + h(z).
 \end{equation*}
-Apply the Wirtinger derivative $\frac{\partial}{\partial z}$ to find
-$g'(z) = h'(z)$.  In other words, $g$ and $h$ are equal up to a constant,
-say $g(z) = h(z) + C$.  Take $\varphi(z) = 2 g(z) + C$, then
-\begin{equation*}
-f(z) = \frac{1}{2} \bigl( \varphi(z) + \overline{\varphi(z)} \bigr) 
-= \Re \varphi(z).
-\end{equation*}
+%Apply the Wirtinger derivative $\frac{\partial}{\partial z}$ to find
+%$g'(z) = h'(z)$.  In other words, $g$ and $h$ are equal up to a constant,
+%say $g(z) = h(z) + C$.  Take $\varphi(z) = 2 g(z) + C$, then
+%\begin{equation*}
+%f(z) = \frac{1}{2} \bigl( \varphi(z) + \overline{\varphi(z)} \bigr) 
+%= \Re \varphi(z).
+%\end{equation*}
 So any harmonic function $f$ is locally the real part of a holomorphic
 function.  Similarly $f$ is locally the imaginary part of a holomorphic
 function.
+This works only in some neighborhood.  We cannot necessarily find a single
+$\varphi$ (the $g$ and $h$ above) in the entire
+domain $U$, unless $U$ is simply connected.  If not, we can always
+pick a simply connected neighborhood such as a disc.
+If $U$ is simply connected, then
+$\frac{\partial f}{\partial z}$ has a primitive in $U$.
+In a simply connected domain such a primitive exists,
+and so we have the following proposition.
+
+\begin{prop}
+Let $U \subset \C$ be a simply connected domain and $f \colon U \to \R$ a
+harmonic function.  Then there exists a holomorphic $\varphi \colon
+U \to \C$ such that $f = \Re \varphi$.
+\end{prop}
 
 Conversely,
 suppose that $f$ is the real-part of a holomorphic function $\varphi$:
@@ -12460,14 +12481,15 @@ Then
 =
 0 .
 \end{equation*}
-We have thus proved the following proposition.
+We have thus proved the following characterization of harmonic
+functions.
 
 \begin{prop}
-Let $U \subset \C$ be a domain and $f \colon U \to \R$ a function.
+Let $U \subset \C$ be open and $f \colon U \to \R$ a function.
 \begin{enumerate}[(i)]
 \item
 The function $f$ is harmonic if and only if
-for every point $p$ there exists an open neighborhood $V$ of $p$ and a
+for every point $p \in U$ there exists an open neighborhood $V$ of $p$ and a
 holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
 on $V$.
 \item
@@ -12484,21 +12506,10 @@ on any closed disc $\overline{\Delta_r(p)} \subset U$.
 \end{enumerate}
 \end{prop}
 
-The key point above was the integration: Given a harmonic $f$ we wanted to
-find the holomorphic primitive of the holomorphic function
-$\frac{\partial f}{\partial z}$.  In a simply connected domain we always
-have such a primitive.
-
-\begin{prop}
-Let $U \subset \C$ be a simply connected domain and $f \colon U \to \R$ a
-harmonic function.  Then there exists a holomorphic $\varphi \colon
-U \to \C$ such that $f = \Re \varphi$.
-\end{prop}
-
 \begin{defn}
-Let $U \subset \C$ be open and $\varphi \colon U \to \R$ harmonic.
-If $\psi \colon U \to \R$ is harmonic and $\varphi + i \psi$ is holomorphic,
-then $\psi$ is called the \emph{\myindex{harmonic conjugate}}.
+Let $U \subset \C$ be open and $f \colon U \to \R$ harmonic.
+If $g \colon U \to \R$ is harmonic and $f + i g$ is holomorphic,
+then $g$ is called the \emph{\myindex{harmonic conjugate}} of $f$.
 \end{defn}
 
 The proposition thus says that every harmonic function on a simply connected
@@ -12512,14 +12523,14 @@ That we cannot find a different conjugate for $\log \sabs{z}$
 follows from the following proposition.
 
 \begin{prop}
-If $U \subset \C$ is a domain $\varphi \colon U \to \R$ is harmonic
-and $\psi_1$ and $\psi_2$ are two harmonic conjugates of $\varphi$,
-then $\psi_1 = \psi_2 + C$ for some $C \in \R$.
+If $U \subset \C$ is a domain $f \colon U \to \R$ is harmonic
+and $g_1$ and $g_2$ are two harmonic conjugates of $f$,
+then $g_1 = g_2 + C$ for some $C \in \R$.
 \end{prop}
 
 The proof is trivial: The hypothesis implies that
 \begin{equation*}
-\frac{(\varphi + i \psi_1) - (\varphi + i \psi_2)}{i} =  \psi_1-\psi_2
+\frac{(f + i g_1) - (f + i g_2)}{i} =  g_1-g_2
 \end{equation*}
 is holomorphic and it is real-valued on $U$, and thus constant.
 
@@ -12581,6 +12592,47 @@ and bounded from above, then $f$ is constant.
 \end{exercise}
 \end{exbox}
 \end{savenotes}
+
+\begin{remark}
+The procedure above, writing
+\begin{equation*}
+\frac{\partial^2}{\partial x^2}+ \frac{\partial^2}{\partial y^2} = 
+4 \frac{\partial^2}{\partial \bar{z} \partial z} ,
+\end{equation*}
+that is, a sum of derivatives as a composition of
+different derivatives,
+so that we could integrate in these two new variables, that procedure may
+sound familiar.  In this case we obtained a harmonic $f$ as a function
+of $z$ (a holomorphic function) plus a function of $\bar{z}$ (an
+antiholomorphic function).
+
+The procedure is analogous to the D'Alembert solution of the one-dimensional
+wave equation you may have seen in undergraduate differential equations.
+The wave operator is
+$\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2}$ with a
+minus sign, and we use $x$ and $t$ as variables to be traditional.
+The wave operator decomposes as
+\begin{equation*}
+\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2}
+=
+\left[ \frac{\partial}{\partial t}- \frac{\partial}{\partial x}
+\right]
+\left[ \frac{\partial}{\partial t}+ \frac{\partial}{\partial x}
+\right] .
+\end{equation*}
+So if we write $\mu = x+t$ and $\eta = x-t$ (the so-called characteristic
+variables), then
+\begin{equation*}
+-4 \frac{\partial^2}{\partial \eta \partial \mu} = 
+\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2} .
+\end{equation*}
+In the same way as above, a solution $f$ to the wave equation is a function
+of $\mu$ plus a function of $\eta$.  That is $f(x,y) = A(\mu) + B(\eta) =
+A(x+t)+B(x-t)$.  Two waves travelling in opposite directions.  These
+functions $A$ and $B$ need not be nice at all, any twice real differentiable
+functions.
+It is interesting that one little minus sign makes such a huge difference.
+\end{remark}
 
 \subsection{Identity and the maximum principle}
 
@@ -12715,7 +12767,7 @@ and similarly
 \begin{equation*}
 1+r^2-2r \cos\theta \geq 1+r^2-2r = {(1-r)}^2 > 0 .
 \end{equation*}
-Next, denote by $r\D$ the disc of radius $r$ around $0$,
+Next,
 \begin{equation*}
 \begin{split}
 \int_{-\pi}^{\pi}
@@ -12740,7 +12792,7 @@ ire^{i\theta}
 & = 
 \Re
 \frac{1}{2\pi i}
-\int_{\partial r\D}
+\int_{\partial \Delta_r(0)}
 \frac{(1+z)/(1-z)}{z} \, dz
 =
 \Re \frac{1+0}{1-0} = 1 .
@@ -12855,15 +12907,15 @@ $r > 1-\delta'$ for some $\delta'$,
 we get $0 < P_r(t) < \frac{\epsilon}{8M\pi}$
 whenever $\sabs{t} \geq \delta$.
 
-Using the fact that
+Since
 $\int_{-\pi}^\pi P_r(t) \, dt = 1$,
-we have\footnote{This is a trick you see all over in analysis, it is good to
-remember it.} that
+we have\footnote{This is a trick you see all the time in analysis, it is good to
+remember it.}
 \begin{equation*}
 u(e^{i\theta})=
-\int_{-\pi}^\pi u(e^{i\theta}) P_r(t) \, dt ,
+\int_{-\pi}^\pi u(e^{i\theta}) P_r(t) \, dt .
 \end{equation*}
-so
+So
 \begin{equation*}
 \begin{split}
 \sabs{
@@ -13340,8 +13392,8 @@ As $U$ is connected, we can assume that $K$ is connected:
 First, assume $K$ has only finitely many components by replacing it
 by finitely many closed discs
 (see e.g.\@ the proof of \lemmaref{lemma:patharoundK}).  Then, $U$ is path
-connected and so adding in finitely many paths to $K$ we get that $K$
-is connected.
+connected and so adding in finitely many paths to $K$ we can connect
+the discs.
 
 Suppose $r> 0$ is less than half the distance from $K$ to $\partial U$.
 There exist $N$ (finitely many) discs $\Delta_{r}(z_j)$ that cover $K$
@@ -13686,7 +13738,7 @@ then $f(z)=f(-z)$ for all $z \in \C$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Subharmonic functions}
+\section{Subharmonic functions *}
 \label{sec:subharmonic}
 
 Holomorphic, and hence harmonic, functions are very rigid.
@@ -14234,7 +14286,7 @@ that converges uniformly to $f$ on the square $[-1,1] \times [-1,1]$.
 \end{exbox}
 
 Sometimes, we are thwarted in polynomial approximation by topology.  For
-example, consider $\frac{1}{z}$ on $\partial \D$.  There is no sequence of
+example, there is no sequence of
 polynomials $P_n(z)$ that converge to $\frac{1}{z}$ uniformly on $\partial
 \D$.  This follows by \hyperref[thm:rouche]{Rouch\`e} (or
 \exerciseref{exercise:convergeboundary} and Cauchy's theorem), see the
