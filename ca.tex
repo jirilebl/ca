@@ -12651,10 +12651,16 @@ Suppose $V \subset U$ is a nonempty open subset and $f = 0$ on $V$.  Then $f
 \begin{proof}
 Let $Z_f$ be the zero set of $f$ and let $Z$ be the closure of the interior
 of $Z_f$ in the subspace topology of $U$.
-Consider any point $p \in Z$.  Then for any disc $\Delta_r(p) \subset U$, $f$ is
-zero on some open subset of the disc.  On $\Delta_r(p)$ $f$ has a harmonic
-conjugate $g$ and $f+i g$ is a holomorphic function purely imaginary on an
-open set and hence constant.  Thus $f$ is zero on $\Delta_r(p)$.  Thus $Z$
+Suppose $Z$ is nonempty and
+consider some $p \in Z$.  Then for any disc $\Delta_r(p) \subset U$, $f$ is
+zero on some open subset of the disc.  On $\Delta_r(p)$, the function
+$f$ has a harmonic
+conjugate $g$ and $f+i g$ is a holomorphic function that is purely imaginary on
+an open subset of $\Delta_r(p)$ and hence constant on that open subset.
+By the identity theorem for holomorphic functions, $f+ig$ is constant 
+on $\Delta_r(p)$.
+Since $f$ is zero somewhere on the
+disc and constant, it is zero on the entire disc.  Thus $Z$
 is open, $Z$ is also closed, so $Z=U$ as $U$ is connected.
 \end{proof}
 
@@ -12685,15 +12691,17 @@ identity theorem.
 
 \begin{exbox}
 \begin{exercise}
-Assume the maximum principle for harmonic functions.  Prove the maximum
-modulus principle for holomorphic functions by noting that if $f$ is holomorphic
-then $\log \sabs{f(z)}$ is harmonic.
+Prove that
+the maximum principle for harmonic functions implies the maximum
+modulus principle for holomorphic functions.
+Hint: Consider $\log \sabs{f(z)}$.
 \end{exercise}
 
 \begin{exercise}
 Prove the second version of the maximum principle: If $U \subset \C$
-is a bounded domain and $f \colon \overline{U}
-\to \R$ is continuous and harmonic on $U$, then $f$ achieves a maximum
+is a bounded domain and
+$f \colon \overline{U} \to \R$ is continuous and harmonic on $U$,
+then $f$ achieves a maximum
 on the boundary $\partial U$.
 \end{exercise}
 \end{exbox}
@@ -13091,7 +13099,7 @@ $\partial \D$.  The conclusion should of course be then that $Pu(z)$ ($z \in
 \D$) tends
 to $u(z_0)$ ($z_0 \in \D$) only if $u$ is continuous at $z_0$.
 Note: More advanced students should note that one does not need boundedness,
-just $L^1(\partial \D)$ with continuity of $Pu$ wherever $u$ is continuous.
+just $u \in L^1(\partial \D)$.
 \end{exercise}
 
 \begin{exercise}
@@ -13162,6 +13170,23 @@ the boundary, that is for every
 $z_0 \in \partial \D$ and every open neighborhood
 $U$ of $z_0$, there exists no holomorphic $f \colon U \to \C$
 such that $f = h$ on $\D \cap U$.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Positive harmonic functions on $U \subset \C$ that are continuous
+on $\overline{U}$ and zero on $\partial U$
+are called \emph{\myindex{Martin functions}}.
+\begin{exparts}
+\item
+Find a Martin function for the upper half plane $\bH$.
+\item
+Find a Martin function the domain $\{ z \in \C : \Re z > 0, 0 < \Im z < 1
+\}$.  Hint: What does the hyperblic sine do?
+\item
+Prove that if $U$ is bounded, then there are no Martin functions on $U$.
+\item
+Prove that if $f$ is a Martin function on $\bH$, then $f$ is unbounded.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -13733,6 +13758,12 @@ then $f(z)=-f(-z)$ for all $z \in \C$.
 If furthermore $f(iy)$ is real for all $y \in \R$,
 then $f(z)=f(-z)$ for all $z \in \C$.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is continuous on $\overline{\bH}$, zero on $\R = \partial \bH$,
+positive and harmonic on $\bH$ (what we called Martin functions before).
+Prove that $f(z) = c \Im z$ for some $c > 0$.
 \end{exercise}
 \end{exbox}
 
