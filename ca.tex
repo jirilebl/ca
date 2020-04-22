@@ -12575,6 +12575,20 @@ $\frac{x}{x^2+y^2}$
 \end{expartshor}
 \end{exercise}
 
+\begin{exercise}
+Let $U,V \subset \C$ be open sets and
+$f \colon U \to V$ be holomorphic. Prove:
+\begin{exparts}
+\item
+If $g \colon V \to \R$ is harmonic, then
+$g \circ f$ is harmonic.
+\item
+Let $f$ be a biholomorphism of $U$ and $V$.
+Then $g \colon V \to \R$ is harmonic if and only if
+$g \circ f$ is harmonic.
+\end{exparts}
+\end{exercise}
+
 % Best for this to be the last in this exbox,
 % so that the footnote (due to the savenotes) appears
 % (most likely) on the right page.
@@ -13174,15 +13188,17 @@ such that $f = h$ on $\D \cap U$.
 \end{exercise}
 
 \begin{exercise}
-Positive harmonic functions on $U \subset \C$ that are continuous
-on $\overline{U}$ and zero on $\partial U$
-are called \emph{\myindex{Martin functions}}.
+Given an open $U \subset \C$,
+a continuous function $f \colon \overline{U} \to \R$,
+positive and harmonic on $U$,
+and zero on $\partial U$ is called a
+\emph{\myindex{Martin function}}.
 \begin{exparts}
 \item
-Find a Martin function for the upper half plane $\bH$.
+Find a Martin function on the upper half plane $\bH$.
 \item
-Find a Martin function the domain $\{ z \in \C : \Re z > 0, 0 < \Im z < 1
-\}$.  Hint: What does the hyperblic sine do?
+Find a Martin function on $\{ z \in \C : \Re z > 0, 0 < \Im z < 1
+\}$.  Hint: Hyperblic sine.
 \item
 Prove that if $U$ is bounded, then there are no Martin functions on $U$.
 \item
@@ -13200,9 +13216,10 @@ linear function.  It is quite useful to think of harmonic functions as one
 particular analogue of affine linear functions to $\C$, although we ought
 not to take this analogy too far of course.
 One property of affine linear functions is a mean-value property, that is,
-given $[a,b]$ then $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
+given $a < b$ then $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
 value at the center of the interval is equal to the average of values at the
-ends.  In fact, if a continuous function satisfies this equality it is
+ends.  In fact, if a continuous function satisfies this equality for all
+intervals $[a,b]$, then it is
 affine linear.  This mean-value property completely classifies affine
 linear, that is harmonic, functions in $\R$.
 It is rather interesting that the same kind of property characterizes
@@ -13308,6 +13325,18 @@ The result follows by the mean-value property.
 \begin{exercise}
 Prove the maximum principle for harmonic functions directly from the
 mean-value property.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be open.
+Prove that a continuous $f \colon U \to \R$
+is harmonic if it satisfies the
+\emph{\myindex{disc mean-value property}} for every $\overline{\Delta_r(p)}
+\subset U$:
+\begin{equation}
+f(p) = 
+\frac{1}{\pi r^2} \int_{\overline{\Delta_r(p)}} f(z) \, dA.
+\end{equation}
 \end{exercise}
 
 \begin{exercise} \label{exercise:meanvaluesmallronly}
@@ -13636,7 +13665,6 @@ $f = F|_{U \setminus \{ p \}}$.
 \begin{proof}
 By considering $f(a z + b)$ we may assume, without loss of generality,
 that $p = 0$ and $\overline{\D} \subset U$.  Solve the Dirichlet problem
-$\nabla^2 u = 0$
 in $\D$ with boundary data $u|_{\partial \D} = f|_{\partial \D}$.
 We wish to show that $u$ equals $f$ in $\D \setminus \{0\}$.
 The function
@@ -13761,8 +13789,8 @@ then $f(z)=f(-z)$ for all $z \in \C$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is continuous on $\overline{\bH}$, zero on $\R = \partial \bH$,
-positive and harmonic on $\bH$ (what we called Martin functions before).
+Suppose $f \colon \overline{\bH} \to \R$ is continuous, harmonic on $\bH$, zero on $\R = \partial \bH$,
+and positive on $\bH$  (what we called a Martin function before).
 Prove that $f(z) = c \Im z$ for some $c > 0$.
 \end{exercise}
 \end{exbox}
