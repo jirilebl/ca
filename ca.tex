@@ -12641,12 +12641,12 @@ variables), then
 -4 \frac{\partial^2}{\partial \eta \partial \mu} = 
 \frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2} .
 \end{equation*}
-In the same way as above, a solution $f$ to the wave equation is a function
-of $\mu$ plus a function of $\eta$.  That is $f(x,y) = A(\mu) + B(\eta) =
-A(x+t)+B(x-t)$.  Two waves travelling in opposite directions.  These
+As before, a solution $f$ to the wave equation is a function
+of $\mu$ plus a function of $\eta$.  That is, $f(x,y) = A(\mu) + B(\eta) =
+A(x+t)+B(x-t)$, two waves travelling in opposite directions.  The
 functions $A$ and $B$ need not be nice at all, any twice real differentiable
 functions.
-It is interesting that one little minus sign makes such a huge difference.
+It is interesting that one puny minus sign makes such a huge difference.
 \end{remark}
 
 \subsection{Identity and the maximum principle}
@@ -12654,13 +12654,17 @@ It is interesting that one little minus sign makes such a huge difference.
 A consequence of the propositions above is the identity theorem
 for harmonic functions.  For harmonic functions, the zero set is allowed to
 have limit points. For example, $\Re z$ is zero on the entire imaginary
-axis.  However, we are still not allowed open sets.
+axis.  However, we are still not allowed open sets for nonconstant harmonic
+functions.  It is really a property of real-analytic functions, that is,
+functions that have a power series representation in terms of $x$ and $y$
+or $z$ and $\bar{z}$, but we do not wish to get far into power series in two
+variables.
 
-\begin{prop}[Identity]\index{identity theorem!harmonic functions}
+\begin{thm}[Identity]\index{identity theorem!harmonic functions}
 Let $U \subset \C$ be a domain and $f \colon U \to \R$ a harmonic function.
 Suppose $V \subset U$ is a nonempty open subset and $f = 0$ on $V$.  Then $f
 \equiv 0$.
-\end{prop}
+\end{thm}
 
 \begin{proof}
 Let $Z_f$ be the zero set of $f$ and let $Z$ be the closure of the interior
@@ -12682,8 +12686,8 @@ The maximum principle is really a theorem about harmonic functions rather
 than holomorphic functions.  We will prove it using holomorphic functions
 and the open mapping theorem (\thmref{thm:OMT})\footnote{%
 The open mapping theorem is a stronger version of the maximum modulus principle.}
-although it follows more directly from the mean value property we will see
-later.
+although there is a more natural proof using the mean value property,
+which we will see later.
 
 \begin{thm}[Maximum principle]
 \index{maximum principle!harmonic functions}%
@@ -12692,14 +12696,17 @@ is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $
 \end{thm}
 
 \begin{proof}
-The statement for a minimum follows by considering $-f$.  So suppose that
-$f$ attains a local maximum at $p \in U$, suppose it is the (global)
-maximum on some disc $\Delta_r(p)$.  Let $g$ be the harmonic conjugate on
-$\Delta_r(p)$.  The holomorphic function $h = f+ig$ takes the disc
-$\Delta_r(p)$ to the set $X = \{ z \in \C : \Re z \leq f(p) \}$.  The
-point $h(p)$ is on the boundary of $X$ as $\Re h(p)= f(p)$, and hence
+Suppose that $f$ attains a local maximum at $p \in U$.
+The statement for a minimum follows by considering $-f$.
+Let $\Delta_r(p) \subset U$
+be a disc such that $p$ is the global maximum on $\Delta_r(p)$.
+There exists a holomorphic $h \colon \Delta_r(p) \to \C$
+such that $f = \Re h$.
+Then $h$ takes
+$\Delta_r(p)$ to a subset of $X = \bigl\{ w \in \C : \Re w \leq f(p) \bigr\}$.
+The point $h(p)$ is on the boundary of $X$ as $\Re h(p)= f(p)$.  Hence,
 $h\bigl(\Delta_r(p)\bigr)$ is not open, which can only happen if $h$ is
-constant.  As $f$ is constant on $\Delta_r(p)$, it is constant on $U$ by the
+constant by the open mapping theorem.  As $f$ is constant on $\Delta_r(p)$, it is constant on $U$ by the
 identity theorem.
 \end{proof}
 
@@ -12711,7 +12718,8 @@ modulus principle for holomorphic functions.
 Hint: Consider $\log \sabs{f(z)}$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:maxprincsecondharmonic}
+%FIXME: needed
 Prove the second version of the maximum principle: If $U \subset \C$
 is a bounded domain and
 $f \colon \overline{U} \to \R$ is continuous and harmonic on $U$,
@@ -12722,12 +12730,19 @@ on the boundary $\partial U$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Dirichlet problem and the Poisson kernel}
+\section{The Dirichlet problem in a disc and applications}
+
+\subsection{The Dirichlet problem in a disc and the Poisson kernel}
 
 It is useful to find a harmonic function given boundary values.
+That is, given an open $U \subset \C$
+and a continuous $u \colon \partial U \to \R$,
+find a continuous $f \colon \overline{U} \to \R$
+harmonic on $U$ such that $f|_{\partial U} = u$.
 This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
-solvable for many (though not all) domains.  If the solution exists on a
-bounded domain, then it is unique.
+solvable for many (though not all) open sets.  If the solution exists on a
+bounded domain, then it is unique.  On unbounded domains solution need not
+be unique, see \exerciseref{exercise:martinfunctions}.
 
 \begin{prop}
 Suppose $U \subset \C$ is a bounded domain, $f,g \colon \overline{U} \to \R$
@@ -12736,13 +12751,16 @@ such that $f = g$ on $\partial U$.
 Then $f=g$ on $U$.
 \end{prop}
 
-The proof is simply the maximum principle applied to $f-g$.
+The proof is simply the maximum principle (second version,
+\exerciseref{exercise:maxprincsecondharmonic}) applied to $f-g$.
 
-The solution of the problem in a disc is rather useful, and rather explicit.
+The solution of the problem in a disc is rather useful and rather explicit.
 It is achieved by integration against the so-called
 \emph{\myindex{Poisson kernel}}.
 The
-Poisson kernel for the unit disc $\D \subset \C$ is
+Poisson kernel
+for the unit disc $\D \subset \C$,
+is
 \glsadd{not:Pr}%
 \begin{equation*}
 P_r(\theta)
@@ -12751,12 +12769,15 @@ P_r(\theta)
 \Re \left( \frac{1+re^{i\theta}}{1-re^{i\theta}}\right) ,
 \qquad \text{for $0 \leq r < 1$.}
 \end{equation*}
-See \figureref{fig:poissongraph}
+As a function of $z \in \D$, see \figureref{fig:poissongraph},
+the Poisson kernel is
+\begin{equation*}
+z \mapsto \frac{1}{2\pi} \Re \left(
+\frac{1+z}{1-z}\right).
+\end{equation*}
 \begin{myfig}
 \includegraphics{figures/poisson-graph}
-\caption{Graph of the Poisson kernel $z \mapsto
-\frac{1}{2\pi} \Re \left( \frac{1+z}{1-z}\right)$
-on the unit disc, the pole at $z=1$ is cut off at 2.%
+\caption{Graph of the Poisson kernel on $\D$, the pole at $z=1$ is cut off at 2.%
 \label{fig:poissongraph}}
 \end{myfig}
 
@@ -12766,16 +12787,17 @@ on the unit disc, the pole at $z=1$ is cut off at 2.%
 \item
 $P_r(\theta) > 0$ for all $0 \leq r < 1$ and all $\theta$.
 \item
-$\int_{-\pi}^{\pi} P_r(\theta) \, d\theta = 1$.
+$\int_{-\pi}^{\pi} P_r(\theta) \, d\theta = 1$
+for all $0 \leq r < 1$.
 \item
 For any given $\delta > 0$,
-$\sup \bigl\{P_r(\theta) : \delta \leq \abs{\theta} \leq \pi \bigr\} \to 0$ as
-$r \to 1$.
+$\sup \bigl\{P_r(\theta) : \delta \leq \abs{\theta} \leq
+\pi \bigr\} \to 0$ as $r \uparrow 1$.
 \end{enumerate}
 \end{prop}
 
-In the proof, it is useful to consider how
-the graph of $P_r$ as a function of $\theta$ looks for a fixed $r$.
+In the proof, it is useful to visualize the graph of
+$P_r$ as a function of $\theta$ for a fixed $r$.
 See \figureref{fig:poisson2dgraph}.
 
 \begin{myfig}
@@ -12790,7 +12812,8 @@ and similarly
 \begin{equation*}
 1+r^2-2r \cos\theta \geq 1+r^2-2r = {(1-r)}^2 > 0 .
 \end{equation*}
-Next,
+
+For the second item,
 \begin{equation*}
 \begin{split}
 \int_{-\pi}^{\pi}
@@ -12825,7 +12848,7 @@ The last equality follows by the Cauchy integral formula
 using the function $\frac{1+z}{1-z}$ evaluated at $0$.
 
 For the third item, notice that we only need to prove the
-theory for $\delta \leq \theta \leq \pi$ by symmetry ($P_r$ is even).
+result for $\delta \leq \theta \leq \pi$ by symmetry ($P_r$ is even).
 On $(0,\pi)$, $P_r$ is strictly decreasing as $\cos \theta$ is strictly
 increasing.  So we only need to show that $P_r(\delta)$ goes to $0$
 as $r \to 1$ if $\delta > 0$.
@@ -12923,12 +12946,13 @@ Pu(re^{i\theta})
 Suppose $M$ is the supremum of
 $u$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
 As $u$ is uniformly continuous on $\partial \D$, suppose $\delta > 0$
-is small enough so that $\sabs{u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta})} <
-\frac{\epsilon}{2}$ whenever $\sabs{t} < \delta$.
-Using the proposition above, for $r < 1$ large enough, say
-$r > 1-\delta'$ for some $\delta'$,
-we get $0 < P_r(t) < \frac{\epsilon}{8M\pi}$
-whenever $\sabs{t} \geq \delta$.
+is small enough so that $\babs{u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta})} <
+\nicefrac{\epsilon}{2}$ whenever $\sabs{t} < \delta$.
+Using the proposition above, there exists
+a $\delta' > 0$ such that if  
+$1-\delta' < r < 1$, then
+$0 < P_r(t) < \frac{\epsilon}{8M\pi}$
+whenever $\delta \leq \sabs{t} \leq \pi$.
 
 Since
 $\int_{-\pi}^\pi P_r(t) \, dt = 1$,
@@ -12964,8 +12988,7 @@ Pu(r e^{i\theta} ) - u(e^{i\theta})
 \end{split}
 \end{equation*}
 Let us estimate the three integrals.
-First suppose $M$ is the supremum of
-$u$ on $\partial \D$.  So
+First,
 \begin{equation*}
 \begin{split}
 \abs{
@@ -12975,7 +12998,7 @@ $u$ on $\partial \D$.  So
 \int_{-\pi}^{-\delta} \abs{ u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta}) }
 P_r(t) \, dt
 \\
-& \leq (\pi-\delta) 2M \frac{\epsilon}{8M\pi} \leq \frac{\epsilon}{4} .
+& \leq (\pi-\delta) 2M \frac{\epsilon}{8M\pi} < \frac{\epsilon}{4} .
 \end{split}
 \end{equation*}
 The integral from $\delta$ to $\pi$ is exactly the same.
@@ -13000,7 +13023,7 @@ Putting it all together, as long as $1-\delta' < r < 1$,
 \begin{equation*}
 \sabs{
 Pu(r e^{i\theta} ) - u(e^{i\theta})
-} \leq \frac{\epsilon}{4} + \frac{\epsilon}{2} + \frac{\epsilon}{4} =
+} < \frac{\epsilon}{4} + \frac{\epsilon}{2} + \frac{\epsilon}{4} =
 \epsilon.
 \end{equation*}
 And so $Pu(re^{i\theta}) \to u(e^{i\theta})$ uniformly in $\theta$
@@ -13010,15 +13033,30 @@ Finally, we must show that for any $z_0 = e^{i\theta_0} \in \partial \D$
 we have that
 $Pu(z)$ tends to $Pu(z_0)=u(z_0)$ as $z \in \overline{\D}$ tends to $z_0$.
 Let $\epsilon > 0$ be given.  As $u = Pu|_{\partial \D}$ is
-continuous, pick a $\delta > 0$ such that
-$\sabs{Pu(e^{i\theta})-Pu(e^{i\theta_0})} < \frac{\epsilon}{2}$
+uniformly continuous, pick a $\delta > 0$ such that
+$\sabs{Pu(e^{i\theta})-Pu(e^{i\theta_0})} < \nicefrac{\epsilon}{2}$
 whenever $\sabs{\theta-\theta_0} < \delta$.
 Also make $\delta$ small enough so that $\sabs{Pu(re^{i
-\theta})-Pu(e^{i\theta})} < \frac{\epsilon}{2}$
+\theta})-Pu(e^{i\theta})} < \nicefrac{\epsilon}{2}$
 when $1 - \delta < r \leq 1$ for all $\theta$.
-Putting the two estimates together we get 
-$\sabs{Pu(re^{i\theta})-Pu(e^{i\theta_0})} < \epsilon$, and so $Pu$ is
+Putting the two estimates together we get
+\begin{equation*}
+\sabs{Pu(re^{i\theta})-Pu(e^{i\theta_0})}
+\leq
+\sabs{Pu(re^{i\theta})-Pu(e^{i\theta})}
++
+\sabs{Pu(e^{i\theta})-Pu(e^{i\theta_0})}
+< \epsilon
+\end{equation*}
+whenever $z=re^{i\theta}$ satisfies $1 - \delta < r \leq 1$ and
+$\sabs{\theta-\theta_0} < \delta$.
+See \figureref{fig:proofofdirichlet}.
+Therefore $Pu$ is
 continuous at $z_0$.
+\begin{myfig}
+\subimport*{figures/}{proofofdirichlet.pdf_t}
+\caption{Continuity of $Pu$ at $z_0$.\label{fig:proofofdirichlet}}
+\end{myfig}
 \end{proof}
 
 We remark that in the proof we used the topology on $\overline{\D}$
@@ -13051,7 +13089,7 @@ $Pu \colon \overline{\Delta_R(p)} \to \R$, defined by
 Pu(p + re^{i\theta})
 =
 \begin{cases}
-\int_{-\pi}^\pi u(Re^{it}) P_{r/R}(\theta-t) \, dt
+\int_{-\pi}^\pi u(p+Re^{it}) P_{r/R}(\theta-t) \, dt
 &
 \text{if $r < R$,} \\
 u(p+Re^{i\theta}) & \text{if $r=R$,}
@@ -13187,7 +13225,7 @@ such that $f = h$ on $\D \cap U$.
 \end{exparts}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:martinfunctions}
 Given an open $U \subset \C$,
 a continuous function $f \colon \overline{U} \to \R$,
 positive and harmonic on $U$,
@@ -13204,6 +13242,25 @@ Prove that if $U$ is bounded, then there are no Martin functions on $U$.
 \item
 Prove that if $f$ is a Martin function on $\bH$, then $f$ is unbounded.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Solve the Dirichlet problem in the upper half-plane for bounded functions
+Given a bounded continuous $u \colon \R \to \R$, prove that the function
+$Pu \colon \overline{\bH} \to \R$, defined by
+\begin{equation*}
+Pu(x+iy)
+=
+\begin{cases}
+\frac{1}{\pi}
+\int_{-\infty}^{\infty} u(t) \frac{y}{{(x-t)}^2+y^2} \, dt
+&
+\text{if $y > 0$,} \\
+u(x) & \text{if $y=0$,}
+\end{cases}
+\end{equation*}
+is harmonic in $\bH$ and continuous on $\overline{\bH}$.
+Hint: Cayley map may make the proof easier.
 \end{exercise}
 \end{exbox}
 
