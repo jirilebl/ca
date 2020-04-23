@@ -12742,7 +12742,7 @@ harmonic on $U$ such that $f|_{\partial U} = u$.
 This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
 solvable for many (though not all) open sets.  If the solution exists on a
 bounded domain, then it is unique.  On unbounded domains solution need not
-be unique, see \exerciseref{exercise:martinfunctions}.
+be unique, see \exerciseref{exercise:upperhalfplanedirichlet}.
 
 \begin{prop}
 Suppose $U \subset \C$ is a bounded domain, $f,g \colon \overline{U} \to \R$
@@ -13109,8 +13109,12 @@ and as the solution to the Dirichlet problem is unique,
 the Poisson integral gives
 a representation of harmonic functions in terms of boundary values, just
 like the Cauchy integral formula does for holomorphic functions.
-That is, if $\overline{\Delta_r(p)} \subset U$ and $f$ is harmonic in $U$
-then $P[f|_{\partial \Delta_r(p)}] = f|_{\overline{\Delta_r(p)}}$.
+That is, if $\overline{\Delta_R(p)} \subset U$ and $f$ is harmonic in $U$,
+then $P[f|_{\partial \Delta_R(p)}] = f|_{\overline{\Delta_R(p)}}$.
+In particular for $z = p+re^{i\theta} \in \Delta_R(p)$,
+\begin{equation*}
+f(z) = \int_{-\pi}^\pi f(p+Re^{it}) P_{r/R}(\theta-t) \, dt .
+\end{equation*}
 A difference with the Cauchy integral formula is that the kernel
 changes based on the domain.  One can find the Poisson kernel for other
 domains than the disc (as long as the boundary is nice enough), although
@@ -13145,6 +13149,16 @@ harmonic functions.
 
 \begin{exbox}
 \begin{exercise}
+Prove that given any continuous $f \colon \partial \D \to \C$,
+there exists a holomorphic $F \colon \D \to \C$ such that $\Re F$ extends
+continuously to $\overline{\D}$ (agrees with a continuous function on
+$\overline{\D}$) and such that $\Re F = \Re f$ on $\partial \D$.
+That is, given arbitrary boundary data, we cannot in general find a
+holomorphic function with those boundary values, but we can do it at least
+for the real part.
+\end{exercise}
+
+\begin{exercise}
 State and prove a version of \thmref{thm:dirichsol} for a function that is
 bounded on $\partial \D$, and continuous at all but finitely many points on
 $\partial \D$.  The conclusion should of course be then that $Pu(z)$ ($z \in
@@ -13154,8 +13168,7 @@ Note: More advanced students should note that one does not need boundedness,
 just $u \in L^1(\partial \D)$.
 \end{exercise}
 
-\begin{exercise}
-\pagebreak[2]
+\begin{exercise} \label{exercise:upperhalfplanedirichlet}
 \begin{exparts}
 \item (Easy)
 Dirichlet problem on the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$
@@ -13165,8 +13178,25 @@ any $c \in \R$ and $f = 0$ on the real line $\R = \partial \bH$.
 Use the previous exercise to show that the Dirichlet problem has a unique
 solution on $\bH$ for a bounded continuous $u$ on $\partial \bH$.
 Note: Again, less than bounded is
-necessary, but it is sufficient for the exercise.
+necessary, but it is sufficient for the exercise.  Hint: Cayley.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Given a bounded continuous $u \colon \R \to \R$, prove that the function
+$Pu \colon \overline{\bH} \to \R$, defined by
+\begin{equation*}
+Pu(x+iy)
+=
+\begin{cases}
+\frac{1}{\pi}
+\int_{-\infty}^{\infty} u(t) \frac{y}{{(x-t)}^2+y^2} \, dt
+&
+\text{if $y > 0$,} \\
+u(x) & \text{if $y=0$,}
+\end{cases}
+\end{equation*}
+is harmonic in $\bH$ and continuous on $\overline{\bH}$.
 \end{exercise}
 
 \begin{exercise}
@@ -13182,16 +13212,6 @@ f(z) =
 \frac{\zeta+z}{\zeta-z} \frac{\Re f(\zeta)}{\zeta} \, d\zeta
 + i \Im f(0) .
 \end{equation*}
-\end{exercise}
-
-\begin{exercise}
-Prove that given any continuous $f \colon \partial \D \to \C$,
-there exists a holomorphic $F \colon \D \to \C$ such that $\Re F$ extends
-continuously to $\partial \D$ (agrees with a continuous function on
-$\overline{\D}$) and such that $\Re F = \Re f$ on $\partial \D$.
-That is, given arbitrary boundary data, we cannot in general find a
-holomorphic function with those boundary values, but we can do it at least
-for the real part.
 \end{exercise}
 
 \begin{exercise}
@@ -13243,25 +13263,6 @@ Prove that if $U$ is bounded, then there are no Martin functions on $U$.
 Prove that if $f$ is a Martin function on $\bH$, then $f$ is unbounded.
 \end{exparts}
 \end{exercise}
-
-\begin{exercise}
-Solve the Dirichlet problem in the upper half-plane for bounded functions
-Given a bounded continuous $u \colon \R \to \R$, prove that the function
-$Pu \colon \overline{\bH} \to \R$, defined by
-\begin{equation*}
-Pu(x+iy)
-=
-\begin{cases}
-\frac{1}{\pi}
-\int_{-\infty}^{\infty} u(t) \frac{y}{{(x-t)}^2+y^2} \, dt
-&
-\text{if $y > 0$,} \\
-u(x) & \text{if $y=0$,}
-\end{cases}
-\end{equation*}
-is harmonic in $\bH$ and continuous on $\overline{\bH}$.
-Hint: Cayley map may make the proof easier.
-\end{exercise}
 \end{exbox}
 
 \subsection{Mean-value property}
@@ -13283,9 +13284,8 @@ It is rather interesting that the same kind of property characterizes
 harmonic functions in $\C$ as well, although we have to replace an interval
 with a disc.
 
-\begin{thm}[Mean-value property]
-\label{prop:meanprop}
-\index{mean-value property}
+\begin{thm}[Mean-value property]\label{prop:meanprop}\index{mean-value property}
+\pagebreak[2]
 Let $U \subset \C$ be an open set.
 A continuous function
 $f \colon U \to \R$
@@ -13382,6 +13382,23 @@ The result follows by the mean-value property.
 \begin{exercise}
 Prove the maximum principle for harmonic functions directly from the
 mean-value property.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $f \colon \C \to \R$ is harmonic and $f(0) = 0$.
+Prove that on every circle $\partial \Delta_r(0)$ there exists a $z \in
+\partial \Delta_r(0)$ such that $f(z) = 0$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open and
+$f \colon U \times [0,1] \to \R$ is continuous
+such that for every fixed $t \in [0,1]$, $z \mapsto f(z,t)$ is harmonic.
+Then prove that
+\begin{equation*}
+g(z) = \int_0^1 f(z,t) \, dt
+\end{equation*}
+is harmonic.  Hint: Fubini.
 \end{exercise}
 
 \begin{exercise}
