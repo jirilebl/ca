@@ -138,6 +138,12 @@
 \MakePerPage{footnote}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
+% to avoid counter error on footnotes on first pass
+\makeatletter
+\gdef\@ctrerr{%
+  \@latex@warning{Counter too large}}
+\makeatother
+
 % Enumitem extra penalties
 \setlist[enumerate]{beginpenalty=100,midpenalty=-5}
 
