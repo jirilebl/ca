@@ -13676,7 +13676,7 @@ and Harnack's inequality says there is a $C$ such that
 \begin{equation*}
 f_n(p) \leq \sup_{z \in K} f_n(z) \leq C \inf_{z\in K} f_n(z) .
 \end{equation*}
-In other words, $f_n(z) \to +\infty$ for all $z \in K$.  In particular
+In other words, $f_n(z) \to +\infty$ for all $z \in K$.  Namely,
 $\{f_n\}$ goes to $+\infty$ uniformly on $K$.
 
 Therefore, suppose that the limit of $\{ f_n(z) \}$ is finite
@@ -13692,8 +13692,9 @@ C \bigl( f_m(p)-f_n(p) \bigr)
 < \epsilon .
 \end{equation*}
 In other words, $\{ f_n \}$ is uniformly Cauchy on $K$ and hence converges
-uniformly on $K$ to $f$.  Furthermore, by the first Harnack's theorem, 
-\thmref{thm:harnack1}, we have that $f$ is harmonic.
+uniformly on $K$ to $f$.  Furthermore, $f$ is harmonic by the first part of
+Harnack's theorem, 
+\thmref{thm:harnack1}.
 \end{proof}
 
 \begin{exbox}
@@ -13772,6 +13773,11 @@ $z \in \D \setminus \{0\}$, and so $u$ is the extension we are looking for.
 \end{proof}
 
 \begin{exbox}
+\begin{exercise}
+Prove that a holomorphic $f \colon \Delta_r(p) \setminus \{ p \} \to \C$
+such that the real part of $f$ is bounded has a removable singularity at $p$.
+\end{exercise}
+
 \begin{exercise}
 Prove that the Dirichlet problem is not solvable in the punctured disc $\D
 \setminus \{ 0 \}$.
