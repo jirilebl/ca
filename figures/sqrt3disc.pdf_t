@@ -20,6 +20,6 @@
 }}}}
 \put(1233,-769){\makebox(0,0)[rb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$q$}%
 }}}}
-\put(1210,623){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\sqrt{3}\,r$}%
+\put(1916,953){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}${}>\sqrt{3}\,r$}%
 }}}}
 \end{picture}%

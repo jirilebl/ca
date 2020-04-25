@@ -8317,7 +8317,41 @@ which converges in $\ann(0;1,\infty)$.
 Finally, while in general a Laurent series is not a power series,
 it could very well be when all the $c_n$ for negative $n$ are zero.
 
+\medskip
+
+Finally, we can differentiate and antidifferentiate
+formally, in the same way as we did it for power series.  The proof is left
+as an exercise.
+
+\begin{prop} \label{prop:diffantidifflaurent}
+Suppose, $p \in \C$, $0 \leq r_1 < r_2 \leq \infty$, and
+a $f \colon \ann(p;r_1,r_2) \to \C$ be defined by
+\begin{equation*}
+f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
+\end{equation*}
+converging uniformly on compact subsets of $\ann(p;r_1,r_2)$.
+
+Then $f$ is holomorphic, its 
+derivative is defined by
+\begin{equation*}
+f'(z) = \sum_{n=-\infty}^\infty n c_n {(z-p)}^{n-1} ,
+\end{equation*}
+converging uniformly on compact subsets of $\ann(p;r_1,r_2)$.
+
+Moreover, if $c_{-1} = 0$, then
+\begin{equation*}
+F(z) = \sum_{n=-\infty,n\not=-1}^\infty \frac{c_n}{n+1} {(z-p)}^{n+1}
+\end{equation*}
+converges uniformly on compact subsets 
+$\ann(p;r_1,r_2)$ and $F' = f$.
+\end{prop}
+
 \begin{exbox}
+\begin{exercise}
+Prove \propref{prop:diffantidifflaurent}.  Hint: Consider positive and
+negative powers separately.
+\end{exercise}
+
 \begin{exercise}[Easy]
 Suppose $f \colon \Delta_r(p) \to \C$ is holomorphic, and suppose you expand
 $f$ in a Laurent series in $\ann(p;r_1,r_2)$ for $0 \leq r_1 < r_2 \leq r$.
@@ -9586,8 +9620,7 @@ and Sokhotskii in Russian) while Weierstrass published it in 1876 (in
 German).  But really it first appeared in a book by Briot and Bouquet in
 1859 (in French), so really it should be called the Briot--Bouquet theorem,
 no?  If we all still published in Latin, we wouldn't be in this
-mess.}]\index{Casorati--Weierstrass theorem}
-\pagebreak[2]
+mess.}]\index{Casorati--Weierstrass theorem}\label{thm:casoratiweierstrass}
 Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
 an essential singularity at $p \in U$.  Then for every punctured disc
 $\Delta_r(p) \setminus \{ p \} \subset U$, the image
@@ -9673,6 +9706,23 @@ $\Delta_r(p) \setminus \{ p \} \subset U$ and every segment $[a,b] \subset
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) \cap [a,b] \not= \emptyset$.
 Hint: See 
 \exerciseref{exercise:segmentcomplement}.
+\end{exercise}
+
+\begin{exercise} \label{exercise:singofexp}
+Prove the converse of Casorati--Weierstrass.
+Let $U \subset \C$ be open, $p \in U$, and
+$f \colon U \setminus \{ p \} \to \C$
+holomorphic.
+Prove that if $f\bigl(\Delta_r(p)\bigr)$ is dense in $\C$
+for all $r > 0$ such that $\Delta_r(p) \subset U$,
+then $f$ has an essential singularity at $p$.
+\end{exercise}
+
+\begin{exercise} \label{exercise:singofexp}
+Suppose that $g \colon \Delta_r(p) \setminus \{ p \} \to \C$
+has an isolated singularity.  Prove that $f(z) = e^{g(z)}$
+has either a removable singularity, in which case $g$
+has a removable singularity, or $f$ has an essential singularity.
 \end{exercise}
 \end{exbox}
 
@@ -10431,15 +10481,16 @@ Suppose $U \subset \C$ is open, $\Gamma$ is
 a cycle
 in $U$ homologous to zero in $U$,
 %such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$
-and $n(\Gamma;z)$ is either $1$ or $0$ for $z \in U$.
-Let $V = \bigl\{ z \in U : n(\Gamma;z) = 1 \bigr\}$.
-Suppose that $f \colon U \to \C_\infty$ and $g \colon U \to \C_\infty$
+and $n(\Gamma;z)$ is either $1$ or $0$ for all $z \in U$.
+Suppose $f \colon U \to \C_\infty$ and $g \colon U \to \C_\infty$
 are meromorphic functions with no zeros or poles on
 $\Gamma$ such that
 \begin{equation*}
 \sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
 \end{equation*}
-for all $z \in \Gamma$.  Let $N_f$, $N_g$ be the number of zeros in $V$
+for all $z \in \Gamma$.
+Let $V = \bigl\{ z \in U : n(\Gamma;z) = 1 \bigr\}$.
+Let $N_f$, $N_g$ be the number of zeros in $V$
 and $P_f$, $P_g$ the number of poles in $V$ (both up to multiplicity)
 of $f$ and $g$ respectively.
 Then
@@ -10808,7 +10859,6 @@ map $(x,y) \mapsto (x,xy)$
 takes all of $\R^2$, which is both an open and a closed set, to the
 set $\bigl\{ (x,y) : x \not= 0 \text{ or } y=0 \bigr\}$, which is neither open nor
 closed.
-
 Holomorphic functions are always nice to your topology.
 Recall that for a continuous map, $f^{-1}(V)$ is open whenever
 $V$ is open.  Nonconstant holomorphic functions have this property also in
@@ -11951,7 +12001,9 @@ Hint: What if the component contained $\infty$?
 \begin{exercise}
 Let $S \subset \C$ be a countable closed subset.
 Prove that $U = \C \setminus S$ is not biholomorphic
-to any subset of $\D$.
+to any subset of $\D$.  Hint: A countable closed contains isolated points
+since every nonempty perfect set is uncountable
+(Feel free to assume this fact).
 \end{exercise}
 \end{exbox}
 
@@ -12529,7 +12581,7 @@ continuous, but the correspoding imaginary part is not a function.
 That we cannot find a different conjugate for $\log \sabs{z}$
 follows from the following proposition.
 
-\begin{prop}
+\begin{prop} \label{prop:harmonicconjdifferbyconst}
 If $U \subset \C$ is a domain $f \colon U \to \R$ is harmonic
 and $g_1$ and $g_2$ are two harmonic conjugates of $f$,
 then $g_1 = g_2 + C$ for some $C \in \R$.
@@ -12609,7 +12661,7 @@ an elegant proof for bounded functions.
 But you can't use it, you don't have the
 tools for it yet.} theorem\index{Liouville theorem!harmonic functions} for
 harmonic functions:  If $f \colon \C \to \R$ is harmonic
-and bounded from above, then $f$ is constant.
+and nonnegative, then $f$ is constant.
 \end{exercise}
 \end{exbox}
 \end{savenotes}
@@ -13359,7 +13411,7 @@ of harmonic functions.  Given a sequence of any old $C^2$ functions,
 the limit of $\nabla^2 f_n$ is not necessarily
 the $\nabla^2$ of the limit just because the convergence is uniform.  But
 uniform limits do go under the integral.  The following result is one part
-of what is called \emph{\myindex{Harnack's theorem}} (there are several
+of what is called \emph{\myindex{Harnack's first theorem}} (there are several
 results named for Harnack about harmonic functions).
 
 \begin{thm}[Harnack]\label{thm:harnack1}
@@ -13572,8 +13624,8 @@ $\Delta_{\sqrt{3}\, r}(q) \subset \Delta_{2r}(z_j) \cup \Delta_{2r}(z_{j+1})
 
 \begin{myfig}
 \subimport*{figures/}{sqrt3disc.pdf_t}
-\caption{A disc of radius $\sqrt{3}\,r$ around $q$ (dotted) is in $U$
-because the discs of radius $2r$ (dashed) are in $U$.\label{fig:sqrt3disc}}
+\caption{A disc of radius larger than $\sqrt{3}\,r$ around $q$ (dotted) must
+be in $U$ because the discs of radius $2r$ (dashed) are in $U$.\label{fig:sqrt3disc}}
 \end{myfig}
 
 Applying Harnack's inequality for discs twice:
@@ -13618,6 +13670,11 @@ While the constant we got in the proof is not optimal, it is explicit, you
 could actually explicitly compute a $C$ this way.
 
 \begin{exbox}
+\begin{exercise}[Easy]
+Find a counterexample to Harnack's inequality in the disc if $f$ is
+not assumed to be nonnegative.
+\end{exercise}
+
 \begin{exercise}
 Fix some $s > t > 0$.
 Let $U = \{z \in \C : -s < \Re z < s, -1 < \Im z < 1 \}$.
@@ -13651,13 +13708,15 @@ and nonnegative, then $f$ is constant.
 \end{exercise}
 \end{exbox}
 
-\subsection{Harnack's theorem}
+\subsection{Harnack's principle}
 
 Using Harnack's inequality we have the following theorem on increasing 
-sequences of harmonic functions.
+sequences of harmonic functions.  This theorem is variously called
+Harnack's principle or Harnack's second theorem.
 
-\begin{thm}[Harnack]
-\index{Harnack's theorem}
+\begin{thm}[Harnack's principle]
+\index{Harnack's principle}
+\index{Harnack's second theorem}
 Let $U \subset \C$ be a domain and $\{ f_n \}$ a sequence of
 harmonic functions on $U$ such that $f_1 \leq f_2 \leq f_3 \leq \cdots$.
 Then either $f_n \to +\infty$ uniformly on compact subsets, or
@@ -13692,14 +13751,15 @@ C \bigl( f_m(p)-f_n(p) \bigr)
 < \epsilon .
 \end{equation*}
 In other words, $\{ f_n \}$ is uniformly Cauchy on $K$ and hence converges
-uniformly on $K$ to $f$.  Furthermore, $f$ is harmonic by the first part of
-Harnack's theorem, 
+uniformly on $K$ to $f$.  Furthermore, $f$ is harmonic by
+Harnack's first theorem, 
 \thmref{thm:harnack1}.
 \end{proof}
 
 \begin{exbox}
 \begin{exercise}
-Prove yet another version of Harnack.  Suppose $U \subset \C$ is a domain,
+Prove yet another version of Harnack's principle.
+Suppose $U \subset \C$ is a domain,
 $\{ f_n \}$ is a sequence of nonnegative harmonic functions on
 $U$, and $p \in U$.
 \begin{exparts}
@@ -13712,9 +13772,20 @@ and $f_n(p) \to f(p)$, then $\{ f_n \}$ converges to $f$ uniformly on
 compact sets.
 \end{exparts}
 \end{exercise}
-\end{exbox}
 
-%FIXME: Montel?
+\begin{exercise}
+Prove a Montel-like theorem for harmonic functions.  Suppose $U \subset \C$
+is open and $\{ f_n \}$ is a sequence of positive harmonic functions.
+Show that one or both of the following are possible:
+\begin{enumerate}[(i)]
+\item
+There exists a subsequence converging to $\infty$ uniformly on compact sets.
+\item
+There exists a subsequence converging to a harmonic function
+uniformly on compact sets.
+\end{enumerate}
+\end{exercise}
+\end{exbox}
 
 %FIXME: maybe just skip for now
 %\subsection{Hopf lemma}
@@ -13725,7 +13796,7 @@ compact sets.
 
 \section{Extending harmonic functions}
 
-\subsection{Removable isolated singularities}
+\subsection{Isolated singularities}
 
 For harmonic functions we get the following classification of removable
 singularities, which is sharp in fact.  That is, the harmonic function $\log
@@ -13750,7 +13821,7 @@ in $\D$ with boundary data $u|_{\partial \D} = f|_{\partial \D}$.
 We wish to show that $u$ equals $f$ in $\D \setminus \{0\}$.
 The function
 $g = f - u$ is harmonic in $\D \setminus \{ 0 \}$ and it is zero on
-$\partial \D$.  We furthermore have that
+$\partial \D$.  Furthermore,
 \begin{equation*}
 \lim_{z \to 0} \frac{g(z)}{-\log \sabs{z}} = 0
 \end{equation*}
@@ -13772,6 +13843,97 @@ using the maximum principle we have that
 $z \in \D \setminus \{0\}$, and so $u$ is the extension we are looking for.
 \end{proof}
 
+An isolated singularity of a harmonic function could be very wild, for
+example $\log \sabs{e^{1/z}}$.
+But a holomorphic function that has a pole or a zero at the origin
+behaves like $z^n$ for $n \in \Z$ and
+\begin{equation*}
+\log \abs{z^n} = 
+n \log \sabs{z} .
+\end{equation*}
+This expression is positive near the origin if $n < 0$ and negative if $n > 0$.
+\emph{B\^{o}cher's theorem}\index{Bocher's theorem@B\^{o}cher's theorem}
+is the converse of this statement.
+So for positive harmonic functions we should expect the behavior
+near a singularity at the origin as $g(z) - C \log \sabs{z}$ where $g$ is
+harmonic at the origin. 
+
+\begin{thm}[B\^{o}cher]
+Suppose $U \subset \C$ is open, $p \in U$, and
+$f \colon U \setminus \{ p \} \to \R$ is
+harmonic and positive.  Then there exists a harmonic function
+$g \colon U \to \R$ and a $C \geq 0$ such that
+for all $z \in U \setminus \{ p \}$,
+\begin{equation*}
+f(z) = g(z) - C \log \sabs{z-p} .
+\end{equation*}
+\end{thm}
+
+\begin{proof}
+Without loss of generality suppose $p=0$ and $U = \D$.
+We would like to use the theory of holomorphic functions,
+but $\D \setminus \{ 0 \}$ is not simply connected.  We cannot simply find a
+harmonic conjugate in the entire punctured disc.  We can find a harmonic
+conjugate locally however, and any two harmonic conjugates differ by a
+constant (\propref{prop:harmonicconjdifferbyconst}).
+hus if $\Phi$ is locally the holomorphic function
+such that $\Re \Phi = f$, then $\Phi'$ is well-defined in the entire
+function.  Fix some $q \in \D \setminus \{ 0 \}$
+and some $\Phi$ defined near $q$ such that $\Re \Phi = f$.
+Then there exists a holomorphic function $\varphi \colon
+\D \setminus \{ 0 \}$ such that $\Phi' = \varphi$ near $q$.
+
+Expand $\psi$ in $\D \setminus \{ 0 \}$ using Laurent series,
+\begin{equation*}
+\varphi(z) = \sum_{n=-\infty}^\infty c_n {z}^n .
+\end{equation*}
+Using \propref{prop:diffantidifflaurent},
+antidifferentiating $\nicefrac{1}{z}$ separately,
+we find that locally near $q$,
+\begin{equation*}
+\Phi(z) =
+A+
+c_{-1} \log z +  
+\sum_{n=-\infty,n\not=-1}^\infty \frac{c_n}{n+1} {z}^{n+1}
+=
+c_{-1} \log z +  
+\psi(z),
+\end{equation*}
+for some branch of the $\log$, where $\psi$ is a holomorphic function
+on $\D \setminus \{ 0 \}$.
+Taking the real part we get $f$, a well-defined function on
+$\D \setminus \{ 0 \}$.  That means that
+$c_{-1} \log z$ has a well-defined real part, meaning $c_{-1} \in \R$.
+So
+\begin{equation*}
+f(z) = \Re \Phi(z) =
+c_{-1} \log \sabs{z} +  
+\Re \psi(z).
+\end{equation*}
+Positivity of $f(z)$ says that
+\begin{equation*}
+-k \log \sabs{z} \leq
+-c_{-1} \log \sabs{z} <  \Re \psi(z).
+\end{equation*}
+for some integer $k \leq c_{-1}$.
+Then
+\begin{equation*}
+\sabs{z^{-k}} < e^{\Re \psi(z)} = \abs{e^{\psi(z)}} ,
+\end{equation*}
+or 
+$\abs{z^{-k} e^{-\psi(z)}} < 1$, that is $z^{-k} e^{-\psi(z)}$ has
+a removable singularity.  That would mean that $e^{-\psi(z)}$ has
+a pole or a removable singularity, but $e^{-\psi(z)}$ cannot have
+a pole (see \exerciseref{exercise:singofexp}), so $e^{-\psi(z)}$
+and so $\psi(z)$ has a removable singularity.
+As $\sabs{z}^{-c_{-1}} < \abs{e^{-\psi(z)}}$ we also
+get that $-c_{-1} \geq 0$.  We are done, $\psi$ extends through the origin
+and
+\begin{equation*}
+f(z) = \Re \psi(z) - (-c_{-1}) \log \sabs{z} . \qedhere
+\end{equation*}
+\end{proof}
+
 \begin{exbox}
 \begin{exercise}
 Prove that a holomorphic $f \colon \Delta_r(p) \setminus \{ p \} \to \C$
@@ -13781,6 +13943,11 @@ such that the real part of $f$ is bounded has a removable singularity at $p$.
 \begin{exercise}
 Prove that the Dirichlet problem is not solvable in the punctured disc $\D
 \setminus \{ 0 \}$.
+\end{exercise}
+
+\begin{exercise}
+Prove that given $f$, the function $g$ and the constant $C$ in 
+B\^{o}cher's theorem are unique.
 \end{exercise}
 \end{exbox}
 
