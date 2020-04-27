@@ -13344,23 +13344,27 @@ It is rather interesting that the same kind of property characterizes
 harmonic functions in $\C$ as well, although we have to replace an interval
 with a disc.
 
-\begin{thm}[Mean-value property]\label{prop:meanprop}\index{mean-value property}
-\pagebreak[2]
-Let $U \subset \C$ be an open set.
-A continuous function
+\begin{thm}[Mean-value property]\label{thm:meanprop}\index{mean-value property}
+Suppose $U \subset \C$ is open.
+A continuous 
 $f \colon U \to \R$
-is harmonic if and only if 
+is harmonic if and only if for every $p \in U$, there exists an $R_p >0$
+such that $\Delta_{R_p}(p) \subset U$ and
 \begin{equation*}
 f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
-\qquad \text{whenever} \quad
-\overline{\Delta_r(p)} \subset U .
+\qquad \text{for all } r < R_p .
 \end{equation*}
+Moreover, if $f$ is harmonic then we may choose any
+$R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
 \end{thm}
 
 \begin{proof}
-One direction is simple.  Suppose that $f$ is harmonic and
-$\overline{\Delta_r(p)} \subset U$.  Solve the
-Dirichlet problem in $\Delta_r(p)$ using the Poisson kernel
+One direction (and the ``Moreover'') is simple.
+Suppose $f$ is harmonic.
+Take $p \in U$ and
+any $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
+For any $r < R_p$,
+solve the Dirichlet problem in $\Delta_r(p)$ using the Poisson kernel
 given the boundary values
 $f|_{\partial \Delta_r(p)}$.  Using \eqref{eq:averageofPu} and the
 uniqueness of the solution of the Dirichlet problem, we find
@@ -13369,41 +13373,43 @@ f(p) = P\bigl[f|_{\partial \Delta_r(p)}\big](p) =
 \frac{1}{2\pi} \int_{-\pi}^{\pi}f(p + r e^{it}) \, dt .
 \end{equation*}
 
-For the other direction, suppose $f$ is continuous and satisfies the
-mean-value property.  Let $\overline{\Delta_r(p)} \subset U$ be an
-arbitrary closed disc.  Let $h = P\bigl[f|_{\partial \Delta_r(p)}\big]$
-be the solution of the Dirichlet problem in $\Delta_r(p)$ with boundary
+Conversely, suppose $f$ is continuous and satisfies the
+mean-value property for all $p$ and all $r < R_p$.
+Let $\overline{\Delta_s(q)} \subset U$ be an
+arbitrary closed disc.  Let $h = P\bigl[f|_{\partial \Delta_s(q)}\big]$
+be the solution of the Dirichlet problem in $\Delta_s(q)$ with boundary
 values given by $f$.  Consider $\varphi = f-h$,
 which is continuous, identically zero
-on $\partial \Delta_r(p)$ and still satisfies the mean-value property
-on every closed disc in $U$.  Suppose for contradiction that $\varphi$ is positive
-somewhere on $\Delta_r(p)$, let $\varphi$ achieve a maximum at $q \in
-\Delta_r(p)$.
-The set $S \subset \overline{\Delta_r(p)}$ where $\varphi(z) = \varphi(q)$ is compact.
-Assume that $q$ is the point on $S$ closest to
-$\partial \Delta_r(p)$.  For some small $s$ the circle
-$\partial \Delta_s(q) \subset \Delta_r(p)$ and for an open subset
-of $\partial \Delta_s(q)$ the function $\varphi$ must be less than some fixed
-constant less than $\varphi(q)$.  See \figureref{fig:meanvalue}.
+on $\partial \Delta_s(q)$ and still satisfies the mean-value property.
+Suppose for contradiction that $\varphi$ is positive
+somewhere on $\Delta_s(q)$, let $\varphi$ achieve a maximum at $p \in
+\Delta_s(p)$.
+The set $X \subset \Delta_s(q)$ where $\varphi(z) = \varphi(p)$ is compact.
+Assume $p$ is the point on $X$ closest to
+$\partial \Delta_s(q)$.  For some small $r < R_p$, the circle
+$\partial \Delta_r(p) \subset \Delta_s(q)$ and for an open subset
+of $\partial \Delta_r(p)$ the function $\varphi$ must be less than some fixed
+constant less than $\varphi(p)$.  See \figureref{fig:meanvalue}.
 
 \begin{myfig}
 %Note this figure is used later as well
 \subimport*{figures/}{meanvalue.pdf_t}
-\caption{The discs $\Delta_r(p)$ and $\Delta_s(q)$ and the set
-$S$.\label{fig:meanvalue}}
+\caption{The discs $\Delta_s(q)$ and $\Delta_r(p)$ and the set
+$X$.\label{fig:meanvalue}}
 \end{myfig}
 
-In particular, we obtain the strict inequality
+In particular, as 
+$\varphi$ is supposed to satisfy the
+mean-value property on $\Delta_r(p)$, we get a contradiction
 \begin{equation*}
 \frac{1}{2\pi} \int_{-\pi}^{\pi} \varphi(p+re^{i\theta})\, d\theta <
-\varphi(q) ,
+\varphi(p) .
 \end{equation*}
-which is a contradiction as $\varphi$ is supposed to satisfy the
-mean-value property.
 
-We have proved that $\varphi \leq 0$ on $\Delta_r(p)$.  By applying the same
-logic to $-\varphi$ we find that $\varphi = 0$ on $\Delta_r(p)$.  In
-particular, $f=h$ and $h$ is harmonic, so $f$ is harmonic.
+We have proved that $\varphi \leq 0$ on $\Delta_s(q)$.  By applying the same
+logic to $-\varphi$ we find that $\varphi = 0$ on $\Delta_s(q)$.  In
+particular, $f=h$ and $h$ is harmonic, so $f$ is harmonic on
+$\Delta_s(q)$ (and thus on $U$).
 \end{proof}
 
 One immediate consequence of the mean value property is that a uniform limit
@@ -13460,7 +13466,7 @@ Prove that on every circle $\partial \Delta_r(0)$ there exists a $z \in
 Suppose $U \subset \C$ is open and
 $f \colon U \times [0,1] \to \R$ is continuous
 such that for every fixed $t \in [0,1]$, $z \mapsto f(z,t)$ is harmonic.
-Then prove that
+Prove that $g \colon U \to \R$ defined by
 \begin{equation*}
 g(z) = \int_0^1 f(z,t) \, dt
 \end{equation*}
@@ -13479,13 +13485,16 @@ f(p) =
 \end{equation}
 \end{exercise}
 
-\begin{exercise} \label{exercise:meanvaluesmallronly}
-%FIXME: needed
-It is not necessary to assume the mean-value property for all discs.  Prove
-that given a continuous $f$ as in the theorem such that for every $p \in U$
-there is an $s > 0$ (depending on $p$) such that $f$ satisfies the mean-value
-property on all discs $\Delta_r(p)$ for every $r < s$, then $f$ is
-harmonic.
+\begin{exercise}
+With a little care,
+it is not necessary to assume the mean-value property for all small enough discs.
+Suppose $f \colon \D \to \R$ is
+continuous and such that for every $p \in \D$, there exists an $r$ such that
+$\overline{\Delta_r(p)} \subset \D$ and 
+\begin{equation*}
+f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta .
+\end{equation*}
+Prove that $f$ is harmonic.
 \end{exercise}
 \end{exbox}
 
@@ -14035,7 +14044,7 @@ $r$ at all the $z \in L$.  The mean-value property
 is also satisfied for small enough
 $r$ around any other point since $F$ is harmonic on the open set $U
 \setminus L$.
-Thus, by \exerciseref{exercise:meanvaluesmallronly}, $F$ is harmonic in $U$.
+Thus, by the mean-value property (\thmref{thm:meanprop}), $F$ is harmonic in $U$.
 \end{proof}
 
 \begin{exbox}
@@ -14127,7 +14136,8 @@ are also much easier to draw than functions on $\C$, see
 %FIXME: mark needed/used exercises
 Prove that given an upper-semicontinuous function $f \colon U \to \R \cup
 \{-\infty\}$,
-the set $S = f^{-1}\bigl([a,+\infty)\bigr) = \{ z \in U : f(z) \geq a \}$
+the set
+$X = f^{-1}\bigl([a,+\infty)\bigr) = \bigl\{ z \in U : f(z) \geq a \bigr\}$
 is closed (in the subspace topology of $U$).
 \end{exercise}
 
@@ -14161,26 +14171,29 @@ Prove the proposition.
 
 Suharmonic functions are also classified by a mean value like property,
 although it is an inequality rather than an equality.  There is a subtle
-issue of integrability however.
+issue of integrability however.  For an upper-semicontinuous function
+the integral in the theorem need not exist as a Riemann integral.
 We will only prove this for the upper Darboux integral.
 The proof is 
 similar for the Lebesgue integral if the reader knows that, although
 the statement with the Darboux integral is sufficient for us.
 
-\begin{prop}[Sub-mean-value property]
-\label{prop:submeanprop}
+\begin{thm}[Sub-mean-value property]
+\label{thm:submeanprop}
 \index{sub-mean-value property}
-Let $U \subset \C$ be an open set.
-An upper-semicontinuous function $f \colon U \to \R \cup \{ -\infty \}$
+Suppose $U \subset \C$ is open.
+An upper-semicontinuous $f \colon U \to \R \cup \{ -\infty \}$
 is subharmonic if and only if
+for every $p \in U$ there exists an $R_p > 0$ such that
+$\Delta_{R_p}(p) \subset U$ and
 \begin{equation*}
 f(p) \leq \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
-\qquad \text{whenever} \quad
-\overline{\Delta_r(p)} \subset U .
+\qquad \text{for all } r < R_p .
 \end{equation*}
-The integral is either the Lebesgue integral or the upper Darboux integral,
-the function need not be Riemann integrable.
-\end{prop}
+The integral is either the Lebesgue integral or the upper Darboux integral.
+Moreover, if $f$ is subharmonic then we may choose any
+$R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
+\end{thm}
 
 As $\partial \Delta_r(p)$ is compact and $f$ is upper-semicontinuous, then
 $f$ is bounded from above and hence the upper Darboux integral is defined
@@ -14204,9 +14217,9 @@ step functions with continuous functions, and that is what we will use in
 the proof.
 
 \begin{proof}
-First suppose that $f$ is subharmonic and fix a closed disc
-$\overline{\Delta_r(p)} \subset U$.
-Fix $\epsilon > 0$.
+First suppose that $f$ is subharmonic.  Take $p \in U$ and any $R_p > 0$
+such that $\Delta_{R_p}(p) \subset U$.
+Fix $r < R_p$ and $\epsilon > 0$.
 Find a continuous function $g \colon \partial \Delta_r(p) \to \R$
 such that $f(p+ re^{i\theta}) \leq g(p+re^{i\theta})$ for all $\theta$
 and such that
@@ -14225,27 +14238,33 @@ f(p) \leq g(p) =
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} f(p+re^{i\theta})\, d\theta + \epsilon .
 \end{equation*}
 
-Now suppose conversely that the estimate always holds and $f$ is upper
-semicontinuous.  We will prove the contrapositive.  Suppose that $f$ is not
-subharmonic.  Then there exists a closed disc 
-$\overline{\Delta_r(p)} \subset U$ and a continuous
-$h \colon \overline{\Delta_r(p)} \to \R$, harmonic in $\Delta_r(p)$,
-such that $f(z) \leq h(z)$ on $\partial \Delta_r(p)$ and
-$h(q) < f(q)$ at some point $q \in \Delta_r(p)$.
-Let $\varphi = f-h$, then $\varphi(q) > 0$ and $\varphi(z) \leq 0$
-for all $z \in \partial \Delta_r(p)$.  The set
-$S \subset \overline{\Delta_r(p)}$ where $\varphi(z) = \varphi(q)$ is closed and so
-compact (via an exercise above).
-We could thus assume that $q$ is the point closest to
-$\partial \Delta_r(p)$.  In this case for some small $s$ the circle
-$\partial \Delta_s(q) \subset \Delta_r(q)$ and for some neighborhood
-of $\partial \Delta_s(q)$ the function $\varphi$ must be less than some fixed
-nnegative constant.  The setup is the same as in \figureref{fig:meanvalue}.
-
-In particular we obtain the strict inequality
+For the converse,
+suppose that $f$ is upper semicontinuous and
+the estimate holds for all $p$ and all $r < R_p$.
+Suppose for contradiction that
+there exists a closed disc 
+$\overline{\Delta_s(q)} \subset U$ and a continuous
+$h \colon \overline{\Delta_s(q)} \to \R$, harmonic in $\Delta_s(q)$,
+such that $f(z) \leq h(z)$ on $\partial \Delta_s(q)$ and
+$h(p) < f(p)$ at some point $p \in \Delta_s(q)$.
+Let $\varphi = f-h$, then $\varphi(p) > 0$ and $\varphi(z) \leq 0$
+for all $z \in \partial \Delta_s(q)$.  The set
+$X \subset \Delta_s(q)$ where $\varphi(z) = \varphi(p)$ is compact
+(as a subset of $\overline{\Delta_s(q)}$ it is closed via
+an exercise above).
+We could thus assume that $p$ is the point of $X$ closest to
+$\partial \Delta_s(q)$.  For some small $r < R_p$ such that
+$\partial \Delta_r(p) \subset \Delta_s(q)$,
+the function $\varphi$ must be less than some fixed
+constant that is strictly less than $\varphi(p)$
+on an open subset of
+$\partial \Delta_r(p)$.
+The setup is the same as in \figureref{fig:meanvalue}.
+In particular, as $h$ is harmonic and satisfies the
+mean-value property, we obtain a contraction:
 \begin{equation*}
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} \varphi(p+re^{i\theta})\, d\theta <
-\varphi(q) . \qedhere
+\varphi(p) .  \qedhere
 \end{equation*}
 \end{proof}
 
