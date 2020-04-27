@@ -13329,7 +13329,7 @@ Prove that if $f$ is a Martin function on $\bH$, then $f$ is unbounded.
 
 We can define harmonic functions in one real variable
 by saying $f$ is harmonic if and only if
-$\frac{\partial^2}{\partial x^2} f = f'' = 0$, that is, $f(x) = Ax+B$, an affine
+$\nabla^2 f = \frac{\partial^2}{\partial x^2} f = f'' = 0$, that is, $f(x) = Ax+B$, an affine
 linear function.  It is quite useful to think of harmonic functions as one
 particular analogue of affine linear functions to $\C$, although we ought
 not to take this analogy too far of course.
@@ -13338,7 +13338,7 @@ given $a < b$ then $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
 value at the center of the interval is equal to the average of values at the
 ends.  In fact, if a continuous function satisfies this equality for all
 intervals $[a,b]$, then it is
-affine linear.  This mean-value property completely classifies affine
+affine linear (exercise).  This mean-value property completely classifies affine
 linear, that is harmonic, functions in $\R$.
 It is rather interesting that the same kind of property characterizes
 harmonic functions in $\C$ as well, although we have to replace an interval
@@ -13380,11 +13380,11 @@ on every closed disc in $U$.  Suppose for contradiction that $\varphi$ is positi
 somewhere on $\Delta_r(p)$, let $\varphi$ achieve a maximum at $q \in
 \Delta_r(p)$.
 The set $S \subset \overline{\Delta_r(p)}$ where $\varphi(z) = \varphi(q)$ is compact.
-We could thus assume that $q$ is the point closest to
+Assume that $q$ is the point on $S$ closest to
 $\partial \Delta_r(p)$.  For some small $s$ the circle
-$\partial \Delta_s(q) \subset \Delta_r(q)$ and for some neighborhood
+$\partial \Delta_s(q) \subset \Delta_r(p)$ and for an open subset
 of $\partial \Delta_s(q)$ the function $\varphi$ must be less than some fixed
-negative constant.  See \figureref{fig:meanvalue}.
+constant less than $\varphi(q)$.  See \figureref{fig:meanvalue}.
 
 \begin{myfig}
 %Note this figure is used later as well
@@ -13416,7 +13416,7 @@ uniform limits do go under the integral.  The following result is one part
 of what is called \emph{\myindex{Harnack's first theorem}} (there are several
 results named for Harnack about harmonic functions).
 
-\begin{thm}[Harnack]\label{thm:harnack1}
+\begin{thm}[Harnack's first]\label{thm:harnack1}
 Let $U \subset \C$ be open, and let $f_n \colon U \to \R$ be a sequence of
 harmonic functions converging uniformly on compact subsets to $f \colon U
 \to \R$.  Then $f$ is harmonic.
@@ -13439,6 +13439,12 @@ The result follows by the mean-value property.
 \end{proof}
 
 \begin{exbox}
+\begin{exercise}
+Suppose $f \colon \R \to \R$ is a continuous function such that
+$f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$ whenever $a < b$.
+Prove that $f(x) = Ax + B$ for some constants $A,B$.
+\end{exercise}
+
 \begin{exercise}
 Prove the maximum principle for harmonic functions directly from the
 mean-value property.
