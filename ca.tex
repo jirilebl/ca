@@ -10645,7 +10645,9 @@ exactly $k$ zeros (counting multiplicity) in $\D$.
 Suppose 
 $P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$.
 If $M > \max\left\{ 1, \sum_{j=0}^{n-1} \sabs{a_j} \right\}$,
-prove that $P$ has $n$ zeros in the disc $\Delta_M(0)$.
+prove that $P$ has $n$ zeros (up to multiplicity) in the disc $\Delta_M(0)$
+and no zeros outside.  Do this without applying the fundamental theorem of
+algebra.
 \end{exercise}
 
 \begin{exercise}
@@ -13844,18 +13846,21 @@ $z \in \D \setminus \{0\}$, and so $u$ is the extension we are looking for.
 \end{proof}
 
 An isolated singularity of a harmonic function could be very wild, for
-example $\log \sabs{e^{1/z}}$.
-But a holomorphic function that has a pole or a zero at the origin
-behaves like $z^n$ for $n \in \Z$ and
+example $\Re e^{1/z}$ or similar.  But if it is a $\log \sabs{f(z)}$
+for a holomorphic $f$ that has either a pole or a zero at the origin,
+then near the origin $f$ behaves 
+like $z^n$ for $n \in \Z$ and
 \begin{equation*}
 \log \abs{z^n} = 
 n \log \sabs{z} .
 \end{equation*}
-This expression is positive near the origin if $n < 0$ and negative if $n > 0$.
+In other words, the function behaves like $\log \sabs{z}$.
+The expression is positive near the origin if $n < 0$ and negative if $n > 0$.
 \emph{B\^{o}cher's theorem}\index{Bocher's theorem@B\^{o}cher's theorem}
-is the converse of this statement.
-So for positive harmonic functions we should expect the behavior
-near a singularity at the origin as $g(z) - C \log \sabs{z}$ where $g$ is
+is the converse of this reasoning:
+A positive harmonic function at an isolated singularity
+at the origin can be written as
+$g(z) - C \log \sabs{z}$, where $g$ is
 harmonic at the origin. 
 
 \begin{thm}[B\^{o}cher]
@@ -13876,9 +13881,9 @@ but $\D \setminus \{ 0 \}$ is not simply connected.  We cannot simply find a
 harmonic conjugate in the entire punctured disc.  We can find a harmonic
 conjugate locally however, and any two harmonic conjugates differ by a
 constant (\propref{prop:harmonicconjdifferbyconst}).
-hus if $\Phi$ is locally the holomorphic function
+Thus if $\Phi$ is locally a holomorphic function
 such that $\Re \Phi = f$, then $\Phi'$ is well-defined in the entire
-function.  Fix some $q \in \D \setminus \{ 0 \}$
+punctured disc $\D \setminus \{ 0 \}$.  Fix some $q \in \D \setminus \{ 0 \}$
 and some $\Phi$ defined near $q$ such that $\Re \Phi = f$.
 Then there exists a holomorphic function $\varphi \colon
 \D \setminus \{ 0 \}$ such that $\Phi' = \varphi$ near $q$.
@@ -13913,7 +13918,7 @@ c_{-1} \log \sabs{z} +
 Positivity of $f(z)$ says that
 \begin{equation*}
 -k \log \sabs{z} \leq
--c_{-1} \log \sabs{z} <  \Re \psi(z).
+-c_{-1} \log \sabs{z} <  \Re \psi(z)
 \end{equation*}
 for some integer $k \leq c_{-1}$.
 Then
@@ -14435,7 +14440,7 @@ other hand you know nothing about this set.
 
 \begin{thm}[Rad\'o]\index{Rad\'o's theorem}\label{thm:rado}
 Let $U \subset \C$ be open and $f \colon U \to \C$ a continuous
-function that is holomorphic on the set where it is nonzero,
+function that is holomorphic on the set where it is nonzero, that is,
 \begin{equation*}
 U' = \bigl\{ z \in U : f(z) \not= 0 \bigr\} .
 \end{equation*}
