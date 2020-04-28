@@ -8066,7 +8066,8 @@ means
 \end{equation*}
 That is, the limits are taken independently.  However, for the series we
 are interested in, we are generally talking
-about absolute convergence, so the limit may be taken in any way, and in any order.
+about absolute convergence, so the limit may be taken in any way,
+and in any order.
 When working with Laurent series in particular we know even more.
 Write a Laurent series as 
 \begin{multline*}
@@ -12411,7 +12412,7 @@ A twice (real) continuously differentiable ($C^2$ for short) function $f \colon 
 \end{equation*}
 \end{defn}
 
-The operator $\nabla^2$, sometimes also written $\Delta$,
+The operator $\nabla^2$, sometimes written $\Delta$,
 is the \emph{\myindex{Laplacian}}.\footnote{%
 The Laplacian is defined in $\R^n$ for any $n$ by
 $\nabla^2 f =
@@ -12451,8 +12452,9 @@ f
 \nabla^2 f .
 \end{equation*}
 
-In other words, $f$ is harmonic if and only if $\frac{\partial f}{\partial
-z}$ is holomorphic.  Locally (in some neighborhood) we can find a
+Namely, $f$ is harmonic if and only if
+$\frac{\partial f}{\partial z}$ is holomorphic.
+Locally (in some neighborhood), we find a
 primitive, and we write
 \begin{equation*}
 f(z) = g(z) + c(z) ,
@@ -12470,7 +12472,7 @@ Let $h = \bar{c}$ be the complex conjugate of $c$.  Then
 =
 0 ,
 \end{equation*}
-and so $h$ is holomorphic.  Thus
+so $h$ is holomorphic.  Thus
 \begin{equation*}
 f(z) = g(z) + \overline{h(z)} ,
 \end{equation*}
@@ -12496,13 +12498,12 @@ f(z) = \Re f(z) =
 So any harmonic function $f$ is locally the real part of a holomorphic
 function.  Similarly $f$ is locally the imaginary part of a holomorphic
 function.
-This works only in some neighborhood.  We cannot necessarily find a single
+This all works only in some neighborhood.  We cannot necessarily find a single
 $\varphi$ (the $g$ and $h$ above) in the entire
 domain $U$, unless $U$ is simply connected.  If not, we can always
 pick a simply connected neighborhood such as a disc.
 If $U$ is simply connected, then
-$\frac{\partial f}{\partial z}$ has a primitive in $U$.
-In a simply connected domain such a primitive exists,
+$\frac{\partial f}{\partial z}$ has a primitive in $U$,
 and so we have the following proposition.
 
 \begin{prop}
@@ -12545,7 +12546,7 @@ Then
 We have thus proved the following characterization of harmonic
 functions.
 
-\begin{prop}
+\begin{prop} \label{prop:harmanal}
 Let $U \subset \C$ be open and $f \colon U \to \R$ a function.
 \begin{enumerate}[(i)]
 \item
@@ -12560,7 +12561,9 @@ If $f$ is harmonic, then it is infinitely (real) differentiable and
 for every $p \in U$, there exists a power series expansion
 \begin{equation*}
 f(z) =
-\sum_{n=0}^\infty c_n {(z-p)}^n + \bar{c}_n {\overline{(z-p)}}^n
+c_0
++
+\sum_{n=1}^\infty c_n {(z-p)}^n + \bar{c}_n {\overline{(z-p)}}^n
 \end{equation*}
 converging uniformly absolutely
 on any closed disc $\overline{\Delta_r(p)} \subset U$.
@@ -12573,13 +12576,13 @@ If $g \colon U \to \R$ is harmonic and $f + i g$ is holomorphic,
 then $g$ is called the \emph{\myindex{harmonic conjugate}} of $f$.
 \end{defn}
 
-The proposition thus says that every harmonic function on a simply connected
+The proposition says that every harmonic function on a simply connected
 domain has a harmonic conjugate.  On the other hand, on the punctured plane
-$\C \setminus \{ 0 \}$, the function $\log \sabs{z}$ is harmonic, but
-fails to have a harmonic conjugate.  If it did have a harmonic conjugate
+$\C \setminus \{ 0 \}$, the harmonic function $\log \sabs{z}$ 
+fails to have a harmonic conjugate.  If it did have a harmonic conjugate,
 then $\log$ would have a branch in $\C \setminus \{0\}$, which it does not.
 See \figureref{fig:loggraph}, the graph of the real part on the left is
-continuous, but the correspoding imaginary part is not a function.
+continuous, but the corresponding imaginary part is not a function.
 That we cannot find a different conjugate for $\log \sabs{z}$
 follows from the following proposition.
 
@@ -12603,8 +12606,8 @@ as that the real and imaginary parts of $f$ are.  The proof is left
 as an exercise.
 
 \begin{prop} \label{prop:logharm}
-If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic
-and never zero, then
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic
+and never zero.  Then
 \begin{equation*}
 z \mapsto \log \sabs{f(z)}
 \end{equation*}
@@ -12629,9 +12632,9 @@ $y$
 \item
 $xy$
 \item
-$\arctan(y/x)$ on $x > 0$
+$\arctan(y/x)$ on $x \not= 0$
 \item
-$\frac{x}{x^2+y^2}$
+$\frac{x}{x^2+y^2}$ on $z\not=0$
 \end{expartshor}
 \end{exercise}
 
@@ -12649,10 +12652,32 @@ $g \circ f$ is harmonic.
 \end{exparts}
 \end{exercise}
 
+\begin{exercise}
+Suppose $U \subset \C$ is open, $\overline{\D} \subset U$,
+and $f \colon U \to \R$ is harmonic.  Expand
+$f$ as a series at the origin, and find a formula
+for the $c_n$ as in \propref{prop:harmanal} in terms
+of an integral around $\partial \D$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $R > 0$ and $f \colon \Delta_R(0) \to \R$ is harmonic.
+\begin{exparts}
+\item
+Show that there exists
+a holomorphic $F \colon \Delta_R(0) \setminus \{ 0 \} \to \C$
+such that $F=f$ on $\partial \D$.
+\item
+Show that if $F$ from part a) has a pole at the origin, then $f$
+is the real part of a holomorphic polynomial.
+\end{exparts}
+\end{exercise}
+
 % Best for this to be the last in this exbox,
 % so that the footnote (due to the savenotes) appears
 % (most likely) on the right page.
 \begin{exercise}
+\pagebreak[2]
 Prove the Liouville\footnote{%
 See
 Nelson, Edward
@@ -13520,11 +13545,12 @@ Then for all $z \in \overline{\Delta_r(p)}$,
 If we prove the inequality for $z$ on 
 $\partial \Delta_r(p)$, i.e.\ $\sabs{z-p}=r$, we are done
 as $\frac{R+r}{R-r}$ is increasing in $r$ and
-$\frac{R-r}{R+r}$ is decreasing in $r$.  So without loss of generality
+$\frac{R-r}{R+r}$ is decreasing in $r$.  So 
 assume $\sabs{z-p}=r$.
 
-Let $S < R$.  Using \corref{cor:dirichsol} and the uniqueness of the
-dirichlet problem,
+Let $0 < S < R$.  Using \corref{cor:dirichsol} and the uniqueness of the
+solution of the
+Dirichlet problem,
 \begin{multline*}
 f(p + re^{i\theta})
 =
@@ -13548,7 +13574,7 @@ We estimate
 =
 \frac{S+r}{S-r} .
 \end{equation*}
-So for $z = p+re^{i\theta}$,
+For $z = p+re^{i\theta}$, as $f$ is nonnegative,
 \begin{equation*}
 f(z)
 =
@@ -13561,23 +13587,22 @@ f(z)
 \frac{S+r}{S-r} 
 f(p) .
 \end{equation*}
-Notice that we have use the nonnegativity of $f$ in the estimate.
 The lower inequality follows in the same way.
-Next as $S<R$ was arbitrary we obtain the inequality in the theorem 
-by taking a limit.
+As $S<R$ was arbitrary, the inequality in the theorem 
+follows by taking a limit.
 \end{proof}
 
-The inequalities are optimal.  In the unit disc $\D$ the theorem says
+The inequalities are optimal.  In the unit disc $\D$, the theorem says
 \begin{equation*}
 \frac{1-r}{1+r} f(0) \leq f(z) \leq \frac{1+r}{1-r} f(0) .
 \end{equation*}
 Consider the function $f(z) = \Re \frac{1+z}{1-z}$.  Except for the
-$\frac{1}{2\pi}$ that is the Poisson kernel and so we have that
+$\frac{1}{2\pi}$ it is the Poisson kernel and so 
 $f(z) > 0$ on $\D$.  Note that $f(0)=1$.  Plugging in $z=r$ we get
 equality in the right hand inequality above, and plugging in $z=-r$
 we get inequality in the left hand inequality above.  In other words
 the two constants
-$\frac{R-r}{R+r}$ and $\frac{R+r}{R-r}$ in are optimal.
+$\frac{R-r}{R+r}$ and $\frac{R+r}{R-r}$ are optimal.
 
 There is also a general version of Harnack's inequality on any domain.
 
@@ -14003,9 +14028,9 @@ See \figureref{fig:schwarzreflection} for a diagram.
 \end{myfig}
 
 \begin{proof}
-The trick is to explicitly define what we want $F$ to be and then
+The trick is to define what we want $F$ to be and then
 check that it is harmonic.
-For $z \in U$ define
+For $z \in U$, define
 \begin{equation*}
 F(z) =
 \begin{cases}
@@ -14117,8 +14142,8 @@ That is,
 the function $f$ is convex if on
 every interval $[\alpha,\beta]$, $f \leq g$ for every affine linear $g$
 bigger than $f$ at the endpoints $\alpha$ and $\beta$.
-An interval $[\alpha,\beta]$ plays the role of a closed disc in $\R$.
 In particular, we can take the $g$ that is equal to $f$ at the endpoints.
+In $\R$, an interval $[\alpha,\beta]$ plays the role of a closed disc.
 
 So \emph{convex} is the same as \emph{subharmonic} in
 $\R$.
@@ -14284,11 +14309,11 @@ then
 \end{exercise}
 \end{exbox}
 
-\begin{prop}[Maximum principle]
+\begin{thm}[Maximum principle]
 \index{maximum principle!subharmonic functions}
 Suppose $U \subset \C$ is a domain and $f \colon U \to \R \cup \{ -\infty \}$
 is subharmonic.  If $f$ attains a maximum in $U$, then $f$ is constant.
-\end{prop}
+\end{thm}
 
 \begin{proof}
 Suppose $f$ attains a maximum at $p \in U$.
@@ -14386,7 +14411,10 @@ Finish the proof of the proposition above.
 In analogy to convex functions, a $C^2$ function $f$ of one
 real variable is convex if and only if $f''(x) \geq 0$ for all $x$.
 
-We can also approximate subharmonic functions from above.
+Similarly as for convex functions,
+the supremum of subharmonic functions is subharmonic, as long as we
+the supremum is upper-semicontinuous.  We can therefore ``piece together''
+many subharmonic functions by taking suprema.
 
 \begin{prop}
 Suppose $U \subset \C$ is an open set and $f_\alpha \colon U \to \R \cup \{ -\infty \}$
@@ -14449,15 +14477,14 @@ Hint \#2: Integrate the partial sums, and use polar coordinates.
 
 \subsection{Applications, Rad\'o's theorem}
 
-We are often really interested in proving results for harmonic functions,
+In complex analysis,
+we are really interested in proving results for harmonic functions,
 as we are interested in proving results for holomorphic functions.
 However, harmonic functions are very rigid, they cannot be ``put together''
 easily.  Furthermore there aren't that many of them.  There are a lot of
 subharmonic functions.
-
-As an example of the use of subharmonic functions for
-complex analysis,
-let us prove the theorem of 
+An example of the use of subharmonic functions in
+complex analysis is the theorem of 
 Rad\'o, which is a complementary result to the Riemann extension theorem.
 Here on the one hand the function is
 continuous and vanishes on the set you wish to extend across, but on the
@@ -14468,6 +14495,7 @@ Let $U \subset \C$ be open and $f \colon U \to \C$ a continuous
 function that is holomorphic on the set where it is nonzero, that is,
 \begin{equation*}
 U' = \bigl\{ z \in U : f(z) \not= 0 \bigr\} .
+\avoidbreak
 \end{equation*}
 Then $f$ is holomorphic.
 \end{thm}
