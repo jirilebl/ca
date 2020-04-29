@@ -13546,12 +13546,14 @@ If we prove the inequality for $z$ on
 $\partial \Delta_r(p)$, i.e.\ $\sabs{z-p}=r$, we are done
 as $\frac{R+r}{R-r}$ is increasing in $r$ and
 $\frac{R-r}{R+r}$ is decreasing in $r$.  So 
-assume $\sabs{z-p}=r$.
+assume $z = p+re^{i\theta}$.
 
 Let $0 < S < R$.  Using \corref{cor:dirichsol} and the uniqueness of the
 solution of the
 Dirichlet problem,
 \begin{multline*}
+f(z)
+=
 f(p + re^{i\theta})
 =
 \int_{-\pi}^\pi f(p+Se^{it}) P_{r/S}(\theta-t) \, dt
@@ -13574,15 +13576,18 @@ We estimate
 =
 \frac{S+r}{S-r} .
 \end{equation*}
-For $z = p+re^{i\theta}$, as $f$ is nonnegative,
+For $z = p+re^{i\theta}$,
+using that $f$ is nonnegative,
 \begin{equation*}
 f(z)
 =
 \int_{-\pi}^\pi f(p+Se^{it}) P_{r/S}(\theta-t) \, dt
 \leq
 \frac{S+r}{S-r} 
+\left(
 \frac{1}{2\pi}
 \int_{-\pi}^\pi f(p+Se^{it}) \, dt
+\right)
 \leq
 \frac{S+r}{S-r} 
 f(p) .
@@ -13625,8 +13630,8 @@ connected and so adding in finitely many paths to $K$ we can connect
 the discs.
 
 Suppose $r> 0$ is less than half the distance from $K$ to $\partial U$.
-There exist $N$ (finitely many) discs $\Delta_{r}(z_j)$ that cover $K$
-and $\Delta_{2r}(z_j) \subset U$ for every $j$.
+There exist $N$ discs $\Delta_{r}(z_1),\ldots,\Delta_{r}(z_N)$ that cover $K$,
+where $z_j \in K$ and so $\Delta_{2r}(z_j) \subset U$ for every $j$.
 Fix $\zeta,\xi \in K$.  By reordering the discs, we can assume
 that 
 $\zeta \in \Delta_{r}\bigl(z_{1}\bigr)$
@@ -13648,60 +13653,43 @@ dashed circles are discs of radius $2r$.\label{fig:harnacksgeneral}}
 \end{myfig}
 
 Let $f$ be an arbitrary nonnegative harmonic function on $U$.
-As $\Delta_{2r}(z_1) \subset U$ we apply Harnack's inequality for
-discs,
-\begin{equation*}
-f(\zeta)
-\leq
-\frac{2r + r}{2r-r}
-f(z_1)
-= 3 f(z_1) .
-\end{equation*}
-Let $q$ be the midpoint between $z_{j}$ and $z_{j+1}$.  Then
-$\sabs{z_j-q} < r$ and
-$\sabs{z_{j+1}-q} < r$ as the two discs intersect.
-Elementary geometry says that 
-$\Delta_{\sqrt{3}\, r}(q) \subset \Delta_{2r}(z_j) \cup \Delta_{2r}(z_{j+1})
-\subset U$.  See \figureref{fig:sqrt3disc}.
 
-\begin{myfig}
-\subimport*{figures/}{sqrt3disc.pdf_t}
-\caption{A disc of radius larger than $\sqrt{3}\,r$ around $q$ (dotted) must
-be in $U$ because the discs of radius $2r$ (dashed) are in $U$.\label{fig:sqrt3disc}}
-\end{myfig}
-
-Applying Harnack's inequality for discs twice:
+For any $j$, as $\Delta_{2r}(z_j) \subset U$, if we take any $w \in
+\Delta_r(z_j)$ we find that 
 \begin{equation*}
-f(z_j) \leq
-\frac{\sqrt{3}\, r+r}{\sqrt{3}\, r - r}
-f(q)
-=
-\frac{\sqrt{3}+1}{\sqrt{3}-1}
-f(q)
+\frac{1}{3} f(z_j) = 
+\frac{2r-r}{2r+r} f(z_j)
 \leq
-\frac{\sqrt{3}+1}{\sqrt{3}-1}
-\,
-\frac{2r + r}{2r-r}
-f(z_{j+1})
-=
-\frac{3\bigl(\sqrt{3}+1\bigr)}{\sqrt{3}-1}
-f(z_{j+1}) .
+f(w)
+\leq \frac{2r+r}{2r-r} f(z_j)
+= 3 f(z_j) .
 \end{equation*}
-Finally, again $\Delta_{2r}(\xi) \subset U$ and $\xi \in \Delta_r(z_n)$ and so
+In other words $f(w) \leq 3 f(z_j)$ and $f(z_j) \leq 3 f(w)$.
+
+First, as $\zeta \in \Delta_r(z_1)$ we get 
 \begin{equation*}
-f(z_n)
-\leq
-\frac{2r + r}{2r-r}
-f(\xi)
-= 3 f(\xi) .
+f(\zeta) \leq 3 f(z_1).
+\end{equation*}
+Second, let
+$q$ be the midpoint between $z_{j}$ and $z_{j+1}$.
+The point $q$ may not be in $K$, but $z_j$ is and so is $z_{j+1}$.
+Further, simple geometry dictates that
+$q \in \Delta_{r}\bigl(z_{j}\bigr) \cap \Delta_{r}\bigl(z_{j+1}\bigr)$.
+Thus,
+\begin{equation*}
+f(z_j) \leq 3 f(q) \leq 3 \bigl( 3 f(z_{j+1}) \bigr) = 3^2 f(z_{j+1}).
+\end{equation*}
+Third, as $\xi \in \Delta_r(z_n)$ we get 
+\begin{equation*}
+f(\zeta) \leq 3 f(z_n).
 \end{equation*}
 All in all
 \begin{equation*}
 f(\zeta) \leq
-3 {\left( \frac{3\bigl(\sqrt{3}+1\bigr)}{\sqrt{3}-1} \right)}^n 3
+3^{2n+2}
 f(\xi)
 \leq
-3^2 {\left( \frac{3\bigl(\sqrt{3}+1\bigr)}{\sqrt{3}-1} \right)}^N
+3^{2N+2}
 f(\xi) .
 \end{equation*}
 The number $N$ only depends on $K$, not on $\zeta$, $\xi$, or $f$.
@@ -13713,8 +13701,16 @@ could actually explicitly compute a $C$ this way.
 
 \begin{exbox}
 \begin{exercise}[Easy]
-Find a counterexample to Harnack's inequality in the disc if $f$ is
-not assumed to be nonnegative.
+Show by example that Harnack's general inequality does not hold if $U$
+is not assumed to be connected.
+\end{exercise}
+
+\begin{exercise}[Easy]
+Find the following counterexample of Harnack's inequality
+if $f$ is not assumed to be
+nonnegative.  For any $M > 0$ find
+a harmonic function $f \colon \D \to \R$ such that $f(0) = 1$ and
+$f(\nicefrac{1}{2}) \geq M$.
 \end{exercise}
 
 \begin{exercise}
@@ -13766,25 +13762,27 @@ $f_n \to f$ for a harmonic $f \colon U \to \R$ uniformly on compact subsets.
 \end{thm}
 
 \begin{proof}
-Without loss of generality we can assume that $f_n \geq 0$ for all $n$.
-If not, simply apply the theorem to the sequence $f_n-f_1$,
+Without loss of generality assume that $f_n \geq 0$ for all $n$.
+If not, apply the theorem to the functions $f_n-f_1$,
 which are all nonnegative.
 
-By the monotonicity, $\{f_n\}$ converges pointwise (possibly to $+\infty$).
-If $p$ is such that $\lim f_n(p) = +\infty$, then let $K \subset U$
-be any compact subset including $p$,
-and Harnack's inequality says there is a $C$ such that
+By monotonicity, $\{f_n\}$ converges pointwise (possibly to $+\infty$).
+If $\lim f_n(p) = +\infty$ for some $p \in U$, let $K \subset U$
+be any compact subset including $p$.
+Harnack's inequality says there is a $C$ such that
 \begin{equation*}
 f_n(p) \leq \sup_{z \in K} f_n(z) \leq C \inf_{z\in K} f_n(z) .
 \end{equation*}
-In other words, $f_n(z) \to +\infty$ for all $z \in K$.  Namely,
-$\{f_n\}$ goes to $+\infty$ uniformly on $K$.
+Thus, $f_n(z) \to +\infty$ uniformly on $K$.
 
 Therefore, suppose that the limit of $\{ f_n(z) \}$ is finite
 for every $z \in U$.  Let $f \colon U \to \R$ be the limit.
 Let $K \subset U$ again be any compact subset and $C$ the corresponding $C$
-from Harnack's inequality.  Given $\epsilon > 0$, suppose $m > n$ are two integers
-such that for some $p \in K$, $f_m(p)-f_n(p) < \nicefrac{\epsilon}{C}$, then
+from Harnack's inequality, and $p \in K$ be any point.
+Given $\epsilon > 0$,
+there is an $N$
+such that whenever $m > n \geq N$, we get
+$f_m(p)-f_n(p) < \nicefrac{\epsilon}{C}$.  Then
 \begin{equation*}
 \sup_{z \in K} \bigl( f_m(z)- f_n(z) \bigr) \leq
 C \inf_{z\in K} \bigl( f_m(z)-f_n(z) \bigr)
@@ -13818,7 +13816,7 @@ compact sets.
 \begin{exercise}
 Prove a Montel-like theorem for harmonic functions.  Suppose $U \subset \C$
 is open and $\{ f_n \}$ is a sequence of positive harmonic functions.
-Show that one or both of the following are possible:
+Show that at least one (or both) of the following are true:
 \begin{enumerate}[(i)]
 \item
 There exists a subsequence converging to $\infty$ uniformly on compact sets.
@@ -13843,14 +13841,15 @@ uniformly on compact sets.
 For harmonic functions we get the following classification of removable
 singularities, which is sharp in fact.  That is, the harmonic function $\log
 \sabs{z}$ has a nonremovable singularity at the origin, but any function
-that blows up any slower than that, doesn't actually blow up and is in fact
-harmonic.
+that blows up any slower than that, doesn't actually blow up and in fact
+extends to be
+harmonic at the origin.
 
 \begin{thm}
 Suppose $U \subset \C$ is open, $p \in U$, and $f \colon U \setminus \{ p \}
 \to \R$ is harmonic such that
 \begin{equation*}
-\lim_{z\to p} \frac{f(z)}{\log \sabs{z}} = 0 .
+\lim_{z\to p} \frac{f(z)}{\log \sabs{z-p}} = 0 .
 \end{equation*}
 Then there exists a harmonic $F \colon U \to \R$ such that
 $f = F|_{U \setminus \{ p \}}$.
