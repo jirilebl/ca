@@ -13697,7 +13697,8 @@ As $\zeta$ and $\xi$ were arbitrary the theorem follows.
 \end{proof}
 
 While the constant we got in the proof is not optimal, it is explicit, you
-could actually explicitly compute a $C$ this way.
+could actually compute some specific $C$, by knowing the distance of $K$
+to the boundary and the number of discs needed.
 
 \begin{exbox}
 \begin{exercise}[Easy]
@@ -14681,16 +14682,17 @@ by polynomials on any set whose complement is connected.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Rational functions and pushing poles}
-\label{sec:rational}
+\section{Runge's theorem}
+\label{sec:runge}
 
 Let us first prove rational approximation without any control of the poles.
 The key is going to be that we can find a cycle around any compact set $K$
 (see \subsectionref{subsec:patharoundK})
-so that we can apply Cauchy's integral formula.  Then the Riemann sums of the
+so that we can apply Cauchy's integral formula for points on $K$.
+The Riemann sums of the
 integral are the rational functions.
 
-\begin{lemma}
+\begin{lemma} \label{lemma:ratapproxriemann}
 Let $U \subset \C$ be open, $K \subset U$ compact, $f \colon U \to \C$
 holomorphic, and $\Gamma$ a cycle in $U$ homologous to zero in $U$
 such that $\Gamma \cap K = \emptyset$ and $n(\Gamma;z) = 1$ for all $z \in
@@ -14708,7 +14710,7 @@ f(z) =
 \frac{f(\zeta)}{\zeta-z} \, d \zeta .
 \end{equation*}
 The cycle $\Gamma$ is a finite sum of closed piecewise $C^1$ paths.
-If we that the Riemann sums of the corresponding to each path
+If we prove that the Riemann sums corresponding to each path
 converge uniformly on $K$, then their sum also converges uniformly
 and it converges to $f$.
 
@@ -14719,8 +14721,8 @@ The function
 (z,t) \mapsto
 \frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}
 \end{equation*}
-is uniformly continuous on the compact set $K \times [0,1]$.  Furthermore,
-as $\gamma'$ is bounded, we can find a $\delta > 0$ such that
+is uniformly continuous on the compact set $K \times [0,1]$.
+As $\gamma'$ is bounded, we can find a $\delta > 0$ such that
 \begin{equation*}
 \abs{
 \frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}\gamma'(t)
@@ -14743,7 +14745,8 @@ Write
 \gamma'(t)
 \, dt .
 \end{equation*}
-Let us estimate each bit of this integral by a rational function
+Estimate each bit of this integral by a rational function
+of $z$
 (note the use of the fundamental theorem of calculus)
 \begin{multline*}
 \abs{
@@ -14798,22 +14801,89 @@ Thus the integral over $\gamma$ converges uniformly for $z \in K$, and
 we are done by summing up over all the paths in $\Gamma$.
 \end{proof}
 
+Let us now approximate simple poles.
+
+\begin{lemma} \label{lemma:polepushing}
+Suppose $K \subset \C$ is compact, $S \subset \C_{\infty} \setminus K$
+is a set that intersects every component of $\C_\infty \setminus K$,
+and $p \in \C \setminus K$.
+Then for every $\epsilon > 0$,
+there exists a rational function $R$ with poles in $S$ such that
+\begin{equation*}
+\abs{\frac{1}{z-p}-R(z)} < \epsilon \qquad \text{for all $z \in K$.}
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Take $q\in S$ be in the same component of $\C_\infty \setminus K$.
+Suppose first that $q \not= \infty$.
+As $\C_\infty \setminus K$ is path connected, and a path is compact,
+we cover the path by discs.  In particular,
+there exist points $z_1=p,z_2,\ldots,z_n=q$ and
+finitely many discs $\Delta_{r}(z_1),\ldots,\Delta_{r}(z_n)$
+of some radius $r > 0$
+such that $\Delta_{r}(z_j) \cap \Delta_{r}(z_{j+1}) \not= \emptyset$
+and $\Delta_{2r}(z_j) \cap K = \emptyset$ for all $j$.
+
+As there are finitely many discs, if we show that we can approximate
+$\frac{1}{z-p}$ on $K$ by a rational function with a pole at $z_2 \in
+\Delta_r(p)$ then we claim we are done.  A rational function $R$ with a pole
+at $z_2$ may be written as
+a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^j}$
+or $(z-z_2)^j$.  If we can approximate $\frac{1}{z-z_2}$ by a rational
+function with a pole at $z_3$, we can approximate $R$ by a rational function
+with a pole at $z_3$.  Rinse and repeat.
+
+So without loss of generality suppose $z_1=p$ and $z_2=q$.
+Then
+\begin{equation*}
+\frac{1}{z-p}
+%= 
+%\frac{1}{(z-q)-(p-q)}
+=
+\frac{1}{z-q}
+\frac{1}{1-\frac{p-q}{z-q}}
+=
+\frac{1}{z-q}
+\sum_{k=0}^\infty
+{\left(\frac{p-q}{z-q}\right)}^k ,
+\end{equation*}
+which converges uniformly on $K$ as
+\begin{equation*}
+\abs{\frac{p-q}{z-q}}
+\leq 
+\frac{r}{\abs{z-q}}
+\end{equation*}
+and $\abs{z-q} \geq 2r$.
+A partial sum of the series is the rational function we seek.
+
+Now suppose $q =\infty$. We first find a rational function
+that approximates $\frac{1}{z-p}$ uniformly on $K$ and has a pole
+at $q_1$ for some $q_1$ such that $K \subset \Delta_M(0)$ and $\sabs{q_1} > M$.
+As above, without loss of generality suppose that this function
+is $\frac{1}{z-q_1}$.
+Next
+\begin{equation*}
+\frac{1}{z-q_1}
+=
+\frac{-1}{q_1}
+\frac{1}{1-\nicefrac{z}{q_1}}
+=
+\frac{-1}{q_1}
+\sum_{k=0}^\infty
+{\left(\frac{z}{q_1}\right)}^k ,
+\end{equation*}
+which converges uniformly on $\overline{\Delta_M(0)}$ as  $\sabs{q_1} > M$.
+Taking partial sums we get that $\frac{1}{z-q_1}$ can be approximated
+uniformly on $K$ by polynomials (rational functions with a pole at
+$\infty$),
+and hence $\frac{1}{z-p}$ can also be approximated by polynomials.
+\end{proof}
 
 
+We can now prove Runge.
 
-
-
-
-FIXME
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Runge's theorem}
-\label{sec:runge}
-
-FIXME:
-
-\begin{lemma}[Runge on a compact set]\index{Runge on a compact set}
+\begin{thm}[Runge on a compact set]\index{Runge's theorem on a compact set}
 Suppose $U \subset \C$ is open, $K \subset U$ is compact, $S \subset \C_{\infty} \setminus K$
 is a set that intersects every component of $\C_\infty \setminus K$,
 and $f \colon U \to \C$ is holomorphic.
@@ -14822,17 +14892,32 @@ there exists a rational function $R$ with poles in $S$ such that
 \begin{equation*}
 \abs{f(z)-R(z)} < \epsilon \qquad \text{for all $z \in K$.}
 \end{equation*}
-\end{lemma}
+\end{thm}
+
+\begin{proof}
+First use \lemmaref{lemma:patharoundK} to find a cycle $\Gamma$
+around $K$ homotopic
+to zero in $U$.  Now apply \lemmaref{lemma:ratapproxriemann} to approximate
+$f$ uniformly on $K$ with a rational function with poles on $\Gamma$.
+The rational function that we have now is a linear combination of
+terms such as $\frac{1}{z-p_j}$ for $p_j \in \Gamma$.
+Using \lemmaref{lemma:polepushing}, we can approximate each of these terms
+by a rational function with poles in $S$.
+\end{proof}
 
 FIXME
 
-\begin{thm}[Runge]\index{Runge's theorem}
+\begin{cor}[Runge]\index{Runge's theorem}
 Suppose $U \subset \C$ is open, $S \subset \C_{\infty} \setminus U$
 is a set that intersects every component of $\C_\infty \setminus U$,
 and $f \colon U \to \C$ is holomorphic.
 Then there exists a sequence $\{ R_n \}$ of rational functions with poles in $S$
 that converges to $f$ uniformly on compact subsets.
-\end{thm}
+\end{cor}
+
+\begin{proof}
+FIXME
+\end{proof}
 
 FIXME
 
@@ -14840,6 +14925,14 @@ FIXME
 
 \section{Polynomial hull and approximation}
 \label{sec:polyhull}
+
+FIXME
+
+\begin{thm}
+A domain $U \subset \C$ is simply connected if and only if
+every holomorphic $f \colon U \to \C$ is a limit of polynomials
+converging uniformly on compact subsets of $U$.
+\end{thm}
 
 FIXME
 
