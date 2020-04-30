@@ -14676,7 +14676,7 @@ functions if we allow a pole at $0$.  The function $\frac{1}{z}$ is already
 a rational function with a pole at zero.
 
 A polynomial is really just a rational function that has a pole at infinity.
-Once we will prove Runge's theorem we will prove that it really is the hole
+Once we will prove Runge's theorem, we will prove that it really is the hole
 that is the problem.  We can approximate a holomorphic function
 by polynomials on any set whose complement is connected.
 
@@ -14802,6 +14802,37 @@ we are done by summing up over all the paths in $\Gamma$.
 \end{proof}
 
 Let us now approximate simple poles.
+In some parts of the proof below, to make the proof simple we will say that
+functions of a certain type (uniformly) approximate $f$ on $K$
+if for every $\epsilon > 0$ there exists a function $g$
+of a the given type such that
+$\sabs{f(z)-g(z)} < \epsilon$ on $K$.  We leave the following statement as
+a simple exercise in chasing those $\epsilon$s.
+
+\begin{exbox}
+\begin{exercise}
+Let $K$ be a set and $\sF$ a set of functions on $K$.  Prove rigorously the
+following statements.
+\begin{exparts}
+\item
+If functions from $\sF$ uniformly approximate a function $f$,
+then functions from $\sF$ uniformly approximate $f^k$ for any $k \in \N$.
+\item
+Suppose
+$f_1,\ldots,f_n$ are functions on $K$ that can be individually
+uniformly approximated
+by functions from $\sF$.  Then for any numbers $c_1,\ldots,c_n$, the
+function $c_1 f_1 + \cdots + c_n f_n$ can be uniformly approximated on $K$
+by functions in $\sF$.
+\item
+If $\sG$ is another set of functions on $K$, and
+$f$ can be uniformly approximated by functions in $\sG$
+and every function in $\sG$ can be uniformly approximated by functions in
+$\sF$, then $f$ can be uniformly approximated by functions in $\sF$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
 
 \begin{lemma} \label{lemma:polepushing}
 Suppose $K \subset \C$ is compact, $S \subset \C_{\infty} \setminus K$
@@ -14827,12 +14858,17 @@ and $\Delta_{2r}(z_j) \cap K = \emptyset$ for all $j$.
 
 As there are finitely many discs, if we show that we can approximate
 $\frac{1}{z-p}$ on $K$ by a rational function with a pole at $z_2 \in
-\Delta_r(p)$ then we claim we are done.  A rational function $R$ with a pole
+\Delta_r(p)$, then we claim we are done.  A rational function $R$ with a pole
 at $z_2$ may be written as
 a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^j}$
-or $(z-z_2)^j$.  If we can approximate $\frac{1}{z-z_2}$ by a rational
+or $(z-z_2)^j$.  If we can approximate $\frac{1}{z-z_2}$ on $K$ by a rational
 function with a pole at $z_3$, we can approximate $R$ by a rational function
-with a pole at $z_3$.  Rinse and repeat.
+with a pole at $z_3$.  Rinse and repeat.  See \figureref{fig:rungepolepush}.
+
+\begin{myfig}
+\subimport*{figures/}{rungepolepush.pdf_t}
+\caption{Pole pushing from $p$ to $q$.\label{fig:rungepolepush}}
+\end{myfig}
 
 So without loss of generality suppose $z_1=p$ and $z_2=q$.
 Then
@@ -14885,7 +14921,7 @@ We can now prove Runge.
 
 \begin{thm}[Runge on a compact set]\index{Runge's theorem on a compact set}
 Suppose $U \subset \C$ is open, $K \subset U$ is compact, $S \subset \C_{\infty} \setminus K$
-is a set that intersects every component of $\C_\infty \setminus K$,
+intersects every component of $\C_\infty \setminus K$,
 and $f \colon U \to \C$ is holomorphic.
 Then for every $\epsilon > 0$,
 there exists a rational function $R$ with poles in $S$ such that
@@ -14908,33 +14944,153 @@ by a rational function with poles in $S$.
 FIXME
 
 \begin{cor}[Runge]\index{Runge's theorem}
+\label{cor:rungeseq}
 Suppose $U \subset \C$ is open, $S \subset \C_{\infty} \setminus U$
-is a set that intersects every component of $\C_\infty \setminus U$,
+intersects every component of $\C_\infty \setminus U$,
 and $f \colon U \to \C$ is holomorphic.
 Then there exists a sequence $\{ R_n \}$ of rational functions with poles in $S$
 that converges to $f$ uniformly on compact subsets.
 \end{cor}
 
 \begin{proof}
-FIXME
+Let $D_n \subset U$ be a sequence of closed discs such that $\bigcup_n
+D_n^\circ = U$ (the interiors cover U).
+Let $K'_\ell = \bigcup_{n=1}^\ell D_n$.  The complement
+$\C \setminus K'_\ell$ has finitely many components.  If a component of 
+$\C \setminus K'_\ell$ does not intersect $\C_\infty \setminus U$, then a
+add it to the set, and call the result $K_\ell$.  It is easy to see that we
+still have $K_\ell \subset K_{\ell+1}$.  We further have that $\bigcup
+K_\ell = U$, and every component of $\C_\infty \setminus K_\ell$ intersects
+$S$: $S$ clearly intersects the unbounded component as $\infty \in \C_\infty
+\setminus U$, and every bounded component of $\C_\infty \setminus K_\ell$
+meets a component of $\C_\infty \setminus U$, which must contain points of
+$S$.
+
+Let $R_\ell$ be the rational function such that
+\begin{equation*}
+\abs{f(z)-R_\ell(z)} < \nicefrac{1}{\ell}
+\quad
+\text{for all } z \in K_\ell .
+\end{equation*}
+Any compact $K \subset U$ is covered by finitely $D_n$ as their interiors
+cover $U$ and $K$ is compact.  Thus for some $N$, $K \subset K_\ell$ for all
+$\ell \geq N$.  Hence $\abs{f(z)-R_\ell(z)} < \nicefrac{1}{\ell}$ for all $\ell
+\geq N$, and so $R_\ell$ converges to $f$ uniformly on compact subsets.
 \end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove a version of \corref{cor:rungeseq} where we only require that the
+closure $\bar{S}$ intersects every component of $\C_\infty \setminus U$.
+\end{exercise}
+
+\begin{exercise}
+Prove that if $U \subset V \subset \C$ are open sets such that
+$\C_\infty \setminus V$ intersects every component of
+$\C_\infty \setminus U$, then any holomorphic $f \colon U \to \C$
+can be written as a limit of a sequence of functions holomorphic in $V$
+converging uniformly on compact subsets.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open, $K \subset U$ is compact, $S \subset
+\C_\infty \setminus K$ itersects every component of $\C_\infty \setminus K$,
+and $f \colon U \to \C$ is holomorphic.
+\begin{exparts}
+\item
+If $S$ is open,
+prove that $f$ can be uniformly approximated on $K$ by a rational function
+with only simple poles in $S$.
+\item
+Find an example $U$, $K$, $S$, and $f$, where $S$ is not open and
+$f$ cannot be approximated by a rational functionns with only simple poles
+in $S$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
 
 FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Polynomial hull and approximation}
+\section{Polynomial hull and simply-connectedness}
 \label{sec:polyhull}
 
+\begin{defn}
+Let $K \subset \C$ be a compact set.  Define
+the \emph{\myindex{polynomial hull}} of $K$ as the set
+\begin{equation*}
+\widehat{K} = \bigl\{ z \in \C :
+\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)} \text{ for every polynomial } P
+\bigr\} .
+\end{equation*}
+A set $U \subset \C$ is \emph{\myindex{polynomially convex}} if for
+every compact $K \subset U$, we get $\widehat{K} \subset U$.
+\end{defn}
+
+\begin{prop}
+If $K \subset \C$ is compact, then $K \subset \widehat{K}$ and $\widehat{K}$
+is compact.
+\end{prop}
+
+\begin{proof}
+Clearly $K \subset \widehat{K}$.  It is also not hard to show that $\widehat{K}$
+is closed, it is the intersection of closed sets, that is sets where
+$\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$.  Finally it must be
+bounded since $K$ is bounded.  If $\sabs{z} \leq M$ for some $M$ on $K$,
+then all points of $\widehat{K}$ also satisfy $\sabs{z} \leq M$.  Thus
+$\widehat{K}$ is compact.
+\end{proof}
+
+\begin{example}
+Let $K = \partial \D$.  By the maximum principle,
+$\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$ for any $z \in \D$.
+Furthermore, as above, $\sabs{z} \leq 1$ for all $z \in \widehat{K}$.  In
+other words, $\widehat{K} = \overline{\D}$.
+\end{example}
+
+Hulls can (and often are) defined for other classes of functions than
+polyomials, and are a generalization of the idea of convexity.  Classical
+convexity is convexity with respect to affine linear functions (see the
+exercises).
+
+In terms of one complex variable and polynomial hulls
+
 FIXME
 
-\begin{thm}
-A domain $U \subset \C$ is simply connected if and only if
-every holomorphic $f \colon U \to \C$ is a limit of polynomials
+\begin{prop}
+Let $U \subset \C$ be a domain.  The following are equivalent.
+\begin{enumerate}[(i)]
+\item
+The domain $U$ is simply connected.
+\item
+Every holomorphic $f \colon U \to \C$ is a limit of polynomials
 converging uniformly on compact subsets of $U$.
-\end{thm}
+\item
+The domain $U$ is polynomially convex.
+\end{enumerate}
+\end{prop}
 
 FIXME
+
+\begin{exbox}
+\begin{exercise}
+Instead of polynomials define
+\begin{equation*}
+\widehat{K} = \bigl\{ z \in \C : f(z) \leq \sup_{\zeta \in K}
+f(\zeta) \text{ for every } f(x+iy) = ax+by + c, 
+a,b,c \in \R
+\bigr\}.
+\end{equation*}
+Prove that a set $U$ is convex if and only
+if for every compact $K \subset U$ we have $\widehat{K} \subset U$.
+\end{exercise}
+
+\begin{exercise}
+Prove that if the hull is defined in terms of continuous functions on $\C$
+rather than polyomials, then $\widehat{K} = K$ for every compact $K$.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
