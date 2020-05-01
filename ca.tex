@@ -7658,9 +7658,9 @@ in terms of $k_1$, $k_2$, $A$, and $B$.
 
 A simply connected domain\footnote{%
 There is no agreement among various mathematicians (I've asked a few) if
-a disconnected set can be ``simply connected.''
+a (path-)disconnected set can be ``simply connected.''
 To avoid heated arguments with topologists of various stripes,
-it's best to just not define the term for (path-)disconnected sets.
+it's best to just not define the term for disconnected sets.
 Hence, we only define it for domains.}
 is one without any holes.  The following is
 perhaps not the standard definition, but for domains of $\C$
@@ -7679,13 +7679,26 @@ is homologous to zero in $U$.
 In other words, $U$ is simply connected
 if for every cycle $\Gamma$, we have $n(\Gamma;p) = 0$
 every $p \in \C \setminus U$.
-So in a simply connected domain, no cycle in $U$ can wind around any piece of $\C \setminus U$.
+So in a simply connected domain, no cycle in $U$ can wind around any piece
+of $\C \setminus U$.  Examples of simply connected domains are $\C$, $\D$, or
+$\bH$.  An example of a domain that is not simply connected is
+$\C \setminus \{ 0 \}$.
+See the exercises below.
 
 
 \begin{exbox}
 \begin{exercise}
-Prove that $\C$ and $\D$ are simply connected, and $\C \setminus \{ 0 \}$
-is not simply connected.
+\begin{exparts}
+\item
+Prove that any star-like domain (e.g.\ $\C$, $\D$, and $\bH$) in $\C$ is simply connected.
+\item
+Prove that $\C \setminus \{ 0 \}$ is not simply connected.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Prove that if $U \subset \C$ is biholomorphic to $\D$, then $U$
+is simply connected.
 \end{exercise}
 
 \begin{exercise}
@@ -7693,10 +7706,6 @@ Prove that $U \subset \C$ is simply connected if and only if
 the first homology group
 $H_1(U)$ is isomorphic to the trivial group $\{ 0 \}$.
 See \exerciseref{exercise:H1U}.
-\end{exercise}
-
-\begin{exercise}
-Prove that any star-like domain in $\C$ is simply connected.
 \end{exercise}
 \end{exbox}
 
@@ -7832,6 +7841,7 @@ $g(z) = e^{\frac{1}{k} \psi(z)}$.  Check:
 {\bigl(g(z)\bigr)}^k
 =
 {\left( e^{\frac{1}{k} \psi(z)} \right)}^k
+=
 e^{\psi(z)} = f(z) . \qedhere
 \end{equation*}
 \end{proof}
@@ -7905,7 +7915,7 @@ n(\Gamma;p) =
 Again by Cauchy's theorem for derivatives,
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iv}.
-And finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
+Finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
 \ref{thm:simplyconnected:v} is immediate.
 \end{proof}
 
@@ -12342,8 +12352,10 @@ map $\psi \colon \C \setminus K \to \C \setminus \overline{\D}$.
 
 \begin{exercise}
 Construct an example compact set $K \subset \C$ with a connected component $K_1$
-such that for every cycle $\Gamma$ such that $n(\Gamma;z)=1$ for all $z \in K_1$
-there exists a $\zeta \in K \setminus K_1$ such that $n(\Gamma;\zeta)= 1$.
+with the following property.
+For every cycle $\Gamma$ in $\C \setminus K$ such that $n(\Gamma;z)=1$ for
+all $z \in K_1$,
+there exists a $\zeta \in K \setminus K_1$ where $n(\Gamma;\zeta)=1$.
 Why does this not contradict the construction in the proof of the lemma?
 \end{exercise}
 
