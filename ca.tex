@@ -14309,15 +14309,23 @@ From now on, when we apply the property we simply write the integral and
 the reader substitutes the upper Darboux integral or the Lebesgue integral
 according to the reader's taste.
 
-\begin{exbox}
-\begin{exercise}
-Let $U \subset \C$ be open.
-Show that if $f \colon U \to \R \cup\{- \infty \}$ is subharmonic,
-then 
+An easy consequence of the sub-mean-value property is that subharmonic
+functions, while not necessarily continuous are a bit better then just
+upper-semicontinuous.
+
+\begin{prop}
+Let $U \subset \C$ be open and
+$f \colon U \to \R \cup\{- \infty \}$ be subharmonic.
+Then 
 \begin{equation*}
-\limsup_{w \to z} f(w) = f(z) 
+\limsup_{\zeta \to z} f(\zeta) = f(z) 
 \qquad \text{for all $z \in U$.}
 \end{equation*}
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
 \end{exercise}
 \end{exbox}
 
@@ -14618,7 +14626,7 @@ It has been said that man is a rational animal. All my life I have been searchin
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Introduction to polynomial approximation}
+\section{Polynomial approximation}
 \label{sec:polyapprox}
 
 In real analysis, you may have seen the very useful
@@ -14691,6 +14699,20 @@ A polynomial is really just a rational function that has a pole at infinity.
 Once we will prove Runge's theorem, we will prove that it really is the hole
 that is the problem.  We can approximate a holomorphic function
 by polynomials on any set whose complement is connected.
+
+\begin{exbox}
+\begin{exercise}
+Suppose a sequence of polynomials $\{ P_n \}$ converges uniformly on
+$\partial \D$.  Show that $\{ P_n \}$ converges uniformly on
+$\overline{\D}$.
+\end{exercise}
+
+\begin{exercise}
+Suppose that if a sequence of polynomials $\{ P_n \}$ converges uniformly on $\C$
+then there is an $N$ such that $P_n$ is constant for all $n \geq N$.
+\end{exercise}
+\end{exbox}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -14900,7 +14922,7 @@ which converges uniformly on $K$ as
 \begin{equation*}
 \abs{\frac{p-q}{z-q}}
 \leq 
-\frac{r}{\abs{z-q}}
+\frac{r}{\sabs{z-q}}
 \end{equation*}
 and $\abs{z-q} \geq 2r$.
 A partial sum of the series is the rational function we seek.
@@ -14953,7 +14975,34 @@ Using \lemmaref{lemma:polepushing}, we can approximate each of these terms
 by a rational function with poles in $S$.
 \end{proof}
 
-FIXME
+\begin{example}
+There exists a sequence of polynomials $\{ P_n \}$ such that
+\begin{equation*}
+\lim_{n \to \infty} P_n(z)
+=
+\begin{cases}
+1 & \text{if } z \in \R, \\
+0 & \text{else.}
+\end{cases}
+\end{equation*}
+Proof: Let $K_n = \{ z \in \C : \sabs{z} \leq n, \Im z \in
+(-\infty,\nicefrac{-1}{n}] \cup \{ 0 \}
+[\nicefrac{1}{n},\infty) \}$.  The set $\C \setminus K_n$ is connected and
+$K_n$ is compact and has three components.  There is a function $f$
+that is holomorphic on a neighborhood of $K_n$, and it equals $0$ on $K_n \setminus \R$
+and $1$ on $K_n \cap \R$.
+Indeed, pick three disconnected neighborhoods of the three components of $K_n$ and
+set the function to be identically $0$ or $1$ on the corresponding
+component, constants are holomorphic.
+Runge says that there is a polynomial $P_n(z)$ such that $\sabs{P_n(z)-f(z)}
+\leq \nicefrac{1}{n}$ for $z \in K_n$.  The sequence $\{ P_n \}$ then does
+the job.  Since $K_n \subset K_{n+1}$ for all $n$ and $\bigcup K_n = \C$
+we get that eventually any $z$ is in some $K_n$ (and all the later sets).
+It follows that $\lim P_n(z)$ is the right thing.
+But be careful what we said.  We have a pointwise limit only.  The sequence
+does \emph{not} converge uniformly on compact sets.  That is easy to see,
+otherwise the limit would be continuous.
+\end{example}
 
 \begin{cor}[Runge]\index{Runge's theorem}
 \label{cor:rungeseq}
@@ -15006,7 +15055,7 @@ converging uniformly on compact subsets.
 
 \begin{exercise}
 Suppose $U \subset \C$ is open, $K \subset U$ is compact, $S \subset
-\C_\infty \setminus K$ itersects every component of $\C_\infty \setminus K$,
+\C_\infty \setminus K$ intersects every component of $\C_\infty \setminus K$,
 and $f \colon U \to \C$ is holomorphic.
 \begin{exparts}
 \item
@@ -15019,9 +15068,35 @@ $f$ cannot be approximated by a rational functionns with only simple poles
 in $S$.
 \end{exparts}
 \end{exercise}
-\end{exbox}
 
-FIXME
+\begin{exercise}
+Prove that there exists a sequence of polynomials $\{ P_n \}$ such that
+we get the pointwise limit
+\begin{equation*}
+\lim_{n \to \infty}
+P_n(z) = \lfloor \Re z \rfloor ,
+\avoidbreak
+\end{equation*}
+where $\lfloor x \rfloor$ means the largest integer less than or equal to
+$x$. 
+\end{exercise}
+
+\begin{exercise}
+Prove that there exists a sequence of polynomials $\{ P_n \}$ such that
+we get the pointwise limit
+\begin{equation*}
+\lim_{n \to \infty}
+P_n(z) =
+\begin{cases}
+1 & \text{if } z = 0, \\
+0 & \text{else.}
+\end{cases}
+\avoidbreak
+\end{equation*}
+Note that the convergence will not be uniform in any neighborhood of the
+origin.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -15066,26 +15141,112 @@ polyomials, and are a generalization of the idea of convexity.  Classical
 convexity is convexity with respect to affine linear functions (see the
 exercises).
 
-In terms of one complex variable and polynomial hulls
-
-FIXME
+In terms of one complex variable and polynomial hulls the are very easy to
+describe.  They end up being just a topological property (the polynomial
+hull just fills in the holes.  First a simple proposition about convergence.
 
 \begin{prop}
-Let $U \subset \C$ be a domain.  The following are equivalent.
-\begin{enumerate}[(i)]
-\item
-The domain $U$ is simply connected.
-\item
-Every holomorphic $f \colon U \to \C$ is a limit of polynomials
-converging uniformly on compact subsets of $U$.
-\item
-The domain $U$ is polynomially convex.
-\end{enumerate}
+Suppose $K \subset \C$ is compact, $\widehat{K}$ is its polynomial hull,
+and $\{ P_n \}$ is a sequence of polynomials converging uniformly on
+$K$.  Then $\{ P_n \}$ converges uniformly on $\widehat{K}$.  
 \end{prop}
 
-FIXME
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.  Hint: Show that $\{ P_n \}$ is uniformly Cauchy on
+$\widehat{K}$.
+\end{exercise}
+\end{exbox}
+
+\begin{thm}
+Suppose $K \subset \C$ is compact.  Let $X$ be the unbounded component of
+$\C \setminus K$.  Then $\widehat{K} = \C \setminus X$.
+\end{thm}
+
+\begin{proof}
+Suppose $p \in X$.  Then $\{ p \} \cup \C \setminus X$ is a compact set
+whose
+complement (in either $\C$ or $\C_\infty$) is connected.
+Use Runge to approximate a function that is $1$ at $p$ and $0$ on
+$\C \setminus X$
+by a polynomial $P(z)$ to say within $\nicefrac{1}{2}$.  In other words
+$\abs{P(p)-1} < \nicefrac{1}{2}$ so 
+$\abs{P(p)} > \nicefrac{1}{2}$, and for all $z \in \C \setminus X$ (and
+therefore all $z \in K$)
+we have 
+$\abs{P(z)} < \nicefrac{1}{2}$.  In other words $p \notin \widehat{K}$.
+
+Conversely, suppose $p \notin X$, then $p \in X_1$ where $X_1$
+is one of the bounded components of $\C \setminus K$.  The boundary
+$\partial X_1 \subset K$, and so the second version of the maximum
+principle says that 
+\begin{equation*}
+\sabs{P(p)} \leq
+\sup_{z \in \partial X_1} \sabs{P(z)}
+\leq
+\sup_{z \in K} \sabs{P(z)},
+\avoidbreak
+\end{equation*}
+so $p \in \widehat{K}$.
+\end{proof}
+
+Note that the components of $\C \setminus K$ are open sets.
+As a corollary we get the following equivalence.
+
+\begin{cor}
+Let $U \subset \C$ be a domain.  The following are equivalent.
+\begin{enumerate}[(i)]
+\item\label{cor:polyhull:i}
+The domain $U$ is simply connected.
+\item\label{cor:polyhull:ii}
+Every holomorphic $f \colon U \to \C$ is a limit of polynomials
+converging uniformly on compact subsets of $U$.
+\item\label{cor:polyhull:iii}
+The domain $U$ is polynomially convex.
+\end{enumerate}
+\end{cor}
+
+\begin{proof}
+Suppose \ref{cor:polyhull:i} is true.
+Then $\C_\infty \setminus U$ has exactly one component.
+So Runge says that we can approximate any function
+holomorphic on $U$ by polynomials
+(rational functions with a pole at $\infty$) uniformly on compact sets.
+Namely \ref{cor:polyhull:ii} holds.
+
+Suppose \ref{cor:polyhull:ii} is true.
+Consider any $K \subset U$.  If $p \in \widehat{K} \setminus U$,
+then $p$ is not in $K$ and so $p$ is in one of the bounded components of $\C \setminus K$.
+Consider $f(z) = \frac{1}{z-p}$, which is holomorphic on $U$, so find
+a sequence of polynomials $\{ P_n \}$ converging uniformly to $f$ on compact
+subsets.
+By the proposition the sequence converges uniformly on $\widehat{K}$
+In particular it converges to a holomorphic function on
+$g$ defined on $U \cup \widehat{K}$ (which is an open set by the above theorem).
+The function $f$ is defined on $\C \setminus \{ p \}$,
+and the boundary of the component of $\C \setminus K$ that includes $p$ must
+have a limit point.
+Thus $g$ equals $f$ on $U \cup \widehat{K} \setminus \{ p \}$, which is
+impossible as $g$ is bounded near $p$ while $f$ has a pole there.  So no
+such $p$ exists and \ref{cor:polyhull:iii} is true.
+
+Suppose \ref{cor:polyhull:iii} is true.  Suppose $\C_\infty \setminus U$
+has a component that does not include $\infty$.  This is some compact set
+$K$.  By covering $K$ by small discs whose closure does not intersect any
+other component of $\C_\infty \setminus U$, we find a bounded
+open set $V$ such that $K \subset V$ and $\partial V \subset U$.
+But then by the theorem, $V \subset \widehat{\partial V}$.  This contradicts
+$U$ being polynomially convex.  Thus the only component of $\C_\infty
+\setminus U$ is the one that contains $\infty$ and so $U$ is simply
+connected.
+\end{proof}
 
 \begin{exbox}
+\begin{exercise}
+Suppose $K_1 \subset K_2 \subset \C$ are compact.  Prove that
+$\widehat{K}_1 \subset \widehat{K}_2$.
+\end{exercise}
+
 \begin{exercise}
 Instead of polynomials define
 \begin{equation*}
