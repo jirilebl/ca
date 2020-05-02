@@ -661,11 +661,6 @@ It's clearly a budget. It's got a lot of numbers in it.
 
 \section{Complex numbers} \label{sec:complexnums}
 
-%In modern mathematics, in other words in the last couple hundred years, when 
-%faced with a problem such as solving $z^2+1 = 0$,
-%instead of trying to see when the equation has a solution with
-%the numbers we have, we define new numbers that solve the equation.
-
 Modern\footnote{In this context, \emph{modern}
 means ``later than the middle ages.''}
 mathematics
@@ -713,8 +708,6 @@ Etc.}
 The two are the good-cop bad-cop, the yin-yang,
 of modern analysis.
 
-
-
 \subsection{The complex numbers as the plane}
 
 You have surely seen the complex number field,
@@ -733,7 +726,7 @@ To make it a field, we define addition and product:
 
 \begin{exbox}
 \begin{exercise}
-Check that the above makes $\C$ into a field, where the additive
+Check that $\C$ is a field, where the additive
 identity is $0=(0,0)$ and the multiplicative identity is $1=(1,0)$.
 That is, $\C$ is an abelian group under addition,
 the nonzero complex numbers are an abelian group under multiplication,
@@ -742,7 +735,6 @@ is $\left(\frac{a}{a^2+b^2},\frac{-b}{a^2+b^2}\right)$.
 \end{exercise}
 \end{exbox}
 
-We will actually never write complex numbers as $(x,y)$ from now on.
 When we write a real number $x$, we identify it with the
 complex number $(x,0)$.
 With this identification $\R \subset \C$.
@@ -751,14 +743,13 @@ We also define the \emph{\myindex{imaginary unit}}%
 being no ``j'' in ``imaginary.''}%
 \glsadd{not:i}
 \begin{equation*}
-i \overset{\text{def}}{=} (0,1) ,
+i \overset{\text{def}}{=} (0,1) .
 \end{equation*}
-and we find that with this definition $(x,y) = x+iy$, using the field
-structure of $\C$.  So from now on, this is the only way we write
+With this definition $(x,y) = x+iy$.  From now on, this is the only way we
+will write
 the complex numbers in terms of the coordinates $x$ and $y$.
 We call $x+iy$ the \emph{\myindex{cartesian}}
 form of the complex number.
-
 The number $i$ has the magical property that
 \begin{equation*}
 i^2 = -1 .
@@ -768,31 +759,16 @@ For this reason we sometimes%
 \footnote{There are those that \emph{always} write $\sqrt{-1}$ instead of $i$.
 Those people also deserve a good whack.}
 write $i = \sqrt{-1}$.
-We will prove later that complex numbers
-are precisely the field in which every polynomial has roots.
+We will prove later that every polynomial has roots over the complex numbers.
 Note that there is another square root of $-1$, that is, $-i$.
 
-%\begin{remark}
-%Another way to define complex numbers is to take the real numbers
-%and adjoin a root of $z^2+1=0$.
-%There is a subtle philosophical issue with the fact that there
-%are two such square roots.
-%Two chickens\index{chicken!imaginary}%
-%are running around in our yard,
-%and because we like to
-%know which is which, we catch one and write ``$i$'' on it.  If we happened
-%to have caught the other chicken, we would have gotten an exactly equivalent
-%theory, which we could not tell apart from the original.
-%\end{remark}
-
 Given a complex number $z=x+iy$, its ``evil twin'' is 
-the \emph{\myindex{complex conjugate}} of $z$ and is defined as
+the \emph{\myindex{complex conjugate}} of $z$:
 \glsadd{not:conj}%
 \begin{equation*}
 \bar{z} \overset{\text{def}}{=} x-iy.
 \end{equation*}
-
-If $z = x+iy \in \C$ for $x,y \in \R$, then $x$ is called the
+The number $x$ is called the
 \emph{\myindex{real part}} and $y$ is called the
 \emph{\myindex{imaginary part}}.  We write
 \glsadd{not:real}%
@@ -808,7 +784,7 @@ If $z = x+iy \in \C$ for $x,y \in \R$, then $x$ is called the
 =
 y .
 \end{equation*}
-A particularly useful observation is that above we wrote the
+A particularly useful observation is that we wrote the
 real part and the imaginary part in terms of $z$ and $\bar{z}$.
 Any expression we write in terms of the real and imaginary parts of $z$,
  we can equally well write in terms of $z$ and $\bar{z}$.  And vice-versa.
@@ -836,7 +812,6 @@ in many contexts as if $z$ and $\bar{z}$ were actually independent
 variables.
 
 \subsection{The geometry and topology of the plane}
-
 
 The size of $z$ is measured by the so-called \emph{\myindex{modulus}},
 which is just the \emph{\myindex{Euclidean distance}}:
@@ -897,8 +872,6 @@ $4 z\bar{w} =
 
 The distance between two numbers $z$ and $w$ is measured by
 \begin{equation*}
-%\dist(z,w)
-%\overset{\text{def}}{=}
 \sabs{z-w} ,
 \end{equation*}
 and this makes $\C$ into a complete metric space.  By complete, we mean that
@@ -967,11 +940,11 @@ A useful ``version'' of the unit disc, is the \emph{\myindex{upper half-plane}}:
 z \in \C : \Im z > 0
 \bigr\} .
 \end{equation*}
-Things done on the unit disc can just as well be done on the upper half-plane.
 We will see in a moment that $\D$ and $\bH$ are equivalent in a
 very nice way.
+Things done on the unit disc can just as well be done on the upper half-plane.
 
-The following definition is perhaps somewhat unnecessary, but it is so much
+The following definition is perhaps somewhat unnecessary, but it is 
 easier to write and say than \emph{open and connected}, and it is commonly
 used in complex analysis.\footnote{We generally consider our sets
 also nonempty, but usually the statements of results for empty open sets or
@@ -979,7 +952,9 @@ domains are simply vacuous.}
 
 \begin{defn}
 An open and connected set $U \subset \C$ is called a
-\emph{\myindex{domain}}.
+\emph{\myindex{domain}}.\footnote{Perhaps domain is a tad unfortunate since
+we also call the $X$ in $f \colon X \to Y$ a ``domain'' of the function,
+even if $X$ is not a domain in the sense of topology.}
 \end{defn}
 
 \subsection{Complex-valued functions}
@@ -1152,8 +1127,6 @@ then show that $\det M = \sabs{\xi}^2 - \sabs{\zeta}^2$.
 \end{exercise}
 \end{exbox}
 
-%We will see this representation of complex numbers come up when we introduce the
-%Cauchy--Riemann equations.
 This representation of complex numbers comes up quite often in applications.
 For example, 
 an $m \times n$ complex matrix can be represented by a
@@ -1194,9 +1167,6 @@ e^x\cos y + i e^x \sin y .
 \includegraphics{figures/imagexp}
 \caption{Graphs of the real part (left) and imaginary part (right)
 of the complex exponential $e^z = e^{x+iy}$.
-%The $x$-axis goes from $-4$ to $4$, the $y$-axis goes from $-6$ to $6$,
-%and the vertical axis goes from $-e^{6} \approx -54.6$ to
-%$e^{6} \approx 54.6$.
 The plot of the real exponential ($y=0$)
 is marked in a bold line.\label{fig:complexexpgraphs}}
 \end{myfig}
@@ -1257,7 +1227,6 @@ them into that formula, now that we know how to evaluate the exponential:
 \qquad
 \sin z \overset{\text{def}}{=} \frac{e^{iz}-e^{-iz}}{2i} .
 \end{equation*}
-
 
 \subsection{Polar coordinates}
 
@@ -2025,9 +1994,6 @@ A function $f \colon U \to \C$ is
 \emph{\myindex{holomorphic}}
 if it is complex differentiable at every point.  That is, if
 \eqref{eq:complexdiff} exists for all $z_0 \in U$.
-%We will write
-%the set of holomorphic functions defined on $U$ as $\sO(U)$.
-%FIXME: do we every really use $\sO(U)$
 \end{defn}
 
 Above, we proved the following proposition that justifies our motivation
@@ -2134,7 +2100,6 @@ the complex derivative exists at $z_0$ if and only if
 $\frac{\partial u}{\partial x}\big|_{z_0} = \frac{\partial v}{\partial
 y}\big|_{z_0}$ and $\frac{\partial v}{\partial x}\big|_{z_0} = -\frac{\partial
 u}{\partial y}\big|_{z_0}$.
-%We usually want to do this at all points, not just one.
 By working backwards, it is immediate
 that if $f$ is complex differentiable at $z_0$, then it is real
 differentiable at $z_0$,
@@ -2348,9 +2313,6 @@ That is as an equation of real linear operators.  Now $Df|_z$ corresponds
 to multiplication by the complex number $f'(z)$, and $D\gamma|_{t_0}$
 is the $2 \times 1$ matrix (column vector) represented by $\gamma'(t_0)$.
 The result follows.
-%  Therefore
-%the (real) derivative of $f \circ \gamma$ is represented via multiplication
-%by the complex number $f'(z) \gamma'(t_0)$.
 \end{proof}
 
 \begin{prop} \label{prop:sumproddiv}
@@ -2445,7 +2407,6 @@ even continuous.
 
 \subsection{Wirtinger operators}
 
-%Let us concentrate a bit more on the equations.
 Suppose $z=x+iy$.
 The so-called \emph{\myindex{Wirtinger operators}},
 \begin{equation*}
@@ -2504,12 +2465,6 @@ But let us humor ourselves and check what \eqref{eq:CReq} means:
 \frac{\partial f}{\partial y}
 \right)
 =
-%\frac{1}{2}
-%\left(
-%\frac{\partial }{\partial x} (u + iv) + i
-%\frac{\partial }{\partial y} (u + iv)
-%\right)
-%=
 \frac{1}{2}
 \left(
 \frac{\partial u}{\partial x} 
@@ -3489,6 +3444,15 @@ $\sum_{n=0}^\infty c_n z^{n}$ converges at $z=1$, but not absolutely.
 Prove that the radius of convergence is 1.
 \end{exercise}
 
+\begin{exercise}[Weierstrass $M$-test]
+\label{exercise:weierMtest}
+Let $X$ be a set and suppose that $f_n \colon X \to \C$ is
+a sequence of functions such that
+$\abs{f_n(x)} \leq M_n$ for all $x \in X$ and $n \in \N$.  If $\sum M_n <
+\infty$, then $\sum f_n(x)$ converges uniformly absolutely on $X$
+($\sum \sabs{f_n(x)}$ converges uniformly on $X$).
+\end{exercise}
+
 \begin{exercise}
 Suppose
 $\sum_{n=0}^\infty a_n z^{n}$ and $\sum_{n=0}^\infty b_n z^{n}$
@@ -3519,6 +3483,7 @@ $r$ and converges to the product of the two series.
 Hint: The key is to look at a point where both series converge absolutely,
 then use the absolute convergence.
 \end{exercise}
+
 \end{exbox}
 
 \begin{remark}
@@ -3616,7 +3581,6 @@ The right hand side is defined even if $z_0 = z$.
 We must show that the expression above is continuous as a function of $z$
 at $z_0$.
 It is continuous provided that the series above
-%(the series whose terms are $c_n z_0^k z^{n-1-k}$)
 converges uniformly for $z$ in a
 neighborhood of $z_0$.
 
@@ -3624,8 +3588,6 @@ The setup will be just like in \figureref{fig:threediscs}.
 Let $r$ and $s$ be such that $0 < s < r < R$ and suppose that $z_0$ and $z$ are
 in $\Delta_s(0)$.
 \begin{equation*}
-%\abs{c_n \frac{z^n-z_0^n}{z-z_0}}
-%=
 \abs{c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k}}
 \leq
 \sum_{k=0}^{n-1} 
@@ -3657,9 +3619,6 @@ n M {\left(\frac{s}{r}\right)}^{n-1}
 \frac{s}{r} < 1 ,
 \end{equation*}
 the root test shows that
-%\begin{equation*}
-%\sum_{n=1}^\infty n \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1}
-%\end{equation*}
 $\sum n \sabs{c_n} s^{n-1}$
 converges.
 So the series for the difference quotient,
@@ -4177,8 +4136,6 @@ there exist continuous (complex-valued) $F$ and $G$ such that
 =
 \int_{\gamma} F \, dz + G \, d\bar{z} .
 \end{equation*}
-%Namely, the line integral we defined is just the $dz$ part of
-%the general line integral in $\R^2$.
 Then show that any path integral
 can be computed if you only know how to compute integrals of the form $\int_\gamma f(z) \, dz$.
 \end{exercise}
@@ -4695,7 +4652,6 @@ Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is continuous with a primitive
 $F \colon U \to \C$.
 Let $\Gamma$ be
-%a closed piecewise $C^1$ path (or a cycle)
 a cycle
 in $U$.
 Then
@@ -4721,7 +4677,6 @@ but right now it is rather appealing.
 
 \begin{cor}[Cauchy's theorem for polynomials] \label{cor:cauchyforpoly}
 Suppose $P(z)$ is a polynomial and $\Gamma$ is
-%a closed piecewise $C^1$ path (or a cycle).
 a cycle.
 Then
 \begin{equation*}
@@ -4803,7 +4758,6 @@ and not that it is continuous, which is what Cauchy
 assumed.}]\index{Cauchy--Goursat theorem}\label{thm:cauchygoursat}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is
 holomorphic,
-%complex differentiable everywhere (holomorphic),
 and $T \subset U$ is a triangle.  Then
 \begin{equation*}
 \int_{\partial T} f(z) \, dz = 0 .
@@ -5159,7 +5113,6 @@ as a theorem as it is one of the fundamental results.
 \index{Cauchy's theorem!star-like domains}%
 Suppose $U \subset \C$ is open and star-like, $f \colon U \to \C$ is holomorphic,
 and $\Gamma$ is
-%a closed piecewise $C^1$ path (or a cycle)
 a cycle
 in $U$.  Then
 \begin{equation*}
@@ -5485,8 +5438,6 @@ d \zeta
 \end{equation*}
 In the last equality, we were allowed to 
 interchange the limit on the sum with the integral
-%either
-%via Fubini's theorem or
 via uniform convergence (uniform in the $\zeta \in \partial \Delta_r(p)$):
 $z$ is fixed and if $M$ is the supremum of $\babs{\frac{f(\zeta)}{\zeta-p}} =
 \frac{\sabs{f(\zeta)}}{r}$ on $\partial \Delta_r(p)$ (a compact set),
@@ -5891,9 +5842,6 @@ Let $\gamma_r$ be a small circle of radius $r$ traversed counterclockwise
 centered at $0$.  As $0$ is a local maximum, suppose that $r$ is small enough
 so that
 $\sabs{f(z)} \leq \sabs{f(0)} = f(0)$ whenever $\sabs{z} \leq r$.
-%Suppose for contradiction that for some $z$ on the circle $\sabs{z} = r$
-%we have $\sabs{f(z)} < \sabs{f(0)} = f(0)$.  By continuity,
-%$\sabs{f(re^{it})} < \sabs{f(0)} = f(0)$ for $t$ in a small interval.
 Cauchy's formula says
 \begin{equation*}
 \begin{split}
@@ -5913,8 +5861,6 @@ f(0) = \sabs{f(0)} =
 \frac{1}{2\pi}
 \int_0^{2\pi}
 \sabs{f(re^{it})}\, dt
-%\\
-%&
 \leq
 \frac{1}{2\pi}
 \int_0^{2\pi}
@@ -6251,7 +6197,6 @@ Hint: See the exercises for the maximum modulus principle.
 
 It is common to define functions using line integrals, for example,
 the Cauchy integral itself (usually called the Cauchy transform).
-%First, a general lemma about holomorphicity of functions defined by integrals.
 
 \begin{lemma} \label{lemma:holfuncbyintegral}
 Suppose $U \subset \C$ is open, and
@@ -6341,7 +6286,6 @@ corollary.
 
 \begin{cor} \label{cor:holfuncbyintegral}
 Suppose $U \subset \C$ is open, $\Gamma$ is a 
-%piecewise $C^1$ path (or a chain),
 chain,
 and
 $\psi \colon U \times \Gamma \to \C$ is a continuous function such that
@@ -6397,7 +6341,6 @@ as $z$ goes to $\partial \D$.
 Hint: $\bar{\zeta} = \frac{1}{\zeta}$ for
 $\zeta \in \partial \D$
 and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$.
-%see also \exerciseref{exercise:cauchycont}.
 \end{exercise}
 
 \begin{exercise}
@@ -6462,7 +6405,6 @@ functions.  For real
 differentiable functions nothing like that holds: $\sabs{x}^{1+1/n}$
 is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$,
 which is not differentiable.
-%So the following result should be surprising.
 
 \begin{thm} \label{thm:unifoncompact}
 Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
@@ -7056,9 +6998,6 @@ what sort of things are being plugged into it.
 
 While $\log$ is not really a function---it is a multivalued
 function\footnote{%
-%Countless insufferable smartypants on the internet will try to convince
-%you that a ``multivalued function'' isn't a thing.  So better not ask about
-%it there.
 Cauchy: Quel Malheur!  Je d{\'e}teste le logarithme! Je veux devenir plombier.}---it is really
 the definition that we want.
 The principal branch, while 
@@ -7176,14 +7115,9 @@ Find an explicit $\gamma$ that achieves each of these possibilities.
 \subsection{Winding numbers}
 
 OK.  Let's get more rigorous.
-%In the following, it is enough
-%to consider closed paths, although everything automatically works
-%also for cycles (chains that can be written as sums of closed paths,
-%or in other words, chains with empty boundary).
 
 \begin{defn}
 Let $\Gamma$ be
-%a closed piecewise $C^1$ path, or more generally
 a cycle,
 and $p \notin \Gamma$.  Then
 \glsadd{not:windnum}%
@@ -7211,7 +7145,6 @@ The first thing to prove is to show that the winding number is an integer.
 
 \begin{prop} \label{prop:indexinteger}
 Suppose $\Gamma$ is
-%a closed piecewise $C^1$ path (or a cycle)
 a cycle
 and $p \notin \Gamma$.  Then
 \begin{equation*}
@@ -7274,7 +7207,6 @@ do not cross $\Gamma$.
 
 \begin{prop}
 Given
-%a piecewise $C^1$ path (or a cycle)
 a cycle
 $\Gamma$ then
 the function $z \mapsto n(\Gamma;z)$ is constant on the
@@ -7339,7 +7271,6 @@ on this component, and as it is constant, it must be zero.
 \begin{exbox}
 \begin{exercise} \label{exercise:windingcircle}
 %FIXME: mark needed/used exercises
-%Let $\partial \Delta_r(p)$ be the path oriented counterclockwise.
 Show that $n\bigl(\partial \Delta_r(p);z\bigr) = 0$ if $z \notin
 \overline{\Delta_r(p)}$ and 
 $n\bigl(\partial \Delta_r(p);z\bigr) = 1$ if $z \in \Delta_r(p)$.
@@ -7382,7 +7313,6 @@ the principal branch.
 \begin{defn}
 Let $U \subset \C$ be a domain and $\Gamma$
 a cycle
-%closed piecewise $C^1$ path (or a cycle)
 in $U$
 such that $n(\Gamma;p) = 0$ for all $p \in \C \setminus U$,
  then we
@@ -7402,10 +7332,8 @@ $U = \C$, but it is not homologous to zero in $U = \C \setminus \{ 0 \}$.
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic, and
 $\Gamma$ is
 a cycle
-%a closed piecewise $C^1$ path (or a cycle)
 in $U$
 homologous to zero in $U$.
-%such that $n(\Gamma;p) = 0$ for all $p \in \C \setminus U$.
 Then for $z \in U \setminus \Gamma$,
 \begin{equation*}
 n(\Gamma;z)
@@ -7425,10 +7353,6 @@ function (even though $U$ may be small) and then we will use
 Liouville's theorem (\thmref{thm:Liouville}).
 
 \begin{proof}
-%[Proof of \thmref{thm:CIFhomology}]
-%We begin with a expression you have probably seen in the development of the real
-%derivative, so it is not a surprise it appears in the development of
-%holomorphic functions.
 Define $g \colon U \times U \to \C$ by
 \begin{equation*}
 g(\zeta,z) =
@@ -7503,8 +7427,6 @@ $\Gamma$, and let $d(z,\Gamma)$ be the distance of $z$ to $\Gamma$.
 }
 \leq
 \int_\Gamma \abs{\frac{f(\zeta)}{\zeta-z}} \, \sabs{d\zeta}
-%\leq
-%\int_\Gamma \frac{M}{\sabs{\zeta-z}} \, \sabs{d\zeta}
 \leq
 \frac{M \ell}{d(z,\Gamma)} .
 \end{equation*}
@@ -7531,11 +7453,8 @@ Suppose $U \subset \C$ is open,
 $f \colon U \to \C$ is holomorphic,
 and $\Gamma$ is
 a cycle
-%closed piecewise $C^1$ path (or a cycle)
 in $U$
 homologous to zero in $U$.
-%such that $n(\Gamma;p) = 0$ for
-%every $p \in \C \setminus U$,
 Then
 \begin{equation*}
 \int_\Gamma f(z) \, dz = 0 .
@@ -7555,9 +7474,7 @@ the Cauchy integral formula for the function $\zeta \mapsto
 \end{proof}
 
 \begin{defn}
-Two
-cycles
-%closed piecewise $C^1$ paths (or cycles)
+Two cycles
 $\Gamma_0$ and $\Gamma_1$ in $U
 \subset \C$ are \emph{\myindex{homologous}} in $U$
 if $n(\Gamma_0;p) = n(\Gamma_1;p)$ for all $p \in \C \setminus U$.
@@ -7569,9 +7486,7 @@ that is, $\Gamma_0-\Gamma_1$ is homologous to zero in $U$.
 
 \begin{cor} \label{cor:homologoussameint}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
-If two
-cycles
-%closed piecewise $C^1$ paths (or cycles)
+If two cycles
 $\Gamma_0$ and $\Gamma_1$ in $U$
 are homologous in $U$, then
 \begin{equation*}
@@ -7606,10 +7521,7 @@ find what group is it isomorphic to).
 \end{exercise}
 
 \begin{exercise}
-Suppose that $\Gamma$ is
-a cycle
-%a closed piecewise $C^1$ path (or cycle)
-such that
+Suppose that $\Gamma$ is a cycle such that
 $n(\Gamma;0) = k$.  Compute
 \begin{equation*}
 \int_{\Gamma} \frac{1}{z} \, dz .
@@ -7626,14 +7538,8 @@ Cauchy's theorem implies the Cauchy integral formula.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open and $\Gamma$ 
-is
-%a closed piecewise $C^1$ path (or cycle)
-a cycle
-in $U$
+Suppose $U \subset \C$ is open and $\Gamma$ is a cycle in $U$
 homologous to zero in $U$.
-%such that
-%$n(\Gamma;p) = 0$ for all $p \in \C \setminus U$.
 Suppose that $n(\Gamma;z_1) = k_1$ and  $n(\Gamma;z_2) = k_2$ for
 some two distinct $z_1,z_2 \in U \setminus \Gamma$.
 Suppose $f \colon U \setminus \{z_1,z_2\} \to \C$ is
@@ -7715,10 +7621,7 @@ A special (but common) case of the homology version of Cauchy,
 \begin{thm}[Cauchy's theorem (simply connected version)]
 \index{Cauchy's theorem!simply connected}%
 Let $U \subset \C$ be a simply connected domain and $f \colon U \to \C$
-holomorphic.  If $\Gamma$ is
-a cycle
-%a closed piecewise $C^1$ path (or a cycle)
-in $U$, then
+holomorphic.  If $\Gamma$ is a cycle in $U$, then
 \begin{equation*}
 \int_\Gamma f(z) \, dz = 0 .
 \end{equation*}
@@ -7727,7 +7630,6 @@ in $U$, then
 The proof follows at once from \thmref{thm:CThomology},
 since if $U$ is simply connected, then
 every $\Gamma$ in $U$ is homologous to zero in $U$.
-%$n(\Gamma;p) = 0$ for every cycle $\Gamma$ in $U$.
 Having Cauchy's theorem in simply connected
 domains for all cycles,
 we have primitives (antiderivatives) in simply connected
@@ -7862,17 +7764,13 @@ Every holomorphic $f \colon U \to \C$ has a primitive.
 $\frac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
 \item \label{thm:simplyconnected:iv}
 For every holomorphic $f \colon U \to \C$ and every
-cycle
-%closed piecewise $C^1$ path (or a cycle)
-$\Gamma$ in $U$, we have
+cycle $\Gamma$ in $U$, we have
 \begin{equation*}
 \int_\Gamma f(z) \, dz = 0 .
 \end{equation*}
 \item \label{thm:simplyconnected:v}
 For every $p \in \C \setminus U$ and every
-cycle
-%closed piecewise $C^1$ path (or a cycle)
-$\Gamma$ in $U$, we have
+cycle $\Gamma$ in $U$, we have
 \begin{equation*}
 \int_\Gamma \frac{1}{z-p} \, dz = 0 .
 \end{equation*}
@@ -8541,8 +8439,6 @@ The furthermore follows as before:
 \begin{multline*}
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
 =
-%\frac{1}{2\pi i} \int_a^b \frac{\gamma'(t)}{\gamma(t)-p} \, dt
-%=
 \frac{1}{2\pi i} \sum_{j=1}^n \int_{t_{j-1}}^{t_j} \frac{\gamma'(t)}{\gamma(t)-p} \, dt
 =
 \frac{1}{2\pi i} \sum_{j=1}^n L_j\bigl(\gamma(t_j)\bigr) -
@@ -8800,8 +8696,6 @@ and only if $V$ is simply connected in the sense of homotopy.
 \end{exercise}
 \end{exbox}
 
-%FIXME: Fixed endpoint homotopy?
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Cauchy via Green's *}
@@ -8995,9 +8889,6 @@ We compute
 The second equality follows because the denominator is holomorphic in
 $\zeta$.
 We now wish to let the radius $r$ go to zero.
-%Via the exercise above,
-%$\frac{\frac{\partial f}{\partial \bar{\zeta}}(\zeta)}{\zeta-z} \, d\bar{\zeta} \wedge d\zeta$
-%is integrable over all of $U$.
 The integral over $U$ is computed as the improper integral
 \begin{equation*}
 \int_{U} \frac{\frac{\partial f}{\partial
@@ -9088,8 +8979,6 @@ derivative $f^{(k)}(p) \not= 0$.
 \end{lemma}
 
 \begin{defn}
-%We call a point $p$ such that $f(p) = 0$ a \emph{\myindex{zero}} of
-%$f$.
 Suppose $f$ has an isolated zero at $p$.
 The $k$ from the lemma is called the \emph{order}\index{order of a zero}
 of the zero at $p$.
@@ -9841,7 +9730,6 @@ a cycle to the residues that lie inside the cycle.
 \begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
 Suppose $U \subset \C$ is open, $S \subset U$ is a finite subset,
 and $\Gamma$ is
-%a closed piecewise $C^1$ path (or cycle)
 a cycle
 in $U \setminus S$
 homologous to zero in $U$.\footnote{As usual, this means that
@@ -9862,8 +9750,6 @@ $\overline{\Delta_{r_1}(w_1)},\ldots, \overline{\Delta_{r_\ell}(w_\ell)}$
 are mutually disjoint (no pair of them intersects),
 $\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$.
 See \figureref{fig:residues}.
-%, and
-%$\overline{\Delta_{r_j}(w_j)} \cap \Gamma = \emptyset$ for all $j$.
 
 \begin{myfig}
 \subimport*{figures/}{residues.pdf_t}
@@ -9960,18 +9846,11 @@ f(z) \, dz
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{\epsilon}(p)}
 g(z) \, dz
-%=
-%\frac{1}{2\pi i}
-%\int_{\partial \Delta_{\epsilon}(p)}
-%g(z) \, dz
 =
 \operatorname{Res}(g;p) . \qedhere
 \end{split}
 \end{equation*}
 \end{proof}
-
-%If $f$ has a pole, and if we have a nice formula for $f$,
-%the next proposition makes it easy to compute residues.
 
 \begin{prop}
 Suppose $f$ has a pole at $p$.
@@ -9991,9 +9870,6 @@ More generally, if $p$ is a pole of $f$ of order $k$, then
 Prove the proposition.
 \end{exercise}
 \end{exbox}
-
-%A related and simpler rule for rational functions with simple poles is
-%the following.
 
 \begin{prop} \label{prop:residuesimpleratio}
 Suppose $f(z) = \frac{h(z)}{g(z)}$ where $h$ and $g$ are holomorphic
@@ -10069,7 +9945,6 @@ We compute,
 \int_{-r}^r \frac{1}{1+x^2} \, dx
 +
 \int_{\gamma_r} \frac{1}{1+z^2} \, dz .
-%\int_0^{\pi} \frac{1}{1+{(re^{it})}^2} r i e^{it} \, dt
 \end{equation*}
 Let us find the limit as $r \to \infty$ of the second term
 via the triangle inequality.  The length of $\gamma_r$ is $r\pi$,
@@ -10233,12 +10108,8 @@ Same with poles.
 
 \begin{thm}[Argument principle]\index{argument principle}\label{thm:argprinc}
 \pagebreak[2]
-Suppose $U \subset \C$ is open, and $\Gamma$ is
-a cycle
-%a closed piecewise $C^1$ path (or a cycle)
-in $U$
+Suppose $U \subset \C$ is open, and $\Gamma$ is a cycle in $U$
 homologous to zero in $U$.
-%such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
 Suppose $f \colon U \to \C_\infty$ is a meromorphic function with no zeros
 or poles on $\Gamma$,
 such that
@@ -10342,9 +10213,6 @@ h(z) \frac{f'(z)}{f(z)}
 =
 \bigl( h(0) + z H(z) \bigr)
 \frac{k z^{k-1} F(z) + z^k F'(z)}{z^k F(z)}
-%=
-%\bigl( h(0) + z H(z) \bigr)
-%\frac{k F(z) + z F'(z)}{z F(z)}
 \\
 =
 k\, h(0) 
@@ -10357,28 +10225,8 @@ H(z)
 \frac{k F(z) + z F'(z)}{F(z)} .
 \end{multline*}
 Everything except $k\, h(0) \frac{1}{z}$ is holomorphic.
-%Consider a zero of $f$ of
-%multiplicity $k$, and
-%without loss of generality suppose that it is at the origin,
-%that is, $f(z) = c_k z^k + c_{k+1} z^{k+1} + \cdots$ for $c_k \not= 0$, and 
-%$f'(z) = k c_k z^{k-1} + (k+1)c_{k+1} z^{k} + \cdots$.
-%Write also $h(z) = a_0 + a_1 z + \cdots$.  Then
-%\begin{equation*}
-%h(z)
-%\frac{f'(z)}{f(z)}
-%=
-%\bigl(
-%a_0 + a_1 z + \cdots
-%\bigr)
-%\frac{k c_k z^{k-1} + \cdots}{c_k z^k + \cdots}
-%=
-%a_0 k \frac{1}{z} \bigl( 1 + O(\sabs{z}) \bigr) ,
-%\end{equation*}
-%where $O(\sabs{z})$ is something that vanishes as $z \to 0$.
 In other words, $\operatorname{Res}\left(h(z)
 \frac{f'(z)}{f(z)};0\right) = k\, h(0)$.
-%Same exact computation carries through when $0$ is a pole of $f$
-%of multiplicity $-k$ (that is, just let $k$ be negative).
 The theorem follows.
 \end{proof}
 
@@ -10413,7 +10261,6 @@ z_0 .
 \begin{exercise}
 Suppose $U \subset \C$ is open, $\Gamma$ is a cycle in $U$
 homologous to zero in $U$,
-%such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$,
 and $f \colon U \to \C_\infty$ is meromorphic and
 has no zeros or poles on $\Gamma$.
 Show that there are only finitely many zeros and poles of $f$
@@ -10423,7 +10270,6 @@ such that $n(\Gamma;z) \not= 0$.
 \begin{exercise}
 Suppose $U \subset \C$ is open, $\Gamma$ is a cycle in $U$
 homologous to zero in $U$,
-%such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$,
 and $f \colon U \to \C_\infty$ is meromorphic and
 has no zeros or poles on $\Gamma$.
 Show that there exists an open $U' \subset U$ such that
@@ -10487,11 +10333,8 @@ whatsoever, then the theorem says that the number of zeros does not change.
 \begin{thm}[Rouch\`e\footnote{%
 The stronger version we state was actually proved by Estermann in 1962.}]\index{Rouch\`e's theorem}\label{thm:rouche}
 \pagebreak[2]
-Suppose $U \subset \C$ is open, $\Gamma$ is
-%a closed piecewise $C^1$ path (or cycle)
-a cycle
+Suppose $U \subset \C$ is open, $\Gamma$ is a cycle
 in $U$ homologous to zero in $U$,
-%such that $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$
 and $n(\Gamma;z)$ is either $1$ or $0$ for all $z \in U$.
 Suppose $f \colon U \to \C_\infty$ and $g \colon U \to \C_\infty$
 are meromorphic functions with no zeros or poles on
@@ -10699,13 +10542,9 @@ functions converge uniformly on compact sets, the limit is holomorphic
 Let $U \subset \C$ be open and $f_n \colon U \to \C$ a sequence of
 holomorphic functions converging uniformly on compact subsets
 to a holomorphic $f \colon U \to \C$.  Suppose $\Gamma$ is
-a cycle
-%a piecewise $C^1$ path (or cycle)
-in $U$ homologous to zero in $U$,
+a cycle in $U$ homologous to zero in $U$,
 such that $n(\Gamma;z)$ is $0$ or $1$ for all $z \in U$.
-%and $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.
-Let
-$V = \bigl\{ z \in U : n(\Gamma;z) = 1 \bigr\}$.
+Let $V = \bigl\{ z \in U : n(\Gamma;z) = 1 \bigr\}$.
 Suppose $f$ has no zeros on $\Gamma$ and $k$ zeros (counting
 multiplicity) in $V$.
 Then there is an $N$ such that for all $n \geq N$,
@@ -11219,11 +11058,6 @@ there exists a subsequence of $\{ f_n \}_{n=1}^{\infty}$, which we denote by
 $\{ f_{1,k} \}_{k=1}^\infty$,
 such that
 $\{ f_{1,k}(x_1) \}_{k=1}^\infty$ converges.
-%Next $\{ f_{1,k}(x_2) \}_{k=1}^\infty$ is bounded and so 
-%$\{ f_{1,k} \}_{k=1}^\infty$ has a subsequence
-%$\{ f_{2,k} \}_{k=1}^\infty$ such that
-%$\{ f_{2,k}(x_2) \}_{k=1}^\infty$ converges.  Note that
-%$\{ f_{2,k}(x_1) \}_{k=1}^\infty$ is still convergent.
 Suppose we already defined $\{ f_{m,k} \}_{k=1}^\infty$,
 a subsequence of $\{ f_{m-1,k} \}_{k=1}^\infty$,
 such that
@@ -11499,7 +11333,8 @@ z \in U : d(z,\partial U) \geq \nicefrac{1}{n} \text{ and } \sabs{z} \leq
 n
 \bigr\} .
 \end{equation*}
-It is easy to see that $K_n$ is compact (as it is closed in $\C$ and bounded).
+The set $K_n$ is compact: it is closed (in $\C$) by
+\propref{prop:distcont} and obviously bounded.
 It is also easy to see that $U = \bigcup K_n$.  The interior
 of $K_n$ is given by
 \begin{equation*}
@@ -11768,7 +11603,6 @@ such that $\sabs{f'(0)}$ is minimal (among the functions in $\sF_c$),
 and let $m_c = \inf \bigl\{ \sabs{f'(0)} : f \in \sF_c \bigr\}$.
 \item
 Prove that $m_c > 0$ if $c > \nicefrac{1}{4}$ and $m_c = 0$ if $c \leq \nicefrac{1}{4}$.
-%(Note that you only need to worry about $c \in \bigl[0,\nicefrac{1}{2}\bigr]$.)
 \end{exparts}
 \end{exercise}
 
@@ -12181,12 +12015,6 @@ then $\Gamma$ will wind exactly once around any point of $K'$,
 and it still homologous to zero in $U$.
 
 So without loss of generality, assume that $K$ is connected.
-%Next issue is that $\C_\infty \setminus K$ could be disconnected.
-%As we can assume that $K$ is a finite union of closed discs,
-%$\C_\infty \setminus K$ has finitely many connected components.
-%
-%FIXME
-%
 Also assume that $0 \in K$.  If $K= \{0 \}$, we are done trivially, so
 assume $K$ is larger than one point.
 Consider $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
@@ -12309,7 +12137,6 @@ are the image of $\C \setminus U$,
 in particular $\psi\bigl(\frac{1}{p}\bigr)$.
 The sum of the residues which is zero, so 
 by the \hyperref[thm:residue]{residue theorem},
-%by the residue theorem,
 \begin{equation*}
 n(\Gamma;p) = 0 .
 \end{equation*}
@@ -12520,15 +12347,7 @@ f(z) = \Re f(z) =
 \frac{g(z) + h(z) + \overline{g(z)+h(z)}}{2}
 =
 \Re \varphi(z) .
-%g(z) + \overline{h(z)} = f(z) = \overline{f(z)} = \overline{g(z)} + h(z).
 \end{equation*}
-%Apply the Wirtinger derivative $\frac{\partial}{\partial z}$ to find
-%$g'(z) = h'(z)$.  In other words, $g$ and $h$ are equal up to a constant,
-%say $g(z) = h(z) + C$.  Take $\varphi(z) = 2 g(z) + C$, then
-%\begin{equation*}
-%f(z) = \frac{1}{2} \bigl( \varphi(z) + \overline{\varphi(z)} \bigr) 
-%= \Re \varphi(z).
-%\end{equation*}
 So any harmonic function $f$ is locally the real part of a holomorphic
 function.  Similarly $f$ is locally the imaginary part of a holomorphic
 function.
@@ -12590,8 +12409,6 @@ holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
 on $V$.
 \item
 If $f$ is harmonic, then it is infinitely (real) differentiable and
-%it
-%is so-called real-analytic
 for every $p \in U$, there exists a power series expansion
 \begin{equation*}
 f(z) =
@@ -12992,11 +12809,6 @@ Then
 $Pu \colon \overline{\D} \to \R$, defined by
 \glsadd{not:Pu}%
 \begin{equation*}
-%Pu(re^{i\theta})
-%=
-%\int_{-\pi}^\pi u(e^{it}) P_r(\theta-t) \, dt
-%\quad \text{if $r < 1$} \qquad \text{and} \qquad
-%Pu(e^{i\theta}) = u(e^{i\theta}),
 Pu(re^{i\theta})
 =
 \begin{cases}
@@ -13020,12 +12832,6 @@ P_r(\theta-t)
 \left(
 \frac{1+re^{i(\theta-t)}}{1-re^{i(\theta-t)}}
 \right) 
-%=
-%\frac{1}{2\pi}
-%\Re
-%\left(
-%\frac{1+re^{i\theta}e^{-it}}{1-re^{i\theta}e^{-it}}
-%\right)
 =
 \frac{1}{2\pi}
 \Re
@@ -13249,14 +13055,6 @@ A Poisson kernel also exists for higher dimensions, that is in $\R^n$, and has
 analogous properties, although we will not study those here.
 
 It is particularly useful to notice is that
-%\begin{equation*}
-%Pu(0) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(e^{it}) \, dt ,
-%\end{equation*}
-%that is $Pu(0)$ is the average value of $u$.  In general, by applying
-%a scaling and a translation, we find a $Pu$ for a function $u \colon
-%\partial \Delta_s(p) \to \R$.  We
-%leave the exact form of the Poisson kernel for $\Delta_s(p)$ as an
-%exercise, but the averaging phenomenon still holds.  That is,
 in the corollary if we plug in $r=0$, we get
 \begin{equation} \label{eq:averageofPu}
 Pu(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(p + R e^{it}) \, dt .
@@ -13862,10 +13660,7 @@ uniformly on compact sets.
 \end{exercise}
 \end{exbox}
 
-%FIXME: maybe just skip for now
-%\subsection{Hopf lemma}
-%
-%FIXME: do Hopf lemma in a disc
+%FIXME: do Hopf lemma in a disc perhaps?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -14930,8 +14725,6 @@ So without loss of generality suppose $z_1=p$ and $z_2=q$.
 Then
 \begin{equation*}
 \frac{1}{z-p}
-%= 
-%\frac{1}{(z-q)-(p-q)}
 =
 \frac{1}{z-q}
 \frac{1}{1-\frac{p-q}{z-q}}
@@ -15173,7 +14966,7 @@ other words, $\widehat{K} = \overline{\D}$.
 \end{example}
 
 Hulls can (and often are) defined for other classes of functions than
-polyomials, and are a generalization of the idea of convexity.  Classical
+polynomials, and are a generalization of the idea of convexity.  Classical
 convexity is convexity with respect to affine linear functions (see the
 exercises).
 
@@ -15321,8 +15114,12 @@ $P_1(z),P_2(z),\ldots$, then we could take
 \sum_{j=1}^\infty P_j(z) .
 \end{equation*}
 Or can we?  In general that sum will not converge.  We have to be a little
-trickier, and this is where Runge's theorem will be useful.  We obtain the
-Mittag-Leffler theorem.
+trickier, and this is where Runge's theorem will be useful:  Adding
+a holomorphic function doesn't change the principal part but we can make
+the terms in the sum smaller and make things converge.
+We obtain the
+Mittag-Leffler theorem.\footnote{It sucks when to have a hyphenated name,
+Mittag always has to share fame with that Leffler guy.}
 
 \begin{thm}[Mittag-Leffler]\index{Mittag-Leffler theorem}
 Suppose $U \subset \C$ is open, $S \subset U$ is a countable set with no
@@ -15349,7 +15146,7 @@ f_n(z) = \sum_{p \in S_n} P_p(z) .
 Let $R_1=0$.  Suppose $n \geq 2$.
 Every component of $\C_\infty \setminus K_{n-1}$ contains a point of
 $\C_\infty \setminus U$, and $f_n$ is holomorphic on a neighborhood of
-$K_{n-1}$.
+$K_{n-1}$ (it has poles on $K_n \setminus K_{n-1}$).
 So we use Runge to find a rational function $R_n$ with poles in 
 $\C_\infty \setminus U$ such that $\sabs{f_n(z)-R_n(z)} < 2^{-n}$
 for all $z \in K_{n-1}$.
@@ -15362,11 +15159,129 @@ We claim that this series converges on compact subsets of $U \setminus S$,
 and the resulting function is has poles on $S$
 with principal part $P_p$ at $p \in S$.
 
-
-FIXME:
+First suppose that $K \subset U \setminus S$ is compact.  Then $K \subset
+K_\ell$ for some $\ell$.  Write
+\begin{equation*}
+\sum_{n=1}^\infty \bigl( f_n(z) - R_n(z) \bigr)
+=
+\sum_{n=1}^{\ell+1} \bigl( f_n(z) - R_n(z) \bigr)
++
+\sum_{n=\ell+2}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
+\end{equation*}
+The first term has poles on $K_\ell$ (but not on $K$),
+but the second term does not and furthermore for all $z \in K_\ell$, and
+hence in $K$, we have
+\begin{equation*}
+\sum_{n=\ell+2}^\infty \abs{ f_n(z) - R_n(z) }
+\leq
+\sum_{n=\ell+2}^\infty 2^{-n} .
+\end{equation*}
+The sum converges uniformly absolutely on $K$ (Weierstrass $M$-test,
+\exerciseref{exercise:weierMtest}).
+So the series for $f$ converges uniformly absolutely
+on compact subsets of $U \setminus S$ and so $f$ is holomorphic on $U
+\setminus S$.  Let us see that it has the right sort of singularities.
+Suppose $p \in S_\ell$.  A neighborhood of $p$ contains no other
+singularities.  Then
+\begin{equation*}
+f(z) = 
+\sum_{n=1}^{\ell-1} \bigl( f_n(z) - R_n(z) \bigr)
++
+\bigl( f_\ell(z) - R_\ell(z) \bigr)
++
+\sum_{n=\ell+2}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
+\end{equation*}
+The first sum and the last sum are holomorphic on a neighborhood of $p$:
+the first sum has poles in $K_{\ell-2}$ and
+the last sum has no singularities on $K_\ell$.
+The function $R_\ell$ also has poles on $K_{\ell-1}$ and so is also
+holomorphic on a neighborhood of $p$.
+So $f$ has the same singularity at $p$ as $f_\ell$ and the same principal
+part, and $f_\ell$ was set up precisely so that it has a principal part
+$P_p$ at $p$.
 \end{proof}
 
-FIXME:
+\begin{example}
+Sometimes one gets convergence just by grouping the terms correctly.
+In
+other words, given the right $\{ K_n \}$ one can even choose $R_n = 0$.  
+Suppose we want a function with a poles at all $n \in \Z$ with
+singular parts $\frac{1}{z-n}$.  Unfortunately
+\begin{equation*}
+\sum_{n\in \Z} \frac{1}{z-n}
+\end{equation*}
+does not converge, but
+\begin{equation*}
+\frac{1}{z} + 
+\sum_{n=1}^\infty
+\left(
+\frac{1}{z+n} + 
+\frac{1}{z-n}
+\right)
+=
+\frac{1}{z}
++
+\sum_{n=1}^\infty
+\frac{2z}{z^2-n^2}
+\end{equation*}
+does converge.  This corresponds to the choice of $K_n =
+\overline{\Delta_n(0)}$.  See the exercises.
+\end{example}
+
+The Mittag-Leffler theorem is a sister theorem to the Weierstrass
+factorization theorem that we will cover next.  In Weierstrass's theorem
+we can prescribe zeros rather than poles.  In fact, with just a little bit
+of trickery, one could (we won't) use the Mittag-Leffler theorem to prove
+the Weierstrass theorem.
+
+\begin{exbox}
+\begin{exercise}
+Prove the statements in the example: 
+$\sum_{n\in \Z} \frac{1}{z-n}$
+converges for no $z \in \C \setminus \Z$, but
+$\sum_{n=1}^\infty
+\frac{2z}{z^2-n^2}$
+converges uniformly on compact subsets of $\C \setminus \Z$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U = \C$, $S = \N$, $P_n(z) = \frac{-n}{z-n}$, $K_n =
+\overline{\Delta_n(0)}$.  Use the geometric sum $1+x+\cdots+x^n =
+\frac{1-x^{n+1}}{1-x}$ to find an explicit $R_n$ that will make the proof
+of the theorem work.
+Note that one part of the formula may be somewhat ugly, c'est la vie.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ holomorphic,
+$p \in U$, and
+$P(z) = \sum_{n=1}^{k} \frac{c_n}{{(z-p)}^n}$.
+Show that for every compact
+$K \subset U \setminus \{ p \}$ and every $\epsilon > 0$,
+there exists a function $g$ holomorphic in $U \setminus \{ p \}$
+with a pole at $p$ and principal part $P$ at $p$ and such that
+$\sabs{f(z)-g(z)} < \epsilon$ for all $z \in K$.
+\end{exercise}
+
+\begin{exercise}
+Prove that for any open $U \subset \C$ there exists a meromorphic function
+$f \colon U \to \C_\infty$ such that for every $p \in \partial U$
+and every $\epsilon > 0$, there are infinitely many poles of $f$ in
+$\Delta_{\epsilon}(p)$.
+\end{exercise}
+
+\begin{exercise}
+One cannot just specify any old principal part if the singularities are not
+poles.  Find a principal part $P(z)$ for an isolated singularity at the
+origin such that there exists no holomorphic $f \colon \C \setminus \{ 0 \}
+\to \C$ whose principal part at the origin is $P(z)$.
+\end{exercise}
+
+\begin{exercise}
+Prove that in the Mittag-Leffler theorem, the function $f$ can be chosen
+so that $f$ has no zeros in $U \setminus S$.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15971,13 +15886,6 @@ us leave it without proof.
 \subimport*{figures/}{spheremetric.pdf_t}
 \caption{The great circle distance on the unit sphere.\label{fig:spheremetric}}
 \end{myfig}
-%This distance is the shortest distance between points on a sphere if
-%we are allowed to travel on the sphere only.  It is easy to
-%generalize to arbitrary diameters.  If we take a sphere of radius
-%$r$, you simply take $r \theta$ to find the distance.  This is then the
-%standard distance you would use if you for example compute a distance on the
-%surface of the earth, for example if computing the distance a plane travels from London to
-%Los Angeles.
 \end{example}
 
 Oftentimes it is useful to consider a subset of a larger metric space
@@ -16432,12 +16340,6 @@ is open (in $Y$) then there exists an open set $V \subset X$ such
 that $U = V \cap Y$.
 \end{exercise}
 \end{exbox}
-
-
-%A hint for the exercise is that
-%a useful way to think about an open set is as a union of open balls.  If $U$ is
-%open, then for each $x \in U$, there is a $\delta_x > 0$ (depending on $x$) such that
-%$B(x,\delta_x) \subset U$.  Then $U = \bigcup_{x\in U} B(x,\delta_x)$.
 
 For an open subset of an open set or a closed subset of a closed
 set, matters are simpler.
@@ -16966,7 +16868,6 @@ A convergent sequence in a metric space has a unique limit.
 \end{prop}
 
 \begin{proof}
-%NOTE: should be word for word the same as 2.1.6
 Suppose the sequence $\{ x_n \}$ has limits $x$ and $y$.
 Take an arbitrary $\epsilon > 0$.
 From the definition find an $n$ such that 
@@ -17487,16 +17388,9 @@ Next, we show a set that is not closed is not compact.  Suppose
 $\widebar{K} \not= K$, that is, there is a point $x \in \widebar{K}
 \setminus K$.
 We have the open cover
-%If $y \not= x$, then
-%$y \notin C(x,\nicefrac{1}{n})$
-%for $n \in \N$
-%such that $\nicefrac{1}{n} < d(x,y)$.
-%Furthermore $x \notin K$, so
 \begin{equation*}
 K \subset \bigcup_{n=1}^\infty {C(x,\nicefrac{1}{n})}^c .
 \end{equation*}
-%A closed ball is closed, so its complement ${C(x,\nicefrac{1}{n})}^c$ is open, and
-%we have an open cover.
 If we take any
 finite collection of indices $n_1 < n_2 < \ldots < n_k$, then 
 \begin{equation*}
@@ -17606,10 +17500,6 @@ $B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n}$.  So $\delta =
 \nicefrac{1}{2}$.  If instead we let $U'_n =
 \bigl(\frac{n}{2},\frac{n+2}{2} \bigr)$, then we again obtain an open
 cover, but now the best $\delta$ we can find is $\nicefrac{1}{4}$.
-
-%On the other hand, $\N \subset \R$ is not sequentially compact.
-%It is an exercise to find a cover for which no $\delta > 0$ works.
-
 
 \begin{thm} \label{thm:mscompactisseqcpt}
 Let $(X,d)$ be a metric space.  Then $K \subset X$ is compact if
@@ -17883,15 +17773,15 @@ $d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \not= k$.  Show that
 the set $\{ f_n : n \in \N \} \subset C(0,1)$ is closed but not compact.
 \end{exercise}
 
-%\begin{exercise}[Challenging]
-%Show that there exists a metric on $\R$ that makes $\R$ into a compact set.
-%\end{exercise}
+\begin{exercise}
+Show that there exists a metric on $\R$ that makes $\R$ into a compact set.
+\end{exercise}
 
-%\begin{exercise}
-%Suppose $(X,d)$ is complete and suppose we have a countably infinite
-%collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset
-%\cdots$.  Prove $\bigcap_{j=1}^\infty E_j \not= \emptyset$.
-%\end{exercise}
+\begin{exercise}
+Suppose $(X,d)$ is complete and suppose we have a countably infinite
+collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset
+\cdots$.  Prove $\bigcap_{j=1}^\infty E_j \not= \emptyset$.
+\end{exercise}
 
 \begin{exercise}
 Let $C([0,1],\R)$ be the metric space of \exampleref{example:msC01}.
@@ -18070,16 +17960,56 @@ Show that $f$ is not continuous.
 \end{myfig}
 
 \begin{example}
-Let $X$ be a metric space and $f \colon X \to \C$ a complex-valued
-function.  Write $f(p) = g(p) + i h(p)$, where $g \colon X \to \R$
-and $h \colon X \to \R$ are the real and imaginary parts of $f$.
+Consider a function 
+$f \colon X \to \C$ 
+on a metric space $X$.
+Write $f(p) = u(p) + i v(p)$, where $u \colon X \to \R$
+and $v \colon X \to \R$ are the real and imaginary parts.
 Then $f$ is continuous at $c \in X$ if and only if its real
 and imaginary parts are continuous at $c$.  
-This fact follows because $\{ f(p_n) = g(p_n) + i h(p_n) \}_{n=1}^\infty$
-converges to $f(p) = g(p) + i h(p)$ if and only if
-$\{ g(p_n) \}$ converges to $g(p)$ and
-$\{ h(p_n) \}$ converges to $h(p)$.
+This fact follows because $\bigl\{ f(p_n) = u(p_n) + i v(p_n) \bigr\}_{n=1}^\infty$
+converges to $f(p) = u(p) + i v(p)$ if and only if
+$\bigl\{ u(p_n) \bigl\}$ converges to $u(p)$ and
+$\bigl\{ v(p_n) \bigl\}$ converges to $v(p)$.
 \end{example}
+
+\begin{prop}\label{prop:distcont}
+Let $(X,d)$ be a metric space.
+\begin{enumerate}[(i)]
+\item\label{prop:distcont:i}
+If $p \in X$,
+then $f \colon X \to \R$ defined
+by $f(x) = d(x,p)$ is continuous.
+\item\label{prop:distcont:ii}
+Given a nonempty set $S \subset X$, the function
+\begin{equation*}
+f(x) = \inf_{p \in S} d(x,p)
+\end{equation*}
+is continuous.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+The reverse triangle inequality
+$\sabs{f(x)-f(y)} = \sabs{d(x,p)-d(y,p)} \leq d(x,y)$
+gives part \ref{prop:distcont:i}.
+
+For \ref{prop:distcont:ii}, $S$ being nonempty implies that $f$ is
+real-valued.  For any $\epsilon > 0$, there exists a $q$ such that
+$\inf_{p \in S} d(y,p) \geq d(y,q) + \epsilon$.  Suppose that $f(x) > f(y)$.
+Then again the reverse triangle inequality gives
+\begin{equation*}
+f(x)-f(y) =
+\inf_{p \in S} d(x,p)
+-
+\inf_{p \in S} d(y,p)
+\leq
+\inf_{p \in S} d(x,p) - d(y,q) + \epsilon 
+\leq d(x,y) + \epsilon.
+\avoidbreak
+\end{equation*}
+Since it holds for every $\epsilon$, $f$ is continuous.
+\end{proof}
 
 \begin{exbox}
 \begin{exercise} \label{exercise:continuousintoperator}
@@ -18100,16 +18030,9 @@ Show that $T$ is continuous.
 
 \begin{exercise} \label{exercise:metriccontinuous}
 Let $(X,d)$ be a metric space.
-\begin{exparts}
-\item
-If $p \in X$,
-show that $f \colon X \to \R$ defined
-by $f(x) = d(x,p)$ is continuous.
-\item
 Define a metric on $X \times X$ as in \exerciseref{exercise:mscross} part
 b, and show that $g \colon X \times X \to \R$ defined by
 $g(x,y) = d(x,y)$ is continuous.
-\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -18407,7 +18330,6 @@ Let $\epsilon > 0$ be given.  For each $c \in X$, pick $\delta_c > 0$ such that
 $d_Y\bigl(f(x),f(c)\bigr) < \nicefrac{\epsilon}{2}$
 whenever
 $x \in B(c,\delta_c)$.
-%$d_X(x,c) < \delta_c$.
 The balls
 $B(c,\delta_c)$ cover $X$, and the space $X$ is compact.  
 Apply the \hyperref[ms:lebesgue]{Lebesgue covering lemma} to obtain a 
@@ -18501,12 +18423,6 @@ if for every $\epsilon > 0$, the set $B(p,\epsilon) \cap S
 \setminus \{ p \}$ is not empty.
 \end{defn}
 
-%It is not enough that $p$ is in the closure of $S$,
-%it must be in the closure of
-%$S \setminus \{ p \}$ (exercise).
-%So, $p$ is a cluster point if and only if there exists a sequence in $S \setminus
-%\{ p \}$ that converges to $p$.
-
 \begin{defn}
 \index{limit!of a function in a metric space}%
 Let $(X,d_X)$, $(Y,d_Y)$ be metric spaces, $S \subset X$, $p \in X$ a cluster point of $S$,
@@ -18588,113 +18504,7 @@ Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces, $S \subset X$, $p \in X$
 a cluster point of $S$, and let $f \colon S \to Y$ be a function.
 Prove that
 $f \colon S \to Y$ is continuous at $p$ if and only if
-\begin{equation*}
-\lim_{x \to p} f(x) = f(p) .
-\end{equation*}
-\end{exercise}
-\end{exbox}
-
-\subsection{Fixed point theorem}
-
-\begin{defn}
-Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
-A mapping
-$f \colon X \to Y$ is said to be a \emph{\myindex{contraction}}
-(or a contractive map) if it is
-a $k$-Lipschitz map for some $k < 1$, i.e.\ if there exists a $k < 1$ such that
-\begin{equation*}
-d_Y\bigl(f(p),f(q)\bigr) \leq k\, d_X(p,q)
-\qquad \text{for all } p,q \in X.
-\end{equation*}
-
-\medskip
-
-If $f \colon X \to X$ is a map, $x \in X$ is called a
-\emph{\myindex{fixed point}}
-if $f(x)=x$.
-\end{defn}
-
-\begin{thm}%
-[Contraction mapping principle\index{contraction mapping principle}
-or \myindex{Banach fixed point theorem}\index{fixed point theorem}]
-\label{thm:contr}
-Let $(X,d)$ be a nonempty complete metric space and $f \colon X \to X$ a
-contraction.
-Then $f$ has a unique fixed point.
-\end{thm}
-
-The words \emph{complete} and \emph{contraction} are necessary.
-See \exerciseref{exercise:nofixedpoint}.
-
-\begin{proof}
-Pick any $x_0 \in X$.
-Define a sequence $\{ x_n \}$ by $x_{n+1} = f(x_n)$.
-\begin{equation*}
-d(x_{n+1},x_n) = d\bigl(f(x_n),f(x_{n-1})\bigr)
-\leq k d(x_n,x_{n-1})
-\leq \cdots
-\leq k^n d(x_1,x_0) .
-\end{equation*}
-Suppose $m > n$, then
-\begin{multline*}
-d(x_m,x_n)
-\leq \sum_{i=n}^{m-1} d(x_{i+1},x_i)
-\leq \sum_{i=n}^{m-1} k^i d(x_1,x_0)
-= k^n d(x_1,x_0) \sum_{i=0}^{m-n-1} k^i
-\\
-\leq k^n d(x_1,x_0) \sum_{i=0}^{\infty} k^i
-= k^n d(x_1,x_0) \frac{1}{1-k} .
-\end{multline*}
-In particular, the sequence is Cauchy (why?).  Since $X$ is complete,
-we let $x = \lim\, x_n$, and we claim that $x$
-is our unique fixed point.
-
-Fixed point?  The function $f$ is a contraction,
-so it is Lipschitz continuous:
-\begin{equation*}
-f(x) = f( \lim \, x_n) = \lim\, f(x_n) = \lim\, x_{n+1} = x .
-\end{equation*}
-
-Unique?  Let $x$ and $y$ both be fixed points.
-\begin{equation*}
-d(x,y) = d\bigl(f(x),f(y)\bigr) \leq k\, d(x,y) .
-\end{equation*}
-As $k < 1$ this means that $d(x,y) = 0$ and hence $x=y$.  The theorem is
-proved.
-\end{proof}
-
-The proof is constructive.  Not only do we know 
-a unique fixed point exists.  We also know how to find it.  Start with
-any point $x_0 \in X$, and iterate $f(x_0)$,
-$f(f(x_0))$,
-$f(f(f(x_0)))$, etc.  We can even find how far away
-from the fixed point we are, see the exercises.  The idea of the proof is
-therefore used in real-world applications.
-
-\begin{exbox}
-\begin{exercise} \label{exercise:nofixedpoint}
-\begin{exparts}
-\item
-Find an example of a contraction $f \colon X \to X$
-of a non-complete metric space $X$ with no
-fixed point.
-\item
-Find a 1-Lipschitz map $f \colon X \to X$ of a complete metric space $X$ with no fixed point.
-\end{exparts}
-\end{exercise}
-
-\begin{exercise}
-Let $f(x) = x-\frac{x^2-2}{2x}$ (you may recognize Newton's method for
-$\sqrt{2}$).
-\begin{exparts}
-\item
-Prove $f\bigl([1,\infty)\bigr) \subset [1,\infty)$.
-\item
-Prove that $f \colon [1,\infty) \to [1,\infty)$ is a contraction.
-\item
-Apply the fixed point theorem to find an $x \geq 1$ such that
-$f(x) = x$, and show that $x = \sqrt{2}$.
-\end{exparts}
+$\lim_{x \to p} f(x) = f(p)$.
 \end{exercise}
 \end{exbox}
 
@@ -18716,9 +18526,6 @@ Let us however, survey some basic results that the reader might not have
 seen in such a course, and that will be useful in the text.  Furthermore,
 we require some of these results in metric spaces and although their proofs
 are essentially the same it is worth it to put them down.
-%We only cover the real case in these appendices.
-%Where the complex case is needed in the book, it will be defined or proved
-%where needed.
 The text is partly adapted from \cite{ra:book} and \cite{ra:book2}.
 Those two texts are useful to find more details.
 
@@ -18759,19 +18566,6 @@ Prove that the sequence $f_n(x) = x^{n}$ converges pointwise on $[0,1]$ to
 a discontinuous function.
 \end{exercise}
 \end{exbox}
-
-%\begin{example} \label{example:geomsumptconv}
-%We write
-%\begin{equation*}
-%\sum_{k=0}^\infty x^k
-%\end{equation*}
-%to denote the limit of the functions
-%\begin{equation*}
-%f_n(x) = \sum_{k=0}^n x^k .
-%\end{equation*}
-%You surely remember that $f_n$ converges pointwise on $(-1,1)$ to
-%$\frac{1}{1-x}$.
-%\end{example}
 
 \begin{defn}
 \index{uniform convergence}
@@ -18894,8 +18688,6 @@ $\abs{f_n(x)-f(x)} < \nicefrac{\epsilon}{4}$ for all $x \in S$.
 Therefore for all $m, k \geq N$,
 \begin{equation*}
 \abs{f_m(x)-f_k(x)}
-%= 
-%\abs{f_m(x)-f(x)+f(x)-f_k(x)}
 \leq
 \abs{f_m(x)-f(x)}+\abs{f(x)-f_k(x)} < \nicefrac{\epsilon}{4} +
 \nicefrac{\epsilon}{4} .
@@ -18913,17 +18705,6 @@ Let $f$ and $g$ be bounded functions on $[a,b]$.  Prove
 \norm{f+g}_S \leq \norm{f}_S + \norm{g}_S .
 \end{equation*}
 \end{exercise}
-
-%\begin{exercise}
-%\begin{exparts}
-%\item
-%Find the pointwise limit $\dfrac{e^{x/n}}{n}$ for $x \in \R$.
-%\item
-%Is the limit uniform on $\R$?
-%\item
-%Is the limit uniform on $[0,1]$?
-%\end{exparts}
-%\end{exercise}
 
 \begin{exercise}
 Suppose $f_n \colon S \to \R$ are functions that converge uniformly
@@ -18966,19 +18747,6 @@ $f \colon [a,b] \to \R$ and suppose $f_n(x) \leq g_n(x) \leq h_n(x)$
 for all $x \in [a,b]$.  Show that $\{ g_n \}$ converges uniformly to $f$.
 \end{exercise}
 
-%\begin{exercise}
-%Fix a continuous $h \colon [a,b] \to \R$.
-%Let $f(x) = h(x)$ for $x \in [a,b]$,
-%$f(x) = h(a)$ for $x < a$ and $f(x) = h(b)$ for all $x > b$.  First show
-%that $f \colon \R \to \R$ is continuous.
-%Let
-%\begin{equation*}
-%f_n(x) = \frac{n}{2} \int_{x-1/n}^{x+1/n} f(t) \, dt .
-%\end{equation*}
-%Show that $\{ f_n \}$ converges uniformly to $h$ on $[a,b]$.
-%\end{exercise}
-
-
 \begin{exercise}
 Prove that
 if a sequence of functions $f_n \colon S \to \R$
@@ -18986,20 +18754,6 @@ converge uniformly to a bounded function $f \colon S \to \R$,
 then there exists an $N$ such that for all $n \geq N$, the $f_n$
 are bounded.
 \end{exercise}
-
-%\begin{exercise}
-%In \exampleref{example:geomsumptconv} we saw
-%$\sum_{k=0}^\infty x^k$ converges pointwise to $\frac{1}{1-x}$ on
-%$(-1,1)$.
-%\begin{exparts}
-%\item
-%Show that for any $0 \leq c < 1$, the series
-%$\sum_{k=0}^\infty x^k$ converges uniformly on $[-c,c]$.
-%\item
-%Show that the series $\sum_{k=0}^\infty x^k$ does not converge uniformly
-%on $(-1,1)$.
-%\end{exparts}
-%\end{exercise}
 \end{exbox}
 
 \subsection{Continuity of the limit}
@@ -19170,18 +18924,6 @@ For $n \geq M$ ($M$ is the same as above),
 \end{equation*}
 Therefore $\bigl\{ \int_a^b f_n(x) \,dx \bigr\}$ converges to $\int_a^b f(x) \,dx$.
 \end{proof}
-
-%\begin{example}
-%Using \thmref{integralinterchange:thm}, we compute
-%\begin{equation*}
-%\lim_{n\to\infty} \int_0^1 \frac{nx+ \sin(nx^2)}{n} \,dx
-%=
-%\int_0^1
-%x \,dx = \nicefrac{1}{2} .
-%\end{equation*}
-%It is impossible to compute the integrals for any particular $n$ using 
-%calculus as $\sin(nx^2)$ has no closed-form antiderivative.
-%\end{example}
 
 \begin{remark}
 While we will not require the Lebesgue integral in this book, note that
@@ -19943,7 +19685,7 @@ DF|_p = Dg|_{f(p)} Df|_p .
 Let $A = Df|_p$ and $B = Dg|_{f(p)}$.  Take $h \in \R^n$
 and write $q = f(p)$, $k = f(p+h)-f(p)$.  Let
 \begin{equation*}
-r(h) = f(p+h)-f(p) - A h . %= k - Ah.
+r(h) = f(p+h)-f(p) - A h .
 \end{equation*}
 Then $r(h) = k-Ah$ or $Ah = k-r(h)$, and $f(p+h) = q+k$.
 \begin{equation*}
@@ -19992,14 +19734,6 @@ Finally
 \frac
 {\snorm{f(p+h)-f(p)}}
 {\snorm{h}}
-%\leq
-%\frac
-%{\snorm{f(p+h)-f(p)-Ah}}
-%{\snorm{h}}
-%+
-%\frac
-%{\snorm{Ah}}
-%{\snorm{h}}
 \leq
 \frac
 {\snorm{f(p+h)-f(p)-Ah}}
@@ -20423,6 +20157,109 @@ continuously differentiable.
 \caption{Graph of $\frac{xy}{x^2+y^2}$.\label{fig:xyxsqysqvol2}}
 \end{myfig}
 
+\subsection{Fixed point theorem}
+
+Before we prove the inverse function theorem we must take a detour to prove
+a fixed point theorem for metric spaces.
+
+\begin{defn}
+Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
+A mapping
+$f \colon X \to Y$ is said to be a \emph{\myindex{contraction}}
+(or a contractive map) if it is
+a $k$-Lipschitz map for some $k < 1$, i.e.\ if there exists a $k < 1$ such that
+\begin{equation*}
+d_Y\bigl(f(p),f(q)\bigr) \leq k\, d_X(p,q)
+\qquad \text{for all } p,q \in X.
+\end{equation*}
+
+\medskip
+
+If $f \colon X \to X$ is a map, $x \in X$ is called a
+\emph{\myindex{fixed point}}
+if $f(x)=x$.
+\end{defn}
+
+\begin{thm}%
+[Contraction mapping principle\index{contraction mapping principle}
+or \myindex{Banach fixed point theorem}\index{fixed point theorem}]
+\label{thm:contr}
+Let $(X,d)$ be a nonempty complete metric space and $f \colon X \to X$ a
+contraction.
+Then $f$ has a unique fixed point.
+\end{thm}
+
+\begin{proof}
+Pick any $x_0 \in X$.
+Define a sequence $\{ x_n \}$ by $x_{n+1} = f(x_n)$.
+\begin{equation*}
+d(x_{n+1},x_n) = d\bigl(f(x_n),f(x_{n-1})\bigr)
+\leq k d(x_n,x_{n-1})
+\leq \cdots
+\leq k^n d(x_1,x_0) .
+\end{equation*}
+Suppose $m > n$, then
+\begin{multline*}
+d(x_m,x_n)
+\leq \sum_{i=n}^{m-1} d(x_{i+1},x_i)
+\leq \sum_{i=n}^{m-1} k^i d(x_1,x_0)
+= k^n d(x_1,x_0) \sum_{i=0}^{m-n-1} k^i
+\\
+\leq k^n d(x_1,x_0) \sum_{i=0}^{\infty} k^i
+= k^n d(x_1,x_0) \frac{1}{1-k} .
+\end{multline*}
+In particular, the sequence is Cauchy (why?).  Since $X$ is complete,
+we let $x = \lim\, x_n$, and we claim that $x$
+is our unique fixed point.
+
+Fixed point?  The function $f$ is a contraction,
+so it is Lipschitz continuous:
+\begin{equation*}
+f(x) = f( \lim \, x_n) = \lim\, f(x_n) = \lim\, x_{n+1} = x .
+\end{equation*}
+
+Unique?  Let $x$ and $y$ both be fixed points.
+\begin{equation*}
+d(x,y) = d\bigl(f(x),f(y)\bigr) \leq k\, d(x,y) .
+\end{equation*}
+As $k < 1$ this means that $d(x,y) = 0$ and hence $x=y$.  The theorem is
+proved.
+\end{proof}
+
+The proof is constructive.  Not only do we know 
+a unique fixed point exists.  We also know how to find it.  Start with
+any point $x_0 \in X$, and iterate $f(x_0)$,
+$f(f(x_0))$,
+$f(f(f(x_0)))$, etc.  We can even find how far away
+from the fixed point we are, see the exercises.
+
+\begin{exbox}
+\begin{exercise} \label{exercise:nofixedpoint}
+\begin{exparts}
+\item
+Find an example of a contraction $f \colon X \to X$
+of a non-complete metric space $X$ with no
+fixed point.
+\item
+Find a 1-Lipschitz map $f \colon X \to X$ of a complete metric space $X$ with no fixed point.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Let $f(x) = x-\frac{x^2-2}{2x}$ (you may recognize Newton's method for
+$\sqrt{2}$).
+\begin{exparts}
+\item
+Prove $f\bigl([1,\infty)\bigr) \subset [1,\infty)$.
+\item
+Prove that $f \colon [1,\infty) \to [1,\infty)$ is a contraction.
+\item
+Apply the fixed point theorem to find an $x \geq 1$ such that
+$f(x) = x$, and show that $x = \sqrt{2}$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
 \subsection{Inverse function theorem}
 \label{subsec:svinvfuncthm}
 
@@ -20723,8 +20560,6 @@ $\R^2 \setminus \bigl\{ (0,0) \bigr\}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Is this overly too nitpicky to include?
-
 Let us just quickly review some of the basic notation that we use in this
 book, that is perhaps not described elsewhere.
 We use $\C$, $\R$ for complex and real numbers, and $i$ for imaginary unit
@@ -20775,12 +20610,13 @@ f|_S
 means the restriction of $f$ to $S$:
 a function
 $f|_S \colon S \to Y$ such that $f|_S(x) = f(x)$ for all $x \in S$.
-To say that two functions are identically equal, we write
+To say that two functions $f$ and $g$ are identically equal,
+that is that $f(x) = g(x)$ for all $x$ in the domain,
+we write
 \glsadd{not:identeq}%
 \begin{equation*}
 f \equiv g .
 \end{equation*}
-This means that $f(x) = g(x)$ for all $x$ in the domain.
 The notation
 \glsadd{not:composition}%
 \begin{equation*}
