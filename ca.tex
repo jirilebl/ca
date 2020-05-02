@@ -11479,7 +11479,54 @@ it is uniformly convergent.
 %FIXME: reference?
 \end{proof}
 
-We will need a versionn of Arzel\`a--Ascoli for open subsets of $\C$.
+Before we prove 
+Arzel\`a--Ascoli for open sets in $\C$, we need a useful
+lemma, which deserves to be stated separately.
+It is sometimes called an \emph{\myindex{exhaustion by compact sets}}.
+
+\begin{lemma}\label{lemma:compactexhaustion}
+Let $U \subset \C$ be open.  Then there exists a sequence $K_n$
+of compact subsets of $U$ such that $K_n \subset K^\circ_{n+1}$ (each set
+is contained in the interior of the next), $\bigcup_{n=1}^\infty K_n = U$, and
+for any compact $K \subset U$, there is an $n$ such that $K \subset K_n$.
+\end{lemma}
+
+\begin{proof}
+Let $d(z,\partial U)$ denote the distance to the boundary of $U$.  Define
+\begin{equation*}
+K_n = \bigl\{
+z \in U : d(z,\partial U) \geq \nicefrac{1}{n} \text{ and } \sabs{z} \leq
+n
+\bigr\} .
+\end{equation*}
+It is easy to see that $K_n$ is compact (as it is closed in $\C$ and bounded).
+It is also easy to see that $U = \bigcup K_n$.  The interior
+of $K_n$ is given by
+\begin{equation*}
+K^\circ_n =
+\bigl\{
+z \in U : d(z,\partial U) > \nicefrac{1}{n} \text{ and } \sabs{z} < n
+\bigr\} .
+\end{equation*}
+From this it is clear that $K_n \subset K^\circ_{n+1}$, and
+$U = \bigcup K^\circ_n$ (it is an open cover).
+Therefore, any compact $K \subset U$
+is contained in some $K^\circ_n$, and hence in $K_n$.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Prove the formula of $K^\circ_n$.  That is, prove that the interior
+of $K_n$ is
+$K^\circ_n = \bigl\{
+z \in U : d(z,\partial U) > \nicefrac{1}{n} \text{ and } \sabs{z} < n
+\bigr\}$.  Then prove that $K_n \subset K^\circ_{n+1}$ for all $n$.
+\end{exercise}
+\end{exbox}
+
+We can now prove a version of Arzel\`a--Ascoli for open subsets of $\C$.
+That is, a version that doesn't just work on one compact set but gets
+us uniform convergence on compact subsets.
 
 \begin{cor}[Arzel\`a--Ascoli]\index{Arzel\`a--Ascoli theorem}
 \label{cor:arzelaascoliplane}
@@ -11491,31 +11538,14 @@ that converges uniformly on compact subsets.
 \end{cor}
 
 \begin{proof}
-Let $d(z,\partial U)$ denote the distance to the boundary of $U$.  Define
-\begin{equation*}
-K_\ell = \bigl\{
-z \in U : d(z,\partial U) \geq \nicefrac{1}{\ell} \text{ and } \sabs{z} \leq
-\ell
-\bigr\} .
-\end{equation*}
-It is easy to see that $K_\ell$ is compact (as it is closed in $\C$ and bounded).
-It is also easy to see that $U = \bigcup K_\ell$.  The interior of
-$K_\ell$ is given by
-\begin{equation*}
-K^\circ_\ell = \bigl\{
-z \in U : d(z,\partial U) > \nicefrac{1}{\ell} \text{ and } \sabs{z} < \ell
-\bigr\} .
-\end{equation*}
-From this it is clear that $K_\ell \subset K^\circ_{\ell+1}$, and
-$U = \bigcup K^\circ_\ell$ (it is an open cover).
-
+Find the exhaustion by compact sets $\{ K_\ell \}$ from the lemma.
 Using the Arzel\`a--Ascoli theorem on compact sets,
 find a subsequence $\{ f_{1,n} \}$  of $\{f_n\}$ that converges uniformly
 on $K_1$.  Then find a subsequence
 $\{ f_{2,n} \}$ of
 $\{ f_{1,n} \}$ that converges uniformly on $K_2$, and so on.
-Finally take the diagonal sequence $\{ f_{n,n} \}$.  Any compact $K
-\subset U$
+Finally take the diagonal sequence $\{ f_{n,n} \}$.
+Any compact $K \subset U$
 is contained in some $K^\circ_\ell$.  The $\ell$-tail of the sequence $\{ f_{n,n}
 \}$ is a subsequence of $\{ f_{\ell,n} \}$ and hence uniformly convergent on
 $K_\ell$ and thus $K$.
@@ -11527,14 +11557,6 @@ Suppose that $f_n \colon [0,1] \to \C$ are functions that are pointwise
 bounded, (real) differentiable and for some $M> 0$ we have
 $\sabs{f_n'(t)} \leq M$ for all $t \in [0,1]$ and all $n$.  Prove that there
 exists a subsequence that converges uniformly on $[0,1]$.
-\end{exercise}
-
-\begin{exercise}
-Prove the formula of $K^\circ_\ell$.  That is, prove that the interior
-of $K_\ell$ is
-$K^\circ_\ell = \bigl\{
-z \in U : d(z,\partial U) > \nicefrac{1}{\ell} \text{ and } \sabs{z} < \ell
-\bigr\}$.  Then prove that $K_\ell \subset K^\circ_{\ell+1}$ for all $\ell$.
 \end{exercise}
 
 \begin{exercise}
@@ -15004,6 +15026,32 @@ does \emph{not} converge uniformly on compact sets.  That is easy to see,
 otherwise the limit would be continuous.
 \end{example}
 
+We need a slightly stronger version of
+\lemmaref{lemma:compactexhaustion}, basically we need to add 
+an extra property about the complements.
+
+\begin{lemma}\label{lemma:compactexhaustion2}
+Let $U \subset \C$ be open.  Then there exists a sequence $K_n$
+of compact subsets of $U$ such that $K_n \subset K^\circ_{n+1}$,
+$\bigcup K_n = U$,
+for any compact $K \subset U$, there is an $n$ such that $K \subset K_n$,
+and each component of $\C_\infty \setminus K_n$ contains a point of
+$\C_\infty \setminus U$.
+\end{lemma}
+
+\begin{proof}
+Let $\{ K'_n \}$ be the sequence of sets from
+\lemmaref{lemma:compactexhaustion}.
+For each $n$, let $K_n$ be the set $K'_n$ together with any 
+component of $\C_\infty \setminus K'_n$ that is completely contained in $U$.
+In particular, we added only bounded components.
+The set $K_n$ is still closed and bounded (in $\C$) and hence compact.
+If $X$ is a component of $\C_\infty \setminus K'_n$ that we added into
+$K_n$, then we still have that $X \subset K_{n+1}$, and as $X$ is open
+$X$ is in the interior of $K_{n+1}$.  So all the conditions are still
+satisfied.
+\end{proof}
+
 \begin{cor}[Runge]\index{Runge's theorem}
 \label{cor:rungeseq}
 Suppose $U \subset \C$ is open, $S \subset \C_{\infty} \setminus U$
@@ -15014,29 +15062,17 @@ that converges to $f$ uniformly on compact subsets.
 \end{cor}
 
 \begin{proof}
-Let $D_n \subset U$ be a sequence of closed discs such that $\bigcup_n
-D_n^\circ = U$ (the interiors cover U).
-Let $K'_\ell = \bigcup_{n=1}^\ell D_n$.  The complement
-$\C \setminus K'_\ell$ has finitely many components.  If a component of 
-$\C \setminus K'_\ell$ does not intersect $\C_\infty \setminus U$, then a
-add it to the set, and call the result $K_\ell$.  It is easy to see that we
-still have $K_\ell \subset K_{\ell+1}$.  We further have that $\bigcup
-K_\ell = U$, and every component of $\C_\infty \setminus K_\ell$ intersects
-$S$: $S$ clearly intersects the unbounded component as $\infty \in \C_\infty
-\setminus U$, and every bounded component of $\C_\infty \setminus K_\ell$
-meets a component of $\C_\infty \setminus U$, which must contain points of
-$S$.
-
-Let $R_\ell$ be the rational function such that
+Let $\{ K_n \}$ be the sequence of sets from the lemma.
+Each component of $\C_\infty \setminus K_n$ intersects $S$.
+Let $R_n$ be the rational function such that
 \begin{equation*}
-\abs{f(z)-R_\ell(z)} < \nicefrac{1}{\ell}
+\abs{f(z)-R_n(z)} < \nicefrac{1}{n}
 \quad
-\text{for all } z \in K_\ell .
+\text{for all } z \in K_n .
 \end{equation*}
-Any compact $K \subset U$ is covered by finitely $D_n$ as their interiors
-cover $U$ and $K$ is compact.  Thus for some $N$, $K \subset K_\ell$ for all
-$\ell \geq N$.  Hence $\abs{f(z)-R_\ell(z)} < \nicefrac{1}{\ell}$ for all $\ell
-\geq N$, and so $R_\ell$ converges to $f$ uniformly on compact subsets.
+For any compact $K \subset U$, there exists an $N$ such that $K \subset K_n$ for
+all $n \geq N$.  Hence $\abs{f(z)-R_n(z)} < \nicefrac{1}{n}$ for all
+$n \geq N$, and so $\{ R_n \}$ converges to $f$ uniformly on compact subsets.
 \end{proof}
 
 \begin{exbox}
@@ -15142,8 +15178,8 @@ convexity is convexity with respect to affine linear functions (see the
 exercises).
 
 In terms of one complex variable and polynomial hulls the are very easy to
-describe.  They end up being just a topological property (the polynomial
-hull just fills in the holes.  First a simple proposition about convergence.
+describe.  They end up being just a topological property: the polynomial
+hull just ``fills in the holes.''  First a simple proposition about convergence.
 
 \begin{prop}
 Suppose $K \subset \C$ is compact, $\widehat{K}$ is its polynomial hull,
@@ -15191,6 +15227,8 @@ so $p \in \widehat{K}$.
 \end{proof}
 
 Note that the components of $\C \setminus K$ are open sets.
+The polynomial hull of $K$ is $K$ together with all the bounded components
+of $\C \setminus K$.
 As a corollary we get the following equivalence.
 
 \begin{cor}
@@ -15298,6 +15336,33 @@ the principal part of $f$ at $p$ is $P_p$.
 \end{thm}
 
 \begin{proof}
+Start with applying \lemmaref{lemma:compactexhaustion2} to get an exhaustion
+of $U$ by compact sets $\{ K_n \}$.  Let $S_1 = K_1 \cap S$ and
+$S_n$ be the set $K_n \cap S \setminus K_{n-1}$, then $S$ is the disjoint
+union of $S_1,S_2,\ldots$.  Each $S_n$ is finite as $S$ has no limit point
+in $U$.
+Let
+\begin{equation*}
+f_n(z) = \sum_{p \in S_n} P_p(z) .
+\end{equation*}
+
+Let $R_1=0$.  Suppose $n \geq 2$.
+Every component of $\C_\infty \setminus K_{n-1}$ contains a point of
+$\C_\infty \setminus U$, and $f_n$ is holomorphic on a neighborhood of
+$K_{n-1}$.
+So we use Runge to find a rational function $R_n$ with poles in 
+$\C_\infty \setminus U$ such that $\sabs{f_n(z)-R_n(z)} < 2^{-n}$
+for all $z \in K_{n-1}$.
+
+Now we wish to define
+\begin{equation*}
+f(z) = \sum_{n=1}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
+\end{equation*}
+We claim that this series converges on compact subsets of $U \setminus S$,
+and the resulting function is has poles on $S$
+with principal part $P_p$ at $p \in S$.
+
+
 FIXME:
 \end{proof}
 
