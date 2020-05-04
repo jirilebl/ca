@@ -828,7 +828,7 @@ If $z,w \in \C$, then
 \begin{enumerate}[(i)]
 \item
 $\sabs{\Re z\bar{w}} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz inequality\footnote{%
-Some will say it should be Cauchy--Bunyakovsky--Schwarz, but that is wrong.
+Some say it should be Cauchy--Bunyakovsky--Schwarz, but that is wrong.
 Bunyakovsky and Schwarz proved the infinite-dimensional version.  This is
 just Cauchy inequality, but unfortunately that name refers to a different
 inequality, one that we will call the Cauchy estimates.}, note: $\Re z
@@ -1117,12 +1117,12 @@ $z \mapsto \xi z + \zeta \bar{z}$.
 \begin{exercise}
 \begin{exparts}
 \item
-If a $2 \times 2$ real matrix $M$ represents multiplication by $\xi \in \C$,
-then show that $\det M = \sabs{\xi}^2$.
+Suppose a $2 \times 2$ real matrix $M$ represents multiplication by $\xi \in \C$.
+Show that $\det M = \sabs{\xi}^2$.
 \item
-If a $2 \times 2$ real matrix $M$ is represented by $z \mapsto \xi z + \zeta
-\bar{z}$ (see previous exercise),
-then show that $\det M = \sabs{\xi}^2 - \sabs{\zeta}^2$.
+Suppose a $2 \times 2$ real matrix $M$ is represented by $z \mapsto \xi z + \zeta
+\bar{z}$ (see previous exercise).
+Show that $\det M = \sabs{\xi}^2 - \sabs{\zeta}^2$.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -1149,7 +1149,8 @@ multiplication by a complex number.
 \subsection{The exponential} \label{subsection:firstdefexp}
 
 The exponential is the most fundamental and useful functions in complex
-analysis.  Let us define it for all complex numbers (see
+analysis.  Assume we know $e^x$ for real numbers.  Let us define $e^z$
+for all complex numbers (see
 \figureref{fig:complexexpgraphs}):
 \glsadd{not:exp}%
 \begin{equation*}
@@ -3141,8 +3142,8 @@ r^{1/n} e^{i\theta/n + 2\pi i (n-1)/n} .
 \end{equation*}
 Those are the $n$ different $z$s such that $z^n=w$.  They are equally
 spaced out on a circle of radius $r^{1/n}$, see
-\figureref{fig:roots}.  If the roots are of $w=1$, then they are
-called \emph{\myindex{roots of unity}}.
+\figureref{fig:roots}.  The roots of $w=1$ are
+called the \emph{\myindex{roots of unity}}.
 
 \begin{myfig}
 \subimport*{figures/}{roots.pdf_t}
@@ -5707,7 +5708,15 @@ We leave it as an exercise.
 
 \begin{exbox}
 \begin{exercise}
-Give a different proof of the formula above by using the difference
+Compute
+\begin{equation*}
+\int_{\partial \D}
+\frac{z^2 e^z}{(2z-1)^3} \, dz .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Give a different proof of the Cauchy formula for derivatives by using the difference
 quotient.  First show the formula for $f'$, then again using the difference
 quotient and the fact that the kernel (the function inside) is holomorphic
 in $z$, show the formula for $f''$, etc.  For this to work it is
@@ -10956,7 +10965,8 @@ points.  Prove that $f'$ is never zero on $U$.
 \begin{exercise}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is
 holomorphic, $V = f(U)$, such that $z \mapsto f(z)-w$
-has two zeros up to multiplicity for every $w \in V$,
+has two zeros up to multiplicity for every $w \in V$.
+Call the zeros
 $z_1(w)$ and $z_2(w)$ (given in some unspecified order).
 \begin{exparts}
 \item
@@ -11846,7 +11856,7 @@ Find a counterexample if $U=\C$.
 \end{exercise}
 
 \begin{exercise}
-A Riemann-mapping like theorem for multiply connected domains (domains with
+A Riemann-mapping-like theorem for multiply connected domains (domains with
 holes) is not true
 (at least not in the most obvious way):
 Show that the punctured disc $\ann(0;0,1) = \D \setminus \{ 0 \}$
@@ -12504,6 +12514,12 @@ $g \circ f$ is harmonic.
 \end{exercise}
 
 \begin{exercise}
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \C$ is holomorphic.  Prove that
+if $z \mapsto \sabs{f(z)}^2$ is harmonic, then $f$ is constant.
+\end{exercise}
+
+\begin{exercise}
 Suppose $U \subset \C$ is open, $\overline{\D} \subset U$,
 and $f \colon U \to \R$ is harmonic.  Expand
 $f$ as a series at the origin, and find a formula
@@ -12512,11 +12528,11 @@ of an integral around $\partial \D$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $R > 0$ and $f \colon \Delta_R(0) \to \R$ is harmonic.
+Suppose $f \colon \C \to \R$ is harmonic.
 \begin{exparts}
 \item
 Show that there exists
-a holomorphic $F \colon \Delta_R(0) \setminus \{ 0 \} \to \C$
+a holomorphic $F \colon \C \setminus \{ 0 \} \to \C$
 such that $F=f$ on $\partial \D$.
 \item
 Show that if $F$ from part a) has a pole at the origin, then $f$
@@ -13314,9 +13330,21 @@ mean-value property.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $f \colon \C \to \R$ is harmonic and $f(0) = 0$.
-Prove that on every circle $\partial \Delta_r(0)$ there exists a $z \in
-\partial \Delta_r(0)$ such that $f(z) = 0$.
+Suppose $f$ is harmonic in a neighborhood of
+$\overline{\Delta_r(0)}$ and
+$f(0) = 0$.  Prove that
+\begin{equation*}
+\frac{1}{2} \int_{-\pi}^\pi \abs{f(re^{it})} \, dt = 
+\int_{-\pi}^\pi \max \{ f(re^{it}), 0 \} \, dt .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is harmonic in a neighborhood of
+$\overline{\D}$, $f(0) = 0$, and $\int_{-\pi}^\pi \abs{f(e^{it})}\, dt =
+4\pi$.
+Prove that there exists a $t$ such that $f(e^{it}) = 1$ and an $s$ such that
+$f(e^{is}) = -1$.
 \end{exercise}
 
 \begin{exercise}
@@ -13326,6 +13354,7 @@ such that for every fixed $t \in [0,1]$, $z \mapsto f(z,t)$ is harmonic.
 Prove that $g \colon U \to \R$ defined by
 \begin{equation*}
 g(z) = \int_0^1 f(z,t) \, dt
+\avoidbreak
 \end{equation*}
 is harmonic.  Hint: Fubini.
 \end{exercise}
@@ -13528,8 +13557,8 @@ The number $N$ only depends on $K$, not on $\zeta$, $\xi$, or $f$.
 As $\zeta$ and $\xi$ were arbitrary the theorem follows.
 \end{proof}
 
-While the constant we got in the proof is not optimal, it is explicit, you
-could actually compute some specific $C$, by knowing the distance of $K$
+While the constant we got in the proof is not optimal, it is explicit.
+Y'u could actually compute some specific $C$, by knowing the distance of $K$
 to the boundary and the number of discs needed.
 
 \begin{exbox}
@@ -13557,6 +13586,7 @@ Now do it for $K=\{-t,t\}$.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 As we've seen, affine linear functions $Ax+B$ are the one-real-variable
 versions of harmonic functions.  State and prove Harnack's inequality
 (analogue of \thmref{thm:harnackineqdisc})
