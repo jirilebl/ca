@@ -857,7 +857,7 @@ via Cauchy--Schwarz:
 {\sabs{z+w}}^2 & =    (z+w)(\bar{z}+\bar{w}) \\
                & =    z\bar{z} + w\bar{w} + z\bar{w} + \bar{z}w \\
                & \leq z\bar{z} + w\bar{w} + 2 \sabs{z}\sabs{w} \\
-               & =    {(\sabs{z}+\sabs{w})}^2 . \qedhere
+               & =    {\bigl(\sabs{z}+\sabs{w}\bigr)}^2 . \qedhere
 \end{split}
 \end{equation*}
 \end{proof}
@@ -872,9 +872,9 @@ $4 z\bar{w} =
 
 The distance between two numbers $z$ and $w$ is measured by
 \begin{equation*}
-\sabs{z-w} ,
+\sabs{z-w} .
 \end{equation*}
-and this makes $\C$ into a complete metric space.  By complete, we mean that
+This distance makes $\C$ into a complete metric space.  By complete, we mean that
 Cauchy sequences have limits.  See \Appendixref{ap:metric}
 for an introduction to metric spaces.
 
@@ -2342,8 +2342,8 @@ $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
 \item For nonzero integers $n$, the function $z \mapsto z^n$ is holomorphic
 where defined (outside the origin if $n$ negative) and $(z^n)' = n z^{n-1}$.
 \item
-If $P(z) = \sum_{n=0}^d c_n z^n$ is a polynomial,
-then
+A polynomial $P(z) = \sum_{n=0}^d c_n z^n$ is
+holomorphic and
 $P'(z) = \sum_{n=0}^{d-1} (n+1) c_{n+1} z^n$.
 \item Rational functions $\frac{P(z)}{Q(z)}$
 are holomorphic on the set where $Q$ is not zero.
@@ -2712,7 +2712,7 @@ g(z) =
 for all $z \in U$ (note the bar on the $h$), then $f$ is real differentiable, and satisfies
 \begin{equation*}
 \frac{\partial f}{\partial z} \equiv 0, \qquad \text{and} \qquad
-\frac{\partial f}{\partial \bar{z}}\Big|_{z} = g(z).
+\frac{\partial f}{\partial \bar{z}}\Big|_{p} = g(p).
 \end{equation*}
 \end{exercise}
 
@@ -3875,10 +3875,10 @@ Thus all points of $Z_f$ are isolated.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
+Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ and $g \colon U \to
 \C$ are
-analytic such that the set $\{ z \in U : f(z) = g(z) \}$ has a limit
-point in $U$.  Prove that $f = g$ everywhere.
+analytic, and the set $\bigl\{ z \in U : f(z) = g(z) \bigr\}$ has a limit
+point in $U$.  Prove that $f \equiv g$.
 \end{exercise}
 
 \begin{exercise}
@@ -3904,7 +3904,7 @@ we know $f$ on all of $U$.
 \begin{exercise}
 Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
 \C$ are analytic, and $p \in U$.  Suppose that $f^{(k)}(p) = g^{(k)}(p)$
-for $k=0,1,2,\ldots$.  Prove that $f = g$ everywhere.
+for $k=0,1,2,\ldots$.  Prove that $f \equiv g$.
 \end{exercise}
 
 \begin{exercise}
