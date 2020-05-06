@@ -15487,9 +15487,6 @@ FIXME
 
 \section{Schwarz reflection principle}
 
-FIXME: perhaps not a separate section here?  But this is a chapter where it
-makes sense
-
 The Schwarz reflection principle works for both harmonic and holomorphic
 functions (see \thmref{thm:schwarzreflectionharm}).  The proof for both is
 very similar in fact: We simply write down the candidate function by using
@@ -15552,9 +15549,12 @@ In any case, it is enough to prove that $F$ is holomorphic on $L$.
 For this, it is enough to apply Morera's theorem.  It is enough to check
 triangles that intersect the real line.  Such a triangle can be split into
 several triangles, each of which lies on one side of the line $L$ and
-intersects $L$ either at a vertex or side. 
+intersects $L$ either at a vertex or side.  See \figureref{fig:splittriang}.
 
-FIXME: figure
+\begin{myfig}
+\subimport*{figures/}{splittriang.pdf_t}
+\caption{Splitting triangles to use Morera.\label{fig:splittriang}}
+\end{myfig}
 
 Call such a triangle $T$, and suppose it is above the axis.
 In either case, we can translate the triangle by $\epsilon$, that is
@@ -15573,9 +15573,122 @@ Thus $\int_{\partial T} F(z) \, dz = 0$.
 Morera then implies that $F$ is holomorphic.
 \end{proof}
 
-FIXME
+The theorem is often applied by first mapping some curve to the real line.
+This curve must be nice-enough, that is, real-analytic.  Similarly the fact
+that $f$ is real-valued can be replaced by being valued in some
+real-analytic curve.
+
+\begin{defn}
+A set
+$C \subset \C$ is a \emph{\myindex{real-analytic curve}}
+if it is the image of an interval under an injective real-analytic
+map $\gamma \colon (a,b) \to \C$ with non-vanishing derivative.
+\end{defn}
+
+By $\gamma$ being real-analytic we mean that at each point it has a power
+series expansion.  Equivalently then a real-analytic function is just a
+restriction of a holomorphic function to the real-line by just plugging
+complex numbers into the power series.  Therefore, the actual definition we
+will use is the following.
+
+\begin{defn}
+A set $C \subset \C$ is a \emph{real-analytic curve}
+if there exists a domain $U \subset \C$ such that
+$V \cap \R = (a,b)$ and an injective holomorphic $\varphi \colon V \to \C$
+such that $\varphi\bigl( (a,b) \bigr) = C$.
+\end{defn}
+
+The images of the sets
+$V_+ = \{ z \in V : \Im z > 0 \}$ and $V_- = \{ z \in V : \Im z < 0 \}$
+can be considered the ``sides'' of $C$.
+By rotation and translation we can ``switch sides.''
+
+\begin{cor}[Schwarz reflection principle for curves]
+\index{Schwarz reflection principle!holomorphic functions, general version}
+Let $U \subset \C$ be open,
+$C \subset \partial U$ a real-analytic curve with one side
+not in $U$ and one side in $U$, that is, there is domain $V$,
+$V \cap \R = (a,b)$ and an injective holomorphic $\varphi \colon V \to \C$
+such that $\varphi\bigl( (a,b) \bigr) = C \subset \partial U$,
+and such that $\varphi(V_+) \subset U$ and $\varphi(V_-) \cap U =
+\emptyset$.  Suppose that $f \colon U \cup C \to \C$ is a continuous
+function, holomorphic on $U$, such that $f(C) \subset D$ for some
+other real-analytic curve $D$.
+
+Then there exists a neighborhood $W$ of $C$ and a holomorphic
+function $F \colon U \cup W \to \C$ such that $F|_{U \cup C} = f$.
+\end{cor}
+
+\begin{proof}
+First start with $D$.  As it is defined by some invertible holomorphic
+function,
+there must be a neighborhood $H$ of $D$, and an injective
+holomorphic $\psi \colon H \to \C$ such that $\psi(D) \subset \R$.
+We can pick $V$ small enough so that it is symmetric across the real-axis,
+and such that $f\bigl(\varphi(V_+)\bigr) \subset H$.
+Write $L = (a,b) = V \cap \R$ as before.
+Consider the composition $\psi \circ f \circ \varphi$, which is
+holomorphic in $V_+$, continuous on $V_+ \cup L$, and
+real-valued on $L$.  So Schwarz reflection principle holds,
+and we get holomorphic $G \colon V \to \C$ extending
+$\psi \circ f \circ \varphi$.
+
+We possibly make $V$ smaller yet to ensure that $G(V) \subset \psi(H)$ so that
+we may invert $\psi$ on the image.
+We can then write $F = \psi^{-1} \circ G \circ \varphi^{-1}$.  The set $W$
+is $\psi(V)$.
+\end{proof}
+
+The corollary says that we can extend holomorphic functions across
+real-analytic boundaries as long as the function is continuous and valued in
+a real-analytic curve on the boundary.  However, the downside is that it
+does not say how to figure out exactly the size of the neighborhood $W$.
+One could note the sizes of the neighborhoods $V$ and $H$
+and then follow ``reductions of $V$'' in the proof to work out how far
+the extension goes, but that does require understanding how far the
+functions defining the curves extend.
+
+In practice, the extension is applied to rather special curves and so we can
+explicitly figure out the form of the extension.  Let us give one such
+special case, the circle.  The reflection across the unit circle is
+$\nicefrac{1}{\bar{z}}$, and it is very similar to reflection across the
+line.  The reflection across the circle is the reflection from
+Euclidean geometry.
+If $z = re^{i\theta}$, then the reflection
+$\nicefrac{1}{\bar{z}} = \frac{1}{r} e^{i\theta}$ is on the same ray from
+the origin by the modulus is the reciprocal.
+
+\begin{cor}[Schwarz reflection principle for a circle]
+\index{Schwarz reflection principle!holomorphic functions, circle version}
+\label{thm:schwarzreflectioncircleholo}
+Suppose $U \subset \C \setminus \{ 0 \}$ is a domain, $\partial \D \subset U$,
+and $U$ is symmetric with respect to reflection across $\partial \D$,
+that is, $z \in U$ implies $\nicefrac{1}{\bar{z}} \in U$.
+Let $U_{\text{in}} = U \cap \D$ and $U_{\text{out}} = U \setminus \overline{\D}$.
+If $f \colon U \cap \D \to \C$ is a continuous
+function holomorphic on $U_{\text{in}}$ such that $f(\partial \D) \subset \partial
+\D$, then there exists a holomorphic $F \colon U \to \C$ such that
+$F|_{U \cap \overline{\D}} = f$.
+\end{cor}
+
+The proof is left as an exercise, but the idea is simply to define
+Define $F(z) = f(z)$ on $U \cap \D$, and for $z \in U_{\text{out}}$ define
+\begin{equation*}
+F(z) = \frac{1}{~\overline{f(\nicefrac{1}{\bar{z}})}~} .
+\end{equation*}
 
 \begin{exbox}
+\begin{exercise}
+Prove \corref{thm:schwarzreflectioncircleholo}.  Hint: Cayley.
+\end{exercise}
+
+\begin{exercise}
+Suppose that $U \subset \bH$ is a domain in the upper half plane
+such that the $\overline{U} \cap \R$ contains an interval $(a,b)$.
+Suppose $f \colon U \cup (a,b) \to \C$ is continuous and holomorphic on $U$
+and $f$ is zero on $(a,b)$.  Prove that $f$ is identically zero.
+\end{exercise}
+
 \begin{exercise}
 Let $U = \{ z : \Re z > 0 \}$ and
 $g \colon U  \to \C$ be holomorphic
