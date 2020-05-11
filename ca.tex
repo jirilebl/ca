@@ -8352,9 +8352,10 @@ First, let us define this concept for closed paths.
 
 \begin{defn}
 Let $U \subset \C$ be open.
-Two closed piecewise $C^1$ paths\footnote{This definition
+Two continuous\footnote{This definition
 works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
-$\gamma_j(a)=\gamma_j(b)$, but we only need it for paths.}
+$\gamma_j(a)=\gamma_j(b)$, but we only need it for piecewise $C^1$ paths in
+this section.}
 $\gamma_0 \colon [a,b] \to U$ and
 $\gamma_1 \colon [a,b] \to U$ are \emph{\myindex{homotopic}} in $U$
 (or relative to $U$) if there exists a continuous function
@@ -15411,91 +15412,24 @@ May the forces of evil become confused on the way to your house.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Analytic continuation}
-\label{sec:analcontelts}
+\section{Schwarz reflection principle}
 
 One of the consequences of the identity theorem is that once we know a
 function in a neighborhood we know it in the whole domain, if it was defined
-in a domain that is.  We have seen elementary analytic continuation when
-defining the logarithm.  We could define it locally and then ``continue'' it
-uniquely to another point of the domain.  This idea will always give a nice
-function in a simply connected domain, but as we saw, when dealing with the
-log in the punctured plane, we could go around the origin and not end up
-where we started.
+in a domain that is.  So if a holomorphic function $f$ is defined in a
+domain $U$ and $U \subset W$ for some other domain $W$,
+then we may want to find a holomorphic function in $W$ that agrees with
+$f$ on $U$.  Of course that is not always possible.  If $f(z) =
+\nicefrac{1}{z}$ in $U = \C \setminus \{ 0 \}$, there is no way
+of extending it to $W = \C$.
 
-\begin{defn}
-Suppose $p$ is a point and $D$ is a disc with $p \in D$.
-A holomorphic function $f \colon D \to \C$ can be
-\emph{analytically continued}\index{analytic continuation}
-along the path
-$\gamma \colon [0,1] \to \C$, $\gamma(0) = p$,
-if for every $t \in [0,1]$ there exists
-a disc $D_t$ centered at $\gamma(t)$ and a holomorphic function
-$f_t \colon D_t \to \C$ and for each $t_0 \in [0,1]$ there is an
-$\epsilon > 0$ such that if $\sabs{t-t_0} < \epsilon$, then
-$f_t = f_{t_0}$
-in $D_t \cap D_{t_0}$.
-\end{defn}
-
-FIXME: is this the definition we want?
-
-In particular we get a unique definition of $f\bigl(\gamma(t)\bigr)$ via the
-identity theorem.
-
-\begin{exbox}
-\begin{exercise}
-Suppose a holomorphic $f$ can be continued along $\gamma \colon [0,1] \to
-\C$ as in the definition.  Show that $f\bigl(\gamma(t)\bigr)$ is uniquely
-defined for every $t \in [0,1]$.
-\end{exercise}
-%
-%\begin{exercise}
-%Suppose that $f$ and $\gamma$ is as in the definition.  Suppose there exist
-%finitely many discs $D_1,\ldots,D_n$ that cover $\gamma$ (as a set)
-%FIXME
-%\end{exercise}
-\end{exbox}
-
-\begin{defn}
-Let $U \subset \C$ be a domain, $p \in U$, and $D \subset U$
-a disc with $p \in D$.  We say that
-$f$ can be \emph{analytically continued} to every $q \in U$,
-if for every path 
-$\gamma \colon [0,1] \to U$, $\gamma(0) = p$, $\gamma(1) = q$,
-there exists an analytic continuation of $f$.
-\end{defn}
-
-FIXME:
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Monodromy theorem}
-\label{sec:monodromythm}
-
-FIXME: homotopy of paths ...
-
-The monodromy theorem says that as long as there are
-no holes, analytic continuation defines a function uniquely.
-
-\begin{thm}[Monodromy theorem]\index{Monodromy theorem}
-If $U \subset \C$ is a simply connected domain, $D \subset U$ a disc and
-$f \colon D \to \C$ a holomorphic function that can be analytically
-continued from $p \in D$ to every $q \in U$, then there exists
-a unique holomorphic function $F \colon U \to \C$ such that $F|_D = f$.
-\end{thm}
-
-FIXME
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Schwarz reflection principle}
-
-The Schwarz reflection principle works for both harmonic and holomorphic
-functions (see \thmref{thm:schwarzreflectionharm}).  The proof for both is
-very similar in fact: We simply write down the candidate function by using
+A simple continuation is the Schwarz reflection principle, which in essence
+says that we can reflect values across some boundary given some conditions.
+We have seen the harmonic version (see \thmref{thm:schwarzreflectionharm})
+of this theorem before.
+The proof of the principle works the same for both
+harmonic and holomorphic functions.
+We simply write down the candidate function by using
 the right reflection and then show that the reflection is harmonic or
 holomorphic.  Then over the line where they meet, we use either the
 mean-value property or Morera's theorem.
@@ -15728,6 +15662,179 @@ holomorphic function can be smooth up to the
 boundary but still not extend.
 \end{exercise}
 \end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Analytic continuation along paths}
+\label{sec:analcontelts}
+
+More generally than just extending to a larger set such as a reflection,
+we define a continuation
+along some path.
+We have seen such elementary analytic continuation when
+defining the logarithm.  We could define it locally and then ``continue'' it
+uniquely to another point of the domain along some path.
+This idea will always give a nice
+function in a simply connected domain, but as we saw, when dealing with the
+log in the punctured plane, we could go around the origin and not end up
+where we started.
+
+Geometry and topology does get in the way sometimes, and so it is easiest
+to work with discs.  That is, we will cover a path with discs and try to
+extend from one disc to another.  The advantage of discs is that if two
+discs intersect, then their intersection is connected, and a union of two
+intersecting discs is always simply connected, in fact, it is star-like.
+Let us start with the definition then.
+
+\begin{defn} \label{defn:analcont}
+Suppose $\gamma \colon [a,b] \to \C$ is continuous with $\gamma(a) = p$.
+A holomorphic 
+$f \colon \Delta_r(p) \to \C$
+can be
+\emph{analytically continued}\index{analytic continuation}
+along $\gamma$
+if for every $t \in [a,b]$ there exists
+a disc $D_t$ centered at $\gamma(t)$ and a holomorphic function
+$f_t \colon D_t \to \C$, such that:
+\begin{enumerate}[(i)]
+\item
+$D_a = \Delta_r(p)$ and $f_a = f$.
+\item
+For each $s \in [a,b]$ there is an
+$\epsilon > 0$ such that if $\sabs{t-s} < \epsilon$, then
+$f_t = f_s$ in $D_t \cap D_s$.
+\end{enumerate}
+\end{defn}
+
+The value
+$f_t\bigl(\gamma(t)\bigr)$ is really what we mean by the value of
+the extension at $\gamma(t)$, and what we would really want
+``$f\bigl(\gamma(t)\bigr)$'' to be.
+Though of course, this is not defined for $\gamma(t)$ outside of
+$\Delta_r(p)$.
+The identity theorem implies that the definition of
+$f_t\bigl(\gamma(t)\bigr)$ is unique.
+
+\begin{prop}
+Suppose a holomorphic $f$ can be continued along $\gamma \colon [a,b] \to
+\C$ as in the definition.  The value $f_t\bigl(\gamma(t)\bigr)$ is uniquely
+defined for every $t \in [a,b]$.
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
+
+Since $\gamma$ (as a set) is compact, we in fact use only finitely many
+discs.  This was the way we were continuing the logarithm back in
+\chapterref{ch:log}.
+
+\begin{prop}
+Suppose that $f$, and $\gamma$ are as in \defnref{defn:analcont}.
+Prove that $f$ can be analytically continued along $\gamma$
+if and only if there exists numbers $a = t_0 < t_1 < \cdots < t_n = b$
+and discs
+$D_1,\ldots,D_n$ that cover $\gamma$ (as a set),
+and holomorphic functions $f_j \colon D_j \to \C$,
+such that for all $j$, $[t_{j-1},t_j] \subset D_j$,
+$f_{j-1} = f_j$ on $D_{j-1} \cap D_j$,
+and such that $f_1 = f$ on $D_1 \cap \Delta_r(p)$.
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
+
+FIXME: close
+
+\begin{prop}
+FIXME
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove that if $f \colon \Delta_r(p) \to \C$ continues analytically along a
+continuous $\gamma \colon [a,b] \to \C$ with $\gamma(a) = p$,
+$\gamma(b)=q$, then for
+every $\epsilon > 0$, there
+exists a polygonal path $\sigma \colon [a,b] \to \C$ such 
+that $\sabs{\sigma(t)-\gamma(t)} < \epsilon$ for all $t$,
+$\sigma(a)=\gamma(a)$, $\sigma(b)=\gamma(b)$, the
+function $f$ continues analytically along $\sigma$,
+and the value of the continuation at $\gamma(b)=\sigma(b)$ is
+the same for $\sigma$ or $\gamma$.
+\end{exercise}
+\end{exbox}
+
+Generally what we are interested in is a domain $U$ and a holomorphic $f$
+defined in a small subset of $U$.  Then we want to try to extend $f$
+to all of $U$.
+
+\begin{defn}
+Let $U \subset \C$ be a domain, $p \in U$, and $\Delta_r(p) \subset U$.
+A holomorphic $f \colon \Delta_r(p) \to \C$
+\emph{\myindex{admits unrestricted continuation}}\index{unrestricted
+continuation} to $U$
+if for every $q \in U$ and \emph{every} continuous
+$\gamma \colon [a,b] \to U$, $\gamma(a) = p$, $\gamma(b) = q$,
+$f$ can be analytically continued along $\gamma$.
+\end{defn}
+
+The logarithm, and in general every primitive, admits unrestricted
+continuation (in the domain where the derivative is defined).
+With the logarithm we saw that we do not necessarily get a unique value.
+That is, if $U = \C \setminus \{ 0 \}$, $\Delta_r(p) \subset U$, then we
+could define a branch of the logarithm in $\Delta_r(p)$, and it extends
+analytically to all of $\C \setminus \{ 0 \}$, but of course the extension
+is not well defined.  That is, for any $q$ there exists infinitely many
+paths to $q$ along which the logarithm extends and along each it extends to
+a different value.
+
+FIXME
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Monodromy theorem}
+\label{sec:monodromythm}
+
+\begin{defn}
+Let $U \subset \C$ be open.
+Two continuous\footnote{This definition
+works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
+$\gamma_j(a)=\gamma_j(b)$, but we only need it for piecewise $C^1$ paths in
+this section.}
+$\gamma_0 \colon [a,b] \to U$ and
+$\gamma_1 \colon [a,b] \to U$ are
+\emph{\myindex{fixed-endpoint homotopic}} in $U$
+(or relative to $U$) if there exists a continuous function
+$H \colon [a,b] \times [0,1] \to U$ such that
+for all $s$ and $t$
+\begin{equation*}
+H(t,0) = \gamma_0(t), \qquad
+H(t,1) = \gamma_1(t), \qquad \text{and} \qquad
+H(a,s) = H(b,s) .
+\end{equation*}
+\end{defn}
+
+FIXME: homotopy of paths ...
+
+The monodromy theorem says that as long as there are
+no holes, analytic continuation defines a function uniquely.
+
+\begin{thm}[Monodromy theorem]\index{Monodromy theorem}
+If $U \subset \C$ is a simply connected domain, $D \subset U$ a disc and
+$f \colon D \to \C$ a holomorphic function that can be analytically
+continued from $p \in D$ to every $q \in U$, then there exists
+a unique holomorphic function $F \colon U \to \C$ such that $F|_D = f$.
+\end{thm}
+
+FIXME
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
