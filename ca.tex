@@ -1877,7 +1877,7 @@ is really equal to $z_4-\infty$ and thus they cancel.
 \frac{z_3-z_1}{z_3-z_2} .
 \end{align*}
 
-By ``preserved by LFTs'' we mean that if $f(z)$ is an LFT then
+By ``preserved by LFTs'' we mean that if $f(z)$ is an LFT, then
 \begin{equation*}
 (z_1,z_2;z_3,z_4) =
 \bigl(f(z_1),f(z_2);f(z_3),f(z_4)\bigr) .
@@ -2968,7 +2968,7 @@ and $\frac{\partial f}{\partial z} = 0$.  Show that
 $\det Df\big|_p = - \babs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.  In other words,
 the Jacobian determinant is nonpositive, and $f$ flips orientation.
 \item
-More generally, if $f$ is (real) differentiable then
+More generally, if $f$ is (real) differentiable, then
 $\det Df\big|_p = \babs{\frac{\partial f}{\partial z}(p)}^2 -
 \babs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.
 \end{exparts}
@@ -3020,12 +3020,13 @@ Suppose that $M$ preserves orientation and angles.
 As we said $M$ must be nonsingular.
 Let $M =
 \left[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right]$.
-If it preserves angles then this means that given any two vectors $v$ and
-$w$ in $\R^2$, then the angle between $Mv$ and $Mw$ is the same as the angle
-between $v$ and $w$.  For example, take the vectors
+As $M$ preserves angles, given any two vectors $v$ and
+$w$ in $\R^2$, the angle between $Mv$ and $Mw$ is the same as the angle
+between $v$ and $w$.
+The vectors
 $v=\left[\begin{smallmatrix}1\\0\end{smallmatrix}\right]$ and
-$w=\left[\begin{smallmatrix}0\\1\end{smallmatrix}\right]$.  These are
-orthogonal and so $Mv$ and $Mw$ are orthogonal:
+$w=\left[\begin{smallmatrix}0\\1\end{smallmatrix}\right]$ are
+orthogonal, and so $Mv$ and $Mw$ are orthogonal:
 \begin{equation*}
 0 = Mv \cdot Mw = 
 \begin{bmatrix} a\\b \end{bmatrix}
@@ -4095,7 +4096,7 @@ integral does not depend on $r$.
 
 \begin{exbox}
 \begin{exercise}
-Prove that if $k\not= 0$ then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
+Prove that if $k\not= 0$, then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -5948,7 +5949,7 @@ $f(p) \not= 0$ is necessary.
 Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ is a holomorphic
 function, and $M > 0$ is a number such that
 $\limsup_{z \to p} \sabs{f(z)} \leq M$ for all $p \in \partial U$,
-and if $U$ is unbounded then also 
+and if $U$ is unbounded, then also 
 $\limsup_{z \to \infty} \sabs{f(z)} \leq M$.  Prove that
 $\sabs{f(z)} \leq M$ for all $z \in U$.
 Note: For a real-valued $g \colon U \to \R$,
@@ -6699,7 +6700,7 @@ is bounded, $p \in U$, and $f \colon U \to U$ is holomorphic, and $f(p)=p$.
 \item
 Show $\abs{f'(p)} \leq 1$.
 \item
-Show that if $f'(p) = 1$ then $f(z) = z$ for all $z \in U$.
+Show that if $f'(p) = 1$, then $f(z) = z$ for all $z \in U$.
 \item
 Find counterexamples to both statements for some unbounded $U$.
 \end{exparts}
@@ -6810,7 +6811,7 @@ $f(z) = \varphi_{-a}(ze^{i\theta})
 \begin{exbox}
 \begin{exercise}
 Justify the claim in the proof.  If a continuous
-$g \colon \D \to \D$ is is such that $g^{-1}(K)$ is compact
+$g \colon \D \to \D$ is such that $g^{-1}(K)$ is compact
 for every compact $K \subset \D$, then if $\{ z_n \}$ is a sequence
 in $\D$ such that $\sabs{z_n} \to 1$ then
 $\sabs{g(z_n)} \to 1$.
@@ -7298,7 +7299,7 @@ Suppose $0 < r_1 < r_2 < \infty$.
 Let $\Gamma = \partial \Delta_{r_2}(p) - \partial \Delta_{r_1} (p)$
 (that is, the outside circles goes counterclockwise, the inside circle goes
 clockwise).
-Prove that if $z \in \C$ is such that $\sabs{z-p} < r_1$ then
+Prove that if $z \in \C$ is such that $\sabs{z-p} < r_1$, then
 $n(\Gamma;z) = 0$.  If $r_1 < \sabs{z-p} < r_2$, then
 $n(\Gamma;z) = 1$.  If $r_2 < \sabs{z-p}$, then
 $n(\Gamma;z) = 0$.
@@ -7331,7 +7332,7 @@ say $\Gamma$ is \emph{\myindex{homologous to zero} in $U$}.
 What homologous to zero means is that $\Gamma$ does not wind around any
 point in the complement of $U$.
 Do note that ``homologous to zero'' in no way means ``equivalent to zero.''
-For example, if $U = \C$ then every $\Gamma$ is homologous to zero trivially.
+For example, if $U = \C$, then every $\Gamma$ is homologous to zero trivially.
 Also note the dependence on $U$.  The unit circle is homologous to zero in
 $U = \C$, but it is not homologous to zero in $U = \C \setminus \{ 0 \}$.
 
@@ -7856,7 +7857,7 @@ other words, $U$ is simply connected.
 \end{proof}
 
 It is important to use $\C_\infty$ and not $\C$ in the proposition
-above.  If $U = \C \setminus \{ 0 \}$ is the punctured plane then
+above.  If $U = \C \setminus \{ 0 \}$ is the punctured plane, then
 $\C \setminus U = \{ 0 \}$, which is connected, but 
 $\C_\infty \setminus U = \{ 0, \infty \}$ is not connected.
 
@@ -8015,7 +8016,7 @@ around the smaller ($s_1$) circle clockwise.
 If $q \in \C \setminus \ann(p;r_1,r_2)$, then $n(\Gamma;q) = 0$:
 If $q$ is in the ``hole'' of the annulus, then
 $n\bigl(\partial \Delta_{s_j}(p);q\bigr) = 1$ for both $j=1,2$, and 
-if $q$ is outside the annulus altogether then
+if $q$ is outside the annulus altogether, then
 $n\bigl(\partial \Delta_{s_j}(p);q\bigr) = -1$ for both $j=1,2$,
 see \exerciseref{exercise:windingcircle} or.
 \exerciseref{exercise:windingcircles}.
@@ -8622,7 +8623,7 @@ Hint: See previous exercise.
 Let $\gamma$ be a closed piecewise $C^1$ path in $\C \setminus \{ 0 \}$.
 \begin{exparts}
 \item
-Show that $\gamma$ is homotopic in $\C \setminus \{ 0 \}$ to a
+Show that $\gamma$ is homotopic in $\C \setminus \{ 0 \}$ to
 a piecewise $C^1$ path whose image is in $\partial \D$.
 The tricky bit is to make sure that the derivative is never zero.
 \item
@@ -9510,7 +9511,7 @@ The order of the pole is the degree of the polynomial.
 \end{exercise}
 
 \begin{exercise}
-Show that if $f \colon \C \to \C$ is an automorphism then
+Show that if $f \colon \C \to \C$ is an automorphism, then
 $f(z) = az + b$ for
 some constants $a \not= 0$ and $b$.  Hint: Show that $f$ has a simple pole at
 infinity.
@@ -10477,7 +10478,7 @@ It is easy to see that $z^4+24z^2$ has zeros at $\pm \sqrt{24} i$ (outside
 the unit circle), and two zeros at the origin (inside the unit circle).
 Thus, $P(z)$ also has two zeros in $\D$.
 
-On the other hand, if $\sabs{z} > 46$ then
+On the other hand, if $\sabs{z} > 46$, then
 \begin{equation*}
 \abs{P(z)-z^4} = \abs{12z^3+24z^2+4z+6}
 \leq 46 \sabs{z}^3 < {\sabs{z}}^4 = \abs{z^4}.
@@ -13088,7 +13089,7 @@ In the next section we will see that this property actually characterizes
 harmonic functions.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}[Easy]
 Prove that given any continuous $f \colon \partial \D \to \C$,
 there exists a holomorphic $F \colon \D \to \C$ such that $\Re F$ extends
 continuously to $\overline{\D}$ (agrees with a continuous function on
@@ -13234,7 +13235,7 @@ such that $\Delta_{R_p}(p) \subset U$ and
 f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
 \qquad \text{for all } r < R_p .
 \end{equation*}
-Moreover, if $f$ is harmonic then we may choose any
+Moreover, if $f$ is harmonic, then we may choose any
 $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
 \end{thm}
 
@@ -14082,7 +14083,7 @@ f(p) \leq \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
 \qquad \text{for all } r < R_p .
 \end{equation*}
 The integral is either the Lebesgue integral or the upper Darboux integral.
-Moreover, if $f$ is subharmonic then we may choose any
+Moreover, if $f$ is subharmonic, then we may choose any
 $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
 \end{thm}
 
@@ -16867,7 +16868,7 @@ And in particular, $A \subset \widebar{A}$.
 
 \begin{prop}
 Let $(X,d)$ be a metric space and $A \subset X$.  The closure $\widebar{A}$
-is closed.  Furthermore if $A$ is closed then $\widebar{A} = A$.
+is closed.  Furthermore, if $A$ is closed, then $\widebar{A} = A$.
 \end{prop}
 
 \begin{proof}
@@ -17307,7 +17308,7 @@ Hence the sequence $\{ x_{j,k} \}_{j=1}^\infty$ converges to $y_k$.
 
 For the other direction, suppose 
 $\{ x_{j,k} \}_{j=1}^\infty$ converges to $y_k$ for every $k=1,2,\ldots,n$.
-Given $\epsilon > 0$, pick an $M$, such that if $j \geq M$ then 
+Given $\epsilon > 0$, pick an $M$, such that if $j \geq M$, then 
 $\bigl\lvert y_k-x_{j,k} \bigr\rvert < \nicefrac{\epsilon}{\sqrt{n}}$ for all
 $k=1,2,\ldots,n$.  Then
 \begin{equation*}
@@ -18074,7 +18075,7 @@ Let $X$ be a metric space and
 $C \subset \sP(X)$ the set of nonempty compact subsets of $X$.
 Using the Hausdorff metric from \exerciseref{exercise:mshausdorffpseudo},
 show that $(C,d_H)$ is a metric space.  That is, show that
-if $L$ and $K$ are nonempty compact subsets then $d_H(L,K) = 0$
+if $L$ and $K$ are nonempty compact subsets, then $d_H(L,K) = 0$
 if and only if $L=K$.
 \end{exercise}
 
@@ -20154,7 +20155,7 @@ variable.  Show $f$ is differentiable and find $Df$.
 Suppose $f \colon \R^n \to \R$ and $h \colon \R^n \to \R$ are two 
 differentiable functions such that $Df|_x = Dh|_x$ for all $x \in \R^n$.
 Prove that
-if $f(0) = h(0)$ then $f(x) = h(x)$ for all $x \in \R^n$.
+if $f(0) = h(0)$, then $f(x) = h(x)$ for all $x \in \R^n$.
 \end{exercise}
 \end{exbox}
 
