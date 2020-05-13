@@ -7073,6 +7073,7 @@ at.  See \figureref{fig:followbranch}.  This is really what we did in the
 ended up at $1$ again, and our branches that we followed ended up $2\pi i$
 off.  We will see an example of this briefly.
 
+%Used in two places
 \begin{myfig}
 \subimport*{figures/}{followbranch.pdf_t}
 \caption{Following a branch.
@@ -10957,7 +10958,7 @@ Show that $f(U) = V$ and that $\bigl\{ f_n^{-1} \bigr\}$ converges uniformly on
 compact subsets to $f^{-1}$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:ktoone}
 Suppose $U,V \subset \C$ are open, $k \in \N$, and $f \colon U \to V$ is an
 onto $k$-to-1
 holomorphic map, that is, for each $w \in V$, $f^{-1}(w)$ is $k$ distinct
@@ -15669,42 +15670,44 @@ boundary but still not extend.
 \section{Analytic continuation along paths}
 \label{sec:analcontelts}
 
-More generally than just extending to a larger set such as a reflection,
-we define a continuation
-along some path.
-We have seen such elementary analytic continuation when
-defining the logarithm.  We could define it locally and then ``continue'' it
-uniquely to another point of the domain along some path.
-This idea will always give a nice
-function in a simply connected domain, but as we saw, when dealing with the
-log in the punctured plane, we could go around the origin and not end up
-where we started.
+\subsection{Definition}
 
-Geometry and topology does get in the way sometimes, and so it is easiest
-to work with discs.  That is, we will cover a path with discs and try to
+More generally than a reflection, we define a continuation along a path.
+We have seen such continuation with
+the logarithm.  We define a function locally and ``continue'' it
+uniquely to another point of the domain along some path.
+We have also seen some problems with this approach:
+When dealing with the log in the punctured plane, we could go around the origin
+and not end up where we started.
+
+Geometry and topology may get in the way, and so it is easiest
+to work with discs.  We will cover a path with discs and try to
 extend from one disc to another.  The advantage of discs is that if two
 discs intersect, then their intersection is connected, and a union of two
 intersecting discs is always simply connected, in fact, it is star-like.
-Let us start with the definition then.
+Since any path can be reparametrized to $[0,1]$, we will, for simplicity,
+consider all paths to have the parameter in $[0,1]$ in this section.
 
 \begin{defn} \label{defn:analcont}
-Suppose $\gamma \colon [a,b] \to \C$ is continuous with $\gamma(a) = p$.
+Suppose $\gamma \colon [0,1] \to \C$ is continuous with $\gamma(0) = p$,
+and $U \subset \C$ an open neighborhood of $p$.
 A holomorphic 
-$f \colon \Delta_r(p) \to \C$
+$f \colon U \to \C$
 can be
 \emph{analytically continued}\index{analytic continuation}
 along $\gamma$
-if for every $t \in [a,b]$ there exists
+if for every $t \in [0,1]$ there exists
 a disc $D_t$ centered at $\gamma(t)$ and a holomorphic function
 $f_t \colon D_t \to \C$, such that:
 \begin{enumerate}[(i)]
 \item
-$D_a = \Delta_r(p)$ and $f_a = f$.
+$D_0 \subset U$ and $f_0 = f|_{D_0}$.
 \item
-For each $s \in [a,b]$ there is an
+For each $s \in [0,1]$ there is an
 $\epsilon > 0$ such that if $\sabs{t-s} < \epsilon$, then
 $f_t = f_s$ in $D_t \cap D_s$.
 \end{enumerate}
+We refer to the continuation as $f_t$ or perhaps $(f_t,D_t)$.
 \end{defn}
 
 The value
@@ -15717,32 +15720,48 @@ The identity theorem implies that the definition of
 $f_t\bigl(\gamma(t)\bigr)$ is unique.
 
 \begin{prop}
-Suppose a holomorphic $f$ can be continued along $\gamma \colon [a,b] \to
-\C$ as in the definition.  The value $f_t\bigl(\gamma(t)\bigr)$ is uniquely
-defined for every $t \in [a,b]$.
+Suppose that $f$ and $\gamma$ are as in \defnref{defn:analcont},
+and
+$f$ can be continued along $\gamma$.
+The value $f_t\bigl(\gamma(t)\bigr)$ is uniquely
+defined for every $t \in [0,1]$.
 \end{prop}
 
 \begin{exbox}
 \begin{exercise}
 Prove the proposition.
+\end{exercise}
+
+\begin{exercise}
+Prove that in the definition we could take $D_t$ to not be centered at
+$\gamma(t)$.  We simply need to require $\gamma(t) \in D_t$.
 \end{exercise}
 \end{exbox}
 
 Since $\gamma$ (as a set) is compact, we in fact use only finitely many
-discs.  This was the way we were continuing the logarithm back in
+discs.  See \figureref{fig:followbranch2}.  This was the way we were continuing the logarithm back in
 \chapterref{ch:log}.
 
-\begin{prop}
-Suppose that $f$, and $\gamma$ are as in \defnref{defn:analcont}.
+\begin{prop} \label{prop:finitedisccont}
+Suppose that $f$, $U$, and $\gamma$ are as in \defnref{defn:analcont}.
 Prove that $f$ can be analytically continued along $\gamma$
-if and only if there exists numbers $a = t_0 < t_1 < \cdots < t_n = b$
-and discs
-$D_1,\ldots,D_n$ that cover $\gamma$ (as a set),
-and holomorphic functions $f_j \colon D_j \to \C$,
-such that for all $j$, $[t_{j-1},t_j] \subset D_j$,
-$f_{j-1} = f_j$ on $D_{j-1} \cap D_j$,
-and such that $f_1 = f$ on $D_1 \cap \Delta_r(p)$.
+if and only if there exists numbers $0 = t_0 < t_1 < \cdots < t_n = 1$
+and open discs
+$\Delta_1,\ldots,\Delta_n$ that cover $\gamma$ (as a set),
+and holomorphic functions $\varphi_j \colon \Delta_j \to \C$,
+such that for all $j$, $[t_{j-1},t_j] \subset \Delta_j$,
+$\varphi_{j-1} = \varphi_j$ on $\Delta_{j-1} \cap \Delta_j$,
+and such that $\varphi_1 = f$ on $\Delta_1 \cap U$.
+Furthermore if $(f_t,D_t)$ is the continuation and $t \in [t_{j-1},t_j]$,
+then $\varphi_j\bigl(\gamma(t)\bigr) = f_t\bigl(\gamma(t)\bigr)$.
 \end{prop}
+
+%Used in two places
+\begin{myfig}
+\subimport*{figures/}{followbranch.pdf_t}
+\caption{Analytic continuation with finitely many discs.  The endpoints of
+the subintervals are marked.\label{fig:followbranch2}}
+\end{myfig}
 
 \begin{exbox}
 \begin{exercise}
@@ -15750,26 +15769,51 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
-FIXME: close
-
 \begin{prop}
-FIXME
+Suppose that $f$ and $\gamma$ are as in \defnref{defn:analcont}.
+Suppose $f$ continues analytically along $\gamma$, and let
+$f_t$ be the continuation.
+There exists an $\epsilon > 0$ such that if
+a continuous
+$\sigma \colon [0,1] \to \C$ is such that $p=\sigma(0)=\gamma(0)$,
+$q=\sigma(1)=\gamma(1)$, and
+$\sabs{\sigma(t)-\gamma(t)} < \epsilon$ for all $t$,
+then
+$f$ can be analytically continued as $g_t$ along $\sigma$ and
+$g_1(q)=f_1(q)$.
 \end{prop}
+
+\begin{proof}
+We use \propref{prop:finitedisccont} and its notation.  
+The image of each subinterval $\gamma \bigl([t_{j-1},t_j]\bigr)$ is compact
+in $\Delta_j$ and so it is a positive distance away from the boundary $\partial
+\Delta_j$.  Let $\epsilon > 0$ be smaller than this distance for all
+$j=1,\ldots,n$.  Suppose $\sigma$ is as in the statement.
+Then $\sigma \bigl([t_{j-1},t_j]\bigr)$ is still in $\Delta_j$.  We can thus
+use the same $\varphi_j$ and $\Delta_j$ to get a continuation using
+\propref{prop:finitedisccont} again.
+\end{proof}
+
+We defined continuation for continuous $\gamma$, but we could have used
+piecewise $C^1$ paths since we can approximate $\gamma$ by a piecewise $C^1$
+path, or even a polygonal path.  See the following exercise.
 
 \begin{exbox}
 \begin{exercise}
-Prove that if $f \colon \Delta_r(p) \to \C$ continues analytically along a
-continuous $\gamma \colon [a,b] \to \C$ with $\gamma(a) = p$,
-$\gamma(b)=q$, then for
+Suppose $U$ is open and a holomorphic $f \colon U \to \C$ continues analytically along a
+continuous $\gamma \colon [0,1] \to \C$ with $\gamma(0) = p$,
+$\gamma(1)=q$, then for
 every $\epsilon > 0$, there
-exists a polygonal path $\sigma \colon [a,b] \to \C$ such 
+exists a polygonal path $\sigma \colon [0,1] \to \C$ such 
 that $\sabs{\sigma(t)-\gamma(t)} < \epsilon$ for all $t$,
-$\sigma(a)=\gamma(a)$, $\sigma(b)=\gamma(b)$, the
+$\sigma(0)=\gamma(0)$, $\sigma(1)=\gamma(1)$, the
 function $f$ continues analytically along $\sigma$,
-and the value of the continuation at $\gamma(b)=\sigma(b)$ is
+and the value of the continuation at $\gamma(1)=\sigma(1)$ is
 the same for $\sigma$ or $\gamma$.
 \end{exercise}
 \end{exbox}
+
+\subsection{Unrestricted continuation}
 
 Generally what we are interested in is a domain $U$ and a holomorphic $f$
 defined in a small subset of $U$.  Then we want to try to extend $f$
@@ -15781,7 +15825,7 @@ A holomorphic $f \colon \Delta_r(p) \to \C$
 \emph{\myindex{admits unrestricted continuation}}\index{unrestricted
 continuation} to $U$
 if for every $q \in U$ and \emph{every} continuous
-$\gamma \colon [a,b] \to U$, $\gamma(a) = p$, $\gamma(b) = q$,
+$\gamma \colon [0,1] \to U$, $\gamma(0) = p$, $\gamma(1) = q$,
 $f$ can be analytically continued along $\gamma$.
 \end{defn}
 
@@ -15794,42 +15838,88 @@ analytically to all of $\C \setminus \{ 0 \}$, but of course the extension
 is not well defined.  That is, for any $q$ there exists infinitely many
 paths to $q$ along which the logarithm extends and along each it extends to
 a different value.
+But not every function allow unrestricted continuation.
 
-FIXME
+\begin{example}
+Consider a branch of the square root $\sqrt{z}$ such that $\sqrt{1}=1$
+defined in some neighborhood of $1$.  Since the logarithm allows
+unrestricted continuation in $\C \setminus \{ 0 \}$ so does the square root.
+If we continue from $z=1$ along a closed that does not go around the origin and comes
+back to $z=1$, we get the continuation also has a value $1$ there.  However,
+if we go around a path that goes once around the origin, the continuation
+will have a value of $-1$ at $z=1$.  OK so far nothing new.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Now consider the function $f(z) = \frac{1}{1+\sqrt{z}}$ where the square
+root is as before.  As we can continue the square root we can try to
+continue $f$.  If we take a path starting at $z=1$ that does not go around the origin
+(such as a small loop near $1$), then we obtain the square root being $1$
+and so $f$ also continues along this loop.  However, if we now take say the
+unit circle and go once around the origin, the square root will become $-1$
+once we get back to $z=1$,
+and so $f$ cannot be analytically continued along this path.  That is, $f$
+does not allow unrestricted continuation in $\C \setminus \{ 0 \}$ even
+though it may allow continuation to every point of $\C \setminus \{ 0 \}$
+along some path.  Just not every path.
+\end{example}
 
-\section{Monodromy theorem}
-\label{sec:monodromythm}
+Inverses can often be continued for some paths, but as we saw in the
+example above, where
+we were continuing the inverse of
+$w \mapsto {\bigl(\nicefrac{1}{w}-1\bigr)}^2$, inverses do not always admit 
+unrestricted continuation.  However, if the mapping is a $k$-to-1 covering,
+then it does.
+
+\begin{prop}
+Suppose $U,V \subset \C$ are open, $f \colon U \to V$ holomorphic, $k$-to-1,
+and onto, and $p \in V$.  Then $f^{-1}$ can be defined in some neighborhood
+of $V$ and admits unrestricted analytic continuation to $V$.
+\end{prop}
+
+\begin{proof}
+Using \exerciseref{exercise:ktoone}, $f'$ never vanishes.  That
+implies, in particular, that
+$f^{-1}$ can be defined locally near $p$
+via the inverse function theorem (\thmref{thm:inversehol}).
+
+FIXME:
+\end{proof}
+
+FIXME:
+
+\subsection{Monodromy theorem}
 
 \begin{defn}
 Let $U \subset \C$ be open.
 Two continuous\footnote{This definition
 works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
-$\gamma_j(a)=\gamma_j(b)$, but we only need it for piecewise $C^1$ paths in
+$\gamma_j(0)=\gamma_j(1)$, but we only need it for piecewise $C^1$ paths in
 this section.}
-$\gamma_0 \colon [a,b] \to U$ and
-$\gamma_1 \colon [a,b] \to U$ are
+$\gamma_0 \colon [0,1] \to U$ and
+$\gamma_1 \colon [0,1] \to U$ where
+$\gamma_0(0)=\gamma_1(0)=p$
+and
+$\gamma_0(1)=\gamma_1(1)=q$
+are
 \emph{\myindex{fixed-endpoint homotopic}} in $U$
 (or relative to $U$) if there exists a continuous function
-$H \colon [a,b] \times [0,1] \to U$ such that
+$H \colon [0,1] \times [0,1] \to U$ such that
 for all $s$ and $t$
 \begin{equation*}
 H(t,0) = \gamma_0(t), \qquad
-H(t,1) = \gamma_1(t), \qquad \text{and} \qquad
-H(a,s) = H(b,s) .
+H(t,1) = \gamma_1(t), \qquad
+H(0,s) = p, \qquad
+\text{and} \qquad
+H(1,s) = q .
 \end{equation*}
 \end{defn}
-
-FIXME: homotopy of paths ...
 
 The monodromy theorem says that as long as there are
 no holes, analytic continuation defines a function uniquely.
 
 \begin{thm}[Monodromy theorem]\index{Monodromy theorem}
-If $U \subset \C$ is a simply connected domain, $D \subset U$ a disc and
-$f \colon D \to \C$ a holomorphic function that can be analytically
-continued from $p \in D$ to every $q \in U$, then there exists
+If $U \subset \C$ is a simply connected domain, $\Delta \subset U$ a disc and
+$f \colon \Delta \to \C$ holomorphic which admits unrestricted continuation
+to $U$.  Then there exists
 a unique holomorphic function $F \colon U \to \C$ such that $F|_D = f$.
 \end{thm}
 
