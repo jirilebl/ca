@@ -3369,8 +3369,7 @@ converges, then $\abs{\sum_{n=0}^\infty c_n} \leq \sum_{n=0}^\infty
 The convergence inside the radius of convergence is even nicer than just absolute.
 Let $K \subset \C$ be a set.
 A power series $\sum c_n {(z-p)}^n$
-\emph{\myindex{converges uniformly absolutely}}
-\index{uniform absolute convergence}
+\emph{\myindex{converges uniformly absolutely}}\index{uniform absolute convergence}
 for $z \in K$ when $\sum \sabs{c_n} \sabs{z-p}^n$
 converges uniformly for $z \in K$.
 Suppose a series converges uniformly absolutely.  It converges absolutely,
@@ -15336,31 +15335,280 @@ I became insane, with long intervals of horrible sanity.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Weierstrass factorization}
-\label{sec:weier}
+\section{Infinite products}
+\label{sec:prod}
 
 It is useful to factor out all the zeros of a holomorphic function,
-not just finitely many.  Similarly, we can work with poles.  Basically, if a
-function has zeros at $0$, $1$, and $i$, we could consider
-$\frac{f(z)}{z(z-1)(z-i)}$.  If those are the only zeros of $f$, then we
+not just finitely many.  Basically, if a
+function has zeros at $0$, $1$, and $i$ we
 could write $f$ as
-$f(z) = g(z) z(z-1)(z-i)$ where $g$ is never zero.
-
-Now the question is, what about infinitely many
-zeros.  Can we for example factor out the zeros out of $\sin z$?  Can we
+$f(z) = g(z) z(z-1)(z-i)$.  And if those were the only zeros, then 
+$g$ would be never zero.  If there are infinitely many zeros, things become
+difficult.
+Can we for example factor out the zeros out of $\sin z$?  Can we
 write $\sin z$ as something times $\prod_{n \in \Z} (z-2\pi n)$?  Sort of,
-though we have to be more careful about convergence.  So we need to use
+though we have to be careful about convergence.  Of course, we first have to
+figure out what do we mean by convergence.  Second, even once we figure out
+what convergence means, it will still require a bit more work as
+we will need to use
 more complicated factors to make convergence happen the way we want to.
 
 \begin{defn}
 The product
 $\prod_{j=1}^\infty (1+a_j)$
 \emph{converges}\index{converges!infinite product} if the sequence partial products
-$\prod_{j=1}^n (1+a_j)$ converges.  We say that the product
-\emph{converges absolutely}\index{converges!infinite product}
-if $\prod_{j=1}^\infty (1+\sabs{a_j})$
-converges, which is equivalent to $\sum_{j=1}^\infty \sabs{a_j}$ converging.
+$\prod_{j=1}^n (1+a_j)$ converges.
+We say that the product
+\emph{converges absolutely}\index{converges absolutely!infinite product}
+if $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$
+converges.
+\end{defn}
 
+A product could converge in two different ways.  It either goes to 0 or not.
+One way to go to zero is if $1+a_j=0$ for some $j$, but there
+are other possibilities, for example, if $\sabs{1+a_j} \leq r < 1$ for all
+$j$, then the product also goes to zero, although in this case the
+convergence will not be absolute (exercise below).
+
+In fact, suppose that the product converges to a nonzero number.
+In particular $a_j \not= -1$ for any $j$.  Then
+\begin{equation*}
+\frac{
+\prod_{j=1}^{n+1} (1+a_j)
+}{
+\prod_{j=1}^{n} (1+a_j)
+}
+=1+a_n
+\end{equation*}
+Taking the limit we see that $1+a_n$ must go to 1, and so $a_n$ must go to 0.
+
+A key idea about products is to relate infinite products to sums using the
+logarithm, which is something we can easily do if dealing with positive
+numbers.  This means that absolutely convergent products can be understood
+if we can understand absolutely convergent sums, which we do.
+
+\begin{prop} \label{prop:infprodabsconvinfsum}
+The product $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$ converges if and only if
+$\sum_{j=1}^\infty \sabs{a_j}$ converges.
+\end{prop}
+
+\begin{proof}
+Suppose first suppose that $\sum_{j=1}^\infty \sabs{a_j}$ converges.
+The sequence of partial products is increasing:
+\begin{equation*}
+\prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr) \leq
+\prod_{j=1}^{n+1} \bigl(1+\sabs{a_j}\bigr) .
+\end{equation*}
+Thus it is sufficient to find that it is bounded.
+Consider
+\begin{equation*}
+\log \prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr)
+=
+\sum_{j=1}^n \log \bigl(1+\sabs{a_j}\bigr)
+\leq
+\sum_{j=1}^n \sabs{a_j} \leq
+\sum_{j=1}^\infty \sabs{a_j} .
+\end{equation*}
+
+For the other direction, suppose that the sequence of partial products
+converges.  Also note that clearly for all but finitely many $j$, we must
+have $\sabs{a_j} < 1$.  Otherwise the product would double infinitely often and go to
+infinity.  So suppose that for all $j \geq N$, $\sabs{a_j} < 1$.
+Furthermore if $\sabs{a_j} < 1$, then it is not hard to check $\sabs{a_j}
+\leq 2 \log \bigl(1+\sabs{a_j}\bigr)$
+\begin{equation*}
+\sum_{j=N}^n \sabs{a_j}
+\leq
+\sum_{j=N}^n 2 \log \bigl(1+\sabs{a_j}\bigr)
+\leq
+2 \log \prod_{j=N}^n \bigl(1+\sabs{a_j}\bigr) .
+\end{equation*}
+The right hand side is bounded as $n$ goes to infinity, and so the tail
+$\sum_{j=1}^\infty \sabs{a_j}$ converges.
+\end{proof}
+
+An immediate consequence is that if 
+$\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then
+$\{ a_j \}$ converges to $0$.  Actually much more than that, they have to
+precisely go to zero fast enough to be summable.
+
+As for series we need to know that absolute convergence really is convergence.
+
+\begin{prop}
+If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then it converges.
+\end{prop}
+
+\begin{proof}
+If the product converges absolutely then $\sabs{a_j}$ goes to $0$, and so we
+can assume that $\Re a_j > -1$ for all $j$.  In particular, we have that
+$\Log (1+a_j)$ is well-defined for the principal branch of the logarithm.
+Let $m > n$ be two positive integers.
+\begin{multline} \label{eq:infprodest1}
+\abs{
+\sum_{j=1}^m 
+\Log (1+a_j)
+-
+\sum_{j=1}^n 
+\Log (1+a_j)
+}
+=
+\abs{
+\sum_{j=n+1}^m 
+\Log (1+a_j)
+}
+\\
+\leq
+\sum_{j=n+1}^m 
+\abs{
+\Log (1+a_j)
+}
+\leq
+\sum_{j=n+1}^m 
+\left(
+\log \sabs{1+a_j}
++
+\abs{ \Arg (1+a_j)}
+\right) .
+\end{multline}
+As in the proof above,
+\begin{equation*}
+\sum_{j=1}^k \log \sabs{1+a_j} \leq
+\sum_{j=1}^k \log \bigl(1+\sabs{a_j}\bigr)
+\leq
+\sum_{j=1}^k \sabs{a_j} ,
+\end{equation*}
+and this series converges via the proposition.
+Next, $\Arg(1+a_j)$ is between $\nicefrac{-\pi}{2}$ and
+$\nicefrac{\pi}{2}$ and $a_j$ is going to zero.  So for all large
+enough $j$, we get that $\sabs{\Arg(1+a_j)} \leq 2\sabs{a_j}$.  As $\sum
+\sabs{a_j}$ converges, we find that
+$\sum \abs{\Arg (1+a_j)}$ converges.
+
+In other words, the right hand side in \eqref{eq:infprodest1} goes to zero
+as $n$ goes to infinity.  Thus, $\sum \Log(1+a_j)$ is Cauchy and hence
+converges.  When taking an exponential, it does not matter which branch of
+the logarithm we take, and therefore the following makes sense, where we use
+$\log$ to denote any branch of logarithm whatsoever.
+\begin{equation*}
+\exp\left(
+\sum_{j=1}^n \Log(1+a_j)
+\right)
+=
+\exp\left(
+\log \prod_{j=1}^n (1+a_j)
+\right)
+=
+\prod_{j=1}^n (1+a_j) .
+\end{equation*}
+We thus find that that the product converges.
+\end{proof}
+
+\begin{prop}
+If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely to $0$, then there
+exists a $j$ such that $a_j=-1$.
+\end{prop}
+
+\begin{proof}
+We simply analyze the proof of the proposition above.  In the proof we
+assumed that $\Re a_j > -1$ for all large enough $j$ and then we showed that
+this meant that the limit of the product was the exponential the limit of
+$\sum \Log(1+a_j)$, and thus nonzero.  So the only way for the limit to be
+zero is if one of the terms that we dropped was zero to begin with, that is,
+if $a_j=-1$ for some $j$.
+\end{proof}
+
+
+
+
+\begin{defn}
+Given functions $g_j \colon X \to \C$, the product
+$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
+\emph{converges uniformly absolutely}%
+\index{converges absolutely uniformly!infinite product}%
+\index{uniform absolute convergence!infinite product}
+if
+$\prod_{j=1}^{\infty} \bigl(1+\sabs{g_j(x)}\bigr)$ 
+converges uniformly in $x \in X$.
+\end{defn}
+
+Uniformly absolute convergence of the product is the same as uniformly
+absolute convergence of the sum.
+
+\begin{prop}
+For $g_j \colon X \to \C$, the product
+$\prod_{j=1}^{\infty} \bigl(1+\sabs{g_j(x)}\bigr)$ 
+converges uniformly if and only if
+$\sum_{j=1}^{\infty} \sabs{g_j(x)}$ converges uniformly.
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.  Hint:
+Use log to convert the partial products to partial sums.
+Then apply the estimates in \propref{prop:infprodabsconvinfsum} to
+show that one sequence of partial sums is uniformly Cauchy if and only if
+the other one is.
+\end{exercise}
+\end{exbox}
+
+And just as before one funds that uniform absolute convergence means uniform
+convergence.
+
+\begin{prop} \label{prop:unifabsconvprod}
+For $g_j \colon X \to \C$, if
+$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
+converges uniformly absolutely, then
+$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
+converges uniformly.
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
+
+\begin{cor}
+Suppose $U \subset \C$ is open, $f_n \colon U \to \C$ holomorphic
+functions, and $f(z) = \prod_{n=1}^\infty f_n(z)$ converges uniformly absolutely
+on compact subsets of $U$.  Then $f$ is holomorphic.  Furthermore, $f(z)=0$
+if and only if there exists an $n$ such that $f_n(z)=0$.
+\end{cor}
+
+\begin{proof}
+As uniform absolute convergence implies uniform convergence, we get that $f$
+is holomorphic.  And for absolutely convergent convergent products, the only
+way to get zero is for one of the terms to be zero.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Suppose $\sabs{1+a_j} \leq r < 1$ for all
+$j$, 
+prove that $\prod_{j=1}^\infty (1+a_j)$ converges to 0, but that the
+convergence is not absolute.
+\end{exercise}
+
+\begin{exercise}
+Suppose $\Re a_j > -1$ for all $j$.  Then
+$\prod_{j=1}^\infty (1+a_j)$
+converges to a nonzero number if and only if
+$\sum_{j=1}^\infty \Log (1+a_j)$ converges.
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Weierstrass factorization}
+\label{sec:weier}
+
+Se we said, to factor an arbitrary holomorphic function such as $\sin$,
+we will have to be a bit trickier than just trying to factor out $(z-z_j)$
+for all the zeros.  To
+get the product to converge, we must multiply the factor by something to
+make the factor smaller and make the series converge.
+
+\begin{defn}
 Define the \emph{\myindex{elementary factors}}
 \begin{equation*}
 E_0(z) = (1-z), \qquad
