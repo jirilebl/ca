@@ -15437,8 +15437,19 @@ precisely go to zero fast enough to be summable.
 
 As for series we need to know that absolute convergence really is convergence.
 
-\begin{prop}
+\begin{prop} \label{prop:infproductwithlogs}
 If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then it converges.
+
+Moreover, if furthermore $\Re a_j > -1$ for all $j$, then 
+\begin{equation*}
+\prod_{j=1}^\infty (1+a_j)
+=
+\exp\left(
+\sum_{j=1}^\infty \Log(1+a_j)
+\right),
+\end{equation*}
+where the series converges absolutely.  In particular, the product
+converges to a nonzero number.
 \end{prop}
 
 \begin{proof}
@@ -15449,22 +15460,17 @@ Let $m > n$ be two positive integers.
 \begin{multline} \label{eq:infprodest1}
 \abs{
 \sum_{j=1}^m 
-\Log (1+a_j)
+\abs{\Log (1+a_j)}
 -
 \sum_{j=1}^n 
-\Log (1+a_j)
+\abs{\Log (1+a_j)}
 }
-=
-\abs{
-\sum_{j=n+1}^m 
-\Log (1+a_j)
-}
-\\
 \leq
 \sum_{j=n+1}^m 
 \abs{
 \Log (1+a_j)
 }
+\\
 \leq
 \sum_{j=n+1}^m 
 \left(
@@ -15483,12 +15489,12 @@ As in the proof above,
 and this series converges via the proposition.
 Next, $\Arg(1+a_j)$ is between $\nicefrac{-\pi}{2}$ and
 $\nicefrac{\pi}{2}$ and $a_j$ is going to zero.  So for all large
-enough $j$, we get that $\sabs{\Arg(1+a_j)} \leq 2\sabs{a_j}$.  As $\sum
+enough $j$, we get that $\babs{\Arg(1+a_j)} \leq 2\sabs{a_j}$.  As $\sum
 \sabs{a_j}$ converges, we find that
-$\sum \abs{\Arg (1+a_j)}$ converges.
+$\sum \babs{\Arg (1+a_j)}$ converges.
 
 In other words, the right hand side in \eqref{eq:infprodest1} goes to zero
-as $n$ goes to infinity.  Thus, $\sum \Log(1+a_j)$ is Cauchy and hence
+as $n$ goes to infinity.  Thus, $\sum \babs{\Log(1+a_j)}$ is Cauchy and hence
 converges.  When taking an exponential, it does not matter which branch of
 the logarithm we take, and therefore the following makes sense, where we use
 $\log$ to denote any branch of logarithm whatsoever.
@@ -15512,14 +15518,34 @@ exists a $j$ such that $a_j=-1$.
 \end{prop}
 
 \begin{proof}
-We simply analyze the proof of the proposition above.  In the proof we
-assumed that $\Re a_j > -1$ for all large enough $j$ and then we showed that
-this meant that the limit of the product was the exponential the limit of
-$\sum \Log(1+a_j)$, and thus nonzero.  So the only way for the limit to be
-zero is if one of the terms that we dropped was zero to begin with, that is,
-if $a_j=-1$ for some $j$.
+In the proof of the proposition above we
+noticed that $\Re a_j > -1$ for all large enough $j$.  Then the product
+of those terms converges to a nonzero number by the ``Moreover'' part of the
+proposition.  The only way to get zero as a limit is one of the initial
+terms to be zero, that is, if $a_j=-1$ for some $j$.
 \end{proof}
 
+Just as for series, an absolutely convergent power series can be reordered.
+
+\begin{prop}
+Suppose $\prod_{j=1}^\infty (1+a_j)$ converges absolutely to $L$.
+If $\varphi \colon \N \to \N$ is a bijection, then 
+$\prod_{j=1}^\infty (1+a_{\varphi(j)})$ also converges absolutely to $L$.
+\end{prop}
+
+\begin{proof}
+That the reordered series converges absolutely follows from the fact that
+\propref{prop:infprodabsconvinfsum} as the corresponding result for series.
+If $L=0$, then one of the terms is zero, and clearly the reordered product
+also converges to $0$.  Suppose the product converges to a nonzero number.
+By ignoring finitely many terms, we can without loss of generality assume
+that $\Re a_j > -1$ and $\sum \Log(1+a_j)$ converges absolutely and
+\begin{equation*}
+L = \exp\left(\sum_{j=1}^\infty \Log(1+a_j)\right) .
+\end{equation*}
+As the sum converges absolutely it can be reordered and hence the product
+can be reordered and the limit remains the same.
+\end{proof}
 
 
 
@@ -15597,7 +15623,8 @@ Suppose $\Re a_j > -1$ for all $j$.
 Prove that
 $\prod_{j=1}^\infty (1+a_j)$
 converges to a nonzero number if and only if
-$\sum_{j=1}^\infty \Log (1+a_j)$ converges.
+$\sum_{j=1}^\infty \Log (1+a_j)$ converges.  Note: We have proved one
+direction.
 \end{exercise}
 \end{exbox}
 
@@ -15625,20 +15652,46 @@ E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
 
 Notice that the function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
 As we are relating the absolute convergence of $\prod (1+a_k)$ to $\sum
-\sabs{a_k}$, let us consider what happens to $\sabs{E_m(z)-1}$.
+\sabs{a_k}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
+Before we do so, let us prove a very useful estimate for holomorphic functions
+on the disc.  By the maximum modulus principle the maximum is attained at
+the boundary, but if the derivatives are all positive, then it is attained
+at a very specific point.
 
 \begin{lemma}
-$\sabs{E_m(z)-1} \leq \sabs{z}^{m+1}$ for all $m = 0,1,2,\ldots$ and all 
+Suppose $f$ is a holomorphic function on a neighborhood of the closed
+disc $\overline{\D}$ and suppose $f^{(n)}(0) \geq 0$ for all $n$.
+Then $f(1)$ is real and for $z \in \overline{\D}$,
+\begin{equation*}
+\babs{f(z)} \leq f(1) .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Expand $f(z) = \sum c_n z^n$.  Since the derivatives of $f$ are positive,
+then $c_n \geq 0$.  Thus for $z \in \overline{\D}$
+\begin{equation*}
+\babs{f(z)} =
+\abs{\sum_{n=0}^\infty c_n z^n}
+\leq
+\sum_{n=0}^\infty c_n \sabs{z}^n
+\leq
+\sum_{n=0}^\infty c_n = f(1) .  \qedhere
+\end{equation*}
+\end{proof}
+
+\begin{lemma}
+$\sabs{1-E_m(z)} \leq \sabs{z}^{m+1}$ for all $m = 0,1,2,\ldots$ and all 
 $z \in \overline{\D}$.
 \end{lemma}
 
 \begin{proof}
 The lemma clearly holds for $m=0$.
-Differentiating $E_m(z)-1$, we find using the finite geometric sum,
+Differentiating $1-E_m(z)$, we find using the finite geometric sum,
 \begin{multline*}
-E'_m(z) =
-- \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
-+
+-E'_m(z) =
+\exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+-
 (1-z) (1 +z  + \cdots + z^{m-1} ) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
 \\
 =
@@ -15648,31 +15701,15 @@ E'_m(z) =
 %=
 z^m \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right) .
 \end{multline*}
-Notably, $E_m(z)-1$ has a zero of order $m+1$ at $z=0$.  Next,
-for $z \in \overline{\D}$
-\begin{multline*}
-\sabs{E'_m(z)} =
-{\sabs{z}}^m \exp\left( \Re \left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m}
-\right) \right) 
-\leq
-{\sabs{z}}^m \exp\left( 1 + \frac{1}{2} + \cdots + \frac{1}{m} \right) 
-\\
-\leq
-{\sabs{z}}^m \exp\bigl(\log(m+1)\bigr)
-=
-(m+1){\sabs{z}}^m .
-\end{multline*}
-As
-\begin{multline*}
-\sabs{E_m(z)-1} \leq
-\int_{[0,z]} \sabs{E'_m(\zeta)} \, \sabs{d\zeta}
-\\
-\leq
-\int_{[0,z]} (m+1){\sabs{\zeta}}^m \, \sabs{d\zeta}
-=
-\int_{0}^{\sabs{z}} (m+1){t}^m \, dt = \sabs{z}^{m+1} .
-\qedhere
-\end{multline*}
+Notably, $1-E_m(z)$ has a zero of order $m+1$ at $z=0$.  Thus $f(z) =
+\frac{1-E_m(z)}{z^{m+1}}$ has a removable singularity.  From the formula for
+the derivative $E_m'(z)$ it is clear the coefficients of the power series
+for $f$ at 0 will be nonnegative.  Hence, by the lemma, for $z \in
+\overline{\D}$
+\begin{equation*}
+\abs{\frac{1-E_m(z)}{z^{m+1}}} \leq
+\frac{1-E_m(1)}{1^{m+1}} = 1 .  \qedhere
+\end{equation*}
 \end{proof}
 
 We can now prove the sister theorem to Mittag--Leffler, at least in the
@@ -15698,16 +15735,18 @@ f(z) = z^m \prod_{n=1}^\infty E_{p_n}\left(\frac{z}{a_n}\right) ,
 \avoidbreak
 \end{equation*}
 which converges absolutely and uniformly on all compact subsets.
+In fact, any sequence $\{ p_n \}$ such that
+\begin{equation} \label{eq:pnconvergence}
+\sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{p_n+1}
+\end{equation}
+converges for all $r > 0$ will work.
 \end{thm}
 
 \begin{proof}
 We can clearly ignore the zero at the origin, and just consider the nonzero
-zeros $\{ a_n \}$.
-We choose $\{ p_n \}$ so that 
-\begin{equation*}
-\sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{p_n+1}
-\end{equation*}
-converges for all $r > 0$.  Indeed choosing $p_n = n-1$ would suffice.  As
+zeros $\{ a_n \}$.  We claim that at least one sequence
+such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
+Indeed choosing $p_n = n-1$ would suffice.  As
 $\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
 Thus for any $r > 0$ we get $\sabs{a_n} \geq 2r$ or
 $\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
@@ -15737,10 +15776,7 @@ is uniform in $K$, as the right hand side above does not depend on $z$.
 \end{proof}
 
 There are many choices for the sequence $\{ p_n \}$.  The proof says
-that the convergence of
-\begin{equation*}
-\sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{p_n+1}
-\end{equation*}
+that the convergence of \eqref{eq:pnconvergence} 
 for every $r>0$ guarantees convergence of the product, but we may still pick
 and choose $\{ p_n \}$.
 
@@ -15749,7 +15785,8 @@ use it to factor out all the zeros of any other entire function, and hence
 obtain a factorization.
 
 \begin{cor}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
-Let $f$ be an entire function with zeros (counting with multiplicity) at points of
+Let $f$ be an entire function, not identically zero,
+with zeros (counting with multiplicity) at points of
 the sequence $\{ a_n \}$ except the zero at
 the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
 entire holomorphic function $g$ and a sequence $\{ p_n \}$ such that
