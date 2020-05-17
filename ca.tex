@@ -15356,9 +15356,12 @@ more complicated factors to make convergence happen the way we want to.
 \begin{defn}
 The product
 $\prod_{j=1}^\infty (1+a_j)$
-\emph{converges}\index{converges!infinite product} if the sequence partial products
-$\prod_{j=1}^n (1+a_j)$ converges.
-We say that the product
+\emph{converges}\index{converges!infinite product} if the sequence of partial products
+\begin{equation*}
+\prod_{j=1}^n (1+a_j) = (1+a_1)(1+a_2) \cdots (1+a_n)
+\end{equation*}
+converges as $n \to \infty$.
+The product
 \emph{converges absolutely}\index{converges absolutely!infinite product}
 if $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$
 converges.
@@ -15590,7 +15593,8 @@ convergence is not absolute.
 \end{exercise}
 
 \begin{exercise}
-Suppose $\Re a_j > -1$ for all $j$.  Then
+Suppose $\Re a_j > -1$ for all $j$.  
+Prove that
 $\prod_{j=1}^\infty (1+a_j)$
 converges to a nonzero number if and only if
 $\sum_{j=1}^\infty \Log (1+a_j)$ converges.
@@ -15599,10 +15603,12 @@ $\sum_{j=1}^\infty \Log (1+a_j)$ converges.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Weierstrass factorization}
+\section{Weierstrass factorization and product theorems}
 \label{sec:weier}
 
-Se we said, to factor an arbitrary holomorphic function such as $\sin$,
+\subsection{In the plane}
+
+As we said, to factor an arbitrary holomorphic function such as $\sin$,
 we will have to be a bit trickier than just trying to factor out $(z-z_j)$
 for all the zeros.  To
 get the product to converge, we must multiply the factor by something to
@@ -15618,35 +15624,211 @@ E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
 \end{defn}
 
 Notice that the function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
+As we are relating the absolute convergence of $\prod (1+a_k)$ to $\sum
+\sabs{a_k}$, let us consider what happens to $\sabs{E_m(z)-1}$.
 
-\begin{thm}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
-Let $f$ be an entire function with zeros (with multiplicity) at points of
-the sequence $\{ a_k \}$ except the zero at
-the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
-entire function $g$ and a sequence $p_k$ such that
+\begin{lemma}
+$\sabs{E_m(z)-1} \leq \sabs{z}^{m+1}$ for all $m = 0,1,2,\ldots$ and all 
+$z \in \overline{\D}$.
+\end{lemma}
+
+\begin{proof}
+The lemma clearly holds for $m=0$.
+Differentiating $E_m(z)-1$, we find using the finite geometric sum,
+\begin{multline*}
+E'_m(z) =
+- \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
++
+(1-z) (1 +z  + \cdots + z^{m-1} ) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+\\
+=
+%- \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+%+
+%(1+z^m) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+%=
+z^m \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right) .
+\end{multline*}
+Notably, $E_m(z)-1$ has a zero of order $m+1$ at $z=0$.  Next,
+for $z \in \overline{\D}$
+\begin{multline*}
+\sabs{E'_m(z)} =
+{\sabs{z}}^m \exp\left( \Re \left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m}
+\right) \right) 
+\leq
+{\sabs{z}}^m \exp\left( 1 + \frac{1}{2} + \cdots + \frac{1}{m} \right) 
+\\
+\leq
+{\sabs{z}}^m \exp\bigl(\log(m+1)\bigr)
+=
+(m+1){\sabs{z}}^m .
+\end{multline*}
+As
+\begin{multline*}
+\sabs{E_m(z)-1} \leq
+\int_{[0,z]} \sabs{E'_m(\zeta)} \, \sabs{d\zeta}
+\\
+\leq
+\int_{[0,z]} (m+1){\sabs{\zeta}}^m \, \sabs{d\zeta}
+=
+\int_{0}^{\sabs{z}} (m+1){t}^m \, dt = \sabs{z}^{m+1} .
+\qedhere
+\end{multline*}
+\end{proof}
+
+We can now prove the sister theorem to Mittag--Leffler, at least in the
+plane.  That is, we can prescribe zeros of an entire function arbitrarily.
+The only requirement is the obvious one from the identity theorem,
+that the zeros do not have a limit point in $\C$.
+
+\begin{thm}[Weierstrass product theorem in $\C$]
+\index{Weierstrass product theorem in $\C$}
+Suppose $\{ c_k \}$ is a sequence of distinct points in $\C$
+with no limit points in $\C$ and $\{ n_k \}$ is a sequence of
+natural numbers.
+Then there exists an entire holomorphic $f \colon \C \to \C$ that
+has zeros exactly at $c_k$, with orders given by $n_k$.
+
+More precisely, suppose $\{ a_n \}$ is the sequence of nonzero $\{ c_k \}$ with points
+repeated according to the multiplicities $\{ n_k \}$, and such that $m$
+is the order of the zero at the origin.
+Then there exists a
+sequence $\{ p_n \}$ such that
 \begin{equation*}
-f(z) = z^m e^{g(z)} \prod_{k=1}^\infty E_{p_k}\left(\frac{z}{a_k}\right) ,
+f(z) = z^m \prod_{n=1}^\infty E_{p_n}\left(\frac{z}{a_n}\right) ,
+\avoidbreak
 \end{equation*}
-converges absolutely and uniformly on all compact subsets.
+which converges absolutely and uniformly on all compact subsets.
 \end{thm}
 
-FIXME: The $p_k$ are chosen such that
+\begin{proof}
+We can clearly ignore the zero at the origin, and just consider the nonzero
+zeros $\{ a_n \}$.
+We choose $\{ p_n \}$ so that 
 \begin{equation*}
-\sum_{j=1}^\infty {\abs{\frac{r}{a_k}}}^{1+p_k}
+\sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{p_n+1}
 \end{equation*}
-converges for all $r > 0$.
+converges for all $r > 0$.  Indeed choosing $p_n = n-1$ would suffice.  As
+$\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
+Thus for any $r > 0$ we get $\sabs{a_n} \geq 2r$ or
+$\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
+for all large enough $n$.   Thus if $p_n = n-1$, a tail series is bounded
+by the geometric series $\sum {\bigl(\nicefrac{1}{2}\bigr)}^n$.
+
+Consider a compact set $K$ in the plane.  It is contained in some closed disc
+$\overline{\Delta_r(0)}$.  We want to get uniformly absolute convergence
+of the product, and so we need
+\begin{equation*}
+\sum_{n=1}^\infty \abs{ E_{p_n}\left(\frac{z}{a_n}\right)-1}
+\end{equation*}
+to converge uniformly on $K$.
+If $z \in K$, then $\sabs{z}\leq r$.  Furthermore, as $a_n$ must go to
+infinity, we have that for all $n$ large enough that $\sabs{a_n} \geq r$
+and so $\abs{\frac{z}{a_n}} \leq 1$.
+And so by the lemma,
+\begin{equation*}
+\abs{ E_{p_n}\left(\frac{z}{a_n}\right)-1}
+\leq
+\abs{\frac{z}{a_n}}^{p_n+1}
+\leq
+\abs{\frac{r}{a_n}}^{p_n+1} .
+\end{equation*}
+Thus a tail of the series converges and thus it converges.  The convergence
+is uniform in $K$, as the right hand side above does not depend on $z$.
+\end{proof}
+
+There are many choices for the sequence $\{ p_n \}$.  The proof says
+that the convergence of
+\begin{equation*}
+\sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{p_n+1}
+\end{equation*}
+for every $r>0$ guarantees convergence of the product, but we may still pick
+and choose $\{ p_n \}$.
+
+Now that we can prescribe zeros of an entire function, we can
+use it to factor out all the zeros of any other entire function, and hence
+obtain a factorization.
+
+\begin{cor}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
+Let $f$ be an entire function with zeros (counting with multiplicity) at points of
+the sequence $\{ a_n \}$ except the zero at
+the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
+entire holomorphic function $g$ and a sequence $\{ p_n \}$ such that
+\begin{equation*}
+f(z) = z^m e^{g(z)} \prod_{n=1}^\infty E_{p_n}\left(\frac{z}{a_n}\right) ,
+\end{equation*}
+converges absolutely and uniformly on all compact subsets.
+\end{cor}
+
+\begin{proof}
+Let $h \colon \C \to \C$ be the entire function
+\begin{equation*}
+h(z) = \prod_{n=1}^\infty E_{p_n}\left(\frac{z}{a_n}\right) ,
+\end{equation*}
+where the $p_n$ comes from the product theorem.  The function
+$\varphi(z) = \frac{f(z)}{h(z)z^m}$
+has only removable singularities, so $\varphi$ can be made entire.
+The function $\varphi$ has no zeros, and so we can write $\varphi(z) =
+e^{g(z)}$ for an entire function $g$ as $\C$ is simply connected.
+\end{proof}
 
 FIXME:
 
-\begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
-Suppose $U \subset \C$ is a domain, $\{ a_k \}$, $\{ b_k \}$ are
-countable sets in $U$
-with no limit points in $U$, and $\{ n_k \}$, $\{ m_k \}$ any countable sets of
+\begin{exbox}
+\begin{exercise}
+Suppose $\{ a_k \}$, $\{ b_k \}$ are
+sequences of distinct points in $\C$
+with no limit points, and $\{ n_k \}$, $\{ m_k \}$ sequences of
 natural numbers.
-Then there exists a meromorphic function $f$ of $U$ whose
+Prove that
+there exists a meromorphic function $f \colon \C \to \C_\infty$ whose
 zeros are exactly at $a_k$, with orders given by $n_k$, and
 poles are exactly at $b_k$, with orders given by $m_k$.
+\end{exercise}
+\end{exbox}
+
+\subsection{Factorization of sine}
+
+FIXME
+
+\subsection{The product theorem in any domain}
+
+\begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
+Suppose $U \subset \C$ is open, $\{ a_k \}$ is
+a sequence of distinct points in $U$
+with no limit points in $U$, and $\{ n_k \}$ is a sequence of
+natural numbers.
+Then there exists a holomorphic $f \colon U \to \C$ that has
+zeros exactly at $a_k$, with orders given by $n_k$.
 \end{thm}
+
+\begin{proof}
+FIXME
+\end{proof}
+
+Using this theorem we can prove that the set of meromorphic functions on a
+domain in $\C$ the field of fractions.  In less fancy language we prove:
+
+\begin{cor}
+Suppose $U \subset \C$ is open and $f \colon U \to \C_{\infty}$ is
+meromorphic.  Then there exist holomorphic $g,h \colon U \to \C$ such that
+$f = \frac{g}{h}$.
+\end{cor}
+
+\begin{proof}
+By the product theorem there exists a holomorphic function $h$ that has
+zeros exactly where $f$ has poles, and of the same order.  The function $fh$
+therefore has removable singularities at all the poles of $f$.  In other
+words, there is a holomorphic $g$ such that $g=fh$.
+\end{proof}
+
+\begin{remark}
+When we introduced the corollary, we mentioned domain, but then we proved it
+for an open set.  The thing is a bit of algebra.  If $U$ is not connected,
+then the set of holomorphic functions is not an integral domain, it has zero
+divisors, and a field of fractions is only defined for integral domains.
+\end{remark}
+
+FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
