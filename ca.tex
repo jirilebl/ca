@@ -15346,7 +15346,7 @@ $f(z) = g(z) z(z-1)(z-i)$.  And if those were the only zeros, then
 $g$ would be never zero.  If there are infinitely many zeros, things become
 difficult.
 Can we for example factor out the zeros out of $\sin z$?  Can we
-write $\sin z$ as something times $\prod_{n \in \Z} (z-2\pi n)$?  Sort of,
+write $\sin z$ as something times $\prod_{n \in \Z} (z-\pi n)$?  Sort of,
 though we have to be careful about convergence.  Of course, we first have to
 figure out what do we mean by convergence.  Second, even once we figure out
 what convergence means, it will still require a bit more work as
@@ -15825,7 +15825,46 @@ poles are exactly at $b_k$, with orders given by $m_k$.
 
 \subsection{Factorization of sine}
 
+Let us use the Weierstrass factorization theorem to factor the sine function
+as we promised.  The function $\sin(\pi z)$ has zeros at the integers $\Z$.  As
+Let us consider the positive integers, then we note that
+\begin{equation*}
+\sum_{n=1}^\infty \abs{\frac{r}{n}}^{2}
+\end{equation*}
+converges for every $r > 0$.  Similarly for the negative integers.  Thus we
+could choose $p_n =1$ in the product theorem.  Write
+\begin{equation*}
+f(z) =
+\pi z \prod_{n \in \Z \setminus \{ 0 \}} E_1\left(\frac{z}{n}\right)
+= 
+\pi z \prod_{n \in \Z \setminus \{ 0 \}} \left(1-\frac{z}{n}\right) e^{z/n} .
+\end{equation*}
+We write the product in no particular order as the product converges
+absolutely.  We can group some terms together for convenience
+\begin{equation*}
+f(z) =
+\pi z \prod_{n=1}^\infty 
+\left(1-\frac{z}{n}\right) e^{z/n}
+\left(1-\frac{z}{-n}\right) e^{-z/n}
+=
+\pi z \prod_{n=1}^\infty 
+\left(1-\frac{z^2}{n^2}\right) .
+\end{equation*}
+That's a rather nice factorization.  Of course we still do not know $f(z)$ is
+$\sin(\pi z)$, all we know is that the two have the same zeros.
+
+
+
 FIXME
+
+\begin{prop}
+For all $z \in \C$,
+\begin{equation*}
+\sin(\pi z) =
+\pi z \prod_{n=1}^\infty 
+\left(1-\frac{z^2}{n^2}\right) .
+\end{equation*}
+\end{prop}
 
 \subsection{The product theorem in any domain}
 
@@ -15866,6 +15905,14 @@ divisors, and a field of fractions is only defined for integral domains.
 \end{remark}
 
 FIXME
+
+\begin{exbox}
+\begin{exercise}
+Show that there exists a holomorphic function $f \colon \D \to \C$ that does
+not extend holomorphically to any domain $U$ where $\D \subsetneq U$.  Hint:
+Consider a sequence of points in $\D$ whose limit set is the circle.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
