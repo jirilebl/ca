@@ -21162,8 +21162,8 @@ $V$ around $p$ such that
 \snorm{A-Df|_x} < \frac{1}{2\snorm{A^{-1}}}
 \qquad \text{for all } x \in V.
 \end{equation*}
-The inequality implies that $Df|_x$ is invertible for all $x \in V$.
-%FIXME: should we say more? %by \propref{prop:finitedimpropinv}.
+The inequality implies that $Df|_x$ is invertible for all $x \in V$
+(see exercise below).
 
 Given $y \in \R^n$ we define $\varphi_y \colon C \to \R^n$ by
 \begin{equation*}
@@ -21259,8 +21259,9 @@ So
 \snorm{h-A^{-1}k} = \snorm{\varphi_y(x+h)-\varphi_y(x)} \leq
 \frac{1}{2}\snorm{x+h-x} = \frac{\snorm{h}}{2}.
 \end{equation*}
-By the inverse triangle inequality $\snorm{h} - \snorm{A^{-1}k} \leq
-\frac{1}{2}\snorm{h}$, so
+By the inverse triangle inequality, $\snorm{h} - \snorm{A^{-1}k} \leq
+\frac{1}{2}\snorm{h}$.
+So
 \begin{equation*}
 \snorm{h} \leq 2 \snorm{A^{-1}k} \leq 2 \snorm{A^{-1}} \, \snorm{k}.
 \end{equation*}
@@ -21345,8 +21346,8 @@ find a global polynomial inverse is the question.
 \begin{exercise}
 \begin{exparts}
 \item
-Given a linear operator $A$ such that
-$\snorm{I-A} < 1$, then $A$ is invertible ($I$ is the identity).
+Given a linear operator $A$ on $\R^n$ such that
+$\snorm{I-A} < 1$ ($I$ is the identity). Prove that $A$ is invertible.
 \item
 For two linear operators $A$ and $B$ on $\R^n$ where $A$ is invertible,
 prove that $\snorm{A-B} < \frac{1}{\snorm{A^{-1}}}$ implies that $B$ is
