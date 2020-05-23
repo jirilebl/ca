@@ -15626,6 +15626,20 @@ converges to a nonzero number if and only if
 $\sum_{j=1}^\infty \Log (1+a_j)$ converges.  Note: We have proved one
 direction.
 \end{exercise}
+
+\begin{exercise}\label{exercise:proddiff}
+%FIXME: used exercise
+Suppose $U \subset \C$ is a domain and
+\begin{equation*}
+F(z) = \prod_{n=1}^\infty f_n(z)
+\end{equation*}
+for holomorphic functions $f_n \colon U \to \C$ converges uniformly 
+on compact subsets of $U$.  Prove that
+\begin{equation*}
+F'(z) = \sum_{n=1}^\infty f_n'(z) \prod_{k=1, k\not=n}^\infty f_k(z) ,
+\end{equation*}
+converging uniformly on compact subsets of $U$.
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15808,9 +15822,29 @@ The function $\varphi$ has no zeros, and so we can write $\varphi(z) =
 e^{g(z)}$ for an entire function $g$ as $\C$ is simply connected.
 \end{proof}
 
-FIXME:
-
 \begin{exbox}
+\begin{exercise}[Easy]
+Suppose $\{ a_n \}$ is a sequence such that there is some $\epsilon>0$ and
+$\sabs{a_n} \geq n^{1+\epsilon}$ for all $n$.  Prove that
+\begin{equation*}
+\prod_{n=1}^\infty
+\left(1-\frac{z}{a_n} \right)
+\end{equation*}
+converges uniformly on compact subsets.
+\end{exercise}
+
+\begin{exercise}[Easy]
+Explicitly find an infinite product for an entire holomorphic function
+with simple zeros precisely at $\Z \times \Z$ (that is points with integer
+coefficients).
+\end{exercise}
+
+\begin{exercise}
+Suppose that $\{ a_n \}$ is a sequence converging to $0$.  Show that there
+exists a holomorphic function $f \colon \C \setminus \{ 0 \} \to \C$
+with zeros (counting multiplicity) at $a_n$.
+\end{exercise}
+
 \begin{exercise}
 Suppose $\{ a_k \}$, $\{ b_k \}$ are
 sequences of distinct points in $\C$
@@ -15820,6 +15854,16 @@ Prove that
 there exists a meromorphic function $f \colon \C \to \C_\infty$ whose
 zeros are exactly at $a_k$, with orders given by $n_k$, and
 poles are exactly at $b_k$, with orders given by $m_k$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $\{ a_n \}$ is a sequence of distinct points in $\C$
+with no limit points, and $\{ c_n \}$ an arbitrary sequence of complex
+numbers.  Construct an entire function $f$ such that $f(a_n) = c_n$.
+Hint:  For any radius $r > 0$, a point $p \in \C$, $\sabs{p} > r$, and
+an $\epsilon > 0$, try to find a function with some prescribed zeros
+such that $f(p) =1$ and $\snorm{f}_{B(0,r)} < \epsilon$.  Another hint:
+If $\sabs{w} < 1$, then $\sabs{w}^n$ goes to zero.
 \end{exercise}
 \end{exbox}
 
@@ -15840,7 +15884,16 @@ f(z) =
 \pi z \prod_{n \in \Z \setminus \{ 0 \}} \left(1-\frac{z}{n}\right) e^{z/n} .
 \end{equation*}
 We write the product in no particular order as the product converges
-absolutely.  We can group some terms together for convenience
+absolutely.
+The $\pi$ out front can be guessed by thinking what would we get if we
+differentiate $\sin(\pi z)$ and evaluate at $0$.
+Differentiating the product (using product rule) would give you $\pi \cdot 1
++ 0=1$, as anytime the derivative falls on some factor other that $z$, when
+you evaluate at 0, you get 0.  We can do this formal computation on the
+finite products as the product converges uniformly on compact subsets and
+therefore so does the derivative.  See \exerciseref{exercise:proddiff}.
+
+We group some terms together for convenience
 \begin{equation*}
 f(z) =
 \pi z \prod_{n=1}^\infty 
@@ -15851,20 +15904,155 @@ f(z) =
 \left(1-\frac{z^2}{n^2}\right) .
 \end{equation*}
 That's a rather nice factorization.  Of course we still do not know $f(z)$ is
-$\sin(\pi z)$, all we know is that the two have the same zeros.
+$\sin(\pi z)$: all we know is that the two have the same zeros,
+and the derivative at 0 is $\pi$ as it should be.
+As $f$ captures the zeros of $\sin(\pi z)$ we write (as in the factorization
+theorem),
+\begin{equation*}
+\sin(\pi z)
+= 
+e^{g(z)} f(z)
+=
+\pi z
+e^{g(z)}
+\prod_{n=1}^\infty 
+\left(1-\frac{z^2}{n^2}\right)
+\end{equation*}
+for some entire function $g$.  We need to show that $g \equiv 1$.  By the
+computation of the derivative above we have that $g(0) = 1$.
 
+We would like to convert the product to a series using the
+logarithm, as series are simpler to handle (for example, try to
+differentiate a product, ugh!).  Unfortunately given $\varphi(z) =
+\sin(\pi z)$, the function
+$\log \varphi(z)$ is not well-defined.
+But as we saw a couple of times before, while $\log \varphi(z)$ is not
+well defined, the logarithmic derivative
+\begin{equation*}
+\frac{d}{dx} \left[
+\log \varphi(x)
+\right]
+=
+\frac{\varphi'(x)}{\varphi(x)}
+\end{equation*}
+is well defined.  And we can get it by differentiating the series for $\log
+\varphi(z)$ since for the derivative we only need to work locally and we can use
+any branch of the logarithm.
+So locally, using any branch of the logarithm we get 
+\begin{multline*}
+\pi \cot (\pi z) =
+\frac{\pi \cos (\pi z)}{\sin(\pi z)}
+=
+\frac{d}{dx} \left[
+\log \sin (\pi z)
+\right]
+=
+\frac{d}{dx} \left[
+\log 
+\left(
+\pi z
+e^{g(z)}
+\prod_{n=1}^\infty 
+\left(1-\frac{z^2}{n^2}\right)
+\right)
+\right]
+\\
+=
+\frac{d}{dx} \left[
+\log(\pi z)
++
+g(z)
++
+\sum_{n=1}^\infty 
+\log
+\left(1-\frac{z^2}{n^2}\right)
+\right]
+=
+\frac{1}{z}
++
+g'(z)
++
+\sum_{n=1}^\infty 
+\frac{2z}{z^2-n^2} .
+\end{multline*}
+Since the far left hand side and the far right hand side do not have any
+logarithms in them they are clearly well-defined.
+One can show the equality without the $g'$ as a nice exercise in applying
+the residue theorem.
 
+\begin{exbox}
+\begin{exercise}
+Let $\gamma_n$ be the rectangular path with vertices
+$n+\nicefrac{1}{2} - in$, 
+$n+\nicefrac{1}{2} + in$, 
+$-\bigl(n+\nicefrac{1}{2}\bigr) + in$, 
+$-\bigl(n+\nicefrac{1}{2}\bigr) - in$.
+\begin{exparts}
+\item
+Using residue theorem, for $z \notin \Z$, evaluate
+\begin{equation*}
+\int_{\gamma_n}\frac{\pi \cot (\pi \xi)}{\xi^2-z^2} \, d\xi .
+\end{equation*}
+\item
+Show that
+\begin{equation*}
+\lim_{n\to \infty}
+\int_{\gamma_n}\frac{\pi \cot (\pi \xi)}{\xi^2-z^2} \, d\xi = 0 .
+\end{equation*}
+\item
+Prove that
+\begin{equation*}
+\pi \cot (\pi z) =
+\frac{1}{z}
++
+\sum_{n=1}^\infty 
+\frac{2z}{z^2-n^2} ,
+\avoidbreak
+\end{equation*}
+with uniform convergence on compact subsets of $\C \setminus \Z$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
 
-FIXME
+In particular, we have that $g'(z)=0$, and as $g(0)=1$ we have $g \equiv 1$.
+We have thus proved the following proposition
 
 \begin{prop}
 For all $z \in \C$,
 \begin{equation*}
 \sin(\pi z) =
 \pi z \prod_{n=1}^\infty 
-\left(1-\frac{z^2}{n^2}\right) .
+\left(1-\frac{z^2}{n^2}\right) ,
+\avoidbreak
 \end{equation*}
+with uniform convergence on compact sets.
 \end{prop}
+
+
+\begin{exbox}
+\begin{exercise}
+Find a factorization for cosine.  Hint: There is a hard way and an
+easy way to do this (now that we know the factorization of sine).
+\end{exercise}
+
+\begin{exercise}
+Find a factorization for $\sinh(z) = \frac{e^z-e^{-z}}{2}$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a domain and
+\begin{equation*}
+F(z) = \prod_{n=1}^\infty f_n(z)
+\end{equation*}
+for holomorphic functions $f_n \colon U \to \C$ converges uniformly 
+on compact subsets of $U$.  Prove that
+\begin{equation*}
+\frac{F'(z)}{F(z)} = \sum_{n=1}^\infty \frac{f_n'(z)}{f_n(z)} ,
+\avoidbreak
+\end{equation*}
+converging uniformly on compact subsets of $U$.
+\end{exercise}
+\end{exbox}
 
 \subsection{The product theorem in any domain}
 
