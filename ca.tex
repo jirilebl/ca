@@ -16089,8 +16089,9 @@ First consider $\{ a^1_n \}$.  Let $\{ p_n \}$ be a sequence of points in
 $\C \setminus U$ such
 that
 \begin{equation*}
-\sabs{a^1_n-p_n} = d(z,\C \setminus U) .
+\sabs{a^1_n-p_n} = d(z,\C \setminus U).
 \end{equation*}
+See \figureref{fig:weiergeneral}.
 We claim that 
 $\sabs{a^1_n-p_n}$ goes to zero as $n$ goes to infinity.
 Indeed, suppose not, then there is an $\epsilon > 0$ and
@@ -16102,6 +16103,14 @@ In particular these $\{ a^1_{n_k} \}$ must have a limit point and since they
 are all at least $\epsilon$ away from the boundary this limit point would be
 in $U$.  That is a contradiction.  Hence
 $\sabs{a^1_n-p_n}$ goes to infinity.
+
+\begin{myfig}
+\subimport*{figures/}{weiergeneral.pdf_t}
+\caption{The sequence of $\{ a_n \}$ with respect to $D$.  The 
+points of $\{ a_n \}$ that lie in $D$ are the $\{ a^1_n \}$ and for those we
+pick the $\{ p_n \}$, which will lie at the closest place on the boundary of
+$U$ (the thick dotted line).\label{fig:weiergeneral}}
+\end{myfig}
 
 Let $K \subset U$ be compact, then for $z \in K$
 \begin{equation*}
