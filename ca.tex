@@ -595,15 +595,14 @@ The point is to stress that we are not defining some totally new and
 different world.
 
 We also want to take a bit more of the $z,\bar{z}$ approach and less the
-$x,y$ approach.  It is really a better way to think about complex variables,
-although perhaps initially less intuitive.
+$x,y$ approach.  It is really a better way to think about complex variables.
 
 Furthermore, we try not to define any conflicting terminology or notation
 with what the reader has learned before.
 Mainly, the term ``differentiable'' is generally left for the real
 derivative and we use ``complex differentiable'' when needed.  Although
 to be sure, 
-we will generally write ``(real) differentiable'' or
+we generally write ``(real) differentiable'' or
 ``differentiable (in the real sense)'' to
 make it clear when we mean real differentiability.
 
@@ -3995,7 +3994,7 @@ discontinuities just a little later with ``chains.''
 
 When we say that $\gamma$ is a path in $U \subset \C$\index{path in $U$},
 we mean that
-$\gamma \colon [a,b] \to U$ is a path.  Another common abuse of language we
+$\gamma \colon [a,b] \to U$ is a path.  Another common abuse of notation we
 will freely and shamelessly commit is that if we refer to $\gamma$
 as if it were a set we mean the image $\gamma\bigl([a,b]\bigr)$.
 Nowhere will we really use or need that $\gamma'$ is never zero,
@@ -4260,7 +4259,7 @@ $(0,1]$, but necessarily $\lim_{t \to 0} \gamma'(t)$ does not exist.
 The last two exercises show why we must morally
 require that $\gamma'(t)$ never vanishes (including the one sided limits)
 for piecewise $C^1$ paths.
-We thinking of the path
+We think of the path
 as the set
 $\gamma\bigl([a,b]\bigr)$,
 not the parametrization, and where the path is $C^1$
@@ -5740,7 +5739,7 @@ The previous exercise may seem trivial, but the key is that we can prove
 (using Cauchy's formula) that the partials are continuous as a function of
 $U \times (a,b)$ by using continuity of $f$ on $U \times (a,b)$.  No such
 result is true for nonholomorphic functions.  Prove that the function defined by
-$f(x,t) = t \sin\bigl(\frac{x}{t}\bigr)$ for $t \not= 0$ and $f(x,0) =  0$,
+$f(x,t) = t \sin\bigl(\nicefrac{x}{t}\bigr)$ for $t \not= 0$ and $f(x,0) =  0$,
 is continuous as a function of $\R^2$, and for each fixed $t$, the function
 $x \mapsto f(x,t)$ is differentiable (infinitely differentiable in fact)
 but $\frac{\partial f}{\partial x}$ is not continuous as a function of both
@@ -5776,7 +5775,7 @@ Let us remark that in the proof,
 the reduction to a disc (or some other simpler set)
 is important.  It is not true
 that every function satisfying the hypotheses of Morera's theorem has a
-primitive in $U$ for a general $U$.  For example, $\frac{1}{z}$ is
+primitive in $U$ for a general $U$.  For example, $\nicefrac{1}{z}$ is
 holomorphic in $U = \C \setminus \{ 0 \}$ and satisfies the hypotheses of
 Morera's theorem, however, it does not have a primitive
 in $\C \setminus \{ 0 \}$.  We will see much
@@ -15694,7 +15693,7 @@ then $c_n \geq 0$.  Thus for $z \in \overline{\D}$
 \end{equation*}
 \end{proof}
 
-\begin{lemma}
+\begin{lemma} \label{lemma:elemfactbound}
 $\sabs{1-E_m(z)} \leq \sabs{z}^{m+1}$ for all $m = 0,1,2,\ldots$ and all 
 $z \in \overline{\D}$.
 \end{lemma}
@@ -15734,24 +15733,24 @@ that the zeros do not have a limit point in $\C$.
 \begin{thm}[Weierstrass product theorem in $\C$]
 \index{Weierstrass product theorem in $\C$}
 Suppose $\{ c_k \}$ is a sequence of distinct points in $\C$
-with no limit points in $\C$ and $\{ n_k \}$ is a sequence of
+with no limit points in $\C$ and $\{ m_k \}$ is a sequence of
 natural numbers.
 Then there exists an entire holomorphic $f \colon \C \to \C$ that
-has zeros exactly at $c_k$, with orders given by $n_k$.
+has zeros exactly at $c_k$, with orders given by $m_k$.
 
 More precisely, suppose $\{ a_n \}$ is the sequence of nonzero $\{ c_k \}$ with points
-repeated according to the multiplicities $\{ n_k \}$, and such that $m$
+repeated according to the multiplicities $\{ m_k \}$, and such that $m$
 is the order of the zero at the origin.
 Then there exists a
-sequence $\{ p_n \}$ such that
+sequence $\{ \ell_n \}$ such that
 \begin{equation*}
-f(z) = z^m \prod_{n=1}^\infty E_{p_n}\left(\frac{z}{a_n}\right) ,
+f(z) = z^m \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
 \avoidbreak
 \end{equation*}
 which converges absolutely and uniformly on all compact subsets.
-In fact, any sequence $\{ p_n \}$ such that
+In fact, any sequence $\{ \ell_n \}$ such that
 \begin{equation} \label{eq:pnconvergence}
-\sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{p_n+1}
+\sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{\ell_n+1}
 \end{equation}
 converges for all $r > 0$ will work.
 \end{thm}
@@ -15760,18 +15759,18 @@ converges for all $r > 0$ will work.
 We can clearly ignore the zero at the origin, and just consider the nonzero
 zeros $\{ a_n \}$.  We claim that at least one sequence
 such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
-Indeed choosing $p_n = n-1$ would suffice.  As
+Indeed choosing $\ell_n = n-1$ would suffice.  As
 $\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
 Thus for any $r > 0$ we get $\sabs{a_n} \geq 2r$ or
 $\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
-for all large enough $n$.   Thus if $p_n = n-1$, a tail series is bounded
+for all large enough $n$.   Thus if $\ell_n = n-1$, a tail series is bounded
 by the geometric series $\sum {\bigl(\nicefrac{1}{2}\bigr)}^n$.
 
 Consider a compact set $K$ in the plane.  It is contained in some closed disc
 $\overline{\Delta_r(0)}$.  We want to get uniformly absolute convergence
 of the product, and so we need
 \begin{equation*}
-\sum_{n=1}^\infty \abs{ E_{p_n}\left(\frac{z}{a_n}\right)-1}
+\sum_{n=1}^\infty \abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
 \end{equation*}
 to converge uniformly on $K$.
 If $z \in K$, then $\sabs{z}\leq r$.  Furthermore, as $a_n$ must go to
@@ -15779,20 +15778,20 @@ infinity, we have that for all $n$ large enough that $\sabs{a_n} \geq r$
 and so $\abs{\frac{z}{a_n}} \leq 1$.
 And so by the lemma,
 \begin{equation*}
-\abs{ E_{p_n}\left(\frac{z}{a_n}\right)-1}
+\abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
 \leq
-\abs{\frac{z}{a_n}}^{p_n+1}
+\abs{\frac{z}{a_n}}^{\ell_n+1}
 \leq
-\abs{\frac{r}{a_n}}^{p_n+1} .
+\abs{\frac{r}{a_n}}^{\ell_n+1} .
 \end{equation*}
 Thus a tail of the series converges and thus it converges.  The convergence
 is uniform in $K$, as the right hand side above does not depend on $z$.
 \end{proof}
 
-There are many choices for the sequence $\{ p_n \}$.  The proof says
+There are many choices for the sequence $\{ \ell_n \}$.  The proof says
 that the convergence of \eqref{eq:pnconvergence} 
 for every $r>0$ guarantees convergence of the product, but we may still pick
-and choose $\{ p_n \}$.
+and choose $\{ \ell_n \}$.
 
 Now that we can prescribe zeros of an entire function, we can
 use it to factor out all the zeros of any other entire function, and hence
@@ -15803,9 +15802,9 @@ Let $f$ be an entire function, not identically zero,
 with zeros (counting with multiplicity) at points of
 the sequence $\{ a_n \}$ except the zero at
 the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
-entire holomorphic function $g$ and a sequence $\{ p_n \}$ such that
+entire holomorphic function $g$ and a sequence $\{ \ell_n \}$ such that
 \begin{equation*}
-f(z) = z^m e^{g(z)} \prod_{n=1}^\infty E_{p_n}\left(\frac{z}{a_n}\right) ,
+f(z) = z^m e^{g(z)} \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
 \end{equation*}
 converges absolutely and uniformly on all compact subsets.
 \end{cor}
@@ -15813,9 +15812,9 @@ converges absolutely and uniformly on all compact subsets.
 \begin{proof}
 Let $h \colon \C \to \C$ be the entire function
 \begin{equation*}
-h(z) = \prod_{n=1}^\infty E_{p_n}\left(\frac{z}{a_n}\right) ,
+h(z) = \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
 \end{equation*}
-where the $p_n$ comes from the product theorem.  The function
+where the $\ell_n$ comes from the product theorem.  The function
 $\varphi(z) = \frac{f(z)}{h(z)z^m}$
 has only removable singularities, so $\varphi$ can be made entire.
 The function $\varphi$ has no zeros, and so we can write $\varphi(z) =
@@ -15876,7 +15875,7 @@ Let us consider the positive integers, then we note that
 \sum_{n=1}^\infty \abs{\frac{r}{n}}^{2}
 \end{equation*}
 converges for every $r > 0$.  Similarly for the negative integers.  Thus we
-could choose $p_n =1$ in the product theorem.  Write
+could choose $\ell_n =1$ in the product theorem.  Write
 \begin{equation*}
 f(z) =
 \pi z \prod_{n \in \Z \setminus \{ 0 \}} E_1\left(\frac{z}{n}\right)
@@ -16057,16 +16056,86 @@ converging uniformly on compact subsets of $U$.
 \subsection{The product theorem in any domain}
 
 \begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
-Suppose $U \subset \C$ is open, $\{ a_k \}$ is
+Suppose $U \subset \C$ is open, $\{ c_k \}$ is
 a sequence of distinct points in $U$
-with no limit points in $U$, and $\{ n_k \}$ is a sequence of
+with no limit points in $U$, and $\{ m_k \}$ is a sequence of
 natural numbers.
 Then there exists a holomorphic $f \colon U \to \C$ that has
-zeros exactly at $a_k$, with orders given by $n_k$.
+zeros exactly at $c_k$, with orders given by $m_k$.
 \end{thm}
 
 \begin{proof}
-FIXME
+Suppose that $\{ a_n \}$ is the sequence of points $\{ c_k \}$ repeated
+according to the multiplicities $\{ m_k \}$.
+As the case $U=\C$ has already been proved we will assume that $\C \setminus
+U$ is nonempty.
+Let
+\begin{equation*}
+D = \left\{ z \in U :
+d(z,\C \setminus U) < \frac{1}{\sabs{z}+1}
+\right\} .
+\end{equation*}
+Here as usual $d(z,\C\setminus U)$ is the distance
+to the boundary.
+Divide $\{ a_n \}$ into two parts:
+Let $\{ a^1_n \}$ be those $a_n$ that lie in $D$ and $\{ a^2_n \}$
+be those that do not.
+We will generate a function $f_1$ with zeros at $\{ a^1_n \}$ and
+a function $f_2$ with zeros at $a^2_n$.  Then we let $f = f_1 f_2$
+to finish the proof.
+Without loss of generality assume both sequences are infinite.
+
+First consider $\{ a^1_n \}$.  Let $\{ p_n \}$ be a sequence of points in
+$\C \setminus U$ such
+that
+\begin{equation*}
+\sabs{a^1_n-p_n} = d(z,\C \setminus U) .
+\end{equation*}
+We claim that 
+$\sabs{a^1_n-p_n}$ goes to zero as $n$ goes to infinity.
+Indeed, suppose not, then there is an $\epsilon > 0$ and
+a subsequence such that 
+$\abs{a^1_{n_k}-p_{n_k}} > \epsilon$ for all $m$.  As these are the
+distances to the boundary and $a^1_{n_k} \in D$,
+we must have that $\sabs{a^1_{n_k}} < \nicefrac{1}{\epsilon}+1$ for all $m$.
+In particular these $\{ a^1_{n_k} \}$ must have a limit point and since they
+are all at least $\epsilon$ away from the boundary this limit point would be
+in $U$.  That is a contradiction.  Hence
+$\sabs{a^1_n-p_n}$ goes to infinity.
+
+Let $K \subset U$ be compact, then for $z \in K$
+\begin{equation*}
+\abs{\frac{a^1_n-p_n}{z-p_n}}
+\leq
+\frac{\sabs{a^1_n-p_n}}{d(p_n,K)}
+\leq
+\frac{\sabs{a^1_n-p_n}}{d(\C \setminus U,K)} .
+\end{equation*}
+So for all $n$ large enough
+$\abs{\frac{a^1_n-p_n}{z-p_n}} < \nicefrac{1}{2}$.
+Then by \lemmaref{lemma:elemfactbound},
+\begin{equation*}
+\abs{E_n\left(
+\frac{a^1_n-p_n}{z-p_n}
+\right)-1} \leq \frac{1}{2^{n+1}} ,
+\end{equation*}
+and hence
+\begin{equation*}
+f_1(z)
+=
+\prod_{n=1}^\infty
+E_n\left(
+\frac{a^1_n-p_n}{z-p_n}
+\right)
+\end{equation*}
+converges uniformly on $K$.  Thus this product $f_1$ converges
+uniformly on compact subsets of $U$.  We are thus done with $f_1$.
+
+For $f_2$, note that $\{a^2_n\}$ must go to infinity.  Otherwise, the
+sequence would have a finite limit point, but this limit point would have to
+be in $U$ as whenever $\sabs{a^2_n} \leq r$ then $d(a^2_n,\C\setminus U)
+\geq \frac{1}{r+1}$.  But then we can construct an entire function with
+these zeros.
 \end{proof}
 
 Using this theorem we can prove that the set of meromorphic functions on a
@@ -16087,19 +16156,38 @@ words, there is a holomorphic $g$ such that $g=fh$.
 
 \begin{remark}
 When we introduced the corollary, we mentioned domain, but then we proved it
-for an open set.  The thing is a bit of algebra.  If $U$ is not connected,
+for an open set.  The issue is a bit of algebra.  If $U$ is not connected,
 then the set of holomorphic functions is not an integral domain, it has zero
 divisors, and a field of fractions is only defined for integral domains.
 \end{remark}
 
-FIXME
-
 \begin{exbox}
+\begin{exercise}
+Given a domain $U \subset \C$ and $f$ and $g$ holomorphic on $U$, neither of
+which is identically zero.  Prove that there exists a functions $h$, $F$,
+and $G$ holomorphic on $U$, such that $F$ and $G$ have no common zeros and
+$f=hF$ and $g=hG$.
+\end{exercise}
+
+\begin{exercise}
+Let $S = \bigl\{ e^n \in \C : n \in \Z \bigr\} \cup \{ 0 \}$.
+Explicitly construct a holomorphic function on $\C \setminus S$ that has simple zeros at
+points of $S$.
+\end{exercise}
+
+\begin{exercise}
+Given a domain $U \subset \C$ and a sequence $\{ a_n \}$ of distinct points in $U$
+with no limit points in $U$.  Find a holomorphic function on
+$U \setminus \{ a_n \}$, that has essential
+singularities at $\{ a_n \}$.
+\end{exercise}
+
 \begin{exercise}
 Show that there exists a holomorphic function $f \colon \D \to \C$ that does
 not extend holomorphically to any domain $U$ where $\D \subsetneq U$.  Hint:
 Consider a sequence of points in $\D$ whose limit set is the circle.
 \end{exercise}
+
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16888,7 +16976,7 @@ interval $[a,b]$.  Define the metric on $C([a,b],\R)$ as
 d(f,g) = \sup_{x \in [a,b]} \abs{f(x)-g(x)} .
 \end{equation*}
 Let us check the properties.  First, $d(f,g)$ is finite as
-$\abs{f(x)-g(x)}$ is a continuous function on a closed bounded interval
+$\babs{f(x)-g(x)}$ is a continuous function on a closed bounded interval
 $[a,b]$, and so is bounded.
 Clearly $d(f,g) \geq 0$. 
 If $f = g$,
@@ -16900,15 +16988,15 @@ triangle inequality on $\R$.
 \begin{equation*}
 \begin{split}
 d(f,g) & =
-\sup_{x \in [a,b]} \abs{f(x)-g(x)} =
-\sup_{x \in [a,b]} \abs{f(x)-h(x)+h(x)-g(x)}
+\sup_{x \in [a,b]} \babs{f(x)-g(x)} =
+\sup_{x \in [a,b]} \babs{f(x)-h(x)+h(x)-g(x)}
 \\
 & \leq
-\sup_{x \in [a,b]} ( \abs{f(x)-h(x)}+\abs{h(x)-g(x)} )
+\sup_{x \in [a,b]} \Bigl( \babs{f(x)-h(x)}+\babs{h(x)-g(x)} \Bigr)
 \\
 & \leq
-\sup_{x \in [a,b]} \abs{f(x)-h(x)}+
-\sup_{x \in [a,b]} \abs{h(x)-g(x)} = d(f,h) + d(h,g) .
+\sup_{x \in [a,b]} \babs{f(x)-h(x)}+
+\sup_{x \in [a,b]} \babs{h(x)-g(x)} = d(f,h) + d(h,g) .
 \end{split}
 \end{equation*}
 When treating $C([a,b],\R)$ as a metric space without mentioning a metric, we mean this
@@ -16919,7 +17007,7 @@ particular metric.
 The sphere with the so-called
 \emph{\myindex{great circle distance}} is also a metric space.
 Let $S^2$ be the \myindex{unit sphere}\index{sphere} in $\R^3$,
-that is $S^2 = \{ x \in \R^3 : x_1^2+x_2^2+x_3^2 = 1 \}$.
+that is $S^2 = \bigl\{ x \in \R^3 : x_1^2+x_2^2+x_3^2 = 1 \bigr\}$.
 Take $x$ and $y$ in $S^2$, draw a line through the origin and $x$,
 and another line through the origin and $y$,
 and let $\theta$ be the angle that the two lines make.
@@ -17026,7 +17114,7 @@ a metric space.
 Let $X$ be the set of continuous functions on $[0,1]$.  Let $\varphi \colon
 [0,1] \to (0,\infty)$ be continuous.  Define
 \begin{equation*}
-d(f,g) = \int_0^1 \abs{f(x)-g(x)}\varphi(x)\,dx .
+d(f,g) = \int_0^1 \babs{f(x)-g(x)}\varphi(x)\,dx .
 \end{equation*}
 Show that $(X,d)$ is a metric space.
 \end{exercise}
@@ -17034,13 +17122,13 @@ Show that $(X,d)$ is a metric space.
 \begin{exercise} \label{exercise:mshausdorffpseudo}
 Let $(X,d)$ be a metric space.  For nonempty bounded subsets $A$ and $B$ let
 \begin{equation*}
-d(x,B) = \inf \{ d(x,b) : b \in B \}
+d(x,B) = \inf \bigl\{ d(x,b) : b \in B \bigr\}
 \qquad \text{and} \qquad
-d(A,B) = \sup \{ d(a,B) : a \in A \} .
+d(A,B) = \sup \bigl\{ d(a,B) : a \in A \bigr\} .
 \end{equation*}
 Now define the \emph{\myindex{Hausdorff metric}} as
 \begin{equation*}
-d_H(A,B) = \max \{ d(A,B) , d(B,A) \} .
+d_H(A,B) = \max \bigl\{ d(A,B) , d(B,A) \bigr\} .
 \end{equation*}
 Note: $d_H$ can be defined for arbitrary nonempty subsets if we allow the
 extended reals.
@@ -17107,14 +17195,14 @@ such that $\sum_{n=1}^\infty x_n^2 < \infty$ is called $\ell^2$.
 Prove the \myindex{Cauchy--Schwarz inequality} for two sequences
 $\{x_n \}$ and $\{ y_n \}$ in $\ell^2$:
 \begin{equation*}
-{\biggl( \sum_{j=1}^\infty x_j y_j \biggr)}^2
+{\biggl( \sum_{n=1}^\infty x_n y_n \biggr)}^2
 \leq
-\biggl(\sum_{j=1}^\infty x_j^2 \biggr)
-\biggl(\sum_{j=1}^\infty y_j^2 \biggr) .
+\biggl(\sum_{n=1}^\infty x_n^2 \biggr)
+\biggl(\sum_{n=1}^\infty y_n^2 \biggr) .
 \end{equation*}
 \item
 Prove that $\ell^2$ is a metric space with the metric
-$d(x,y) = \sqrt{\sum_{j=1}^\infty {(x_j-y_j)}^2}$.
+$d(x,y) = \sqrt{\sum_{n=1}^\infty {(x_n-y_n)}^2}$.
 \end{exparts}
 \end{exercise}
 \end{exbox}
