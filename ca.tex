@@ -545,11 +545,6 @@ If you cannot prove a man wrong, don't panic. You can always call him names.
 ---Oscar Wilde 
 \end{myquote}
 
-\noindent
-\hfill\textbf{Note: This is still a ``draft,'' expect numbering to change as
-needed.}\hfill
-\medskip
-
 The purpose of this book is to teach a one-semester graduate course in
 complex analysis for incoming graduate students.
 It is a natural first semester in a two semester sequence where the second
@@ -1220,8 +1215,9 @@ The formula says that for real $\theta$
 \qquad
 \sin \theta = \Im e^{i\theta} = \frac{e^{i\theta}-e^{-i\theta}}{2i} .
 \end{equation*}
-We thus simply define cosine and sine for complex numbers by plugging
-them into that formula, now that we know how to evaluate the exponential:
+We define cosine and sine for complex numbers by plugging
+those numbers
+into the formula, now that we know how to evaluate the exponential:
 \begin{equation*}
 \cos z \overset{\text{def}}{=} \frac{e^{iz}+e^{-iz}}{2} ,
 \qquad
@@ -2454,7 +2450,6 @@ respect to actual variables,
 they are simply formal operators.
 Also, and more importantly,
 how could something possibly depend on $z$ but not on $\bar{z}$.
-
 But let us humor ourselves and check what \eqref{eq:CReq} means:
 \begin{equation*}
 \frac{\partial f}{\partial \bar{z}} 
@@ -2485,7 +2480,7 @@ But let us humor ourselves and check what \eqref{eq:CReq} means:
 + \frac{\partial u}{\partial y}
 \right) .
 \end{equation*}
-This expression is zero if and only if the real parts and the imaginary
+This expression is zero if and only if the real and imaginary
 parts are zero.  Namely,
 \begin{equation*}
 \frac{\partial u}{\partial x} 
@@ -2588,7 +2583,7 @@ f' =
 \frac{\partial f}{\partial z} .
 \end{equation*}
 
-The complex derivative $f'$, which is also sometimes written as $\frac{df}{dz}$,
+The complex derivative $f'$, sometimes written as $\frac{df}{dz}$,
 only exists for holomorphic functions.
 The Wirtinger operators
 $\frac{\partial f}{\partial z}$ and
@@ -2597,9 +2592,9 @@ function.
 Do not confuse the notation
 even though $\frac{df}{dz}$ and 
 $\frac{\partial f}{\partial z}$ look similar.
-For example, take a polynomial in $x$ and $y$, or equivalently
+Consider a polynomial $P$ in $x$ and $y$, or equivalently
 in $z$ and $\bar{z}$.
-The Wirtinger operators
+The Wirtinger operators exist and
 work as if $z$ and $\bar{z}$ really were independent variables.  For example:
 \begin{equation*}
 \frac{\partial}{\partial z}
@@ -2614,8 +2609,8 @@ work as if $z$ and $\bar{z}$ really were independent variables.  For example:
 =
 z^2 ( 3 \bar{z}^2 ) + 0 .
 \end{equation*}
-In that sense (at least for polynomials) a holomorphic function is a
-function not depending on $\bar{z}$.
+In that sense (at least for polynomials) a function is holomorphic 
+if it does not depend on $\bar{z}$.
 However, the function above is not holomorphic
 and so
 $\frac{d}{dz} \bigl[ z^2 \bar{z}^3 + z^{10} \bigr]$
@@ -2650,7 +2645,7 @@ that $\bar{z}$ cancels.
 
 \begin{exercise} \label{exercise:wirtingerandbar}
 Suppose $f \colon U \to \C$ is real differentiable and let $\bar{f}$
-denote the complex conjugate of $f$.  Show that
+denote the complex conjugate of $f$.  Show
 \begin{equation*}
 \overline{\left(\frac{\partial f}{\partial z}\right)} = 
 \frac{\partial \bar{f}}{\partial \bar{z}}
@@ -2795,10 +2790,10 @@ $a z + b$ is an automorphism of $\C$.
 \end{exercise}
 \end{exbox}
 
-A biholomorphism $f$ has the property that $f'(z) \not= 0$ for any $z$.  To
+A biholomorphism $f$ has the property that $f'(z) \not= 0$ for all $z$.  To
 see this note that $f^{-1}\bigl(f(z)\bigr) = z$ and both $f$ and $f^{-1}$
-are holomorphic.  Differentiate the equality using the chain rule to see
-that $(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$.  So $f'(z)$ cannot be zero.
+are holomorphic.  Differentiate the equality using the chain rule to find
+$(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$.  So $f'(z)$ cannot be zero.
 If $w = f(z)$, then
 \begin{equation*}
 (f^{-1})'(w) = \frac{1}{f'(z)}
@@ -2993,7 +2988,7 @@ Df|_p \alpha'(0)
 \quad = \quad
 \text{angle between } \gamma'(0) \text{ and } \alpha'(0) .
 \end{equation*}
-Hence, we are really dealing with linear algebra.
+We are really just doing linear algebra.
 We can take the angle to be the signed angle starting at one vector and
 ending at the other vector, as we are preserving orientation.
 
@@ -3002,7 +2997,7 @@ ending at the other vector, as we are preserving orientation.
 \caption{Preserving angles (and orientation).\label{fig:conform}}
 \end{myfig}
 
-By preserving angles also mean that no vector can be taken to zero,
+By preserving angles we also mean that no vector can be taken to zero,
 as zero does not make any well-defined angle with anything else.
 Thus $Df$ must be invertible at every point for a conformal map.
 
@@ -3034,7 +3029,7 @@ orthogonal, and so $Mv$ and $Mw$ are orthogonal:
 =
 ac+bd .
 \end{equation*}
-As $M$ is nonsingular, then either $a$ or $b$ is nonzero.  In either case,
+As $M$ is nonsingular, either $a$ or $b$ is nonzero.  In either case,
 there must exist some nonzero $r \in \R$ such that
 \begin{equation*}
 M =
@@ -3079,8 +3074,8 @@ $\xi z$ and $\xi w$ can be computed using
 =
 \frac{\Re z\overline{w}}{\sabs{z}\sabs{w}} e^{i(\theta-\psi)}.
 \end{equation*}
-So the angle is the same.  We have already seen that $\det M =
-\sabs{\xi}^2 > 0$, so $M$ preserves orientation.
+So the angle is the same.  As $\det M =
+\sabs{\xi}^2 > 0$, $M$ preserves orientation.
 \end{proof}
 
 Applying the proposition to $Df$ we find:
@@ -11567,7 +11562,7 @@ problem using Montel's theorem.
 Another common application of Montel is to use it via Vitali's theorem, which is
 an exercise below.  Given a locally bounded sequence of holomorphic
 functions, one only needs to prove pointwise convergence at ``enough''
-points to get that the sequence actually converges on compact subsets.
+points to get that the sequence actually converges uniformly on compact subsets.
 
 \begin{exbox}
 \begin{exercise}
@@ -15192,7 +15187,7 @@ Now we wish to define
 \begin{equation*}
 f(z) = \sum_{n=1}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
 \end{equation*}
-We claim that this series converges on compact subsets of $U \setminus S$,
+We claim that this series converges uniformly on compact subsets of $U \setminus S$,
 and the resulting function is has poles on $S$
 with principal part $P_p$ at $p \in S$.
 
@@ -16222,17 +16217,19 @@ May the forces of evil become confused on the way to your house.
 
 One of the consequences of the identity theorem is that once we know a
 function in a neighborhood we know it in the whole domain, if it was defined
-in a domain that is.  So if a holomorphic function $f$ is defined in a
+in a domain that is.  If a holomorphic function $f$ is defined in a
 domain $U$ and $U \subset W$ for some other domain $W$,
 then we may want to find a holomorphic function in $W$ that agrees with
-$f$ on $U$.  Of course that is not always possible.  If $f(z) =
+$f$ on $U$.  By the identity theorem the extension is unique, but it may not
+always exist.  If $f(z) =
 \nicefrac{1}{z}$ in $U = \C \setminus \{ 0 \}$, there is no way
 of extending it to $W = \C$.
 
-A simple continuation is the Schwarz reflection principle, which in essence
-says that we can reflect values across some boundary given some conditions.
+One type of continuation is reflection, namely the Schwarz reflection principle,
+which 
+says that we can sometimes reflect values across some boundary.
 We have seen the harmonic version (see \thmref{thm:schwarzreflectionharm})
-of this theorem before.
+of this theorem.
 The proof of the principle works the same for both
 harmonic and holomorphic functions.
 We simply write down the candidate function by using
@@ -16573,7 +16570,7 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
-\begin{prop}
+\begin{prop} \label{prop:continuationclose}
 Suppose that $f$ and $\gamma$ are as in \defnref{defn:analcont}.
 Suppose $f$ continues analytically along $\gamma$, and let
 $f_t$ be the continuation.
@@ -16633,7 +16630,8 @@ $\gamma \colon [0,1] \to U$, $\gamma(0) = p$, $\gamma(1) = q$,
 $f$ can be analytically continued along $\gamma$.
 \end{defn}
 
-The logarithm, and in general every primitive, admits unrestricted
+The logarithm, and in general every primitive (exercise below),
+admits unrestricted
 continuation (in the domain where the derivative is defined).
 With the logarithm we saw that we do not necessarily get a unique value.
 That is, if $U = \C \setminus \{ 0 \}$, $\Delta_r(p) \subset U$, then we
@@ -16670,25 +16668,72 @@ Inverses can often be continued for some paths, but as we saw in the
 example above, where
 we were continuing the inverse of
 $w \mapsto {\bigl(\nicefrac{1}{w}-1\bigr)}^2$, inverses do not always admit 
-unrestricted continuation.  However, if the mapping is a $k$-to-1 covering,
-then it does.
+unrestricted continuation.  However, if the mapping is a so-called covering
+map (for example, a $k$-to-1 onto holomorphic map), then it does.
+
+\begin{defn}
+Suppose $U,V \subset \C$ are open, $f \colon U \to V$ is holomorphic
+and onto, and for every $p \in V$, there exists a neighborhood $W \subset
+V$ such that $f^{-1}(W)$ is a disjoint union of open connected sets
+$O_1,O_2,\ldots$ such that $f|_{O_j}$ is a biholomorphism of $O_j$ and $W$.
+Then we call $f$ a \emph{\myindex{holomorphic covering map}}.
+\end{defn}
+
+\begin{example}
+The map $z^2$ is a covering map of $\C \setminus \{ 0 \}$ onto $\C \setminus \{ 0 \}$.
+\end{example}
+
+\begin{example}
+The exponential $e^z$ is a covering map of $\C$ onto $\C \setminus \{ 0 \}$.
+\end{example}
+
+\begin{example}
+Suppose $U,V \subset \C$ are open, $f \colon U \to V$ holomorphic, $k$-to-1,
+and onto.
+Using \exerciseref{exercise:ktoone}, $f'$ never vanishes and
+it is locally invertible.  It is not hard to
+prove that $f$ is in fact a covering map.  We leave this as an exercise.
+\end{example}
 
 \begin{prop}
-Suppose $U,V \subset \C$ are open, $f \colon U \to V$ holomorphic, $k$-to-1,
-and onto, and $p \in V$.  Then $f^{-1}$ can be defined in some neighborhood
-of $V$ and admits unrestricted analytic continuation to $V$.
+Suppose $U,V \subset \C$ are open and $f \colon U \to V$ is a holomorphic
+covering map, and $p \in V$.  Then $f^{-1}$ can be defined in some neighborhood
+of $p$, and admits unrestricted analytic continuation to $V$.
 \end{prop}
 
 \begin{proof}
-Using \exerciseref{exercise:ktoone}, $f'$ never vanishes.  That
-implies, in particular, that
-$f^{-1}$ can be defined locally near $p$
-via the inverse function theorem (\thmref{thm:inversehol}).
-
-FIXME:
+Take $\gamma \colon [0,1] \to V$ be continuous and $\gamma(0) = p$.
+At each point $w$ of $\gamma$ using the definition of covering map,
+we can find a disc $\Delta \subset V$ centered at $w$ such that $f^{-1}(D)$ has 
+disjoint components and for each component $f^{-1}$ can be defined as a
+holomorphic map onto that component.  As $\gamma$ is compact, finitely many
+such discs $\Delta_1,\ldots,\Delta_n$ cover $\gamma$ such that $\Delta_{j-1}
+\cap \Delta_j \not= \empty$ and $p \in \Delta_1$, and given any choice
+of $f^{-1}$ at $p$, we can define $f^{-1}$ in $\Delta_j$ that agrees with
+our choice of on $\Delta_{j-1}$.  In other words, we can continue $f^{-1}$
+along $\gamma$.
 \end{proof}
 
-FIXME:
+\begin{exbox}
+\begin{exercise}
+Let $U \subset \C$ be a domain and let
+$f \colon U \to \C$ be holomorphic.  Locally near some $p$,
+$f$ has an antiderivative $F$.  Prove that $F$ admits unrestricted
+continuation to $U$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain and $f \colon U \to \C$ be holomorphic and
+not identically zero.  Let $Z_f$ be the set of zeros of $f$.  Given any $p
+\in U \setminus Z_f$, we can locally define some branch of $\log f(z)$.
+Show that this branch allows unrestricted continuation to $U \setminus Z_f$.
+\end{exercise}
+
+\begin{exercise}
+Given two domains $U,V \subset \C$,
+prove that a $k$-to-1 onto holomorphic mapping is a covering map.
+\end{exercise}
+\end{exbox}
 
 \subsection{Monodromy theorem}
 
@@ -16715,21 +16760,105 @@ H(0,s) = p, \qquad
 \text{and} \qquad
 H(1,s) = q .
 \end{equation*}
+We also write $H_s(t)$ for the paths in the homotopy.
 \end{defn}
+
+\begin{prop}
+Suppose $U \subset \C$ is a connected domain, $\Delta \subset U$ is a disc, $p
+\in \Delta$, and $f \colon \Delta \to \C$ is holomorphic and admits unrestricted continuation
+to $U$.  Suppose further that
+$\gamma_1 \colon [0,1] \to U$ and
+$\gamma_2 \colon [0,1] \to U$ are continuous, $\gamma_1(0)=\gamma_1(0)=p$
+and
+$\gamma_1(1)=\gamma_2(1)=q$, and $\gamma_1$ and $\gamma_2$ are fixed-endpoint
+homotopic in $U$.
+Then the value at $q$ of the continuation along $\gamma_1$ is equal to the
+value at $q$ of the continuation along $\gamma_2$.
+\end{prop}
+
+\begin{proof}
+Let $H(t,s)$ be the homotopy.
+Let $\varphi(s)$ be the value of the continuation at $q$ for the path $H_s$.
+By \propref{prop:continuationclose}, $\varphi(s)$ is locally constant (that
+is, each $s$ has a neighborhood in which $\varphi$ is constant).  Therefore,
+as $[0,1]$ is connected, $\varphi$ is constant.
+\end{proof}
 
 The monodromy theorem says that as long as there are
 no holes, analytic continuation defines a function uniquely.
 
 \begin{thm}[Monodromy theorem]\index{Monodromy theorem}
-If $U \subset \C$ is a simply connected domain, $\Delta \subset U$ a disc and
-$f \colon \Delta \to \C$ holomorphic which admits unrestricted continuation
+Suppose $U \subset \C$ is a simply connected domain, $\Delta \subset U$ is a disc and
+$f \colon \Delta \to \C$ is holomorphic and admits unrestricted continuation
 to $U$.  Then there exists
 a unique holomorphic function $F \colon U \to \C$ such that $F|_D = f$.
 \end{thm}
 
-FIXME
+\begin{proof}
+As $U$ is simply connected, then by the Riemann mapping theorem we can
+assume that $U=\D$ or $U = \C$.
+We have to show that no matter how we extend to any point $q \in U$, we
+always get the same value, no matter what path we continue along.
+Suppose $\gamma_1 \colon [0,1] \to U$ and
+$\gamma_2 \colon [0,1] \to U$ are continuous, $\gamma_1(0)=\gamma_1(0) \in
+\Delta$
+and
+$\gamma_1(1)=\gamma_2(1)=q$.  Let
+\begin{equation*}
+H(t,s) = (1-s)\gamma_1(t)+s\gamma_2(t) .
+\end{equation*}
+As $U$ is convex, we have that $H(t,s) \in U$ for all $(t,s) \in
+[0,1]\times[0,1]$, furthermore
+$H(0,s) = \gamma_1(0)=\gamma_2(0)$ and
+$H(1,s) = \gamma_1(1)=\gamma_2(1)$.  So $H$ is a fixed-endpoint homotopy in
+$U$, and so by the proposition, we have that the value of the extension at
+$q$ is the same whether we extend along $\gamma_1$ or $\gamma_2$.
+\end{proof}
 
+\begin{cor}
+Suppose that $U,V \subset \C$ are simply connected domains and
+$f \colon U \to V$ is a holomorphic covering map.  Then
+$f$ is a biholomorphism.
+\end{cor}
 
+\begin{proof}
+We have seen that any local inverse of a covering map admits unrestricted
+continuation.  By the monodromy theorem the local inverse extends to a
+global one defined on all of $V$.
+\end{proof}
+
+If $U$ is a simply connected, then
+a covering map $f \colon U \to V$ is called a \emph{\myindex{universal
+covering map}} (or \emph{\myindex{universal cover}} for short) of $V$
+and $U$ is called the \emph{\myindex{universal covering space}} of $V$.
+We will not prove so, but every domain in
+$\C$ has a universal cover.\footnote{Actually every reasonably nice topological space
+has a topological universal cover, where the ``local biholomorphism'' is
+replaced by ``local homeomorphism.''}
+What we proved above is that the only universal covering of a simply
+connected domain is essentially just a biholomorphism.
+Riemann mapping theorem implies that every domain has a universal cover that
+is either $\C$ or $\D$.  In fact, and we will again not prove this,
+the only domains with universal cover of $\C$ are $\C$ itself and $\C
+\setminus \{ 0 \}$ (the exponential).
+Every other domain in $\C$ has $\D$ as the universal
+cover.
+
+\begin{exbox}
+\begin{exercise}
+Find the universal cover of $\D \setminus \{ 0 \}$.
+\end{exercise}
+
+\begin{exercise}
+Let $U = \C \setminus [-2,2]$.  Find the universal cover.  See
+\exerciseref{exercise:segmentcomplement}.
+\end{exercise}
+
+\begin{exercise}
+Suppose $K \subset \C$ is compact and connected.  Show that there
+exists a universal cover $f \colon \D \to \C \setminus K$.
+\end{exercise}
+\end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
