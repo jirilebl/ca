@@ -1,6 +1,4 @@
-Things not marked with FIXMEs in the file (not sure where to stick them yet):
-
-* Schottky's theorem (equivalence of annuli) should go somewhere, perhaps as exercise, but need the machinery
+Things not marked with FIXMEs in the file
 
 * add any stuff to the notation glossary that is missing
 
@@ -9,6 +7,11 @@ Things not marked with FIXMEs in the file (not sure where to stick them yet):
 * check if we are using "constant path" or some such somewhere (check some
   more that is)
 
-* "piecewise C^1 cycle" "piecewise C^1 chain"?  Probably not, it's getting
-  to "verbiagy" and we don't have any other types of chains.  We already
-  probably overdo it with the "piecewise C^1 path" stuff.
+Things definitely for the next version
+
+* Riemann surfaces
+
+* Blaschke products
+
+* Schottky's theorem (equivalence of annuli) should go somewhere, perhaps as exercise, but need the machinery
+
