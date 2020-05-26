@@ -285,10 +285,10 @@
 \title{Guide to Cultivating Complex Analysis}
 
 % Don't include subsections
-%\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{1}
 
 % Better "outline"
-\setcounter{tocdepth}{2}
+%\setcounter{tocdepth}{2}
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
@@ -15332,17 +15332,16 @@ I became insane, with long intervals of horrible sanity.
 \section{Infinite products}
 \label{sec:prod}
 
-It is useful to factor out all the zeros of a holomorphic function,
-not just finitely many.  Basically, if a
+If a
 function has zeros at $0$, $1$, and $i$ we
 could write $f$ as
 $f(z) = g(z) z(z-1)(z-i)$.  And if those were the only zeros, then 
-$g$ would be never zero.  If there are infinitely many zeros, things become
-difficult.
-Can we for example factor out the zeros out of $\sin z$?  Can we
+$g$ would be never zero.  If there are infinitely many zeros, however,
+things become difficult.
+Can we factor out the zeros out of $\sin z$?  Can we
 write $\sin z$ as something times $\prod_{n \in \Z} (z-\pi n)$?  Sort of,
-though we have to be careful about convergence.  Of course, we first have to
-figure out what do we mean by convergence.  Second, even once we figure out
+though we have to be careful about convergence.  Of course, we must first
+figure out what do we mean by convergence.  Even once we figure out
 what convergence means, it will still require a bit more work as
 we will need to use
 more complicated factors to make convergence happen the way we want to.
@@ -15367,8 +15366,8 @@ are other possibilities, for example, if $\sabs{1+a_j} \leq r < 1$ for all
 $j$, then the product also goes to zero, although in this case the
 convergence will not be absolute (exercise below).
 
-In fact, suppose that the product converges to a nonzero number.
-In particular $a_j \not= -1$ for any $j$.  Then
+Suppose that the product converges to a nonzero number.
+In particular, $a_j \not= -1$ for any $j$.  Then
 \begin{equation*}
 \frac{
 \prod_{j=1}^{n+1} (1+a_j)
@@ -15377,7 +15376,7 @@ In particular $a_j \not= -1$ for any $j$.  Then
 }
 =1+a_n
 \end{equation*}
-Taking the limit we see that $1+a_n$ must go to 1, and so $a_n$ must go to 0.
+Taking the limit, we see that $1+a_n$ must go to 1, and so $a_n$ must go to 0.
 
 A key idea about products is to relate infinite products to sums using the
 logarithm, which is something we can easily do if dealing with positive
@@ -15390,13 +15389,13 @@ $\sum_{j=1}^\infty \sabs{a_j}$ converges.
 \end{prop}
 
 \begin{proof}
-Suppose first suppose that $\sum_{j=1}^\infty \sabs{a_j}$ converges.
+Suppose that $\sum_{j=1}^\infty \sabs{a_j}$ converges.
 The sequence of partial products is increasing:
 \begin{equation*}
 \prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr) \leq
 \prod_{j=1}^{n+1} \bigl(1+\sabs{a_j}\bigr) .
 \end{equation*}
-Thus it is sufficient to find that it is bounded.
+Thus it is sufficient to show that it is bounded.
 Consider
 \begin{equation*}
 \log \prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr)
@@ -15408,11 +15407,11 @@ Consider
 \end{equation*}
 
 For the other direction, suppose that the sequence of partial products
-converges.  Also note that clearly for all but finitely many $j$, we must
+converges.  All but finitely many $j$, we must
 have $\sabs{a_j} < 1$.  Otherwise the product would double infinitely often and go to
-infinity.  So suppose that for all $j \geq N$, $\sabs{a_j} < 1$.
-Furthermore if $\sabs{a_j} < 1$, then it is not hard to check $\sabs{a_j}
-\leq 2 \log \bigl(1+\sabs{a_j}\bigr)$
+infinity.  So suppose that $\sabs{a_j} < 1$ for all $j \geq N$.
+If $\sabs{a_j} < 1$, then $\sabs{a_j} \leq 2 \log \bigl(1+\sabs{a_j}\bigr)$,
+and
 \begin{equation*}
 \sum_{j=N}^n \sabs{a_j}
 \leq
@@ -15420,16 +15419,16 @@ Furthermore if $\sabs{a_j} < 1$, then it is not hard to check $\sabs{a_j}
 \leq
 2 \log \prod_{j=N}^n \bigl(1+\sabs{a_j}\bigr) .
 \end{equation*}
-The right hand side is bounded as $n$ goes to infinity, and so the tail
+The right hand side is bounded as $n$ goes to infinity, and so the tail of
 $\sum_{j=1}^\infty \sabs{a_j}$ converges.
 \end{proof}
 
 An immediate consequence is that if 
 $\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then
 $\{ a_j \}$ converges to $0$.  Actually much more than that, they have to
-precisely go to zero fast enough to be summable.
+go to zero fast enough to be absolutely summable.
 
-As for series we need to know that absolute convergence really is convergence.
+As for series, we need to know that absolute convergence really is convergence.
 
 \begin{prop} \label{prop:infproductwithlogs}
 If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then it converges.
@@ -15447,8 +15446,8 @@ converges to a nonzero number.
 \end{prop}
 
 \begin{proof}
-If the product converges absolutely then $\sabs{a_j}$ goes to $0$, and so we
-can assume that $\Re a_j > -1$ for all $j$.  In particular, we have that
+If the product converges absolutely, then $\sabs{a_j}$ goes to $0$, and we
+may assume that $\Re a_j > -1$ for all $j$.  In particular,
 $\Log (1+a_j)$ is well-defined for the principal branch of the logarithm.
 Let $m > n$ be two positive integers.
 \begin{multline} \label{eq:infprodest1}
@@ -15473,7 +15472,7 @@ Let $m > n$ be two positive integers.
 \abs{ \Arg (1+a_j)}
 \right) .
 \end{multline}
-As in the proof above,
+As before,
 \begin{equation*}
 \sum_{j=1}^k \log \sabs{1+a_j} \leq
 \sum_{j=1}^k \log \bigl(1+\sabs{a_j}\bigr)
@@ -15482,9 +15481,9 @@ As in the proof above,
 \end{equation*}
 and this series converges via the proposition.
 Next, $\Arg(1+a_j)$ is between $\nicefrac{-\pi}{2}$ and
-$\nicefrac{\pi}{2}$ and $a_j$ is going to zero.  So for all large
-enough $j$, we get that $\babs{\Arg(1+a_j)} \leq 2\sabs{a_j}$.  As $\sum
-\sabs{a_j}$ converges, we find that
+$\nicefrac{\pi}{2}$, and $a_j$ is going to zero.  So for all $j$ large
+enough, $\babs{\Arg(1+a_j)} \leq 2\sabs{a_j}$.  As $\sum
+\sabs{a_j}$ converges, 
 $\sum \babs{\Arg (1+a_j)}$ converges.
 
 In other words, the right hand side in \eqref{eq:infprodest1} goes to zero
@@ -15512,10 +15511,10 @@ exists a $j$ such that $a_j=-1$.
 \end{prop}
 
 \begin{proof}
-In the proof of the proposition above we
-noticed that $\Re a_j > -1$ for all large enough $j$.  Then the product
+In the proof of the proposition above, we
+noticed that $\Re a_j > -1$ for all large enough $j$.  The product
 of those terms converges to a nonzero number by the ``Moreover'' part of the
-proposition.  The only way to get zero as a limit is one of the initial
+proposition.  The only way to get zero as a limit is for one of the initial
 terms to be zero, that is, if $a_j=-1$ for some $j$.
 \end{proof}
 
@@ -15528,16 +15527,16 @@ $\prod_{j=1}^\infty (1+a_{\varphi(j)})$ also converges absolutely to $L$.
 \end{prop}
 
 \begin{proof}
-That the reordered series converges absolutely follows from the fact that
-\propref{prop:infprodabsconvinfsum} as the corresponding result for series.
+That the reordered series converges absolutely follows from 
+\propref{prop:infprodabsconvinfsum} and the corresponding result for series.
 If $L=0$, then one of the terms is zero, and clearly the reordered product
-also converges to $0$.  Suppose the product converges to a nonzero number.
-By ignoring finitely many terms, we can without loss of generality assume
-that $\Re a_j > -1$ and $\sum \Log(1+a_j)$ converges absolutely and
+also converges to $0$.  Suppose $L\not= 0$.
+By ignoring finitely many terms, we assume without loss of generality
+that $\Re a_j > -1$.  Then $\sum \Log(1+a_j)$ converges absolutely and
 \begin{equation*}
 L = \exp\left(\sum_{j=1}^\infty \Log(1+a_j)\right) .
 \end{equation*}
-As the sum converges absolutely it can be reordered and hence the product
+The sum converges absolutely, so it can be reordered and hence the product
 can be reordered and the limit remains the same.
 \end{proof}
 
@@ -15574,7 +15573,7 @@ the other one is.
 \end{exercise}
 \end{exbox}
 
-And just as before one funds that uniform absolute convergence means uniform
+And just as before one finds that uniform absolute convergence means uniform
 convergence.
 
 \begin{prop} \label{prop:unifabsconvprod}
@@ -15592,15 +15591,15 @@ Prove the proposition.
 \end{exbox}
 
 \begin{cor}
-Suppose $U \subset \C$ is open, $f_n \colon U \to \C$ holomorphic
+Suppose $U \subset \C$ is open, $f_n \colon U \to \C$ are holomorphic
 functions, and $f(z) = \prod_{n=1}^\infty f_n(z)$ converges uniformly absolutely
 on compact subsets of $U$.  Then $f$ is holomorphic.  Furthermore, $f(z)=0$
 if and only if there exists an $n$ such that $f_n(z)=0$.
 \end{cor}
 
 \begin{proof}
-As uniform absolute convergence implies uniform convergence, we get that $f$
-is holomorphic.  And for absolutely convergent convergent products, the only
+As uniform absolute convergence implies uniform convergence, $f$
+is holomorphic.  For absolutely convergent convergent products, the only
 way to get zero is for one of the terms to be zero.
 \end{proof}
 
@@ -15623,16 +15622,17 @@ direction.
 
 \begin{exercise}\label{exercise:proddiff}
 %FIXME: used exercise
-Suppose $U \subset \C$ is a domain and
+Suppose $U \subset \C$ is a domain,
+$f_n \colon U \to \C$ are holomorphic, and
 \begin{equation*}
 F(z) = \prod_{n=1}^\infty f_n(z)
 \end{equation*}
-for holomorphic functions $f_n \colon U \to \C$ converges uniformly 
+converges uniformly absolutely
 on compact subsets of $U$.  Prove that
 \begin{equation*}
 F'(z) = \sum_{n=1}^\infty f_n'(z) \prod_{k=1, k\not=n}^\infty f_k(z) ,
 \end{equation*}
-converging uniformly on compact subsets of $U$.
+converging uniformly absolutely on compact subsets of $U$.
 \end{exercise}
 \end{exbox}
 
@@ -15643,11 +15643,11 @@ converging uniformly on compact subsets of $U$.
 
 \subsection{In the plane}
 
-As we said, to factor an arbitrary holomorphic function such as $\sin$,
-we will have to be a bit trickier than just trying to factor out $(z-z_j)$
+To factor an arbitrary holomorphic function such as the sine,
+we have to be a smidge trickier than just trying to factor out $(z-z_j)$
 for all the zeros.  To
-get the product to converge, we must multiply the factor by something to
-make the factor smaller and make the series converge.
+get the product to converge, we multiply the factor by something to
+make the factor closer to $1$.
 
 \begin{defn}
 Define the \emph{\myindex{elementary factors}}
@@ -15676,8 +15676,9 @@ Then $f(1)$ is real and for $z \in \overline{\D}$,
 \end{lemma}
 
 \begin{proof}
-Expand $f(z) = \sum c_n z^n$.  Since the derivatives of $f$ are positive,
-then $c_n \geq 0$.  Thus for $z \in \overline{\D}$
+Expand $f(z) = \sum c_n z^n$.  The derivatives of $f$ are positive,
+so
+$c_n \geq 0$.  Thus for $z \in \overline{\D}$
 \begin{equation*}
 \babs{f(z)} =
 \abs{\sum_{n=0}^\infty c_n z^n}
