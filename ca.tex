@@ -15573,7 +15573,7 @@ the other one is.
 \end{exercise}
 \end{exbox}
 
-And just as before one finds that uniform absolute convergence means uniform
+As for series, uniform absolute convergence means uniform
 convergence.
 
 \begin{prop} \label{prop:unifabsconvprod}
@@ -15591,9 +15591,10 @@ Prove the proposition.
 \end{exbox}
 
 \begin{cor}
-Suppose $U \subset \C$ is open, $f_n \colon U \to \C$ are holomorphic
-functions, and $f(z) = \prod_{n=1}^\infty f_n(z)$ converges uniformly absolutely
+Suppose $U \subset \C$ is open, $f_n \colon U \to \C$ are holomorphic,
+and $f(z) = \prod_{n=1}^\infty f_n(z)$ converges uniformly absolutely
 on compact subsets of $U$.  Then $f$ is holomorphic.  Furthermore, $f(z)=0$
+for some $z \in U$
 if and only if there exists an $n$ such that $f_n(z)=0$.
 \end{cor}
 
@@ -15613,10 +15614,10 @@ convergence is not absolute.
 
 \begin{exercise}
 Suppose $\Re a_j > -1$ for all $j$.  
-Prove that
+Prove 
 $\prod_{j=1}^\infty (1+a_j)$
 converges to a nonzero number if and only if
-$\sum_{j=1}^\infty \Log (1+a_j)$ converges.  Note: We have proved one
+$\sum_{j=1}^\infty \Log (1+a_j)$ converges.  Note: We already proved one
 direction.
 \end{exercise}
 
@@ -15663,7 +15664,8 @@ As we are relating the absolute convergence of $\prod (1+a_k)$ to $\sum
 \sabs{a_k}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
 Before we do so, let us prove a very useful estimate for holomorphic functions
 on the disc.  By the maximum modulus principle the maximum is attained at
-the boundary, but if the derivatives are all positive, then it is attained
+the boundary.
+If the derivatives are all positive, then it is attained
 at a very specific point.
 
 \begin{lemma}
@@ -15712,8 +15714,8 @@ z^m \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right) .
 \end{multline*}
 Notably, $1-E_m(z)$ has a zero of order $m+1$ at $z=0$.  Thus $f(z) =
 \frac{1-E_m(z)}{z^{m+1}}$ has a removable singularity.  From the formula for
-the derivative $E_m'(z)$ it is clear the coefficients of the power series
-for $f$ at 0 will be nonnegative.  Hence, by the lemma, for $z \in
+the derivative $-E_m'(z)$ it is clear the coefficients of the power series
+for $f$ at $0$ are be nonnegative.  Hence, by the lemma, for $z \in
 \overline{\D}$
 \begin{equation*}
 \abs{\frac{1-E_m(z)}{z^{m+1}}} \leq
@@ -15721,7 +15723,7 @@ for $f$ at 0 will be nonnegative.  Hence, by the lemma, for $z \in
 \end{equation*}
 \end{proof}
 
-We can now prove the sister theorem to Mittag--Leffler, at least in the
+We now prove the sister theorem to Mittag--Leffler, at least in the
 plane.  That is, we can prescribe zeros of an entire function arbitrarily.
 The only requirement is the obvious one from the identity theorem,
 that the zeros do not have a limit point in $\C$.
@@ -15743,7 +15745,7 @@ sequence $\{ \ell_n \}$ such that
 f(z) = z^m \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
 \avoidbreak
 \end{equation*}
-which converges absolutely and uniformly on all compact subsets.
+converging uniformly absolutely on compact subsets.
 In fact, any sequence $\{ \ell_n \}$ such that
 \begin{equation} \label{eq:pnconvergence}
 \sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{\ell_n+1}
@@ -15755,11 +15757,12 @@ converges for all $r > 0$ will work.
 We can clearly ignore the zero at the origin, and just consider the nonzero
 zeros $\{ a_n \}$.  We claim that at least one sequence
 such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
-Indeed choosing $\ell_n = n-1$ would suffice.  As
-$\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
-Thus for any $r > 0$ we get $\sabs{a_n} \geq 2r$ or
+Indeed, choosing $\ell_n = n-1$ would suffice:
+As $\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
+Thus for any $r > 0$, we get $\sabs{a_n} \geq 2r$ or
 $\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
-for all large enough $n$.   Thus if $\ell_n = n-1$, a tail series is bounded
+for all large enough $n$.
+Thus if $\ell_n = n-1$, a tail of the series is bounded
 by the geometric series $\sum {\bigl(\nicefrac{1}{2}\bigr)}^n$.
 
 Consider a compact set $K$ in the plane.  It is contained in some closed disc
@@ -15769,10 +15772,12 @@ of the product, and so we need
 \sum_{n=1}^\infty \abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
 \end{equation*}
 to converge uniformly on $K$.
-If $z \in K$, then $\sabs{z}\leq r$.  Furthermore, as $a_n$ must go to
-infinity, we have that for all $n$ large enough that $\sabs{a_n} \geq r$
-and so $\abs{\frac{z}{a_n}} \leq 1$.
-And so by the lemma,
+If $z \in K$, then $\sabs{z}\leq r$.  Furthermore, as $a_n$ goes to
+infinity, we have
+$\sabs{a_n} \geq r$
+and so $\abs{\frac{z}{a_n}} \leq 1$
+for all $n$ large enough.
+By the lemma,
 \begin{equation*}
 \abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
 \leq
@@ -15780,29 +15785,29 @@ And so by the lemma,
 \leq
 \abs{\frac{r}{a_n}}^{\ell_n+1} .
 \end{equation*}
-Thus a tail of the series converges and thus it converges.  The convergence
+Thus the series converges as its tail converges.  The convergence
 is uniform in $K$, as the right hand side above does not depend on $z$.
 \end{proof}
 
 There are many choices for the sequence $\{ \ell_n \}$.  The proof says
 that the convergence of \eqref{eq:pnconvergence} 
-for every $r>0$ guarantees convergence of the product, but we may still pick
-and choose $\{ \ell_n \}$.
+for every $r>0$ guarantees convergence of the product, but we may still try
+to make a convenient choice of $\{ \ell_n \}$.
 
-Now that we can prescribe zeros of an entire function, we can
+Now that we can prescribe zeros of an entire function, we
 use it to factor out all the zeros of any other entire function, and hence
 obtain a factorization.
 
 \begin{cor}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
 Let $f$ be an entire function, not identically zero,
-with zeros (counting with multiplicity) at points of
+with zeros (repeated according to multiplicity) at points of
 the sequence $\{ a_n \}$ except the zero at
 the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
 entire holomorphic function $g$ and a sequence $\{ \ell_n \}$ such that
 \begin{equation*}
 f(z) = z^m e^{g(z)} \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
 \end{equation*}
-converges absolutely and uniformly on all compact subsets.
+converges uniformly absolutely on compact subsets.
 \end{cor}
 
 \begin{proof}
@@ -15825,7 +15830,7 @@ $\sabs{a_n} \geq n^{1+\epsilon}$ for all $n$.  Prove that
 \prod_{n=1}^\infty
 \left(1-\frac{z}{a_n} \right)
 \end{equation*}
-converges uniformly on compact subsets.
+converges uniformly absolutely on compact subsets of $\C$.
 \end{exercise}
 
 \begin{exercise}[Easy]
@@ -15984,7 +15989,7 @@ $-\bigl(n+\nicefrac{1}{2}\bigr) + in$,
 $-\bigl(n+\nicefrac{1}{2}\bigr) - in$.
 \begin{exparts}
 \item
-Using residue theorem, for $z \notin \Z$, evaluate
+Using the residue theorem, for $z \notin \Z$, evaluate
 \begin{equation*}
 \int_{\gamma_n}\frac{\pi \cot (\pi \xi)}{\xi^2-z^2} \, d\xi .
 \end{equation*}
