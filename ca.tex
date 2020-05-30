@@ -15348,8 +15348,16 @@ $f(z) = g(z) z(z-1)(z-i)$.  And if those were the only zeros, then
 $g$ would be never zero.  If there are infinitely many zeros, however,
 things become difficult.
 Can we factor out the zeros out of $\sin z$?  Can we
-write $\sin z$ as something times $\prod_{n \in \Z} (z-\pi n)$?  Sort of,
-though we have to be careful about convergence.  Of course, we must first
+write $\sin z$ as something times
+\begin{equation*}
+\prod_{n \in \Z} (z-\pi n) \, ?
+\end{equation*}
+Not quite, but sort of,
+though we have to be careful about convergence.\footnote{Beware of
+formal expressions bearing gifts.
+Especially ones with infinite sets in them.
+For example, $\prod_{n \in \Z} (z-\pi n)$ does not make sense.}
+Of course, we must first
 figure out what do we mean by convergence.  Even once we figure out
 what convergence means, it will still require a bit more work as
 we will need to use
@@ -15357,19 +15365,24 @@ more complicated factors to make convergence happen the way we want to.
 
 \begin{defn}
 The product
-$\prod_{j=1}^\infty (1+a_j)$
-\emph{converges}\index{converges!infinite product} if the sequence of partial products
 \begin{equation*}
+\prod_{j=1}^\infty (1+a_j)
+\end{equation*}
+\emph{converges}\index{converges!infinite product} if the limit of the
+sequence of \emph{\myindex{partial products}}
+\begin{equation*}
+\lim_{n\to \infty}
 \prod_{j=1}^n (1+a_j) = (1+a_1)(1+a_2) \cdots (1+a_n)
 \end{equation*}
-converges as $n \to \infty$.
+exists.
 The product
 \emph{converges absolutely}\index{converges absolutely!infinite product}
 if $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$
 converges.
 \end{defn}
 
-A product could converge in two different ways.  It either goes to 0 or not.
+A product could converge in two different ways.  It either goes to 0 or it
+does not.
 One way to go to zero is if $1+a_j=0$ for some $j$, but there
 are other possibilities, for example, if $\sabs{1+a_j} \leq r < 1$ for all
 $j$, then the product also goes to zero, although in this case the
@@ -15398,7 +15411,7 @@ $\sum_{j=1}^\infty \sabs{a_j}$ converges.
 \end{prop}
 
 \begin{proof}
-Suppose that $\sum_{j=1}^\infty \sabs{a_j}$ converges.
+Suppose $\sum_{j=1}^\infty \sabs{a_j}$ converges.
 The sequence of partial products is increasing:
 \begin{equation*}
 \prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr) \leq
@@ -15657,7 +15670,8 @@ To factor an arbitrary holomorphic function such as the sine,
 we have to be a smidge trickier than just trying to factor out $(z-z_j)$
 for all the zeros.  To
 get the product to converge, we multiply the factor by something to
-make the factor closer to $1$.
+make the factor closer to $1$.  We start with functions that have a zero at
+$1$.
 
 \begin{defn}
 Define the \emph{\myindex{elementary factors}}
@@ -15668,7 +15682,7 @@ E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
 \end{equation*}
 \end{defn}
 
-Notice that the function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
+The function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
 As we are relating the absolute convergence of $\prod (1+a_k)$ to $\sum
 \sabs{a_k}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
 Before we do so, let us prove a very useful estimate for holomorphic functions
@@ -15677,7 +15691,7 @@ the boundary.
 If the derivatives are all positive, then it is attained
 at a very specific point.
 
-\begin{lemma}
+\begin{lemma} \label{lemma:maxprincpositive}
 Suppose $f$ is a holomorphic function on a neighborhood of the closed
 disc $\overline{\D}$ and suppose $f^{(n)}(0) \geq 0$ for all $n$.
 Then $f(1)$ is real and for $z \in \overline{\D}$,
@@ -15724,11 +15738,11 @@ z^m \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right) .
 Notably, $1-E_m(z)$ has a zero of order $m+1$ at $z=0$.  Thus $f(z) =
 \frac{1-E_m(z)}{z^{m+1}}$ has a removable singularity.  From the formula for
 the derivative $-E_m'(z)$ it is clear the coefficients of the power series
-for $f$ at $0$ are be nonnegative.  Hence, by the lemma, for $z \in
-\overline{\D}$
+for $f$ at $0$ are be nonnegative.  By \lemmaref{lemma:maxprincpositive},
 \begin{equation*}
 \abs{\frac{1-E_m(z)}{z^{m+1}}} \leq
-\frac{1-E_m(1)}{1^{m+1}} = 1 .  \qedhere
+\frac{1-E_m(1)}{1^{m+1}} = 1
+\qquad \text{for $z \in \overline{\D}$}.  \qedhere
 \end{equation*}
 \end{proof}
 
@@ -15746,10 +15760,10 @@ Then there exists an entire holomorphic $f \colon \C \to \C$ that
 has zeros exactly at $c_k$, with orders given by $m_k$.
 
 More precisely, suppose $\{ a_n \}$ is the sequence of nonzero $\{ c_k \}$ with points
-repeated according to the multiplicities $\{ m_k \}$, and such that $m$
+repeated according to the multiplicities $\{ m_k \}$ and $m$
 is the order of the zero at the origin.
 Then there exists a
-sequence $\{ \ell_n \}$ such that
+sequence $\{ \ell_n \}$ such that one such $f$ is given by
 \begin{equation*}
 f(z) = z^m \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
 \avoidbreak
@@ -15759,16 +15773,16 @@ In fact, any sequence $\{ \ell_n \}$ such that
 \begin{equation} \label{eq:pnconvergence}
 \sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{\ell_n+1}
 \end{equation}
-converges for all $r > 0$ will work.
+converges for all $r > 0$ can be used.
 \end{thm}
 
 \begin{proof}
-We can clearly ignore the zero at the origin, and just consider the nonzero
+We can ignore the zero at the origin, and just consider the nonzero
 zeros $\{ a_n \}$.  We claim that at least one sequence
 such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
 Indeed, choosing $\ell_n = n-1$ would suffice:
 As $\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
-Thus for any $r > 0$, we get $\sabs{a_n} \geq 2r$ or
+For any $r > 0$, we get $\sabs{a_n} \geq 2r$ or
 $\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
 for all large enough $n$.
 Thus if $\ell_n = n-1$, a tail of the series is bounded
@@ -15781,12 +15795,12 @@ of the product, and so we need
 \sum_{n=1}^\infty \abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
 \end{equation*}
 to converge uniformly on $K$.
-If $z \in K$, then $\sabs{z}\leq r$.  Furthermore, as $a_n$ goes to
-infinity, we have
+If $z \in K$, then $\sabs{z}\leq r$.  As $a_n$ goes to
+infinity,
 $\sabs{a_n} \geq r$
 and so $\abs{\frac{z}{a_n}} \leq 1$
 for all $n$ large enough.
-By the lemma,
+By \lemmaref{lemma:elemfactbound},
 \begin{equation*}
 \abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
 \leq
@@ -15801,14 +15815,15 @@ is uniform in $K$, as the right hand side above does not depend on $z$.
 There are many choices for the sequence $\{ \ell_n \}$.  The proof says
 that the convergence of \eqref{eq:pnconvergence} 
 for every $r>0$ guarantees convergence of the product, but we may still try
-to make a convenient choice of $\{ \ell_n \}$.
+to make a convenient choice of $\{ \ell_n \}$, and we can often
+choose a much more convenient choice than $\ell_n=n-1$.
 
 Now that we can prescribe zeros of an entire function, we
-use it to factor out all the zeros of any other entire function, and hence
+use it to factor out all the zeros of any other entire function, and
 obtain a factorization.
 
 \begin{cor}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
-Let $f$ be an entire function, not identically zero,
+Let $f$ be an entire holomorphic function, not identically zero,
 with zeros (repeated according to multiplicity) at points of
 the sequence $\{ a_n \}$ except the zero at
 the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
@@ -15824,11 +15839,11 @@ Let $h \colon \C \to \C$ be the entire function
 \begin{equation*}
 h(z) = \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
 \end{equation*}
-where the $\ell_n$ comes from the product theorem.  The function
+where the $\{ \ell_n \}$ comes from the product theorem.  The function
 $\varphi(z) = \frac{f(z)}{h(z)z^m}$
 has only removable singularities, so $\varphi$ can be made entire.
-The function $\varphi$ has no zeros, and so we can write $\varphi(z) =
-e^{g(z)}$ for an entire function $g$ as $\C$ is simply connected.
+As $\varphi$ has no zeros, $\varphi(z) =
+e^{g(z)}$ for an entire function $g$ because $\C$ is simply connected.
 \end{proof}
 
 \begin{exbox}
@@ -15857,7 +15872,7 @@ with zeros (counting multiplicity) at $a_n$.
 \begin{exercise}
 Suppose $\{ a_k \}$, $\{ b_k \}$ are
 sequences of distinct points in $\C$
-with no limit points, and $\{ n_k \}$, $\{ m_k \}$ sequences of
+with no limit points, and $\{ n_k \}$, $\{ m_k \}$ are sequences of
 natural numbers.
 Prove that
 there exists a meromorphic function $f \colon \C \to \C_\infty$ whose
@@ -15879,8 +15894,8 @@ If $\sabs{w} < 1$, then $\sabs{w}^n$ goes to zero.
 \subsection{Factorization of sine}
 
 Let us use the Weierstrass factorization theorem to factor the sine function
-as we promised.  The function $\sin(\pi z)$ has zeros at the integers $\Z$.  As
-Let us consider the positive integers, then we note that
+as promised.  The function $\sin(\pi z)$ has zeros at the integers $\Z$.
+Let us consider the positive integers.  We note that
 \begin{equation*}
 \sum_{n=1}^\infty \abs{\frac{r}{n}}^{2}
 \end{equation*}
@@ -15912,11 +15927,12 @@ f(z) =
 \pi z \prod_{n=1}^\infty 
 \left(1-\frac{z^2}{n^2}\right) .
 \end{equation*}
-That's a rather nice factorization.  Of course we still do not know $f(z)$ is
-$\sin(\pi z)$: all we know is that the two have the same zeros,
+That's a rather nice factorization.  Of course we still do not know if $f(z)$ is
+$\sin(\pi z)$.
+All we know is that the two have the same zeros,
 and the derivative at 0 is $\pi$ as it should be.
-As $f$ captures the zeros of $\sin(\pi z)$ we write (as in the factorization
-theorem),
+As $f$ captures the zeros of $\sin(\pi z)$, we write
+(as in the factorization theorem),
 \begin{equation*}
 \sin(\pi z)
 = 
@@ -15928,15 +15944,16 @@ e^{g(z)}
 \left(1-\frac{z^2}{n^2}\right)
 \end{equation*}
 for some entire function $g$.  We need to show that $g \equiv 1$.  By the
-computation of the derivative above we have that $g(0) = 1$.
+computation of the derivative above, $g(0) = 1$.
 
 We would like to convert the product to a series using the
-logarithm, as series are simpler to handle (for example, try to
-differentiate a product, ugh!).  Unfortunately given $\varphi(z) =
+logarithm, as series are simpler to handle\footnote{Any calculus student
+will tell you so when they try to differentiate a product with many
+factors.}.  Unfortunately, if $\varphi(z) =
 \sin(\pi z)$, the function
 $\log \varphi(z)$ is not well-defined.
 But as we saw a couple of times before, while $\log \varphi(z)$ is not
-well defined, the logarithmic derivative
+well-defined, the logarithmic derivative
 \begin{equation*}
 \frac{d}{dx} \left[
 \log \varphi(x)
@@ -15944,10 +15961,11 @@ well defined, the logarithmic derivative
 =
 \frac{\varphi'(x)}{\varphi(x)}
 \end{equation*}
-is well defined.  And we can get it by differentiating the series for $\log
-\varphi(z)$ since for the derivative we only need to work locally and we can use
+is well-defined.  We can find the logarithmic derivative it by differentiating
+the series for $\log \varphi(z)$
+since for the derivative we only need to work locally and we can use
 any branch of the logarithm.
-So locally, using any branch of the logarithm we get 
+So, locally, using any branch of the logarithm,
 \begin{multline*}
 \pi \cot (\pi z) =
 \frac{\pi \cos (\pi z)}{\sin(\pi z)}
@@ -16023,8 +16041,8 @@ with uniform convergence on compact subsets of $\C \setminus \Z$.
 \end{exercise}
 \end{exbox}
 
-In particular, we have that $g'(z)=0$, and as $g(0)=1$ we have $g \equiv 1$.
-We have thus proved the following proposition
+In particular, the exercise says that $g'(z)=0$, and as $g(0)=1$ we have $g \equiv 1$.
+We have thus proved the following proposition.
 
 \begin{prop}
 For all $z \in \C$,
@@ -16034,7 +16052,7 @@ For all $z \in \C$,
 \left(1-\frac{z^2}{n^2}\right) ,
 \avoidbreak
 \end{equation*}
-with uniform convergence on compact sets.
+with uniform absolute convergence on compact sets.
 \end{prop}
 
 
@@ -16063,21 +16081,32 @@ converging uniformly on compact subsets of $U$.
 \end{exercise}
 \end{exbox}
 
-\subsection{The product theorem in any domain}
+\subsection{The product theorem in any open set}
+
+The product theorem holds in any open set.  The proof is very similar too.
+However, what changes is that the zeros can no congregate on any point of
+the boundary as well as at infinity.  There are a couple of ways to handle
+this, one is to move infinity first and make sure all the zeros are bounded.
+The other way is to not move anything by split up the sequence of zeros in a
+smart way into a sequence that goes to infinity and has no finite limit
+points and a sequence that has has limit points at the boundary.  The tricky
+business is that the part of the series that has limit points at the
+boundary could also go to infinity, so we ensure that it at least gets
+closer and closer to the boundary as it marches off.
 
 \begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
 Suppose $U \subset \C$ is open, $\{ c_k \}$ is
 a sequence of distinct points in $U$
 with no limit points in $U$, and $\{ m_k \}$ is a sequence of
 natural numbers.
-Then there exists a holomorphic $f \colon U \to \C$ that has
+Then there exists a holomorphic $f \colon U \to \C$ with
 zeros exactly at $c_k$, with orders given by $m_k$.
 \end{thm}
 
 \begin{proof}
-Suppose that $\{ a_n \}$ is the sequence of points $\{ c_k \}$ repeated
+Suppose $\{ a_n \}$ is the sequence of points $\{ c_k \}$ repeated
 according to the multiplicities $\{ m_k \}$.
-As the case $U=\C$ has already been proved we will assume that $\C \setminus
+As the case $U=\C$ has already been proved, we assume $\C \setminus
 U$ is nonempty.
 Let
 \begin{equation*}
@@ -16085,13 +16114,13 @@ D = \left\{ z \in U :
 d(z,\C \setminus U) < \frac{1}{\sabs{z}+1}
 \right\} .
 \end{equation*}
-Here as usual $d(z,\C\setminus U)$ is the distance
-to the boundary.
+As usual $d(z,\C\setminus U) = \inf_{\zeta \in \C \setminus U}
+\sabs{z-\zeta}$.  For $z \in U$ it is the distance to the boundary.
 Divide $\{ a_n \}$ into two parts:
 Let $\{ a^1_n \}$ be those $a_n$ that lie in $D$ and $\{ a^2_n \}$
 be those that do not.
 We will generate a function $f_1$ with zeros at $\{ a^1_n \}$ and
-a function $f_2$ with zeros at $a^2_n$.  Then we let $f = f_1 f_2$
+a function $f_2$ with zeros at $a^2_n$.  Let $f = f_1 f_2$
 to finish the proof.
 Without loss of generality assume both sequences are infinite.
 
@@ -16448,9 +16477,16 @@ and $f$ is zero on $(a,b)$.  Prove that $f$ is identically zero.
 \end{exercise}
 
 \begin{exercise}
-Let $U = \{ z : \Re z > 0 \}$ and
+Let $T = \{ e^{it} : \alpha < t < \beta \}$ be a small arc of the unit
+circle.  Suppose $f \colon \D \cup T \to \C$ and $g \colon \D \cup T \to \C$
+are continuous and holomorphic in $\D$ such that $g = f$ on $T$.  Prove that
+$f=g$ on $\D$.
+\end{exercise}
+
+\begin{exercise}
+Let $U = \{ z \in \C : \Re z > 0 \}$ and
 $g \colon U  \to \C$ be holomorphic
-such that $(g(z))^2 = z$ for
+such that ${\bigl(g(z)\bigr)}^2 = z$ for
 all $z \in U$ and $g(1) = 1$ ($g$ is one of the square roots).
 \begin{exparts}
 \item
