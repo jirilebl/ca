@@ -16084,12 +16084,12 @@ converging uniformly on compact subsets of $U$.
 \subsection{The product theorem in any open set}
 
 The product theorem holds in any open set.  The proof is very similar too.
-However, what changes is that the zeros can no congregate on any point of
+However, what changes is that the zeros can no longer congregate on any point of
 the boundary as well as at infinity.  There are a couple of ways to handle
 this, one is to move infinity first and make sure all the zeros are bounded.
-The other way is to not move anything by split up the sequence of zeros in a
+The other way is to not move anything by splitting up the sequence of zeros in a
 smart way into a sequence that goes to infinity and has no finite limit
-points and a sequence that has has limit points at the boundary.  The tricky
+points and a sequence that has has limit points on the boundary.  The tricky
 business is that the part of the series that has limit points at the
 boundary could also go to infinity, so we ensure that it at least gets
 closer and closer to the boundary as it marches off.
@@ -16186,8 +16186,20 @@ be in $U$ as whenever $\sabs{a^2_n} \leq r$ then $d(a^2_n,\C\setminus U)
 these zeros.
 \end{proof}
 
-Using this theorem we can prove that the set of meromorphic functions on a
-domain in $\C$ the field of fractions.  In less fancy language we prove:
+If $f = \frac{g}{h}$ for two holomorphic functions $g$ and $h$, then $f$
+is meromorphic with poles at the zeros of $h$.  Conversely,
+if $f$ has a pole of order $m$ at $p$, then $f(z) = \frac{g(z)}{{(z-p)}^m}$
+for some holomorphic $g$, so $f$ is a quotient of holomorphic functions
+(near $p$).
+Using the Weierstrass product theorem, we get this converse globally:
+A meromorphic function on a domain is a quotient of holomorphic functions on
+that same domain.
+In more fancy language, the set of meromorphic functions on a
+domain in $\C$ is the field of fractions of the ring of holomorphic
+functions.\footnote{It is important that it is a
+domain in $\C$.  We saw meromorphic functions on $\C_\infty$,
+and those are not quotients of two holomorphic functions, since there are
+no nonconstant holomorphic functions on $\C_\infty$.}
 
 \begin{cor}
 Suppose $U \subset \C$ is open and $f \colon U \to \C_{\infty}$ is
@@ -16218,8 +16230,9 @@ $f=hF$ and $g=hG$.
 \end{exercise}
 
 \begin{exercise}
-Let $S = \bigl\{ e^n \in \C : n \in \Z \bigr\} \cup \{ 0 \}$.
-Explicitly construct a holomorphic function on $\C \setminus S$ that has simple zeros at
+Let $S = \bigl\{ e^n \in \C : n \in \Z \bigr\}$.
+Explicitly construct a holomorphic function on $\C \setminus \{ 0 \}$
+that has simple zeros at
 points of $S$.
 \end{exercise}
 
@@ -16301,13 +16314,14 @@ See \figureref{fig:schwarzreflection} for a diagram of the setup.
 \begin{proof}
 For $z \in U$, define
 \begin{equation*}
+%The reason that this is not using {cases} is that it looks confusing with
+%the bars ... just try it
 F(z) =
 f(z) \quad \text{if } \Im z \geq 0,
 \qquad
 F(z) =
 \overline{f(\bar{z})} \quad \text{else} .
 \end{equation*}
-
 If $z \in U$ and $\Im z > 0$, then $F$ is holomorphic at $z$ by hypothesis.
 Suppose $z \in U$ and $\Im z < 0$.  The easiest to see that $F$
 if holomorphic is by using the Wirtinger derivative and the
