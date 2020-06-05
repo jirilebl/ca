@@ -15524,6 +15524,15 @@ $\log$ to denote any branch of logarithm whatsoever.
 We thus find that the product converges.
 \end{proof}
 
+It is important that the principal branch is used as otherwise the imaginary
+parts of the logs will not converge.  It is also important to emphasize
+above that it is not necessarily true that
+$\sum_{j=1}^n \Log z_j = \Log \prod_{j=1}^n z_j$.
+However,
+$\sum_{j=1}^n \Log z_j = \log \prod_{j=1}^n z_j$ for some branch of the
+logarithm because the arguments might add up to something outside the range
+$(-\pi,\pi]$.
+
 \begin{prop}
 If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely to $0$, then there
 exists a $j$ such that $a_j=-1$.
@@ -15893,12 +15902,12 @@ If $\sabs{w} < 1$, then $\sabs{w}^n$ goes to zero.
 
 Let us use the Weierstrass factorization theorem to factor the sine function
 as promised.  The function $\sin(\pi z)$ has zeros at the integers $\Z$.
-Let us consider the positive integers.  We note that
+We start with the positive integers.  Note that
 \begin{equation*}
 \sum_{n=1}^\infty \abs{\frac{r}{n}}^{2}
 \end{equation*}
 converges for every $r > 0$.  Similarly for the negative integers.  Thus we
-could choose $\ell_n =1$ in the product theorem.  Write
+may choose $\ell_n =1$ in the product theorem.  Write
 \begin{equation*}
 f(z) =
 \pi z \prod_{n \in \Z \setminus \{ 0 \}} E_1\left(\frac{z}{n}\right)
@@ -15913,7 +15922,7 @@ Differentiating the product (using product rule) would give you $\pi \cdot 1
 + 0=1$, as anytime the derivative falls on some factor other that $z$, when
 you evaluate at 0, you get 0.  We can do this formal computation on the
 finite products as the product converges uniformly on compact subsets and
-therefore so does the derivative.  See \exerciseref{exercise:proddiff}.
+therefore so does the derivative.  See also \exerciseref{exercise:proddiff}.
 
 We group some terms together for convenience
 \begin{equation*}
@@ -15944,7 +15953,7 @@ e^{g(z)}
 for some entire function $g$.  We need to show that $g \equiv 1$.  By the
 computation of the derivative above, $g(0) = 1$.
 
-We would like to convert the product to a series using the
+We wish to convert the product to a series using the
 logarithm, as series are simpler to handle\footnote{Any calculus student
 will tell you so when they try to differentiate a product with many
 factors.}.  Unfortunately, if $\varphi(z) =
@@ -15953,26 +15962,29 @@ $\log \varphi(z)$ is not well-defined.
 But as we saw a couple of times before, while $\log \varphi(z)$ is not
 well-defined, the logarithmic derivative
 \begin{equation*}
-\frac{d}{dx} \left[
-\log \varphi(x)
+\frac{d}{dz} \left[
+\log \varphi(z)
 \right]
 =
-\frac{\varphi'(x)}{\varphi(x)}
+\frac{\varphi'(z)}{\varphi(z)}
 \end{equation*}
-is well-defined.  We can find the logarithmic derivative it by differentiating
+is well-defined.  We can find the logarithmic derivative by differentiating
 the series for $\log \varphi(z)$
 since for the derivative we only need to work locally and we can use
 any branch of the logarithm.
 So, locally, using any branch of the logarithm,
+we pick $k$ large enough so that $\Re \bigl( 1-\frac{z^2}{n^2} \bigr) > 0$
+for all $n \geq k$,
+so that we can use \propref{prop:infproductwithlogs},
 \begin{multline*}
 \pi \cot (\pi z) =
 \frac{\pi \cos (\pi z)}{\sin(\pi z)}
 =
-\frac{d}{dx} \left[
+\frac{d}{dz} \left[
 \log \sin (\pi z)
 \right]
 =
-\frac{d}{dx} \left[
+\frac{d}{dz} \left[
 \log 
 \left(
 \pi z
@@ -15983,15 +15995,20 @@ e^{g(z)}
 \right]
 \\
 =
-\frac{d}{dx} \left[
+\frac{d}{dz} \left[
 \log(\pi z)
 +
 g(z)
 +
-\sum_{n=1}^\infty 
+\sum_{n=1}^k 
 \log
 \left(1-\frac{z^2}{n^2}\right)
++
+\sum_{n=k+1}^\infty
+\Log
+\left(1-\frac{z^2}{n^2}\right)
 \right]
+\\
 =
 \frac{1}{z}
 +
@@ -16000,6 +16017,8 @@ g'(z)
 \sum_{n=1}^\infty 
 \frac{2z}{z^2-n^2} .
 \end{multline*}
+The penultimate equality would not be true without the derivative as what's
+inside the square brackets may differ by a constant.
 Since the far left hand side and the far right hand side do not have any
 logarithms in them they are clearly well-defined.
 One can show the equality without the $g'$ as a nice exercise in applying
