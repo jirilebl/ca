@@ -1142,8 +1142,8 @@ multiplication by a complex number.
 
 \subsection{The exponential} \label{subsection:firstdefexp}
 
-The exponential is the most fundamental and useful functions in complex
-analysis.  Assume we know $e^x$ for real numbers.  Let us define $e^z$
+The exponential is the most fundamental and useful function in complex
+analysis.  Assume we know $e^x$ for real numbers.  Define $e^z$
 for all complex numbers (see
 \figureref{fig:complexexpgraphs}):
 \glsadd{not:exp}%
@@ -1208,7 +1208,7 @@ e^{i\theta}
 =
 \cos \theta + i \sin \theta .
 \end{equation*}
-Using this formula we extend cosine and sine to the complex plane.
+%Using this formula we extend cosine and sine to the complex plane.
 The formula says that for real $\theta$
 \begin{equation*}
 \cos \theta = \Re e^{i\theta} = \frac{e^{i\theta}+e^{-i\theta}}{2} ,
@@ -1340,7 +1340,7 @@ $\C \setminus \{ 0 \}$.
 
 \subsection{Mapping properties of the exponential}
 
-Let us consider what the exponential does to the complex plane.
+Let us see what the exponential does to the complex plane.
 The identity $e^{z+w} = e^z e^w$ implies that the exponential
 is never zero (exercise).
 From the known properties of polar coordinates
@@ -1393,7 +1393,6 @@ sector
 The reason for the quotation marks is that the inequality makes no
 sense without interpreting it properly.  It means that one of the values
 of $\arg z$ is between $a$ and $b$.
-
 In particular, the exponential $e^z$ takes the set given by
 $2k\pi < \Im z \leq 2(k+1)\pi$ in a one-to-one (see the exercise above)
 way onto $\C \setminus \{ 0 \}$.
@@ -1418,9 +1417,9 @@ we only add one infinity.  We write
 \C_{\infty} = \C \cup \{ \infty \} ,
 \end{equation*}
 and we call $\C_{\infty}$ the \emph{\myindex{Riemann sphere}}.
-We want to define the topology of $\C_\infty$ to be the same as that of $\C$
+We want the topology of $\C_\infty$ to be the same as that of $\C$
 when we are away from infinity.
-We define the function $g \colon \C_\infty \to \C_\infty$ by
+Define the function $g \colon \C_\infty \to \C_\infty$ by
 \begin{equation*}
 g(z) =
 \begin{cases}
@@ -1447,17 +1446,17 @@ there is a unique line in $\R^3$ through the point $(0,0,1)$ and $p$.
 It is not difficult to prove that this line is never parallel to the
 $xy$-plane, that is, to $\C$, and hence it must intersect $\C$ in a unique
 point $\xi \in \C$ (a plane and a line intersect at a unique point unless
-the two are parallel).  We define:
+the two are parallel).  Define:
 \begin{equation*}
 \Phi(p) = \xi.
 \end{equation*}
-We let $\Phi\bigl((0,0,1)\bigr) = \infty$ so that we have a map
+Let $\Phi\bigl((0,0,1)\bigr) = \infty$, so that we have a map
 $\Phi \colon S^2 \to \C_\infty$.  This map is called the 
 \emph{\myindex{stereographic projection}}.  See
 \figureref{fig:riemannsphere}.
 The map is bijective (exercise below),
-and so we define a metric in $\C_\infty$ by
-using a metric on $S^2$, which we can just take to be the subspace
+and so define a metric on $\C_\infty$ by
+using a metric on $S^2$, which can be say the subspace
 metric coming from the euclidean metric on $\R^3$ (another possibility
 could be the great circle distance, \exampleref{ms:greatcircle}).
 
@@ -1581,7 +1580,6 @@ extended reals:  For instance, if $f(z) = z$ and $g(z) = -z$,
 then $\lim_{z \to \infty} f(z) = \infty$,
 $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
 \bigl(f(z)+g(z)\bigr) = 0$.
-
 On the other hand it is reasonable to define $\nicefrac{c}{0} = \infty$ for
 any $c \not= 0$, $\nicefrac{c}{\infty} = 0$ for any $c \not= \infty$,
 and $c \cdot \infty = \infty$ for any $c \not= 0$.
@@ -1604,9 +1602,9 @@ $a$, $b$, $c$, $d$ guarantees that the ratio does not simplify and that the
 function is nonconstant.
 
 If $c\not=0$,
-the expression is normally defined only on
+the expression is really defined only on
 $\C \setminus \bigl\{ \nicefrac{-d}{c} \bigr\}$,
-however, as in the last section, we write
+however, as in the last section, write
 \begin{equation*}
 f\left(\frac{-d}{c}\right) = \infty, \qquad \text{and} \qquad
 f(\infty) = \frac{a}{c} .
@@ -1636,8 +1634,8 @@ and \emph{inversions}\index{inversion}
 \begin{equation*}
 I(z) = \frac{1}{z}.
 \end{equation*}
-Suppose $f(z) = \frac{az+b}{cz+d}$ is an LFT.
-Without loss of generality, we assume that either $c=1$ or $c=0$.
+Consider an LFT $f(z) = \frac{az+b}{cz+d}$.
+Without loss of generality, assume that either $c=1$ or $c=0$.
 Suppose $c=1$ first,
 \begin{equation*}
 f(z)
@@ -1656,10 +1654,9 @@ f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
 \end{equation*}
 
 This sort of decomposition is quite useful in proving statements about
-LFTs that are preserved under composition,
-one only needs to prove it for $T_a$, $D_a$, and $I$.  This technique
+LFTs that are preserved under composition:
+one only needs to prove them for $T_a$, $D_a$, and $I$.  This technique
 will come in handy in just the next exercise.
-
 Let us include straight lines in the set of circles.  After all, a straight
 line is just a circle through infinity: Think about the circle of radius $r$
 centered at $ir$ as $r \to \infty$.  Then an LFT takes circles to circles.
@@ -1710,7 +1707,7 @@ Then define the map $\Phi \colon \C_\infty \to \C \bP^1$ as
 
 \begin{exbox}
 \begin{exercise}
-Prove that $\Phi$ above is bijective.
+Prove that the $\Phi$ defined above is bijective.
 \end{exercise}
 \end{exbox}
 
@@ -1767,7 +1764,10 @@ $\C^2 \setminus \{ 0 \}$ to $\C^2 \setminus \{ 0 \}$.
 Let $\pi \colon \C^2 \setminus \{ 0 \} \to \C \bP^1$ be the map\footnote{The
 ``quotient map'' or the ``natural projection.''}
 $\pi \bigl( (z,w) \bigr) =
-[z:w]$.  The following commutative diagram may
+[z:w]$.  The following commutative diagram\footnote{By the diagram being
+commutative we mean that if we take two different routes in the picture
+we get the same map.}
+may
 illustrate the entire situation better:
 \begin{equation*}
 \begin{tikzcd}
@@ -1781,8 +1781,7 @@ illustrate the entire situation better:
 \end{tikzcd}
 \end{equation*}
 
-\medskip
-
+\begin{example}
 A handy LFT is the
 \emph{\myindex{Cayley map}}:
 \begin{equation*}
@@ -1802,11 +1801,11 @@ In other words, $\sabs{z+i} > \sabs{z - i}$: The distance of $z$
 to $-i$ is larger than the distance of $z$ to $i$.  It is straightforward
 plane geometry to see this means that $z \in \bH$.  See
 \figureref{fig:cayleydisc}.
-
 \begin{myfig}
 \subimport*{figures/}{cayleydisc.pdf_t}
 \caption{Why does the Cayley map take $\bH$ to $\D$.\label{fig:cayleydisc}}
 \end{myfig}
+\end{example}
 
 Any LFT is bijective if thought of as a map from $\C_\infty$
 to itself, so $C^{-1}$ exists, and it is also a useful map.  We leave
@@ -3548,6 +3547,7 @@ which converges in $\Delta_R(p)$.
 Then $f$ is complex differentiable at every $z \in \Delta_R(p)$ and
 \begin{equation*}
 f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1} ,
+\avoidbreak
 \end{equation*}
 which converges in $\Delta_R(p)$.
 \end{prop}
@@ -3743,27 +3743,25 @@ $f(z) = e^z$.
 \begin{proof}
 It is not hard to check directly (exercise)
 that the series converges in all of $\C$.
-And we now know that it is holomorphic and how to take its complex derivative.
-
+We now know that power series are holomorphic and we know how
+to differentiate them, we do it term-by-term, that is, ``formally.''
 Let $f$ be a convergent power series at the origin
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n ,
 \end{equation*}
-and suppose $f(0)=1$ and $f'=f$.
+such that $f(0)=1$ and $f'=f$.
 Obviously, $f(0)=1$ implies that $c_0 = 1$.
 The trick is to figure out the rest of the series.
-We now know how to
-differentiate such a series, we just do it term-by-term, ``formally.''
-So
+So,
 \begin{equation*}
 f'(z) =
 \sum_{n=1}^\infty n c_n z^{n-1} =
 \sum_{n=0}^\infty (n+1) c_{n+1} z^{n} .
 \end{equation*}
 As the coefficients of the power series at zero are unique, we get
-$c_n = (n+1) c_{n+1}$.  By induction we see that $c_n = \frac{1}{n!}$.
+$c_n = (n+1) c_{n+1}$.  By induction, $c_n = \frac{1}{n!}$.
 
-Let's prove that $f$ is the exponential.  Both functions are
+Let us prove that $f$ is the exponential.  Both functions are
 holomorphic, the exponential is never zero, and both are equal to their
 derivatives.  So,
 \begin{equation*}
@@ -3774,7 +3772,7 @@ derivatives.  So,
 \frac{f(z)\exp(z) - f(z) \exp(z)}{{\bigl(\exp(z)\bigr)}^2}
 = 0.
 \end{equation*}
-So, $f(z) = C \exp(z)$ for some constant (\propref{prop:zeroder}).
+Hence, $f(z) = C \exp(z)$ for some constant (\propref{prop:zeroder}).
 As $f(0) = \exp(0) = 1$,
 we conclude $C=1$.
 \end{proof}
@@ -4427,7 +4425,8 @@ a_n \int_{\gamma_n} f(z) \, dz .
 \end{equation*}
 Two chains $\Gamma_1$ and $\Gamma_2$ in 
 $U$ are
-\emph{equivalent}\index{equivalent chains} if
+\emph{equivalent}\index{equivalent chains} (we will write
+$\Gamma_1=\Gamma_2$) if
 \begin{equation*}
 \int_{\Gamma_1} f(z) \, dz = 
 \int_{\Gamma_2} f(z) \, dz ,
@@ -7148,14 +7147,13 @@ clockwise direction, and the winding number is $-1$.
 The first thing to prove is to show that the winding number is an integer.
 
 \begin{prop} \label{prop:indexinteger}
-Suppose $\Gamma$ is
-a cycle
-and $p \notin \Gamma$.  Then
-\begin{equation*}
-n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz
-\avoidbreak
-\end{equation*}
-is an integer.
+Suppose $\Gamma$ is a cycle and $p \notin \Gamma$.  Then
+$n(\Gamma;p)$ is an integer.
+%\begin{equation*}
+%n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz
+%\avoidbreak
+%\end{equation*}
+%is an integer.
 \end{prop}
 
 Intuitively, the proof is to take a closed path $\gamma$
@@ -7210,9 +7208,7 @@ The second thing to notice is that $n(\Gamma;z)$ is constant as long as we
 do not cross $\Gamma$.
 
 \begin{prop}
-Given
-a cycle
-$\Gamma$ then
+Given a cycle $\Gamma$,
 the function $z \mapsto n(\Gamma;z)$ is constant on the
 topological components of $\C \setminus \Gamma$.
 Furthermore, $n(\Gamma;z) = 0$ for $z$ on the unbounded component
@@ -8440,7 +8436,7 @@ $\theta$ is a continuous function on $[a,b]$.
 The formula follows $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ by
 definition of $L_j$.
 
-The furthermore follows as before:
+The ``Furthermore'' bit follows as before:
 \begin{multline*}
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
 =
@@ -8877,7 +8873,6 @@ $\overline{\Delta_r(z)} \subset U$.  Green's now applies on $U \setminus \Delta_
 \subimport*{figures/}{cauchy-pompeiu.pdf_t}
 \caption{Proof of Cauchy--Pompeiu.\label{fig:cauchypompeiu}}
 \end{myfig}
-
 We compute
 \begin{equation*}
 \int_{\Gamma} \frac{f(\zeta)}{\zeta-z}\,  d\zeta - 
@@ -9012,7 +9007,7 @@ in just a little while.
 However, when we will say that $f$ has a zero, we will never mean that it has a
 ``zero of order zero,'' we will mean an honest zero.
 
-Another remark (which is hidden in the lemma)
+Another remark (hidden in the lemma)
 that may be good to emphasize is that if $f^{(k)}(p) = 0$
 for all $k$, then all coefficients of the power series of $f$ at $p$ are
 zero and $f$ is identically zero.  In other words, \emph{every isolated
@@ -9437,10 +9432,10 @@ Given an isolated singularity, the negative part of the series
 is called the \emph{\myindex{principal part}}.
 \end{defn}
 
-So a singularity is
+A singularity is
 removable if the principal part is zero, it is a pole if the principal part
 is finite, and it is essential if the principal part is infinite.
-For example,
+Consider
 \begin{equation*}
 e^{1/z}
 =
@@ -10160,8 +10155,8 @@ Why do we say that the theorem counts the number of zeros and poles?
 Suppose $\Gamma$ only goes around every point in $z \in U$ at most once
 in the positive direction or not at all.  That is,
 $n(\Gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the ``inside of
-$\Gamma$'' as the points where $n(\Gamma;z)=1$.  Suppose that there are
-$n$ zeros and $\ell$ poles (counting multiplicity) inside $\Gamma$.  Then
+$\Gamma$'' as the points where $n(\Gamma;z)=1$.  If $f$ has 
+$n$ zeros and $\ell$ poles (counting multiplicity) inside $\Gamma$, then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\Gamma \frac{f'(z)}{f(z)} \, dz
@@ -10172,11 +10167,11 @@ The name ``argument principle'' comes from the fact that for a path
 $\gamma$,
 the integral
 $\int_{\gamma} \frac{f'(z)}{f(z)} \, dz$
-computes $i$ times the change in argument of $f$ as we traverse $\gamma$.
-That is, the antiderivative of
+computes $i$ times the change in argument of $f$ as we traverse $\gamma$:
+The antiderivative of
 $\frac{f'(z)}{f(z)}$
-is $\log f(z)$.  So
-we take some value of $\log f(z) = \log \sabs{f(z)} + i \arg f(z)$
+is $\log f(z)$.
+We take some value of $\log f(z) = \log \sabs{f(z)} + i \arg f(z)$
 at the beginning of $\gamma$, we follow it
 around $\gamma$, and subtract the value of $\log f(z)$ at the end.
 Another way to look at the integral is to write
@@ -10196,9 +10191,8 @@ $f \circ \gamma$ winds around zero.
 \begin{proof}[Proof of the argument principle]
 We prove the ``Furthermore'' as that proves the rest of the theorem by
 simply considering the constant $h(z) = 1$.
-
 The function $h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
-at the zeros and poles of $f$.  We apply the residue theorem to find
+at the zeros and poles of $f$.  We apply the residue theorem,
 \begin{multline*}
 \frac{1}{2\pi i}
 \int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
@@ -11549,7 +11543,6 @@ f(p) + \int_{[p,z]} f'(\zeta) \, d\zeta
 As $M$ does not depend on the particular $f$, we get that $\sF$ is
 equicontinuous at $p$ (it is in fact Lipschitz at $p$ with the same
 Lipschitz constant for every $f \in \sF$).
-
 Therefore, we may apply Arzel\`a--Ascoli, 
 \corref{cor:arzelaascoliplane}, to any sequence in $\sF$
 to find a convergent subsequence and hence $\sF$ is a normal family.
