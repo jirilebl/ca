@@ -6496,7 +6496,7 @@ f^{(\ell)}(p)
 Thus $\bigl\{ f_n^{(\ell)} \bigr\}$ converges uniformly to $f^{(\ell)}$ on $K$.
 \end{proof}
 
-It is the fact that we can write all the derivatives as
+The fact that we can write all the derivatives as
 integrals of the function, and hence obtain Cauchy estimates,
 allows us to use a far weaker topology than one would think.
 Integration is a far nicer operation than differentiation, and for
@@ -6782,8 +6782,8 @@ Consequently, $h$ is a map of the disc to the closed disc.
 
 But $h$ can have no zeros:
 $h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is injective
-and its one allowed zero is at $z=0$,
-and $h(0) = g'(0) \not= 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
+and it cannot have a zero at $z=0$
+as $h(0) = \lim_{z\to 0} \frac{g(z)}{z} = g'(0) \not= 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
 continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
 In other words, $\sabs{g(z)}$ must approach $1$ as $z$
 approaches the boundary $\partial \D$.
@@ -10623,7 +10623,7 @@ to $f \colon U \to \C$.  Then $f$ is either injective or constant.
 \end{cor}
 
 \begin{proof}
-Suppose $f$ is nonconstant.
+Assume $f$ is nonconstant.
 Suppose there exist distinct $z_1$ and $z_2$ in $U$ such that $f(z_1) =
 f(z_2) = w$.  Consider $f-w$, which has isolated zeros at $z_1$ and $z_2$.
 Consider two small discs $\Delta_r(z_1)$ and $\Delta_r(z_2)$ contained in
@@ -11111,6 +11111,7 @@ a contradiction.
 \subsection{Equicontinuity}
 
 For larger than countable sets,
+in order to find convergent subsequences
 we need the functions of the sequence to be related.  We look at
 continuous functions, and the concept we need is equicontinuity.
 
@@ -12674,7 +12675,7 @@ Hint: Consider $\log \sabs{f(z)}$.
 Prove the second version of the maximum principle: If $U \subset \C$
 is a bounded domain and
 $f \colon \overline{U} \to \R$ is continuous and harmonic on $U$,
-then $f$ achieves a maximum
+then $f$ achieves both its maximum and its minimum
 on the boundary $\partial U$.
 \end{exercise}
 \end{exbox}
@@ -13735,9 +13736,10 @@ g(z)
 \epsilon (- \log\sabs{z}) .
 \end{equation}
 The estimate \eqref{eq:removableestimateharmonic} holds also when
-$\sabs{z}=1$.
+$\sabs{z}=1$ as $g=0$ there.
 The function $-\log\sabs{z}$ is harmonic outside of the origin, so
-using the maximum principle we have that
+using the maximum principle (the version in
+\exerciseref{exercise:maxprincsecondharmonic}) we have that
 \eqref{eq:removableestimateharmonic} holds also for $\delta \leq \sabs{z}
 \leq 1$.  As $\epsilon$ was arbitrary we get that $g(z) = 0$ for all
 $z \in \D \setminus \{0\}$, and so $u$ is the extension we are looking for.
@@ -13759,7 +13761,7 @@ is the converse of this reasoning:
 A positive harmonic function at an isolated singularity
 at the origin can be written as
 $g(z) - C \log \sabs{z}$, where $g$ is
-harmonic at the origin. 
+harmonic at the origin.
 
 \begin{thm}[B\^{o}cher]
 Suppose $U \subset \C$ is open, $p \in U$, and
@@ -13786,7 +13788,7 @@ and some $\Phi$ defined near $q$ such that $\Re \Phi = f$.
 Then there exists a holomorphic function $\varphi \colon
 \D \setminus \{ 0 \}$ such that $\Phi' = \varphi$ near $q$.
 
-Expand $\psi$ in $\D \setminus \{ 0 \}$ using Laurent series,
+Expand $\varphi$ in $\D \setminus \{ 0 \}$ using Laurent series,
 \begin{equation*}
 \varphi(z) = \sum_{n=-\infty}^\infty c_n {z}^n .
 \end{equation*}
@@ -13862,7 +13864,7 @@ We will prove the corresponding holomorphic version
 (\thmref{thm:schwarzreflectionholo}) later separately.
 
 Basically it says that if a harmonic function vanishes on a nice enough
-curve (such as the real line), then it extends across.
+curve---such as the real line---then it extends (reflects) across.
 
 \begin{thm}[Schwarz reflection principle for harmonic functions]
 \index{Schwarz reflection principle!harmonic functions}
@@ -13949,6 +13951,17 @@ Suppose $f \colon \overline{\bH} \to \R$ is continuous, harmonic on $\bH$, zero 
 and positive on $\bH$  (what we called a Martin function before).
 Prove that $f(z) = c \Im z$ for some $c > 0$.
 \end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \D \setminus \{ 0 \} \to \R$ is harmonic and $f = 0$
+on $\R \cap \bigl( \D \setminus \{ 0 \} \bigr)$.
+\begin{exparts}
+\item
+Show that $f$ has a harmonic conjugate in $\D \setminus \{ 0 \}$.
+\item
+Find an example $f$ as above that does not extend to be harmonic through the origin.
+\end{exparts}
+\end{exercise}
 \end{exbox}
 
 
@@ -13960,14 +13973,21 @@ Prove that $f(z) = c \Im z$ for some $c > 0$.
 Holomorphic, and hence harmonic, functions are very rigid.
 There is a less restrictive (and much larger) set of functions that allows
 us to study harmonic functions.  In essence, we replace equalities, which are
-hard to solve, by inequalities, which are much easier to work with.
+hard to solve, by inequalities, which are easier to work with.
 
 \subsection{Basic properties}
+
+Recall that $f \colon U \to \R \cup \{ -\infty \}$
+is \emph{\myindex{upper-semicontinuous}}
+if 
+\begin{equation*}
+\limsup_{\zeta \to z} f(\zeta) \leq f(z) \quad \text{ for all } z \in U.
+\end{equation*}
 
 \begin{defn}
 Let $U \subset \C$ be open.
 A function $f \colon U \to \R \cup \{ -\infty \}$ is 
-\emph{\myindex{subharmonic}} if it is upper-semicontinuous (see below)
+\emph{\myindex{subharmonic}} if it is upper-semicontinuous
 and for every
 disc $\Delta_r(p)$ with $\overline{\Delta_r(p)} \subset U$,
 and every continuous $g \colon \overline{\Delta_r(p)} \to \R$,
@@ -13976,18 +13996,10 @@ such that $f(z) \leq g(z)$ for $z \in \partial \Delta_r(p)$, we have
 \begin{equation*}
 f(z) \leq g(z) \quad \text{ for all } z \in \Delta_r(p) .
 \end{equation*}
-
-Recall that $f \colon U \to \R \cup \{ -\infty \}$
-is \emph{\myindex{upper-semicontinuous}}
-if 
-\begin{equation*}
-\limsup_{\zeta \to z} f(\zeta) \leq f(z) \quad \text{ for all } z \in U.
-\end{equation*}
 \end{defn}
 
 In other words, a subharmonic function is a function that is less than every
 harmonic function on every disc.
-
 The best way to think about subharmonic functions is an analogy to convex
 functions in $\R$.
 We saw that harmonic functions in $\R$ are just the affine linear functions:
@@ -13997,17 +14009,19 @@ A function of one real variable is
 for every interval it is less than the affine linear function with the same
 end points.
 That is,
-the function $f$ is convex if on
-every interval $[\alpha,\beta]$, $f \leq g$ for every affine linear $g$
-bigger than $f$ at the endpoints $\alpha$ and $\beta$.
+the function $f$ is convex if for every $\alpha < \beta$,
+and every affine linear $g$ such that
+$f(\alpha) \leq g(\alpha)$
+and
+$f(\beta) \leq g(\beta)$,
+we have
+$f(x) \leq g(x)$ for all $x \in [\alpha,\beta]$.
 In particular, we can take the $g$ that is equal to $f$ at the endpoints.
+See \figureref{fig:convexfunc}.
 In $\R$, an interval $[\alpha,\beta]$ plays the role of a closed disc.
-
-So \emph{convex} is the same as \emph{subharmonic} in
-$\R$.
+So \emph{convex} is the same as \emph{subharmonic} in $\R$.
 Graphs of real-valued functions of one real variable
-are also much easier to draw than functions on $\C$, see
-\figureref{fig:convexfunc}.
+are also much easier to draw than functions on $\C$.
 
 \begin{myfig}
 \subimport*{figures/}{convexfunc.pdf_t}
