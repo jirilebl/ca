@@ -7207,7 +7207,7 @@ the partition $t_0,\ldots,t_n$ exists.
 The second thing to notice is that $n(\Gamma;z)$ is constant as long as we
 do not cross $\Gamma$.
 
-\begin{prop}
+\begin{prop} \label{prop:windingconstant}
 Given a cycle $\Gamma$,
 the function $z \mapsto n(\Gamma;z)$ is constant on the
 topological components of $\C \setminus \Gamma$.
@@ -9424,7 +9424,7 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
-\begin{defn}
+\begin{defn} \label{defn:principalpart}
 Given an isolated singularity, the negative part of the series
 \begin{equation*}
 \sum_{n=-\infty}^{-1} c_n {(z-p)}^n 
@@ -14826,7 +14826,8 @@ and hence $\frac{1}{z-p}$ can also be uniformly approximated on $K$ by polynomia
 
 We can now prove Runge.
 
-\begin{thm}[Runge on a compact set]\index{Runge's theorem on a compact set}
+\begin{thm}[Runge on a compact set]\index{Runge's theorem on a compact set}%
+\label{thm:rungecpt}
 Suppose $U \subset \C$ is open, $K \subset U$ is compact, $S \subset \C_{\infty} \setminus K$
 intersects every component of $\C_\infty \setminus K$,
 and $f \colon U \to \C$ is holomorphic.
@@ -15031,8 +15032,11 @@ polynomials, and are a generalization of the idea of convexity.  Classical
 convexity is convexity with respect to affine linear functions (see the
 exercises).
 
-In terms of one complex variable and polynomial hulls the are very easy to
-describe.  They end up being just a topological property: the polynomial
+In one complex variable, polynomial hulls are easy to
+describe.\footnote{In the analysis of several complex variables,
+polynomial hulls are far more difficult to handle, and they are the subject
+of ongoing research.}
+They end up being just a topological property: the polynomial
 hull just ``fills in the holes.''  First a simple proposition about convergence.
 
 \begin{prop}
@@ -15057,16 +15061,17 @@ $\C \setminus K$.  Then $\widehat{K} = \C \setminus X$.
 Suppose $p \in X$.  Then $\{ p \} \cup \C \setminus X$ is a compact set
 whose
 complement (in either $\C$ or $\C_\infty$) is connected.
-Use Runge to approximate a function that is $1$ at $p$ and $0$ on
+Use \hyperref[thm:rungecpt]{Runge} to approximate a function that is $1$ at $p$ and $0$ on
 $\C \setminus X$
-by a polynomial $P(z)$ to say within $\nicefrac{1}{2}$.  In other words
+by a polynomial $P(z)$ to say within $\nicefrac{1}{2}$.  In other words,
 $\abs{P(p)-1} < \nicefrac{1}{2}$ so 
 $\abs{P(p)} > \nicefrac{1}{2}$, and for all $z \in \C \setminus X$ (and
-therefore all $z \in K$)
+therefore all $z \in K$),
 we have 
 $\abs{P(z)} < \nicefrac{1}{2}$.  In other words $p \notin \widehat{K}$.
 
-Conversely, suppose $p \notin X$, then $p \in X_1$ where $X_1$
+Conversely, suppose $p \notin X$ is another point of $\C \setminus K$.
+Then $p \in X_1$ where $X_1$
 is one of the bounded components of $\C \setminus K$.  The boundary
 $\partial X_1 \subset K$, and so the second version of the maximum
 principle says that 
@@ -15101,7 +15106,7 @@ The domain $U$ is polynomially convex.
 \begin{proof}
 Suppose \ref{cor:polyhull:i} is true.
 Then $\C_\infty \setminus U$ has exactly one component.
-So Runge says that we can approximate any function
+So \hyperref[cor:rungeseq]{Runge} says that we can approximate any function
 holomorphic on $U$ by polynomials
 (rational functions with a pole at $\infty$) uniformly on compact sets.
 Namely \ref{cor:polyhull:ii} holds.
@@ -15113,7 +15118,7 @@ Consider $f(z) = \frac{1}{z-p}$, which is holomorphic on $U$, so find
 a sequence of polynomials $\{ P_n \}$ converging uniformly to $f$ on compact
 subsets.
 By the proposition the sequence converges uniformly on $\widehat{K}$
-In particular it converges to a holomorphic function on
+Thus it converges to a holomorphic function on
 $g$ defined on $U \cup \widehat{K}$ (which is an open set by the theorem above).
 The function $f$ is defined on $\C \setminus \{ p \}$,
 and the boundary of the component of $\C \setminus K$ that includes $p$ must
@@ -15123,12 +15128,13 @@ impossible as $g$ is bounded near $p$ while $f$ has a pole there.  So no
 such $p$ exists and \ref{cor:polyhull:iii} is true.
 
 Suppose \ref{cor:polyhull:iii} is true.  Suppose $\C_\infty \setminus U$
-has a component that does not include $\infty$.  This is some compact set
-$K$.  By covering $K$ by small discs whose closure does not intersect any
-other component of $\C_\infty \setminus U$, we find a bounded
-open set $V$ such that $K \subset V$ and $\partial V \subset U$.
-But then by the theorem, $V \subset \widehat{\partial V}$.  This contradicts
-$U$ being polynomially convex.  Thus the only component of $\C_\infty
+has a component $K$ that does not include $\infty$.  The set $K$ is compact.
+By \lemmaref{lemma:patharoundK}, there exists a cycle $\Gamma$ 
+in $U$ such that $n(\Gamma;z) = 1$ on $K$.  That means that $K$ is
+not in the unbounded component of $\C \setminus \Gamma$ (by
+\propref{prop:windingconstant}).  By the theorem above,
+$K \subset \widehat{\Gamma}$.
+This contradicts $U$ being polynomially convex.  Thus the only component of $\C_\infty
 \setminus U$ is the one that contains $\infty$ and so $U$ is simply
 connected.
 \end{proof}
@@ -15162,24 +15168,24 @@ rather than polyomials, then $\widehat{K} = K$ for every compact $K$.
 \section{Mittag-Leffler}
 \label{sec:mittaglefler}
 
-Given a principal part of a function with a pole at $p$:
+Given a \hyperref[defn:principalpart]{principal part} of a function with a pole at $p$:
 \begin{equation*}
 P(z) = \sum_{n=1}^{k} \frac{c_n}{{(z-p)}^n}
 \end{equation*}
 we could ask for a meromorphic function with that pole exactly.  Well, that
 is not hard: $P(z)$.  How about two principal parts, $P_1(z)$ and $P_2(z)$
-for two different poles.  Well again $P_1(z)+P_2(z)$ is your function.
+for two different poles.  Well, $P_1(z)+P_2(z)$ works wonderfully, no?
 In general, if we have a sequence of poles and principal parts
-$P_1(z),P_2(z),\ldots$, then we could take
+$P_1(z),P_2(z),\ldots$, then we wish to take
 \begin{equation*}
 \sum_{j=1}^\infty P_j(z) .
 \end{equation*}
-Or can we?  In general that sum will not converge.  We have to be a little
-trickier, and this is where Runge's theorem will be useful:  Adding
+But can we?  In general that sum will not converge.  We have to be a little
+trickier, and this is where \hyperref[cor:rungeseq]{Runge's theorem} will be useful:  Adding
 a holomorphic function doesn't change the principal part but we can make
 the terms in the sum smaller and make things converge.
 We obtain the
-Mittag-Leffler theorem.\footnote{It sucks when to have a hyphenated name,
+Mittag-Leffler theorem.\footnote{It sucks when you have a hyphenated name:
 Mittag always has to share fame with that Leffler guy.}
 
 \begin{thm}[Mittag-Leffler]\index{Mittag-Leffler theorem}
@@ -15207,18 +15213,20 @@ f_n(z) = \sum_{p \in S_n} P_p(z) .
 Let $R_1=0$.  Suppose $n \geq 2$.
 Every component of $\C_\infty \setminus K_{n-1}$ contains a point of
 $\C_\infty \setminus U$, and $f_n$ is holomorphic on a neighborhood of
-$K_{n-1}$ (it has poles on $K_n \setminus K_{n-1}$).
-So we use Runge to find a rational function $R_n$ with poles in 
+$K_{n-1}$ (it has finitely many poles on $K_n \setminus K_{n-1}$).
+\hyperref[cor:rungeseq]{Runge's theorem}
+gives a rational function $R_n$ with poles in 
 $\C_\infty \setminus U$ such that $\sabs{f_n(z)-R_n(z)} < 2^{-n}$
-for all $z \in K_{n-1}$.
+for all $z \in K_{n-1}$.  We only care that $R_n$ is holomorphic in $U$, we
+do not use its poles or that it is rational.
 
-Now we wish to define
+We wish to define
 \begin{equation*}
 f(z) = \sum_{n=1}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
 \end{equation*}
 We claim that this series converges uniformly on compact subsets of $U \setminus S$,
-and the resulting function is has poles on $S$
-with principal part $P_p$ at $p \in S$.
+and the resulting function has poles on $S$
+with principal parts $P_p$ at $p \in S$.
 
 First suppose that $K \subset U \setminus S$ is compact.  Then $K \subset
 K_\ell$ for some $\ell$.  Write
@@ -15230,7 +15238,7 @@ K_\ell$ for some $\ell$.  Write
 \sum_{n=\ell+2}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
 \end{equation*}
 The first term has poles on $K_\ell$ (but not on $K$),
-but the second term does not and furthermore for all $z \in K_\ell$, and
+but the second term does not.  Furthermore, for all $z \in K_\ell$, and
 hence in $K$, we have
 \begin{equation*}
 \sum_{n=\ell+2}^\infty \abs{ f_n(z) - R_n(z) }
@@ -15253,10 +15261,9 @@ f(z) =
 \sum_{n=\ell+2}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
 \end{equation*}
 The first sum and the last sum are holomorphic on a neighborhood of $p$:
-the first sum has poles in $K_{\ell-2}$ and
+The first sum has poles in $K_{\ell-2}$ and
 the last sum has no singularities on $K_\ell$.
-The function $R_\ell$ also has poles on $K_{\ell-1}$ and so is also
-holomorphic on a neighborhood of $p$.
+The function $R_\ell$ is holomorphic in all of $U$.
 So $f$ has the same singularity at $p$ as $f_\ell$ and the same principal
 part, and $f_\ell$ was set up precisely so that it has a principal part
 $P_p$ at $p$.
@@ -15317,8 +15324,9 @@ Note that one part of the formula may be somewhat ugly, c'est la vie.
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ holomorphic,
 $p \in U$, and
 $P(z) = \sum_{n=1}^{k} \frac{c_n}{{(z-p)}^n}$.
-Show that for every compact
-$K \subset U \setminus \{ p \}$ and every $\epsilon > 0$,
+Suppose
+$K \subset U \setminus \{ p \}$ such that $p$ is in the unbounded
+component of $\C \setminus K$.  Show that for every $\epsilon > 0$,
 there exists a function $g$ holomorphic in $U \setminus \{ p \}$
 with a pole at $p$ and principal part $P$ at $p$ and such that
 $\sabs{f(z)-g(z)} < \epsilon$ for all $z \in K$.
@@ -15328,7 +15336,7 @@ $\sabs{f(z)-g(z)} < \epsilon$ for all $z \in K$.
 Prove that for any open $U \subset \C$ there exists a meromorphic function
 $f \colon U \to \C_\infty$ such that for every $p \in \partial U$
 and every $\epsilon > 0$, there are infinitely many poles of $f$ in
-$\Delta_{\epsilon}(p)$.
+$\Delta_{\epsilon}(p) \cap U$.  Hint: The trick is constructing $S$.
 \end{exercise}
 
 \begin{exercise}
@@ -15715,7 +15723,7 @@ E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
 The function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
 As we are relating the absolute convergence of $\prod (1+a_k)$ to $\sum
 \sabs{a_k}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
-Before we do so, let us prove a very useful estimate for holomorphic functions
+Before we do so, we prove a useful estimate for holomorphic functions
 on the disc.  By the maximum modulus principle the maximum is attained at
 the boundary.
 If the derivatives are all positive, then it is attained
@@ -15731,9 +15739,9 @@ Then $f(1)$ is real and for $z \in \overline{\D}$,
 \end{lemma}
 
 \begin{proof}
-Expand $f(z) = \sum c_n z^n$.  The derivatives of $f$ are positive,
-so
-$c_n \geq 0$.  Thus for $z \in \overline{\D}$
+Expand $f(z) = \sum c_n z^n$.  As $f^{(n)}(0) \geq 0$,
+then $c_n \geq 0$.
+Thus for $z \in \overline{\D}$,
 \begin{equation*}
 \babs{f(z)} =
 \abs{\sum_{n=0}^\infty c_n z^n}
@@ -15802,6 +15810,7 @@ converging uniformly absolutely on compact subsets.
 In fact, any sequence $\{ \ell_n \}$ such that
 \begin{equation} \label{eq:pnconvergence}
 \sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{\ell_n+1}
+\avoidbreak
 \end{equation}
 converges for all $r > 0$ can be used.
 \end{thm}
