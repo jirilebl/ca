@@ -5912,8 +5912,8 @@ $U$.
 \begin{cor}[Maximum modulus principle, part deux]
 \index{maximum modulus principle}%
 \index{maximum principle!holomorphic functions}%
-Suppose $U \subset \C$ is nonempty, open, and bounded (so $\overline{U}$ is compact).
-If $f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
+Suppose $U \subset \C$ is nonempty, open, and bounded (so $\widebar{U}$ is compact).
+If $f \colon \widebar{U} \to \C$ is continuous and the restriction $f|_{U}$
 is holomorphic, then $\sabs{f(z)}$ achieves a maximum on $\partial U$.  In
 other words,
 \begin{equation*}
@@ -5926,7 +5926,7 @@ other words,
 \begin{exercise}
 Prove the second version of the maximum modulus principle above.
 That is for a bounded $U$ a holomorphic $f$ continuous
-on $\overline{U}$ achieves a maximum on $\partial U$.
+on $\widebar{U}$ achieves a maximum on $\partial U$.
 \end{exercise}
 
 \begin{exercise}[Minimum modulus principle]\index{minimum modulus principle}
@@ -5952,7 +5952,7 @@ $\limsup\limits_{z\to p} g(z) = \inf\limits_{r > 0} \sup \bigl\{ g(z) : z \in U
 
 \begin{exercise}
 Suppose $U \subset \C$ is a bounded domain,
-$f \colon \overline{U} \to \C$ is continuous and the restriction $f|_{U}$
+$f \colon \widebar{U} \to \C$ is continuous and the restriction $f|_{U}$
 is holomorphic, and there is a constant $M$ such that $\sabs{f(z)} = M$
 for all $z \in \partial U$.  Prove that $f$ is either constant or $f(z) = 0$
 for some $z \in U$.
@@ -5962,7 +5962,7 @@ for some $z \in U$.
 Suppose $U \subset \C$ is an open set and $f \colon U \to \C$ be holomorphic.
 Let $M > 0$ be fixed and
 define $X = \bigl\{ z \in U : \sabs{f(z)} < M \bigr\}$.
-Prove that $X$ is open and the closure of $X$ (in $U$, so $\overline{X} \cap U$) is the set
+Prove that $X$ is open and the closure of $X$ (in $U$, so $\widebar{X} \cap U$) is the set
 $\bigl\{ z \in U : \sabs{f(z)} \leq M \bigr\}$.
 \end{exercise}
 
@@ -6517,11 +6517,11 @@ prove that for any nonnegative integer $\ell$
 \end{exercise}
 
 \begin{exercise} \label{exercise:convergeboundary}
-Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \overline{U} \to
+Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \widebar{U} \to
 \C$ continuous functions that are holomorphic on $U$, and such that
 the restrictions $f_n|_{\partial U}$ converge uniformly.  Prove that
-$f_n$ converge uniformly on $\overline{U}$ to a continuous
-function $f \colon \overline{U} \to \C$ that is holomorphic in $U$.
+$f_n$ converge uniformly on $\widebar{U}$ to a continuous
+function $f \colon \widebar{U} \to \C$ that is holomorphic in $U$.
 Hint: First use the maximum modulus principle to show that the sequence
 $\{ f_n \}$
 is Cauchy at each point (actually uniformly Cauchy).  Feel free to use the
@@ -8738,7 +8738,7 @@ Let $\Gamma$ be a cycle
 such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\Gamma) = 1 \}$.
 Suppose 
 $P,Q$ are continuously differentiable functions defined in a neighborhood
-of $\overline{U}$.
+of $\widebar{U}$.
 Then
 \begin{equation*}
 \int_{\Gamma} P(z) \, dx + Q(z) \, dy
@@ -8752,7 +8752,7 @@ Then
 \, dA .
 \end{equation*}
 Suppose $F,G$ are continuously differentiable functions defined in a neighborhood
-of $\overline{U}$.
+of $\widebar{U}$.
 In terms of the Wirtinger derivatives, $dz$, and $d \bar{z}$,
 \begin{equation*}
 \int_{\Gamma} F(z) \, dz + G(z) \, d\bar{z}
@@ -8794,7 +8794,7 @@ $G=0$, $F$ be holomorphic, and apply the Wirtinger version of the formula.
 \begin{cor}\label{thm:cauchybygreen}
 Let $\Gamma$ be a cycle
 such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\Gamma) = 1 \}$.
-Suppose $f$ is a holomorphic function defined in a neighborhood of $\overline{U}$.
+Suppose $f$ is a holomorphic function defined in a neighborhood of $\widebar{U}$.
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz  = 0.
 \end{equation*}
@@ -8810,7 +8810,7 @@ This version is called the \emph{\myindex{Cauchy--Pompeiu integral formula}}.
 Let $\Gamma$ be a cycle
 such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\Gamma) = 1 \}$.
 Suppose $f$ is a continuously differentiable function defined in a neighborhood
-of $\overline{U}$.
+of $\widebar{U}$.
 Then for $z \in U$:
 \begin{equation*}
 f(z) =
@@ -8923,7 +8923,7 @@ The theorem follows.
 \begin{exbox}
 \begin{exercise}
 Let $U \subset \C$, $\Gamma$, and $f$ be as in the theorem, but let $z \notin
-\overline{U}$.  Show that
+\widebar{U}$.  Show that
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_{\Gamma}
@@ -11813,10 +11813,10 @@ constructions here.
 \begin{remark}
 Another common question we will not worry about
 is the boundary regularity of the map.  That is, does the map extend to
-the closure $\overline{U}$, and how ``nice'' it is.  For example, if $U$ is
+the closure $\widebar{U}$, and how ``nice'' it is.  For example, if $U$ is
 bounded by a Jordan curve, it is known that $f$ extends to be continuous on
-$\overline{U}$.  If $U$ has smooth boundary (locally a graph of a smooth
-function), then $f$ extends smoothly to $\overline{U}$.
+$\widebar{U}$.  If $U$ has smooth boundary (locally a graph of a smooth
+function), then $f$ extends smoothly to $\widebar{U}$.
 If $U$ has real-analytic boundary (locally a graph of a real-analytic
 function), then $f$ extends holomorphically a bit past the boundary.
 Again, we refer the reader to more advanced literature.
@@ -12674,7 +12674,7 @@ Hint: Consider $\log \sabs{f(z)}$.
 %FIXME: needed
 Prove the second version of the maximum principle: If $U \subset \C$
 is a bounded domain and
-$f \colon \overline{U} \to \R$ is continuous and harmonic on $U$,
+$f \colon \widebar{U} \to \R$ is continuous and harmonic on $U$,
 then $f$ achieves both its maximum and its minimum
 on the boundary $\partial U$.
 \end{exercise}
@@ -12689,7 +12689,7 @@ on the boundary $\partial U$.
 It is useful to find a harmonic function given boundary values.
 That is, given an open $U \subset \C$
 and a continuous $u \colon \partial U \to \R$,
-find a continuous $f \colon \overline{U} \to \R$
+find a continuous $f \colon \widebar{U} \to \R$
 harmonic on $U$ such that $f|_{\partial U} = u$.
 This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
 solvable for many (though not all) open sets.  If the solution exists on a
@@ -12697,7 +12697,7 @@ bounded domain, then it is unique.  On unbounded domains solution need not
 be unique, see \exerciseref{exercise:upperhalfplanedirichlet}.
 
 \begin{prop}
-Suppose $U \subset \C$ is a bounded domain, $f,g \colon \overline{U} \to \R$
+Suppose $U \subset \C$ is a bounded domain, $f,g \colon \widebar{U} \to \R$
 are continuous functions harmonic on $U$,
 such that $f = g$ on $\partial U$.
 Then $f=g$ on $U$.
@@ -13180,7 +13180,7 @@ such that $f = h$ on $\D \cap U$.
 
 \begin{exercise}\label{exercise:martinfunctions}
 Given an open $U \subset \C$,
-a continuous function $f \colon \overline{U} \to \R$,
+a continuous function $f \colon \widebar{U} \to \R$,
 positive and harmonic on $U$,
 and zero on $\partial U$ is called a
 \emph{\myindex{Martin function}}.
@@ -14222,9 +14222,9 @@ the maximum principle and \propref{prop:fplushsubharmonic}.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is a bounded open set, $f \colon \overline{U} \to \R
+Suppose $U \subset \C$ is a bounded open set, $f \colon \widebar{U} \to \R
 \cup \{-\infty\}$ is an upper-semicontinuous function, such that $f|_U$
-is subharmonic, $g \colon \overline{U} \to \R$ is a continuous function
+is subharmonic, $g \colon \widebar{U} \to \R$ is a continuous function
 such that $g|_U$ is harmonic and
 $f(z) \leq g(z)$ for all $z \in \partial U$.  Prove that
 $f(z) \leq g(z)$ for all $z \in U$.
@@ -14426,7 +14426,7 @@ Taking the limit
 $t \to 0$ shows that $Pu = u$ on $\Delta'$.
 Let $W = \Delta \setminus \overline{\Delta'}$.
 On $W$, $u=0$ and so $Pu-u$ is harmonic on $W$
-and continuous on $\overline{W}$.  Furthermore,
+and continuous on $\widebar{W}$.  Furthermore,
 $Pu-u=0$ on $\overline{\Delta'} \cup \partial \Delta$,
 and so $Pu-u=0$ on $\partial W$.  By the maximum principle, $Pu=u$ on $W$
 and therefore on all of $\overline{\Delta}$.
@@ -14445,7 +14445,7 @@ $\Delta$.
 \begin{exbox}
 \begin{exercise}
 Let $U \subset \C$ be a domain and $p \in \partial U$ is a nonisolated point
-of $\partial U$.  Suppose $f \colon \overline{U} \to \C$ is continuous,
+of $\partial U$.  Suppose $f \colon \widebar{U} \to \C$ is continuous,
 holomorphic in $U$, and such that for some small disc $\Delta$ centered at
 $p$, $f$ is zero on $\Delta \cap \partial U$.  Prove that $f \equiv 0$.
 \end{exercise}
@@ -14469,12 +14469,12 @@ If a solution exists, it clearly must equal to the Perron solution.
 \begin{exbox}
 \begin{exercise}
 Suppose $U \subset \C$ is a domain and
-$u \colon \overline{U} \to \R$ is continuous and
+$u \colon \widebar{U} \to \R$ is continuous and
 harmonic on $U$, then
 \begin{equation*}
 u(p) = \sup_{v} v(p)
 \end{equation*}
-where $v$ range over all upper-semicontinuous functions on $\overline{U}$
+where $v$ range over all upper-semicontinuous functions on $\widebar{U}$
 subharmonic on $U$,
 such that $v|_{\partial U} \leq u|_{\partial U}$.
 \end{exercise}
@@ -14499,23 +14499,23 @@ It has been said that man is a rational animal. All my life I have been searchin
 \label{sec:polyapprox}
 
 In real analysis, you may have seen the very useful
-Weierstrass approximation theorem (and more generally the
+Weierstrass approximation theorem (or the more general
 Stone--Weierstrass approximation theorem), which says that a continuous function
 on a compact interval $[a,b]$ can be uniformly approximated by polynomials
-of a real variable.  For holomorphic polynomials, that is polynomials in $z$
-we have a similar theorem, but for holomorphic functions not
+of a real variable.  For holomorphic polynomials---polynomials in $z$---we have a
+similar theorem, but for holomorphic functions not
 continuous functions.  That makes sense.  After all, uniform limits of
-holomorphic functions are holomorphic.
+holomorphic functions are holomorphic, so we can't expect to approximate all
+continuous functions.
 
 \begin{example}
 Let $z = x+iy$.
-By Stone--Weierstrass
+By Stone--Weierstrass,
 any continuous function on the closed unit disc $\overline{\D}$
 is a uniform limit of a sequence of polynomials
 $Q_n(x,y)$ (polynomials of both $x$ and $y$), but only a function that is
 holomorphic on $\D$ can be the uniform limit of polynomials
 $P_n(z)$ (polynomial of $z$).
-
 More explicitly the function $z \mapsto \bar{z}=x-iy$ is not only a limit of
 polynomials in $x$ and $y$, it is a polynomial in $x$ and $y$.  However as
 the function is not holomorphic on $\D$, it cannot be a
@@ -14559,7 +14559,7 @@ $\babs{P(z_0)-\frac{1}{z_0}} \geq 1$.
 \end{exercise}
 \end{exbox}
 
-The problem with the unit circle is that it has a hole.  We can approximate
+The problem with the unit circle is that it goes around a hole.  We can approximate
 any function holomorphic in an open neighborhood of $\partial \D$ by rational
 functions if we allow a pole at $0$.  The function $\frac{1}{z}$ is already
 a rational function with a pole at zero.
@@ -14578,7 +14578,8 @@ $\overline{\D}$.
 
 \begin{exercise}
 Suppose that if a sequence of polynomials $\{ P_n \}$ converges uniformly on $\C$
-then there is an $N$ such that $P_n$ is constant for all $n \geq N$.
+then there is an $N$ such that $P_n - P_m$ is constant for all $n,m \geq N$
+(so the limit is $P_N$ plus a constant).
 \end{exercise}
 \end{exbox}
 
@@ -14589,9 +14590,9 @@ then there is an $N$ such that $P_n$ is constant for all $n \geq N$.
 \label{sec:runge}
 
 Let us first prove rational approximation without any control of the poles.
-The key is going to be that we can find a cycle around any compact set $K$
+The key is to find a cycle around a compact set $K$
 (see \subsectionref{subsec:patharoundK})
-so that we can apply Cauchy's integral formula for points on $K$.
+and then to apply Cauchy's integral formula for points of $K$.
 The Riemann sums of the
 integral are the rational functions.
 
@@ -14635,7 +14636,7 @@ As $\gamma'$ is bounded, we can find a $\delta > 0$ such that
 \end{equation*}
 for all $z \in K$ and all $t,\tau \in [0,1]$ such that $\sabs{t-\tau} <
 \delta$.
-Partition $[0,1]$ into $0 = t_0 < \cdots < t_k = 1$ such that
+Partition $[0,1]$ into $0 = t_0 < t_1 < \cdots < t_k = 1$ such that
 $t_j-t_{j-1} < \delta$.
 Write
 \begin{equation*}
@@ -14648,9 +14649,9 @@ Write
 \gamma'(t)
 \, dt .
 \end{equation*}
-Estimate each bit of this integral by a rational function
+We estimate each bit of this integral by a rational function
 of $z$
-(note the use of the fundamental theorem of calculus)
+(note the use of the fundamental theorem of calculus):
 \begin{multline*}
 \abs{
 \int_{t_{j-1}}^{t_j}
@@ -14704,7 +14705,6 @@ Thus the integral over $\gamma$ converges uniformly for $z \in K$, and
 we are done by summing up over all the paths in $\Gamma$.
 \end{proof}
 
-Let us now approximate simple poles.
 In some parts of the proof below, to make the proof simple we will say that
 functions of a certain type (uniformly) approximate $f$ on $K$
 if for every $\epsilon > 0$ there exists a function $g$
@@ -14736,6 +14736,10 @@ $\sF$, then $f$ can be uniformly approximated by functions in $\sF$.
 \end{exercise}
 \end{exbox}
 
+Let us now approximate simple poles of the form $\frac{1}{z-p}$ by rational
+functions with poles in a given set.  This procedure is called
+\emph{\myindex{pole pushing}} as we are going to ``push'' the poles along a
+path to where we need them to be.
 
 \begin{lemma} \label{lemma:polepushing}
 Suppose $K \subset \C$ is compact, $S \subset \C_{\infty} \setminus K$
@@ -14749,11 +14753,12 @@ there exists a rational function $R$ with poles in $S$ such that
 \end{lemma}
 
 \begin{proof}
-Take $q\in S$ be in the same component of $\C_\infty \setminus K$.
+Take $q\in S$ be in the same component of $\C_\infty \setminus K$ as $p$.
 Suppose first that $q \not= \infty$.
 As $\C_\infty \setminus K$ is path connected, and a path is compact,
-we cover the path by discs.  In particular,
-there exist points $z_1=p,z_2,\ldots,z_n=q$ and
+we connect $p$ and $q$ by a path and
+we cover the path by finitely many discs.  In particular,
+there exist points $p=z_1,z_2,\ldots,z_n=q$ and
 finitely many discs $\Delta_{r}(z_1),\ldots,\Delta_{r}(z_n)$
 of some radius $r > 0$
 such that $\Delta_{r}(z_j) \cap \Delta_{r}(z_{j+1}) \not= \emptyset$
@@ -14763,8 +14768,8 @@ As there are finitely many discs, if we show that we can approximate
 $\frac{1}{z-p}$ on $K$ by a rational function with a pole at $z_2 \in
 \Delta_r(p)$, then we claim we are done.  A rational function $R$ with a pole
 at $z_2$ may be written as
-a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^j}$
-or $(z-z_2)^j$.  If we can approximate $\frac{1}{z-z_2}$ on $K$ by a rational
+a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^k}$
+or $(z-z_2)^k$.  If we can uniformly approximate $\frac{1}{z-z_2}$ on $K$ by a rational
 function with a pole at $z_3$, we can approximate $R$ by a rational function
 with a pole at $z_3$.  Rinse and repeat.  See \figureref{fig:rungepolepush}.
 
@@ -14790,8 +14795,9 @@ which converges uniformly on $K$ as
 \abs{\frac{p-q}{z-q}}
 \leq 
 \frac{r}{\sabs{z-q}}
+\leq
+\frac{r}{2r} = \frac{1}{2} .
 \end{equation*}
-and $\abs{z-q} \geq 2r$.
 A partial sum of the series is the rational function we seek.
 
 Now suppose $q =\infty$. We first find a rational function
@@ -14814,7 +14820,7 @@ which converges uniformly on $\overline{\Delta_M(0)}$ as  $\sabs{q_1} > M$.
 Taking partial sums we get that $\frac{1}{z-q_1}$ can be approximated
 uniformly on $K$ by polynomials (rational functions with a pole at
 $\infty$),
-and hence $\frac{1}{z-p}$ can also be approximated by polynomials.
+and hence $\frac{1}{z-p}$ can also be uniformly approximated on $K$ by polynomials.
 \end{proof}
 
 
@@ -14852,9 +14858,9 @@ There exists a sequence of polynomials $\{ P_n \}$ such that
 0 & \text{else.}
 \end{cases}
 \end{equation*}
-Proof: Let $K_n = \{ z \in \C : \sabs{z} \leq n, \Im z \in
-(-\infty,\nicefrac{-1}{n}] \cup \{ 0 \}
-[\nicefrac{1}{n},\infty) \}$.  The set $\C \setminus K_n$ is connected and
+Proof: Let $K_n = \bigl\{ z \in \C : \sabs{z} \leq n, \Im z \in
+(-\infty,\nicefrac{-1}{n}] \cup \{ 0 \} \cup
+[\nicefrac{1}{n},\infty) \bigr\}$.  The set $\C \setminus K_n$ is connected and
 $K_n$ is compact and has three components.  There is a function $f$
 that is holomorphic on a neighborhood of $K_n$, and it equals $0$ on $K_n \setminus \R$
 and $1$ on $K_n \cap \R$.
@@ -14866,12 +14872,13 @@ Runge says that there is a polynomial $P_n(z)$ such that $\sabs{P_n(z)-f(z)}
 the job.  Since $K_n \subset K_{n+1}$ for all $n$ and $\bigcup K_n = \C$
 we get that eventually any $z$ is in some $K_n$ (and all the later sets).
 It follows that $\lim P_n(z)$ is the right thing.
-But be careful what we said.  We have a pointwise limit only.  The sequence
+But be careful with what we proved.  We have a pointwise limit only.  The sequence
 does \emph{not} converge uniformly on compact sets.  That is easy to see,
 otherwise the limit would be continuous.
 \end{example}
 
-We need a slightly stronger version of
+To prove a version of Runge for open sets,
+we need a slightly stronger version of
 \lemmaref{lemma:compactexhaustion}, basically we need to add 
 an extra property about the complements.
 
@@ -14892,7 +14899,7 @@ component of $\C_\infty \setminus K'_n$ that is completely contained in $U$.
 In particular, we added only bounded components.
 The set $K_n$ is still closed and bounded (in $\C$) and hence compact.
 If $X$ is a component of $\C_\infty \setminus K'_n$ that we added into
-$K_n$, then we still have that $X \subset K_{n+1}$, and as $X$ is open
+$K_n$, then we still have that $X \subset K_{n+1}$, and as $X$ is open,
 $X$ is in the interior of $K_{n+1}$.  So all the conditions are still
 satisfied.
 \end{proof}
@@ -14903,7 +14910,7 @@ Suppose $U \subset \C$ is open, $S \subset \C_{\infty} \setminus U$
 intersects every component of $\C_\infty \setminus U$,
 and $f \colon U \to \C$ is holomorphic.
 Then there exists a sequence $\{ R_n \}$ of rational functions with poles in $S$
-that converges to $f$ uniformly on compact subsets.
+that converges to $f$ uniformly on compact subsets of $U$.
 \end{cor}
 
 \begin{proof}
@@ -14931,7 +14938,7 @@ Prove that if $U \subset V \subset \C$ are open sets such that
 $\C_\infty \setminus V$ intersects every component of
 $\C_\infty \setminus U$, then any holomorphic $f \colon U \to \C$
 can be written as a limit of a sequence of functions holomorphic in $V$
-converging uniformly on compact subsets.
+converging uniformly on compact subsets of $U$.
 \end{exercise}
 
 \begin{exercise}
@@ -14952,6 +14959,7 @@ in $S$.
 
 \begin{exercise}
 Prove that there exists a sequence of polynomials $\{ P_n \}$ such that
+for all $z \in \C$,
 we get the pointwise limit
 \begin{equation*}
 \lim_{n \to \infty}
@@ -14964,6 +14972,7 @@ $x$.
 
 \begin{exercise}
 Prove that there exists a sequence of polynomials $\{ P_n \}$ such that
+for all $z \in \C$,
 we get the pointwise limit
 \begin{equation*}
 \lim_{n \to \infty}
@@ -16519,14 +16528,14 @@ Prove \corref{thm:schwarzreflectioncircleholo}.  Hint: Cayley.
 
 \begin{exercise}
 Suppose $U = \{ z : \Im z > 0 \text{ and } \Re z > 0 \}$
-and $f \colon \overline{U} \to \C$ is continuous, holomorphic 
+and $f \colon \widebar{U} \to \C$ is continuous, holomorphic 
 on $U$, real-valued when $\Im z =0$ and imaginary-value
 when $\Re z = 0$.  Prove that $f$ extends to an entire holomorphic function.
 \end{exercise}
 
 \begin{exercise}
 Suppose that $U \subset \bH$ is a domain in the upper half plane
-such that the $\overline{U} \cap \R$ contains an interval $(a,b)$.
+such that the $\widebar{U} \cap \R$ contains an interval $(a,b)$.
 Suppose $f \colon U \cup (a,b) \to \C$ is continuous and holomorphic on $U$
 and $f$ is zero on $(a,b)$.  Prove that $f$ is identically zero.
 \end{exercise}
@@ -16551,7 +16560,7 @@ for all $z \in U$.
 \item
 Show that $f(z) = e^{-1/g(z)}$ is holomorphic in $U$
 and extends to a continuous function on the closure
-$\overline{U}$.  (The hard part is continuity at $z=0$).
+$\widebar{U}$.  (The hard part is continuity at $z=0$).
 \item
 Show that $f$ does not extend holomorphically through the
 origin.  That is, for any open neighborhood $V$ of $0$ there
@@ -16559,7 +16568,7 @@ exists no holomorphic
 $\varphi \colon V \to \C$ such that $\varphi = f$ on $U \cap V$.
 \item
 Show that $f$ actually extends as a
-$C^\infty$ smooth (infinitely real differentiable) function on $\overline{U}$.
+$C^\infty$ smooth (infinitely real differentiable) function on $\widebar{U}$.
 It is enough to show that
 all real partial derivatives of $f$ of all orders on $U$
 are locally bounded 
@@ -21979,7 +21988,7 @@ $A$ that are not in $B$.
 We the complement of a set is $X^c$, in which case
 the ambient set should be clear.
 \glsadd{not:closure}%
-The topological closure of a set $S$ is denoted by $\overline{S}$, its
+The topological closure of a set $S$ is denoted by $\widebar{S}$, its
 boundary is denoted by
 \glsadd{not:boundary}%
 $\partial S$.  By $\partial S$ we may also mean the path that gives the
