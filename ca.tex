@@ -16615,7 +16615,7 @@ consider all paths to have the parameter in $[0,1]$ in this section.
 
 \begin{defn} \label{defn:analcont}
 Suppose $\gamma \colon [0,1] \to \C$ is continuous with $\gamma(0) = p$,
-and $U \subset \C$ an open neighborhood of $p$.
+and $U \subset \C$ an open connected neighborhood of $p$.
 A holomorphic 
 $f \colon U \to \C$
 can be
@@ -16633,6 +16633,8 @@ $\epsilon > 0$ such that if $\sabs{t-s} < \epsilon$, then
 $f_t = f_s$ in $D_t \cap D_s$.
 \end{enumerate}
 We refer to the continuation as $f_t$ or perhaps $(f_t,D_t)$.
+The function together with the domain such as $(f,U)$, or $(f_t,D_t)$
+is called a \emph{\myindex{function element}}.
 \end{defn}
 
 The value
@@ -16725,7 +16727,8 @@ path, or even a polygonal path.  See the following exercise.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U$ is open and a holomorphic $f \colon U \to \C$ continues analytically along a
+Suppose $U$ is open, $p \in U$, and a holomorphic $f \colon U \to \C$
+continues analytically along a
 continuous $\gamma \colon [0,1] \to \C$ with $\gamma(0) = p$,
 $\gamma(1)=q$, then for
 every $\epsilon > 0$, there
@@ -16746,13 +16749,15 @@ to all of $U$.
 
 \begin{defn}
 Let $U \subset \C$ be a domain, $p \in U$, and $W \subset U$
-is a neighborhood of $p$.
+is an open connected neighborhood of $p$.
 A holomorphic $f \colon W \to \C$
 \emph{\myindex{admits unrestricted continuation}}\index{unrestricted
 continuation} to $U$
 if for every $q \in U$ and \emph{every} continuous
 $\gamma \colon [0,1] \to U$, $\gamma(0) = p$, $\gamma(1) = q$,
-$f$ can be analytically continued along $\gamma$.
+$f$ can be analytically continued along $\gamma$.\footnote{The definition
+depends on $p$, but it does not matter as $W$ is connected, see
+\exerciseref{exercise:startingpointcont}.}
 \end{defn}
 
 The logarithm, and in general every primitive (exercise below),
@@ -16801,7 +16806,8 @@ map (for example, a $k$-to-1 onto holomorphic map), then it does.
 Suppose $U,V \subset \C$ are open, $f \colon U \to V$ is holomorphic
 and onto, and for every $p \in V$, there exists a neighborhood $W \subset
 V$ such that $f^{-1}(W)$ is a disjoint union of open connected sets
-$O_1,O_2,\ldots$ such that $f|_{O_j}$ is a biholomorphism of $O_j$ and $W$.
+$\Omega_1,\Omega_2,\ldots$ such that $f|_{\Omega_j}$ is a biholomorphism of
+$\Omega_j$ and $W$.
 Then we call $f$ a \emph{\myindex{holomorphic covering map}}.
 \end{defn}
 
@@ -16842,15 +16848,23 @@ along $\gamma$.
 
 \begin{exbox}
 \begin{exercise}
-Let $U \subset \C$ be a domain, $W \subset U$ a nonempty open subset,
-and $f \colon U \to \C$ holomorphic.  Prove that the restriction
-$f|_W$ allows unrestricted continuation to $U$.
+Let $U \subset \C$ be a domain, $W \subset U$ a connected open subset,
+$p \in U$ and $f \colon U \to \C$ holomorphic.  Prove that the restriction
+$f|_W$ allows unrestricted continuation to $U$ with $p$ as a starting point.
+\end{exercise}
+
+\begin{exercise} \label{exercise:startingpointcont}
+Let $U \subset \C$ be a domain, $W \subset U$ a nonempty connected open subset,
+and $f \colon W \to \C$ holomorphic.  Suppose $f$ admits unrestricted
+continuation to $U$ with $p_1 \in W$ as a starting point.  Prove
+that for any other $p_2 \in W$, $f$ admits unrestricted continuation
+to $U$ with $p_2$ as a starting point.
 \end{exercise}
 
 \begin{exercise}
 Let $U \subset \C$ be a domain and let
-$f \colon U \to \C$ be holomorphic.  Locally near some $p$,
-$f$ has an antiderivative $F$.  Prove that $F$ admits unrestricted
+$f \colon U \to \C$ be holomorphic.  Locally near some $p \in U$,
+suppose $F$ is an antiderivative of $f$.  Prove that $F$ admits unrestricted
 continuation to $U$.
 \end{exercise}
 
@@ -16869,8 +16883,17 @@ prove that a $k$-to-1 onto holomorphic mapping $f \colon U \to V$ is a covering 
 
 \subsection{Monodromy theorem}
 
+Since we can continue a function along many different paths, we want to
+introduce a topological equivalence that tells us how we navigate the domain
+around the various holes, and an equivalence that doesn't care exactly what
+path we take as long as we can deform one path to the other.
+We have seen that for closed paths that homotopy is such an equivalence, although
+here we look at paths from one fixed point to another point.  The definition
+is almost the same except instead of ``closed'' we require that the paths
+are ``from $p$ to $q$.''
+
 \begin{defn}
-Let $U \subset \C$ be open.
+Let $U \subset \C$ be open and $p,q \in U$.
 Two continuous\footnote{This definition
 works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
 $\gamma_j(0)=\gamma_j(1)$, but we only need it for piecewise $C^1$ paths in
@@ -16891,13 +16914,18 @@ H(t,1) = \gamma_1(t), \qquad
 H(0,s) = p, \qquad
 \text{and} \qquad
 H(1,s) = q .
+\avoidbreak
 \end{equation*}
-We also write $H_s(t)$ for the paths in the homotopy.
+We also write $H_s$, where $H_s(t) = H(t,s)$, for the paths in the homotopy.
 \end{defn}
 
+The key property of fixed-endpoint homotopy in the context of continuation is that 
+the value of the continuation at $q$ is the same for homotopic paths.
+
 \begin{prop}
+\pagebreak[2]
 Suppose $U \subset \C$ is a connected domain,
-$p \in \Delta$,
+$p \in U$,
 $W \subset U$ is an open neighborhood of $p$,
 and $f \colon W \to \C$ is holomorphic and admits unrestricted continuation
 to $U$.  Suppose further that
@@ -16914,8 +16942,8 @@ value at $q$ of the continuation along $\gamma_2$.
 Let $H(t,s)$ be the homotopy.
 Let $\varphi(s)$ be the value of the continuation at $q$ for the path $H_s$.
 By \propref{prop:continuationclose}, $\varphi(s)$ is locally constant (that
-is, each $s$ has a neighborhood in which $\varphi$ is constant).  Therefore,
-as $[0,1]$ is connected, $\varphi$ is constant.
+is, each $s$ has a neighborhood in which $\varphi$ is constant).  
+As $[0,1]$ is connected, $\varphi$ is constant.
 \end{proof}
 
 The monodromy theorem says that as long as there are
@@ -16923,7 +16951,7 @@ no holes, analytic continuation defines a function uniquely.
 
 \begin{thm}[Monodromy theorem]\index{Monodromy theorem}
 Suppose $U \subset \C$ is a simply connected domain, $W \subset U$ is a
-nonempty open subset, and
+nonempty connected open subset, and
 $f \colon W \to \C$ is holomorphic and admits unrestricted continuation
 to $U$.  Then there exists
 a unique holomorphic function $F \colon U \to \C$ such that $F|_W = f$.
@@ -16935,8 +16963,8 @@ assume that $U=\D$ or $U = \C$.
 We have to show that no matter how we extend to any point $q \in U$, we
 always get the same value, no matter what path we continue along.
 Suppose $\gamma_1 \colon [0,1] \to U$ and
-$\gamma_2 \colon [0,1] \to U$ are continuous, $\gamma_1(0)=\gamma_1(0) \in
-\Delta$
+$\gamma_2 \colon [0,1] \to U$ are continuous,
+$\gamma_1(0)=\gamma_1(0) \in W$
 and
 $\gamma_1(1)=\gamma_2(1)=q$.  Let
 \begin{equation*}
@@ -16973,7 +17001,7 @@ replaced by ``local homeomorphism.''}
 What we proved above is that the only universal covering of a simply
 connected domain is essentially just a biholomorphism.
 Riemann mapping theorem implies that every domain has a universal cover that
-is either $\C$ or $\D$.  In fact, and we will again not prove this,
+is either $\C$ or $\D$.  In fact, and we will again not prove so,
 the only domains with universal cover of $\C$ are $\C$ itself and $\C
 \setminus \{ 0 \}$ (the exponential).
 Every other domain in $\C$ has $\D$ as the universal
