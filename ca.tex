@@ -488,15 +488,19 @@ same.  You can assume the license is either the CC-BY-NC-SA or CC-BY-SA\@,
 whichever is compatible with what you wish to do, your derivative works must
 use at least one of the licenses.
 
-%\bigskip
-%
-%\noindent
-%\textbf{Acknowledgments:}
-%\\
-%I would like to thank Adam Cartisano, Josiah Ireland, Hoai Dao, Haridas
-%Das, Uddhaba Pandey, FIXME
-%and students in my classes for pointing out typos/errors
-%and helpful suggestions. 
+\bigskip
+
+\noindent
+\textbf{Acknowledgments:}
+\\
+I would like to thank my students
+Adam Cartisano,
+Josiah Ireland,
+Hoai Dao,
+Haridas Das,
+Uddhaba Pandey
+for pointing out typos/errors
+and helpful suggestions. 
 %
 %\bigskip
 %
@@ -546,7 +550,8 @@ If you cannot prove a man wrong, don't panic. You can always call him names.
 \end{myquote}
 
 The purpose of this book is to teach a one-semester graduate course in
-complex analysis for incoming graduate students.
+complex analysis for incoming graduate students.\footnote{I wrote it
+specifically to teach Math 5283 at Oklahoma State University.}
 It is a natural first semester in a two semester sequence where the second
 semester could be several complex variables (e.g. \cite{scv:book})
 or perhaps harmonic analysis.
@@ -578,7 +583,9 @@ especially with
 regards to mappings of the plane.  We can quite quickly jump to
 holomorphic functions as solutions of the Cauchy--Riemann equations
 for instance.
-The connection is to understand multiplication by complex numbers
+The connection is to understand both the derivative of 
+a planar mapping and
+multiplication by complex numbers
 as a $2 \times 2$ real matrix.
 When we introduce line integrals, we connect
 them to the line integrals the student has seen in calculus.
@@ -608,30 +615,33 @@ possible to cover other later topics.
 
 \medskip
 
-The general dependence of the non-appendix chapters is the following.
-My plan for a semester is to go through chapters
+The general dependence of the non-appendix chapters is the following diagram.
+The way I ran my semester course was
+to go through chapters
 \ref{ch:complexplane}--\ref{ch:counting}, skipping the homotopy versions of
 Cauchy, to get through basic theory of holomorphic functions,
 then getting to \ref{ch:montelriemann} (Montel and Riemann mapping),
-\ref{ch:harmonic} (harmonic functions),
-\ref{ch:runge} (Runge).
+and some bits of \ref{ch:harmonic} (harmonic functions).
 Then there are some extra topics for a different
-plan such as \ref{ch:weier} (Weierstrass factorization) and
+plan such as
+\ref{ch:weier} (Weierstrass factorization),
+\ref{ch:runge} (Runge), and
 \ref{ch:analcont} (analytic continuation).
 \begin{equation*}
 \begin{tikzcd}[cramped, row sep=small]
-& {\text{\Chdotref{ch:complexplane}}} \arrow[d] \\
-& {\text{\Chdotref{ch:holanal}}} \arrow[d] \\
-& {\text{\Chdotref{ch:cauchysimple}}} \arrow[d] \\
-& {\text{\Chdotref{ch:log}}} \arrow[d] \\
-& {\text{\Chdotref{ch:counting}}} \arrow[dl] \arrow[d]
-\arrow[dr] \arrow[dr] \arrow[drr] \\
-{\text{\Chdotref{ch:montelriemann}}} \arrow[d] &
+{\text{\Chdotref{ch:complexplane}}} \arrow[r] &
+{\text{\Chdotref{ch:holanal}}} \arrow[r] &
+{\text{\Chdotref{ch:cauchysimple}}} \arrow[r] &
+{\text{\Chdotref{ch:log}}} \arrow[dl] \\
+& & {\text{\Chdotref{ch:counting}}} \arrow[dl] \arrow[d]
+\arrow[dr] \\
+& {\text{\Chdotref{ch:montelriemann}}} \arrow[dl] \arrow[d] &
 {\text{\Chdotref{ch:harmonic}}} &
-{\text{\Chdotref{ch:weier}}} &
+{\text{\Chdotref{ch:weier}}}
+\\
+{\text{\Chdotref{ch:runge}}} &
 {\text{\Chdotref{ch:analcont}}}
 \\
-{\text{\Chdotref{ch:runge}}}
 \end{tikzcd}
 \end{equation*}
 The only reason why \ref{ch:runge} (Runge) depends on \ref{ch:montelriemann}
@@ -11662,7 +11672,7 @@ the theorem to say that any simply connected domain in $\R^2$
 is homeomorphic to the disc, and that's despite the topologists only
 needing the mapping to be continuous.}
 
-\begin{thm}[Riemann mapping]
+\begin{thm}[Riemann mapping]\label{thm:RMT}
 %\pagebreak[2]
 Let $U \subset \C$ be a simply connected domain such that $U \not= \C$.
 Let $p \in U$ be given.  Then there exists a biholomorphic (conformal)
@@ -11889,7 +11899,8 @@ Let us finally prove that simply connected (in the sense of homology,
 \defnref{defn:simplyconnected:homology} that we have been using all this
 time), is equivalent to simply connected in the sense of homotopy.
 The proof of this corollary is a wonderful example of something that would
-be quite difficult without the Riemann mapping theorem, and it is almost
+be quite difficult without the
+\hyperref[thm:RMT]{Riemann mapping theorem}, and it is almost
 trivial with the mapping theorem.
 
 \begin{cor} \label{cor:simplyconnhard}
@@ -11945,7 +11956,9 @@ we will prove a lemma that around any compact set in some domain $U$
 we can find a cycle that goes around this compact set and is homologous to
 zero in $U$.
 What's interesting is that there is no simply connected domain 
-in this problem, but we can still use the Riemann mapping theorem to greatly
+in this problem, but we can still use the
+\hyperref[thm:RMT]{Riemann mapping theorem}
+to greatly
 simplify the topology of the situation.
 There are more direct and
 constructive (but no less technical) ways of proving this theorem,
@@ -14484,6 +14497,959 @@ such that $v|_{\partial U} \leq u|_{\partial U}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\chapter{Weierstrass Factorization} \label{ch:weier}
+
+\begin{myquote}
+I became insane, with long intervals of horrible sanity.
+
+---Edgar Allan Poe
+\end{myquote}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Infinite products}
+\label{sec:prod}
+
+If a
+function has zeros at $0$, $1$, and $i$ we
+could write $f$ as
+$f(z) = g(z) z(z-1)(z-i)$.  And if those were the only zeros, then 
+$g$ would be never zero.  If there are infinitely many zeros, however,
+things become difficult.
+Can we factor out the zeros out of $\sin z$?  Can we
+write $\sin z$ as something times
+\begin{equation*}
+\prod_{n \in \Z} (z-\pi n) \, ?
+\end{equation*}
+Not quite, but sort of,
+though we have to be careful about convergence.\footnote{Beware of
+formal expressions bearing gifts.
+Especially ones with infinite sets in them.
+For example, $\prod_{n \in \Z} (z-\pi n)$ does not make sense.}
+Of course, we must first
+figure out what do we mean by convergence.  Even once we figure out
+what convergence means, it will still require a bit more work as
+we will need to use
+more complicated factors to make convergence happen the way we want to.
+
+\begin{defn}
+The product
+\begin{equation*}
+\prod_{j=1}^\infty (1+a_j)
+\end{equation*}
+\emph{converges}\index{converges!infinite product} if the limit of the
+sequence of \emph{\myindex{partial products}}
+\begin{equation*}
+\lim_{n\to \infty}
+\prod_{j=1}^n (1+a_j) = (1+a_1)(1+a_2) \cdots (1+a_n)
+\end{equation*}
+exists.
+The product
+\emph{converges absolutely}\index{converges absolutely!infinite product}
+if $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$
+converges.
+\end{defn}
+
+A product could converge in two different ways.  It either goes to 0 or it
+does not.
+One way to go to zero is if $1+a_j=0$ for some $j$, but there
+are other possibilities.  For instance, if $\sabs{1+a_j} \leq r < 1$ for all
+$j$, then the product also goes to zero, although in this case the
+convergence will not be absolute (exercise below).
+
+Suppose that the product converges to a nonzero number.
+In particular, $a_j \not= -1$ for any $j$.  Then
+\begin{equation*}
+\frac{
+\prod_{j=1}^{n+1} (1+a_j)
+}{
+\prod_{j=1}^{n} (1+a_j)
+}
+=1+a_n
+\end{equation*}
+Taking the limit, we see that $1+a_n$ must go to 1, and so $a_n$ must go to 0.
+
+A key idea about products is to relate infinite products to sums using the
+logarithm, which is something we can easily do if dealing with positive
+numbers.  This means that absolutely convergent products can be understood
+if we can understand absolutely convergent sums, which we do.
+
+\begin{prop} \label{prop:infprodabsconvinfsum}
+The product $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$ converges if and only if
+$\sum_{j=1}^\infty \sabs{a_j}$ converges.
+\end{prop}
+
+\begin{proof}
+Suppose $\sum_{j=1}^\infty \sabs{a_j}$ converges.
+The sequence of partial products is increasing:
+\begin{equation*}
+\prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr) \leq
+\prod_{j=1}^{n+1} \bigl(1+\sabs{a_j}\bigr) .
+\end{equation*}
+Thus it is sufficient to show that it is bounded.
+Consider
+\begin{equation*}
+\log \prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr)
+=
+\sum_{j=1}^n \log \bigl(1+\sabs{a_j}\bigr)
+\leq
+\sum_{j=1}^n \sabs{a_j} \leq
+\sum_{j=1}^\infty \sabs{a_j} .
+\end{equation*}
+
+For the other direction, suppose that the sequence of partial products
+converges.  All but finitely many $j$, we must
+have $\sabs{a_j} < 1$.  Otherwise the product would double infinitely often and go to
+infinity.  So suppose that $\sabs{a_j} < 1$ for all $j \geq N$.
+If $\sabs{a_j} < 1$, then $\sabs{a_j} \leq 2 \log \bigl(1+\sabs{a_j}\bigr)$,
+and
+\begin{equation*}
+\sum_{j=N}^n \sabs{a_j}
+\leq
+\sum_{j=N}^n 2 \log \bigl(1+\sabs{a_j}\bigr)
+\leq
+2 \log \prod_{j=N}^n \bigl(1+\sabs{a_j}\bigr) .
+\end{equation*}
+The right hand side is bounded as $n$ goes to infinity, and so the tail of
+$\sum_{j=1}^\infty \sabs{a_j}$ converges.
+\end{proof}
+
+An immediate consequence is that if 
+$\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then
+$\{ a_j \}$ converges to $0$.  Actually much more than that, they have to
+go to zero fast enough to be absolutely summable.
+
+As for series, we need to know that absolute convergence really is convergence.
+
+\begin{prop} \label{prop:infproductwithlogs}
+If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then it converges.
+
+Moreover, if furthermore $\Re a_j > -1$ for all $j$, then 
+\begin{equation*}
+\prod_{j=1}^\infty (1+a_j)
+=
+\exp\left(
+\sum_{j=1}^\infty \Log(1+a_j)
+\right),
+\end{equation*}
+where the series converges absolutely.  In particular, the product
+converges to a nonzero number.
+\end{prop}
+
+\begin{proof}
+If the product converges absolutely, then $\sabs{a_j}$ goes to $0$, and we
+may assume that $\Re a_j > -1$ for all $j$.  In particular,
+$\Log (1+a_j)$ is well-defined for the principal branch of the logarithm.
+Let $m > n$ be two positive integers.
+\begin{multline} \label{eq:infprodest1}
+\abs{
+\sum_{j=1}^m 
+\abs{\Log (1+a_j)}
+-
+\sum_{j=1}^n 
+\abs{\Log (1+a_j)}
+}
+\leq
+\sum_{j=n+1}^m 
+\abs{
+\Log (1+a_j)
+}
+\\
+\leq
+\sum_{j=n+1}^m 
+\left(
+\log \sabs{1+a_j}
++
+\abs{ \Arg (1+a_j)}
+\right) .
+\end{multline}
+As before,
+\begin{equation*}
+\sum_{j=1}^k \log \sabs{1+a_j} \leq
+\sum_{j=1}^k \log \bigl(1+\sabs{a_j}\bigr)
+\leq
+\sum_{j=1}^k \sabs{a_j} ,
+\end{equation*}
+and this series converges via the proposition.
+Next, $\Arg(1+a_j)$ is between $\nicefrac{-\pi}{2}$ and
+$\nicefrac{\pi}{2}$, and $a_j$ is going to zero.  So for all $j$ large
+enough, $\babs{\Arg(1+a_j)} \leq 2\sabs{a_j}$.  As $\sum
+\sabs{a_j}$ converges, 
+$\sum \babs{\Arg (1+a_j)}$ converges.
+
+In other words, the right hand side in \eqref{eq:infprodest1} goes to zero
+as $n$ goes to infinity.  Thus, $\sum \babs{\Log(1+a_j)}$ is Cauchy and hence
+converges.  When taking an exponential, it does not matter which branch of
+the logarithm we take, and therefore the following makes sense, where we use
+$\log$ to denote any branch of logarithm whatsoever.
+\begin{equation*}
+\exp\left(
+\sum_{j=1}^n \Log(1+a_j)
+\right)
+=
+\exp\left(
+\log \prod_{j=1}^n (1+a_j)
+\right)
+=
+\prod_{j=1}^n (1+a_j) .
+\end{equation*}
+We thus find that the product converges.
+\end{proof}
+
+It is important that the principal branch is used as otherwise the imaginary
+parts of the logs will not converge.  It is also important to emphasize
+above that it is not necessarily true that
+$\sum_{j=1}^n \Log z_j = \Log \prod_{j=1}^n z_j$.
+However,
+$\sum_{j=1}^n \Log z_j = \log \prod_{j=1}^n z_j$ for some branch of the
+logarithm because the arguments might add up to something outside the range
+$(-\pi,\pi]$.
+
+\begin{prop}
+If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely to $0$, then there
+exists a $j$ such that $a_j=-1$.
+\end{prop}
+
+\begin{proof}
+In the proof of the proposition above, we
+noticed that $\Re a_j > -1$ for all large enough $j$.  The product
+of those terms converges to a nonzero number by the ``Moreover'' part of the
+proposition.  The only way to get zero as a limit is for one of the initial
+terms to be zero, that is, if $a_j=-1$ for some $j$.
+\end{proof}
+
+Just as for series, an absolutely convergent power series can be reordered.
+
+\begin{prop}
+Suppose $\prod_{j=1}^\infty (1+a_j)$ converges absolutely to $L$.
+If $\varphi \colon \N \to \N$ is a bijection, then 
+$\prod_{j=1}^\infty (1+a_{\varphi(j)})$ also converges absolutely to $L$.
+\end{prop}
+
+\begin{proof}
+That the reordered series converges absolutely follows from 
+\propref{prop:infprodabsconvinfsum} and the corresponding result for series.
+If $L=0$, then we just proved that one of the terms is zero,
+and the reordered product converges to $0$.
+Suppose $L\not= 0$.
+By ignoring finitely many terms, we assume without loss of generality
+that $\Re a_j > -1$.  Then $\sum \Log(1+a_j)$ converges absolutely and
+\begin{equation*}
+L = \exp\left(\sum_{j=1}^\infty \Log(1+a_j)\right) .
+\end{equation*}
+The sum converges absolutely, so it can be reordered and hence the product
+can be reordered and the limit remains the same.
+\end{proof}
+
+
+
+\begin{defn}
+Given functions $g_j \colon X \to \C$, the product
+$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
+\emph{converges uniformly absolutely}%
+\index{converges absolutely uniformly!infinite product}%
+\index{uniform absolute convergence!infinite product}
+if
+$\prod_{j=1}^{\infty} \bigl(1+\sabs{g_j(x)}\bigr)$ 
+converges uniformly in $x \in X$.
+\end{defn}
+
+Uniformly absolute convergence of the product is the same as uniformly
+absolute convergence of the sum.
+
+\begin{prop}
+For $g_j \colon X \to \C$, the product
+$\prod_{j=1}^{\infty} \bigl(1+\sabs{g_j(x)}\bigr)$ 
+converges uniformly if and only if
+$\sum_{j=1}^{\infty} \sabs{g_j(x)}$ converges uniformly.
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.  Hint:
+Use log to convert the partial products to partial sums.
+Then apply the estimates in \propref{prop:infprodabsconvinfsum} to
+show that one sequence of partial sums is uniformly Cauchy if and only if
+the other one is.
+\end{exercise}
+\end{exbox}
+
+As for series, uniform absolute convergence means uniform
+convergence.
+
+\begin{prop} \label{prop:unifabsconvprod}
+For $g_j \colon X \to \C$, if
+$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
+converges uniformly absolutely, then
+$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
+converges uniformly.
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+\end{exbox}
+
+\begin{cor}
+Suppose $U \subset \C$ is open, $f_n \colon U \to \C$ are holomorphic,
+and $f(z) = \prod_{n=1}^\infty f_n(z)$ converges uniformly absolutely
+on compact subsets of $U$.  Then $f$ is holomorphic.  Furthermore, $f(z)=0$
+for some $z \in U$
+if and only if there exists an $n$ such that $f_n(z)=0$.
+\end{cor}
+
+\begin{proof}
+As uniform absolute convergence implies uniform convergence, $f$
+is holomorphic.  For absolutely convergent products, the only
+way to get zero is for one of the terms to be zero.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Suppose $\sabs{1+a_j} \leq r < 1$ for all
+$j$, 
+prove that $\prod_{j=1}^\infty (1+a_j)$ converges to 0, but that the
+convergence is not absolute.
+\end{exercise}
+
+\begin{exercise}
+Suppose $\Re a_j > -1$ for all $j$.  
+Prove 
+$\prod_{j=1}^\infty (1+a_j)$
+converges to a nonzero number if and only if
+$\sum_{j=1}^\infty \Log (1+a_j)$ converges.  Note: We already proved one
+direction.
+\end{exercise}
+
+\begin{exercise}\label{exercise:proddiff}
+%FIXME: used exercise
+Suppose $U \subset \C$ is a domain,
+$f_n \colon U \to \C$ are holomorphic, and
+\begin{equation*}
+F(z) = \prod_{n=1}^\infty f_n(z)
+\end{equation*}
+converges uniformly absolutely
+on compact subsets of $U$.  Prove that
+\begin{equation*}
+F'(z) = \sum_{n=1}^\infty f_n'(z) \prod_{k=1, k\not=n}^\infty f_k(z) ,
+\end{equation*}
+converging uniformly absolutely on compact subsets of $U$.
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Weierstrass factorization and product theorems}
+\label{sec:weier}
+
+\subsection{In the plane}
+
+To factor an arbitrary holomorphic function such as the sine,
+we have to be a smidge trickier than just trying to factor out $(z-z_j)$
+for all the zeros.  To
+get the product to converge, we multiply the factor by something to
+make the factor closer to $1$.  We start with functions that have a zero at
+$1$.
+
+\begin{defn}
+Define the \emph{\myindex{elementary factors}}
+\begin{equation*}
+E_0(z) = (1-z), \qquad
+E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+.
+\end{equation*}
+\end{defn}
+
+The function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
+As we are relating the absolute convergence of $\prod (1+a_k)$ to $\sum
+\sabs{a_k}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
+Before we do so, we prove a useful estimate for holomorphic functions
+on the disc.  By the maximum modulus principle the maximum is attained at
+the boundary.
+If the derivatives are all positive, then it is attained
+at a very specific point.
+
+\begin{lemma} \label{lemma:maxprincpositive}
+Suppose $f$ is a holomorphic function on a neighborhood of the closed
+disc $\overline{\D}$ and suppose $f^{(n)}(0) \geq 0$ for all $n$.
+Then $f(1)$ is real and for $z \in \overline{\D}$,
+\begin{equation*}
+\babs{f(z)} \leq f(1) .
+\end{equation*}
+\end{lemma}
+
+\begin{proof}
+Expand $f(z) = \sum c_n z^n$.  As $f^{(n)}(0) \geq 0$,
+then $c_n \geq 0$.
+Thus for $z \in \overline{\D}$,
+\begin{equation*}
+\babs{f(z)} =
+\abs{\sum_{n=0}^\infty c_n z^n}
+\leq
+\sum_{n=0}^\infty c_n \sabs{z}^n
+\leq
+\sum_{n=0}^\infty c_n = f(1) .  \qedhere
+\end{equation*}
+\end{proof}
+
+\begin{lemma} \label{lemma:elemfactbound}
+$\sabs{1-E_m(z)} \leq \sabs{z}^{m+1}$ for all $m = 0,1,2,\ldots$ and all 
+$z \in \overline{\D}$.
+\end{lemma}
+
+\begin{proof}
+The lemma clearly holds for $m=0$.
+Differentiating $1-E_m(z)$, we find using the finite geometric sum,
+\begin{multline*}
+-E'_m(z) =
+\exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+-
+(1-z) (1 +z  + \cdots + z^{m-1} ) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+\\
+=
+%- \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+%+
+%(1+z^m) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
+%=
+z^m \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right) .
+\end{multline*}
+Notably, $1-E_m(z)$ has a zero of order $m+1$ at $z=0$.  Thus $f(z) =
+\frac{1-E_m(z)}{z^{m+1}}$ has a removable singularity.  From the formula for
+the derivative $-E_m'(z)$ it is clear the coefficients of the power series
+for $f$ at $0$ are be nonnegative.  By \lemmaref{lemma:maxprincpositive},
+\begin{equation*}
+\abs{\frac{1-E_m(z)}{z^{m+1}}} \leq
+\frac{1-E_m(1)}{1^{m+1}} = 1
+\qquad \text{for $z \in \overline{\D}$}.  \qedhere
+\end{equation*}
+\end{proof}
+
+We can prescribe the zeros of an entire function arbitrarily.
+The only requirement is the obvious one from the identity theorem,
+that the zeros do not have a limit point in $\C$.
+
+\begin{thm}[Weierstrass product theorem in $\C$]
+\index{Weierstrass product theorem in $\C$}
+Suppose $\{ c_k \}$ is a sequence of distinct points in $\C$
+with no limit points in $\C$ and $\{ m_k \}$ is a sequence of
+natural numbers.
+Then there exists an entire holomorphic $f \colon \C \to \C$ that
+has zeros exactly at $c_k$, with orders given by $m_k$.
+
+More precisely, suppose $\{ a_n \}$ is the sequence of nonzero $\{ c_k \}$ with points
+repeated according to the multiplicities $\{ m_k \}$ and $m$
+is the order of the zero at the origin.
+Then there exists a
+sequence $\{ \ell_n \}$ such that one such $f$ is given by
+\begin{equation*}
+f(z) = z^m \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
+\avoidbreak
+\end{equation*}
+converging uniformly absolutely on compact subsets.
+In fact, any sequence $\{ \ell_n \}$ such that
+\begin{equation} \label{eq:pnconvergence}
+\sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{\ell_n+1}
+\avoidbreak
+\end{equation}
+converges for all $r > 0$ can be used.
+\end{thm}
+
+\begin{proof}
+We can ignore the zero at the origin, and just consider the nonzero
+zeros $\{ a_n \}$.  We claim that at least one sequence
+such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
+Indeed, choosing $\ell_n = n-1$ would suffice:
+As $\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
+For any $r > 0$, we get $\sabs{a_n} \geq 2r$ or
+$\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
+for all large enough $n$.
+Thus if $\ell_n = n-1$, a tail of the series is bounded
+by the geometric series $\sum {\bigl(\nicefrac{1}{2}\bigr)}^n$.
+
+Consider a compact set $K$ in the plane.  It is contained in some closed disc
+$\overline{\Delta_r(0)}$.  We want to get uniformly absolute convergence
+of the product, and so we need
+\begin{equation*}
+\sum_{n=1}^\infty \abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
+\end{equation*}
+to converge uniformly on $K$.
+If $z \in K$, then $\sabs{z}\leq r$.  As $a_n$ goes to
+infinity,
+$\sabs{a_n} \geq r$
+and so $\abs{\frac{z}{a_n}} \leq 1$
+for all $n$ large enough.
+By \lemmaref{lemma:elemfactbound},
+\begin{equation*}
+\abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
+\leq
+\abs{\frac{z}{a_n}}^{\ell_n+1}
+\leq
+\abs{\frac{r}{a_n}}^{\ell_n+1} .
+\end{equation*}
+Thus the series converges as its tail converges.  The convergence
+is uniform in $K$, as the right hand side above does not depend on $z$.
+\end{proof}
+
+There are many choices for the sequence $\{ \ell_n \}$.  The proof says
+that the convergence of \eqref{eq:pnconvergence} 
+for every $r>0$ guarantees convergence of the product, but we may still try
+to make a convenient choice of $\{ \ell_n \}$, and we can often
+choose a much more convenient choice than $\ell_n=n-1$.
+
+Now that we can prescribe zeros of an entire function, we
+use it to factor out all the zeros of any other entire function, and
+obtain a factorization.
+
+\begin{cor}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
+Let $f$ be an entire holomorphic function, not identically zero,
+with zeros (repeated according to multiplicity) at points of
+the sequence $\{ a_n \}$ except the zero at
+the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
+entire holomorphic function $g$ and a sequence $\{ \ell_n \}$ such that
+\begin{equation*}
+f(z) = z^m e^{g(z)} \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
+\end{equation*}
+converges uniformly absolutely on compact subsets.
+\end{cor}
+
+\begin{proof}
+Let $h \colon \C \to \C$ be the entire function
+\begin{equation*}
+h(z) = \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
+\end{equation*}
+where the $\{ \ell_n \}$ comes from the product theorem.  The function
+$\varphi(z) = \frac{f(z)}{h(z)z^m}$
+has only removable singularities, so $\varphi$ can be made entire.
+As $\varphi$ has no zeros, $\varphi(z) =
+e^{g(z)}$ for an entire function $g$ because $\C$ is simply connected.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}[Easy]
+Suppose $\{ a_n \}$ is a sequence such that there is some $\epsilon>0$ and
+$\sabs{a_n} \geq n^{1+\epsilon}$ for all $n$.  Prove that
+\begin{equation*}
+\prod_{n=1}^\infty
+\left(1-\frac{z}{a_n} \right)
+\end{equation*}
+converges uniformly absolutely on compact subsets of $\C$.
+\end{exercise}
+
+\begin{exercise}[Easy]
+Explicitly find an infinite product for an entire holomorphic function
+with simple zeros precisely at $\Z \times \Z$ (that is points with integer
+coefficients).
+\end{exercise}
+
+\begin{exercise}
+Suppose that $\{ a_n \}$ is a sequence converging to $0$.  Show that there
+exists a holomorphic function $f \colon \C \setminus \{ 0 \} \to \C$
+with zeros (counting multiplicity) at $a_n$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $\{ a_k \}$, $\{ b_k \}$ are
+sequences of distinct points in $\C$
+with no limit points, and $\{ n_k \}$, $\{ m_k \}$ are sequences of
+natural numbers.
+Prove that
+there exists a meromorphic function $f \colon \C \to \C_\infty$ whose
+zeros are exactly at $a_k$, with orders given by $n_k$, and
+poles are exactly at $b_k$, with orders given by $m_k$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $\{ a_n \}$ is a sequence of distinct points in $\C$
+with no limit points, and $\{ c_n \}$ an arbitrary sequence of complex
+numbers.  Construct an entire function $f$ such that $f(a_n) = c_n$.
+Hint:  For any radius $r > 0$, a point $p \in \C$, $\sabs{p} > r$, and
+an $\epsilon > 0$, try to find a function with some prescribed zeros
+such that $f(p) =1$ and $\snorm{f}_{B(0,r)} < \epsilon$.  Another hint:
+If $\sabs{w} < 1$, then $\sabs{w}^n$ goes to zero.
+\end{exercise}
+\end{exbox}
+
+\subsection{Factorization of sine}
+
+Let us use the Weierstrass factorization theorem to factor the sine function
+as promised.  The function $\sin(\pi z)$ has zeros at the integers $\Z$.
+We start with the positive integers.  Note that
+\begin{equation*}
+\sum_{n=1}^\infty \abs{\frac{r}{n}}^{2}
+\end{equation*}
+converges for every $r > 0$.  Similarly for the negative integers.  Thus we
+may choose $\ell_n =1$ in the product theorem.  Write
+\begin{equation*}
+f(z) =
+\pi z \prod_{n \in \Z \setminus \{ 0 \}} E_1\left(\frac{z}{n}\right)
+= 
+\pi z \prod_{n \in \Z \setminus \{ 0 \}} \left(1-\frac{z}{n}\right) e^{z/n} .
+\end{equation*}
+We write the product in no particular order as the product converges
+absolutely.
+The $\pi$ out front can be guessed by thinking what would we get if we
+differentiate $\sin(\pi z)$ and evaluate at $0$.
+Differentiating the product (using product rule) would give you $\pi \cdot 1
++ 0=1$, as anytime the derivative falls on some factor other that $z$, when
+you evaluate at 0, you get 0.  We can do this formal computation on the
+finite products as the product converges uniformly on compact subsets and
+therefore so does the derivative.  See also \exerciseref{exercise:proddiff}.
+
+We group some terms together for convenience
+\begin{equation*}
+f(z) =
+\pi z \prod_{n=1}^\infty 
+\left(1-\frac{z}{n}\right) e^{z/n}
+\left(1-\frac{z}{-n}\right) e^{-z/n}
+=
+\pi z \prod_{n=1}^\infty 
+\left(1-\frac{z^2}{n^2}\right) .
+\end{equation*}
+That's a rather nice factorization.  Of course we still do not know if $f(z)$ is
+$\sin(\pi z)$.
+All we know is that the two have the same zeros,
+and the derivative at 0 is $\pi$ as it should be.
+As $f$ captures the zeros of $\sin(\pi z)$, we write
+(as in the factorization theorem),
+\begin{equation*}
+\sin(\pi z)
+= 
+e^{g(z)} f(z)
+=
+\pi z
+e^{g(z)}
+\prod_{n=1}^\infty 
+\left(1-\frac{z^2}{n^2}\right)
+\end{equation*}
+for some entire function $g$.  We need to show that $g \equiv 1$.  By the
+computation of the derivative above, $g(0) = 1$.
+
+We wish to convert the product to a series using the
+logarithm, as series are simpler to handle\footnote{Any calculus student
+will tell you so when they try to differentiate a product with many
+factors.}.  Unfortunately, if $\varphi(z) =
+\sin(\pi z)$, the function
+$\log \varphi(z)$ is not well-defined.
+But as we saw a couple of times before, while $\log \varphi(z)$ is not
+well-defined, the logarithmic derivative
+\begin{equation*}
+\frac{d}{dz} \left[
+\log \varphi(z)
+\right]
+=
+\frac{\varphi'(z)}{\varphi(z)}
+\end{equation*}
+is well-defined.  We can find the logarithmic derivative by differentiating
+the series for $\log \varphi(z)$
+since for the derivative we only need to work locally and we can use
+any branch of the logarithm.
+So, locally, using any branch of the logarithm,
+we pick $k$ large enough so that $\Re \bigl( 1-\frac{z^2}{n^2} \bigr) > 0$
+for all $n \geq k$,
+so that we can use \propref{prop:infproductwithlogs},
+\begin{multline*}
+\pi \cot (\pi z) =
+\frac{\pi \cos (\pi z)}{\sin(\pi z)}
+=
+\frac{d}{dz} \left[
+\log \sin (\pi z)
+\right]
+=
+\frac{d}{dz} \left[
+\log 
+\left(
+\pi z
+e^{g(z)}
+\prod_{n=1}^\infty 
+\left(1-\frac{z^2}{n^2}\right)
+\right)
+\right]
+\\
+=
+\frac{d}{dz} \left[
+\log(\pi z)
++
+g(z)
++
+\sum_{n=1}^k 
+\log
+\left(1-\frac{z^2}{n^2}\right)
++
+\sum_{n=k+1}^\infty
+\Log
+\left(1-\frac{z^2}{n^2}\right)
+\right]
+\\
+=
+\frac{1}{z}
++
+g'(z)
++
+\sum_{n=1}^\infty 
+\frac{2z}{z^2-n^2} .
+\end{multline*}
+The penultimate equality would not be true without the derivative as what's
+inside the square brackets may differ by a constant.
+Since the far left hand side and the far right hand side do not have any
+logarithms in them they are clearly well-defined.
+One can show the equality without the $g'$ as a nice exercise in applying
+the residue theorem.
+
+\begin{exbox}
+\begin{exercise}
+Let $\gamma_n$ be the rectangular path with vertices
+$n+\nicefrac{1}{2} - in$, 
+$n+\nicefrac{1}{2} + in$, 
+$-\bigl(n+\nicefrac{1}{2}\bigr) + in$, 
+$-\bigl(n+\nicefrac{1}{2}\bigr) - in$.
+\begin{exparts}
+\item
+Using the residue theorem, for $z \notin \Z$, evaluate
+\begin{equation*}
+\int_{\gamma_n}\frac{\pi \cot (\pi \xi)}{\xi^2-z^2} \, d\xi .
+\end{equation*}
+\item
+Show that
+\begin{equation*}
+\lim_{n\to \infty}
+\int_{\gamma_n}\frac{\pi \cot (\pi \xi)}{\xi^2-z^2} \, d\xi = 0 .
+\end{equation*}
+\item
+Prove that
+\begin{equation*}
+\pi \cot (\pi z) =
+\frac{1}{z}
++
+\sum_{n=1}^\infty 
+\frac{2z}{z^2-n^2} ,
+\avoidbreak
+\end{equation*}
+with uniform convergence on compact subsets of $\C \setminus \Z$.
+\end{exparts}
+\end{exercise}
+\end{exbox}
+
+In particular, the exercise says that $g'(z)=0$, and as $g(0)=1$ we have $g \equiv 1$.
+We have thus proved the following proposition.
+
+\begin{prop}
+For all $z \in \C$,
+\begin{equation*}
+\sin(\pi z) =
+\pi z \prod_{n=1}^\infty 
+\left(1-\frac{z^2}{n^2}\right) ,
+\avoidbreak
+\end{equation*}
+with uniform absolute convergence on compact sets.
+\end{prop}
+
+
+\begin{exbox}
+\begin{exercise}
+Find a factorization for cosine.  Hint: There is a hard way and an
+easy way to do this (now that we know the factorization of sine).
+\end{exercise}
+
+\begin{exercise}
+Find a factorization for $\sinh(z) = \frac{e^z-e^{-z}}{2}$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a domain and
+\begin{equation*}
+F(z) = \prod_{n=1}^\infty f_n(z)
+\end{equation*}
+for holomorphic functions $f_n \colon U \to \C$ converges uniformly 
+on compact subsets of $U$.  Prove that
+\begin{equation*}
+\frac{F'(z)}{F(z)} = \sum_{n=1}^\infty \frac{f_n'(z)}{f_n(z)} ,
+\avoidbreak
+\end{equation*}
+converging uniformly on compact subsets of $U$.
+\end{exercise}
+\end{exbox}
+
+\subsection{The product theorem in any open set}
+
+The product theorem holds in any open set.  The proof is very similar too.
+However, what changes is that the zeros can no longer congregate on any point of
+the boundary as well as at infinity.  There are a couple of ways to handle
+this, one is to move infinity first and make sure all the zeros are bounded.
+The other way is to not move anything by splitting up the sequence of zeros in a
+smart way into a sequence that goes to infinity and has no finite limit
+points and a sequence that has limit points on the boundary.  The tricky
+business is that the part of the series that has limit points at the
+boundary could also go to infinity, so we ensure that it at least gets
+closer and closer to the boundary as it marches off.
+
+\begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
+\label{thm:weierprod}
+Suppose $U \subset \C$ is open, $\{ c_k \}$ is
+a sequence of distinct points in $U$
+with no limit points in $U$, and $\{ m_k \}$ is a sequence of
+natural numbers.
+Then there exists a holomorphic $f \colon U \to \C$ with
+zeros exactly at $c_k$, with orders given by $m_k$.
+\end{thm}
+
+\begin{proof}
+Suppose $\{ a_n \}$ is the sequence of points $\{ c_k \}$ repeated
+according to the multiplicities $\{ m_k \}$.
+As the case $U=\C$ has already been proved, we assume $\C \setminus
+U$ is nonempty.
+Let
+\begin{equation*}
+D = \left\{ z \in U :
+d(z,\C \setminus U) < \frac{1}{\sabs{z}+1}
+\right\} .
+\end{equation*}
+As usual $d(z,\C\setminus U) = \inf_{\zeta \in \C \setminus U}
+\sabs{z-\zeta}$.  For $z \in U$ it is the distance to the boundary.
+Divide $\{ a_n \}$ into two parts:
+Let $\{ a^1_n \}$ be those $a_n$ that lie in $D$ and $\{ a^2_n \}$
+be those that do not.
+We will generate a function $f_1$ with zeros at $\{ a^1_n \}$ and
+a function $f_2$ with zeros at $a^2_n$.  Let $f = f_1 f_2$
+to finish the proof.
+Without loss of generality assume both sequences are infinite.
+
+First consider $\{ a^1_n \}$.  Let $\{ p_n \}$ be a sequence of points in
+$\C \setminus U$ such
+that
+\begin{equation*}
+\sabs{a^1_n-p_n} = d(z,\C \setminus U).
+\end{equation*}
+See \figureref{fig:weiergeneral}.
+We claim that 
+$\sabs{a^1_n-p_n}$ goes to zero as $n$ goes to infinity.
+Indeed, suppose not, then there is an $\epsilon > 0$ and
+a subsequence such that 
+$\abs{a^1_{n_k}-p_{n_k}} > \epsilon$ for all $m$.  As these are the
+distances to the boundary and $a^1_{n_k} \in D$,
+we must have that $\sabs{a^1_{n_k}} < \nicefrac{1}{\epsilon}+1$ for all $m$.
+In particular these $\{ a^1_{n_k} \}$ must have a limit point and since they
+are all at least $\epsilon$ away from the boundary this limit point would be
+in $U$.  That is a contradiction.  Hence
+$\sabs{a^1_n-p_n}$ goes to infinity.
+
+\begin{myfig}
+\subimport*{figures/}{weiergeneral.pdf_t}
+\caption{The sequence of $\{ a_n \}$ with respect to $D$.  The 
+points of $\{ a_n \}$ that lie in $D$ are the $\{ a^1_n \}$ and for those we
+pick the $\{ p_n \}$, which will lie at the closest place on the boundary of
+$U$ (the thick dotted line).\label{fig:weiergeneral}}
+\end{myfig}
+
+Let $K \subset U$ be compact, then for $z \in K$
+\begin{equation*}
+\abs{\frac{a^1_n-p_n}{z-p_n}}
+\leq
+\frac{\sabs{a^1_n-p_n}}{d(p_n,K)}
+\leq
+\frac{\sabs{a^1_n-p_n}}{d(\C \setminus U,K)} .
+\end{equation*}
+So for all $n$ large enough
+$\abs{\frac{a^1_n-p_n}{z-p_n}} < \nicefrac{1}{2}$.
+Then by \lemmaref{lemma:elemfactbound},
+\begin{equation*}
+\abs{E_n\left(
+\frac{a^1_n-p_n}{z-p_n}
+\right)-1} \leq \frac{1}{2^{n+1}} ,
+\end{equation*}
+and hence
+\begin{equation*}
+f_1(z)
+=
+\prod_{n=1}^\infty
+E_n\left(
+\frac{a^1_n-p_n}{z-p_n}
+\right)
+\end{equation*}
+converges uniformly on $K$.  Thus this product $f_1$ converges
+uniformly on compact subsets of $U$.  We are thus done with $f_1$.
+
+For $f_2$, note that $\{a^2_n\}$ must go to infinity.  Otherwise, the
+sequence would have a finite limit point, but this limit point would have to
+be in $U$ as whenever $\sabs{a^2_n} \leq r$ then $d(a^2_n,\C\setminus U)
+\geq \frac{1}{r+1}$.  But then we can construct an entire function with
+these zeros.
+\end{proof}
+
+If $f = \frac{g}{h}$ for two holomorphic functions $g$ and $h$, then $f$
+is meromorphic with poles at the zeros of $h$.  Conversely,
+if $f$ has a pole of order $m$ at $p$, then $f(z) = \frac{g(z)}{{(z-p)}^m}$
+for some holomorphic $g$, so $f$ is a quotient of holomorphic functions
+(near $p$).
+Using the Weierstrass product theorem, we get this converse globally:
+A meromorphic function on a domain is a quotient of holomorphic functions on
+that same domain.
+In more fancy language, the set of meromorphic functions on a
+domain in $\C$ is the field of fractions of the ring of holomorphic
+functions.\footnote{It is important that it is a
+domain in $\C$.  We saw meromorphic functions on $\C_\infty$,
+and those are not quotients of two holomorphic functions, since there are
+no nonconstant holomorphic functions on $\C_\infty$.}
+
+\begin{cor}
+Suppose $U \subset \C$ is open and $f \colon U \to \C_{\infty}$ is
+meromorphic.  Then there exist holomorphic $g,h \colon U \to \C$ such that
+$f = \frac{g}{h}$.
+\end{cor}
+
+\begin{proof}
+By the product theorem there exists a holomorphic function $h$ that has
+zeros exactly where $f$ has poles, and of the same order.  The function $fh$
+therefore has removable singularities at all the poles of $f$.  In other
+words, there is a holomorphic $g$ such that $g=fh$.
+\end{proof}
+
+\begin{remark}
+When we introduced the corollary, we mentioned domain, but then we proved it
+for an open set.  The issue is a bit of algebra.  If $U$ is not connected,
+then the set of holomorphic functions is not an integral domain, it has zero
+divisors, and a field of fractions is only defined for integral domains.
+\end{remark}
+
+\begin{exbox}
+\begin{exercise}
+Given a domain $U \subset \C$ and $f$ and $g$ holomorphic on $U$, neither of
+which is identically zero.  Prove that there exists a functions $h$, $F$,
+and $G$ holomorphic on $U$, such that $F$ and $G$ have no common zeros and
+$f=hF$ and $g=hG$.
+\end{exercise}
+
+\begin{exercise}
+Let $S = \bigl\{ e^n \in \C : n \in \Z \bigr\}$.
+Explicitly construct a holomorphic function on $\C \setminus \{ 0 \}$
+that has simple zeros at
+points of $S$.
+\end{exercise}
+
+\begin{exercise}
+Given a domain $U \subset \C$ and a sequence $\{ a_n \}$ of distinct points in $U$
+with no limit points in $U$.  Find a holomorphic function on
+$U \setminus \{ a_n \}$, that has essential
+singularities at $\{ a_n \}$.
+\end{exercise}
+
+\begin{exercise}
+Show that there exists a holomorphic function $f \colon \D \to \C$ that does
+not extend holomorphically to any domain $U$ where $\D \subsetneq U$.  Hint:
+Consider a sequence of points in $\D$ whose limit set is the circle.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a simply connected domain and $f \colon U \to \C$
+a nonconstant function.  Show that there exists a holomorphic $g \colon U
+\to \C$ such that $g^2 = f$ if and only if every zero of $f$ has even order.
+\end{exercise}
+\end{exbox}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \chapter{Rational Approximation} \label{ch:runge}
 
 \begin{myquote}
@@ -15296,10 +16262,12 @@ does converge.  This corresponds to the choice of $K_n =
 \overline{\Delta_n(0)}$.  See the exercises.
 \end{example}
 
-The Mittag-Leffler theorem is a sister theorem to the Weierstrass
-factorization theorem that we will cover next.  In Weierstrass's theorem
+The Mittag-Leffler theorem is a sister theorem to
+the
+\hyperref[thm:weierprod]{Weierstrass product theorem}.
+In Weierstrass's theorem
 we can prescribe zeros rather than poles.  In fact, with just a little bit
-of trickery, one could (we won't) use the Mittag-Leffler theorem to prove
+of trickery, one could use the Mittag-Leffler theorem to prove
 the Weierstrass theorem.
 
 \begin{exbox}
@@ -15347,961 +16315,13 @@ origin such that there exists no holomorphic $f \colon \C \setminus \{ 0 \}
 \end{exercise}
 
 \begin{exercise}
-Prove that in the Mittag-Leffler theorem, the function $f$ can be chosen
-so that $f$ has no zeros in $U \setminus S$.
-\end{exercise}
-\end{exbox}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\chapter{Weierstrass Factorization} \label{ch:weier}
-
-\begin{myquote}
-I became insane, with long intervals of horrible sanity.
-
----Edgar Allan Poe
-\end{myquote}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Infinite products}
-\label{sec:prod}
-
-If a
-function has zeros at $0$, $1$, and $i$ we
-could write $f$ as
-$f(z) = g(z) z(z-1)(z-i)$.  And if those were the only zeros, then 
-$g$ would be never zero.  If there are infinitely many zeros, however,
-things become difficult.
-Can we factor out the zeros out of $\sin z$?  Can we
-write $\sin z$ as something times
-\begin{equation*}
-\prod_{n \in \Z} (z-\pi n) \, ?
-\end{equation*}
-Not quite, but sort of,
-though we have to be careful about convergence.\footnote{Beware of
-formal expressions bearing gifts.
-Especially ones with infinite sets in them.
-For example, $\prod_{n \in \Z} (z-\pi n)$ does not make sense.}
-Of course, we must first
-figure out what do we mean by convergence.  Even once we figure out
-what convergence means, it will still require a bit more work as
-we will need to use
-more complicated factors to make convergence happen the way we want to.
-
-\begin{defn}
-The product
-\begin{equation*}
-\prod_{j=1}^\infty (1+a_j)
-\end{equation*}
-\emph{converges}\index{converges!infinite product} if the limit of the
-sequence of \emph{\myindex{partial products}}
-\begin{equation*}
-\lim_{n\to \infty}
-\prod_{j=1}^n (1+a_j) = (1+a_1)(1+a_2) \cdots (1+a_n)
-\end{equation*}
-exists.
-The product
-\emph{converges absolutely}\index{converges absolutely!infinite product}
-if $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$
-converges.
-\end{defn}
-
-A product could converge in two different ways.  It either goes to 0 or it
-does not.
-One way to go to zero is if $1+a_j=0$ for some $j$, but there
-are other possibilities.  For instance, if $\sabs{1+a_j} \leq r < 1$ for all
-$j$, then the product also goes to zero, although in this case the
-convergence will not be absolute (exercise below).
-
-Suppose that the product converges to a nonzero number.
-In particular, $a_j \not= -1$ for any $j$.  Then
-\begin{equation*}
-\frac{
-\prod_{j=1}^{n+1} (1+a_j)
-}{
-\prod_{j=1}^{n} (1+a_j)
-}
-=1+a_n
-\end{equation*}
-Taking the limit, we see that $1+a_n$ must go to 1, and so $a_n$ must go to 0.
-
-A key idea about products is to relate infinite products to sums using the
-logarithm, which is something we can easily do if dealing with positive
-numbers.  This means that absolutely convergent products can be understood
-if we can understand absolutely convergent sums, which we do.
-
-\begin{prop} \label{prop:infprodabsconvinfsum}
-The product $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$ converges if and only if
-$\sum_{j=1}^\infty \sabs{a_j}$ converges.
-\end{prop}
-
-\begin{proof}
-Suppose $\sum_{j=1}^\infty \sabs{a_j}$ converges.
-The sequence of partial products is increasing:
-\begin{equation*}
-\prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr) \leq
-\prod_{j=1}^{n+1} \bigl(1+\sabs{a_j}\bigr) .
-\end{equation*}
-Thus it is sufficient to show that it is bounded.
-Consider
-\begin{equation*}
-\log \prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr)
-=
-\sum_{j=1}^n \log \bigl(1+\sabs{a_j}\bigr)
-\leq
-\sum_{j=1}^n \sabs{a_j} \leq
-\sum_{j=1}^\infty \sabs{a_j} .
-\end{equation*}
-
-For the other direction, suppose that the sequence of partial products
-converges.  All but finitely many $j$, we must
-have $\sabs{a_j} < 1$.  Otherwise the product would double infinitely often and go to
-infinity.  So suppose that $\sabs{a_j} < 1$ for all $j \geq N$.
-If $\sabs{a_j} < 1$, then $\sabs{a_j} \leq 2 \log \bigl(1+\sabs{a_j}\bigr)$,
-and
-\begin{equation*}
-\sum_{j=N}^n \sabs{a_j}
-\leq
-\sum_{j=N}^n 2 \log \bigl(1+\sabs{a_j}\bigr)
-\leq
-2 \log \prod_{j=N}^n \bigl(1+\sabs{a_j}\bigr) .
-\end{equation*}
-The right hand side is bounded as $n$ goes to infinity, and so the tail of
-$\sum_{j=1}^\infty \sabs{a_j}$ converges.
-\end{proof}
-
-An immediate consequence is that if 
-$\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then
-$\{ a_j \}$ converges to $0$.  Actually much more than that, they have to
-go to zero fast enough to be absolutely summable.
-
-As for series, we need to know that absolute convergence really is convergence.
-
-\begin{prop} \label{prop:infproductwithlogs}
-If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then it converges.
-
-Moreover, if furthermore $\Re a_j > -1$ for all $j$, then 
-\begin{equation*}
-\prod_{j=1}^\infty (1+a_j)
-=
-\exp\left(
-\sum_{j=1}^\infty \Log(1+a_j)
-\right),
-\end{equation*}
-where the series converges absolutely.  In particular, the product
-converges to a nonzero number.
-\end{prop}
-
-\begin{proof}
-If the product converges absolutely, then $\sabs{a_j}$ goes to $0$, and we
-may assume that $\Re a_j > -1$ for all $j$.  In particular,
-$\Log (1+a_j)$ is well-defined for the principal branch of the logarithm.
-Let $m > n$ be two positive integers.
-\begin{multline} \label{eq:infprodest1}
-\abs{
-\sum_{j=1}^m 
-\abs{\Log (1+a_j)}
--
-\sum_{j=1}^n 
-\abs{\Log (1+a_j)}
-}
-\leq
-\sum_{j=n+1}^m 
-\abs{
-\Log (1+a_j)
-}
-\\
-\leq
-\sum_{j=n+1}^m 
-\left(
-\log \sabs{1+a_j}
-+
-\abs{ \Arg (1+a_j)}
-\right) .
-\end{multline}
-As before,
-\begin{equation*}
-\sum_{j=1}^k \log \sabs{1+a_j} \leq
-\sum_{j=1}^k \log \bigl(1+\sabs{a_j}\bigr)
-\leq
-\sum_{j=1}^k \sabs{a_j} ,
-\end{equation*}
-and this series converges via the proposition.
-Next, $\Arg(1+a_j)$ is between $\nicefrac{-\pi}{2}$ and
-$\nicefrac{\pi}{2}$, and $a_j$ is going to zero.  So for all $j$ large
-enough, $\babs{\Arg(1+a_j)} \leq 2\sabs{a_j}$.  As $\sum
-\sabs{a_j}$ converges, 
-$\sum \babs{\Arg (1+a_j)}$ converges.
-
-In other words, the right hand side in \eqref{eq:infprodest1} goes to zero
-as $n$ goes to infinity.  Thus, $\sum \babs{\Log(1+a_j)}$ is Cauchy and hence
-converges.  When taking an exponential, it does not matter which branch of
-the logarithm we take, and therefore the following makes sense, where we use
-$\log$ to denote any branch of logarithm whatsoever.
-\begin{equation*}
-\exp\left(
-\sum_{j=1}^n \Log(1+a_j)
-\right)
-=
-\exp\left(
-\log \prod_{j=1}^n (1+a_j)
-\right)
-=
-\prod_{j=1}^n (1+a_j) .
-\end{equation*}
-We thus find that the product converges.
-\end{proof}
-
-It is important that the principal branch is used as otherwise the imaginary
-parts of the logs will not converge.  It is also important to emphasize
-above that it is not necessarily true that
-$\sum_{j=1}^n \Log z_j = \Log \prod_{j=1}^n z_j$.
-However,
-$\sum_{j=1}^n \Log z_j = \log \prod_{j=1}^n z_j$ for some branch of the
-logarithm because the arguments might add up to something outside the range
-$(-\pi,\pi]$.
-
-\begin{prop}
-If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely to $0$, then there
-exists a $j$ such that $a_j=-1$.
-\end{prop}
-
-\begin{proof}
-In the proof of the proposition above, we
-noticed that $\Re a_j > -1$ for all large enough $j$.  The product
-of those terms converges to a nonzero number by the ``Moreover'' part of the
-proposition.  The only way to get zero as a limit is for one of the initial
-terms to be zero, that is, if $a_j=-1$ for some $j$.
-\end{proof}
-
-Just as for series, an absolutely convergent power series can be reordered.
-
-\begin{prop}
-Suppose $\prod_{j=1}^\infty (1+a_j)$ converges absolutely to $L$.
-If $\varphi \colon \N \to \N$ is a bijection, then 
-$\prod_{j=1}^\infty (1+a_{\varphi(j)})$ also converges absolutely to $L$.
-\end{prop}
-
-\begin{proof}
-That the reordered series converges absolutely follows from 
-\propref{prop:infprodabsconvinfsum} and the corresponding result for series.
-If $L=0$, then we just proved that one of the terms is zero,
-and the reordered product converges to $0$.
-Suppose $L\not= 0$.
-By ignoring finitely many terms, we assume without loss of generality
-that $\Re a_j > -1$.  Then $\sum \Log(1+a_j)$ converges absolutely and
-\begin{equation*}
-L = \exp\left(\sum_{j=1}^\infty \Log(1+a_j)\right) .
-\end{equation*}
-The sum converges absolutely, so it can be reordered and hence the product
-can be reordered and the limit remains the same.
-\end{proof}
-
-
-
-\begin{defn}
-Given functions $g_j \colon X \to \C$, the product
-$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
-\emph{converges uniformly absolutely}%
-\index{converges absolutely uniformly!infinite product}%
-\index{uniform absolute convergence!infinite product}
-if
-$\prod_{j=1}^{\infty} \bigl(1+\sabs{g_j(x)}\bigr)$ 
-converges uniformly in $x \in X$.
-\end{defn}
-
-Uniformly absolute convergence of the product is the same as uniformly
-absolute convergence of the sum.
-
-\begin{prop}
-For $g_j \colon X \to \C$, the product
-$\prod_{j=1}^{\infty} \bigl(1+\sabs{g_j(x)}\bigr)$ 
-converges uniformly if and only if
-$\sum_{j=1}^{\infty} \sabs{g_j(x)}$ converges uniformly.
-\end{prop}
-
-\begin{exbox}
-\begin{exercise}
-Prove the proposition.  Hint:
-Use log to convert the partial products to partial sums.
-Then apply the estimates in \propref{prop:infprodabsconvinfsum} to
-show that one sequence of partial sums is uniformly Cauchy if and only if
-the other one is.
-\end{exercise}
-\end{exbox}
-
-As for series, uniform absolute convergence means uniform
-convergence.
-
-\begin{prop} \label{prop:unifabsconvprod}
-For $g_j \colon X \to \C$, if
-$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
-converges uniformly absolutely, then
-$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
-converges uniformly.
-\end{prop}
-
-\begin{exbox}
-\begin{exercise}
-Prove the proposition.
-\end{exercise}
-\end{exbox}
-
-\begin{cor}
-Suppose $U \subset \C$ is open, $f_n \colon U \to \C$ are holomorphic,
-and $f(z) = \prod_{n=1}^\infty f_n(z)$ converges uniformly absolutely
-on compact subsets of $U$.  Then $f$ is holomorphic.  Furthermore, $f(z)=0$
-for some $z \in U$
-if and only if there exists an $n$ such that $f_n(z)=0$.
-\end{cor}
-
-\begin{proof}
-As uniform absolute convergence implies uniform convergence, $f$
-is holomorphic.  For absolutely convergent products, the only
-way to get zero is for one of the terms to be zero.
-\end{proof}
-
-\begin{exbox}
-\begin{exercise}
-Suppose $\sabs{1+a_j} \leq r < 1$ for all
-$j$, 
-prove that $\prod_{j=1}^\infty (1+a_j)$ converges to 0, but that the
-convergence is not absolute.
-\end{exercise}
-
-\begin{exercise}
-Suppose $\Re a_j > -1$ for all $j$.  
-Prove 
-$\prod_{j=1}^\infty (1+a_j)$
-converges to a nonzero number if and only if
-$\sum_{j=1}^\infty \Log (1+a_j)$ converges.  Note: We already proved one
-direction.
-\end{exercise}
-
-\begin{exercise}\label{exercise:proddiff}
-%FIXME: used exercise
-Suppose $U \subset \C$ is a domain,
-$f_n \colon U \to \C$ are holomorphic, and
-\begin{equation*}
-F(z) = \prod_{n=1}^\infty f_n(z)
-\end{equation*}
-converges uniformly absolutely
-on compact subsets of $U$.  Prove that
-\begin{equation*}
-F'(z) = \sum_{n=1}^\infty f_n'(z) \prod_{k=1, k\not=n}^\infty f_k(z) ,
-\end{equation*}
-converging uniformly absolutely on compact subsets of $U$.
-\end{exercise}
-\end{exbox}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Weierstrass factorization and product theorems}
-\label{sec:weier}
-
-\subsection{In the plane}
-
-To factor an arbitrary holomorphic function such as the sine,
-we have to be a smidge trickier than just trying to factor out $(z-z_j)$
-for all the zeros.  To
-get the product to converge, we multiply the factor by something to
-make the factor closer to $1$.  We start with functions that have a zero at
-$1$.
-
-\begin{defn}
-Define the \emph{\myindex{elementary factors}}
-\begin{equation*}
-E_0(z) = (1-z), \qquad
-E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
-.
-\end{equation*}
-\end{defn}
-
-The function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
-As we are relating the absolute convergence of $\prod (1+a_k)$ to $\sum
-\sabs{a_k}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
-Before we do so, we prove a useful estimate for holomorphic functions
-on the disc.  By the maximum modulus principle the maximum is attained at
-the boundary.
-If the derivatives are all positive, then it is attained
-at a very specific point.
-
-\begin{lemma} \label{lemma:maxprincpositive}
-Suppose $f$ is a holomorphic function on a neighborhood of the closed
-disc $\overline{\D}$ and suppose $f^{(n)}(0) \geq 0$ for all $n$.
-Then $f(1)$ is real and for $z \in \overline{\D}$,
-\begin{equation*}
-\babs{f(z)} \leq f(1) .
-\end{equation*}
-\end{lemma}
-
-\begin{proof}
-Expand $f(z) = \sum c_n z^n$.  As $f^{(n)}(0) \geq 0$,
-then $c_n \geq 0$.
-Thus for $z \in \overline{\D}$,
-\begin{equation*}
-\babs{f(z)} =
-\abs{\sum_{n=0}^\infty c_n z^n}
-\leq
-\sum_{n=0}^\infty c_n \sabs{z}^n
-\leq
-\sum_{n=0}^\infty c_n = f(1) .  \qedhere
-\end{equation*}
-\end{proof}
-
-\begin{lemma} \label{lemma:elemfactbound}
-$\sabs{1-E_m(z)} \leq \sabs{z}^{m+1}$ for all $m = 0,1,2,\ldots$ and all 
-$z \in \overline{\D}$.
-\end{lemma}
-
-\begin{proof}
-The lemma clearly holds for $m=0$.
-Differentiating $1-E_m(z)$, we find using the finite geometric sum,
-\begin{multline*}
--E'_m(z) =
-\exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
--
-(1-z) (1 +z  + \cdots + z^{m-1} ) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
-\\
-=
-%- \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
-%+
-%(1+z^m) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
-%=
-z^m \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right) .
-\end{multline*}
-Notably, $1-E_m(z)$ has a zero of order $m+1$ at $z=0$.  Thus $f(z) =
-\frac{1-E_m(z)}{z^{m+1}}$ has a removable singularity.  From the formula for
-the derivative $-E_m'(z)$ it is clear the coefficients of the power series
-for $f$ at $0$ are be nonnegative.  By \lemmaref{lemma:maxprincpositive},
-\begin{equation*}
-\abs{\frac{1-E_m(z)}{z^{m+1}}} \leq
-\frac{1-E_m(1)}{1^{m+1}} = 1
-\qquad \text{for $z \in \overline{\D}$}.  \qedhere
-\end{equation*}
-\end{proof}
-
-We now prove the sister theorem to Mittag--Leffler, at least in the
-plane.  That is, we can prescribe zeros of an entire function arbitrarily.
-The only requirement is the obvious one from the identity theorem,
-that the zeros do not have a limit point in $\C$.
-
-\begin{thm}[Weierstrass product theorem in $\C$]
-\index{Weierstrass product theorem in $\C$}
-Suppose $\{ c_k \}$ is a sequence of distinct points in $\C$
-with no limit points in $\C$ and $\{ m_k \}$ is a sequence of
-natural numbers.
-Then there exists an entire holomorphic $f \colon \C \to \C$ that
-has zeros exactly at $c_k$, with orders given by $m_k$.
-
-More precisely, suppose $\{ a_n \}$ is the sequence of nonzero $\{ c_k \}$ with points
-repeated according to the multiplicities $\{ m_k \}$ and $m$
-is the order of the zero at the origin.
-Then there exists a
-sequence $\{ \ell_n \}$ such that one such $f$ is given by
-\begin{equation*}
-f(z) = z^m \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
-\avoidbreak
-\end{equation*}
-converging uniformly absolutely on compact subsets.
-In fact, any sequence $\{ \ell_n \}$ such that
-\begin{equation} \label{eq:pnconvergence}
-\sum_{n=1}^\infty {\abs{\frac{r}{a_n}}}^{\ell_n+1}
-\avoidbreak
-\end{equation}
-converges for all $r > 0$ can be used.
-\end{thm}
-
-\begin{proof}
-We can ignore the zero at the origin, and just consider the nonzero
-zeros $\{ a_n \}$.  We claim that at least one sequence
-such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
-Indeed, choosing $\ell_n = n-1$ would suffice:
-As $\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
-For any $r > 0$, we get $\sabs{a_n} \geq 2r$ or
-$\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
-for all large enough $n$.
-Thus if $\ell_n = n-1$, a tail of the series is bounded
-by the geometric series $\sum {\bigl(\nicefrac{1}{2}\bigr)}^n$.
-
-Consider a compact set $K$ in the plane.  It is contained in some closed disc
-$\overline{\Delta_r(0)}$.  We want to get uniformly absolute convergence
-of the product, and so we need
-\begin{equation*}
-\sum_{n=1}^\infty \abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
-\end{equation*}
-to converge uniformly on $K$.
-If $z \in K$, then $\sabs{z}\leq r$.  As $a_n$ goes to
-infinity,
-$\sabs{a_n} \geq r$
-and so $\abs{\frac{z}{a_n}} \leq 1$
-for all $n$ large enough.
-By \lemmaref{lemma:elemfactbound},
-\begin{equation*}
-\abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
-\leq
-\abs{\frac{z}{a_n}}^{\ell_n+1}
-\leq
-\abs{\frac{r}{a_n}}^{\ell_n+1} .
-\end{equation*}
-Thus the series converges as its tail converges.  The convergence
-is uniform in $K$, as the right hand side above does not depend on $z$.
-\end{proof}
-
-There are many choices for the sequence $\{ \ell_n \}$.  The proof says
-that the convergence of \eqref{eq:pnconvergence} 
-for every $r>0$ guarantees convergence of the product, but we may still try
-to make a convenient choice of $\{ \ell_n \}$, and we can often
-choose a much more convenient choice than $\ell_n=n-1$.
-
-Now that we can prescribe zeros of an entire function, we
-use it to factor out all the zeros of any other entire function, and
-obtain a factorization.
-
-\begin{cor}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
-Let $f$ be an entire holomorphic function, not identically zero,
-with zeros (repeated according to multiplicity) at points of
-the sequence $\{ a_n \}$ except the zero at
-the origin, whose order is $m$ (possibly $m=0$).  Then there exists an
-entire holomorphic function $g$ and a sequence $\{ \ell_n \}$ such that
-\begin{equation*}
-f(z) = z^m e^{g(z)} \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
-\end{equation*}
-converges uniformly absolutely on compact subsets.
-\end{cor}
-
-\begin{proof}
-Let $h \colon \C \to \C$ be the entire function
-\begin{equation*}
-h(z) = \prod_{n=1}^\infty E_{\ell_n}\left(\frac{z}{a_n}\right) ,
-\end{equation*}
-where the $\{ \ell_n \}$ comes from the product theorem.  The function
-$\varphi(z) = \frac{f(z)}{h(z)z^m}$
-has only removable singularities, so $\varphi$ can be made entire.
-As $\varphi$ has no zeros, $\varphi(z) =
-e^{g(z)}$ for an entire function $g$ because $\C$ is simply connected.
-\end{proof}
-
-\begin{exbox}
-\begin{exercise}[Easy]
-Suppose $\{ a_n \}$ is a sequence such that there is some $\epsilon>0$ and
-$\sabs{a_n} \geq n^{1+\epsilon}$ for all $n$.  Prove that
-\begin{equation*}
-\prod_{n=1}^\infty
-\left(1-\frac{z}{a_n} \right)
-\end{equation*}
-converges uniformly absolutely on compact subsets of $\C$.
-\end{exercise}
-
-\begin{exercise}[Easy]
-Explicitly find an infinite product for an entire holomorphic function
-with simple zeros precisely at $\Z \times \Z$ (that is points with integer
-coefficients).
-\end{exercise}
-
-\begin{exercise}
-Suppose that $\{ a_n \}$ is a sequence converging to $0$.  Show that there
-exists a holomorphic function $f \colon \C \setminus \{ 0 \} \to \C$
-with zeros (counting multiplicity) at $a_n$.
-\end{exercise}
-
-\begin{exercise}
-Suppose $\{ a_k \}$, $\{ b_k \}$ are
-sequences of distinct points in $\C$
-with no limit points, and $\{ n_k \}$, $\{ m_k \}$ are sequences of
-natural numbers.
-Prove that
-there exists a meromorphic function $f \colon \C \to \C_\infty$ whose
-zeros are exactly at $a_k$, with orders given by $n_k$, and
-poles are exactly at $b_k$, with orders given by $m_k$.
-\end{exercise}
-
-\begin{exercise}
-Suppose $\{ a_n \}$ is a sequence of distinct points in $\C$
-with no limit points, and $\{ c_n \}$ an arbitrary sequence of complex
-numbers.  Construct an entire function $f$ such that $f(a_n) = c_n$.
-Hint:  For any radius $r > 0$, a point $p \in \C$, $\sabs{p} > r$, and
-an $\epsilon > 0$, try to find a function with some prescribed zeros
-such that $f(p) =1$ and $\snorm{f}_{B(0,r)} < \epsilon$.  Another hint:
-If $\sabs{w} < 1$, then $\sabs{w}^n$ goes to zero.
-\end{exercise}
-\end{exbox}
-
-\subsection{Factorization of sine}
-
-Let us use the Weierstrass factorization theorem to factor the sine function
-as promised.  The function $\sin(\pi z)$ has zeros at the integers $\Z$.
-We start with the positive integers.  Note that
-\begin{equation*}
-\sum_{n=1}^\infty \abs{\frac{r}{n}}^{2}
-\end{equation*}
-converges for every $r > 0$.  Similarly for the negative integers.  Thus we
-may choose $\ell_n =1$ in the product theorem.  Write
-\begin{equation*}
-f(z) =
-\pi z \prod_{n \in \Z \setminus \{ 0 \}} E_1\left(\frac{z}{n}\right)
-= 
-\pi z \prod_{n \in \Z \setminus \{ 0 \}} \left(1-\frac{z}{n}\right) e^{z/n} .
-\end{equation*}
-We write the product in no particular order as the product converges
-absolutely.
-The $\pi$ out front can be guessed by thinking what would we get if we
-differentiate $\sin(\pi z)$ and evaluate at $0$.
-Differentiating the product (using product rule) would give you $\pi \cdot 1
-+ 0=1$, as anytime the derivative falls on some factor other that $z$, when
-you evaluate at 0, you get 0.  We can do this formal computation on the
-finite products as the product converges uniformly on compact subsets and
-therefore so does the derivative.  See also \exerciseref{exercise:proddiff}.
-
-We group some terms together for convenience
-\begin{equation*}
-f(z) =
-\pi z \prod_{n=1}^\infty 
-\left(1-\frac{z}{n}\right) e^{z/n}
-\left(1-\frac{z}{-n}\right) e^{-z/n}
-=
-\pi z \prod_{n=1}^\infty 
-\left(1-\frac{z^2}{n^2}\right) .
-\end{equation*}
-That's a rather nice factorization.  Of course we still do not know if $f(z)$ is
-$\sin(\pi z)$.
-All we know is that the two have the same zeros,
-and the derivative at 0 is $\pi$ as it should be.
-As $f$ captures the zeros of $\sin(\pi z)$, we write
-(as in the factorization theorem),
-\begin{equation*}
-\sin(\pi z)
-= 
-e^{g(z)} f(z)
-=
-\pi z
-e^{g(z)}
-\prod_{n=1}^\infty 
-\left(1-\frac{z^2}{n^2}\right)
-\end{equation*}
-for some entire function $g$.  We need to show that $g \equiv 1$.  By the
-computation of the derivative above, $g(0) = 1$.
-
-We wish to convert the product to a series using the
-logarithm, as series are simpler to handle\footnote{Any calculus student
-will tell you so when they try to differentiate a product with many
-factors.}.  Unfortunately, if $\varphi(z) =
-\sin(\pi z)$, the function
-$\log \varphi(z)$ is not well-defined.
-But as we saw a couple of times before, while $\log \varphi(z)$ is not
-well-defined, the logarithmic derivative
-\begin{equation*}
-\frac{d}{dz} \left[
-\log \varphi(z)
-\right]
-=
-\frac{\varphi'(z)}{\varphi(z)}
-\end{equation*}
-is well-defined.  We can find the logarithmic derivative by differentiating
-the series for $\log \varphi(z)$
-since for the derivative we only need to work locally and we can use
-any branch of the logarithm.
-So, locally, using any branch of the logarithm,
-we pick $k$ large enough so that $\Re \bigl( 1-\frac{z^2}{n^2} \bigr) > 0$
-for all $n \geq k$,
-so that we can use \propref{prop:infproductwithlogs},
-\begin{multline*}
-\pi \cot (\pi z) =
-\frac{\pi \cos (\pi z)}{\sin(\pi z)}
-=
-\frac{d}{dz} \left[
-\log \sin (\pi z)
-\right]
-=
-\frac{d}{dz} \left[
-\log 
-\left(
-\pi z
-e^{g(z)}
-\prod_{n=1}^\infty 
-\left(1-\frac{z^2}{n^2}\right)
-\right)
-\right]
-\\
-=
-\frac{d}{dz} \left[
-\log(\pi z)
-+
-g(z)
-+
-\sum_{n=1}^k 
-\log
-\left(1-\frac{z^2}{n^2}\right)
-+
-\sum_{n=k+1}^\infty
-\Log
-\left(1-\frac{z^2}{n^2}\right)
-\right]
-\\
-=
-\frac{1}{z}
-+
-g'(z)
-+
-\sum_{n=1}^\infty 
-\frac{2z}{z^2-n^2} .
-\end{multline*}
-The penultimate equality would not be true without the derivative as what's
-inside the square brackets may differ by a constant.
-Since the far left hand side and the far right hand side do not have any
-logarithms in them they are clearly well-defined.
-One can show the equality without the $g'$ as a nice exercise in applying
-the residue theorem.
-
-\begin{exbox}
-\begin{exercise}
-Let $\gamma_n$ be the rectangular path with vertices
-$n+\nicefrac{1}{2} - in$, 
-$n+\nicefrac{1}{2} + in$, 
-$-\bigl(n+\nicefrac{1}{2}\bigr) + in$, 
-$-\bigl(n+\nicefrac{1}{2}\bigr) - in$.
 \begin{exparts}
 \item
-Using the residue theorem, for $z \notin \Z$, evaluate
-\begin{equation*}
-\int_{\gamma_n}\frac{\pi \cot (\pi \xi)}{\xi^2-z^2} \, d\xi .
-\end{equation*}
+Prove that in the Mittag-Leffler theorem, the function $f$ can be chosen
+so that $f$ has no zeros in $U \setminus S$.
 \item
-Show that
-\begin{equation*}
-\lim_{n\to \infty}
-\int_{\gamma_n}\frac{\pi \cot (\pi \xi)}{\xi^2-z^2} \, d\xi = 0 .
-\end{equation*}
-\item
-Prove that
-\begin{equation*}
-\pi \cot (\pi z) =
-\frac{1}{z}
-+
-\sum_{n=1}^\infty 
-\frac{2z}{z^2-n^2} ,
-\avoidbreak
-\end{equation*}
-with uniform convergence on compact subsets of $\C \setminus \Z$.
+Use part a) to prove the Weierstrass product theorem.
 \end{exparts}
-\end{exercise}
-\end{exbox}
-
-In particular, the exercise says that $g'(z)=0$, and as $g(0)=1$ we have $g \equiv 1$.
-We have thus proved the following proposition.
-
-\begin{prop}
-For all $z \in \C$,
-\begin{equation*}
-\sin(\pi z) =
-\pi z \prod_{n=1}^\infty 
-\left(1-\frac{z^2}{n^2}\right) ,
-\avoidbreak
-\end{equation*}
-with uniform absolute convergence on compact sets.
-\end{prop}
-
-
-\begin{exbox}
-\begin{exercise}
-Find a factorization for cosine.  Hint: There is a hard way and an
-easy way to do this (now that we know the factorization of sine).
-\end{exercise}
-
-\begin{exercise}
-Find a factorization for $\sinh(z) = \frac{e^z-e^{-z}}{2}$.
-\end{exercise}
-
-\begin{exercise}
-Suppose $U \subset \C$ is a domain and
-\begin{equation*}
-F(z) = \prod_{n=1}^\infty f_n(z)
-\end{equation*}
-for holomorphic functions $f_n \colon U \to \C$ converges uniformly 
-on compact subsets of $U$.  Prove that
-\begin{equation*}
-\frac{F'(z)}{F(z)} = \sum_{n=1}^\infty \frac{f_n'(z)}{f_n(z)} ,
-\avoidbreak
-\end{equation*}
-converging uniformly on compact subsets of $U$.
-\end{exercise}
-\end{exbox}
-
-\subsection{The product theorem in any open set}
-
-The product theorem holds in any open set.  The proof is very similar too.
-However, what changes is that the zeros can no longer congregate on any point of
-the boundary as well as at infinity.  There are a couple of ways to handle
-this, one is to move infinity first and make sure all the zeros are bounded.
-The other way is to not move anything by splitting up the sequence of zeros in a
-smart way into a sequence that goes to infinity and has no finite limit
-points and a sequence that has limit points on the boundary.  The tricky
-business is that the part of the series that has limit points at the
-boundary could also go to infinity, so we ensure that it at least gets
-closer and closer to the boundary as it marches off.
-
-\begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
-Suppose $U \subset \C$ is open, $\{ c_k \}$ is
-a sequence of distinct points in $U$
-with no limit points in $U$, and $\{ m_k \}$ is a sequence of
-natural numbers.
-Then there exists a holomorphic $f \colon U \to \C$ with
-zeros exactly at $c_k$, with orders given by $m_k$.
-\end{thm}
-
-\begin{proof}
-Suppose $\{ a_n \}$ is the sequence of points $\{ c_k \}$ repeated
-according to the multiplicities $\{ m_k \}$.
-As the case $U=\C$ has already been proved, we assume $\C \setminus
-U$ is nonempty.
-Let
-\begin{equation*}
-D = \left\{ z \in U :
-d(z,\C \setminus U) < \frac{1}{\sabs{z}+1}
-\right\} .
-\end{equation*}
-As usual $d(z,\C\setminus U) = \inf_{\zeta \in \C \setminus U}
-\sabs{z-\zeta}$.  For $z \in U$ it is the distance to the boundary.
-Divide $\{ a_n \}$ into two parts:
-Let $\{ a^1_n \}$ be those $a_n$ that lie in $D$ and $\{ a^2_n \}$
-be those that do not.
-We will generate a function $f_1$ with zeros at $\{ a^1_n \}$ and
-a function $f_2$ with zeros at $a^2_n$.  Let $f = f_1 f_2$
-to finish the proof.
-Without loss of generality assume both sequences are infinite.
-
-First consider $\{ a^1_n \}$.  Let $\{ p_n \}$ be a sequence of points in
-$\C \setminus U$ such
-that
-\begin{equation*}
-\sabs{a^1_n-p_n} = d(z,\C \setminus U).
-\end{equation*}
-See \figureref{fig:weiergeneral}.
-We claim that 
-$\sabs{a^1_n-p_n}$ goes to zero as $n$ goes to infinity.
-Indeed, suppose not, then there is an $\epsilon > 0$ and
-a subsequence such that 
-$\abs{a^1_{n_k}-p_{n_k}} > \epsilon$ for all $m$.  As these are the
-distances to the boundary and $a^1_{n_k} \in D$,
-we must have that $\sabs{a^1_{n_k}} < \nicefrac{1}{\epsilon}+1$ for all $m$.
-In particular these $\{ a^1_{n_k} \}$ must have a limit point and since they
-are all at least $\epsilon$ away from the boundary this limit point would be
-in $U$.  That is a contradiction.  Hence
-$\sabs{a^1_n-p_n}$ goes to infinity.
-
-\begin{myfig}
-\subimport*{figures/}{weiergeneral.pdf_t}
-\caption{The sequence of $\{ a_n \}$ with respect to $D$.  The 
-points of $\{ a_n \}$ that lie in $D$ are the $\{ a^1_n \}$ and for those we
-pick the $\{ p_n \}$, which will lie at the closest place on the boundary of
-$U$ (the thick dotted line).\label{fig:weiergeneral}}
-\end{myfig}
-
-Let $K \subset U$ be compact, then for $z \in K$
-\begin{equation*}
-\abs{\frac{a^1_n-p_n}{z-p_n}}
-\leq
-\frac{\sabs{a^1_n-p_n}}{d(p_n,K)}
-\leq
-\frac{\sabs{a^1_n-p_n}}{d(\C \setminus U,K)} .
-\end{equation*}
-So for all $n$ large enough
-$\abs{\frac{a^1_n-p_n}{z-p_n}} < \nicefrac{1}{2}$.
-Then by \lemmaref{lemma:elemfactbound},
-\begin{equation*}
-\abs{E_n\left(
-\frac{a^1_n-p_n}{z-p_n}
-\right)-1} \leq \frac{1}{2^{n+1}} ,
-\end{equation*}
-and hence
-\begin{equation*}
-f_1(z)
-=
-\prod_{n=1}^\infty
-E_n\left(
-\frac{a^1_n-p_n}{z-p_n}
-\right)
-\end{equation*}
-converges uniformly on $K$.  Thus this product $f_1$ converges
-uniformly on compact subsets of $U$.  We are thus done with $f_1$.
-
-For $f_2$, note that $\{a^2_n\}$ must go to infinity.  Otherwise, the
-sequence would have a finite limit point, but this limit point would have to
-be in $U$ as whenever $\sabs{a^2_n} \leq r$ then $d(a^2_n,\C\setminus U)
-\geq \frac{1}{r+1}$.  But then we can construct an entire function with
-these zeros.
-\end{proof}
-
-If $f = \frac{g}{h}$ for two holomorphic functions $g$ and $h$, then $f$
-is meromorphic with poles at the zeros of $h$.  Conversely,
-if $f$ has a pole of order $m$ at $p$, then $f(z) = \frac{g(z)}{{(z-p)}^m}$
-for some holomorphic $g$, so $f$ is a quotient of holomorphic functions
-(near $p$).
-Using the Weierstrass product theorem, we get this converse globally:
-A meromorphic function on a domain is a quotient of holomorphic functions on
-that same domain.
-In more fancy language, the set of meromorphic functions on a
-domain in $\C$ is the field of fractions of the ring of holomorphic
-functions.\footnote{It is important that it is a
-domain in $\C$.  We saw meromorphic functions on $\C_\infty$,
-and those are not quotients of two holomorphic functions, since there are
-no nonconstant holomorphic functions on $\C_\infty$.}
-
-\begin{cor}
-Suppose $U \subset \C$ is open and $f \colon U \to \C_{\infty}$ is
-meromorphic.  Then there exist holomorphic $g,h \colon U \to \C$ such that
-$f = \frac{g}{h}$.
-\end{cor}
-
-\begin{proof}
-By the product theorem there exists a holomorphic function $h$ that has
-zeros exactly where $f$ has poles, and of the same order.  The function $fh$
-therefore has removable singularities at all the poles of $f$.  In other
-words, there is a holomorphic $g$ such that $g=fh$.
-\end{proof}
-
-\begin{remark}
-When we introduced the corollary, we mentioned domain, but then we proved it
-for an open set.  The issue is a bit of algebra.  If $U$ is not connected,
-then the set of holomorphic functions is not an integral domain, it has zero
-divisors, and a field of fractions is only defined for integral domains.
-\end{remark}
-
-\begin{exbox}
-\begin{exercise}
-Given a domain $U \subset \C$ and $f$ and $g$ holomorphic on $U$, neither of
-which is identically zero.  Prove that there exists a functions $h$, $F$,
-and $G$ holomorphic on $U$, such that $F$ and $G$ have no common zeros and
-$f=hF$ and $g=hG$.
-\end{exercise}
-
-\begin{exercise}
-Let $S = \bigl\{ e^n \in \C : n \in \Z \bigr\}$.
-Explicitly construct a holomorphic function on $\C \setminus \{ 0 \}$
-that has simple zeros at
-points of $S$.
-\end{exercise}
-
-\begin{exercise}
-Given a domain $U \subset \C$ and a sequence $\{ a_n \}$ of distinct points in $U$
-with no limit points in $U$.  Find a holomorphic function on
-$U \setminus \{ a_n \}$, that has essential
-singularities at $\{ a_n \}$.
-\end{exercise}
-
-\begin{exercise}
-Show that there exists a holomorphic function $f \colon \D \to \C$ that does
-not extend holomorphically to any domain $U$ where $\D \subsetneq U$.  Hint:
-Consider a sequence of points in $\D$ whose limit set is the circle.
-\end{exercise}
-
-\begin{exercise}
-Suppose $U \subset \C$ is a simply connected domain and $f \colon U \to \C$
-a nonconstant function.  Show that there exists a holomorphic $g \colon U
-\to \C$ such that $g^2 = f$ if and only if every zero of $f$ has even order.
 \end{exercise}
 \end{exbox}
 
@@ -16665,8 +16685,9 @@ $\gamma(t)$.  We simply need to require $\gamma(t) \in D_t$.
 \end{exercise}
 \end{exbox}
 
-Since $\gamma$ (as a set) is compact, we in fact use only finitely many
-discs.  See \figureref{fig:followbranch2}.  This was the way we were continuing the logarithm back in
+Since $\gamma$ (as a set) is compact, we can use only finitely many
+discs.  See \figureref{fig:followbranch2}.
+This was the way we were continuing the logarithm back in
 \chapterref{ch:log}.
 
 \begin{prop} \label{prop:finitedisccont}
@@ -16693,6 +16714,19 @@ the subintervals are marked.\label{fig:followbranch2}}
 \begin{exbox}
 \begin{exercise}
 Prove the proposition.
+\end{exercise}
+
+\begin{exercise}
+There's good reason to use discs in analytic continuation.  Find two domains
+$U_1, U_2 \subset \C$, $U_1 \cap U_2 \not= \emptyset$,
+$p \in U_1$, $q \in U_2$, holomorphic functions
+$f_1 \colon U_1 \to \C$ and $f_2 \colon U_2 \to \C$,
+a path $\gamma$ in $U_1 \cup U_2$ from $p$ to $q$, and two discs $\Delta_1,\Delta_2$
+as in the proposition such that $\Delta_1 \subset U_1$ and $\Delta_2 \subset
+U_2$, such that $\gamma \subset \Delta_1 \cup \Delta_2$, and these are the
+discs giving the analytic continuation of $f_1$ from $p$ to $q$, and $f_1 =
+f_2$ on $\Delta_1 \cap \Delta_2$, but such that $f_1$ is not equal to $f_2$
+on $U_1 \cap U_2$.
 \end{exercise}
 \end{exbox}
 
@@ -16871,7 +16905,7 @@ continuation to $U$.
 \begin{exercise}
 Let $U \subset \C$ be a domain and $f \colon U \to \C$ be holomorphic and
 not identically zero.  Let $Z_f$ be the set of zeros of $f$.  Given any $p
-\in U \setminus Z_f$, we can locally define some branch of $\log f(z)$.
+\in U \setminus Z_f$, we can locally (in some neighborhood) define some branch of $\log f(z)$.
 Show that this branch allows unrestricted continuation to $U \setminus Z_f$.
 \end{exercise}
 
@@ -16958,7 +16992,9 @@ a unique holomorphic function $F \colon U \to \C$ such that $F|_W = f$.
 \end{thm}
 
 \begin{proof}
-As $U$ is simply connected, then by the Riemann mapping theorem we can
+As $U$ is simply connected, then by the
+\hyperref[thm:RMT]{Riemann mapping theorem}
+we can
 assume that $U=\D$ or $U = \C$.
 We have to show that no matter how we extend to any point $q \in U$, we
 always get the same value, no matter what path we continue along.
@@ -17000,7 +17036,8 @@ has a topological universal cover, where the ``local biholomorphism'' is
 replaced by ``local homeomorphism.''}
 What we proved above is that the only universal covering of a simply
 connected domain is essentially just a biholomorphism.
-Riemann mapping theorem implies that every domain has a universal cover that
+The \hyperref[thm:RMT]{Riemann mapping theorem}
+implies that every domain has a universal cover that
 is either $\C$ or $\D$.  In fact, and we will again not prove so,
 the only domains with universal cover of $\C$ are $\C$ itself and $\C
 \setminus \{ 0 \}$ (the exponential).
