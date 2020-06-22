@@ -153,6 +153,8 @@
 \clubpenalty=500
 \widowpenalty=500
 
+%\overfullrule=10mm
+
 % useful
 \newcommand{\ignore}[1]{}
 
@@ -4306,18 +4308,20 @@ is continuous.  Then $h \circ \gamma$ is a piecewise $C^1$ path in $V$ and
 That $h \circ \gamma$ is a piecewise $C^1$ path is obvious.  To prove the
 equality we just parametrize and apply the chain rule, in particular
 $(h \circ \gamma)'(t) = h'\bigl(\gamma(t)\bigr) \gamma'(t)$:
-\begin{multline*}
+\begin{equation*}
+\begin{split}
 \int_{\gamma} f\bigl(h(z)\bigr) h'(z) \, dz
-=
+& =
 \int_a^b
 f\Bigl(h\bigl(\gamma(t)\bigr)\Bigr) h'\bigl(\gamma(t)\bigr) \gamma'(t) \, dt
 \\
-=
+& =
 \int_a^b
 f\bigl((h \circ \gamma)(t)\bigr) (h \circ \gamma)'(t) \, dt
 =
 \int_{h \circ \gamma} f(w) \, dw . \qedhere
-\end{multline*}
+\end{split}
+\end{equation*}
 \end{proof}
 
 \begin{exbox}
@@ -8447,21 +8451,24 @@ The formula follows $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ by
 definition of $L_j$.
 
 The ``Furthermore'' bit follows as before:
-\begin{multline*}
+\begin{equation*}
+\begin{split}
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
-=
+& =
 \frac{1}{2\pi i} \sum_{j=1}^n \int_{t_{j-1}}^{t_j} \frac{\gamma'(t)}{\gamma(t)-p} \, dt
-=
+\\
+& =
 \frac{1}{2\pi i} \sum_{j=1}^n L_j\bigl(\gamma(t_j)\bigr) -
 L_j\bigl(\gamma(t_{j-1})\bigr)
-\\
 =
 \frac{1}{2\pi i} \Bigl( L_n\bigl(\gamma(b)\bigr) - L_1\bigl(\gamma(a)\bigr) \Bigr) 
-=
+\\
+& =
 \frac{\theta(b)-\theta(a)}{2\pi}
 - i \frac{\log \sabs{\gamma(b)} - \log \sabs{\gamma(a)}}{2\pi} .
 \qedhere
-\end{multline*}
+\end{split}
+\end{equation*}
 \end{proof}
 
 The lemma allows us to define the winding number for continuous closed paths
@@ -13019,7 +13026,7 @@ Polar coordinates give a nice local homemorphism
 (a continuous bijective map with a continuous inverse) at least outside of
 the origin, which is sufficient for us as we only needed to worry about points
 on or near the boundary of $\D$.  The reader that is still unconvinced
-should write out the details for an exercise.
+should write out the details as an exercise.
 
 \begin{exbox}
 \begin{exercise}
@@ -13129,8 +13136,8 @@ necessary, but it is sufficient for the exercise.  Hint: Cayley.
 \end{exercise}
 
 \begin{exercise}
-Given a bounded continuous $u \colon \R \to \R$, prove that the function
-$Pu \colon \overline{\bH} \to \R$, defined by
+Given a bounded continuous $u \colon \R \to \R$, prove that 
+$Pu \colon \overline{\bH} \to \R$,
 \begin{equation*}
 Pu(x+iy)
 =
@@ -14016,7 +14023,7 @@ harmonic function on every disc.
 The best way to think about subharmonic functions is an analogy to convex
 functions in $\R$.
 We saw that harmonic functions in $\R$ are just the affine linear functions:
-A function $g(x)$ on $\R$ is harmonic if $g'' = 0$, that is, $g(x) = Ax+B$.
+A function $g(x)$ on $\R$ is harmonic if $g'' \equiv 0$, that is, $g(x) = Ax+B$.
 A function of one real variable is
 \emph{convex}\index{convex function} if 
 for every interval it is less than the affine linear function with the same
@@ -14029,7 +14036,7 @@ and
 $f(\beta) \leq g(\beta)$,
 we have
 $f(x) \leq g(x)$ for all $x \in [\alpha,\beta]$.
-In particular, we can take the $g$ that is equal to $f$ at the endpoints.
+%We can take the $g$ that is equal to $f$ at the endpoints.
 See \figureref{fig:convexfunc}.
 In $\R$, an interval $[\alpha,\beta]$ plays the role of a closed disc.
 So \emph{convex} is the same as \emph{subharmonic} in $\R$.
@@ -14063,7 +14070,7 @@ is continuous.
 \end{exercise}
 \end{exbox}
 
-A useful property that we will use often is that adding or subtracting 
+Adding or subtracting 
 harmonic functions does not kill subharmonicity.  The proof is rather simple
 as a sum or difference of harmonic functions is harmonic and we leave it as
 an exercise.
@@ -14079,9 +14086,9 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
-Suharmonic functions are also classified by a mean value like property,
+Suharmonic functions are also classified by a mean-value-like property,
 although it is an inequality rather than an equality.  There is a subtle
-issue of integrability, however.  For an upper-semicontinuous function
+issue of integrability.  For an upper-semicontinuous function
 the integral in the theorem need not exist as a Riemann integral.
 We will only prove this for the upper Darboux integral.
 The proof is 
@@ -14118,7 +14125,7 @@ The upper Darboux integral of a function $f$ on $[a,b]$ bounded above is normall
 \end{equation*}
 A step function is a finite sum of characteristic functions of intervals and
 hence Riemann integrable.
-Since continuous functions are Riemann integrable we can approximate from
+Since continuous functions are Riemann integrable, we can approximate from
 above by continuous functions $g$ such that
 $\int_a^b g(t)\,dt$
 approximates
@@ -14169,13 +14176,13 @@ the function $\varphi$ must be less than some fixed
 constant that is strictly less than $\varphi(p)$
 on a nonempty open subset of
 $\partial \Delta_r(p)$.
-The setup is the same as in \figureref{fig:meanvalue}.
-In particular, as $h$ is harmonic and satisfies the
-mean-value property, we obtain a contraction:
+The setup is the same as in \figureref{fig:meanvalue}.  So,
 \begin{equation*}
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} \varphi(p+re^{i\theta})\, d\theta <
-\varphi(p) .  \qedhere
+\varphi(p) .
 \end{equation*}
+As $h$ is harmonic and satisfies the
+mean-value property, we obtain a contraction.
 \end{proof}
 
 From now on, when we apply the property we simply write the integral and
@@ -14183,7 +14190,7 @@ the reader substitutes the upper Darboux integral or the Lebesgue integral
 according to the reader's taste.
 
 An easy consequence of the sub-mean-value property is that subharmonic
-functions, while not necessarily continuous are a bit better then just
+functions, while not necessarily continuous, are a bit better then just
 upper-semicontinuous.
 
 \begin{prop}
@@ -14926,8 +14933,8 @@ for $f$ at $0$ are be nonnegative.  By \lemmaref{lemma:maxprincpositive},
 \end{proof}
 
 We can prescribe the zeros of an entire function arbitrarily.
-The only requirement is the obvious one from the identity theorem,
-that the zeros do not have a limit point in $\C$.
+The only requirement is the obvious one from the identity theorem:
+the zeros have no limit point in $\C$.
 
 \begin{thm}[Weierstrass product theorem in $\C$]
 \index{Weierstrass product theorem in $\C$}
@@ -14956,7 +14963,7 @@ converges for all $r > 0$ can be used.
 \end{thm}
 
 \begin{proof}
-We can ignore the zero at the origin, and just consider the nonzero
+Ignore the zero at the origin, and just consider the nonzero
 zeros $\{ a_n \}$.  We claim that at least one sequence
 such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
 Indeed, choosing $\ell_n = n-1$ would suffice:
@@ -14977,7 +14984,7 @@ to converge uniformly on $K$.
 If $z \in K$, then $\sabs{z}\leq r$.  As $a_n$ goes to
 infinity,
 $\sabs{a_n} \geq r$
-and so $\abs{\frac{z}{a_n}} \leq 1$
+and so $\babs{\frac{z}{a_n}} \leq 1$
 for all $n$ large enough.
 By \lemmaref{lemma:elemfactbound},
 \begin{equation*}
@@ -14994,11 +15001,11 @@ is uniform in $K$, as the right hand side above does not depend on $z$.
 There are many choices for the sequence $\{ \ell_n \}$.  The proof says
 that the convergence of \eqref{eq:pnconvergence} 
 for every $r>0$ guarantees convergence of the product, but we may still try
-to make a convenient choice of $\{ \ell_n \}$, and we can often
-choose a much more convenient choice than $\ell_n=n-1$.
+to make a convenient choice of $\{ \ell_n \}$, and we often
+make a much more convenient choice than $\ell_n=n-1$.
 
 Now that we can prescribe zeros of an entire function, we
-use it to factor out all the zeros of any other entire function, and
+use it to divide out all the zeros of any other entire function, and
 obtain a factorization.
 
 \begin{cor}[Weierstrass factorization theorem]\index{Weierstrass factorization theorem}
@@ -15091,7 +15098,7 @@ absolutely.
 The $\pi$ out front can be guessed by thinking what would we get if we
 differentiate $\sin(\pi z)$ and evaluate at $0$.
 Differentiating the product (using product rule) would give you $\pi \cdot 1
-+ 0=1$, as anytime the derivative falls on some factor other that $z$, when
++ 0=1$, as any time the derivative falls on some factor other that $z$, when
 you evaluate at 0, you get 0.  We can do this formal computation on the
 finite products as the product converges uniformly on compact subsets and
 therefore so does the derivative.  See also \exerciseref{exercise:proddiff}.
@@ -15555,7 +15562,7 @@ then there is an $N$ such that $P_n - P_m$ is constant for all $n,m \geq N$
 \section{Runge's theorem}
 \label{sec:runge}
 
-Let us first prove rational approximation without any control of the poles.
+We first prove rational approximation without any control of the poles.
 The key is to find a cycle around a compact set $K$
 (see \subsectionref{subsec:patharoundK})
 and then to apply Cauchy's integral formula for points of $K$.
@@ -15571,7 +15578,8 @@ poles on $\Gamma$ such that $\sabs{f(z)-R(z)} < \epsilon$ for all $z \in K$.
 \end{lemma}
 
 \begin{proof}
-The hypotheses mean that we can apply Cauchy's integral formula for any $z
+The hypotheses mean that \hyperref[thm:CIFhomology]{Cauchy's integral formula}
+applies for any $z
 \in K$:
 \begin{equation*}
 f(z) =
@@ -15583,7 +15591,6 @@ The cycle $\Gamma$ is a finite sum of closed piecewise $C^1$ paths.
 If we prove that the Riemann sums corresponding to each path
 converge uniformly on $K$, then their sum also converges uniformly
 and it converges to $f$.
-
 Thus consider just one path $\gamma \colon [0,1] \to U$, and
 let $\epsilon > 0$ be given.
 The function
@@ -15592,7 +15599,7 @@ The function
 \frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}
 \end{equation*}
 is uniformly continuous on the compact set $K \times [0,1]$.
-As $\gamma'$ is bounded, we can find a $\delta > 0$ such that
+As $\gamma'$ is bounded, there is a $\delta > 0$, such that
 \begin{equation*}
 \abs{
 \frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}\gamma'(t)
@@ -15602,7 +15609,7 @@ As $\gamma'$ is bounded, we can find a $\delta > 0$ such that
 \end{equation*}
 for all $z \in K$ and all $t,\tau \in [0,1]$ such that $\sabs{t-\tau} <
 \delta$.
-Partition $[0,1]$ into $0 = t_0 < t_1 < \cdots < t_k = 1$ such that
+Partition $[0,1]$ into $0 = t_0 < t_1 < \cdots < t_k = 1$, where
 $t_j-t_{j-1} < \delta$.
 Write
 \begin{equation*}
@@ -15680,8 +15687,7 @@ a simple exercise in chasing those $\epsilon$s.
 
 \begin{exbox}
 \begin{exercise}
-Let $K$ be a set and $\sF$ a set of functions on $K$.  Prove rigorously the
-following statements.
+Let $K$ be a set and $\sF$ a set of functions on $K$.  Rigorously prove:
 \begin{exparts}
 \item
 If functions from $\sF$ uniformly approximate a function $f$,
@@ -15709,7 +15715,7 @@ path to where we need them to be.
 
 \begin{lemma} \label{lemma:polepushing}
 Suppose $K \subset \C$ is compact, $S \subset \C_{\infty} \setminus K$
-is a set that intersects every component of $\C_\infty \setminus K$,
+intersects every component of $\C_\infty \setminus K$,
 and $p \in \C \setminus K$.
 Then for every $\epsilon > 0$,
 there exists a rational function $R$ with poles in $S$ such that
@@ -15766,10 +15772,11 @@ which converges uniformly on $K$ as
 \end{equation*}
 A partial sum of the series is the rational function we seek.
 
-Now suppose $q =\infty$. We first find a rational function
+Now suppose $q =\infty$. Find a rational function
 that approximates $\frac{1}{z-p}$ uniformly on $K$ and has a pole
-at $q_1$ for some $q_1$ such that $K \subset \Delta_M(0)$ and $\sabs{q_1} > M$.
-As above, without loss of generality suppose that this function
+at some $q_1$, where
+$K \subset \Delta_M(0)$ and $\sabs{q_1} > M$.
+As above, without loss of generality, suppose that this function
 is $\frac{1}{z-q_1}$.
 Next
 \begin{equation*}
@@ -15783,7 +15790,7 @@ Next
 {\left(\frac{z}{q_1}\right)}^k ,
 \end{equation*}
 which converges uniformly on $\overline{\Delta_M(0)}$ as  $\sabs{q_1} > M$.
-Taking partial sums we get that $\frac{1}{z-q_1}$ can be approximated
+Taking partial sums, $\frac{1}{z-q_1}$ can be approximated
 uniformly on $K$ by polynomials (rational functions with a pole at
 $\infty$),
 and hence $\frac{1}{z-p}$ can also be uniformly approximated on $K$ by polynomials.
@@ -15805,13 +15812,13 @@ there exists a rational function $R$ with poles in $S$ such that
 \end{thm}
 
 \begin{proof}
-First use \lemmaref{lemma:patharoundK} to find a cycle $\Gamma$
+\lemmaref{lemma:patharoundK} gives a cycle $\Gamma$
 around $K$ homotopic
-to zero in $U$.  Now apply \lemmaref{lemma:ratapproxriemann} to approximate
-$f$ uniformly on $K$ with a rational function with poles on $\Gamma$.
-The rational function that we have now is a linear combination of
+to zero in $U$.  Use \lemmaref{lemma:ratapproxriemann} to approximate
+$f$ uniformly on $K$ by a rational function with poles on $\Gamma$.
+That rational function is a linear combination of
 terms such as $\frac{1}{z-p_j}$ for $p_j \in \Gamma$.
-Using \lemmaref{lemma:polepushing}, we can approximate each of these terms
+Using \lemmaref{lemma:polepushing}, approximate each of these terms
 by a rational function with poles in $S$.
 \end{proof}
 
@@ -15846,7 +15853,7 @@ otherwise the limit would be continuous.
 
 To prove a version of Runge for open sets,
 we need a slightly stronger version of
-\lemmaref{lemma:compactexhaustion}, basically we need to add 
+\lemmaref{lemma:compactexhaustion}.  We need to add 
 an extra property about the complements.
 
 \begin{lemma}\label{lemma:compactexhaustion2}
@@ -15889,9 +15896,9 @@ Let $R_n$ be the rational function such that
 \quad
 \text{for all } z \in K_n .
 \end{equation*}
-For any compact $K \subset U$, there exists an $N$ such that $K \subset K_n$ for
-all $n \geq N$.  Hence $\abs{f(z)-R_n(z)} < \nicefrac{1}{n}$ for all
-$n \geq N$, and so $\{ R_n \}$ converges to $f$ uniformly on compact subsets.
+For a compact $K \subset U$, find an $N$ such that $K \subset K_n$ for
+all $n \geq N$.  Then $\abs{f(z)-R_n(z)} < \nicefrac{1}{n}$ for all
+$n \geq N$. So $\{ R_n \}$ converges to $f$ uniformly on compact subsets.
 \end{proof}
 
 \begin{exbox}
@@ -15926,21 +15933,8 @@ in $S$.
 
 \begin{exercise}
 Prove that there exists a sequence of polynomials $\{ P_n \}$ such that
+pointwise
 for all $z \in \C$,
-we get the pointwise limit
-\begin{equation*}
-\lim_{n \to \infty}
-P_n(z) = \lfloor \Re z \rfloor ,
-\avoidbreak
-\end{equation*}
-where $\lfloor x \rfloor$ means the largest integer less than or equal to
-$x$. 
-\end{exercise}
-
-\begin{exercise}
-Prove that there exists a sequence of polynomials $\{ P_n \}$ such that
-for all $z \in \C$,
-we get the pointwise limit
 \begin{equation*}
 \lim_{n \to \infty}
 P_n(z) =
@@ -15953,6 +15947,19 @@ P_n(z) =
 Note that the convergence will not be uniform in any neighborhood of the
 origin.
 \end{exercise}
+
+\begin{exercise}
+Prove that there exists a sequence of polynomials $\{ P_n \}$ such that
+pointwise
+for all $z \in \C$,
+\begin{equation*}
+\lim_{n \to \infty}
+P_n(z) = \lfloor \Re z \rfloor ,
+\avoidbreak
+\end{equation*}
+where $\lfloor x \rfloor$ means the largest integer less than or equal to
+$x$. 
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15961,10 +15968,12 @@ origin.
 \label{sec:polyhull}
 
 \begin{defn}
-Let $K \subset \C$ be a compact set.  Define
-the \emph{\myindex{polynomial hull}} of $K$ as the set
+Let $K \subset \C$ be a compact set.  
+The \emph{\myindex{polynomial hull}} of $K$ is the set
 \begin{equation*}
-\widehat{K} = \bigl\{ z \in \C :
+\widehat{K}
+\overset{\text{def}}{=}
+\bigl\{ z \in \C :
 \babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)} \text{ for every polynomial } P
 \bigr\} .
 \end{equation*}
@@ -15972,16 +15981,23 @@ A set $U \subset \C$ is \emph{\myindex{polynomially convex}} if for
 every compact $K \subset U$, we get $\widehat{K} \subset U$.
 \end{defn}
 
+Hulls can (and often are) defined for other classes of functions than
+polynomials, and they are a generalization of the idea of convexity.  Classical
+convexity is convexity with respect to affine linear functions (see the
+exercises).
+
+
 \begin{prop}
 If $K \subset \C$ is compact, then $K \subset \widehat{K}$ and $\widehat{K}$
 is compact.
 \end{prop}
 
 \begin{proof}
-Clearly $K \subset \widehat{K}$.  It is also not hard to show that $\widehat{K}$
-is closed, it is the intersection of closed sets, that is sets where
-$\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$.  Finally it must be
-bounded since $K$ is bounded.  If $\sabs{z} \leq M$ for some $M$ on $K$,
+Clearly $K \subset \widehat{K}$.  As $\widehat{K}$
+is the intersection of closed sets, that is sets where
+$\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$, it is closed.
+It must be
+bounded since $K$ is bounded:  If $\sabs{z} \leq M$ for some $M$ on $K$,
 then all points of $\widehat{K}$ also satisfy $\sabs{z} \leq M$.  Thus
 $\widehat{K}$ is compact.
 \end{proof}
@@ -15992,18 +16008,6 @@ $\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$ for any $z \in \D$.
 Furthermore, as above, $\sabs{z} \leq 1$ for all $z \in \widehat{K}$.  In
 other words, $\widehat{K} = \overline{\D}$.
 \end{example}
-
-Hulls can (and often are) defined for other classes of functions than
-polynomials, and are a generalization of the idea of convexity.  Classical
-convexity is convexity with respect to affine linear functions (see the
-exercises).
-
-In one complex variable, polynomial hulls are easy to
-describe.\footnote{In the analysis of several complex variables,
-polynomial hulls are far more difficult to handle, and they are the subject
-of ongoing research.}
-They end up being just a topological property: the polynomial
-hull just ``fills in the holes.''  First a simple proposition about convergence.
 
 \begin{prop}
 Suppose $K \subset \C$ is compact, $\widehat{K}$ is its polynomial hull,
@@ -16018,8 +16022,16 @@ $\widehat{K}$.
 \end{exercise}
 \end{exbox}
 
+In one complex variable, polynomial hulls are easy to
+describe.\footnote{In the analysis of several complex variables,
+polynomial hulls are far more difficult to handle, and they are the subject
+of ongoing research.}
+They are given simply by a topological property: The polynomial
+hull just ``fills in the holes.''
+
+
 \begin{thm}
-Suppose $K \subset \C$ is compact.  Let $X$ be the unbounded component of
+Suppose $K \subset \C$ is compact and $X$ is the unbounded component of
 $\C \setminus K$.  Then $\widehat{K} = \C \setminus X$.
 \end{thm}
 
@@ -16134,21 +16146,21 @@ rather than polyomials, then $\widehat{K} = K$ for every compact $K$.
 \section{Mittag-Leffler}
 \label{sec:mittaglefler}
 
-Given a \hyperref[defn:principalpart]{principal part} of a function with a pole at $p$:
+Given a \hyperref[defn:principalpart]{principal part} of a function with a pole at $p$,
 \begin{equation*}
-P(z) = \sum_{n=1}^{k} \frac{c_n}{{(z-p)}^n}
+P(z) = \sum_{n=1}^{k} \frac{c_n}{{(z-p)}^n} ,
 \end{equation*}
-we could ask for a meromorphic function with that pole exactly.  Well, that
+we ask for a meromorphic function with that pole exactly.  That
 is not hard: $P(z)$.  How about two principal parts, $P_1(z)$ and $P_2(z)$
 for two different poles.  Well, $P_1(z)+P_2(z)$ works wonderfully, no?
-In general, if we have a sequence of poles and principal parts
-$P_1(z),P_2(z),\ldots$, then we wish to take
+Given a sequence of poles and principal parts
+$P_1(z),P_2(z),\ldots$, we wish to take
 \begin{equation*}
 \sum_{j=1}^\infty P_j(z) .
 \end{equation*}
-But can we?  In general that sum will not converge.  We have to be a little
-trickier, and this is where \hyperref[cor:rungeseq]{Runge's theorem} will be useful:  Adding
-a holomorphic function doesn't change the principal part but we can make
+But can we?  The sum may not converge.  We must be a tad
+trickier, and this is where \hyperref[cor:rungeseq]{Runge's theorem} is useful:  Adding
+a holomorphic function doesn't change the principal part, but it may make
 the terms in the sum smaller and make things converge.
 We obtain the
 Mittag-Leffler theorem.\footnote{It sucks when you have a hyphenated name:
@@ -20563,15 +20575,14 @@ $f'(1) \not= \lim\limits_{n\to\infty} f_n'(1)$.
 
 \subsection{Continuity}
 
-Let us prove a useful criterion for
-continuity of functions defined by integrals.  Let $f(x,y)$ be a function of two variables and define
+Let $f(x,y)$ be a function of two variables and define
 \begin{equation*}
 g(y) = \int_a^b f(x,y) \,dx .
 \end{equation*}
 Question is, is $g$ is continuous?
 We are really asking when do two limiting operations commute,
 which is not always possible, so some extra hypothesis
-is necessary.  A useful sufficient (but not
+is necessary.  A sufficient (but not
 necessary) condition is that $f$ is continuous on a closed rectangle.
 
 \begin{prop} \label{prop:integralcontcont}
@@ -20640,26 +20651,22 @@ Let $f(x,y)$ be a function of two variables and
 \begin{equation*}
 g(y) = \int_a^b f(x,y) \,dx .
 \end{equation*}
-If $f$ is continuous on the compact rectangle $[a,b] \times [c,d]$, then
+If $f$ is continuous on $[a,b] \times [c,d]$, then
 \propref{prop:integralcontcont}
-says that $g$ is continuous on $[c,d]$.
-
-Suppose $f$ is differentiable in $y$.  The main question we want to
-ask is when can we ``differentiate under the integral,'' that is,
-when is it true that $g$ is differentiable and its derivative is
+says that $g$ is continuous on $[c,d]$.  Now
+suppose $f$ is differentiable in $y$.  Can we ``differentiate under the integral?''
+That is, is $g$ is differentiable and
 \begin{equation*}
-g'(y) \overset{?}{=} \int_a^b \frac{\partial f}{\partial y}(x,y) \,dx .
+g'(y) \overset{?}{=} \int_a^b \frac{\partial f}{\partial y}(x,y) \,dx \quad ?
 \end{equation*}
-Differentiation is a limit and therefore we are really asking when do the
+Differentiation is a limit and therefore we are again asking when do the
 two limiting operations of integration and differentiation commute.
-This is not always possible and some extra hypothesis is
-necessary.  In particular, the first
-question we would face is the integrability of
+The first
+question we face is the integrability of
 $\frac{\partial f}{\partial y}$, but the formula can fail even if
 $\frac{\partial f}{\partial y}$ is integrable as a function of $x$ for every
 fixed $y$.
-
-Let us prove a simple, but perhaps the most useful version of this theorem.
+Let us prove a simple, but perhaps the most useful version of the theorem.
 
 \begin{thm}[\myindex{Leibniz integral rule}]
 \label{thm:Leibnizrule}
@@ -20760,13 +20767,13 @@ Then $g'$ is continuous on $[c,d]$ by
 \end{proof}
 
 \begin{example} \label{example:counterexamplediffunder}
-Suppose we start with
+Consider
 \begin{equation*}
 \int_0^{1} \frac{x-1}{\ln(x)} \,dx .
 \end{equation*}
-The function under the integral 
-extends to be continuous on $[0,1]$, and hence
-the integral exists, see \exerciseref{exercise:counterexamplediffunder}.  Trouble is finding it.  Introduce a parameter $y$
+The integral exists as the function under the integral 
+extends continuously to $[0,1]$, see \exerciseref{exercise:counterexamplediffunder}.
+Trouble is finding it.  Introduce a parameter $y$
 and define a function:
 \begin{equation*}
 g(y) = \int_0^{1} \frac{x^y-1}{\ln(x)} \,dx .
@@ -20817,10 +20824,9 @@ on $[0,1] \times [0,1]$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $h \colon \R \to \R$ is a continuous function.  Suppose $g
-\colon \R \to \R$ is which is continuously differentiable and compactly
-supported.  That is there exists some $M > 0$ such that $g(x) = 0$ whenever
-$\abs{x} \geq M$.  Define
+Suppose $h \colon \R \to \R$ is continuous and $g
+\colon \R \to \R$ is continuously differentiable and compactly
+supported ($g$ is zero outside a compact interval).  Define
 \begin{equation*}
 f(x) = \int_{-\infty}^\infty h(y)g(x-y) \, dy  .
 \end{equation*}
@@ -20884,9 +20890,9 @@ compute it.
 Show that for all $y$
 \begin{equation*}
 \int_0^1 \frac{\partial f}{\partial y} (x,y) \, dx
-\end{equation*}
-exists, but
-\begin{equation*}
+\qquad
+\text{exists, but}
+\qquad
 g'(0) \not= \int_0^1 \frac{\partial f}{\partial y} (x,0) \, dx .
 \end{equation*}
 \end{exparts}
