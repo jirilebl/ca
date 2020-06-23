@@ -3972,6 +3972,9 @@ such that $\gamma'(t)$ and all its one sided limits are never
 0.\footnote{Some authors do not require the derivative not being zero, and
 in fact in the way that we use the paths, the requirement is not crucial,
 but leaving it off does lead to allowing some strange paths.}
+A path $\gamma$ is \emph{closed}\index{closed path} if $\gamma(a)=\gamma(b)$.
+A path $\gamma$ is \emph{simple closed}\index{simple closed path}
+if $\gamma(a)=\gamma(b)$ and $\gamma|_{(a,b]}$ is injective.
 \end{defn}
 
 All of our paths will be piecewise $C^1$, so we may forget to mention it
@@ -4007,7 +4010,7 @@ but leaving that off would allow some paths that one would generally not
 wish to call piecewise $C^1$,
 as you will see in the exercises.
 
-\begin{example}
+\begin{example} \label{example:squarepath}
 The path $\gamma \colon [0,4] \to \C$, given by
 \begin{equation*}
 \gamma(t) =
@@ -4190,7 +4193,7 @@ $\gamma$ and $\alpha$ are injective, or
 \item
 $\gamma|_{(a,b]}$ and
 $\alpha|_{(c,d]}$ are injective and 
-$\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
+$\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$ (simple closed paths).
 \end{enumerate}
 Then there exists a strictly monotone continuous $h \colon [c,d] \to [a,b]$ such
 that $\gamma\bigl(h(t)\bigr) = \alpha(t)$ for all $t \in [c,d]$.
@@ -4230,8 +4233,8 @@ last part.
 \end{exercise}
 
 \begin{exercise}
-Prove the second case of thereparametrization for closed paths,
-assuming only that $\gamma|_{(a,b]}$ and
+Prove the second case of the reparametrization, that is,
+for simple closed paths assuming only that $\gamma|_{(a,b]}$ and
 $\alpha|_{(c,d]}$ are injective and
 $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \end{exercise}
@@ -4643,8 +4646,6 @@ if one uses the gauge integral even without any hypothesis on $f$.}
 \end{remark}
 
 \begin{defn}
-A path $\gamma \colon [a,b] \to \C$ is \emph{closed}\index{closed path} if 
-$\gamma(a) = \gamma(b)$.
 A chain $\Gamma$ that is equivalent to
 $a_1 \gamma_1 + \cdots + a_n \gamma_n$, where $\gamma_1, \ldots, \gamma_n$
 are closed piecewise $C^1$ paths
@@ -4652,6 +4653,12 @@ and $a_1,\ldots,a_n \in \Z$,
 is called a \emph{\myindex{cycle}}.
 \end{defn}
 
+Recall that a path $\gamma \colon [a,b] \to \C$ is closed if $\gamma(a) = \gamma(b)$.
+Remember that we are not saying that $\Gamma$ is a sum of closed paths, it
+is equivalent to a sum of closed paths.  The square path in
+\exampleref{example:squarepath} is a cycle, and could be written more
+conveniently as a chain composed of four straight line segments $[0,1] +
+[1,1+i]+[1+i,i]+[i,0]$.
 The fundamental theorem has the following
 immediate corollary.
 
@@ -8958,6 +8965,31 @@ dA
 \end{exercise}
 \end{exbox}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Domains with piecewise $C^1$ boundary *}
+
+The way Green's theorem, and hence Cauchy's theorem is often given, and
+in fact the way it is most often used is for a domain with piecewise $C^1$
+boundary.
+
+\begin{defn}
+A bounded\footnote{It would be a bit more cumbersome to handle the unbounded
+case, our definition may not quite be the normal way to put it, but it is easy
+to apply to integrals and we do not need unbounded domains.}
+open set $U \subset \C$ has
+\emph{\myindex{piecewise $C^1$ boundary}} if $\partial U$
+is a disjoint union of
+simple closed piecewise $C^1$ paths and 
+at every $p \in \partial U$ ever disc
+$\Delta_\epsilon(p)$ contains points from $U$ and points from the
+complement of $\overline{U}$.
+\end{defn}
+
+Recall that $\gamma \colon [a,b] \to \C$ is simple closed if
+$\gamma(a)=\gamma(b)$ and $\gamma|_{(a,b]}$ is injective.
+
+FIXME
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
