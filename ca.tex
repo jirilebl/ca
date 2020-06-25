@@ -1572,9 +1572,9 @@ For example,
 \lim_{x \to 0} \frac{1}{x} \quad \text{does not exist,} \qquad \text{but} \qquad
 \lim_{z \to 0} \frac{1}{z} = \infty .
 \end{equation*}
-Here on the left hand side we tacitly use the extended real sense
+Here on the left-hand side we tacitly use the extended real sense
 ($x$ is real, no?) and on the
-right hand side we tacitly use the Riemann sphere sense ($z$ seems complex).
+right-hand side we tacitly use the Riemann sphere sense ($z$ seems complex).
 This could, obviously, cause confusion.
 In this book, infinite limits are going to be in the Riemann sphere sense
 unless either otherwise noted or obvious.
@@ -3346,7 +3346,7 @@ Then
 \sqrt[n]{\sabs{c_n} s^n}=
 \frac{s}{r}\sqrt[n]{\sabs{c_n} r^n} \leq \frac{s}{r} \sqrt[n]{M} .
 \end{equation*}
-The limsup of the right hand side is strictly less than 1 as $\frac{s}{r} < 1$.
+The limsup of the right-hand side is strictly less than 1 as $\frac{s}{r} < 1$.
 So the series converges absolutely in
 $\overline{\Delta_s(p)}$.  As $s$ and $r$ with $0 < s < r < R$ were
 arbitrary,
@@ -3367,7 +3367,7 @@ are arbitrary we get convergence everywhere.
 \begin{exercise}
 Prove the triangle inequality for series.  If $\sum_{n=0}^\infty c_n$
 converges, then $\abs{\sum_{n=0}^\infty c_n} \leq \sum_{n=0}^\infty
-\sabs{c_n}$ (possibly the right hand side is $\infty$).
+\sabs{c_n}$ (possibly the right-hand side is $\infty$).
 \end{exercise}
 \end{exbox}
 
@@ -3389,7 +3389,7 @@ so it converges, and
 \abs{\sum_{n=m+1}^\infty c_n {(z-p)}^n} \leq
 \sum_{n=m+1}^\infty \sabs{c_n} \sabs{z-p}^n .
 \end{equation*}
-The right hand side goes to zero uniformly in $z \in K$,
+The right-hand side goes to zero uniformly in $z \in K$,
 and so
 a uniformly absolutely convergent series also converges
 uniformly.  So the name fits the crime.
@@ -3420,7 +3420,7 @@ that series converges).  Thus for $z \in \overline{\Delta_r(p)}$,
 \leq
 \sum_{n=m+1}^\infty \sabs{c_n} r^n .
 \end{equation*}
-The right hand side, which does not depend on $z$,
+The right-hand side, which does not depend on $z$,
 goes to zero as $m \to \infty$, and hence 
 the series $\sum \sabs{c_n} \sabs{z-p}^n$ converges uniformly in $\overline{\Delta_r(p)}$.
 
@@ -3584,7 +3584,7 @@ term-wise.  If $z_0$ and $z$ are in $\Delta_R(0)$, then
 =
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k} .
 \end{equation*}
-The right hand side is defined even if $z_0 = z$.
+The right-hand side is defined even if $z_0 = z$.
 We must show that the expression above is continuous as a function of $z$
 at $z_0$.
 It is continuous provided that the series above
@@ -3964,11 +3964,11 @@ Pinky:  Uh, I think so, Brain, but we'll never get a monkey to use dental floss.
 
 \begin{defn}
 \glsadd{not:contdifffuncs}%
-A \emph{\myindex{piecewise $C^1$ path}} or a \emph{\myindex{path}} for short
+A \emph{\myindex{piecewise-$C^1$ path}} or a \emph{\myindex{path}} for short
 is
 a continuous complex-valued piecewise continuously
-differentiable (piecewise $C^1$) function $\gamma \colon [a,b] \to \C$ 
-such that $\gamma'(t)$ and all its one sided limits are never
+differentiable function $\gamma \colon [a,b] \to \C$ 
+such that $\gamma'(t)$ and all its one-sided limits are never
 0.\footnote{Some authors do not require the derivative not being zero, and
 in fact in the way that we use the paths, the requirement is not crucial,
 but leaving it off does lead to allowing some strange paths.}
@@ -3977,20 +3977,20 @@ A path $\gamma$ is \emph{simple closed}\index{simple closed path}
 if $\gamma(a)=\gamma(b)$ and $\gamma|_{(a,b]}$ is injective.
 \end{defn}
 
-All of our paths will be piecewise $C^1$, so we may forget to mention it
-sometime.
-By ``piecewise $C^1$,''
+Our paths will be piecewise-$C^1$,
+so we may forget to mention it sometime.
+By ``piecewise-$C^1$,''
 we mean that there exist numbers $t_0 = a < t_1 < \cdots
 < t_k = b$ for some $k$ such that $\gamma|_{[t_{\ell-1},t_\ell]}$ is
 continuously differentiable ($C^1$) up to
 the boundary for every $\ell$ and its derivative is never zero.
 In other words, $\gamma$ is continuously differentiable inside all the
-subintervals $(t_{\ell-1},t_\ell)$ and the one sided limits
+subintervals $(t_{\ell-1},t_\ell)$, $\gamma'$ is never zero, the one-sided limits
 \begin{equation*}
 \lim_{t \uparrow t_\ell} \gamma'(t) \qquad
 \lim_{t \downarrow t_\ell} \gamma'(t)
 \end{equation*}
-exist for all $\ell$ (except of course only one exists at $a$ or $b$),
+exist for all $\ell$ (except, of course, only one exists at $a$ or $b$),
 and these limits are nonzero.
 Another way to say it is that $\gamma'(t)$ extends to a nonzero
 continuous function on each closed interval $[t_{\ell-1},t_{\ell}]$.
@@ -4007,7 +4007,7 @@ will freely and shamelessly commit is that if we refer to $\gamma$
 as if it were a set we mean the image $\gamma\bigl([a,b]\bigr)$.
 Nowhere will we really use or need that $\gamma'$ is never zero,
 but leaving that off would allow some paths that one would generally not
-wish to call piecewise $C^1$,
+wish to call piecewise-$C^1$,
 as you will see in the exercises.
 
 \begin{example} \label{example:squarepath}
@@ -4021,7 +4021,7 @@ t          & \text{if } t \in [0,1],\\
 i(4-t)     & \text{if } t \in (3,4],
 \end{cases}
 \end{equation*}
-is a piecewise $C^1$ path traversing the sides unit square.
+is a piecewise-$C^1$ path traversing the sides unit square.
 See \figureref{fig:squarepath}.  You should check that the
 conditions are satisfied.  For example, 
 on $t \in (0,1)$, $\gamma'(t) = 1$, and so
@@ -4036,7 +4036,7 @@ $\lim_{t \downarrow 1} \gamma'(t) = i$, and so on.
 \subsection{The line integral}
 
 \begin{defn}
-Given a piecewise $C^1$ path $\gamma \colon [a,b] \to \C$ and a continuous
+Given a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$ and a continuous
 function $f$ defined on 
 $\gamma$, 
 we define the \emph{\myindex{line integral}}\footnote{%
@@ -4093,7 +4093,7 @@ i r^{n+1}
 \int_0^{2\pi}
 e^{i(n+1)t} \, dt .
 \end{equation*}
-The result follows as the integral on the right hand side above is zero
+The result follows as the integral on the right-hand side above is zero
 (write it in terms of sines and cosines, exercise below) unless $n+1 = 0$,
 in which case, the integral 
 is $2\pi$ and $r^{n+1} = 1$.  Note in particular that the value of the
@@ -4184,7 +4184,7 @@ leave its proof as an exercise.
 
 \begin{prop}[Reparametrization]\index{reparametrization of paths}%
 Suppose $\gamma \colon [a,b] \to \C$ and $\alpha \colon [c,d] \to \C$ are
-piecewise $C^1$ paths such that
+piecewise-$C^1$ paths such that
 $\gamma\bigl([a,b]\bigr) = \alpha\bigl([c,d]\bigr)$.
 Suppose either
 \begin{enumerate}[(i)]
@@ -4240,7 +4240,7 @@ $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \end{exercise}
 
 \begin{exercise}
-Any piecewise $C^1$ path $\gamma \colon [a,b] \to \C$
+Any piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$
 can be reparametrized to a $C^1$ ``path'' as long as the derivative
 is allowed to vanish at some points.
 That is, there exists a strictly increasing
@@ -4265,8 +4265,8 @@ $(0,1]$, but necessarily $\lim_{t \to 0} \gamma'(t)$ does not exist.
 
 \begin{remark}
 The last two exercises show why we must morally
-require that $\gamma'(t)$ never vanishes (including the one sided limits)
-for piecewise $C^1$ paths.
+require that $\gamma'(t)$ never vanishes (including the one-sided limits)
+for piecewise-$C^1$ paths.
 We think of the path
 as the set
 $\gamma\bigl([a,b]\bigr)$,
@@ -4278,7 +4278,7 @@ but we lose nothing of real value by the extra requirement.
 
 Due to the reparametrization result above,
 we often write down the ``boundary'' of a certain open set
-(as long as that boundary is piecewise $C^1$ of course)
+(as long as that boundary is piecewise-$C^1$ of course)
 and consider any parametrization going counterclockwise
 when integrating it, without explicitly giving the parametrization.
 For instance, given a disc $\Delta_r(p)$, we parametrize
@@ -4297,9 +4297,9 @@ A version of reparametrization is the following ``$u$-substitution'' type of
 result.
 
 \begin{prop} \label{prop:usubst}
-Let $U,V \subset \C$ be open sets, $\gamma \colon [a,b] \to V$ be a piecewise
-$C^1$ path, $h \colon V \to U$ be holomorphic, and $f \colon U \to \C$
-is continuous.  Then $h \circ \gamma$ is a piecewise $C^1$ path in $V$ and
+Let $U,V \subset \C$ be open sets, $\gamma \colon [a,b] \to V$ be a
+piecewise-$C^1$ path, $h \colon V \to U$ be holomorphic, and $f \colon U \to \C$
+is continuous.  Then $h \circ \gamma$ is a piecewise-$C^1$ path in $V$ and
 \begin{equation*}
 \int_{\gamma} f\bigl(h(z)\bigr) h'(z) \, dz
 =
@@ -4308,7 +4308,7 @@ is continuous.  Then $h \circ \gamma$ is a piecewise $C^1$ path in $V$ and
 \end{prop}
 
 \begin{proof}
-That $h \circ \gamma$ is a piecewise $C^1$ path is obvious.  To prove the
+That $h \circ \gamma$ is a piecewise-$C^1$ path is obvious.  To prove the
 equality we just parametrize and apply the chain rule, in particular
 $(h \circ \gamma)'(t) = h'\bigl(\gamma(t)\bigr) \gamma'(t)$:
 \begin{equation*}
@@ -4344,7 +4344,7 @@ Let $f \colon \partial \D \to \C$ be a continuous function.  Prove that
 
 We can also integrate with respect to arclength, the $ds$ from calculus.
 We will write $ds$ as $\sabs{dz}$.  That is, for an $f$ continuous on
-a piecewise $C^1$ path $\gamma \colon [a,b] \to \C$,
+a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$,
 we define
 \glsadd{not:arclength}
 \begin{equation*}
@@ -4358,7 +4358,7 @@ With this definition we can do some estimates on line integrals.
 \begin{prop}[Triangle inequality for line integrals]%
 \index{triangle inequality!line integrals}
 Suppose $\gamma \colon [a,b] \to \C$ is 
-a piecewise $C^1$ path and $f$ is a continuous function on
+a piecewise-$C^1$ path and $f$ is a continuous function on
 $\gamma$.  Then
 \begin{equation*}
 \abs{\int_\gamma f(z) \, dz} \leq \int_\gamma \sabs{f(z)} \, \sabs{dz} .
@@ -4395,7 +4395,7 @@ would need that the derivatives are close as well.
 \begin{exercise}
 \begin{exparts}
 \item
-Find a sequence of piecewise $C^1$ paths $\gamma_n \colon [0,1] \to \C$
+Find a sequence of piecewise-$C^1$ paths $\gamma_n \colon [0,1] \to \C$
 that uniformly converge to a constant function (one could say a path of
 length zero), but such that $\int_{\gamma_n} \sabs{dz} \geq n$.
 \item
@@ -4413,7 +4413,7 @@ $\int_{\gamma_n} \sabs{dz} \to
 It is useful to combine paths; to have a certain ``arithmetic'' of paths.
 The resulting objects are called \emph{chains}, and they
 are just formal combinations of paths.  For example, if $\gamma$
-and $\alpha$ are piecewise $C^1$ paths, then the chain  $\gamma+\alpha$
+and $\alpha$ are piecewise-$C^1$ paths, then the chain  $\gamma+\alpha$
 is an object over which we can integrate functions that are continuous
 on the image of both:
 \begin{equation*}
@@ -4429,7 +4429,7 @@ A \emph{\myindex{chain}} in $U \subset \C$ is an expression
 \Gamma = a_1 \gamma_1 + \cdots + a_n \gamma_n ,
 \end{equation*}
 where $a_1,\ldots,a_n \in \Z$ and $\gamma_1,\ldots,\gamma_n$
-are piecewise $C^1$ paths in $U$.  We integrate over $\Gamma$ as
+are piecewise-$C^1$ paths in $U$.  We integrate over $\Gamma$ as
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz
 =
@@ -4464,7 +4464,7 @@ A chain $\Gamma$ is equivalent to the zero chain if
 \end{equation*}
 for all continuous $f$, and
 the chains $\Gamma_1$ and $\Gamma_2$ are equivalent if $\Gamma_1 - \Gamma_2 = 0$.
-Chains in this book are always composed of piecewise $C^1$ paths,
+Chains in this book are always composed of piecewise-$C^1$ paths,
 although that is not the most general definition used in the literature.
 
 \begin{remark}
@@ -4491,10 +4491,10 @@ See also \exerciseref{exercise:nonconstantnonzerochain}.
 \begin{exbox}
 \begin{exercise} \label{exercise:pathsum}
 Let $\gamma_1 \colon [a,b] \to \C$ and $\gamma_2 \colon [b,c] \to \C$
-be two piecewise $C^1$ paths and $\gamma_1(b)=\gamma_2(b)$.
+be two piecewise-$C^1$ paths and $\gamma_1(b)=\gamma_2(b)$.
 Prove that the function $\gamma \colon [a,c] \to
 \C$ defined by $\gamma(t) = \gamma_1(t)$ if $t \in [a,b]$ and $\gamma(t)
-= \gamma_2(t)$ if $t \in [b,c]$ is a piecewise $C^1$ path and
+= \gamma_2(t)$ if $t \in [b,c]$ is a piecewise-$C^1$ path and
 for all $f$ continuous on the image of $\gamma$ we have
 \begin{equation*}
 \int_{\gamma} f(z)\,dz = \int_{\gamma_1 + \gamma_2} f(z) \, dz .
@@ -4513,13 +4513,13 @@ the path that goes $n$ times around the unit disc counterclockwise.
 \item
 Suppose $U \subset \C$ is open and
 $\gamma \colon [a,b] \to U$
-is a piecewise $C^1$
+is a piecewise-$C^1$
 path and $\gamma|_{[a,b)}$ is injective (possibly a closed path,
 $\gamma(a)=\gamma(b)$,
 but otherwise injective).  Show that as chains, $\gamma$ is not equivalent to the zero chain.
 Note: Closed $\gamma$ is trickier.
 \item
-Find a piecewise $C^1$ path $\gamma \colon [a,b] \to \C$
+Find a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$
 that is equivalent to the zero chain.  Note that our definition of ``path''
 prevents $\gamma$ being constant.
 \end{exparts}
@@ -4549,8 +4549,8 @@ segments and arcs anyhow.
 
 \begin{exbox}
 \begin{exercise}[Tricky]
-Suppose $U \subset \C$ is open, $\gamma \colon [a,b] \to U$ is a piecewise
-$C^1$ path, and $f \colon U \to \C$ is continuous.  Then for every $\epsilon
+Suppose $U \subset \C$ is open, $\gamma \colon [a,b] \to U$ is a
+piecewise-$C^1$ path, and $f \colon U \to \C$ is continuous.  Then for every $\epsilon
 > 0$, there exists a polygonal path (or chain) $\alpha$ in $U$ with the same
 beginning and end point, such that
 \begin{equation*}
@@ -4606,7 +4606,7 @@ fundamental theorem.
 \index{fundamental theorem of calculus!line integrals}%
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is continuous with a primitive $F \colon U \to \C$ (so $F' = f$).
-Let $\gamma \colon [a,b] \to U$ be a piecewise $C^1$ path.
+Let $\gamma \colon [a,b] \to U$ be a piecewise-$C^1$ path.
 Then
 \begin{equation*}
 \int_\gamma f(z) \, dz =
@@ -4648,7 +4648,7 @@ if one uses the gauge integral even without any hypothesis on $f$.}
 \begin{defn}
 A chain $\Gamma$ that is equivalent to
 $a_1 \gamma_1 + \cdots + a_n \gamma_n$, where $\gamma_1, \ldots, \gamma_n$
-are closed piecewise $C^1$ paths
+are closed piecewise-$C^1$ paths
 and $a_1,\ldots,a_n \in \Z$,
 is called a \emph{\myindex{cycle}}.
 \end{defn}
@@ -5144,7 +5144,7 @@ Cauchy's theorem for derivatives (\corref{cor:cauchyforders}) then implies that 
 \begin{exbox}
 \begin{exercise}
 Suppose $f \colon \C \setminus \{ 0 \} \to \C$ is a holomorphic function,
-$\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ is a closed piecewise $C^1$ path
+$\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ is a closed piecewise-$C^1$ path
 such that $\Re \gamma(t) < \sabs{\gamma(t)}$ for all $t \in [a,b]$.
 Show that $\int_\gamma f(z) \, dz = 0$.
 \end{exercise}
@@ -7000,7 +7000,7 @@ standard real $\log$, that is, $\log \colon (0,\infty) \to \R$,
 where $\log 1 = 0$.
 But the $\log$ on the left
 is not even a function, it has infinitely many values for every $z$,
-since the $\arg$ on the right hand side has infinitely many values.
+since the $\arg$ on the right-hand side has infinitely many values.
 The value of $\log (-1)$ is $\pi i$, but also $-\pi i$, $3\pi i$,
 or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So $\log$ is a function just as much
 as $\arg$ is a function.  See \figureref{fig:loggraph}.
@@ -7124,7 +7124,7 @@ $\int_{\partial \D} \frac{f'(z)}{f(z)} \, dz$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ is a piecewise $C^1$
+Suppose $\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ is a piecewise-$C^1$
 path such that $\gamma(a) = \gamma(b) = -1$, but $\gamma(t)$ is never
 negative real for any $t \in (a,b)$.  Using the principal branch of the
 $\log$, prove that
@@ -7186,7 +7186,7 @@ argument has changed by some multiple of $2\pi$.
 
 \begin{proof}
 As a cycle is (equivalent to) a linear combination (over the integers) of closed paths,
-then we only need to prove the result for closed piecewise $C^1$ paths.
+then we only need to prove the result for closed piecewise-$C^1$ paths.
 Let $\gamma \colon [0,1] \to \C$ be the path.
 The path $\gamma$ as a set is compact.  It can be covered by finitely many
 discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
@@ -7665,7 +7665,7 @@ primitive in $U$.
 
 \begin{proof}
 Fix some $p \in U$. As $U$ is path connected, for every $z \in U$, pick
-some piecewise $C^1$ path $\gamma$ from $p$ to $z$
+some piecewise-$C^1$ path $\gamma$ from $p$ to $z$
 and define
 \begin{equation*}
 F(z) = \int_\gamma f(\zeta) \, d\zeta .
@@ -8367,7 +8367,7 @@ First, let us define this concept for closed paths.
 Let $U \subset \C$ be open.
 Two continuous\footnote{This definition
 works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
-$\gamma_j(a)=\gamma_j(b)$, but we only need it for piecewise $C^1$ paths in
+$\gamma_j(a)=\gamma_j(b)$, but we only need it for piecewise-$C^1$ paths in
 this section.}
 $\gamma_0 \colon [a,b] \to U$ and
 $\gamma_1 \colon [a,b] \to U$ are \emph{\myindex{homotopic}} in $U$
@@ -8407,7 +8407,7 @@ $\gamma_{s+\epsilon}$ and so it should not be hard to prove that their
 winding number around various points is the same.
 Everything is going swimmingly until we realize that $\int_{\gamma_s} f(z)
 \, dz$ makes no sense whatsoever.  The problem is that $\gamma_s$ is only
-continuous and not a piecewise $C^1$ path.  So in particular we can't
+continuous and not a piecewise-$C^1$ path.  So in particular we can't
 even define $n(\gamma_s;z)$ using our prior definition.
 OK, so first we need to define $n(\gamma_s;z)$ in a way that makes sense for
 any continuous closed path.
@@ -8424,7 +8424,7 @@ $\theta \colon [a,b] \to \R$ with $\theta(a) = \theta_0$ such that
 \end{equation*}
 for all $t \in [a,b]$, that is $\theta(t)$ is an argument of $\gamma(t)-p$.
 
-Furthermore, if $\gamma$ is a piecewise $C^1$ path, then
+Furthermore, if $\gamma$ is a piecewise-$C^1$ path, then
 \begin{equation*}
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz =
 \frac{\theta(b)-\theta(a)}{2\pi} 
@@ -8561,7 +8561,7 @@ We can now check how $n(\gamma;p)$ changes, or not, by a homotopy.
 
 \begin{prop} \label{prop:homotopicmeanshomologous}
 Suppose $U \subset \C$ is open and suppose $\gamma_0$ and $\gamma_1$ are closed
-piecewise $C^1$ paths in $U$ that are homotopic in $U$.  Then
+piecewise-$C^1$ paths in $U$ that are homotopic in $U$.  Then
 \begin{equation*}
 n(\gamma_0;p) = n(\gamma_1;p) \qquad \text{for all } p \in \C \setminus U .
 \end{equation*}
@@ -8593,7 +8593,7 @@ of \corref{cor:homologoussameint} and
 \begin{cor}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 and suppose $\gamma_0$ and $\gamma_1$ are closed
-piecewise $C^1$ paths in $U$ that are homotopic in $U$.  Then
+piecewise-$C^1$ paths in $U$ that are homotopic in $U$.  Then
 \begin{equation*}
 \int_{\gamma_0} f(z) \, dz = \int_{\gamma_1} f(z) \, dz .
 \end{equation*}
@@ -8609,7 +8609,7 @@ is then just a special case of the corollary above.
 \label{thm:cauchyhomotopy}%
 \index{Cauchy's theorem!homotopy}%
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-and $\gamma$ is a piecewise $C^1$ path in $U$ that is homotopic in $U$ to a
+and $\gamma$ is a piecewise-$C^1$ path in $U$ that is homotopic in $U$ to a
 constant.  Then
 \begin{equation*}
 \int_{\gamma} f(z) \, dz = 0 .
@@ -8620,26 +8620,26 @@ constant.  Then
 \begin{exercise}
 Let $U \subset \C$ be open and let $\gamma \colon [a,b] \to U$ is continuous
 and $\gamma(a)=\gamma(b)$.  Prove that $\gamma$ is homotopic in $U$
-to a closed piecewise $C^1$ path $\alpha$ in $U$.
+to a closed piecewise-$C^1$ path $\alpha$ in $U$.
 Hint: Make $\alpha$ a polygonal path.
 \end{exercise}
 
 \begin{exercise}
 We could take a different approach to solving our issues with homotopy.  Let
 $U \subset \C$ be open and let $\gamma_0$ and $\gamma_1$ be closed
-piecewise $C^1$ paths in $U$ that are homotopic in $U$.
+piecewise-$C^1$ paths in $U$ that are homotopic in $U$.
 Show that there exists a homotopy (possibly different one) such that
-each $\gamma_s(t) = H(t,s)$ is a closed piecewise $C^1$ path.
+each $\gamma_s(t) = H(t,s)$ is a closed piecewise-$C^1$ path.
 Hint: See previous exercise.
 \end{exercise}
 
 \begin{exercise}
 \pagebreak[2]
-Let $\gamma$ be a closed piecewise $C^1$ path in $\C \setminus \{ 0 \}$.
+Let $\gamma$ be a closed piecewise-$C^1$ path in $\C \setminus \{ 0 \}$.
 \begin{exparts}
 \item
 Show that $\gamma$ is homotopic in $\C \setminus \{ 0 \}$ to
-a piecewise $C^1$ path whose image is in $\partial \D$.
+a piecewise-$C^1$ path whose image is in $\partial \D$.
 The tricky bit is to make sure that the derivative is never zero.
 \item
 Now show that any $\gamma$ is in fact homotopic to a path
@@ -8676,7 +8676,7 @@ of \defnref{defn:simplyconnected:homology}.
 \end{prop}
 
 \begin{proof}
-Let $\gamma$ be a closed piecewise $C^1$ path.  We need to show
+Let $\gamma$ be a closed piecewise-$C^1$ path.  We need to show
 that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
 We know that $\gamma$ is homotopic to a constant $C \in U$, and it is
 trivial to see that $n(C;p) = 0$ (the $\theta$
@@ -8702,7 +8702,7 @@ completeness, let us state the theorem again in the context of this section.
 \index{Cauchy's theorem!simply connected}%
 Suppose $U \subset \C$ is a simply connected domain (in the sense of
 homotopy), $f \colon U \to \C$ is holomorphic,
-and $\gamma$ is a piecewise $C^1$ path in $U$.  Then
+and $\gamma$ is a piecewise-$C^1$ path in $U$.  Then
 \begin{equation*}
 \int_{\gamma} f(z) \, dz = 0 .
 \end{equation*}
@@ -8732,7 +8732,7 @@ Cauchy's theorem and Cauchy's integral formula can be obtained via
 Green's theorem.
 Let us review Green's theorem first.
 We write $dz = dx + i\, dy$ and $d\bar{z} = dx + i \, dy$ as before.
-Given a piecewise $C^1$ path $\gamma \colon [a,b] \to \C$, we define
+Given a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$, we define
 \begin{align*}
 & \int_\gamma
 F(z) \, dz + G(z) \, d\bar{z}
@@ -8856,7 +8856,7 @@ dA .
 If $f$ is holomorphic, then the second term is zero, and we
 obtain the standard Cauchy integral formula.
 Note that we have cheated above.  The
-integral on the right hand side is not an integral of a continuous function.
+integral on the right-hand side is not an integral of a continuous function.
 There is a singularity, but it turns out that it is still integrable.  That
 is, we write the improper integral
 \begin{equation*}
@@ -8968,11 +8968,11 @@ dA
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Domains with piecewise $C^1$ boundary *}
+\section{Domains with piecewise-$C^1$ boundary *}
 
 The way Green's theorem, and hence Cauchy's theorem is often given, and
-the way it is most often used is for a domain with piecewise $C^1$
-boundary.  To treat open sets with piecewise $C^1$ boundary, we must
+the way it is most often used is for a domain with piecewise-$C^1$
+boundary.  To treat open sets with piecewise-$C^1$ boundary, we must
 prove the so-called Jordan curve theorem that states the rather obvious (but
 surprisingly nontrivial to prove) statement that a simple closed path
 divides the plane into two components, the interior and the exterior.
@@ -8980,9 +8980,9 @@ divides the plane into two components, the interior and the exterior.
 \begin{defn}
 A bounded\footnote{It is trickier to handle the unbounded case, see the exercises.}
 open set $U \subset \C$ has
-\emph{\myindex{piecewise $C^1$ boundary}} if $\partial U$
+\emph{\myindex{piecewise-$C^1$ boundary}} if $\partial U$
 is a disjoint union of finitely many
-simple closed piecewise $C^1$ paths and 
+simple closed piecewise-$C^1$ paths and 
 every $p \in \partial U$ is in the closure of
 $\C \setminus \widebar{U}$.
 \end{defn}
@@ -8990,20 +8990,20 @@ $\C \setminus \widebar{U}$.
 Recall that $\gamma \colon [a,b] \to \C$ is simple closed if
 $\gamma(a)=\gamma(b)$ and $\gamma|_{(a,b]}$ is injective.
 The condition that every $p$ in the boundary is in the closure of $\C
-\setminus \widebar{U}$ will mean that every point of the boundary divides
+\setminus \widebar{U}$ means that at every point the boundary divides
 the plane into what's inside $U$ and what's outside $U$.  Let us consider
 the local question of what a path does, that is,
 an injective path divides the plane into two pieces.
 
 \begin{lemma}
-Let $\gamma \colon [a,b] \to \C$ be an injective piecewise $C^1$ path.
+Let $\gamma \colon [a,b] \to \C$ be an injective piecewise-$C^1$ path.
 Then for every $p \in \gamma \bigl((a,b)\bigr)$, there is a
 connected open neighborhood $W$ of $p$ such that $W \setminus \gamma$
 has exactly two components.
 \end{lemma}
 
-Recall that by definition for a piecewise $C^1$ path, $\gamma'$ is never
-zero, including the one sided limits of the derivative at the ``corners'' or
+Recall that by definition for a piecewise-$C^1$ path, $\gamma'$ is never
+zero, including the one-sided limits of the derivative at the ``corners'' or
 the end points.  This means that a $C^1$ path is locally a graph:
 If $\gamma \colon [-1,1] \to \C$ is a continuously differentiable function,
 $\gamma(0) = 0$,
@@ -9015,19 +9015,20 @@ theorem.  In other words, $\gamma$ near $0$ is a graph $y=f(x)$ for a $C^1$
 function $f$.
 
 \begin{proof}
-By rotating, choosing a small neighborhood of $p$, and scaling we could assume that $a=-1$,$b=1$ and $p =
-\gamma(0)$.  We can further assume that
+By rotating, choosing a small neighborhood of $p$, and scaling,
+we assume that $a=-1$, $b=1$, and $p = \gamma(0)$.
+We further assume that
 $p=0$, $\Re \gamma(-1) = -1$,
-that $\gamma'$ exists for all $t \not=0$, and in fact $\Re \gamma'(t)$ is
-never zero including the one sided limits at $t=0$.
+$\gamma'$ exists for all $t \not=0$, and $\Re \gamma'(t)$ is
+never zero, including the one-sided limits at $t=0$.
 
 Without loss of generality, $\Re \gamma'(t) > 0$ for all $t$ from $-1$ to $0$,
-including the left hand one-sided limit at $0$.  Using the implicit function
+including the left-hand one-sided limit at $0$.  Using the implicit function
 theorem the set $\gamma\bigl([-1,0]\bigr)$ is a graph of $y$ over $x$, that
 is there is a $C^1$ function $f_1 \colon [-1,0] \to \R$ such that
 $y=f_1(x)$ gives $\gamma\bigl([-1,0]\bigr)$ (as usual $z=x+iy$).
 
-If the right hand side limit of $\gamma'(t)$ at $t=0$ also has positive real
+If the right-hand one-sided limit of $\gamma'(t)$ at $t=0$ also has positive real
 part, then $\Re \gamma'(t) > 0$ for all $t > 0$ as it is never zero.
 By the same argument as
 above, $\gamma\bigl([0,1]\bigr)$ is a graph $y=f_2(x)$ for $x \in [0,1]$.
@@ -9036,7 +9037,7 @@ $-M<f_1(x),f_2(x)<M$ for all $x$, then
 We can choose $W=(-1,1) \times (-M,M)$.  It is not hard to see that a
 graph separates the rectangle $W$ into two parts.
 
-Now suppose that the right hand side limit of $\gamma'(t)$ has negative real
+Now suppose that the right-hand side limit of $\gamma'(t)$ has negative real
 part.  In this case, we write $\gamma\bigl([0,1]\bigr)$ as a graph $y=f_2(x)$
 for $x \in [-1,0]$.  Without loss of generality suppose $f_2(x) > f_1(x)$
 for some $x < 0$, then by injectivity of $\gamma$ and intermediate value
@@ -9063,13 +9064,13 @@ Think about $\gamma$ oscillating wildly and going in and out of the disc.
 \end{exercise}
 
 \begin{exercise}
-Find an example injective piecewise $C^1$ path which is not a graph of a
+Find an example injective piecewise-$C^1$ path which is not a graph of a
 function near some point, that is, an example where the second case of the
 proof is really necessary.
 \end{exercise}
 
 \begin{exercise}
-Find an example piecewise $C^1$ path that is not injective and such that
+Find an example piecewise-$C^1$ path that is not injective and such that
 the lemma fails.
 \end{exercise}
 
@@ -9078,20 +9079,21 @@ Find an example of a bounded open set $U$ whose boundary is a union of
 infinitely many disjoint simple closed curves such that there is some point
 on $p \in \partial U$ such that for every neighborhood $W$ of $p$,
 the set $W \setminus \partial U$ has infinitely many components.
-(In particular, this is not an open set with piecewise $C^1$ boundary).
+(In particular, this is not an open set with piecewise-$C^1$ boundary).
 \end{exercise}
 \end{exbox}
 
 The next theorem is usually stated for just continuous paths, but that makes
-it harder to prove.  For piecewise $C^1$ paths, the proof, apart from some
+it harder to prove.  For piecewise-$C^1$ paths, the proof, apart from some
 technicalities, is not hard, and we have actually already proved the
 local part of it.  Main issue with continuous only paths would be that
 locally they may not be a graph of a function, but a $C^1$ path is always
-locally a graph with respect to one of the variables, and a piecewise $C^1$
+locally a graph with respect to one of the variables, and a piecewise-$C^1$
 path, as we saw above, is almost a graph.
 
-\begin{thm}[Jordan curve theorem for piecewise $C^1$ paths]
-Suppose $\gamma$ is a simple closed piecewise $C^1$ path.
+\begin{thm}[Jordan curve theorem for piecewise-$C^1$ paths]%
+\index{Jordan curve theorem}
+Suppose $\gamma$ is a simple closed piecewise-$C^1$ path.
 Then $\C \setminus \gamma$ has two components,
 and $n(\gamma;z) = 1$ or 
 $n(\gamma;z) = -1$ for $z$ on the bounded component.
@@ -9168,7 +9170,7 @@ be that $U' = U$ or $U'$ is the unbounded component.
 Using the Jordan curve theorem we can piece together boundaries.
 
 \begin{prop}
-Suppose $U \subset \C$ is a bounded open set with piecewise $C^1$ boundary.
+Suppose $U \subset \C$ is a bounded open set with piecewise-$C^1$ boundary.
 Then there exists a cycle $\Gamma$ that is composed of the paths comprising
 the boundary $\partial U$ such that $n(\Gamma;z) = 1$ for all $z \in U$ and
 $n(\Gamma;z) = 0$ for all $z \notin \widebar{U}$.
@@ -9181,7 +9183,7 @@ the boundary as a cycle, and we say that the boundary is
 \begin{proof}
 Without loss of generality, we assume that $U$ is connected by taking
 one component.
-Let $\gamma_1,\ldots,\gamma_k$ be the disjoint simple closed piecewise $C^1$
+Let $\gamma_1,\ldots,\gamma_k$ be the disjoint simple closed piecewise-$C^1$
 paths comprising the boundary of $U$, suppose that they are all positively
 oriented, that is the winding number around the interiors is $1$.
 The set $\C \setminus U$
@@ -9226,10 +9228,10 @@ For example, let us state the Green's theorem in the short version
 as in \exerciseref{exercise:shortgreen} for brevity.
 
 \begin{thm}[Green's theorem] \label{thm:greens2}
-Let $U \subset \C$ be a bounded open set with piecewise
-$C^1$ boundary oriented positively.
-Suppose $F$ is a continuously differentiable function defined in a neighborhood
-of $\widebar{U}$.
+Let $U \subset \C$ be a bounded open set with
+piecewise-$C^1$ boundary oriented positively.
+If $F$ is a continuously differentiable function defined in a neighborhood
+of $\widebar{U}$, then
 \begin{equation*}
 \int_{\partial U} F(z) \, dz
 =
@@ -9243,7 +9245,7 @@ of $\widebar{U}$.
 In fact, the conditions on $F$ can be weakened considerably.  For example,
 a common and easy to prove statement is that $F$ needs to be $C^1$ only
 inside, but it needs to have bounded partial derivatives in order for the
-right hand side to be integrable.
+right-hand side to be integrable.
 
 \begin{exbox}
 \begin{exercise}
@@ -9263,14 +9265,13 @@ $\C \setminus \widebar{U}$.
 \end{exercise}
 
 \begin{exercise}
-Prove that the following definition of piecewise $C^1$ boundary is
-equivalent to the one we gave for bounded open sets.  An open set $U \subset
-\C$ has a piecewise $C^1$ boundary if for every point $p \in \partial U$
-there exists an $\epsilon > 0$ and an injective piecewise $C^1$ path $\gamma
-\colon [a,b] \to \C$ such that $\Delta_\epsilon(p) \cap \partial U =
-\gamma\bigl((a,b)\bigr)$, and $\Delta_\epsilon(p) \setminus \partial U$
-has exactly two components, one of which is a subset of $U$ and one of which
-is not.
+Prove that the following definition of piecewise-$C^1$ boundary is
+equivalent to the one we gave for bounded open sets.  An open $U \subset
+\C$ has piecewise-$C^1$ boundary if for every $p \in \partial U$
+there exists a neighborhood $W$ of $p$ and an injective piecewise-$C^1$ path $\gamma
+\colon [a,b] \to \C$ such that $W \cap \partial U =
+\gamma\bigl((a,b)\bigr)$, and every $p \in \partial U$ is in the closure
+of $\C \setminus \widebar{U}$.
 \end{exercise}
 \end{exbox}
 
@@ -13800,8 +13801,8 @@ The inequalities are optimal.  In the unit disc $\D$, the theorem says
 Consider the function $f(z) = \Re \frac{1+z}{1-z}$.  Except for the
 $\frac{1}{2\pi}$ it is the Poisson kernel and so 
 $f(z) > 0$ on $\D$.  Note that $f(0)=1$.  Plugging in $z=r$ we get
-equality in the right hand inequality above, and plugging in $z=-r$
-we get inequality in the left hand inequality above.  In other words
+equality in the right-hand inequality above, and plugging in $z=-r$
+we get inequality in the left-hand inequality above.  In other words
 the two constants
 $\frac{R-r}{R+r}$ and $\frac{R+r}{R-r}$ are optimal.
 
@@ -14932,7 +14933,7 @@ and
 \leq
 2 \log \prod_{j=N}^n \bigl(1+\sabs{a_j}\bigr) .
 \end{equation*}
-The right hand side is bounded as $n$ goes to infinity, and so the tail of
+The right-hand side is bounded as $n$ goes to infinity, and so the tail of
 $\sum_{j=1}^\infty \sabs{a_j}$ converges.
 \end{proof}
 
@@ -14999,7 +15000,7 @@ enough, $\babs{\Arg(1+a_j)} \leq 2\sabs{a_j}$.  As $\sum
 \sabs{a_j}$ converges, 
 $\sum \babs{\Arg (1+a_j)}$ converges.
 
-In other words, the right hand side in \eqref{eq:infprodest1} goes to zero
+In other words, the right-hand side in \eqref{eq:infprodest1} goes to zero
 as $n$ goes to infinity.  Thus, $\sum \babs{\Log(1+a_j)}$ is Cauchy and hence
 converges.  When taking an exponential, it does not matter which branch of
 the logarithm we take, and therefore the following makes sense, where we use
@@ -15310,7 +15311,7 @@ By \lemmaref{lemma:elemfactbound},
 \abs{\frac{r}{a_n}}^{\ell_n+1} .
 \end{equation*}
 Thus the series converges as its tail converges.  The convergence
-is uniform in $K$, as the right hand side above does not depend on $z$.
+is uniform in $K$, as the right-hand side above does not depend on $z$.
 \end{proof}
 
 There are many choices for the sequence $\{ \ell_n \}$.  The proof says
@@ -15513,7 +15514,7 @@ g'(z)
 \end{multline*}
 The penultimate equality would not be true without the derivative as what's
 inside the square brackets may differ by a constant.
-Since the far left hand side and the far right hand side do not have any
+Since the far left-hand side and the far right-hand side do not have any
 logarithms in them they are clearly well-defined.
 One can show the equality without the $g'$ as a nice exercise in applying
 the residue theorem.
@@ -15902,7 +15903,7 @@ f(z) =
 \int_\Gamma
 \frac{f(\zeta)}{\zeta-z} \, d \zeta .
 \end{equation*}
-The cycle $\Gamma$ is a finite sum of closed piecewise $C^1$ paths.
+The cycle $\Gamma$ is a finite sum of closed piecewise-$C^1$ paths.
 If we prove that the Riemann sums corresponding to each path
 converge uniformly on $K$, then their sum also converges uniformly
 and it converges to $f$.
@@ -17083,7 +17084,7 @@ use the same $\varphi_j$ and $\Delta_j$ to get a continuation using
 \end{proof}
 
 We defined continuation for continuous $\gamma$, but we could have used
-piecewise $C^1$ paths since we can approximate $\gamma$ by a piecewise $C^1$
+piecewise-$C^1$ paths since we can approximate $\gamma$ by a piecewise-$C^1$
 path, or even a polygonal path.  See the following exercise.
 
 \begin{exbox}
@@ -17257,7 +17258,7 @@ are ``from $p$ to $q$.''
 Let $U \subset \C$ be open and $p,q \in U$.
 Two continuous\footnote{This definition
 works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
-$\gamma_j(0)=\gamma_j(1)$, but we only need it for piecewise $C^1$ paths in
+$\gamma_j(0)=\gamma_j(1)$, but we only need it for piecewise-$C^1$ paths in
 this section.}
 $\gamma_0 \colon [0,1] \to U$ and
 $\gamma_1 \colon [0,1] \to U$ where
@@ -19193,7 +19194,7 @@ $n_1 < n_2 < \ldots < n_k$ such that
 K \subset \bigcup_{j=1}^k B(p,n_j) = B(p,n_k) .
 \end{equation*}
 So $K$ is bounded.
-See left hand side of \figureref{fig:compactbndclosed}.
+See left-hand side of \figureref{fig:compactbndclosed}.
 
 Next, we show a set that is not closed is not compact.  Suppose 
 $\widebar{K} \not= K$, that is, there is a point $x \in \widebar{K}
@@ -19213,7 +19214,7 @@ As $x$ is in the closure of $K$,
 then
 $C(x,\nicefrac{1}{n_k}) \cap K \not= \emptyset$.  So there is no
 finite subcover and $K$ is not compact.
-See right hand side of \figureref{fig:compactbndclosed}.
+See right-hand side of \figureref{fig:compactbndclosed}.
 \end{proof}
 
 \begin{myfig}
@@ -20816,7 +20817,7 @@ f_n(x) = f_n(c) + \int_c^x f_n' (t)\, dt.
 \end{equation*}
 As $\{ f_n' \}$ converges uniformly on $I$, it converges uniformly
 on $[c,x]$ (or $[x,c]$ if $x < c$).
-Therefore, we find that the limit on the right hand side exists.
+Therefore, we find that the limit on the right-hand side exists.
 Let us define $f$ at the remaining points by this limit:
 \begin{equation*}
 f(x) =
@@ -21763,7 +21764,7 @@ Fix a $j$ and note that
 \frac{\snorm{f(p+h e_j)-f(p) - Df|_p \, h e_j}}{\snorm{h e_j}} .
 \end{split}
 \end{equation*}
-As $h$ goes to $0$, the right hand side goes to zero by
+As $h$ goes to $0$, the right-hand side goes to zero by
 differentiability of $f$, and hence
 \begin{equation*}
 \lim_{h \to 0}
@@ -22236,9 +22237,9 @@ $g$ at $y$ is.  Then
 \frac{\snorm{f(x+h)-f(x)-Df|_x h}}{\snorm{h}} .
 \end{split}
 \end{equation*}
-As $k$ goes to $0$, so does $h$.  So the right hand side goes to $0$ as $f$ is
+As $k$ goes to $0$, so does $h$.  So the right-hand side goes to $0$ as $f$ is
 differentiable, and hence
-the left hand side also goes to $0$.  And
+the left-hand side also goes to $0$.  And
 $B$ is precisely what we wanted $Dg|_y$ to be.
 
 We have $g$ is differentiable, let us show it is $C^1(W)$.
