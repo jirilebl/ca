@@ -8,6 +8,8 @@ one variable.  Written for the graduate complex analysis course (5283) at
 at Oklahoma State University.  There is a bit more than a one-semester's worth of
 material in there to allow some choices.
 
+See https://www.jirka.org/ca/
+
 * ca.tex is the LaTeX file
 * notations.tex is the list of notations
 * Figures are in figures/
