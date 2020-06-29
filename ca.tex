@@ -704,7 +704,7 @@ Every function acts sort of like a linear function.
 If all derivatives are zero at a point, the function is constant.
 Etc.}
 The two are the good-cop bad-cop, the yin-yang,
-of modern analysis.
+of contemporary analysis.
 
 \subsection{The complex numbers as the plane}
 
@@ -838,14 +838,15 @@ $\sabs{z+w} \leq \sabs{z} + \sabs{w}$ \quad (Triangle inequality).%
 \end{prop}
 
 \begin{proof}
-The modulus squared of a complex number is always nonnegative:
+The modulus squared of a complex number is always nonnegative.
+Thus,
 \begin{equation*}
 \begin{split}
 0 & \leq {\sabs{z\bar{w}-\bar{z}w}}^2 \\
   & =    (z\bar{w}-\bar{z}w)(\bar{z}w-z\bar{w}) \\
   & =    2z\bar{z}w\bar{w} - z^2\bar{w}^2 - \bar{z}^2w^2 \\
   & =    4z\bar{z}w\bar{w} - {(z\bar{w}+\bar{z}w)}^2 \\
-  & =    {(2\sabs{z}\sabs{w})}^2 - {(2 \Re z\bar{w})}^2 .
+  & =    {\bigl(2\sabs{z}\sabs{w}\bigr)}^2 - {\bigl(2 \Re z\bar{w}\bigr)}^2 .
 \end{split}
 \end{equation*}
 This proves Cauchy--Schwarz.  We prove the triangle inequality
@@ -964,7 +965,8 @@ The results for real-valued functions are then applied by thinking of
 either the components of $f$ separately or by thinking of $\C$ as the
 real vector space $\R^2$.
 
-Given a complex-valued function $f \colon X \to \C$ we write $u = \Re f$
+When we find ourselves in the possession of a complex-valued function
+$f \colon X \to \C$ we write $u = \Re f$
 and $v = \Im f$ for real-valued functions $u,v \colon X \to \R$, and then
 \begin{equation*}
 f = u+iv .
@@ -995,10 +997,12 @@ We say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
 \int_a^b f(t) \, dt = 
 \int_a^b u(t) \, dt + i \int_a^b v(t) \, dt .
 \end{equation*}
-This is precisely the way one integrates vector-valued functions
-for any vector space.  Basic analysis tells us that
-if you have a Riemann integrable
-real-valued function $u \colon [a,b] \to \R$, then $\abs{u}$ is Riemann
+Indeed, that is the way one integrates vector-valued functions
+for any vector space, and $\C = \R^2$ is a vector space.
+Basic analysis tells us that
+if given a Riemann integrable
+real-valued function $u \colon [a,b] \to \R$,
+then $\abs{u}$ is Riemann
 integrable and $\abs{\int_a^b u(t) \, dt} \leq \int_a^b \sabs{u(t)} \, dt$.
 Similar result holds for complex-valued functions.
 
@@ -1022,15 +1026,15 @@ a Riemann sum and the regular triangle inequality.
 
 As $\C$ is $\R^2$, we can think of
 $\C$ as a real two-dimensional vector space by forgetting about the
-complex multiplication.  A standard basis is then $1$ and $i$.
+complex multiplication.  The standard basis is $1$ and $i$.
 To put multiplication back into the picture, we think of linear operators
 on $\R^2$.
 Given a complex number $\xi$, the map $z \mapsto  \xi z$ is a
 real-linear operator\footnote{$L \colon \C \to \C$ is real-linear if
 $L(a z + b w) = aL(z)+bL(z)$ for all $a,b \in \R$ and $z,w \in \C$.}.
-A real-linear operator on $\R^2$ is given by a matrix $2 \times 2$ real
+A real-linear operator on $\R^2$ is given by a $2 \times 2$ real
 matrix.
-Namely , the complex number $a+ib$ can be represented by the $2 \times 2$ matrix
+Namely, the complex number $a+ib$ can be represented by the $2 \times 2$ matrix
 \begin{equation} \label{eq:complexnumbermatrix}
 \begin{bmatrix}
 a & -b \\
@@ -1040,7 +1044,7 @@ b & a
 Let us check.
 If we think of a complex number $a+ib$ as a matrix
 and $c+id$ as a column vector,
-then complex multiplication makes sense as matrices
+then complex multiplication makes sense as matrices:
 \begin{equation*}
 \begin{bmatrix}
 a & -b \\
@@ -1073,8 +1077,8 @@ are the identity and the rotation counterclockwise by $90$ degrees
 respectively.  Precisely what we expect multiplication by $1$ and $i$
 to do.
 
-Complex conjugation is a real-linear
-operator represented and can be represented by the matrix $\left[ \begin{smallmatrix} 1 & 0 \\ 0 &
+Complex conjugation is also real-linear
+operator and can be represented by the matrix $\left[ \begin{smallmatrix} 1 & 0 \\ 0 &
 -1 \end{smallmatrix} \right]$.  Note that complex conjugation is
 not representing multiplication by a complex number.  Below you will prove
 however that multiplications by complex numbers together with conjugation do 
@@ -1148,7 +1152,7 @@ multiplication by a complex number.
 
 The exponential is the most fundamental and useful function in complex
 analysis.  Assume we know $e^x$ for real numbers.  Define $e^z$
-for all complex numbers (see
+for complex numbers (see
 \figureref{fig:complexexpgraphs}):
 \glsadd{not:exp}%
 \begin{equation*}
@@ -1170,7 +1174,7 @@ The plot of the real exponential ($y=0$)
 is marked in a bold line.\label{fig:complexexpgraphs}}
 \end{myfig}
 
-This definition agrees with the standard definition for real numbers (when
+The definition agrees with the standard exponential for real numbers (when
 $y=0$).  Furthermore,
 \begin{equation*}
 e^{\bar{z}} = 
@@ -1185,7 +1189,7 @@ e^x .
 \end{equation*}
 It is possible to not resort to the real exponentials, sines, and cosines
 to define the complex exponential, and we will do so in due course.
-But we want to have something to play around with now without waiting.
+But we are impatient and we want something to play around with now, without waiting.
 
 \begin{prop}
 For any two complex numbers $z,w \in \C$,
@@ -1202,8 +1206,7 @@ Prove the proposition using the definition and trigonometric identities.
 
 We remark that $e^z$ is the unique continuous
 function on $\C$ that satisfies $e^{z+w} = e^z e^w$ and $e^0 = 1$.
-But let us not worry about that.
-
+Let us not worry about that.
 For real $\theta$, the definition
 of the exponential gives the so-called
 \emph{\myindex{Euler's formula}}:
@@ -1212,8 +1215,7 @@ e^{i\theta}
 =
 \cos \theta + i \sin \theta .
 \end{equation*}
-%Using this formula we extend cosine and sine to the complex plane.
-The formula says that for real $\theta$
+The formula says that for real $\theta$,
 \begin{equation*}
 \cos \theta = \Re e^{i\theta} = \frac{e^{i\theta}+e^{-i\theta}}{2} ,
 \qquad
@@ -1221,7 +1223,7 @@ The formula says that for real $\theta$
 \end{equation*}
 We define cosine and sine for complex numbers by plugging
 those numbers
-into the formula, now that we know how to evaluate the exponential:
+into the formulas above, now that we know how to evaluate the exponential:
 \begin{equation*}
 \cos z \overset{\text{def}}{=} \frac{e^{iz}+e^{-iz}}{2} ,
 \qquad
@@ -1232,27 +1234,27 @@ into the formula, now that we know how to evaluate the exponential:
 
 As complex numbers are just the plane, we can use polar coordinates
 to represent complex numbers.
-That is, $x = r \cos \theta$ and $y= r \sin \theta$.  We write this form as
+That is, $x = r \cos \theta$ and $y= r \sin \theta$.
+We write this form as
 \begin{equation*}
-z = x+iy = r e^{i \theta} ,
+z = x+iy = r e^{i \theta} .
 \end{equation*}
-where $r = \sabs{z} = \sqrt{x^2+y^2}$ is the \emph{\myindex{modulus}}, and 
+Here, $r = \sabs{z} = \sqrt{x^2+y^2}$ is the \emph{\myindex{modulus}}, and 
 $\theta$ is the angle that $x+iy$ makes with the real axis (the $x$-axis).
 The $\theta$ is called the \emph{\myindex{argument}}.  See
 \figureref{fig:polarcoords}.
-
-\begin{myfig}
-\subimport*{figures/}{polarcoords.pdf_t}
-\caption{Polar coordinates.\label{fig:polarcoords}}
-\end{myfig}
-
 The reason for the notation is the
 Euler's formula, so
 \begin{equation*}
 z = r e^{i\theta} = r\cos \theta + i r\sin \theta  = x+iy .
 \end{equation*}
 
-Polar form is particularly nice for multiplication of numbers and for powers.
+\begin{myfig}
+\subimport*{figures/}{polarcoords.pdf_t}
+\caption{Polar coordinates.\label{fig:polarcoords}}
+\end{myfig}
+
+Polar form is particularly nice for multiplication and for powers.
 Suppose $z = r e^{i\theta}$ and $w = s e^{i \psi}$, then
 \begin{equation*}
 zw =
@@ -1267,7 +1269,8 @@ z^n =
 {\bigl(r e^{i \theta}\bigr)}^n =
 r^n e^{i n\theta} .
 \end{equation*}
-In particular, again we see that multiplication by $i = e^{i \pi / 2}$ is
+Multiplication rotates by the argument and scales by the modulus.
+Namely, we see again that multiplication by $i = e^{i \pi / 2}$ is
 rotation counterclockwise by $90$ degrees.
 The downside is that the polar form is particularly terrible for addition.
 You win some, you lose some.
@@ -1294,7 +1297,8 @@ We attempt to define the argument of $z = re^{i\theta}$ as
 \theta ,
 \end{equation*}
 but we run up against the problem that if $\theta$ is an argument of $z$,
-then so is $\theta+2\pi$ or $\theta + k 2\pi$ for any $k$.  In other words,
+then so is $\theta+2\pi$, $\theta-2\pi$, or $\theta + k 2\pi$ for any
+integer $k$.  In other words,
 $\arg z$ is not a function in the classical sense, but a
 \emph{\myindex{multivalued function}}%
 \footnote{Non-complex analysts will sometimes claim that a multivalued
@@ -1351,7 +1355,7 @@ From the known properties of polar coordinates
 and the real exponential, it follows that the complex exponential is
 onto $\C \setminus \{ 0 \}$.
 The complex exponential is not one-to-one, it is 
-infinitely-many-to-one.  For any integer $k$
+infinitely-many-to-one.  For any integer $k$,
 \begin{equation*}
 e^{z+ik2\pi} = 
 e^{z} e^{ik2\pi} =
@@ -1398,8 +1402,8 @@ The reason for the quotation marks is that the inequality makes no
 sense without interpreting it properly.  It means that one of the values
 of $\arg z$ is between $a$ and $b$.
 In particular, the exponential $e^z$ takes the set given by
-$2k\pi < \Im z \leq 2(k+1)\pi$ in a one-to-one (see the exercise above)
-way onto $\C \setminus \{ 0 \}$.
+$2k\pi < \Im z \leq 2(k+1)\pi$ in a one-to-one fashion (see the exercise above)
+onto $\C \setminus \{ 0 \}$.
 
 \begin{myfig}
 \includegraphics{figures/expplotlines}
@@ -1584,7 +1588,7 @@ extended reals:  For instance, if $f(z) = z$ and $g(z) = -z$,
 then $\lim_{z \to \infty} f(z) = \infty$,
 $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
 \bigl(f(z)+g(z)\bigr) = 0$.
-On the other hand it is reasonable to define $\nicefrac{c}{0} = \infty$ for
+On the other hand, it is reasonable to define $\nicefrac{c}{0} = \infty$ for
 any $c \not= 0$, $\nicefrac{c}{\infty} = 0$ for any $c \not= \infty$,
 and $c \cdot \infty = \infty$ for any $c \not= 0$.
 Just make sure to definitely avoid doing any additions and subtractions of
@@ -1949,14 +1953,14 @@ that,
 at least locally, behave like $P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots +
 a_1 z + a_0$.  Polynomials are easy to understand and easy to work
 with.  Unfortunately there aren't that many of them.  For instance, there is
-no polynomial that solves the most basic of differential equations: $f' =
-f$.  So we must enlarge our horizons a bit.
+no nonzero polynomial that solves the most basic of differential equations: $f' =
+f$.  We must enlarge our horizons a bit.
 
 Consider a polynomial $P(z)$ and expand it near some $z_0 \in \C$:
 \begin{equation*}
 P(z) = c_0 + c_1 (z-z_0) + c_2 {(z-z_0)}^2 + \cdots + c_n {(z-z_0)}^n .
 \end{equation*}
-So $P(z_0+h) = c_0 + c_1 h + c_2 h^2 + \cdots + c_n h^n$.
+In other words, $P(z_0+h) = c_0 + c_1 h + c_2 h^2 + \cdots + c_n h^n$.
 Then
 \begin{equation*}
 \lim_{h \to 0} \frac{P(z_0+h) - P(z_0)}{h} =
@@ -2004,7 +2008,7 @@ If $P(z)$ is a polynomial, then $P \colon \C \to \C$ is holomorphic.
 
 The most basic result about holomorphic functions is that they are
 continuous.
-This can be proved (exercise) either directly from the definition,
+This can be proved either directly from the definition (exercise),
 or using that a holomorphic function is
 (real) differentiable as we will see shortly.
 
@@ -2181,7 +2185,7 @@ that is,
 $\frac{\partial^2 u}{\partial x^2} +  \frac{\partial^2 u}{\partial y^2} = 0$
 and
 $\frac{\partial^2 v}{\partial x^2} +  \frac{\partial^2 v}{\partial y^2} = 0$.
-Feel free to assume that both $u$ and $v$ are twice continuous
+Feel free to assume that both $u$ and $v$ are twice continuously
 differentiable.
 \end{exercise}
 
@@ -2194,7 +2198,7 @@ $\frac{\partial^2 u}{\partial x^2} \frac{\partial^2 u}{\partial y^2}
 and
 $\frac{\partial^2 v}{\partial x^2} \frac{\partial^2 v}{\partial y^2}
 -{\left(\frac{\partial^2 v}{\partial x \partial y}\right)}^2 \leq 0$.
-Feel free to assume that both $u$ and $v$ are twice continuous
+Feel free to assume that both $u$ and $v$ are twice continuously
 differentiable.
 \end{exercise}
 
@@ -2224,7 +2228,7 @@ point $p \not= 0$.
 
 \subsection{Elementary calculus}
 
-First, let us solve a differential equation.  A common technique in analysis
+Let us solve a differential equation.  A common technique in analysis
 to show an equality is to differentiate and then show that the derivative is
 zero.
 
@@ -15986,20 +15990,20 @@ Thus the integral over $\gamma$ converges uniformly for $z \in K$, and
 we are done by summing up over all the paths in $\Gamma$.
 \end{proof}
 
-In some parts of the proof below, to make the proof simple we will say that
+In some parts of the proof below, to simplify the verbiage, we will say that
 functions of a certain type (uniformly) approximate $f$ on $K$
 if for every $\epsilon > 0$ there exists a function $g$
 of a the given type such that
 $\sabs{f(z)-g(z)} < \epsilon$ on $K$.  We leave the following statement as
-a simple exercise in chasing those $\epsilon$s.
+a simple exercise in chasing those epsilons.
 
 \begin{exbox}
 \begin{exercise}
 Let $K$ be a set and $\sF$ a set of functions on $K$.  Rigorously prove:
 \begin{exparts}
 \item
-If functions from $\sF$ uniformly approximate a function $f$,
-then functions from $\sF$ uniformly approximate $f^k$ for any $k \in \N$.
+If functions from $\sF$ uniformly approximate a function $f$ on $K$,
+then functions from $\sF$ uniformly approximate $f^n$ for any $n \in \N$.
 \item
 Suppose
 $f_1,\ldots,f_n$ are functions on $K$ that can be individually
@@ -16035,14 +16039,21 @@ there exists a rational function $R$ with poles in $S$ such that
 \begin{proof}
 Take $q\in S$ be in the same component of $\C_\infty \setminus K$ as $p$.
 Suppose first that $q \not= \infty$.
-As $\C_\infty \setminus K$ is path connected, and a path is compact,
+As the component of $\C_\infty \setminus K$ is open and connected, it is path connected.
+And as a path is compact,
 we connect $p$ and $q$ by a path and
 we cover the path by finitely many discs.  In particular,
 there exist points $p=z_1,z_2,\ldots,z_n=q$ and
 finitely many discs $\Delta_{r}(z_1),\ldots,\Delta_{r}(z_n)$
 of some radius $r > 0$
-such that $\Delta_{r}(z_j) \cap \Delta_{r}(z_{j+1}) \not= \emptyset$
+such that $z_{j+1} \in \Delta_{r}(z_j)$
 and $\Delta_{2r}(z_j) \cap K = \emptyset$ for all $j$.
+See \figureref{fig:rungepolepush}.
+
+\begin{myfig}
+\subimport*{figures/}{rungepolepush.pdf_t}
+\caption{Pole pushing from $p$ to $q$.\label{fig:rungepolepush}}
+\end{myfig}
 
 As there are finitely many discs, if we show that we can approximate
 $\frac{1}{z-p}$ on $K$ by a rational function with a pole at $z_2 \in
@@ -16051,12 +16062,8 @@ at $z_2$ may be written as
 a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^k}$
 or $(z-z_2)^k$.  If we can uniformly approximate $\frac{1}{z-z_2}$ on $K$ by a rational
 function with a pole at $z_3$, we can approximate $R$ by a rational function
-with a pole at $z_3$.  Rinse and repeat.  See \figureref{fig:rungepolepush}.
+with a pole at $z_3$.  Rinse and repeat.
 
-\begin{myfig}
-\subimport*{figures/}{rungepolepush.pdf_t}
-\caption{Pole pushing from $p$ to $q$.\label{fig:rungepolepush}}
-\end{myfig}
 
 So without loss of generality suppose $z_1=p$ and $z_2=q$.
 Then
@@ -16148,12 +16155,13 @@ that is holomorphic on a neighborhood of $K_n$, and it equals $0$ on $K_n \setmi
 and $1$ on $K_n \cap \R$.
 Indeed, pick three disconnected neighborhoods of the three components of $K_n$ and
 set the function to be identically $0$ or $1$ on the corresponding
-component, constants are holomorphic.
+component, constants being holomorphic.
 Runge says that there is a polynomial $P_n(z)$ such that $\sabs{P_n(z)-f(z)}
 \leq \nicefrac{1}{n}$ for $z \in K_n$.  The sequence $\{ P_n \}$ then does
 the job.  Since $K_n \subset K_{n+1}$ for all $n$ and $\bigcup K_n = \C$
 we get that eventually any $z$ is in some $K_n$ (and all the later sets).
 It follows that $\lim P_n(z)$ is the right thing.
+
 But be careful with what we proved.  We have a pointwise limit only.  The sequence
 does \emph{not} converge uniformly on compact sets.  That is easy to see,
 otherwise the limit would be continuous.
@@ -16179,7 +16187,7 @@ Let $\{ K'_n \}$ be the sequence of sets from
 For each $n$, let $K_n$ be the set $K'_n$ together with any 
 component of $\C_\infty \setminus K'_n$ that is completely contained in $U$.
 In particular, we added only bounded components.
-The set $K_n$ is still closed and bounded (in $\C$) and hence compact.
+The set $K_n$ is still closed (in $\C$) and bounded and hence compact.
 If $X$ is a component of $\C_\infty \setminus K'_n$ that we added into
 $K_n$, then we still have that $X \subset K_{n+1}$, and as $X$ is open,
 $X$ is in the interior of $K_{n+1}$.  So all the conditions are still
@@ -16198,7 +16206,7 @@ that converges to $f$ uniformly on compact subsets of $U$.
 \begin{proof}
 Let $\{ K_n \}$ be the sequence of sets from the lemma.
 Each component of $\C_\infty \setminus K_n$ intersects $S$.
-Let $R_n$ be the rational function such that
+Let $R_n$ be a rational function such that
 \begin{equation*}
 \abs{f(z)-R_n(z)} < \nicefrac{1}{n}
 \quad
@@ -16267,6 +16275,29 @@ P_n(z) = \lfloor \Re z \rfloor ,
 \end{equation*}
 where $\lfloor x \rfloor$ means the largest integer less than or equal to
 $x$. 
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain and $f \colon U \to \C$ be holomorphic.
+\begin{exparts}
+\item
+Suppose that for every $p \in \partial U$ there exists a disc
+$\Delta_\epsilon(p)$ such that $\Delta_\epsilon(p) \setminus \widebar{U}$
+is nonempty and connected.
+Prove that there exists an open $W \subset \C$ such that $\widebar{U}
+\subset W$ such that for every holomorphic $f \colon U \to \C$
+there is a sequence of holomorphic $f_n \colon W \to \C$ such that converge
+uniformly on compact subsets of $U$ to $f$.
+\item
+Suppose there is at least one $p \in \partial U$ such that
+$\Delta_\epsilon(p) \setminus \widebar{U}$ is empty for some $\epsilon > 0$.
+Find a counterexample $U$, $f$, and $\{ f_n \}$ to the conclusion of part a).
+\item
+Suppose there is at least one $p \in \partial U$ such that
+$\Delta_\epsilon(p) \setminus \widebar{U}$ is nonempty but disconnected for
+every $\epsilon > 0$.
+Find a counterexample $U$, $f$, and $\{ f_n \}$ to the conclusion of part a).
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -16344,7 +16375,7 @@ $\C \setminus K$.  Then $\widehat{K} = \C \setminus X$.
 \end{thm}
 
 \begin{proof}
-Suppose $p \in X$.  Then $\{ p \} \cup \C \setminus X$ is a compact set
+Suppose $p \in X$.  Then $\{ p \} \cup ( \C \setminus X )$ is a compact set
 whose
 complement (in either $\C$ or $\C_\infty$) is connected.
 Use \hyperref[thm:rungecpt]{Runge} to approximate a function that is $1$ at $p$ and $0$ on
@@ -16371,9 +16402,14 @@ principle says that
 so $p \in \widehat{K}$.
 \end{proof}
 
+\begin{myfig}
+\subimport*{figures/}{fillholes.pdf_t}
+\caption{Polynomial hull is ``filling holes.''\label{fig:fillholes}}
+\end{myfig}
+
 Note that the components of $\C \setminus K$ are open sets.
 The polynomial hull of $K$ is $K$ together with all the bounded components
-of $\C \setminus K$.
+of $\C \setminus K$.  See \figureref{fig:fillholes}.
 As a corollary we get the following equivalence.
 
 \begin{cor}
@@ -16398,18 +16434,21 @@ holomorphic on $U$ by polynomials
 Namely \ref{cor:polyhull:ii} holds.
 
 Suppose \ref{cor:polyhull:ii} is true.
-Consider any $K \subset U$.  If $p \in \widehat{K} \setminus U$,
-then $p$ is not in $K$ and so $p$ is in one of the bounded components of $\C \setminus K$.
+Consider any $K \subset U$.  Suppose $p \in \widehat{K} \setminus U$ exists
+(for contradiction).
+Then $p$ is not in $K$ and so $p$ is in one of the bounded components of $\C \setminus K$.
 Consider $f(z) = \frac{1}{z-p}$, which is holomorphic on $U$, so find
 a sequence of polynomials $\{ P_n \}$ converging uniformly to $f$ on compact
 subsets.
-By the proposition the sequence converges uniformly on $\widehat{K}$
+By the proposition the sequence converges uniformly on $\widehat{K}$.
 Thus it converges to a holomorphic function on
-$g$ defined on $U \cup \widehat{K}$ (which is an open set by the theorem above).
+$g$ defined on $U \cup \widehat{K}$, which is an open set by the theorem
+above, and it is connected as each component of $\C \setminus K$ we added
+has boundary in $U$, which is connected.
 The function $f$ is defined on $\C \setminus \{ p \}$,
 and the boundary of the component of $\C \setminus K$ that includes $p$ must
-have a limit point.
-Thus $g$ equals $f$ on $U \cup \widehat{K} \setminus \{ p \}$, which is
+have a limit point (exercise below).
+Thus $g$ equals $f$ on $(U \cup \widehat{K}) \setminus \{ p \}$, which is
 impossible as $g$ is bounded near $p$ while $f$ has a pole there.  So no
 such $p$ exists and \ref{cor:polyhull:iii} is true.
 
@@ -16427,8 +16466,26 @@ connected.
 
 \begin{exbox}
 \begin{exercise}
+Suppose that $U \subset \C$ is a polynomially convex domain such that for each
+$p \in \C$ there exists an $M$ such that $\partial \Delta_M(p) \subset U$.
+Prove that $U = \C$.
+\end{exercise}
+
+\begin{exercise}
+If $W \subset \C$ is a bounded open set.  Prove that $\partial W$ has a
+limit point.
+\end{exercise}
+
+\begin{exercise}
 Suppose $K_1 \subset K_2 \subset \C$ are compact.  Prove that
 $\widehat{K}_1 \subset \widehat{K}_2$.
+\end{exercise}
+
+\begin{exercise}
+Let $U \subset \C$ be a domain.  Prove that $U$
+is simply coonnected if and only if there exists a sequence $K_n$
+of compact subsets of $U$ such that $K_n \subset K^\circ_{n+1}$,
+$\bigcup K_n = U$, and such that $\widehat{K_n} = K_n$.
 \end{exercise}
 
 \begin{exercise}
@@ -16438,6 +16495,7 @@ Instead of polynomials define
 f(\zeta) \text{ for every } f(x+iy) = ax+by + c, 
 a,b,c \in \R
 \bigr\}.
+\avoidbreak
 \end{equation*}
 Prove that a set $U$ is convex if and only
 if for every compact $K \subset U$ we have $\widehat{K} \subset U$.
@@ -16578,7 +16636,8 @@ does not converge, but
 \sum_{n=1}^\infty
 \frac{2z}{z^2-n^2}
 \end{equation*}
-does converge.  This corresponds to the choice of $K_n =
+does converge uniformly on compact subsets of $\C \setminus \Z$.
+This corresponds to the choice of $K_n =
 \overline{\Delta_n(0)}$.  See the exercises.
 \end{example}
 
@@ -16588,7 +16647,7 @@ the
 In Weierstrass's theorem
 we can prescribe zeros rather than poles.  In fact, with just a little bit
 of trickery, one could use the Mittag-Leffler theorem to prove
-the Weierstrass theorem.
+the Weierstrass theorem.  Again, see the exercises.
 
 \begin{exbox}
 \begin{exercise}
