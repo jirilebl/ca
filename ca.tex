@@ -17424,11 +17424,66 @@ What we proved above is that the only universal covering of a simply
 connected domain is essentially just a biholomorphism.
 The \hyperref[thm:RMT]{Riemann mapping theorem}
 implies that every domain has a universal cover that
-is either $\C$ or $\D$.  In fact, and we will again not prove so,
-the only domains with universal cover of $\C$ are $\C$ itself and $\C
-\setminus \{ 0 \}$ (the exponential).
-Every other domain in $\C$ has $\D$ as the universal
-cover.
+is either $\C$ or $\D$.  In fact, the little Picard theorem, which we do
+not prove, says that any entire function misses at most one value.  So
+the only domains with universal cover of $\C$ are $\C$ itself (the identity) and
+$\C \setminus \{ p \}$ (the exponential, $e^{z-p}$).
+Every other domain in $\C$ has $\D$ as the universal cover.
+
+Why is it called a universal cover?  Because it covers any cover.
+We leave the proof as an exercise.
+
+\begin{cor} \label{cor:coverscover}
+Suppose $U,V,W \subset \C$ are domains, $h \colon U \to V$ is a 
+holomorphic covering map and $f \colon W \to V$ is a universal cover ($W$ is
+simply connected).  Then there exists a holomorphic covering map
+$g \colon W \to U$ such that $f = h \circ g$.
+\end{cor}
+
+In other words, you have the following diagram:
+\begin{equation*}
+\begin{tikzcd}[column sep=small]
+& W \arrow[dl,"g"'] \arrow[dr,"f"] \\
+U \arrow[rr,"h"]                   & & V
+\end{tikzcd}
+\end{equation*}
+
+After you prove this corollary, via the monodromy theorem, you can quickly
+prove
+that the universal cover is unique up to biholomorphism.
+
+\begin{cor} \label{cor:univcoveruniqe}
+Suppose $U_1,U_2,V \subset \C$ are domains and $f \colon U_1 \to V$ and $g \colon
+U_2 \to V$ are
+universal holomorphic covering maps ($U_1$ and $U_2$ are simply connected).
+Then there
+exists a biholomorphism $\phi \colon U_1 \to U_2$
+such that $f = g \circ \varphi$.
+\end{cor}
+
+In other words, you have the following diagram:
+\begin{equation*}
+\begin{tikzcd}[column sep=small]
+U_1 \arrow[rr,"\varphi"] \arrow[dr,"f"'] & & U_2 \arrow[dl,"g"] \\
+                               & V
+\end{tikzcd}
+\end{equation*}
+
+As an example for the setup of both corollaries,
+notice that $e^z$ is a universal covering map taking $\C$ to $\C \setminus \{ 0 \}$.
+The map $z^2$ is a covering map from $\C \setminus \{ 0 \}$ to itself.
+We might think that we can compose the two and obtain a new covering map:
+\begin{equation*}
+{\bigl(e^z\bigr)}^2 = e^{2z} ,
+\end{equation*}
+and darnit, $2z$ is an automorphism of $\C$.  Since we're already drawing diagrams,
+let's also draw this one:
+\begin{equation*}
+\begin{tikzcd}[column sep=small]
+& \C \arrow[dl,"e^z"'] \arrow[dr,"e^{2z}"] \arrow[rr,"2z"] & & \C \arrow[dl,"e^z"] \\
+\C \setminus \{ 0 \} \arrow[rr,"z^2"'] & & \C \setminus \{ 0 \} 
+\end{tikzcd}
+\end{equation*}
 
 \begin{exbox}
 \begin{exercise}
@@ -17436,7 +17491,17 @@ Explicitly find the universal cover of $\D \setminus \{ 0 \}$.
 \end{exercise}
 
 \begin{exercise}
-Let $U = \C \setminus [-2,2]$.  Explicitly find the universal cover of $U$.
+Prove \corref{cor:coverscover}.  Hint: A holomorphic covering map
+admits unrestricted analytic continuation.
+\end{exercise}
+
+\begin{exercise}
+Prove \corref{cor:univcoveruniqe}.
+%Hint: Use \corref{cor:coverscover}.
+\end{exercise}
+
+\begin{exercise}
+Explicitly find the universal cover of $\C \setminus [-2,2]$.
 See \exerciseref{exercise:segmentcomplement}.
 \end{exercise}
 
@@ -17445,6 +17510,13 @@ Suppose $K \subset \C$ is compact and connected and contains more than one
 point.  Show that there
 exists a universal cover $f \colon \D \to \C \setminus K$.
 \end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a domain and $f \colon U \to U$ is a holomorphic
+covering map which is not injective.  Prove that the universal covering map
+of $U$ is infinite-to-one.
+\end{exercise}
+
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
