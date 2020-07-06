@@ -7,9 +7,6 @@ Things not marked with FIXMEs in the file
 * check if we are using "constant path" or some such somewhere (check some
   more that is)
 
-* Fubini for continuous functions?  Only the swapping of limits, can be done
-  by uniform convergence stuff.
-
 Things definitely for the next version
 
 * Riemann surfaces

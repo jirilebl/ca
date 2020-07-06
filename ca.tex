@@ -6234,7 +6234,8 @@ This kind of lemma has two common proofs,
 and as they are both useful in other places, let us do both of them.
 
 \begin{proof}[Proof A]
-One proof is to use Morera's theorem (\thmref{thm:Morera}) and Fubini's theorem.
+One proof is to use Morera's theorem (\thmref{thm:Morera}) and
+Fubini's theorem \thmref{thm:fubini}).
 Let $T \subset U$ be a triangle.  Then
 \begin{equation*}
 \int_{\partial T}
@@ -7217,7 +7218,8 @@ $\arg$.
 \begin{exercise}
 Fill in the details in the existence of the partition.  That is, once you
 cover $\gamma$ by finitely many discs that do not contain $p$ show that
-the partition $t_0,\ldots,t_n$ exists.
+the partition $t_0,\ldots,t_n$ exists.  Hint: Some of the discs may
+``repeat,'' but make sure that you do not get ``stuck'' before reaching 1.
 \end{exercise}
 \end{exbox}
 
@@ -7339,7 +7341,7 @@ say $\Gamma$ is \emph{\myindex{homologous to zero} in $U$}.
 
 What homologous to zero means is that $\Gamma$ does not wind around any
 point in the complement of $U$.
-Do note that ``homologous to zero'' in no way means ``equivalent to zero.''
+Do note that ``homologous to zero'' does not mean ``equivalent to zero.''
 For instance, if $U = \C$, then every $\Gamma$ is homologous to zero trivially.
 Also note the dependence on $U$.  The unit circle is homologous to zero in
 $U = \C$, but it is not homologous to zero in $U = \C \setminus \{ 0 \}$.
@@ -7994,7 +7996,7 @@ That is, the limits are taken independently.  However, for the series we
 are interested in, we are generally talking
 about absolute convergence, so the limit may be taken in any way,
 and in any order.
-When working with Laurent series in particular we know even more.
+When working with Laurent series in particular, we know even more.
 Write a Laurent series as 
 \begin{multline*}
 \sum_{n=-\infty}^{\infty} c_n {(z-p)}^n
@@ -8359,14 +8361,16 @@ We wish to make precise the notion of slowly deforming one path into
 another.  This notion is usually called \emph{\myindex{homotopy}}.
 First, let us define this concept for closed paths.
 
-\begin{defn}
+\begin{defn}\label{defn:homotopy}
 Let $U \subset \C$ be open.
 Two continuous\footnote{This definition
 works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
 $\gamma_j(a)=\gamma_j(b)$, but we only need it for piecewise-$C^1$ paths in
-this section.}
+this section.} functions
 $\gamma_0 \colon [a,b] \to U$ and
-$\gamma_1 \colon [a,b] \to U$ are \emph{\myindex{homotopic}} in $U$
+$\gamma_1 \colon [a,b] \to U$
+where $\gamma_j(a)=\gamma_j(b)$
+are \emph{\myindex{homotopic}} in $U$
 (or relative to $U$) if there exists a continuous function
 $H \colon [a,b] \times [0,1] \to U$ such that
 for all $s$ and $t$
@@ -8375,7 +8379,15 @@ H(t,0) = \gamma_0(t), \qquad
 H(t,1) = \gamma_1(t), \qquad \text{and} \qquad
 H(a,s) = H(b,s) .
 \end{equation*}
+See \figureref{fig:homotopy}.
+We also write $\gamma_s$, where $\gamma_s(t) = H(t,s)$, for the paths in the homotopy.
 \end{defn}
+
+\begin{myfig}
+\subimport*{figures/}{homotopy.pdf_t}
+\caption{Homotopy of two closed paths $\gamma_0$ and
+$\gamma_1$ with intermediate paths $\gamma_s$ marked in gray.\label{fig:homotopy}}
+\end{myfig}
 
 \begin{exbox}
 \begin{exercise}
@@ -8385,20 +8397,20 @@ $\gamma \colon [a,b] \to \C$ with $\gamma(a)=\gamma(b)$.
 \end{exbox}
 
 \begin{example} \label{example:homotopydiscsc}
-Let $\gamma \colon [a,b] \to \D$ be a continuous function.  Define
+Let $\gamma \colon [a,b] \to \D$ be continuous and $\gamma(a)=\gamma(b)$.  Define
 $H \colon [a,b] \times [0,1] \to \D$ by
 \begin{equation*}
 H(t,s) = (1-s) \gamma(t) .
 \end{equation*}
-This is clearly a homotopy in $U$, $H(t,0) = \gamma(t)$
+This is clearly a homotopy in $\D$, $H(t,0) = \gamma(t)$,
 and $H(t,1) = 0$, so $\gamma$ is homotopic to the zero function.
 \end{example}
 
 What we want to do is to prove that if $\gamma_0$ is homotopic to $\gamma_1$
 in $U$ and $f \colon U \to \C$ is holomorphic, then
 $\int_{\gamma_0} f(z)\,dz = \int_{\gamma_1} f(z)\, dz$.
-Well what we could do is to define $\gamma_s(t) = H(t,s)$.
-The $\gamma_s$ is very close to
+Consider the intermediate paths $\gamma_s(t) = H(t,s)$.
+The path $\gamma_s$ is very close to
 $\gamma_{s+\epsilon}$ and so it should not be hard to prove that their
 winding number around various points is the same.
 Everything is going swimmingly until we realize that $\int_{\gamma_s} f(z)
@@ -9723,7 +9735,8 @@ Prove that $f$ has an essential singularity at $0$.
 
 \subsection{Singularities and the Laurent series}
 
-A way of classifying a singularity is in terms of the Laurent series.
+The terms of the Laurent series may be used to 
+classify a singularity.
 
 \begin{prop}
 Suppose $f \colon \Delta_r(p) \setminus \{p\} \to \C$ is holomorphic,
@@ -17351,15 +17364,12 @@ around the various holes, an equivalence that doesn't care exactly what
 path we take as long as we can deform one path to the other.
 We have seen that for closed paths that homotopy is such an equivalence, although
 here we look at paths from one fixed point to another point.  The definition
-is almost the same, except instead of ``closed'' we require that the paths
+is almost the same (compare \defnref{defn:homotopy}), except instead of ``closed'' we require that the paths
 are ``from $p$ to $q$.''
 
 \begin{defn}
 Let $U \subset \C$ be open and $p,q \in U$.
-Two continuous\footnote{This definition
-works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
-$\gamma_j(0)=\gamma_j(1)$, but we only need it for piecewise-$C^1$ paths in
-this section.}
+Two continuous functions
 $\gamma_0 \colon [0,1] \to U$ and
 $\gamma_1 \colon [0,1] \to U$ where
 $\gamma_0(0)=\gamma_1(0)=p$
@@ -17376,10 +17386,16 @@ H(t,1) = \gamma_1(t), \qquad
 H(0,s) = p, \qquad
 \text{and} \qquad
 H(1,s) = q .
-\avoidbreak
 \end{equation*}
-We also write $H_s$, where $H_s(t) = H(t,s)$, for the paths in the homotopy.
+See \figureref{fig:homotopyfixed}.
+We also write $\gamma_s$, where $\gamma_s(t) = H(t,s)$, for the paths in the homotopy.
 \end{defn}
+
+\begin{myfig}
+\subimport*{figures/}{homotopyfixed.pdf_t}
+\caption{Fixed endpoint homotopy of two paths $\gamma_0$ and
+$\gamma_1$ with intermediate paths marked in gray.\label{fig:homotopyfixed}}
+\end{myfig}
 
 The key property of fixed-endpoint homotopy in the context of continuation is that 
 the value of the continuation at $q$ is the same for homotopic paths.
@@ -17391,18 +17407,19 @@ $p \in U$,
 $W \subset U$ is an open neighborhood of $p$,
 and $f \colon W \to \C$ is holomorphic and admits unrestricted continuation
 to $U$.  Suppose further that
-$\gamma_1 \colon [0,1] \to U$ and
-$\gamma_2 \colon [0,1] \to U$ are continuous, $\gamma_1(0)=\gamma_1(0)=p$
+$\gamma_0 \colon [0,1] \to U$ and
+$\gamma_1 \colon [0,1] \to U$ are continuous, $\gamma_0(0)=\gamma_1(0)=p$
 and
-$\gamma_1(1)=\gamma_2(1)=q$, and $\gamma_1$ and $\gamma_2$ are fixed-endpoint
+$\gamma_0(1)=\gamma_1(1)=q$, and $\gamma_0$ and $\gamma_1$ are fixed-endpoint
 homotopic in $U$.
-Then the value at $q$ of the continuation along $\gamma_1$ is equal to the
-value at $q$ of the continuation along $\gamma_2$.
+Then the value at $q$ of the continuation along $\gamma_0$ is equal to the
+value at $q$ of the continuation along $\gamma_1$.
 \end{prop}
 
 \begin{proof}
 Let $H(t,s)$ be the homotopy.
-Let $\varphi(s)$ be the value of the continuation at $q$ for the path $H_s$.
+Let $\varphi(s)$ be the value of the continuation at $q$ for the path
+$\gamma_s$.
 By \propref{prop:continuationclose}, $\varphi(s)$ is locally constant (that
 is, each $s$ has a neighborhood in which $\varphi$ is constant).  
 As $[0,1]$ is connected, $\varphi$ is constant.
@@ -17426,20 +17443,20 @@ we can
 assume that $U=\D$ or $U = \C$.
 We have to show that no matter how we extend to any point $q \in U$, we
 always get the same value, no matter what path we continue along.
-Suppose $\gamma_1 \colon [0,1] \to U$ and
-$\gamma_2 \colon [0,1] \to U$ are continuous,
-$\gamma_1(0)=\gamma_1(0) \in W$
+Suppose $\gamma_0 \colon [0,1] \to U$ and
+$\gamma_1 \colon [0,1] \to U$ are continuous,
+$\gamma_0(0)=\gamma_1(0) \in W$
 and
-$\gamma_1(1)=\gamma_2(1)=q$.  Let
+$\gamma_0(1)=\gamma_1(1)=q$.  Let
 \begin{equation*}
-H(t,s) = (1-s)\gamma_1(t)+s\gamma_2(t) .
+H(t,s) = (1-s)\gamma_0(t)+s\gamma_1(t) .
 \end{equation*}
 As $U$ is convex, we have that $H(t,s) \in U$ for all $(t,s) \in
 [0,1]\times[0,1]$, furthermore
-$H(0,s) = \gamma_1(0)=\gamma_2(0)$ and
-$H(1,s) = \gamma_1(1)=\gamma_2(1)$.  So $H$ is a fixed-endpoint homotopy in
+$H(0,s) = \gamma_0(0)=\gamma_1(0)$ and
+$H(1,s) = \gamma_0(1)=\gamma_1(1)$.  So $H$ is a fixed-endpoint homotopy in
 $U$, and so by the proposition, we have that the value of the extension at
-$q$ is the same whether we extend along $\gamma_1$ or $\gamma_2$.
+$q$ is the same whether we extend along $\gamma_0$ or $\gamma_1$.
 \end{proof}
 
 \begin{cor}
@@ -20929,7 +20946,7 @@ functions need not even be Riemann integrable.
 \begin{exbox}
 \begin{exercise}
 Compute
-$\displaystyle \lim_{n\to\infty} \int_1^2 e^{-nx^2} ~dx$.
+$\displaystyle \lim_{n\to\infty} \int_1^2 e^{-nx^2} \,dx$.
 \end{exercise}
 
 \begin{exercise}
@@ -21059,7 +21076,7 @@ $f'(1) \not= \lim\limits_{n\to\infty} f_n'(1)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Continuity and derivatives under the integral}
+\section{Continuity, Fubini, derivatives under the integral}
 \label{sec:contlimitsunderint}
 
 \subsection{Continuity}
@@ -21130,6 +21147,145 @@ then $g \colon [c,d] \to \R$ defined by
 g(y) = \int_a^b f(x,y) \,dx  \qquad \text{is continuous}.
 \end{equation*}
 Hint: First integrate over $[a+\nicefrac{1}{n},b-\nicefrac{1}{n}]$.
+\end{exercise}
+\end{exbox}
+
+\subsection{Fubini's theorem}
+
+Fubini's theorem says that under some mild conditions one can generally
+swap the order of of integrals in an iterated integral.
+We prove the following simple case of Fubini that is generally
+enough for the purposes of this book.
+
+\begin{thm}[Fubini]\index{Fubini's theorem}\label{thm:fubini}
+Suppose $f \colon [a,b] \times [c,d] \to \R$ is continuous.  Then
+\begin{equation*}
+\int_c^d \int_a^b f(x,y) \, dx \, dy =
+\int_a^b \int_c^d f(x,y) \, dy \, dx .
+\end{equation*}
+\end{thm}
+
+One of the tricky bits about Fubini for the Riemann integral
+is that the integrand of the outer integral, for example
+$\int_a^b f(x,y) \, dx$ as a function of $y$, is not necessarily 
+Riemann integrable even if $f(x,y)$ is Riemann integrable as a function of
+two variables.  However, by the previous subsection, if $f$ is continuous,
+then $\int_a^b f(x,y) \, dx$ is a continuous function of $y$ and hence
+integrable.  So for continuous functions we sidestep the integrability
+issues.\footnote{For more complicated scenarios, the reader is
+encouraged to just learn the Lebesgue integral.}
+
+\begin{proof}
+As $[a,b] \times [c,d]$ is compact, $f$ is uniformly continuous.
+So for
+any $\epsilon > 0$, there is a $\delta > 0$ such that if
+$\sabs{x-x'} < \delta$ and 
+$\sabs{y-y'} < \delta$, then $\sabs{f(x,y) -f(x',y')} < \epsilon$.
+Let
+\begin{equation*}
+g_n(x,y)
+=
+\begin{cases}
+f\left(a+\frac{k(b-a)}{n},y\right)
+& \text{if } a+\frac{(k-1)(b-a)}{n} \leq x < a+\frac{k(b-a)}{n} ,
+k=1,\ldots,n,
+\\
+f(b,y) & \text{if } x=b .
+\end{cases}
+\end{equation*}
+This is the ``right-hand rule'' step function with sub
+interval length $\frac{b-a}{n}$:
+Integrating $g_n$ with respect to $x$ is the right-hand rule for integrating $f$.
+Suppose $n$ is large enough so that $\frac{b-a}{n} < \delta$.  Then,
+via the uniform continuity estimate we find that $\babs{f(x,y)-g_n(x,y)} < \epsilon$
+for all $x$ and $y$. So
+\begin{equation*}
+\abs{
+\int_a^b
+f(x,y)
+\, dx
+-
+\int_a^b
+g_n(x,y)
+\, dx
+}
+\leq
+\int_a^b
+\babs{
+f(x,y)
+-
+g_n(x,y)
+}
+\leq (b-a)\epsilon .
+\end{equation*}
+So $\int_a^b g_n(x,y) \, dx$ converges uniformly as a function of $y$ to
+$\int_a^b f(x,y) \, dx$.  Finally, the integral of $g_n$ is just the right
+hand rule.  Putting it all together,
+\begin{equation*}
+\begin{split}
+\int_c^d \int_a^b f(x,y) \, dx \, dy
+& =
+\int_c^d
+\left(
+\lim_{n \to \infty}
+\int_a^b g_n(x,y) \, dx
+\right) \, dy
+\\
+& =
+\lim_{n \to \infty}
+\int_c^d
+\left(
+\int_a^b g_n(x,y) \, dx
+\right) \, dy
+\\
+& \leq
+\lim_{n \to \infty}
+\int_c^d
+\left(
+\sum_{k=1}^n
+\frac{b-a}{n} f\left(a+\frac{k(b-a)}{n},y\right)
+\right) \, dy
+\\
+& \leq
+\lim_{n \to \infty}
+\sum_{k=1}^n
+\frac{b-a}{n} 
+\int_c^d
+f\left(a+\frac{k(b-a)}{n},y\right)
+\, dy
+\\
+& =
+\int_a^b
+\int_c^d
+f(x,y)
+\, dy \, dx .
+\end{split}
+\end{equation*}
+The final equation is simply the realization that  
+$\int_c^d
+f(x,y)
+\, dy$ is a continuous function of $x$, hence integrable, and what we have
+is just the right-hand rule for the integral of this function over $[a,b]$.
+\end{proof}
+
+\begin{exbox}
+\begin{exercise}
+Suppose $f(x,y) = 1$ if $x \in \Q$ and $y=\nicefrac{1}{2}$ and $0$ otherwise.
+Using the Riemann integral, prove that one of
+$\int_0^1 \int_0^1 f(x,y) \, dx \, dy$ and
+$\int_0^1 \int_0^1 f(x,y) \, dy \, dx$ exists and the other does not (the
+integrand is not a well-defined function).
+\end{exercise}
+
+\begin{exercise}
+Compute
+\begin{equation*}
+\int_0^1 \int_0^1 \frac{x^2-y^2}{{(x^2+y^2)}^2} \, dx \, dy
+\qquad \text{and} \qquad
+\int_0^1 \int_0^1 \frac{x^2-y^2}{{(x^2+y^2)}^2} \, dy \, dx .
+\end{equation*}
+You will need to interpret the integrals as improper, that
+is, the limit of $\int_\epsilon^1$ as $\epsilon \to 0^+$.
 \end{exercise}
 \end{exbox}
 
@@ -22150,10 +22306,8 @@ a $k$-Lipschitz map for some $k < 1$, i.e.\ if there exists a $k < 1$ such that
 \begin{equation*}
 d_Y\bigl(f(p),f(q)\bigr) \leq k\, d_X(p,q)
 \qquad \text{for all } p,q \in X.
+\avoidbreak
 \end{equation*}
-
-\medskip
-
 If $f \colon X \to X$ is a map, $x \in X$ is called a
 \emph{\myindex{fixed point}}
 if $f(x)=x$.
@@ -22411,7 +22565,7 @@ $g$ at $y$ is.  Then
 \end{split}
 \end{equation*}
 As $k$ goes to $0$, so does $h$.  So the right-hand side goes to $0$ as $f$ is
-differentiable, and hence
+differentiable, and
 the left-hand side also goes to $0$.  And
 $B$ is precisely what we wanted $Dg|_y$ to be.
 
