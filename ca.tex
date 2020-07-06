@@ -12600,6 +12600,22 @@ charge.  Harmonic functions are used to study
 holomorphic functions and vice-versa, holomorphic functions are used to
 study harmonic functions.
 
+Most of the results
+we will prove for harmonic functions are analogues of the results 
+for holomorphic functions.  The reader is
+encouraged to look for these connections.
+However, the results for harmonic functions are not
+always a simple application of what has already been proved for holomorphic
+functions, and even the
+statements or proofs of the analogous results may be quite different.
+While locally, harmonic
+functions are always the real or imaginary parts of holomorphic functions,
+globally, this may not be true.
+Furthermore,
+just as it is best to study animals in their natural habitat,
+many results we have proved for holomorphic functions are
+better understood as results for harmonic functions.
+
 \subsection{Real and imaginary parts of holomorphic functions}
 
 \begin{defn}
@@ -12893,6 +12909,18 @@ and nonnegative, then $f$ is constant.
 \end{savenotes}
 
 \begin{remark}
+As in the Liouville theorem exercise above,
+the analogue of ``bounded'' for holomorphic functions is ``nonnegative''
+for harmonic functions.  If $f$ is
+a bounded holomorphic function, then $\log \sabs{f(z)+M}$ or $\Re f(z) + M$
+is nonnegative for large enough $M$.  Conversely if $\log \sabs{f(z)} \geq
+0$, then $\frac{1}{f(z)}$ is bounded, and if $\Re f(z) \geq 0$, then
+$\frac{f(z)-1}{f(z)+1}$ is bounded (composing $f$ with an LFT taking the
+right half-plane to the disc).
+\end{remark}
+
+
+\begin{remark}
 The procedure above, writing
 \begin{equation*}
 \frac{\partial^2}{\partial x^2}+ \frac{\partial^2}{\partial y^2} = 
@@ -13128,15 +13156,15 @@ ire^{i\theta}
 \Re \frac{1+0}{1-0} = 1 .
 \end{split}
 \end{equation*}
-The last equality follows by the Cauchy integral formula
+The equality on the third line follows by the Cauchy integral formula
 using the function $\frac{1+z}{1-z}$ evaluated at $0$.
 
-For the third item, notice that we only need to prove the
+For the third item, we only need to prove the
 result for $\delta \leq \theta \leq \pi$ by symmetry ($P_r$ is even).
 On $(0,\pi)$, $P_r$ is strictly decreasing as $\cos \theta$ is strictly
 increasing.  So we only need to show that $P_r(\delta)$ goes to $0$
 as $r \to 1$ if $\delta > 0$.
-This follows by noting that $r \mapsto
+This follows as $r \mapsto
 \frac{1+re^{i\delta}}{1-re^{i\delta}}$
 is continuous at $r=1$ and
 \begin{equation*}
@@ -13206,8 +13234,8 @@ Pu(re^{i\theta})
 \end{equation*}
 is harmonic for $z = re^{i\theta} \in \D$.
 
-Now as both $P_r$ and $u(e^{it})$ is $2 \pi$-periodic we 
-can change variables:
+As both $P_r$ and $u(e^{it})$ are $2 \pi$-periodic we 
+change variables:
 \begin{equation*}
 Pu(re^{i\theta})
 =
@@ -13215,11 +13243,10 @@ Pu(re^{i\theta})
 =
 \int_{-\pi}^\pi u\bigl(e^{i(\theta-t)}\bigr) P_r(t) \, dt .
 \end{equation*}
-
-Suppose $M$ is the supremum of
+Let $M$ be the supremum of
 $u$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
-As $u$ is uniformly continuous on $\partial \D$, suppose $\delta > 0$
-is small enough so that $\babs{u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta})} <
+As $u$ is uniformly continuous on $\partial \D$, consider $\delta > 0$
+small enough so that $\babs{u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta})} <
 \nicefrac{\epsilon}{2}$ whenever $\sabs{t} < \delta$.
 Using the proposition above, there exists
 a $\delta' > 0$ such that if  
@@ -13302,7 +13329,7 @@ Pu(r e^{i\theta} ) - u(e^{i\theta})
 And so $Pu(re^{i\theta}) \to u(e^{i\theta})$ uniformly in $\theta$
 as $r \uparrow 1$.
 
-Finally, we must show that for any $z_0 = e^{i\theta_0} \in \partial \D$
+Finally, we must show that for any $z_0 = e^{i\theta_0} \in \partial \D$,
 we have that
 $Pu(z)$ tends to $Pu(z_0)=u(z_0)$ as $z \in \overline{\D}$ tends to $z_0$.
 Let $\epsilon > 0$ be given.  As $u = Pu|_{\partial \D}$ is
@@ -13396,10 +13423,19 @@ from the Cauchy integral formula where the kernel is $\frac{1}{\zeta-z}$
 no matter what the path that we were integrating around, that is, no matter
 what domain we were solving for.
 
-The Poisson kernel is also used as a reproducing kernel for
+The Poisson kernel is also a reproducing kernel for
 holomorphic functions, as holomorphic functions are harmonic
-(their real and imaginary parts are).
-A Poisson kernel also exists for higher dimensions, that is in $\R^n$, and has
+(their real and imaginary parts are).  That is, if $u$ gives the boundary
+values for a holomorphic function then $Pu$ will be holomorphic and it will
+be equal to the Cauchy transform $Cu$ inside the disc.  Unlike the
+Cauchy transform, however, $Pu$ is always continuous up to the boundary given
+continuous data on the disc.  Thus, if $u$ is not the boundary value of
+a holomorphic function, $Cu$ and $Pu$ will be different in the disc.
+For example, if $u=z+\bar{z}$ on the circle, then $Pu = z+\bar{z}$ inside
+the disc but $Cu = z$ inside the disc.
+
+A Poisson kernel also exists for higher dimensions, that is in $\R^n$ for
+$n > 2$, and has
 analogous properties, although we will not study those here.
 
 It is particularly useful to notice is that
@@ -13518,7 +13554,7 @@ and zero on $\partial U$ is called a
 \emph{\myindex{Martin function}}.
 \begin{exparts}
 \item
-Find a Martin function on the upper half plane $\bH$.
+Find a Martin function on the upper half-plane $\bH$.
 \item
 Find a Martin function on $\{ z \in \C : \Re z > 0, 0 < \Im z < 1
 \}$.  Hint: Hyperblic sine.
@@ -13550,6 +13586,7 @@ harmonic functions in $\C$ as well, although we have to replace an interval
 with a disc.
 
 \begin{thm}[Mean-value property]\label{thm:meanprop}\index{mean-value property}
+\pagebreak[0]
 Suppose $U \subset \C$ is open.
 A continuous 
 $f \colon U \to \R$
@@ -13558,6 +13595,7 @@ such that $\Delta_{R_p}(p) \subset U$ and
 \begin{equation*}
 f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
 \qquad \text{for all } r < R_p .
+\avoidbreak
 \end{equation*}
 Moreover, if $f$ is harmonic, then we may choose any
 $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
@@ -13718,11 +13756,16 @@ Prove that $f$ is harmonic.
 
 \subsection{Harnack's inequality}
 
-Just like holomorphic functions, harmonic functions that are defined in a
-disc cannot just do what they want inside the disc, and their behavior is
-somewhat controlled by the size of the disc.  That is, the further
-``inside'' their domain of definition they live, the more control one has.
-The basic example of this is \emph{\myindex{Harnack's inequality}}.
+Like holomorphic functions, harmonic functions defined in a
+disc cannot just do what they want inside the disc.  Their behavior is
+somewhat controlled by the size of the disc:  The further
+``inside'' their domain of definition the disc is, the more control we have.
+The basic statement of this is
+the \emph{Harnack's inequality}\index{Harnack's inequality!disc} in the disc.
+For holomorphic functions a result of this type is
+the Schwarz lemma where we
+require that the functions are bounded (they are valued in a disc).  For harmonic
+functions, the analogue of boundedness is nonnegativity.
 
 \begin{thm}[Harnack's inequality]
 \label{thm:harnackineqdisc}
@@ -13804,7 +13847,7 @@ $\frac{R-r}{R+r}$ and $\frac{R+r}{R-r}$ are optimal.
 
 There is also a general version of Harnack's inequality on any domain.
 
-\begin{cor}[Harnack's inequality]
+\begin{cor}[Harnack's inequality]\index{Harnack's inequality!any domain}
 Suppose $U \subset \C$ is a domain and $K \subset U$ is compact.
 Then there exists a $C > 0$ such that
 \begin{equation*}
@@ -13846,7 +13889,6 @@ dashed circles are discs of radius $2r$.\label{fig:harnacksgeneral}}
 \end{myfig}
 
 Let $f$ be an arbitrary nonnegative harmonic function on $U$.
-
 For any $j$, as $\Delta_{2r}(z_j) \subset U$, if we take any $w \in
 \Delta_r(z_j)$ we find that 
 \begin{equation*}
@@ -13865,8 +13907,8 @@ f(\zeta) \leq 3 f(z_1).
 \end{equation*}
 Second, let
 $q$ be the midpoint between $z_{j}$ and $z_{j+1}$.
-The point $q$ may not be in $K$, but $z_j$ is and so is $z_{j+1}$.
-Further, simple geometry dictates that
+%The point $q$ may not be in $K$, but $z_j$ is and so is $z_{j+1}$.
+Simple geometry dictates that
 $q \in \Delta_{r}\bigl(z_{j}\bigr) \cap \Delta_{r}\bigl(z_{j+1}\bigr)$.
 Thus,
 \begin{equation*}
@@ -13890,7 +13932,7 @@ As $\zeta$ and $\xi$ were arbitrary the theorem follows.
 \end{proof}
 
 While the constant we got in the proof is not optimal, it is explicit.
-Y'u could actually compute some specific $C$, by knowing the distance of $K$
+We can actually compute some specific $C$ by knowing the distance of $K$
 to the boundary and the number of discs needed.
 
 \begin{exbox}
@@ -16942,7 +16984,7 @@ when $\Re z = 0$.  Prove that $f$ extends to an entire holomorphic function.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $U \subset \bH$ is a domain in the upper half plane
+Suppose that $U \subset \bH$ is a domain in the upper half-plane
 such that the $\widebar{U} \cap \R$ contains an interval $(a,b)$.
 Suppose $f \colon U \cup (a,b) \to \C$ is continuous and holomorphic on $U$
 and $f$ is zero on $(a,b)$.  Prove that $f$ is identically zero.
