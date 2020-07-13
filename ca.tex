@@ -384,6 +384,7 @@
 \newcommand{\lemmaref}[1]{\hyperref[#1]{Lemma~\ref*{#1}}}
 \newcommand{\corref}[1]{\hyperref[#1]{Corollary~\ref*{#1}}}
 \newcommand{\defnref}[1]{\hyperref[#1]{Definition~\ref*{#1}}}
+\newcommand{\remarkref}[1]{\hyperref[#1]{Remark~\ref*{#1}}}
 
 % List of Symbols/Notation
 \newglossary[nlg]{notation}{not}{ntn}{List of Notation}
@@ -1356,15 +1357,15 @@ and the real exponential, it follows that the complex exponential is
 onto $\C \setminus \{ 0 \}$.
 The complex exponential is not one-to-one, it is 
 infinitely-many-to-one.  For any integer $k$,
-\begin{equation*}
+\begin{equation} \label{eq:exponentialidentities}
 e^{z+ik2\pi} = 
 e^{z} e^{ik2\pi} =
 e^z .
-\end{equation*}
+\end{equation}
 
 \begin{exbox}
-\begin{exercise}
-Prove that the above are the only such identities by
+\begin{exercise} \label{exercise:exponetoonestrip}
+Prove that \eqref{eq:exponentialidentities} are the only such identities by
 showing that if $2k\pi < \Im z \leq 2(k+1)\pi$ and
 $2k\pi < \Im w \leq 2(k+1)\pi$, then $e^z=e^w$ implies $z=w$.
 \end{exercise}
@@ -1402,7 +1403,8 @@ The reason for the quotation marks is that the inequality makes no
 sense without interpreting it properly.  It means that one of the values
 of $\arg z$ is between $a$ and $b$.
 In particular, the exponential $e^z$ takes the set given by
-$2k\pi < \Im z \leq 2(k+1)\pi$ in a one-to-one fashion (see the exercise above)
+$2k\pi < \Im z \leq 2(k+1)\pi$ in a one-to-one fashion
+(see \exerciseref{exercise:exponetoonestrip})
 onto $\C \setminus \{ 0 \}$.
 
 \begin{myfig}
@@ -1886,14 +1888,15 @@ By ``preserved by LFTs'' we mean that if $f(z)$ is an LFT, then
 \end{equation*}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise} \label{exercise:crossratioinvariant}
 Prove the invariance of cross ratios under LFTs.
 \end{exercise}
 
 \begin{exercise}
 Prove that four distinct points are on a line or a circle if and only if the cross
 ratio is real.
-Hint: The exercise above and \exerciseref{exercise:anycircletorealline}.
+Hint: See \exerciseref{exercise:crossratioinvariant}
+and \exerciseref{exercise:anycircletorealline}.
 \end{exercise}
 \end{exbox}
 
@@ -2012,7 +2015,7 @@ This can be proved either directly from the definition (exercise),
 or using that a holomorphic function is
 (real) differentiable as we will see shortly.
 
-\begin{prop}
+\begin{prop} \label{prop:holiscont}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic, then $f$
 is continuous.
 \end{prop}
@@ -2020,7 +2023,7 @@ is continuous.
 \begin{exbox}
 \begin{exercise}
 Directly from the definition of the complex derivative, show that a
-holomorphic function is continuous (prove the proposition above).
+holomorphic function is continuous (prove \propref{prop:holiscont}).
 \end{exercise}
 
 \begin{exercise}
@@ -2600,7 +2603,9 @@ Do not confuse the notation
 even though $\frac{df}{dz}$ and 
 $\frac{\partial f}{\partial z}$ look similar.
 Consider a polynomial $P$ in $x$ and $y$, or equivalently
-in $z$ and $\bar{z}$.
+in $z$ and $\bar{z}$.\footnote{Usually when we say ``polynomial'' in this
+book we mean just a polynomial in $z$, so we will always specify
+if we mean a polynomial in $x$ and $y$, or $z$ and $\bar{z}$.}
 The Wirtinger operators exist and
 work as if $z$ and $\bar{z}$ really were independent variables.  For example:
 \begin{equation*}
@@ -2618,7 +2623,7 @@ z^2 ( 3 \bar{z}^2 ) + 0 .
 \end{equation*}
 In that sense (at least for polynomials) a function is holomorphic 
 if it does not depend on $\bar{z}$.
-However, the function above is not holomorphic
+However, the function $z^2 \bar{z}^3 + z^{10}$ is not holomorphic
 and so
 $\frac{d}{dz} \bigl[ z^2 \bar{z}^3 + z^{10} \bigr]$
 does not exist.
@@ -3211,7 +3216,7 @@ some $z \not= p$ where the series converges.
 The most important series, and in some sense the only one that we really
 know how to sum, is the \emph{\myindex{geometric series}}.
 
-\begin{prop}[Geometric series]
+\begin{prop}[Geometric series]\label{prop:geomseries}
 \leavevmode
 \begin{enumerate}[(i)]
 \item For $z \in \D$,
@@ -3237,17 +3242,17 @@ on $\overline{\Delta_r(0)}$.
 \end{prop}
 
 \begin{proof}
-All three items follow from
+All three items follow (details left as exercise) from
 \begin{equation*}
 1+z+z^2+\cdots+z^m = \frac{1-z^{m+1}}{1-z} ,
 \end{equation*}
-for all $z \not= 1$, which follows by summing 
-$(1-z)(1+z+z^2+\cdots+z^m)$.  Details are left as an exercise.
+for all $z \not= 1$, which follows by expanding 
+$(1-z)(1+z+z^2+\cdots+z^m)$.
 \end{proof}
 
 \begin{exbox}
 \begin{exercise}
-Fill in the details of the proof of the proposition above.  Do not forget
+Fill in the details of the proof of \propref{prop:geomseries}.  Do not forget
 about the boundary of the disc.
 \end{exercise}
 \end{exbox}
@@ -3572,7 +3577,7 @@ z^k z_0^{n-1-k} ,
 \end{equation*}
 which goes to $n z_0^{n-1}$ as $z \to z_0$.
 Apply the formula to $f$
-term-wise.  If $z_0$ and $z$ are in $\Delta_R(0)$, then
+term-wise.  For $z_0,z \in \Delta_R(0)$,
 \begin{equation*}
 \frac{f(z) - f(z_0)}{z-z_0}
 =
@@ -3581,10 +3586,10 @@ term-wise.  If $z_0$ and $z$ are in $\Delta_R(0)$, then
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k} .
 \end{equation*}
 The right-hand side is defined even if $z_0 = z$.
-We must show that the expression above is continuous as a function of $z$
+We must show that this expression is continuous as a function of $z$
 at $z_0$.
-It is continuous provided that the series above
-converges uniformly for $z$ in a
+It is continuous provided that the series
+in the expression converges uniformly for $z$ in a
 neighborhood of $z_0$.
 
 The setup will be just like in \figureref{fig:threediscs}.
@@ -3787,9 +3792,9 @@ we conclude $C=1$.
 
 \begin{exbox}
 \begin{exercise}
-Prove that the series for the exponential above converges by computing
+Prove that the series for the exponential converges by computing
 the radius of convergence directly
-(e.g. show that the series converges for every $z \in \C$).
+(e.g.\ show that the series converges for every $z \in \C$).
 \end{exercise}
 
 \begin{exercise}
@@ -3859,7 +3864,7 @@ and we assumed $0$ is not in the interior of $Z_f$.  Then
 \begin{equation*}
 f(z) = z^k \sum_{n=k}^\infty c_n z^{n-k} = z^k g(z) .
 \end{equation*}
-The series $g(z)$ above is a convergent power series and $g(0) = c_k \not=
+The series $g(z)$ is a convergent power series and $g(0) = c_k \not=
 0$.  A power series is continuous, and hence $g(z) \not= 0$ near $0$.
 As $z^k$ is only zero at $0$, we find that $0$ is an isolated zero of $f$.
 
@@ -4089,7 +4094,7 @@ i r^{n+1}
 \int_0^{2\pi}
 e^{i(n+1)t} \, dt .
 \end{equation*}
-The result follows as the integral on the right-hand side above is zero
+The result follows as the integral on the right-hand side is zero
 (write it in terms of sines and cosines, exercise below) unless $n+1 = 0$,
 in which case, the integral 
 is $2\pi$ and $r^{n+1} = 1$.  Note in particular that the value of the
@@ -4107,7 +4112,7 @@ Compute $\int_\gamma \bar{z}^n \, dz$ for all $n \in \Z$ and $\gamma$ as in
 \end{exercise}
 \end{exbox}
 
-Our line integral definition above is equivalent to the definition you
+Our definition of the line integral is equivalent to the definition you
 have seen in multivariable calculus.  Actually it is a special case of it.
 Let $\gamma(t) = \bigl( x(t), y(t) \bigr)$, for $t \in [a,b]$, be a path,
 and let $dz = dx + i\, dy$.
@@ -4522,7 +4527,7 @@ prevents $\gamma$ being constant.
 \end{exercise}
 \end{exbox}
 
-Using \exerciseref{exercise:pathsum} above,
+Using \exerciseref{exercise:pathsum},
 we can assume that any chain that is put together
 from connecting paths can be converted and integrated as a single path,
 and so in the sequel we may do this procedure implicitly.
@@ -5167,7 +5172,7 @@ $\int_\Gamma f(z) \, d\bar{z} = 0$.
 \end{exercise}
 \end{exbox}
 
-\begin{remark}
+\begin{remark}\label{remark:irrotvfield}
 A complex-valued function can be thought of as a vector-field on $\R^2$.
 \corref{cor:primitiveinstarlike}
 is in fact a special case of a theorem you have seen
@@ -5186,7 +5191,8 @@ vector calculus analogues.
 
 \begin{exbox}
 \begin{exercise}
-Use the result on irrotational vector fields above to prove 
+Use the result on irrotational vector fields from
+\remarkref{remark:irrotvfield} to prove 
 \corref{cor:primitiveinstarlike}.
 Assume you know that holomorphic functions are $C^1$.
 \end{exercise}
@@ -5926,7 +5932,12 @@ the identity theorem (\thmref{thm:identity}) implies that $f$ is constant in
 $U$.
 \end{proof}
 
+We will find much use of the following version: If $f$
+is holomorphic on a bounded $U$ and continuous on $\widebar{U}$,
+then $\sabs{f}$ achieves a maximum on the boundary $\partial U$.
+
 \begin{cor}[Maximum modulus principle, part deux]
+\label{cor:maxmodprincpartdeux}
 \index{maximum modulus principle}%
 \index{maximum principle!holomorphic functions}%
 Suppose $U \subset \C$ is nonempty, open, and bounded (so $\widebar{U}$ is compact).
@@ -5941,9 +5952,8 @@ other words,
 
 \begin{exbox}
 \begin{exercise}
-Prove the second version of the maximum modulus principle above.
-That is for a bounded $U$ a holomorphic $f$ continuous
-on $\widebar{U}$ achieves a maximum on $\partial U$.
+Prove the second version of the maximum modulus principle,
+that is, prove \corref{cor:maxmodprincpartdeux}.
 \end{exercise}
 
 \begin{exercise}[Minimum modulus principle]\index{minimum modulus principle}
@@ -6008,7 +6018,6 @@ the Cauchy integral formula obtains an estimate on the size of the
 coefficients of the power series.  These estimates immediately give
 Liouville's theorem on entire holomorphic functions, which at once gives the
 fundamental theorem of algebra.
-
 Some analysts like to make fun of algebraists at this stage, saying that the
 standard proof of their fundamental theorem uses analysis.
 One can take this even further.
@@ -6254,9 +6263,8 @@ h(z)
 = \int_0^1 0 \, dt = 0.
 \end{equation*}
 We used Fubini's theorem to swap the integrals:
-The integral over $\partial T$ is an integral over a compact interval,
-$[0,1]$ is also compact,
-the integrand is continuous, and hence bounded, so Fubini applies.
+The integral over $\partial T$ is really an integral over an interval
+and the integrand is continuous, so Fubini applies.
 Morera's theorem now says that $h(z)$ is
 holomorphic.
 \end{proof}
@@ -7137,7 +7145,7 @@ Find an explicit $\gamma$ that achieves each of these possibilities.
 
 OK.  Let's get more rigorous.
 
-\begin{defn}
+\begin{defn}\label{defn:windingnumber}
 Let $\Gamma$ be
 a cycle,
 and $p \notin \Gamma$.  Then
@@ -7393,14 +7401,14 @@ holomorphic at $z=\zeta$.
 \end{exbox}
 
 Let
-\begin{equation*}
+\begin{equation}\label{eq:CIFdefofh}
 h(z) = 
 \begin{cases}
 \int_\Gamma g(\zeta,z) \, d\zeta & \text{if } z \in U , \\
 \int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta & \text{if } z \not \in
 \Gamma \text{ and } n(\Gamma;z) = 0 .
 \end{cases}
-\end{equation*}
+\end{equation}
 As $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$
 ($\Gamma$ is homologous to zero)
 the function $h(z)$ is defined for every $z \in \C$.
@@ -7430,7 +7438,8 @@ in a neighborhood of any point.
 The set where $n(\Gamma;z) = 0$ is open as it is a
 union of topological components of $\C \setminus \Gamma$.
 So each point has a neighborhood where $h$ is defined
-entirely by one or the other expression above.  Given any point,
+entirely by one or the other expression in \eqref{eq:CIFdefofh}.
+Given any point,
 take a neighborhood where one of the expressions defines
 $h$ and apply \corref{cor:holfuncbyintegral}.
 
@@ -8488,9 +8497,9 @@ L_j\bigl(\gamma(t_{j-1})\bigr)
 \end{proof}
 
 The lemma allows us to define the winding number for continuous closed paths
-by simply using $\theta$ from the lemma above.  The ``Furthermore'' part of the
+by simply using the given $\theta$.  The ``Furthermore'' part of the
 lemma makes sure that the following definition agrees with our previous
-definition.
+definition (\defnref{defn:windingnumber}).
 
 \begin{defn}
 Let $\gamma \colon [a,b] \to \C$ be continuous, $\gamma(a) = \gamma(b)$, and
@@ -8863,7 +8872,7 @@ dA .
 
 If $f$ is holomorphic, then the second term is zero, and we
 obtain the standard Cauchy integral formula.
-Note that we have cheated above.  The
+Note that we cheated a little bit in the statement.  The
 integral on the right-hand side is not an integral of a continuous function.
 There is a singularity, but it turns out that it is still integrable.  That
 is, we write the improper integral
@@ -8885,7 +8894,7 @@ That the integral exists is left as an exercise.
 \begin{exercise}
 Observe the singularity in the second term of the Cauchy--Pompeiu formula,
 and prove that the integral still makes
-sense (the function is integrable).  Hint: polar coordinates.
+sense (the function is integrable).  Hint: Use polar coordinates.
 \end{exercise}
 
 \begin{exercise}
@@ -8976,7 +8985,7 @@ dA
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Domains with piecewise-$C^1$ boundary *}
+\section{Domains with piecewise-\texorpdfstring{$C^1$}{C1} boundary *}
 
 The way Green's theorem, and hence Cauchy's theorem is often given, and
 the way it is most often used is for a domain with piecewise-$C^1$
@@ -9236,6 +9245,7 @@ For example, let us state the Green's theorem in the short version
 as in \exerciseref{exercise:shortgreen} for brevity.
 
 \begin{thm}[Green's theorem] \label{thm:greens2}
+\pagebreak[2]
 Let $U \subset \C$ be a bounded open set with
 piecewise-$C^1$ boundary oriented positively.
 If $F$ is a continuously differentiable function defined in a neighborhood
@@ -9259,14 +9269,15 @@ right-hand side to be integrable.
 \begin{exercise}
 If one uses the Lebesgue integral, or a carefully defined improper integral,
 we can easily reduce the regularity of $F$ needed in Green's theorem above.
-Let $U$ be as in the theorem but obtain the conclusion with the
+Using the theorem, obtain the conclusion with the
 assumption on $F$ being that $F$ is continuous on $\widebar{U}$,
 continuously differentiable on $U$ with bounded partial derivatives on $U$.
 \end{exercise}
 
 \begin{exercise}
 Suppose we drop the requirement that each point in $\partial U$ is in the
-closure of $\C \setminus \widebar{U}$.  Find an explicit counterexample to
+closure of $\C \setminus \widebar{U}$ but require only that $\partial U$ is still
+composed of piecewise-$C^1$ curves (and still bounded).  Find an explicit counterexample to
 the Green's theorem as given above.  Hint: Consider the boundary being two
 circles, and one of these circles is not in the closure of 
 $\C \setminus \widebar{U}$.
@@ -9795,9 +9806,9 @@ singularity, as it is defined by a power series.
 
 For entire functions, we can talk about the ``singularity at infinity.''
 If we think of $\C \subset \C_\infty$, then this makes perfect sense.
-The mapping $z \mapsto \frac{1}{z}$ is a self-mapping of the Riemann
+The mapping $z \mapsto \nicefrac{1}{z}$ is a self-mapping of the Riemann
 sphere $\C_\infty$ that takes infinity to zero.  Given $f \colon \C \to
-\C$, the function $z \mapsto f\bigl( \frac{1}{z} \bigr)$ has an isolated
+\C$, the function $z \mapsto f\bigl( \nicefrac{1}{z} \bigr)$ has an isolated
 singularity at the origin, and that is the singularity at infinity
 of $f$.  That's exactly what happened with $e^{1/z}$ above.  The function
 $e^z$ has an essential singularity at infinity.
@@ -10037,9 +10048,9 @@ Show that an injective holomorphic $f \colon \C_\infty \to \C_\infty$ is an LFT.
 If $f$ has an isolated singularity at $p$,
 we expand
 $f$ in the Laurent series on $\Delta_r(p) \setminus \{ p \}$:
-\begin{equation*}
+\begin{equation} \label{eq:laurentser}
 f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
-\end{equation*}
+\end{equation}
 The only power ${(z-p)}^n$ that does not have a primitive in
 $\Delta_r(p) \setminus \{ p \}$ is ${(z-p)}^{-1}$.  It is the only power
 a line integral of $f$ around $p$ ``sees,'' that is, it is
@@ -10057,7 +10068,7 @@ Let the \emph{\myindex{residue}} of $f$ at $p$ be
 \operatorname{Res}(f;p) = c_{-1} ,
 \end{equation*}
 where $c_{-1}$ is the coefficient of ${(z-p)}^{-1}$ in the Laurent series
-expansion as above in a punctured disc $\Delta_r(p) \setminus \{ p \}$.
+expansion \eqref{eq:laurentser} in a punctured disc $\Delta_r(p) \setminus \{ p \}$.
 \end{defn}
 
 We know how to compute $c_{-1}$: for any small enough $s > 0$,
@@ -12273,8 +12284,8 @@ take the whole thing back to $U$.
 
 \begin{exbox}
 \begin{exercise}
-Without using the Riemann mapping theorem, the corollary above or mapping to
-the disc in any way, prove by constructing an explicit homotopy
+Without using the Riemann mapping theorem, \corref{cor:simplyconnhard},
+or mapping to the disc in any way, prove by constructing an explicit homotopy
 that the slit plane $\C \setminus (-\infty,0]$ is simply connected in
 the sense of homotopy, see the proof of the corollary.
 \end{exercise}
@@ -12904,7 +12915,7 @@ is the real part of a holomorphic polynomial.
 % Best for this to be the last in this exbox,
 % so that the footnote (due to the savenotes) appears
 % (most likely) on the right page.
-\begin{exercise}
+\begin{exercise}\label{exercise:Liouvilleharmonic}
 \pagebreak[2]
 Prove the Liouville\footnote{%
 See
@@ -12922,9 +12933,9 @@ and nonnegative, then $f$ is constant.
 \end{savenotes}
 
 \begin{remark}
-As in the Liouville theorem exercise above,
+As in \exerciseref{exercise:Liouvilleharmonic},
 the analogue of ``bounded'' for holomorphic functions is ``nonnegative''
-for harmonic functions.  If $f$ is
+for harmonic functions.  Afterall, if $f$ is
 a bounded holomorphic function, then $\log \sabs{f(z)+M}$ or $\Re f(z) + M$
 is nonnegative for large enough $M$.  Conversely if $\log \sabs{f(z)} \geq
 0$, then $\frac{1}{f(z)}$ is bounded, and if $\Re f(z) \geq 0$, then
@@ -13106,7 +13117,7 @@ z \mapsto \frac{1}{2\pi} \Re \left(
 \label{fig:poissongraph}}
 \end{myfig}
 
-\begin{prop}
+\begin{prop}\label{prop:Poissonprops}
 \leavevmode
 \begin{enumerate}[(i)]
 \item
@@ -13261,15 +13272,15 @@ $u$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
 As $u$ is uniformly continuous on $\partial \D$, consider $\delta > 0$
 small enough so that $\babs{u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta})} <
 \nicefrac{\epsilon}{2}$ whenever $\sabs{t} < \delta$.
-Using the proposition above, there exists
+\propref{prop:Poissonprops} says there exists
 a $\delta' > 0$ such that if  
 $1-\delta' < r < 1$, then
 $0 < P_r(t) < \frac{\epsilon}{8M\pi}$
 whenever $\delta \leq \sabs{t} \leq \pi$.
 
 Since
-$\int_{-\pi}^\pi P_r(t) \, dt = 1$,
-we have\footnote{This is a trick you see all the time in analysis, it is good to
+$\int_{-\pi}^\pi P_r(t) \, dt = 1$,%
+\footnote{This is a trick you see all the time in analysis, it is good to
 remember it.}
 \begin{equation*}
 u(e^{i\theta})=
@@ -13643,7 +13654,7 @@ somewhere on $\Delta_s(q)$, let $\varphi$ achieve a maximum at $p \in
 The set $X \subset \Delta_s(q)$ where $\varphi(z) = \varphi(p)$ is compact.
 Assume $p$ is the point on $X$ closest to
 $\partial \Delta_s(q)$.  For some small $r < R_p$, the circle
-$\partial \Delta_r(p) \subset \Delta_s(q)$ and for an open subset
+$\partial \Delta_r(p) \subset \Delta_s(q)$ and for a nonempty open subset
 of $\partial \Delta_r(p)$ the function $\varphi$ must be less than some fixed
 constant less than $\varphi(p)$.  See \figureref{fig:meanvalue}.
 
@@ -13854,7 +13865,7 @@ Consider the function $f(z) = \Re \frac{1+z}{1-z}$.  Except for the
 $\frac{1}{2\pi}$ it is the Poisson kernel and so 
 $f(z) > 0$ on $\D$.  Note that $f(0)=1$.  Plugging in $z=r$ we get
 equality in the right-hand inequality above, and plugging in $z=-r$
-we get inequality in the left-hand inequality above.  In other words
+we get equality in the left-hand inequality above.  In other words,
 the two constants
 $\frac{R-r}{R+r}$ and $\frac{R+r}{R-r}$ are optimal.
 
@@ -14346,7 +14357,7 @@ on $\R \cap \bigl( \D \setminus \{ 0 \} \bigr)$.
 \item
 Show that $f$ has a harmonic conjugate in $\D \setminus \{ 0 \}$.
 \item
-Find an example $f$ as above that does not extend to be harmonic through the origin.
+Find an example $f$ that does not extend to be harmonic through the origin.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -14365,7 +14376,8 @@ hard to solve, by inequalities, which are easier to work with.
 \subsection{Basic properties}
 
 Recall that $f \colon U \to \R \cup \{ -\infty \}$
-is \emph{\myindex{upper-semicontinuous}}
+is \emph{\myindex{upper-semicontinuous}}\footnote{%
+We do not require $U$ to be open for semicontinuity.}
 if 
 \begin{equation*}
 \limsup_{\zeta \to z} f(\zeta) \leq f(z) \quad \text{ for all } z \in U.
@@ -14416,18 +14428,28 @@ are also much easier to draw than functions on $\C$.
 \end{myfig}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}\label{exercise:uppersemicontclosedopen}
 %FIXME: mark needed/used exercises
-Prove that given an upper-semicontinuous function $f \colon U \to \R \cup
-\{-\infty\}$,
+Consider $f \colon U \to \R \cup \{-\infty\}$.
+\begin{exparts}
+\item
+Prove that $f$ is upper-semicontinuous if and only if
+for every $a \in \R$
+the set
+$V = f^{-1}\bigl([-\infty,a)\bigr) = \bigl\{ z \in U : f(z) < a \bigr\}$
+is open (in the subspace topology of $U$).
+\item
+Prove that $f$ is upper-semicontinuous if and only if
+for every $a \in \R$
 the set
 $X = f^{-1}\bigl([a,+\infty)\bigr) = \bigl\{ z \in U : f(z) \geq a \bigr\}$
 is closed (in the subspace topology of $U$).
+\end{exparts}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:uppersemicontmax}
 %FIXME: mark needed/used exercises
-Prove that an upper-semicontinuous function achieves a maximum on compact sets.
+Prove that an upper-semicontinuous function defined on a compact set achieves a maximum.
 \end{exercise}
 
 \begin{exercise}
@@ -14523,7 +14545,7 @@ f(p) \leq g(p) =
 \end{equation*}
 
 For the converse,
-suppose that $f$ is upper semicontinuous and
+suppose that $f$ is upper-semicontinuous and
 the estimate holds for all $p$ and all $r < R_p$.
 Suppose for contradiction that
 there exists a closed disc 
@@ -14531,18 +14553,23 @@ $\overline{\Delta_s(q)} \subset U$ and a continuous
 $h \colon \overline{\Delta_s(q)} \to \R$, harmonic in $\Delta_s(q)$,
 such that $f(z) \leq h(z)$ on $\partial \Delta_s(q)$ and
 $h(p) < f(p)$ at some point $p \in \Delta_s(q)$.
-Let $\varphi = f-h$, then $\varphi(p) > 0$ and $\varphi(z) \leq 0$
+Consider $\varphi = f-h$, which is upper-semicontinuous
+on $\overline{\Delta_s(q)}$.
+Let $p$ be the point where $\varphi$ attains the maximum 
+(see \exerciseref{exercise:uppersemicontmax}).
+Then $p \in \Delta_s(q)$ and 
+$\varphi(p) > 0$ and $\varphi(z) \leq 0$
 for all $z \in \partial \Delta_s(q)$.  The set
 $X \subset \Delta_s(q)$ where $\varphi(z) = \varphi(p)$ is compact
 (as a subset of $\overline{\Delta_s(q)}$ it is closed via
-an exercise above).
-We could thus assume that $p$ is the point of $X$ closest to
-$\partial \Delta_s(q)$.  For some small $r < R_p$ such that
-$\partial \Delta_r(p) \subset \Delta_s(q)$,
-the function $\varphi$ must be less than some fixed
-constant that is strictly less than $\varphi(p)$
-on a nonempty open subset of
-$\partial \Delta_r(p)$.
+\exerciseref{exercise:uppersemicontclosedopen}).
+Assume $p$ is the point of $X$ closest to
+$\partial \Delta_s(q)$.
+For some small $r < R_p$, the circle
+$\partial \Delta_r(p) \subset \Delta_s(q)$ and for a nonempty open subset
+of $\partial \Delta_r(p)$ the function $\varphi$ must be less than some fixed
+constant less than $\varphi(p)$.  This again follows via 
+\exerciseref{exercise:uppersemicontclosedopen}.
 The setup is the same as in \figureref{fig:meanvalue}.  So,
 \begin{equation*}
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} \varphi(p+re^{i\theta})\, d\theta <
@@ -14575,6 +14602,12 @@ Then
 Prove the proposition.
 \end{exercise}
 \end{exbox}
+
+When we said that the maximum principle was really something about harmonic
+functions, we lied.  It is really there because harmonic functions are
+subharmonic.  Be careful however, there is no minimum principle for
+subharmonic functions.  To get a minimum principle you look at superharmonic
+functions.
 
 \begin{thm}[Maximum principle]
 \index{maximum principle!subharmonic functions}
@@ -14627,9 +14660,22 @@ such that $g(z) \leq g_\epsilon(z) \leq g(z)+\epsilon$ for all $z \in
 In particular, to test subharmonicity, we only need to consider those
 $g$ that are harmonic a bit past the boundary of the disc.
 \end{exercise}
+
+\begin{exercise}
+Prove the minimum principle for superharmonic functions ($f$ is
+superharmonic if $-f$ is subharmonic).  That is, if a superharmonic function
+defined on a domain $U$ achieves a local minimum inside $U$, then it is
+constant.
+\end{exercise}
 \end{exbox}
 
-\begin{prop}
+To continue the analogy to convex functions, a $C^2$ function $f$ of one
+real variable is convex if and only if $f''(x) \geq 0$ for all $x$.
+We obtain the same kind of result for subharmonic functions 
+by replacing $f''$ by the Laplacian as before.
+
+
+\begin{prop} \label{prop:C2subharmonic}
 Suppose $U \subset \C$ is an open set and $f \colon U \to \R$ is a $C^2$
 (twice continuously differentiable) function.
 The function $f$ is subharmonic if and only if
@@ -14671,15 +14717,13 @@ The other direction is left as an exercise.
 
 \begin{exbox}
 \begin{exercise}
-Finish the proof of the proposition above.
+Finish the proof of \propref{prop:C2subharmonic}.
 \end{exercise}
 \end{exbox}
 
-In analogy to convex functions, a $C^2$ function $f$ of one
-real variable is convex if and only if $f''(x) \geq 0$ for all $x$.
-
-Similarly as for convex functions,
-the supremum of subharmonic functions is subharmonic, as long as we
+The supremum of convex functions is convex.
+Similarly,
+the supremum of subharmonic functions is subharmonic, as long as
 the supremum is upper-semicontinuous.  We can therefore ``piece together''
 many subharmonic functions by taking suprema.
 
@@ -14750,12 +14794,12 @@ as we are interested in proving results for holomorphic functions.
 However, harmonic functions are very rigid, they cannot be ``put together''
 easily.  Furthermore, there aren't that many of them.  There are a lot of
 subharmonic functions.
-An example of the use of subharmonic functions in
-complex analysis is the theorem of 
+An example of the use of subharmonic functions to
+the theory of holomorphic functions is the theorem of 
 Rad\'o, which is a complementary result to the Riemann extension theorem.
 Here, on the one hand, the function is
 continuous and vanishes on the set you wish to extend across, but on the
-other hand you know nothing about this set.
+other hand you know nothing about the size of this set.
 
 \begin{thm}[Rad\'o]\index{Rad\'o's theorem}\label{thm:rado}
 Let $U \subset \C$ be open and $f \colon U \to \C$ a continuous
@@ -15085,8 +15129,8 @@ exists a $j$ such that $a_j=-1$.
 \end{prop}
 
 \begin{proof}
-In the proof of the proposition above, we
-noticed that $\Re a_j > -1$ for all large enough $j$.  The product
+As before, as $\sabs{a_j}$ goes to zero,
+$\Re a_j > -1$ for all large enough $j$.  The product
 of those terms converges to a nonzero number by the ``Moreover'' part of the
 proposition.  The only way to get zero as a limit is for one of the initial
 terms to be zero, that is, if $a_j=-1$ for some $j$.
@@ -15362,7 +15406,7 @@ By \lemmaref{lemma:elemfactbound},
 \abs{\frac{r}{a_n}}^{\ell_n+1} .
 \end{equation*}
 Thus the series converges as its tail converges.  The convergence
-is uniform in $K$, as the right-hand side above does not depend on $z$.
+is uniform in $K$, as the far right-hand side above does not depend on $z$.
 \end{proof}
 
 There are many choices for the sequence $\{ \ell_n \}$.  The proof says
@@ -15862,8 +15906,8 @@ the function is not holomorphic on $\D$, it cannot be a
 uniform limit of holomorphic polynomials on $\overline{\D}$.
 \end{example}
 
-From now on, all polynomials will be polynomials in $z$, as they were
-up until the example above in fact.  So when we say polynomial, it will be
+From now on, all polynomials will again be polynomials in $z$, as they were
+up until the example above.  So when we say polynomial, it will be
 a polynomial in $z$, in other words, a holomorphic polynomial.
 
 A function holomorphic on a disc $\Delta_r(p)$ is limit of the partial sums
@@ -16424,7 +16468,7 @@ They are given simply by a topological property: The polynomial
 hull just ``fills in the holes.''
 
 
-\begin{thm}
+\begin{thm}\label{thm:polyhull}
 Suppose $K \subset \C$ is compact and $X$ is the unbounded component of
 $\C \setminus K$.  Then $\widehat{K} = \C \setminus X$.
 \end{thm}
@@ -16497,8 +16541,8 @@ a sequence of polynomials $\{ P_n \}$ converging uniformly to $f$ on compact
 subsets.
 By the proposition the sequence converges uniformly on $\widehat{K}$.
 Thus it converges to a holomorphic function on
-$g$ defined on $U \cup \widehat{K}$, which is an open set by the theorem
-above, and it is connected as each component of $\C \setminus K$ we added
+$g$ defined on $U \cup \widehat{K}$, which is an open set by
+\thmref{thm:polyhull}, and it is connected as each component of $\C \setminus K$ we added
 has boundary in $U$, which is connected.
 The function $f$ is defined on $\C \setminus \{ p \}$,
 and the boundary of the component of $\C \setminus K$ that includes $p$ must
@@ -16512,7 +16556,7 @@ has a component $K$ that does not include $\infty$.  The set $K$ is compact.
 By \lemmaref{lemma:patharoundK}, there exists a cycle $\Gamma$ 
 in $U$ such that $n(\Gamma;z) = 1$ on $K$.  That means that $K$ is
 not in the unbounded component of $\C \setminus \Gamma$ (by
-\propref{prop:windingconstant}).  By the theorem above,
+\propref{prop:windingconstant}).  By \thmref{thm:polyhull},
 $K \subset \widehat{\Gamma}$.
 This contradicts $U$ being polynomially convex.  Thus the only component of $\C_\infty
 \setminus U$ is the one that contains $\infty$ and so $U$ is simply
@@ -16669,9 +16713,8 @@ $P_p$ at $p$.
 \end{proof}
 
 \begin{example}
-Sometimes one gets convergence just by grouping the terms correctly.
-In
-other words, given the right $\{ K_n \}$ one can even choose $R_n = 0$.  
+Sometimes convergence happens simply by grouping the terms correctly.
+In other words, given the right $\{ K_n \}$ one can choose $R_n = 0$.  
 Suppose we want a function with a poles at all $n \in \Z$ with
 singular parts $\frac{1}{z-n}$.  Unfortunately
 \begin{equation*}
