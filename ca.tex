@@ -3840,8 +3840,9 @@ In other words, all points of $Z_f$ are isolated unless $f \equiv 0$.
 The points in the set $Z_f$ are called the \emph{zeros}\index{zero} of $f$.
 \end{defn}
 
-The first common application of this theorem is that the zeros of
-nonconstant functions are isolated.  That is, if $f(p)=0$, but $f$ is not
+The ``In other words'' bit is
+one consequence of this theorem that we will use very often.  More
+concretely, if $f(p)=0$, but $f$ is not
 identically zero, then there is a disc $\Delta_r(p)$ such that $f(z) \not=
 0$ for all $z \in \Delta_r(p) \setminus \{ 0 \}$.
 
@@ -3881,15 +3882,17 @@ Thus all points of $Z_f$ are isolated.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ and $g \colon U \to
-\C$ are
-analytic, and the set $\bigl\{ z \in U : f(z) = g(z) \bigr\}$ has a limit
-point in $U$.  Prove that $f \equiv g$.
+Suppose $U \subset \C$ is a domain,
+$f \colon U \to \C$ and $g \colon U \to \C$ are analytic,
+and the set $\bigl\{ z \in U : f(z) = g(z) \bigr\}$ has a limit
+point in $U$.
+Prove that $f \equiv g$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
-\C$ are analytic such that $f(z)g(z) = 0$ for all $z \in U$.
+Suppose $U \subset \C$ is a domain,
+$f \colon U \to \C$ and $g \colon U \to \C$ are analytic,
+and $f(z)g(z) = 0$ for all $z \in U$.
 Prove that either $f$ or $g$ is identically zero.
 (In other words, the ring of holomorphic functions on $U$ is an integral
 domain.)
@@ -3908,7 +3911,7 @@ we know $f$ on all of $U$.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ and $g \colon U \to
+Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ and $g \colon U \to
 \C$ are analytic, and $p \in U$.  Suppose that $f^{(k)}(p) = g^{(k)}(p)$
 for $k=0,1,2,\ldots$.  Prove that $f \equiv g$.
 \end{exercise}
@@ -3920,8 +3923,9 @@ all $z$ in a neighborhood of some $z_0 \in U$, then $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is a domain, $a, b, c \in \C$, $z_0 \in U$, show that
-an analytic solution $f$ on $U$ to a linear equation $f'(z) = a f(z) + b$
+Suppose $U \subset \C$ is a domain, $a, b, c \in \C$, and $z_0 \in U$.
+Show that
+an analytic solution $f$ on $U$ to the linear equation $f'(z) = a f(z) + b$
 given $f(z_0) = c$ is unique if it exists.
 \end{exercise}
 \end{exbox}
@@ -4151,12 +4155,13 @@ can be computed if you only know how to compute integrals of the form $\int_\gam
 \end{exbox}
 
 The value of the integral does not depend on how we parametrize the image of
-the path, except it does depend on orientation.  It is easy to see why if
+the path, except that it does depend on orientation (which direction we
+went).  It is easy to see why when
 $\gamma \colon [a,b] \to \C$ is continuously differentiable and we have
 an increasing continuously differentiable $h \colon [c,d] \to [a,b]$ such
 that $h(c)=a$ and $h(d) = b$.  Then $\gamma \circ h$ is a new
 smooth path that is a different parametrization of $\gamma$.
-Change of variable $t=h(s)$ from calculus then says
+Change of variable $t=h(s)$ from calculus says
 \begin{equation*}
 \begin{split}
 \int_{\gamma} f(z) \, dz
@@ -4170,7 +4175,7 @@ Change of variable $t=h(s)$ from calculus then says
 \end{split}
 \end{equation*}
 If, on the other hand, $h$ is decreasing and $h(c)=b$ and $h(d)=a$, then the
-sign changes in the change of variables and
+sign flips in the change of variables and
 \begin{equation*}
 \int_{\gamma} f(z) \, dz =
 - \int_{\gamma \circ h} f(z) \, dz.
@@ -4273,8 +4278,8 @@ as the set
 $\gamma\bigl([a,b]\bigr)$,
 not the parametrization, and where the path is $C^1$
 we want it to not have ``corners.''
-In practical terms, we won't really use that the derivative never vanishes,
-but we lose nothing of real value by the extra requirement.
+In practical terms, we don't often use this requirement,
+but it does make some more geometric arguments quite a bit simpler.
 \end{remark}
 
 Due to the reparametrization result above,
@@ -13588,6 +13593,26 @@ Prove that if $U$ is bounded, then there are no Martin functions on $U$.
 Prove that if $f$ is a Martin function on $\bH$, then $f$ is unbounded.
 \end{exparts}
 \end{exercise}
+
+\begin{exercise}
+Suppose $0 < r < 1$.
+\begin{exparts}
+\item
+Prove that if $f \colon \D \to \R$ is harmonic, then
+$f\bigl(\nicefrac{z}{\sabs{z}}\bigr)$ is harmonic in $\C \setminus
+\overline{\D}$.
+\item
+By providing an explicit formula show that the Dirichlet problem is solvable
+on $\ann(0;r,1)$, that is for any continuous function $u$ on
+$\partial \ann(0;r,1)$, there is a harmonic function on $\ann(0;r,1)$
+continuous on $\overline{\ann(0;r,1)}$ that agrees with $u$ on the boundary.
+Remark: In \exerciseref{exercise:nodirichletsolpuncturedD} you will show
+that the Dirichlet problem is not solvable if $r=0$ (the punctured disc).
+\item
+Guess an explicit solution to the Dirichlet problem that is $0$ when $\sabs{z}=1$ and
+that is $1$ when $\sabs{z}=r$.
+\end{exparts}
+\end{exercise}
 \end{exbox}
 
 \subsection{Mean-value property}
@@ -14009,8 +14034,9 @@ and nonnegative, then $f$ is constant.
 
 \subsection{Harnack's principle}
 
-Using Harnack's inequality we have the following theorem on increasing 
-sequences of harmonic functions.  This theorem is variously called
+Harnack's inequality yields that increasing 
+sequences of harmonic functions converge to harmonic functions.
+This theorem is variously called
 Harnack's principle or Harnack's second theorem.
 
 \begin{thm}[Harnack's principle]
@@ -14056,6 +14082,14 @@ uniformly on $K$ to $f$.  Furthermore, $f$ is harmonic by
 Harnack's first theorem, 
 \thmref{thm:harnack1}.
 \end{proof}
+
+Another way of stating Harnack's principle is for a sequence of positive functions less
+than some fixed harmonic function $f$.  If the sequence converges to $f$ at
+one point, it converges uniformly on compact subsets.  Moreover, as positive
+harmonic functions are the harmonic analogues of bounded holomorphic
+functions, we expect a version of Montel's theorem for positive harmonic
+functions, and Harnack delivers that as well.  We leave both proofs as
+exercises.
 
 \begin{exbox}
 \begin{exercise}
@@ -14243,7 +14277,7 @@ Prove that a holomorphic $f \colon \Delta_r(p) \setminus \{ p \} \to \C$
 such that the real part of $f$ is bounded has a removable singularity at $p$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:nodirichletsolpuncturedD}
 Prove that the Dirichlet problem is not solvable in the punctured disc $\D
 \setminus \{ 0 \}$.
 \end{exercise}
@@ -14261,7 +14295,7 @@ functions, but it is also a theorem for harmonic functions.
 We will prove the corresponding holomorphic version
 (\thmref{thm:schwarzreflectionholo}) later separately.
 
-Basically it says that if a harmonic function vanishes on a nice enough
+Basically the reflection principle says that if a harmonic function vanishes on a nice enough
 curve---such as the real line---then it extends (reflects) across.
 
 \begin{thm}[Schwarz reflection principle for harmonic functions]
@@ -14321,13 +14355,14 @@ $\partial \Delta_r(z)$ where $\overline{\Delta_r(z)} \subset U$:
 =
 0 .
 \end{equation*}
-In other words the mean value equals $F(z) = 0$.
-So the mean-value property is satisfied for all small enough
-$r$ at all the $z \in L$.  The mean-value property
-is also satisfied for small enough
-$r$ around any other point since $F$ is harmonic on the open set $U
-\setminus L$.
-Thus, by the mean-value property (\thmref{thm:meanprop}), $F$ is harmonic in $U$.
+In other words, the mean value equals $F(z) = 0$,
+and the mean-value property is satisfied for all small enough
+$r$ at every $z \in L$.
+We proved above that $F$ is harmonic on $U \setminus L$ and
+so the mean-value property
+is satisfied for all small enough
+$r$ around any of $U \setminus L$ as well.
+By the mean-value property (\thmref{thm:meanprop}), $F$ is harmonic in $U$.
 \end{proof}
 
 \begin{exbox}
