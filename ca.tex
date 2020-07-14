@@ -1466,9 +1466,11 @@ $\Phi \colon S^2 \to \C_\infty$.  This map is called the
 \figureref{fig:riemannsphere}.
 The map is bijective (exercise below),
 and so define a metric on $\C_\infty$ by
-using a metric on $S^2$, which can be say the subspace
-metric coming from the euclidean metric on $\R^3$ (another possibility
-could be the great circle distance, \exampleref{ms:greatcircle}).
+using a metric on $S^2$, which can be the subspace
+metric coming from the euclidean metric on $\R^3$.
+Another possibility
+could be the great circle distance, \exampleref{ms:greatcircle}, both
+distances would lead to the same topology and so the same limits.
 
 \begin{myfig}
 \includegraphics{figures/riemannsphere}
@@ -3900,7 +3902,7 @@ domain.)
 
 \begin{exercise}
 Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ is
-analytic and not constant.  Show that if $K \subset U$ is compact
+analytic and not constant.  Show that if $K \subset U$ is compact,
 then $Z_f \cap K$ is finite.
 \end{exercise}
 \end{exbox}
@@ -4982,9 +4984,9 @@ exercise).
 \end{exercise}
 
 \begin{exercise}
-Union of convex sets is normally not convex, but if $\{ X_j \}$ is a
-sequence of convex sets such that $X_j \subset X_{j+1}$, then
-prove that the union $\bigcup_j X_j$ is convex.
+Union of convex sets is normally not convex, but if $\{ X_n \}$ is a
+sequence of convex sets such that $X_n \subset X_{n+1}$, then
+prove that the union $\bigcup_n X_n$ is convex.
 \end{exercise}
 \end{exbox}
 
@@ -5164,7 +5166,7 @@ dx = \pi$.  Compute $\int_\gamma f(z^2) \, dz$.
 \begin{exercise}
 Suppose $U_1, U_2 \subset \C$ are star-like domains such that $U_1 \cap U_2$
 is connected.  Prove Cauchy's theorem for $U = U_1 \cup U_2$, that is,
-if $f \colon U \to \C$ is holomorphic and $\Gamma$ is a cycle in $U$
+if $f \colon U \to \C$ is holomorphic and $\Gamma$ is a cycle in $U$,
 then $\int_\Gamma f(z) \, dz = 0$.
 \end{exercise}
 
@@ -6192,7 +6194,7 @@ Liouville says that $R(z)$ and therefore $P(z)$ must be constant.
 \begin{exercise}
 Prove that a polynomial $P(z)$ of degree $d$ can be written as
 \begin{equation*}
-P(z) = a \prod_{j=1}^d (z-z_j) ,
+P(z) = a \prod_{n=1}^d (z-z_n) = a (z-z_1) \cdots (z-z_d),
 \end{equation*}
 for some $a \in \C$ and $z_1,\ldots,z_d \in \C$.
 Hint: Prove that $P(z_0) = 0$ implies $P(z) = Q(z) (z-z_0)$ for some
@@ -6311,7 +6313,8 @@ the Cauchy--Riemann equations
 say that $h(z)$ is holomorphic.
 \end{proof}
 
-In either case, the idea is to swap some limits, which is not always true,
+In either case, the idea is to swap some limits (something that must always
+be justified),
 and the two techniques above are the two kinds of swaps that come up most
 often (Fubini, and differentiating under the integral).  By writing each
 path in a chain as an integral of one real variable we obtain the following
@@ -6800,7 +6803,7 @@ f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} = e^{i\theta} \varphi_a(z).
 
 \begin{proof}
 Suppose $f(0) = a$.
-Consider $g = \varphi_a \circ f$, which is a biholomorphism
+Consider $g = \varphi_a \circ f$, which is a biholomorphism,
 and $g(0) = 0$ as
 $\varphi_a(a) = 0$.
 As in the proof of Schwarz's lemma, we find a holomorphic $h(z)$
@@ -6836,7 +6839,7 @@ $f(z) = \varphi_{-a}(ze^{i\theta})
 Justify the claim in the proof.  If a continuous
 $g \colon \D \to \D$ is such that $g^{-1}(K)$ is compact
 for every compact $K \subset \D$, then if $\{ z_n \}$ is a sequence
-in $\D$ such that $\sabs{z_n} \to 1$ then
+in $\D$ such that $\sabs{z_n} \to 1$, then
 $\sabs{g(z_n)} \to 1$.
 \end{exercise}
 
@@ -6910,7 +6913,7 @@ for all $z,\zeta \in \D$.
 If equality holds in one of the 
 inequalities for some $z \not= \zeta$,
 then $f$ is an automorphism of $\D$.
-Conversely if $f$ is an automorphism of $\D$
+Conversely if $f$ is an automorphism of $\D$,
 then equality holds in both inequalities for
 all $z,\zeta \in \D$.
 \end{exercise}
@@ -8257,7 +8260,7 @@ expansion in $\ann(0;1,\infty) = \C \setminus \overline{\D}$:
 \end{equation*}
 which converges in $\ann(0;1,\infty)$.
 
-Finally, while in general a Laurent series is not a power series,
+While in general a Laurent series is not a power series,
 it could very well be when all the $c_n$ for negative $n$ are zero.
 
 \medskip
@@ -9086,7 +9089,7 @@ Think about $\gamma$ oscillating wildly and going in and out of the disc.
 \end{exercise}
 
 \begin{exercise}
-Find an example injective piecewise-$C^1$ path which is not a graph of a
+Find an example injective piecewise-$C^1$ path that is not a graph of a
 function near some point, that is, an example where the second case of the
 proof is really necessary.
 \end{exercise}
@@ -9164,7 +9167,7 @@ need to show there is no other component.  Let $U$ be the component of $\C
 
 For any point $p \in \gamma$, we find a small connected open neighborhood
 $W$ such that $W \setminus \gamma$ has exactly two components.
-If $p$ is the point on the ray (the negative real axis) then one of the
+If $p$ is the point on the ray (the negative real axis), then one of the
 components of $W \setminus \gamma$ is a subset of $U$ and one of them is a
 subset of the unbounded component of $\C \setminus \gamma$.
 
@@ -9183,7 +9186,7 @@ conclusion for all $W_j$.
 In particular, $\gamma \subset \partial U$.  But as $U$ is a component of $\C
 \setminus \gamma$, we get $\partial U \subset \gamma$ and hence $\partial U =
 \gamma$.
-If $U'$ is any component of $\C \setminus \gamma$ then it must
+If $U'$ is any component of $\C \setminus \gamma$, then it must
 have nonempty boundary and $\partial U' \subset \gamma$.  But the points of
 $\gamma$ are near only points of $U$ or the unbounded component, so it must
 be that $U' = U$ or $U'$ is the unbounded component.
@@ -9577,7 +9580,7 @@ Show that $f$ is constant.
 
 \begin{exercise}
 Prove that if $f \colon \D \setminus \{ 0 \} \to \D \setminus \{ 0 \}$
-is an automorphism then $f(z) = e^{i\theta} z$ for some $\theta$.
+is an automorphism, then $f(z) = e^{i\theta} z$ for some $\theta$.
 \end{exercise}
 
 \begin{exercise}
@@ -11980,7 +11983,7 @@ bounded holomorphic function on $U$.
 Prove that there exists a holomorphic $F \colon U \to \D$
 such that
 $F'(p) \not= 0$, and if
-$f \colon U \to \D$ is holomorphic
+$f \colon U \to \D$ is holomorphic,
 then $\sabs{f'(p)} \leq \sabs{F'(p)}$.
 \item
 Prove that necessarily $F(p) = 0$.
@@ -13455,7 +13458,7 @@ what domain we were solving for.
 The Poisson kernel is also a reproducing kernel for
 holomorphic functions, as holomorphic functions are harmonic
 (their real and imaginary parts are).  That is, if $u$ gives the boundary
-values for a holomorphic function then $Pu$ will be holomorphic and it will
+values for a holomorphic function, then $Pu$ will be holomorphic and it will
 be equal to the Cauchy transform $Cu$ inside the disc.  Unlike the
 Cauchy transform, however, $Pu$ is always continuous up to the boundary given
 continuous data on the disc.  Thus, if $u$ is not the boundary value of
@@ -14988,39 +14991,39 @@ more complicated factors to make convergence happen the way we want to.
 \begin{defn}
 The product
 \begin{equation*}
-\prod_{j=1}^\infty (1+a_j)
+\prod_{n=1}^\infty (1+a_n)
 \end{equation*}
 \emph{converges}\index{converges!infinite product} if the limit of the
 sequence of \emph{\myindex{partial products}}
 \begin{equation*}
-\lim_{n\to \infty}
-\prod_{j=1}^n (1+a_j) = (1+a_1)(1+a_2) \cdots (1+a_n)
+\lim_{k\to \infty}
+\prod_{n=1}^k (1+a_n) = (1+a_1)(1+a_2) \cdots (1+a_k)
 \end{equation*}
 exists.
 The product
 \emph{converges absolutely}\index{converges absolutely!infinite product}
-if $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$
+if $\prod_{n=1}^\infty \bigl(1+\sabs{a_n}\bigr)$
 converges.
 \end{defn}
 
 A product could converge in two different ways.  It either goes to 0 or it
 does not.
-One way to go to zero is if $1+a_j=0$ for some $j$, but there
-are other possibilities.  For instance, if $\sabs{1+a_j} \leq r < 1$ for all
-$j$, then the product also goes to zero, although in this case the
+One way to go to zero is if $1+a_n=0$ for some $n$, but there
+are other possibilities.  For instance, if $\sabs{1+a_n} \leq r < 1$ for all
+$n$, then the product also goes to zero, although in this case the
 convergence will not be absolute (exercise below).
 
 Suppose that the product converges to a nonzero number.
-In particular, $a_j \not= -1$ for any $j$.  Then
+In particular, $a_n \not= -1$ for any $n$.  Then
 \begin{equation*}
 \frac{
-\prod_{j=1}^{n+1} (1+a_j)
+\prod_{n=1}^{k+1} (1+a_n)
 }{
-\prod_{j=1}^{n} (1+a_j)
+\prod_{n=1}^{k} (1+a_n)
 }
-=1+a_n
+=1+a_k
 \end{equation*}
-Taking the limit, we see that $1+a_n$ must go to 1, and so $a_n$ must go to 0.
+Taking the limit, we see that $1+a_k$ must go to 1, and so $a_k$ must go to 0.
 
 A key idea about products is to relate infinite products to sums using the
 logarithm, which is something we can easily do if dealing with positive
@@ -15028,123 +15031,123 @@ numbers.  This means that absolutely convergent products can be understood
 if we can understand absolutely convergent sums, which we do.
 
 \begin{prop} \label{prop:infprodabsconvinfsum}
-The product $\prod_{j=1}^\infty \bigl(1+\sabs{a_j}\bigr)$ converges if and only if
-$\sum_{j=1}^\infty \sabs{a_j}$ converges.
+The product $\prod_{n=1}^\infty \bigl(1+\sabs{a_n}\bigr)$ converges if and only if
+$\sum_{n=1}^\infty \sabs{a_n}$ converges.
 \end{prop}
 
 \begin{proof}
-Suppose $\sum_{j=1}^\infty \sabs{a_j}$ converges.
+Suppose $\sum_{n=1}^\infty \sabs{a_n}$ converges.
 The sequence of partial products is increasing:
 \begin{equation*}
-\prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr) \leq
-\prod_{j=1}^{n+1} \bigl(1+\sabs{a_j}\bigr) .
+\prod_{n=1}^k \bigl(1+\sabs{a_n}\bigr) \leq
+\prod_{n=1}^{k+1} \bigl(1+\sabs{a_n}\bigr) .
 \end{equation*}
 Thus it is sufficient to show that it is bounded.
 Consider
 \begin{equation*}
-\log \prod_{j=1}^n \bigl(1+\sabs{a_j}\bigr)
+\log \prod_{n=1}^k \bigl(1+\sabs{a_n}\bigr)
 =
-\sum_{j=1}^n \log \bigl(1+\sabs{a_j}\bigr)
+\sum_{n=1}^k \log \bigl(1+\sabs{a_n}\bigr)
 \leq
-\sum_{j=1}^n \sabs{a_j} \leq
-\sum_{j=1}^\infty \sabs{a_j} .
+\sum_{n=1}^k \sabs{a_n} \leq
+\sum_{n=1}^\infty \sabs{a_n} .
 \end{equation*}
 
 For the other direction, suppose that the sequence of partial products
-converges.  All but finitely many $j$, we must
-have $\sabs{a_j} < 1$.  Otherwise the product would double infinitely often and go to
-infinity.  So suppose that $\sabs{a_j} < 1$ for all $j \geq N$.
-If $\sabs{a_j} < 1$, then $\sabs{a_j} \leq 2 \log \bigl(1+\sabs{a_j}\bigr)$,
+converges.  All but finitely many $n$, we must
+have $\sabs{a_n} < 1$.  Otherwise the product would double infinitely often and go to
+infinity.  So suppose that $\sabs{a_n} < 1$ for all $n \geq N$.
+If $\sabs{a_n} < 1$, then $\sabs{a_n} \leq 2 \log \bigl(1+\sabs{a_n}\bigr)$,
 and
 \begin{equation*}
-\sum_{j=N}^n \sabs{a_j}
+\sum_{n=N}^m \sabs{a_n}
 \leq
-\sum_{j=N}^n 2 \log \bigl(1+\sabs{a_j}\bigr)
+\sum_{n=N}^m 2 \log \bigl(1+\sabs{a_n}\bigr)
 \leq
-2 \log \prod_{j=N}^n \bigl(1+\sabs{a_j}\bigr) .
+2 \log \prod_{n=N}^m \bigl(1+\sabs{a_n}\bigr) .
 \end{equation*}
-The right-hand side is bounded as $n$ goes to infinity, and so the tail of
-$\sum_{j=1}^\infty \sabs{a_j}$ converges.
+The right-hand side is bounded as $m$ goes to infinity, and so the tail of
+$\sum_{n=1}^\infty \sabs{a_n}$ converges.
 \end{proof}
 
 An immediate consequence is that if 
-$\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then
-$\{ a_j \}$ converges to $0$.  Actually much more than that, they have to
+$\prod_{n=1}^\infty (1+a_n)$ converges absolutely, then
+$\{ a_n \}$ converges to $0$.  Actually much more than that, they have to
 go to zero fast enough to be absolutely summable.
 
 As for series, we need to know that absolute convergence really is convergence.
 
 \begin{prop} \label{prop:infproductwithlogs}
-If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely, then it converges.
+If $\prod_{n=1}^\infty (1+a_n)$ converges absolutely, then it converges.
 
-Moreover, if furthermore $\Re a_j > -1$ for all $j$, then 
+Moreover, if furthermore $\Re a_n > -1$ for all $n$, then 
 \begin{equation*}
-\prod_{j=1}^\infty (1+a_j)
+\prod_{n=1}^\infty (1+a_n)
 =
 \exp\left(
-\sum_{j=1}^\infty \Log(1+a_j)
+\sum_{n=1}^\infty \Log(1+a_n)
 \right),
 \end{equation*}
-where the series converges absolutely.  In particular, the product
+and the series converges absolutely.  In particular, the product
 converges to a nonzero number.
 \end{prop}
 
 \begin{proof}
-If the product converges absolutely, then $\sabs{a_j}$ goes to $0$, and we
-may assume that $\Re a_j > -1$ for all $j$.  In particular,
-$\Log (1+a_j)$ is well-defined for the principal branch of the logarithm.
-Let $m > n$ be two positive integers.
+If the product converges absolutely, then $\sabs{a_n}$ goes to $0$, and we
+may assume that $\Re a_n > -1$ for all $n$.  In particular,
+$\Log (1+a_n)$ is well-defined for the principal branch of the logarithm.
+Let $m > k$ be two positive integers.
 \begin{multline} \label{eq:infprodest1}
 \abs{
-\sum_{j=1}^m 
-\abs{\Log (1+a_j)}
+\sum_{n=1}^m 
+\abs{\Log (1+a_n)}
 -
-\sum_{j=1}^n 
-\abs{\Log (1+a_j)}
+\sum_{n=1}^k 
+\abs{\Log (1+a_n)}
 }
 \leq
-\sum_{j=n+1}^m 
+\sum_{n=k+1}^m 
 \abs{
-\Log (1+a_j)
+\Log (1+a_n)
 }
 \\
 \leq
-\sum_{j=n+1}^m 
+\sum_{n=k+1}^m 
 \left(
-\log \sabs{1+a_j}
+\log \sabs{1+a_n}
 +
-\abs{ \Arg (1+a_j)}
+\abs{ \Arg (1+a_n)}
 \right) .
 \end{multline}
 As before,
 \begin{equation*}
-\sum_{j=1}^k \log \sabs{1+a_j} \leq
-\sum_{j=1}^k \log \bigl(1+\sabs{a_j}\bigr)
+\sum_{n=1}^\ell \log \sabs{1+a_n} \leq
+\sum_{n=1}^\ell \log \bigl(1+\sabs{a_n}\bigr)
 \leq
-\sum_{j=1}^k \sabs{a_j} ,
+\sum_{n=1}^\ell \sabs{a_n} ,
 \end{equation*}
-and this series converges via the proposition.
-Next, $\Arg(1+a_j)$ is between $\nicefrac{-\pi}{2}$ and
-$\nicefrac{\pi}{2}$, and $a_j$ is going to zero.  So for all $j$ large
-enough, $\babs{\Arg(1+a_j)} \leq 2\sabs{a_j}$.  As $\sum
-\sabs{a_j}$ converges, 
-$\sum \babs{\Arg (1+a_j)}$ converges.
+and this series on the right converges via \propref{prop:infprodabsconvinfsum}.
+Next, $\Arg(1+a_n)$ is between $\nicefrac{-\pi}{2}$ and
+$\nicefrac{\pi}{2}$, and $a_n$ is going to zero.  So for all $n$ large
+enough, $\babs{\Arg(1+a_n)} \leq 2\sabs{a_n}$.  As $\sum
+\sabs{a_n}$ converges, 
+$\sum \babs{\Arg (1+a_n)}$ converges.
 
 In other words, the right-hand side in \eqref{eq:infprodest1} goes to zero
-as $n$ goes to infinity.  Thus, $\sum \babs{\Log(1+a_j)}$ is Cauchy and hence
+as $k$ goes to infinity.  Thus, $\sum \babs{\Log(1+a_n)}$ is Cauchy and hence
 converges.  When taking an exponential, it does not matter which branch of
 the logarithm we take, and therefore the following makes sense, where we use
 $\log$ to denote any branch of logarithm whatsoever.
 \begin{equation*}
 \exp\left(
-\sum_{j=1}^n \Log(1+a_j)
+\sum_{n=1}^k \Log(1+a_n)
 \right)
 =
 \exp\left(
-\log \prod_{j=1}^n (1+a_j)
+\log \prod_{n=1}^k (1+a_n)
 \right)
 =
-\prod_{j=1}^n (1+a_j) .
+\prod_{n=1}^k (1+a_n) .
 \end{equation*}
 We thus find that the product converges.
 \end{proof}
@@ -15152,31 +15155,31 @@ We thus find that the product converges.
 It is important that the principal branch is used as otherwise the imaginary
 parts of the logs will not converge.  It is also important to emphasize
 above that it is not necessarily true that
-$\sum_{j=1}^n \Log z_j = \Log \prod_{j=1}^n z_j$.
+$\sum_{n=1}^k \Log z_n = \Log \prod_{n=1}^k z_n$.
 However,
-$\sum_{j=1}^n \Log z_j = \log \prod_{j=1}^n z_j$ for some branch of the
+$\sum_{n=1}^k \Log z_n = \log \prod_{n=1}^k z_n$ for some branch of the
 logarithm because the arguments might add up to something outside the range
 $(-\pi,\pi]$.
 
 \begin{prop}
-If $\prod_{j=1}^\infty (1+a_j)$ converges absolutely to $0$, then there
-exists a $j$ such that $a_j=-1$.
+If $\prod_{n=1}^\infty (1+a_n)$ converges absolutely to $0$, then there
+exists a $n$ such that $a_n=-1$.
 \end{prop}
 
 \begin{proof}
-As before, as $\sabs{a_j}$ goes to zero,
-$\Re a_j > -1$ for all large enough $j$.  The product
+As before, as $\sabs{a_n}$ goes to zero,
+$\Re a_n > -1$ for all large enough $n$.  The product
 of those terms converges to a nonzero number by the ``Moreover'' part of the
 proposition.  The only way to get zero as a limit is for one of the initial
-terms to be zero, that is, if $a_j=-1$ for some $j$.
+terms to be zero, that is, if $a_n=-1$ for some $n$.
 \end{proof}
 
 Just as for series, an absolutely convergent power series can be reordered.
 
 \begin{prop}
-Suppose $\prod_{j=1}^\infty (1+a_j)$ converges absolutely to $L$.
+Suppose $\prod_{n=1}^\infty (1+a_n)$ converges absolutely to $L$.
 If $\varphi \colon \N \to \N$ is a bijection, then 
-$\prod_{j=1}^\infty (1+a_{\varphi(j)})$ also converges absolutely to $L$.
+$\prod_{n=1}^\infty (1+a_{\varphi(n)})$ also converges absolutely to $L$.
 \end{prop}
 
 \begin{proof}
@@ -15186,24 +15189,22 @@ If $L=0$, then we just proved that one of the terms is zero,
 and the reordered product converges to $0$.
 Suppose $L\not= 0$.
 By ignoring finitely many terms, we assume without loss of generality
-that $\Re a_j > -1$.  Then $\sum \Log(1+a_j)$ converges absolutely and
+that $\Re a_n > -1$.  Then $\sum \Log(1+a_n)$ converges absolutely and
 \begin{equation*}
-L = \exp\left(\sum_{j=1}^\infty \Log(1+a_j)\right) .
+L = \exp\left(\sum_{n=1}^\infty \Log(1+a_n)\right) .
 \end{equation*}
 The sum converges absolutely, so it can be reordered and hence the product
 can be reordered and the limit remains the same.
 \end{proof}
 
-
-
 \begin{defn}
-Given functions $g_j \colon X \to \C$, the product
-$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
+Given functions $g_n \colon X \to \C$, the product
+$\prod_{n=1}^{\infty} \bigl(1+g_n(x)\bigr)$ 
 \emph{converges uniformly absolutely}%
 \index{converges absolutely uniformly!infinite product}%
 \index{uniform absolute convergence!infinite product}
 if
-$\prod_{j=1}^{\infty} \bigl(1+\sabs{g_j(x)}\bigr)$ 
+$\prod_{n=1}^{\infty} \bigl(1+\sabs{g_n(x)}\bigr)$ 
 converges uniformly in $x \in X$.
 \end{defn}
 
@@ -15211,10 +15212,10 @@ Uniformly absolute convergence of the product is the same as uniformly
 absolute convergence of the sum.
 
 \begin{prop}
-For $g_j \colon X \to \C$, the product
-$\prod_{j=1}^{\infty} \bigl(1+\sabs{g_j(x)}\bigr)$ 
+For $g_n \colon X \to \C$, the product
+$\prod_{n=1}^{\infty} \bigl(1+\sabs{g_n(x)}\bigr)$ 
 converges uniformly if and only if
-$\sum_{j=1}^{\infty} \sabs{g_j(x)}$ converges uniformly.
+$\sum_{n=1}^{\infty} \sabs{g_n(x)}$ converges uniformly.
 \end{prop}
 
 \begin{exbox}
@@ -15231,10 +15232,10 @@ As for series, uniform absolute convergence means uniform
 convergence.
 
 \begin{prop} \label{prop:unifabsconvprod}
-For $g_j \colon X \to \C$, if
-$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
+For $g_n \colon X \to \C$, if
+$\prod_{n=1}^{\infty} \bigl(1+g_n(x)\bigr)$ 
 converges uniformly absolutely, then
-$\prod_{j=1}^{\infty} \bigl(1+g_j(x)\bigr)$ 
+$\prod_{n=1}^{\infty} \bigl(1+g_n(x)\bigr)$ 
 converges uniformly.
 \end{prop}
 
@@ -15260,18 +15261,18 @@ way to get zero is for one of the terms to be zero.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $\sabs{1+a_j} \leq r < 1$ for all
-$j$, 
-prove that $\prod_{j=1}^\infty (1+a_j)$ converges to 0, but that the
+Suppose $\sabs{1+a_n} \leq r < 1$ for all
+$n$, 
+prove that $\prod_{n=1}^\infty (1+a_n)$ converges to 0, but that the
 convergence is not absolute.
 \end{exercise}
 
 \begin{exercise}
-Suppose $\Re a_j > -1$ for all $j$.  
+Suppose $\Re a_n > -1$ for all $n$.  
 Prove 
-$\prod_{j=1}^\infty (1+a_j)$
+$\prod_{n=1}^\infty (1+a_n)$
 converges to a nonzero number if and only if
-$\sum_{j=1}^\infty \Log (1+a_j)$ converges.  Note: We already proved one
+$\sum_{n=1}^\infty \Log (1+a_n)$ converges.  Note: We already proved one
 direction.
 \end{exercise}
 
@@ -15299,7 +15300,7 @@ converging uniformly absolutely on compact subsets of $U$.
 \subsection{In the plane}
 
 To factor an arbitrary holomorphic function such as the sine,
-we have to be a smidge trickier than just trying to factor out $(z-z_j)$
+we have to be a smidge trickier than just trying to factor out $(z-z_n)$
 for all the zeros.  To
 get the product to converge, we multiply the factor by something to
 make the factor closer to $1$.  We start with functions that have a zero at
@@ -15315,8 +15316,8 @@ E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
 \end{defn}
 
 The function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
-As we are relating the absolute convergence of $\prod (1+a_k)$ to $\sum
-\sabs{a_k}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
+As we are relating the absolute convergence of $\prod (1+a_n)$ to $\sum
+\sabs{a_n}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
 Before we do so, we prove a useful estimate for holomorphic functions
 on the disc.  By the maximum modulus principle the maximum is attained at
 the boundary.
@@ -15996,7 +15997,8 @@ $\overline{\D}$.
 \end{exercise}
 
 \begin{exercise}
-Suppose that if a sequence of polynomials $\{ P_n \}$ converges uniformly on $\C$
+Prove that if a sequence of polynomials $\{ P_n \}$ converges uniformly on
+$\C$,
 then there is an $N$ such that $P_n - P_m$ is constant for all $n,m \geq N$
 (so the limit is $P_N$ plus a constant).
 \end{exercise}
@@ -16656,7 +16658,7 @@ for two different poles.  Well, $P_1(z)+P_2(z)$ works wonderfully, no?
 Given a sequence of poles and principal parts
 $P_1(z),P_2(z),\ldots$, we wish to take
 \begin{equation*}
-\sum_{j=1}^\infty P_j(z) .
+\sum_{\ell=1}^\infty P_\ell(z) .
 \end{equation*}
 But can we?  The sum may not converge.  We must be a tad
 trickier, and this is where \hyperref[cor:rungeseq]{Runge's theorem} is useful:  Adding
@@ -17983,8 +17985,6 @@ the restriction of the metric on $X$.  We say $d'$ is
 the \emph{\myindex{subspace metric}} and $Y$ has the
 \emph{\myindex{subspace topology}}.
 
-\medskip
-
 \begin{defn}
 Let $(X,d)$ be a metric space.  A subset $S \subset X$ is said to be
 \emph{bounded}\index{bounded set} if there exists a $p \in X$ and a
@@ -17997,14 +17997,13 @@ We say $(X,d)$ is bounded if $X$ itself is a bounded subset.
 
 For instance, the set of real numbers with the standard metric is not a
 bounded metric space.  
-On the other hand, if we take the real numbers with the
+On the other hand, the real numbers with the
 \emph{\myindex{discrete metric}},
 $d(x,y) = 1$ if $x\not=y$, and $d(x,x) = 0$,
-then we obtain a bounded metric space.  Any set with the
+is a bounded metric space.  Any set with the
 discrete metric is bounded.
 
-There are other equivalent ways we could generalize boundedness,
-and are left as exercises.  Suppose $X$ is nonempty to avoid a technicality.
+Suppose $X$ is nonempty.
 Then $S \subset X$ is bounded if and only if
 \begin{enumerate}[(i)]
 \item
@@ -18014,6 +18013,7 @@ all $x \in S$.
 \glsadd{not:diam}%
 $\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
 \end{enumerate}
+See the exercises.
 The quantity $\operatorname{diam}(S)$ is called the
 \emph{\myindex{diameter}} of a set and is usually only defined for
 a nonempty set.
@@ -18154,14 +18154,14 @@ $d(x,y) = \sqrt{\sum_{n=1}^\infty {(x_n-y_n)}^2}$.
 \subsection{Topology}
 
 \begin{defn}
-Let $(X,d)$ be a metric space, $x \in X$ and $\delta > 0$.  Then define
-the \emph{\myindex{open ball}} or simply \emph{\myindex{ball}} of radius $\delta$
-around $x$ as
+Let $(X,d)$ be a metric space, $x \in X$, and $\delta > 0$.
+The \emph{\myindex{open ball}} or simply \emph{\myindex{ball}} of radius $\delta$
+around $x$ is
 \glsadd{not:openball}
 \begin{equation*}
 B(x,\delta) \overset{\text{def}}{=} \{ y \in X : d(x,y) < \delta \} .
 \end{equation*}
-Similarly define the \emph{\myindex{closed ball}} as
+Similarly the \emph{\myindex{closed ball}} is
 \glsadd{not:closedball}
 \begin{equation*}
 C(x,\delta) \overset{\text{def}}{=} \{ y \in X : d(x,y) \leq \delta \} .
@@ -18186,7 +18186,7 @@ Consider the
 metric space $[0,1]$ as a subspace of $\R$. Then
 \begin{equation*}
 B(0,\nicefrac{1}{2}) = B_{[0,1]}(0,\nicefrac{1}{2})
-= \{ y \in [0,1] : \abs{0-y} < \nicefrac{1}{2} \}
+= \bigl\{ y \in [0,1] : \sabs{0-y} < \nicefrac{1}{2} \bigr\}
 = [0,\nicefrac{1}{2}) .
 \end{equation*}
 This is different from $B_{\R}(0,\nicefrac{1}{2}) =
@@ -18202,14 +18202,14 @@ if for every $x \in V$, there exists a $\delta > 0$ such that
 $B(x,\delta) \subset V$.  See \figureref{fig:msopenset}.
 A subset $E \subset X$ is 
 \emph{closed}\index{closed set} if the complement $E^c = X \setminus E$ is open.
-When the ambient space $X$ is not clear from context,
+If the ambient space $X$ is not clear from context,
 we say \emph{$V$ is open in $X$} and \emph{$E$ is closed in $X$}.
 The set of open sets is called the \emph{\myindex{topology}} on $X$.
 
 If $x \in V$ and $V$ is open, then
 $V$ is an \emph{\myindex{open neighborhood}} of $x$ (or
 simply \emph{\myindex{neighborhood}}).
-More generally a \emph{neighborhood} is a set that contains an open
+More generally a \emph{neighborhood} of $x$ is a set that contains an open
 neighborhood of $x$, but unless otherwise specified we usually mean
 open neighborhood.
 \end{defn}
@@ -18226,24 +18226,21 @@ stay in $V$.  Similarly, a set $E$ is closed if everything not in $E$
 is some distance away from $E$.
 The open and closed balls are examples of open and closed sets
 (this must still be proved).
-But not every set is either open or closed.  Generally, most subsets are neither.
+Not every set is either open or closed, most subsets are neither.
 
 \begin{example}
 The set $(0,\infty) \subset \R$ is open:  Given any $x \in (0,\infty)$,
-let $\delta = x$.  Then $B(x,\delta) = (0,2x) \subset (0,\infty)$.
+let $\delta = x$.  %Then $B(x,\delta) = (0,2x) \subset (0,\infty)$.
 
 The set $[0,\infty) \subset \R$ is closed:  Given $x \in (-\infty,0) =
 {[0,\infty)}^c$,
-let $\delta = -x$.  Then $B(x,\delta) = (-2x,0) \subset
-(-\infty,0) = {[0,\infty)}^c$.
+let $\delta = -x$.  %  Then $B(x,\delta) = (-2x,0) \subset (-\infty,0) = {[0,\infty)}^c$.
 
-The set $[0,1) \subset \R$ is neither open nor closed.  First,
-every ball in $\R$ around $0$, $B(0,\delta) = (-\delta,\delta)$, contains negative
+The set $[0,1) \subset \R$ is neither open nor closed.
+Every $B(0,\delta) = (-\delta,\delta)$, contains negative
 numbers and hence is not contained in $[0,1)$.  So $[0,1)$ is not open.
-Second, every ball in $\R$ around $1$,
-$B(1,\delta) = (1-\delta,1+\delta)$, contains
-numbers strictly less than $1$ and greater than $0$
-(e.g.\ $1-\nicefrac{\delta}{2}$ as long as $\delta < 2$).
+Every $B(1,\delta) = (1-\delta,1+\delta)$, contains
+numbers in $[0,1)$.
 Thus ${[0,1)}^c = \R \setminus
 [0,1)$ is not open, and $[0,1)$ is not closed.
 \end{example}
@@ -18252,15 +18249,17 @@ Thus ${[0,1)}^c = \R \setminus
 Let $(X,d)$ be a metric space.
 \begin{enumerate}[(i)]
 \item \label{topology:openi} $\emptyset$ and $X$ are open.
-\item \label{topology:openii} If $V_1, V_2, \ldots, V_k$ are open then
+\item \label{topology:openii} If $V_1, V_2, \ldots, V_k$ are open, then
 \begin{equation*}
-\bigcap_{j=1}^k V_j
+\bigcap_{\ell=1}^k V_\ell
+\avoidbreak
 \end{equation*}
 is also open.  That is, a finite intersection of open sets is open.
 \item \label{topology:openiii} If $\{ V_\lambda \}_{\lambda \in I}$ is
 an arbitrary collection of open sets, then
 \begin{equation*}
 \bigcup_{\lambda \in I} V_\lambda
+\avoidbreak
 \end{equation*}
 is also open.  That is, a union of open sets is open.
 \end{enumerate}
@@ -18271,36 +18270,29 @@ is also open.  That is, a union of open sets is open.
 %all $x$ such that $x \in V_\lambda$ for at least one $\lambda \in I$.
 
 \begin{proof}
-The sets $X$ and $\emptyset$ are obviously open in $X$.
-
+Item \ref{topology:openi} is obvious.
+%The sets $X$ and $\emptyset$ are obviously open in $X$.
+%
 Let us prove \ref{topology:openii}.
-If $x \in \bigcap_{j=1}^k V_j$, then $x \in V_j$ for all $j$.
-As $V_j$ are all open, for every $j$ there exists a $\delta_j > 0$ 
-such that $B(x,\delta_j) \subset V_j$.  Take $\delta = \min \{
-\delta_1,\delta_2,\ldots,\delta_k \}$ and notice $\delta > 0$.  We have
-$B(x,\delta) \subset B(x,\delta_j) \subset V_j$ for every $j$ and so
-$B(x,\delta) \subset \bigcap_{j=1}^k V_j$.  Consequently the intersection is open.
-
+If $x \in \bigcap_{\ell=1}^k V_\ell$, then $x \in V_\ell$ for all $\ell$.
+As $V_\ell$ are all open, for every $\ell$ there exists a $\delta_\ell > 0$ 
+such that $B(x,\delta_\ell) \subset V_\ell$.  Take $\delta = \min \{
+\delta_1,\delta_2,\ldots,\delta_k \}$ and notice $\delta > 0$.  Then
+$B(x,\delta) \subset B(x,\delta_\ell) \subset V_\ell$ for every $\ell$ and so
+$B(x,\delta) \subset \bigcap_{\ell=1}^k V_\ell$.
+%
 Let us prove \ref{topology:openiii}.
 If $x \in \bigcup_{\lambda \in I} V_\lambda$, then $x \in V_\lambda$ for some
 $\lambda \in I$.
-As $V_\lambda$ is open, there exists a $\delta > 0$
-such that $B(x,\delta) \subset V_\lambda$.  But then
-$B(x,\delta) \subset \bigcup_{\lambda \in I} V_\lambda$,
-and so the union is open.
+As $V_\lambda$ is open,
+$B(x,\delta) \subset V_\lambda$
+for some $\delta > 0$.
+But then $B(x,\delta) \subset \bigcup_{\lambda \in I} V_\lambda$.
 \end{proof}
 
-\begin{example}
-The main thing to notice is the difference between
-items
-\ref{topology:openii} and \ref{topology:openiii}.
-Item \ref{topology:openii} is not true for an arbitrary intersection.
-For instance, $\bigcap_{n \in \N} (-\nicefrac{1}{n},\nicefrac{1}{n}) = \{ 0
-\}$, which is not open.
-\end{example}
-
-The proof of the analogous proposition for closed sets
-is left as an exercise.
+Item \ref{topology:openii} is not true for an arbitrary intersection:
+$\bigcap_{n \in \N} (-\nicefrac{1}{n},\nicefrac{1}{n}) = \{ 0
+\}$ is not open.
 
 \begin{prop} \label{prop:topology:closed}
 Let $(X,d)$ be a metric space.
@@ -18310,11 +18302,13 @@ Let $(X,d)$ be a metric space.
 an arbitrary collection of closed sets, then
 \begin{equation*}
 \bigcap_{\lambda \in I} E_\lambda
+\avoidbreak
 \end{equation*}
 is also closed.  That is, an intersection of closed sets is closed.
-\item \label{topology:closediii} If $E_1, E_2, \ldots, E_k$ are closed then
+\item \label{topology:closediii} If $E_1, E_2, \ldots, E_k$ are closed, then
 \begin{equation*}
-\bigcup_{j=1}^k E_j
+\bigcup_{\ell=1}^k E_\ell
+\avoidbreak
 \end{equation*}
 is also closed.  That is, a finite union of closed sets is closed.
 \end{enumerate}
@@ -18322,8 +18316,9 @@ is also closed.  That is, a finite union of closed sets is closed.
 
 \begin{exbox}
 \begin{exercise}
-Prove \propref{prop:topology:closed}.  Hint: Consider the complements of the
-sets and apply \propref{prop:topology:open}.
+Prove \propref{prop:topology:closed}.
+%  Hint: Consider the complements of the
+%sets and apply \propref{prop:topology:open}.
 \end{exercise}
 \end{exbox}
 
@@ -18415,7 +18410,7 @@ an exercise.
 Finish the proof of \propref{prop:topology:subspaceopen}.
 Suppose $(X,d)$ is a metric space and $Y \subset X$.  Show that
 with the subspace metric on $Y$, if a set $U \subset Y$
-is open (in $Y$) then there exists an open set $V \subset X$ such
+is open (in $Y$), then there exists an open set $V \subset X$ such
 that $U = V \cap Y$.
 \end{exercise}
 \end{exbox}
@@ -18532,11 +18527,10 @@ mean that $A$ with the subspace topology is connected.
 In other words, a nonempty $X$ is connected if whenever we write
 $X = X_1 \cup X_2$ where $X_1 \cap X_2 = \emptyset$ and $X_1$ and $X_2$ are
 open, then either $X_1 = \emptyset$ or $X_2 = \emptyset$.
-So to show $X$ is disconnected, we need to find nonempty
+So to show $X$ is disconnected, to find nonempty
 disjoint open sets $X_1$ and
 $X_2$ whose union is $X$.
-For subsets, we state this idea as a proposition.
-The proposition is illustrated in \figureref{fig:disconsubset}.
+We state this idea as a proposition for subsets.
 
 \begin{prop}
 Let $(X,d)$ be a metric space.
@@ -18552,6 +18546,8 @@ S =
 \bigl( U_2 \cap S \bigr) .
 \end{equation*}
 \end{prop}
+
+The proposition is illustrated in \figureref{fig:disconsubset}.
 
 \begin{myfig}
 \subimport*{figures/}{disconsubset.pdf_t}
@@ -18637,10 +18633,10 @@ $S$ is connected.
 \end{myfig}
 
 \begin{example}
-Oftentimes a ball $B(x,\delta)$ is connected, but this is not
-necessarily true in every metric space.
-For a simplest example, take a two point space $\{ a,
-b\}$ with the discrete metric.  Then $B(a,2) = \{ a , b \}$, which is not
+The ball $B(x,\delta)$ may or may not be connected,
+depending on the metric space.
+Take the space $\{ a, b\}$ with the discrete metric.
+The ball $B(a,2) = \{ a , b \}$ is not
 connected as $B(a,1) = \{ a \}$ and 
 $B(b,1) = \{ b \}$ are open and disjoint.
 \end{example}
@@ -18661,9 +18657,9 @@ $U \cap V = \emptyset$, and $U \cap V = \Q$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $\{ S_i \}$, $i \in \N$
-is a collection of connected subsets of a metric space $(X,d)$.  Suppose
-there exists an $x \in X$ such that $x \in S_i$ for all $i \in \N$.
+Suppose $\{ S_i \}$, $i \in \N$,
+is a collection of connected subsets of a metric space $(X,d)$,
+and there exists an $x \in X$ such that $x \in S_i$ for all $i \in \N$.
 Show that $\bigcup_{i=1}^\infty S_i$ is connected.
 \end{exercise}
 \end{exbox}
@@ -18672,10 +18668,11 @@ Show that $\bigcup_{i=1}^\infty S_i$ is connected.
 
 Sometimes we wish to take a set and throw in everything that we can approach
 from the set.  This concept is called the closure.
+More precisely the closure of $A$ is the intersection of all closed sets that contain $A$.
 
 \begin{defn}
-Let $(X,d)$ be a metric space and $A \subset X$.  Then
-the \emph{\myindex{closure}} of $A$ is the set
+Let $(X,d)$ be a metric space and $A \subset X$.
+The \emph{\myindex{closure}} of $A$ is the set
 \glsadd{not:closure}%
 \begin{equation*}
 \widebar{A} \overset{\text{def}}{=} \bigcap \{ E \subset X : E
@@ -18684,28 +18681,26 @@ the \emph{\myindex{closure}} of $A$ is the set
 We say $A$ is \emph{\myindex{dense}} in $X$ if $\widebar{A} = X$.
 \end{defn}
 
-That is,
-$\widebar{A}$ is the intersection of all closed sets that contain $A$.
-There is at least one closed set containing every $A$, namely $X$ itself.
-And in particular, $A \subset \widebar{A}$.
 
 \begin{prop}
-Let $(X,d)$ be a metric space and $A \subset X$.  The closure $\widebar{A}$
-is closed.  Furthermore, if $A$ is closed, then $\widebar{A} = A$.
+Let $(X,d)$ be a metric space and $A \subset X$.
+Then, $A \subset \widebar{A}$ and $\widebar{A}$ is closed.
+Furthermore, if $A$ is closed, then $\widebar{A} = A$.
 \end{prop}
 
 \begin{proof}
+There is at least one closed set containing $A$, the set $X$ itself,
+so $A \subset \widebar{A}$.
 The closure is an intersection of closed sets, so $\widebar{A}$ is closed.
-If $A$ is closed, then $A$ is a closed set that contains $A$,
-and so $\widebar{A} \subset A$.  And as $A \subset \widebar{A}$, then
-$A = \widebar{A}$.
+If $A$ is closed, then $A$ is a closed set that contains $A$
+and $\widebar{A} \subset A$.  So $A = \widebar{A}$.
 \end{proof}
 
 \begin{example}
 The closure of $(0,1)$ in $\R$ is $[0,1]$.  Proof:  If
-$E$ is closed and contains $(0,1)$, then $E$ must contain $0$ and $1$ (why?).
+$E$ is closed and contains $(0,1)$, then $0,1 \in E$.
 Thus $[0,1] \subset E$.  But $[0,1]$ is also closed.
-Therefore, the closure $\overline{(0,1)} = [0,1]$.
+Thus, $\overline{(0,1)} = [0,1]$.
 \end{example}
 
 \begin{example}
@@ -18726,13 +18721,14 @@ if and only if for every $\delta > 0$, $B(x,\delta) \cap A \not=\emptyset$.
 \end{prop}
 
 \begin{proof}
-Let us prove the two contrapositives.
 Let us show that $x \notin \widebar{A}$ if and only if there exists
 a $\delta > 0$ such that $B(x,\delta) \cap A = \emptyset$.
 
-First suppose $x \notin \widebar{A}$.  We know $\widebar{A}$ is
-closed.  Thus there is a $\delta > 0$ such that
-$B(x,\delta) \subset \widebar{A}^c$.  As $A \subset \widebar{A}$ we
+First suppose $x \notin \widebar{A}$.  As $\widebar{A}$ is
+closed,
+$B(x,\delta) \subset \widebar{A}^c$
+for some $\delta > 0$.
+As $A \subset \widebar{A}$ we
 see that $B(x,\delta) \subset \widebar{A}^c \subset A^c$ and hence
 $B(x,\delta) \cap A = \emptyset$.
 
@@ -18753,7 +18749,7 @@ approach both from the set and its complement).
 
 \begin{defn}
 Let $(X,d)$ be a metric space and $A \subset X$.
-Then the \emph{\myindex{interior}} of $A$ is the set
+The \emph{\myindex{interior}} of $A$ is the set
 \glsadd{not:interior}
 \begin{equation*}
 A^\circ \overset{\text{def}}{=} \{ x \in A : \text{there exists a } \delta > 0
@@ -18767,14 +18763,14 @@ The \emph{\myindex{boundary}} of $A$ is the set
 \end{defn}
 
 \begin{example}
-Suppose $A=(0,1]$ and $X = \R$.  Then it is not hard
-to see that $\widebar{A}=[0,1]$, $A^\circ = (0,1)$,
+Consider $X = \R$ and $A=(0,1]$.  Then $\widebar{A}=[0,1]$, $A^\circ = (0,1)$,
 and $\partial A = \{ 0, 1 \}$.
 \end{example}
 
 \begin{example}
-Suppose $X = \{ a, b \}$ with the discrete metric.
-Let $A = \{ a \}$, then $\widebar{A} = A^\circ = A$ and $\partial A =
+Suppose $X = \{ a, b \}$ with the discrete metric is the metric space
+and
+$A = \{ a \}$.  Then $\widebar{A} = A^\circ = A$ and $\partial A =
 \emptyset$.
 \end{example}
 
@@ -18821,16 +18817,15 @@ a point of $A$.  If $B(x,\delta)$ contained no points of $A^c$,
 then $x$ would be in $A^\circ$.  Hence $B(x,\delta)$ contains a point of
 $A^c$ as well.
 
-Let us prove the other direction by contrapositive.  Suppose
-$x \notin \partial A$.
-If $x \notin \widebar{A}$, then there is some $\delta > 0$ such that
-$B(x,\delta) \subset \widebar{A}^c$ as $\widebar{A}$ is closed.
-So $B(x,\delta)$ contains no points of $A$, because $\widebar{A}^c \subset
+Suppose $x \notin \partial A$, so $x \notin \widebar{A}$ or $x \in A^\circ$.
+If $x \notin \widebar{A}$, then
+$B(x,\delta) \subset \widebar{A}^c$
+for some $\delta > 0$ as $\widebar{A}$ is closed.
+So $B(x,\delta) \cap A$ is empty, because $\widebar{A}^c \subset
 A^c$.
-
-If $x \in A^\circ$, then there exists a $\delta > 0$
-such that $B(x,\delta) \subset A$.  But that means $B(x,\delta)$
-contains no points of $A^c$.
+If $x \in A^\circ$, then
+$B(x,\delta) \subset A$ for some $\delta > 0$,
+so $B(x,\delta) \cap A^c$ is empty.
 \end{proof}
 
 The proposition above and \propref{prop:msclosureappr} give the following
@@ -18875,8 +18870,8 @@ Hint: Think of sets in $\R^2$.
 \end{exercise}
 
 \begin{exercise}
-Let $(X,d)$ be a metric space and $A \subset X$.  Show that
-$A^\circ = \bigcup \{ V : V \subset A \text{ is open} \}$.
+Suppose $(X,d)$ is a metric space and $A \subset X$.  Prove that
+$A^\circ = \bigcup \{ V : V \text{ is open and } V \subset A \}$.
 \end{exercise}
 \end{exbox}
 
@@ -18890,33 +18885,33 @@ $A^\circ = \bigcup \{ V : V \subset A \text{ is open} \}$.
 \begin{defn}
 A \emph{\myindex{sequence}} in a metric space $(X,d)$ is a function
 $x \colon \N \to X$.  We write $x_n$ for the $n$\textsuperscript{th} element in
-the sequence and use the notation $\{ x_n \}$, or more precisely
+the sequence and
 \glsadd{not:sequence}%
 \begin{equation*}
-\{ x_n \}_{n=1}^\infty .
+\{ x_n \} \quad \text{or} \quad
+\{ x_n \}_{n=1}^\infty 
 \end{equation*}
+for the entire sequence.
 
 A sequence $\{ x_n \}$ is \emph{bounded}\index{bounded sequence} if
-there exists a point $p \in X$ and $B \in \R$ such that
+there exists a $p \in X$ and $B \in \R$ such that
 \begin{equation*}
 d(p,x_n) \leq B \qquad \text{for all } n \in \N.
 \end{equation*}
-In other words, the sequence $\{x_n\}$ is bounded whenever
+That is, the sequence $\{x_n\}$ is bounded whenever
 the set $\{ x_n : n \in \N \}$
 is bounded.
 
-If $\{ n_j \}_{j=1}^\infty$ is a sequence of natural numbers
-such that $n_{j+1} > n_j$ for all $j$, then
-the sequence $\{ x_{n_j} \}_{j=1}^\infty$\glsadd{not:subsequence}
+If $\{ n_k \}_{k=1}^\infty$ is a sequence of natural numbers
+such that $n_{k+1} > n_k$ for all $k$, then
+the sequence $\{ x_{n_k} \}_{k=1}^\infty$\glsadd{not:subsequence}
 is said to be
 a \emph{\myindex{subsequence}} of $\{x_n \}$.
 \end{defn}
 
-Let us we define convergence.  We cheat a little
+In what follows we cheat a little
 and use the definite article in front of the word \emph{limit}
 before we prove that the limit is unique.
-See \figureref{fig:sequence-convergence-metric}, for an idea of
-the definition.
 
 \begin{defn}
 A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
@@ -18928,20 +18923,19 @@ of $\{ x_n \}$.  We write\glsadd{not:limseq}
 \begin{equation*}
 \lim_{n\to \infty} x_n \overset{\text{def}}{=} p .
 \end{equation*}
-
 A sequence
 that converges is \emph{convergent}\index{convergent!sequence in a metric
 space}.
 Otherwise, the sequence is 
 \emph{divergent}\index{divergent!sequence in a metric space}.
+See \figureref{fig:sequence-convergence-metric} for an idea of
+the definition.
 \begin{myfig}
 \includegraphics{figures/sequence-convergence-metric}
 \caption{Sequence converging to $p$.  The first 10 points 
 are shown and $M=7$ for this $\epsilon$.\label{fig:sequence-convergence-metric}}
 \end{myfig}
 \end{defn}
-
-Let us prove that the limit is unique.  
 
 \begin{prop} \label{prop:mslimisunique}
 A convergent sequence in a metric space has a unique limit.
@@ -19764,21 +19758,23 @@ and $E_1$, $E_2$, \ldots, are
 nonempty compact subsets of $X$ such that
 $E_1 \supset E_2 \supset E_3 \supset \cdots$.  Then
 \begin{equation*}
-\bigcap_{j=1}^\infty E_j \not= \emptyset .
+\bigcap_{k=1}^\infty E_k \not= \emptyset .
 \end{equation*}
 \end{prop}
 
 \begin{proof}
+Suppose $E_1,E_2,\ldots$ are as in the statement except we do not
+assume they are nonempty.
 Compact sets are closed so their complement is open.  Consider
-$U_k = X \setminus E_k$.  If the intersection would be empty,
-then $\{ U_k \}$ would be an open cover of $E_1$, which is compact,
-and hence there would be a finite subcover, in particular
-as $U_k \subset U_{k+1}$, $E_1 \subset U_k$ for some $k$, which would imply
-that $E_k$ is empty.
+$U_k = X \setminus E_k$.  Suppose that the intersection is empty.
+Then $\{ U_k \}$ is an open cover of $E_1$, which is compact,
+and hence there is a finite subcover.
+As the sets are nested,
+$U_\ell \subset U_{\ell+1}$ for all $\ell$,
+we have $E_1 \subset U_k$ for some $k$.   Thus $E_k$ is empty.
 \end{proof}
 
 \begin{example}
-The discrete metric provides interesting counterexamples again.
 Let $(X,d)$ be a metric space with the discrete metric, that is $d(x,y) = 1$
 if $x \not= y$.  Suppose
 $X$ is an infinite set.  Then:
@@ -19790,7 +19786,7 @@ $X$ is an infinite set.  Then:
 e.g. $\delta = \nicefrac{1}{2}$, even for noncompact $K \subset X$.
 \end{enumerate}
 The proofs
-of the statements above are either trivial or are relegated to the exercises
+of the statements are either trivial or are relegated to the exercises
 below.
 \end{example}
 
@@ -19855,12 +19851,6 @@ the set $\{ f_n : n \in \N \} \subset C(0,1)$ is closed but not compact.
 
 \begin{exercise}
 Show that there exists a metric on $\R$ that makes $\R$ into a compact set.
-\end{exercise}
-
-\begin{exercise}
-Suppose $(X,d)$ is complete and suppose we have a countably infinite
-collection of nonempty compact sets $E_1 \supset E_2 \supset E_3 \supset
-\cdots$.  Prove $\bigcap_{j=1}^\infty E_j \not= \emptyset$.
 \end{exercise}
 
 \begin{exercise}
@@ -19939,9 +19929,7 @@ there is a $\delta > 0$ such that whenever $x \in X$ and $d_X(x,c) <
 \delta$, then
 $d_Y\bigl(f(x),f(c)\bigr) < \epsilon$.
 
-\medskip
-
-When $f \colon X \to Y$ is continuous at all $c \in X$, then we simply say
+If $f \colon X \to Y$ is continuous at all $c \in X$, then we say
 that $f$ is a \emph{continuous function}\index{continuous function!in a
 metric space}\index{function!continuous}.
 \end{defn}
@@ -19978,9 +19966,9 @@ Suppose $f \colon \R^2 \to \R$ is a polynomial.  That is,
 \begin{equation*}
 \begin{split}
 f(x,y) & =
-\sum_{j=0}^d
-\sum_{k=0}^{d-j}
-a_{jk}\,x^jy^k \\
+\sum_{k=0}^d
+\sum_{\ell=0}^{d-k}
+a_{k\ell}\,x^ky^\ell \\
 & =
 a_{0\,0} + a_{1\,0} \, x +
 a_{0\,1} \, y+  
@@ -19990,7 +19978,7 @@ a_{0\,2} \, y^2+ \cdots +
 a_{0\,d} \, y^d ,
 \end{split}
 \end{equation*}
-for some $d \in \N$ (the degree) and $a_{jk} \in \R$.  Then we claim 
+for some $d \in \N$ (the degree) and $a_{k\ell} \in \R$.  Then we claim 
 $f$ is continuous.  Let $\{ (x_n,y_n) \}_{n=1}^\infty$ be a sequence
 in $\R^2$ that converges to $(x,y) \in \R^2$.  We proved that this
 means $\lim\, x_n = x$ and $\lim\, y_n = y$.  Then
@@ -19998,13 +19986,13 @@ means $\lim\, x_n = x$ and $\lim\, y_n = y$.  Then
 \lim_{n\to\infty}
 f(x_n,y_n) =
 \lim_{n\to\infty}
-\sum_{j=0}^d
-\sum_{k=0}^{d-j}
-a_{jk} \, x_n^jy_n^k 
+\sum_{k=0}^d
+\sum_{\ell=0}^{d-k}
+a_{k\ell} \, x_n^ky_n^\ell 
 =
-\sum_{j=0}^d
-\sum_{k=0}^{d-j}
-a_{jk} \, x^jy^k
+\sum_{k=0}^d
+\sum_{\ell=0}^{d-k}
+a_{k\ell} \, x^ky^\ell
 =
 f(x,y) .
 \end{equation*}
@@ -22419,8 +22407,8 @@ d(x_m,x_n)
 \leq k^n d(x_1,x_0) \sum_{i=0}^{\infty} k^i
 = k^n d(x_1,x_0) \frac{1}{1-k} .
 \end{multline*}
-In particular, the sequence is Cauchy (why?).  Since $X$ is complete,
-we let $x = \lim\, x_n$, and we claim that $x$
+So the sequence is Cauchy.  Since $X$ is complete,
+let $x = \lim\, x_n$.  We claim that $x$
 is our unique fixed point.
 
 Fixed point?  The function $f$ is a contraction,
@@ -22439,10 +22427,9 @@ proved.
 
 The proof is constructive.  Not only do we know 
 a unique fixed point exists.  We also know how to find it.  Start with
-any point $x_0 \in X$, and iterate $f(x_0)$,
+any $x_0 \in X$, and iterate $f(x_0)$,
 $f(f(x_0))$,
-$f(f(f(x_0)))$, etc.  We can even find how far away
-from the fixed point we are, see the exercises.
+$f(f(f(x_0)))$, etc.
 
 \begin{exbox}
 \begin{exercise} \label{exercise:nofixedpoint}
@@ -22683,14 +22670,14 @@ mapping.  For example, the function $f(x) = x^3$ is an open mapping from $\R$
 to $\R$ and is globally one-to-one with a continuous inverse, although the
 inverse is not differentiable at $x=0$.
 
-\medskip
-
+\begin{remark}
 As a side note, there is a related famous, and as yet unsolved problem,
 called the \emph{\myindex{Jacobian conjecture}}.  If $F \colon \R^n \to
 \R^n$ is polynomial (each component is a polynomial) and $\det DF$ is a nonzero
 constant, does $F$ have a polynomial inverse?
 The inverse function theorem gives a local $C^1$ inverse, but can one always
 find a global polynomial inverse is the question.
+\end{remark}
 
 \begin{exbox}
 \begin{exercise}
