@@ -73,7 +73,7 @@
 \newglossaryentry{not:H}{
   type=notation,
   name={$\bH$},
-  description={upper half space $\{ z \in \C : \Im z > 0 \}$},
+  description={upper half-plane $\{ z \in \C : \Im z > 0 \}$},
 }
 
 \newglossaryentry{not:laplacian}{
@@ -102,7 +102,7 @@
 
 \newglossaryentry{not:exp}{
   type=notation,
-  name={$\exp(z), e^z$},
+  name={$\exp(z)$, $e^z$},
   description={the exponential},
 }
 
@@ -142,6 +142,18 @@
   description={complex derivative},
 }
 
+\newglossaryentry{not:cplxderalt}{
+  type=notation,
+  name={$\frac{df}{dz}$},
+  description={complex derivative},
+}
+
+\newglossaryentry{not:oofh}{
+  type=notation,
+  name={$o(\sabs{h})$},
+  description={little-oh notation},
+}
+
 \newglossaryentry{not:Pr}{
   type=notation,
   name={$P_r(\theta)$},
@@ -170,6 +182,25 @@
   type=notation,
   name={$\displaystyle \int_\gamma f(z) \,\sabs{dz}$},
   description={arclength integral},
+}
+
+\newglossaryentry{not:cycleint}{
+  type=notation,
+  name={$\displaystyle \int_\Gamma f(z) \,dz$,
+         $\displaystyle \int_{a_1 \gamma_1 + \cdots + a_n \gamma_n} f(z) \, dz$},
+  description={integral over a cycle},
+}
+
+\newglossaryentry{not:cycleeq}{
+  type=notation,
+  name={$\Gamma_1 = \Gamma_2$},
+  description={cycle equivalence},
+}
+
+\newglossaryentry{not:cycleneg}{
+  type=notation,
+  name={$-\Gamma$},
+  description={cycle equivalence},
 }
 
 \newglossaryentry{not:segment}{
@@ -210,20 +241,26 @@
 
 \newglossaryentry{not:Cauchytransform}{
   type=notation,
-  name={$Cu$},
+  name={$Cu$, $C[u]$},
   description={Cauchy transform},
 }
 
 \newglossaryentry{not:varphia}{
   type=notation,
   name={$\varphi_a$},
-  description={Automorphism of $\D$, $\varphi_a(a)=0$, $\varphi_a(0) = -a$},
+  description={automorphism of $\D$, $\frac{z-a}{1-\bar{a}z}$},
 }
 
 \newglossaryentry{not:boundary}{
   type=notation,
   name={$\partial X$},
   description={boundary of $X$},
+}
+
+\newglossaryentry{not:boundaryascycle}{
+  type=notation,
+  name={$\displaystyle \int_{\partial U} f(z) \,dz$},
+  description={integral over boundary},
 }
 
 \newglossaryentry{not:function}{
@@ -247,13 +284,19 @@
 
 \newglossaryentry{not:setminus}{
   type=notation,
-  name={$A \setminus B$},
+  name={$Y \setminus X$},
   description={set subraction},
+}
+
+\newglossaryentry{not:complement}{
+  type=notation,
+  name={$X^c$},
+  description={complement},
 }
 
 \newglossaryentry{not:closure}{
   type=notation,
-  name={$\overline{S}$},
+  name={$\overline{X}$},
   description={topological closure},
 }
 
@@ -278,7 +321,7 @@
 \newglossaryentry{not:contdifffuncs}{
   type=notation,
   name={$C^1$, $C^1(X,Y)$},
-  description={continuously differentiable functions $f \colon X \to Y$},
+  description={continuously differentiable functions},
 }
 
 \newglossaryentry{not:closedball}{
@@ -295,8 +338,8 @@
 
 \newglossaryentry{not:interior}{
   type=notation,
-  name={$A^\circ$},
-  description={interior of $A$},
+  name={$X^\circ$},
+  description={interior of $X$},
 }
 
 \newglossaryentry{not:identeq}{
@@ -357,4 +400,64 @@
   type=notation,
   name={$Df$, $Df|_p$},
   description={real derivative of a mapping (at $p$)},
+}
+
+\newglossaryentry{not:powerser}{
+  type=notation,
+  name={$\displaystyle \sum_{n=0}^\infty c_n {(z-p)}^n$},
+  description={power series (at $p$)},
+}
+
+\newglossaryentry{not:laurentser}{
+  type=notation,
+  name={$\displaystyle \sum_{n=-\infty}^\infty c_n {(z-p)}^n$},
+  description={Laurent series (at $p$)},
+}
+
+\newglossaryentry{not:metric}{
+  type=notation,
+  name={$d(x,y)$},
+  description={metric/distance},
+}
+
+\newglossaryentry{not:metricspace}{
+  type=notation,
+  name={$(X,d)$},
+  description={metric space},
+}
+
+\newglossaryentry{not:distancetoset}{
+  type=notation,
+  name={$d(p,X)$},
+  description={distnace from $p$ to set $X$},
+}
+
+\newglossaryentry{not:polyhull}{
+  type=notation,
+  name={$\widehat{K}$},
+  description={polynomial hull},
+}
+
+\newglossaryentry{not:infprod}{
+  type=notation,
+  name={$\displaystyle \prod{n=1}^\infty (1+a_n)$},
+  description={infinite product},
+}
+
+\newglossaryentry{not:elemfact}{
+  type=notation,
+  name={$E_m(z)$},
+  description={elementary factor},
+}
+
+\newglossaryentry{not:euclidnorm}{
+  type=notation,
+  name={$\norm{x}$},
+  description={euclidean norm for $x \in \R^n$},
+}
+
+\newglossaryentry{not:operatornorm}{
+  type=notation,
+  name={$\norm{A}$},
+  description={operator norm for a linear operator $A$},
 }

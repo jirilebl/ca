@@ -992,8 +992,8 @@ This is equivalent to treating $f$ as a function from $\R$ to $\R^2$
 and hence $f'$ is a $2 \times 1$ matrix---a column vector, or in other words
 representing a complex number if we are identifying $\C$ and $\R^2$.
 
-Similarly when integrating.  Suppose that $f \colon [a,b] \to \C$.
-We say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
+Similarly when integrating.  For $f \colon [a,b] \to \C$,
+we say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
 \begin{equation*}
 \int_a^b f(t) \, dt = 
 \int_a^b u(t) \, dt + i \int_a^b v(t) \, dt .
@@ -1240,7 +1240,7 @@ We write this form as
 \begin{equation*}
 z = x+iy = r e^{i \theta} .
 \end{equation*}
-Here, $r = \sabs{z} = \sqrt{x^2+y^2}$ is the \emph{\myindex{modulus}}, and 
+Here, $r = \sabs{z} = \sqrt{x^2+y^2}$ is the modulus, and 
 $\theta$ is the angle that $x+iy$ makes with the real axis (the $x$-axis).
 The $\theta$ is called the \emph{\myindex{argument}}.  See
 \figureref{fig:polarcoords}.
@@ -1433,7 +1433,7 @@ Define the function $g \colon \C_\infty \to \C_\infty$ by
 \begin{equation*}
 g(z) =
 \begin{cases}
-\frac{1}{z} & \text{if } z \not= 0 \text{ and } z \not= \infty, \\
+\nicefrac{1}{z} & \text{if } z \not= 0 \text{ and } z \not= \infty, \\
 \infty & \text{if } z = 0, \\
 0 & \text{if } z = \infty.
 \end{cases}
@@ -1705,7 +1705,9 @@ it is the set of one-dimensional vector
 subspaces of $\C^2$.
 
 We identify $\C\bP^1$ with $\C_\infty$ in the following
-way.  Denote by $[z:w] \in \C \bP^1$
+way.  Denote by
+\glsadd{not:CP1pt}%
+$[z:w] \in \C \bP^1$
 the equivalence class of vectors in $\C^2$ under
 $\sim$ that contains $(z,w) \in \C^2$.
 Then define the map $\Phi \colon \C_\infty \to \C \bP^1$ as
@@ -1981,7 +1983,9 @@ we want functions such that
 \begin{equation*}
 f(z_0+h) = f(z_0) + \xi h + o(\sabs{h})
 \end{equation*}
-for some $\xi \in \C$, where $o(\sabs{h})$ means any function of $h$
+for some $\xi \in \C$, where
+\glsadd{not:oofh}%
+$o(\sabs{h})$ means any function of $h$
 that goes to zero faster than $\sabs{h}$.
 
 \begin{defn}
@@ -1996,7 +2000,9 @@ f'(z_0) \overset{\text{def}}{=}
 \end{equation}
 exists.
 We call $f'(z_0)$ the \emph{\myindex{complex derivative}} of $f$
-at $z_0$.  The notation $\frac{df}{dz}$ is also useful.
+at $z_0$.  The notation
+\glsadd{not:cplxderalt}%
+ $\frac{df}{dz}$ is also useful.
 
 A function $f \colon U \to \C$ is
 \emph{\myindex{holomorphic}}
@@ -2934,7 +2940,7 @@ and the slit plane $\C \setminus (-\infty,0] = \{ z \in \C : \Im z \not= 0 \text
 \end{exercise}
 
 \begin{exercise} \label{exercise:segmentcomplement}
-Consider $f(z) = z+ \frac{1}{z}$.  Show that $f$ takes $\C \setminus
+Consider $f(z) = z+ \nicefrac{1}{z}$.  Show that $f$ takes $\C \setminus
 \overline{\D}$ biholomorphically to $\C \setminus [-2,2]$, and it also takes
 $\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.
 \end{exercise}
@@ -3206,6 +3212,7 @@ of powers (including negative) of $z = e^{i\theta}$.
 \subsection{Power series and radius of convergence}
 
 A \emph{\myindex{power series}} around $p \in \C$ is simply the series
+\glsadd{not:powerser}%
 \begin{equation*}
 \sum_{n=0}^\infty c_n {(z-p)}^n ,
 \end{equation*}
@@ -4293,6 +4300,7 @@ For instance, given a disc $\Delta_r(p)$, we parametrize
 the boundary $\partial \Delta_r(p)$ by
 $\gamma  \colon [0,2\pi] \to \C$ given by $\gamma(t) = p +
 re^{it}$, and then we write
+\glsadd{not:boundaryascycle}%
 \begin{equation*}
 \int_{\partial \Delta_r(p)} f(z) \, dz
 =
@@ -4438,6 +4446,7 @@ A \emph{\myindex{chain}} in $U \subset \C$ is an expression
 \end{equation*}
 where $a_1,\ldots,a_n \in \Z$ and $\gamma_1,\ldots,\gamma_n$
 are piecewise-$C^1$ paths in $U$.  We integrate over $\Gamma$ as
+\glsadd{not:cycleint}%
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz
 =
@@ -4451,6 +4460,7 @@ a_n \int_{\gamma_n} f(z) \, dz .
 Two chains $\Gamma_1$ and $\Gamma_2$ in 
 $U$ are
 \emph{equivalent}\index{equivalent chains} (we will write
+\glsadd{not:cycleeq}%
 $\Gamma_1=\Gamma_2$) if
 \begin{equation*}
 \int_{\Gamma_1} f(z) \, dz = 
@@ -4465,6 +4475,7 @@ The chain arithmetic is done in the obvious way as formal sums of paths:
 If $\Gamma_1 = 2 \gamma_1 + \gamma_2$ and $\Gamma_2 = 3 \gamma_2 +
 \gamma_3$, then $\Gamma_1 + \Gamma_2 = 2 \gamma_1 + 4 \gamma_2 + \gamma_3$.
 Similarly for scalar multiplication: $3 \Gamma_1 = 6 \gamma_1 + 3 \gamma_2$.
+\glsadd{not:cycleneg}%
 We write $-\Gamma$ for $(-1)\Gamma$.
 A chain $\Gamma$ is equivalent to the zero chain if
 \begin{equation*}
@@ -6958,7 +6969,7 @@ then $z^n$ is defined in the entire plane, and a primitive is
 simply $\frac{z^{n+1}}{n+1}$.  If $n < -1$, then $z^n$ is defined
 in the punctured plane $\C \setminus \{0\}$, but again
 a primitive is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
-\frac{1}{z}$?  It has a primitive, but never defined in
+\nicefrac{1}{z}$?  It has a primitive, but never defined in
 the entire punctured plane.
 
 We proved that in any star-like domain, a holomorphic function has a
@@ -7268,7 +7279,9 @@ Consider the function
 p \mapsto n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz .
 \end{equation*}
 Let us show that this function is continuous on $\C \setminus \Gamma$.
-Fix $p_0 \in \C \setminus \Gamma$, and let $d = d(p_0,\Gamma)$ be the
+Fix $p_0 \in \C \setminus \Gamma$, and let
+\glsadd{not:distancetoset}%
+$d = d(p_0,\Gamma)$ be the
 distance from 
 $p_0$ to $\Gamma$, namely
 $d = \inf \bigl\{ \sabs{z-p_0} : z \in \Gamma \bigr\}$.
@@ -7536,7 +7549,7 @@ The proof is immediate by applying Cauchy's theorem to $\Gamma_0-\Gamma_1$.
 
 \begin{exbox}
 \begin{exercise}
-Suppose that $\Gamma$ is
+Let $\Gamma$ be
 a cycle in $\C \setminus \{ 0 \}$.
 Prove that $\Gamma$ is homologous in $\C \setminus \{ 0 \}$
 to $n \partial \D$ for some $n \in \Z$.
@@ -7575,15 +7588,15 @@ Cauchy's theorem implies the Cauchy integral formula.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open and $\Gamma$ is a cycle in $U$
+Let $U \subset \C$ is open and $\Gamma$ is a cycle in $U$
 homologous to zero in $U$.
 Suppose that $n(\Gamma;z_1) = k_1$ and  $n(\Gamma;z_2) = k_2$ for
 some two distinct $z_1,z_2 \in U \setminus \Gamma$.
-Suppose $f \colon U \setminus \{z_1,z_2\} \to \C$ is
+Let $f \colon U \setminus \{z_1,z_2\} \to \C$ be
 holomorphic.
 Suppose $0< \epsilon < \sabs{z_1-z_2}$ is small enough that
 $\overline{\Delta_\epsilon(z_j)} \subset U$ for $j=1,2$,
-and suppose that
+and that
 $\int_{\partial \Delta_\epsilon(z_1)} f(z) \, dz = A$ and 
 $\int_{\partial \Delta_\epsilon(z_2)} f(z) \, dz = B$.
 Compute
@@ -7978,6 +7991,7 @@ called an ``annulus'', and calling $\ann(0;0,\infty) = \C \setminus
 Suppose that $0 \leq r_1 < r_2 \leq \infty$ and
 $f \colon \ann(p;r_1,r_2) \to \C$ is holomorphic.
 Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
+\glsadd{not:laurentser}%
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^{\infty} c_n {(z-p)}^n ,
 \end{equation*}
@@ -13951,7 +13965,7 @@ f(w)
 \leq \frac{2r+r}{2r-r} f(z_j)
 = 3 f(z_j) .
 \end{equation*}
-In other words $f(w) \leq 3 f(z_j)$ and $f(z_j) \leq 3 f(w)$.
+In other words, $f(w) \leq 3 f(z_j)$ and $f(z_j) \leq 3 f(w)$.
 
 First, as $\zeta \in \Delta_r(z_1)$ we get 
 \begin{equation*}
@@ -14813,7 +14827,7 @@ value $-\infty$.
 \item
 Show that $f$ is a subharmonic function in $U$.
 \item
-If $U = \D$ and $p_n = \frac{1}{n}$, show that $f$ is discontinuous at $0$
+If $U = \D$ and $p_n = \nicefrac{1}{n}$, show that $f$ is discontinuous at $0$
 (the natural topology on $\R \cup \{ -\infty \}$).
 \item
 If $\{ p_n \}$ is dense in $U$, show that $f$ 
@@ -14842,10 +14856,7 @@ other hand you know nothing about the size of this set.
 \begin{thm}[Rad\'o]\index{Rad\'o's theorem}\label{thm:rado}
 Let $U \subset \C$ be open and $f \colon U \to \C$ a continuous
 function that is holomorphic on the set where it is nonzero, that is,
-\begin{equation*}
-U' = \bigl\{ z \in U : f(z) \not= 0 \bigr\} .
-\avoidbreak
-\end{equation*}
+$f$ is holomorphic on $\bigl\{ z \in U : f(z) \not= 0 \bigr\}$.
 Then $f$ is holomorphic.
 \end{thm}
 
@@ -14854,7 +14865,7 @@ Holomorphicity is local, so
 it is enough to prove the theorem for a small disc $\Delta$
 such that $f$ is continuous
 on the closure $\overline{\Delta}$, let $\Delta'$ be the part of the disc
-where $f$ is nonzero.  If $\Delta'$ is empty, then we are done as
+where $f$ is nonzero.  If $\Delta'$ is empty, then we are done, as
 $f$ is just identically zero and hence holomorphic.
 
 Let $u$ be the real part of $f$.  On $\Delta'$, $u$ is a harmonic function.
@@ -14875,7 +14886,6 @@ $+\infty$ respectively.
 See \figureref{fig:radosthm}.
 Therefore, for all $t > 0$ and 
 $z \in \partial \Delta \cup (\Delta \setminus \Delta')$,
-we have
 \begin{equation} \label{eq:radobound}
 t \log \abs{f(z)} \leq Pu(z)-u(z) \leq -t \log \abs{f(z)}  .
 \end{equation}
@@ -14937,13 +14947,15 @@ If a solution exists, it clearly must equal to the Perron solution.
 
 \begin{exbox}
 \begin{exercise}
+\pagebreak[2]
 Suppose $U \subset \C$ is a domain and
 $u \colon \widebar{U} \to \R$ is continuous and
-harmonic on $U$, then
+harmonic on $U$.  Prove that for all $p \in U$,
 \begin{equation*}
-u(p) = \sup_{v} v(p)
+u(p) = \sup_{v} v(p),
+\avoidbreak
 \end{equation*}
-where $v$ range over all upper-semicontinuous functions on $\widebar{U}$
+where $v$ ranges over all upper-semicontinuous functions on $\widebar{U}$
 subharmonic on $U$,
 such that $v|_{\partial U} \leq u|_{\partial U}$.
 \end{exercise}
@@ -14990,6 +15002,7 @@ more complicated factors to make convergence happen the way we want to.
 
 \begin{defn}
 The product
+\glsadd{not:infprod}%
 \begin{equation*}
 \prod_{n=1}^\infty (1+a_n)
 \end{equation*}
@@ -15277,7 +15290,7 @@ direction.
 \end{exercise}
 
 \begin{exercise}\label{exercise:proddiff}
-%FIXME: used exercise
+%FIXME: mark needed/used exercises
 Suppose $U \subset \C$ is a domain,
 $f_n \colon U \to \C$ are holomorphic, and
 \begin{equation*}
@@ -15308,6 +15321,7 @@ $1$.
 
 \begin{defn}
 Define the \emph{\myindex{elementary factors}}
+\glsadd{not:elemfact}%
 \begin{equation*}
 E_0(z) = (1-z), \qquad
 E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
@@ -15758,7 +15772,7 @@ D = \left\{ z \in U :
 d(z,\C \setminus U) < \frac{1}{\sabs{z}+1}
 \right\} .
 \end{equation*}
-As usual $d(z,\C\setminus U) = \inf_{\zeta \in \C \setminus U}
+As usual, $d(z,\C\setminus U) = \inf_{\zeta \in \C \setminus U}
 \sabs{z-\zeta}$.  For $z \in U$ it is the distance to the boundary.
 Divide $\{ a_n \}$ into two parts:
 Let $\{ a^1_n \}$ be those $a_n$ that lie in $D$ and $\{ a^2_n \}$
@@ -15830,7 +15844,7 @@ be in $U$ as whenever $\sabs{a^2_n} \leq r$ then $d(a^2_n,\C\setminus U)
 these zeros.
 \end{proof}
 
-If $f = \frac{g}{h}$ for two holomorphic functions $g$ and $h$, then $f$
+If $f = \nicefrac{g}{h}$ for two holomorphic functions $g$ and $h$, then $f$
 is meromorphic with poles at the zeros of $h$.  Conversely,
 if $f$ has a pole of order $m$ at $p$, then $f(z) = \frac{g(z)}{{(z-p)}^m}$
 for some holomorphic $g$, so $f$ is a quotient of holomorphic functions
@@ -15848,7 +15862,7 @@ no nonconstant holomorphic functions on $\C_\infty$.}
 \begin{cor}
 Suppose $U \subset \C$ is open and $f \colon U \to \C_{\infty}$ is
 meromorphic.  Then there exist holomorphic $g,h \colon U \to \C$ such that
-$f = \frac{g}{h}$.
+$f = \nicefrac{g}{h}$.
 \end{cor}
 
 \begin{proof}
@@ -15937,7 +15951,7 @@ $Q_n(x,y)$ (polynomials of both $x$ and $y$), but only a function that is
 holomorphic on $\D$ can be the uniform limit of polynomials
 $P_n(z)$ (polynomial of $z$).
 More explicitly the function $z \mapsto \bar{z}=x-iy$ is not only a limit of
-polynomials in $x$ and $y$, it is a polynomial in $x$ and $y$.  However as
+polynomials in $x$ and $y$, it is a polynomial in $x$ and $y$.  However, as
 the function is not holomorphic on $\D$, it cannot be a
 uniform limit of holomorphic polynomials on $\overline{\D}$.
 \end{example}
@@ -15951,7 +15965,7 @@ of the power series $\sum_{n=0}^m c_n {(z-p)}^n$.  See also
 \exerciseref{exercise:polylimits}.  However, suppose we take a function that
 is holomorphic on an open neighborhood of the square $[-1,1] \times [-1,1]$, say
 $f(z) = \frac{1}{(z-1.1)(z+1.1)}$.  If we expand $f$ around any point, the
-series will never converge on all of $[-1,1] \times [-1,1]$.  However we can
+series will never converge on all of $[-1,1] \times [-1,1]$.  However, we can
 (exercise below) still find a sequence of polynomials that converge to $f$
 on $[-1,1] \times [-1,1]$.
 
@@ -16445,6 +16459,7 @@ Find a counterexample $U$, $f$, and $\{ f_n \}$ to the conclusion of part a).
 \begin{defn}
 Let $K \subset \C$ be a compact set.  
 The \emph{\myindex{polynomial hull}} of $K$ is the set
+\glsadd{not:polyhull}%
 \begin{equation*}
 \widehat{K}
 \overset{\text{def}}{=}
@@ -16479,9 +16494,10 @@ $\widehat{K}$ is compact.
 
 \begin{example}
 Let $K = \partial \D$.  By the maximum principle,
-$\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$ for any $z \in \D$.
-Furthermore, as above, $\sabs{z} \leq 1$ for all $z \in \widehat{K}$.  In
-other words, $\widehat{K} = \overline{\D}$.
+$\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$ for any $z \in \D$
+and any polynomial $P$.
+Furthermore, as above, $\sabs{z} \leq 1$ for all $z \in \widehat{K}$.
+So, $\widehat{K} = \overline{\D}$.
 \end{example}
 
 \begin{prop}
@@ -16511,26 +16527,28 @@ $\C \setminus K$.  Then $\widehat{K} = \C \setminus X$.
 \end{thm}
 
 \begin{proof}
-Suppose $p \in X$.  Then $\{ p \} \cup ( \C \setminus X )$ is a compact set
+Suppose $p \in X$.  Then $Q=\{ p \} \cup ( \C \setminus X )$ is a compact set
 whose
 complement (in either $\C$ or $\C_\infty$) is connected.
-Use \hyperref[thm:rungecpt]{Runge} to approximate a function that is $1$ at $p$ and $0$ on
-$\C \setminus X$
+The function that is $1$ at $p$ and $0$ on $\C \setminus X$ is
+holomorphic in a neighborhood of $Q$.
+Use \hyperref[thm:rungecpt]{Runge} to approximate this function on $Q$
 by a polynomial $P(z)$ to say within $\nicefrac{1}{2}$.  In other words,
 $\abs{P(p)-1} < \nicefrac{1}{2}$ so 
 $\abs{P(p)} > \nicefrac{1}{2}$, and for all $z \in \C \setminus X$ (and
 therefore all $z \in K$),
 we have 
-$\abs{P(z)} < \nicefrac{1}{2}$.  In other words $p \notin \widehat{K}$.
+$\abs{P(z)} < \nicefrac{1}{2}$.  Thus, $p \notin \widehat{K}$.
 
-Conversely, suppose $p \notin X$ is another point of $\C \setminus K$.
-Then $p \in X_1$ where $X_1$
+Conversely, suppose $p \notin X$.
+If $p \in K$, then $p \in \widehat{K}$, so suppose $p \notin K$.
+Then $p \in B$ where $B$
 is one of the bounded components of $\C \setminus K$.  The boundary
-$\partial X_1 \subset K$, and so the second version of the maximum
+$\partial B \subset K$, and so the second version of the maximum
 principle says that 
 \begin{equation*}
 \sabs{P(p)} \leq
-\sup_{z \in \partial X_1} \sabs{P(z)}
+\sup_{z \in \partial B} \sabs{P(z)}
 \leq
 \sup_{z \in K} \sabs{P(z)},
 \avoidbreak
@@ -17245,7 +17263,7 @@ on $U_1 \cap U_2$.
 \end{exbox}
 
 \begin{prop} \label{prop:continuationclose}
-Suppose that $f$ and $\gamma$ are as in \defnref{defn:analcont}.
+Let $f$ and $\gamma$ be as in \defnref{defn:analcont}.
 Suppose $f$ continues analytically along $\gamma$, and let
 $f_t$ be the continuation.
 There exists an $\epsilon > 0$ such that if
@@ -17692,6 +17710,7 @@ is not sufficient to describe every type of limit we find in modern
 analysis, it gets us very far indeed.
 
 \begin{defn}
+\glsadd{not:metric}%
 Let $X$ be a set, and let
 $d \colon X \times X \to \R$
 be a function such that for all $x,y,z \in X$
@@ -17714,11 +17733,12 @@ be a function such that for all $x,y,z \in X$
 \makebox[2.8in][l]{$d(x,z) \leq d(x,y)+ d(y,z)$}
 (\emph{\myindex{triangle inequality}}).
 \end{enumerate}
+\glsadd{not:metricspace}%
 The pair $(X,d)$ is called a \emph{\myindex{metric space}}.  The
 function $d$ is called the \emph{\myindex{metric}} or the
 \emph{\myindex{distance function}}.
-Sometimes we write just $X$ as the metric space instead of $(X,d)$, if the metric is clear from
-context.
+If the metric is clear from context,
+we may write simply $X$ instead of $(X,d)$.
 \end{defn}
 
 The geometric idea is that $d$ is the distance between two points. 
@@ -17744,16 +17764,16 @@ whereas the concept of a metric space is a lot more general.
 \begin{example}
 The set of real numbers $\R$ is a metric space with the metric
 \begin{equation*}
-d(x,y) = \abs{x-y} .
+d(x,y) = \sabs{x-y} .
 \end{equation*}
 Items \ref{metric:pos}--\ref{metric:com} of the definition
 are easy to verify.  The
 triangle inequality \ref{metric:triang} follows immediately
 from the standard triangle inequality for real numbers:
 \begin{equation*}
-d(x,z) = \abs{x-z} = 
-\abs{x-y+y-z} \leq
-\abs{x-y}+\abs{y-z} =
+d(x,z) = \sabs{x-z} = 
+\sabs{x-y+y-z} \leq
+\sabs{x-y}+\sabs{y-z} =
 d(x,y)+ d(y,z) .
 \end{equation*}
 This metric is the \emph{\myindex{standard metric on $\R$}}.  If we talk
@@ -18750,13 +18770,13 @@ approach both from the set and its complement).
 \begin{defn}
 Let $(X,d)$ be a metric space and $A \subset X$.
 The \emph{\myindex{interior}} of $A$ is the set
-\glsadd{not:interior}
+\glsadd{not:interior}%
 \begin{equation*}
 A^\circ \overset{\text{def}}{=} \{ x \in A : \text{there exists a } \delta > 0
 \text{ such that } B(x,\delta) \subset A \} .
 \end{equation*}
 The \emph{\myindex{boundary}} of $A$ is the set
-\glsadd{not:boundary}
+\glsadd{not:boundary}%
 \begin{equation*}
 \partial A \overset{\text{def}}{=} \widebar{A}\setminus A^\circ.
 \end{equation*}
@@ -20105,7 +20125,7 @@ $g(x,y) = d(x,y)$ is continuous.
 
 \begin{exercise}
 Let $C([a,b],\R)$ be the set of continuous functions and
-$C^1([a,b],\R)$\glsadd{not:contdifffuncs} the set of once continuously differentiable
+$C^1([a,b],\R)$ the set of once continuously differentiable
 functions on $[a,b]$.
 Define
 \begin{equation*}
@@ -20739,7 +20759,7 @@ The sequence
 $\{ f_n \}$ converges pointwise to $f$.  To show that the convergence
 is uniform, let $\epsilon > 0$ be given.  Find an $N$ such that
 for $m, k \geq N$ we have
-$\norm{f_m-f_k}_S < \nicefrac{\epsilon}{2}$.  In other words for
+$\norm{f_m-f_k}_S < \nicefrac{\epsilon}{2}$.  In other words, for
 all $x$ we have
 $\abs{f_m(x)-f_k(x)} < \nicefrac{\epsilon}{2}$.  We take the limit
 as $k$ goes to infinity.  Then $\abs{f_m(x)-f_k(x)}$
@@ -21364,20 +21384,16 @@ g(y) = \int_a^b f(x,y) \,dx .
 \end{equation*}
 If $f$ is continuous on $[a,b] \times [c,d]$, then
 \propref{prop:integralcontcont}
-says that $g$ is continuous on $[c,d]$.  Now
-suppose $f$ is differentiable in $y$.  Can we ``differentiate under the integral?''
-That is, is $g$ is differentiable and
-\begin{equation*}
-g'(y) \overset{?}{=} \int_a^b \frac{\partial f}{\partial y}(x,y) \,dx \quad ?
-\end{equation*}
-Differentiation is a limit and therefore we are again asking when do the
-two limiting operations of integration and differentiation commute.
+says that $g$ is continuous on $[c,d]$.
+Suppose $f$ is differentiable in $y$.  Can we ``differentiate under the integral?''
+Differentiation is a limit and we are again asking when do the
+two limiting operations, integration and differentiation, commute.
 The first
 question we face is the integrability of
 $\frac{\partial f}{\partial y}$, but the formula can fail even if
 $\frac{\partial f}{\partial y}$ is integrable as a function of $x$ for every
 fixed $y$.
-Let us prove a simple, but perhaps the most useful version of the theorem.
+We prove a simple, but perhaps the most useful, version of the theorem.
 
 \begin{thm}[\myindex{Leibniz integral rule}]
 \label{thm:Leibnizrule}
@@ -21575,6 +21591,7 @@ continuous).
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Work out the following counterexample:  Let
 \begin{equation*}
 f(x,y) =
@@ -21662,8 +21679,11 @@ Hint: See also \exerciseref{exercise:integralcontcontextra} and
 \subsection{The derivative}
 
 In the following, the norm $\snorm{\cdot}$ of a vector in $\R^n$
-is the Euclidean norm $\snorm{x} = \sqrt{x_1^2+\cdots+x_n^2}$.
+is the Euclidean norm
+\glsadd{not:euclidnorm}%
+$\snorm{x} = \sqrt{x_1^2+\cdots+x_n^2}$.
 When applied to a linear mapping (a matrix) it is the
+\glsadd{not:operatornorm}%
 \emph{\myindex{operator norm}}:
 \begin{equation*}
 \snorm{A} \overset{\text{def}}{=} \sup_{\snorm{x} = 1} \snorm{Ax} .
@@ -21680,6 +21700,9 @@ spaces, then $\snorm{A} < \infty$.
 \item
 Prove that if $A$ is a linear mapping of vector spaces, then
 $\snorm{Ax} \leq \snorm{A} \snorm{x}$.
+\item
+Find an explicit $2 \times 2$ matrix $A$ and a vector $x \in \R^2$
+such that $\snorm{Ax} < \snorm{A} \snorm{x}$.
 \end{exparts} 
 \end{exercise}
 \end{exbox}
@@ -22020,7 +22043,7 @@ a differentiable function, and an $M$ be such that
 \snorm{Df|_x} \leq M
 \qquad \text{for all } x \in U.
 \end{equation*}
-Then $f$ is Lipschitz with constant $M$, that is
+Then $f$ is Lipschitz with constant $M$, that is,
 \begin{equation*}
 \snorm{f(x)-f(y)} \leq M \snorm{x-y}
 \qquad
@@ -22029,16 +22052,15 @@ Then $f$ is Lipschitz with constant $M$, that is
 \end{prop}
 
 \begin{proof}
-Fix $x,y \in U$ and note that
-$(1-t)x+ty \in U$ for all $t \in [0,1]$
-by convexity.
+Fix $x,y \in U$.  By convexity,
+$(1-t)x+ty \in U$ for all $t \in [0,1]$.
 Next
 \begin{equation*}
 \frac{d}{dt} \Bigl[f\bigl((1-t)x+ty\bigr)\Bigr]
 =
 Df|_{((1-t)x+ty)} (y-x) .
 \end{equation*}
-By the mean value theorem above we get for
+By the mean value theorem above, for
 some $t_0 \in (0,1)$,
 \begin{equation*}
 \begin{split}
@@ -22140,7 +22162,7 @@ $Df|_p$ is represented by the matrix
 \end{equation*}
 \end{prop}
 
-In other words
+In other words,
 \begin{equation*}
 Df|_p \, e_j =
 \sum_{k=1}^m
@@ -22522,7 +22544,7 @@ As $V$ is a ball, it is convex.  Hence
 \qquad
 \text{for all } x_1,x_2 \in V.
 \end{equation*}
-In other words $\varphi_y$ is a contraction defined on $V$, though we so far
+In other words, $\varphi_y$ is a contraction defined on $V$, though we so far
 do not know what is the range of $\varphi_y$.  We cannot yet
 apply the fixed
 point theorem, but we can say that $\varphi_y$ 
@@ -22712,8 +22734,10 @@ Define $f \colon \R^2 \to \R^2$
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-(x^2 \sin \bigl(\nicefrac{1}{x}\bigr) + \frac{x}{2} , y ) & \text{if } x \not= 0, \\
-(0,y)                                                     & \text{if } x=0.
+\bigl(x^2 \sin \bigl(\nicefrac{1}{x}\bigr) + \nicefrac{x}{2} , y \bigr) &
+\text{if } x \not= 0, \\
+(0,y) &
+\text{if } x=0.
 \end{cases}
 \end{equation*}
 \begin{exparts}
@@ -22770,20 +22794,21 @@ $\Q$ for rational real numbers,
 
 \glsadd{not:setminus}%
 We denote the set subtraction by 
-$A \setminus B$,
+$Y \setminus X$,
 meaning all elements of
-$A$ that are not in $B$.
+$Y$ that are not in $X$.
+\glsadd{not:complement}%
 We the complement of a set is $X^c$, in which case
 the ambient set should be clear.
 \glsadd{not:closure}%
-The topological closure of a set $S$ is denoted by $\widebar{S}$, its
+The topological closure of a set $X$ is denoted by $\widebar{X}$, its
 boundary is denoted by
 \glsadd{not:boundary}%
-$\partial S$.  By $\partial S$ we may also mean the path that gives the
+$\partial X$.  By $\partial X$ we may also mean the path that gives the
 topological boundary traversed counterclockwise.
-We write the interior of $S$ as
+We write the interior of $X$ as
 \glsadd{not:interior}%
-$S^\circ$.
+$X^\circ$.
 
 \glsadd{not:function}%
 The notation $f \colon X \to Y$ is a function with domain $X$ and
