@@ -336,9 +336,15 @@
 
 \newenvironment{myfig}{%
 \begin{figure}[h!t]
-\noindent\rule{\textwidth}{0.4pt}\vspace{12pt}\par\centering}%
-{\par\noindent\rule{\textwidth}{0.4pt}
+\noindent\rule{\textwidth}{0.5pt}\vspace{12pt}\par\centering}%
+{\par\noindent\rule{\textwidth}{0.5pt}
 \end{figure}}
+
+%\newenvironment{myfig}{%
+%\begin{figure}[h!t]
+%\noindent\rule{0.5\textwidth}{0.4pt}\rule{0.5\textwidth}{0.8pt}\vspace{12pt}\par\centering}%
+%{\par\noindent\rule{0.5\textwidth}{0.8pt}\rule{0.5\textwidth}{0.4pt}
+%\end{figure}}
 
 
 \newenvironment{myquote}{%
@@ -8799,7 +8805,8 @@ state it without proof.
 
 \begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
 Let $\Gamma$ be a cycle
-such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\Gamma) = 1 \}$.
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let
+$U = \{ z \in \C : n(\Gamma;z) = 1 \}$.
 Suppose 
 $P,Q$ are continuously differentiable functions defined in a neighborhood
 of $\widebar{U}$.
@@ -8857,7 +8864,8 @@ $G=0$, $F$ be holomorphic, and apply the Wirtinger version of the formula.
 
 \begin{cor}\label{thm:cauchybygreen}
 Let $\Gamma$ be a cycle
-such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\Gamma) = 1 \}$.
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let
+$U = \{ z \in \C : n(\Gamma;z) = 1 \}$.
 Suppose $f$ is a holomorphic function defined in a neighborhood of $\widebar{U}$.
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz  = 0.
@@ -8872,7 +8880,8 @@ This version is called the \emph{\myindex{Cauchy--Pompeiu integral formula}}.
 
 \begin{thm}[Cauchy--Pompeiu] \label{thm:generalizedcauchy}
 Let $\Gamma$ be a cycle
-such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let $U = \{ z \in \C : n(z;\Gamma) = 1 \}$.
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let
+$U = \{ z \in \C : n(\Gamma;z) = 1 \}$.
 Suppose $f$ is a continuously differentiable function defined in a neighborhood
 of $\widebar{U}$.
 Then for $z \in U$:
@@ -10158,12 +10167,12 @@ If $p \notin U$, then $n(\Gamma;p) = 0$ as $\Gamma$ is homologous to zero in
 $U$,
 and as 
 $\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$, we get
-$n( \partial \Delta_{r_j}(w_j) ; p) = 0$, and the claim follows.
+$n\bigl( \partial \Delta_{r_j}(w_j) ; p\bigr) = 0$, and the claim follows.
 If $p = w_k \in S$, then 
-$n( \partial \Delta_{r_j}(w_j) ; p) = 0$ if $j \not= k$,
+$n\bigl( \partial \Delta_{r_j}(w_j) ; p\bigr) = 0$ if $j \not= k$,
 and
-$n( \partial \Delta_{r_k}(w_k) ; p) = 1$.  The claim follows in this case as
-well.
+$n\bigl( \partial \Delta_{r_k}(w_k) ; p\bigr) = 1$.
+The claim again follows.
 
 By the homology version of the Cauchy theorem, \thmref{thm:CThomology}, we find
 \begin{equation*}
