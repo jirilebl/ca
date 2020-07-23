@@ -3554,6 +3554,14 @@ by explicitly writing down
 a power series at any $p \in \C \setminus \{ 0 \}$
 using the geometric series.
 \end{exercise}
+
+\begin{exercise}
+Suppose $f(z) = \sum_{n=0}^\infty a_n z^n$ converges and defines a
+function on $\D$ such that $f(z) = f(-z)$ for all $z \in \D$ ($f$ is ``even'').
+Prove that there exists a function defined by a power series
+$g(z) = \sum_{n=0}^\infty b_n z^n$ converging in $\D$ such that
+$f(z) = g(z^2)$.
+\end{exercise}
 \end{exbox}
 
 \subsection{Analytic functions are holomorphic}
@@ -3570,14 +3578,13 @@ differentiable.
 Let $f \colon \Delta_R(p) \to \C$ be defined by
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n ,
+\qquad \text{converging in } \Delta_R(p) .
 \end{equation*}
-which converges in $\Delta_R(p)$.
 Then $f$ is complex differentiable at every $z \in \Delta_R(p)$ and
 \begin{equation*}
 f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1} ,
-\avoidbreak
+\qquad \text{converging in } \Delta_R(p) .
 \end{equation*}
-which converges in $\Delta_R(p)$.
 \end{prop}
 
 \begin{proof}
@@ -3662,11 +3669,12 @@ As $s$ and $r$ were arbitrary, the convergence happens in all of
 $\Delta_R(0)$.
 \end{proof}
 
-The derivative is again given by a power series.
+So the derivative of a power series is again given by a power series.
 By induction, it follows that a power series is infinitely complex
 differentiable.
 
 \begin{cor} \label{cor:convpowserinfdif}
+\pagebreak[2]
 Let $f \colon \Delta_R(p) \to \C$ be defined by a convergent power series
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
@@ -3675,8 +3683,8 @@ Then $f$ is infinitely complex differentiable in $\Delta_R(p)$,
 and the $k$\textsuperscript{th} derivative is given by
 \begin{equation*}
 f^{(k)}(z) = \sum_{n=k}^\infty n(n-1)\cdots(n-k+1) c_n {(z-p)}^{n-k} ,
+\qquad \text{converging in } \Delta_R(p) .
 \end{equation*}
-which converges in $\Delta_R(p)$.
 Furthermore,
 \begin{equation*}
 c_n =
@@ -3881,7 +3889,8 @@ and we assumed $0$ is not in the interior of $Z_f$.  Then
 f(z) = z^k \sum_{n=k}^\infty c_n z^{n-k} = z^k g(z) .
 \end{equation*}
 The series $g(z)$ is a convergent power series and $g(0) = c_k \not=
-0$.  A power series is continuous, and hence $g(z) \not= 0$ near $0$.
+0$.  A power series is continuous, and hence $g(z) \not= 0$ in a whole
+neighborhood of $0$.
 As $z^k$ is only zero at $0$, we find that $0$ is an isolated zero of $f$.
 
 So the only points of $Z_f$ that are not isolated are those that are in the
@@ -5599,6 +5608,13 @@ $\sabs{p}$.
 Given a $p$, find a function $f$ whose radius of convergence is precisely
 given by the formula you found above.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \D \to \C$ is holomorphic such that
+$f(z) = f(iz)$ for all $z \in \D$.  Show that there
+exists a holomorphic $g \colon \D \to \C$ such that
+$f(z) = g(z^4)$.
 \end{exercise}
 
 \begin{exercise}
@@ -10461,6 +10477,25 @@ holomorphic, and suppose $f$ has a simple pole with $\operatorname{Res}(f;1) = 1
 If the power series for $f$ at 0 is $\sum_{n=0}^\infty c_n z^n$, show that
 $\lim_{n\to \infty} c_n$ exists and compute what it is.  Hint: Try
 subtracting the pole away.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is holomorphic on $U = \{ z \in \C : \sabs{z} > R \}$ for 
+some $R > 0$.  Define the residue of $f$ at $\infty$,
+$\operatorname{Res}(f;\infty)$, to be the residue
+of $g(z) = -z^{-2} f(z^{-1})$ at $0$.
+\begin{exparts}
+\item
+For any $r > R$, prove
+\begin{equation*}
+\operatorname{Res}(f;\infty) = \frac{-1}{2\pi i} \int_{\partial \Delta_r(0)}
+f(z) \, dz .
+\end{equation*}
+\item
+If $f$ is holomorphic on $\C$ except for finitely many isolated
+singularities.  Prove that the sum of all residues of $f$ including the
+residue at $\infty$ is zero.
+\end{exparts}
 \end{exercise}
 
 % Best for this to be the last in this exbox,
