@@ -10748,7 +10748,7 @@ zeros in the disc.
 A nonzero point might ``split'' into a zero and a
 pole, that is $\frac{z-\epsilon}{z+\epsilon}$ is very close to the function
 $1$ on $\partial \D$.  So poles are allowed to ``cancel'' zeros, but this
-balance is always maintained.  Furthermore if we do not allow any poles
+balance is always maintained.  If we do not allow any poles
 whatsoever, then the theorem says that the number of zeros does not change.
 
 \begin{thm}[Rouch\`e\footnote{%
@@ -10779,6 +10779,9 @@ The condition on $\Gamma$ means that the
 cycle is simple in the sense
 that only goes around any particular point either once or not at all.
 We then want to count the number of zeros and poles inside $\Gamma$.
+The strictness of the inequality is the key point,
+the nonstrict inequality is always true for any $f$ and $g$ by the triangle
+inequality.
 
 Often the theorem is only applied for holomorphic functions, that is,
 functions without poles.
@@ -10907,8 +10910,9 @@ Using Rouch\`e's theorem, count the number of zeros of $z^7-4z^3-11$ in $\ann(p;
 
 \begin{exercise}
 Suppose 
+the monic polynomial
 $P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$
-is a monic polynomial that has no zeros on the unit circle and $k \leq n$ zeros
+has no zeros on the unit circle and $k \leq n$ zeros
 (counting multiplicity)
 in the unit disc.  Show that there exists an $\epsilon > 0$ such that
 if $\sabs{b_j-a_j} < \epsilon$ for $j=0,\ldots,n-1$, then
@@ -10950,7 +10954,7 @@ exactly one $z_0 \in \D$ such that $f(z_0) = z_0$.
 
 \subsection{Hurwitz's theorem}
 
-Let us see how the number of zeros can change under limits of functions.
+Let us see what happens to zeros under limits of functions.
 That is, if we know the number of zeros of functions in a sequence,
 what can one tell about the number of zeros of the limit.  Alternatively,
 if we have a limit function with $k$ zeros, then what can
@@ -11070,7 +11074,8 @@ Give examples of both possible conclusions.
 Suppose 
 $f_n \colon \C \to \C$ is a sequence of holomorphic
 functions
-converging uniformly on compact subsets to $f \colon \C \to \C$.
+converging uniformly on compact subsets to $f \colon \C \to \C$,
+which is not identically zero.
 Suppose that all the zeros of $f_n$ are real for all $n$.
 Prove that all the zeros of $f$ are real.
 \end{exercise}
@@ -11115,7 +11120,7 @@ Find an example sequence of such maps such that $f_n(\D) = \D$.
 Suppose $P_t(z) = z^n + \sum_{k=0}^{n-1} a_k(t) z^k$ is a polynomial
 with continuous coefficients $a_k \colon [0,1] \to \C$.  Suppose $P_t$ has
 no zeros on $\partial \D$ for all $t \in [0,1]$.  Then the number of zeros
-of $P_t$ (up to multiplicity) in $\D$ is constant in $t$.
+of $P_t$ (up to multiplicity) in $\D$ is constant as a function of $t$.
 \end{exercise}
 \end{exbox}
 
