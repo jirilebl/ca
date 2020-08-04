@@ -11392,7 +11392,7 @@ $w \mapsto z_1(w)z_2(w)$ are holomorphic functions on $V$.
 Hint: Argument principle.
 \item
 Show that $z_1(w)$ and $z_2(w)$ are solutions of
-$z^2 + b(w) z + c(w) = 0$ for some $b$ and $c$ holomorphic on $V$.
+$z^2 + b(w) z + c(w) = 0$ for some functions $b$ and $c$ holomorphic on $V$.
 \item
 For $f(z) = z^2$, $U = V = \C$, show that neither $z_1$ nor $z_2$ is a continuous
 function of $w$,
@@ -11433,9 +11433,10 @@ Interestingly, Montel provides just that kind of theorem for holomorphic
 functions.
 However, before we get to Montel, we must find a weaker result
 of this kind for continuous functions, the Arzel\`a--Ascoli theorem.
-For continuous functions we will need something more than just bounded,
-we will need some sort of uniformity in the continuity.
-But let us start with boundedness.
+For continuous functions we need something more than just boundedness
+to get the convergent subsequence,
+we need some sort of uniformity in the continuity.
+Let us start with what we mean by \emph{bounded}.
 
 \begin{defn}
 Let $X$ be any set.
@@ -11455,31 +11456,33 @@ such that
 \end{equation*}
 \end{defn}
 
-A sequence of functions that converges pointwise will be pointwise bounded.
-For example, the sequence $\bigl\{ \frac{n^2x}{1+n^2x^2} \bigr\}$
+A sequence of functions that converges pointwise is pointwise bounded.
+The sequence $\bigl\{ \frac{n^2x}{1+n^2x^2} \bigr\}$
 for $x \in \R$
 is not uniformly bounded, but it is pointwise bounded as it converges
 pointwise (exercise).
-A sequence of uniformly bounded functions may
+On the other hand,
+a uniformly bounded sequence of functions may
 not contain any subsequence that converges even pointwise.
 For instance, $\sin(nx)$ on the real line is one such example.\footnote{%
 A proof of this fact requires some measure theory, see the exercises.}
-Below we will show that there must always exist
+Below we show that for such a sequence there must always exist
 a subsequence converging at countably
 many points, but $\R$ (or any interval) is uncountable.
-On the other hand the functions $x^n$ are uniformly bounded
+Moreover,
+the functions $x^n$ are uniformly bounded
 and converge pointwise to a function on the unit interval $[0,1]$, but the limit
 is discontinuous.  As we are interested in continuous
-functions, we will require better convergence than pointwise.  For now let
-us ignore continuity for a moment and show that we can get pointwise
-convergence on a countable set
+functions, we must require better convergence than pointwise.  For now, let
+us ignore continuity and show that we can get pointwise
+converging subsequence on a countable set
 if we start with pointwise bounded functions.
 The proof is a nice example of a diagonalization argument.
 
 \begin{prop} \label{prop:subsequenceoncountableX}
-Let $X$ be a countable set and $f_n \colon X \to \C$ give a pointwise bounded
-sequence of functions.  Then $\{ f_n \}$ has a subsequence that converges
-pointwise.
+Let $X$ be a countable set and $\{ f_n \}$ a pointwise bounded
+sequence of functions $f_n \colon X \to \C$.
+Then $\{ f_n \}$ has a subsequence that converges pointwise.
 \end{prop}
 
 \begin{proof}
@@ -11524,10 +11527,10 @@ dense set.
 
 \begin{exercise}[Requires measure theory]
 Prove that on no interval $[a,b] \subset \R$ does $\sin(nx)$
-have a convergent subsequence.
+have a pointwise convergent subsequence.
 First, if $f$ is the pointwise limit of a subsequence on $[a,b]$,
 use Riemann--Lebesgue lemma to show that $f=0$ almost everywhere.
-Second, use the dominated convergence theorem on $\int_{[a,b]} f^2 dx$ to find 
+Second, use the dominated convergence theorem on $\int_{[a,b]} f^2\, dx$ to find 
 a contradiction.
 \end{exercise}
 \end{exbox}
@@ -11535,25 +11538,24 @@ a contradiction.
 \subsection{Equicontinuity}
 
 For larger than countable sets,
-in order to find convergent subsequences
-we need the functions of the sequence to be related.  We look at
-continuous functions, and the concept we need is equicontinuity.
+in order to find convergent subsequences of continuous functions
+we need some uniformity of continuity across the sequence.
 
 \begin{defn}
 Let $(X,d)$ be a metric space.
 A set $S$ of functions
 $f \colon X \to \C$ is 
 \emph{\myindex{equicontinuous}} at $x \in X$
-if for every $\epsilon > 0$, there is a $\delta > 0$
+when for every $\epsilon > 0$, there is a $\delta > 0$
 such that if $y \in X$ with $d(x,y) < \delta$, then
 \begin{equation*}
 \sabs{f(x)-f(y)} < \epsilon \qquad \text{for all } f \in S .
 \end{equation*}
-We say $S$ is equicontinuous if it is equicontinuous at every $x \in X$.
+We say $S$ is \emph{equicontinuous} if it is equicontinuous at every $x \in X$.
 
 The set $S$ is 
 \emph{\myindex{uniformly equicontinuous}}
-if for every $\epsilon > 0$, there is a $\delta > 0$
+when for every $\epsilon > 0$, there is a $\delta > 0$
 such that if $x,y \in X$ with $d(x,y) < \delta$, then
 \begin{equation*}
 \sabs{f(x)-f(y)} < \epsilon \qquad \text{for all } f \in S .
@@ -11561,14 +11563,14 @@ such that if $x,y \in X$ with $d(x,y) < \delta$, then
 \end{defn}
 
 For finite sets $S$, equicontinuity and uniform equicontinuity
-is the same as continuity and uniform continuity.  The
-key is what happens to infinite sets.
+is the same as continuity and uniform continuity.
+The notion is interesting for infinite sets.
 
 \begin{exbox}
 \begin{exercise}
 Prove that a finite set of functions continuous at $x$ is
 equicontinuous at $x$, and
-a finite set of uniformly functions is uniformly equicontinuous.
+a finite set of uniformly continuous functions is uniformly equicontinuous.
 \end{exercise}
 \end{exbox}
 
@@ -11584,10 +11586,9 @@ uniformly equicontinuous.  Then there exists an $\epsilon > 0$
 such that for every $k \in \N$, there
 is an $x_k,y_k \in X$ with $d(x_k,y_k) < \nicefrac{1}{k}$
 such that $\sabs{f_{n_k}(x_k)-f_{n_k}(y_k)} \geq \epsilon$ for some $n_k$.
-
 By compactness $\{x_k\}$ and $\{ y_k\}$ have convergent subsequences, so
 without loss of generality, suppose that they converge, in which case
-they converge to the same point $x \in X$.
+they converge to the same $x \in X$.
 For any $\delta > 0$, take $k$ such that
 $d(x,x_k) < \delta$ and
 $d(x,y_k) < \delta$.
@@ -11798,7 +11799,7 @@ us uniform convergence on compact subsets.
 \begin{cor}[Arzel\`a--Ascoli]\index{Arzel\`a--Ascoli theorem}
 \label{cor:arzelaascoliplane}
 Let $U \subset \C$ be open and let $\{ f_n \}$
-be pointwise bounded and equicontinuous sequence
+be a pointwise bounded and equicontinuous sequence
 of functions $f_n \colon U \to \C$.  Then
 $\{ f_n \}$ contains a subsequence
 that converges uniformly on compact subsets.
@@ -11883,7 +11884,7 @@ jokes about how Montel had a ``normal family.''}
 
 \begin{defn}
 Let $U \subset \C$ be open.
-A set $\sF$ of holomorphic functions $f \colon U \to \C$ is called a
+A set $\sF$ of holomorphic functions $f \colon U \to \C$ is a
 \emph{\myindex{normal family}} if every sequence in $\sF$ has a subsequence
 that converges uniformly on compact sets (the limit need not be in $\sF$).
 
@@ -11895,9 +11896,8 @@ $\snorm{f}_{\Delta_r(p)} \leq M$ for all $f \in \sF$.
 
 In more modern language, a set $\sF$ is a normal family if it is precompact, or
 relatively compact, in the space of holomorphic functions on $U$.  But we
-didn't define an actual topology or metric on this set in this book, so
+didn't define an actual topology or metric on this space in this book, so
 we will just use the traditional verbiage.
-Let us just start with the statement of Montel.
 
 \begin{thm}[Montel]\index{Montel's theorem}
 Let $U \subset \C$ be open and let $\sF$
@@ -11987,9 +11987,9 @@ points to get that the sequence actually converges uniformly on compact subsets.
 
 \begin{exbox}
 \begin{exercise}
-Prove the converse to Montel.  That is, if $\sF$ is a normal family of 
-holomorphic functions on an open set $U \subset \C$, then $\sF$ is locally
-bounded.
+Prove the converse to Montel:
+If $\sF$ is a normal family of holomorphic functions on an open set $U \subset \C$,
+then $\sF$ is locally bounded.
 \end{exercise}
 
 \begin{exercise}
@@ -12001,7 +12001,7 @@ $\snorm{f}_K \leq M$ for all $f \in \sF$.
 
 \begin{exercise}[Vitali's theorem]\index{Vitali's theorem}
 Suppose $U \subset \C$ is a domain, $\{ f_n \}$ is a locally bounded
-sequence of holomorphic functions that
+sequence of holomorphic functions $f_n \colon U \to \C$ that
 converges pointwise on a set $E \subset U$,
 and $E$ has a limit point in $U$.  Prove that $\{ f_n \}$
 converges uniformly on compact sets in $U$.
