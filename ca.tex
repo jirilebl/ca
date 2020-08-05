@@ -12065,8 +12065,8 @@ is maximal.
 
 \begin{exercise}
 Find the largest domain $U \subset \C$ such that the family
-of functions defined by $z \mapsto \frac{1}{c+z}$, $c \geq 0$ is a
-normal family.
+of functions defined by $z \mapsto e^{cz}$, $c \geq 0$, is a
+normal family and, of course, prove your assertion.
 \end{exercise}
 \end{exbox}
 
@@ -12077,7 +12077,7 @@ normal family.
 
 \subsection{The theorem}
 
-Every simply connected domain of $\C$ (except $\C$ itself) is really
+Every simply connected domain in $\C$ (except $\C$ itself) is really
 equivalent (biholomorphically, conformally) to $\D$.
 This is the content of the so-called Riemann mapping theorem.
 It is a theorem that gets cited a lot in all sorts of branches of
@@ -12224,15 +12224,23 @@ $f \colon U \to \D$ such that $f(p) = 0$ and $f'(p) > 0$ is unique if it exists.
 \end{exercise}
 \end{exbox}
 
-\begin{remark}
 The mapping from the theorem can be useful, but of course the theorem
-itself doesn't tell you how to construct it.  There are entire books
+itself doesn't tell you how to construct it.
+You will construct the maps in a couple of simple cases in the exercises.
+See for instance \figureref{fig:riemannmap} for the mapping that takes the
+upper half-disc to the unit disc.
+There are entire books
 written on the subject, collecting the techniques for constructing
 these maps for various types of domains.
 For instance, there is an explicit formula for the map given any polygon
-called the Schwarz--Christoffel mapping.  Let us not worry about the
-constructions here.
-\end{remark}
+called the Schwarz--Christoffel mapping.
+Let us not worry about these constructions here.
+
+\begin{myfig}
+\includegraphics{figures/riemannmap}
+\caption{The Riemann map for the upper half-disc with $p=(\sqrt{2}-1)i$.%
+\label{fig:riemannmap}}
+\end{myfig}
 
 \begin{remark}
 Another common question we will not worry about
@@ -12248,9 +12256,20 @@ Again, we refer the reader to more advanced literature.
 
 \begin{exbox}
 \begin{exercise}
-Explicitly find the unique biholomorphic map from the strip
-$\{ z : -1 < \Im z < 1 \}$ to the
-unit disc such that $f(0)=0$, $f'(0) > 0$.
+Explicitly find the unique biholomorphic map (the Riemann map)
+$f \colon U \to \D$
+for the following $U$ using the $p$ provided, that is,
+such that $f(p) = 0$ and $f'(p) > 0$:
+\begin{exparts}
+\item
+The strip $U = \{ z : -1 < \Im z < 1 \}$, $p=0$.
+\item
+The quadrant $U = \{ z : \Re z > 0 \text{ and } \Im z > 0 \}$, $p=1+i$.
+\item
+The upper half-disc $U = \{ z : \sabs{z} < 1 \text{ and } \Im z > 1 \}$, $p
+= (\sqrt{2}-1)i$.  Hint:  Start with the inverse of the Cayley map, and
+don't worry about $p$ at first.  See \figureref{fig:rimemannmap}
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -12263,6 +12282,7 @@ Suppose $U \subset \C$ is a simply connected domain.
 Show that for every two points $z,w \in U$, there exists an automorphism
 $\psi \in \Aut(U)$ such that $\psi(z) = w$.
 \end{exercise}
+
 
 \begin{exercise}
 \begin{exparts}
