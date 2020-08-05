@@ -575,7 +575,7 @@ linear and abstract algebra is also useful.
 The analysis prerequisites can be mostly found in
 \cites{ra:book,ra:book2,Rudin:principles}.  Further recommended
 reading on complex analysis is \cites{Boas,Conway1,Conway2,Rudin,Ullrich}.
-See the
+See the aptly named
 \hyperref[ch:furtherreading]{Further Reading} chapter.
 
 This book takes the view that we do not need to redefine and reprove
@@ -597,10 +597,12 @@ These are not simply time saving measures.
 The point is to stress that we are not defining some totally new and
 different world.
 
-We also want to take a bit more of the $z,\bar{z}$ approach and less the
-$x,y$ approach.  It is really a better way to think about complex variables.
+We also try to introduce the $z,\bar{z}$ approach instead of just the
+purely $x,y$ approach.  For example, we introduce and use the Wirtinger
+operators.
+It is really a better way to think about complex variables.
 
-Furthermore, we try not to define any conflicting terminology or notation
+We try not to define any conflicting terminology or notation
 with what the reader has learned before.
 Mainly, the term ``differentiable'' is generally left for the real
 derivative and we use ``complex differentiable'' when needed.  Although
@@ -609,7 +611,7 @@ we generally write ``(real) differentiable'' or
 ``differentiable (in the real sense)'' to
 make it clear when we mean real differentiability.
 
-Finally, some sections early in the book are marked with a * and those
+Finally, some sections early in the book are marked with a $\star$ and those
 can be easily skipped on first reading (though it does not mean they are not
 important, just not necessary for what follows).  Skipping some may make it
 possible to cover other later topics.
@@ -835,7 +837,7 @@ If $z,w \in \C$, then
 $\sabs{\Re z\bar{w}} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz inequality\footnote{%
 Some say it should be Cauchy--Bunyakovsky--Schwarz, but that is wrong.
 Bunyakovsky and Schwarz proved the infinite-dimensional version.  This is
-just Cauchy inequality, but unfortunately that name refers to a different
+just Cauchy inequality, but lamentably that name refers to a different
 inequality, one that we will call the Cauchy estimates.}, note: $\Re z
 \bar{w}$ is the real dot product),\index{Cauchy--Schwarz}
 \item
@@ -1086,9 +1088,10 @@ to do.
 
 Complex conjugation is also real-linear
 operator and can be represented by the matrix $\left[ \begin{smallmatrix} 1 & 0 \\ 0 &
--1 \end{smallmatrix} \right]$.  Note that complex conjugation is
-not representing multiplication by a complex number.  Below you will prove
-however that multiplications by complex numbers together with conjugation do 
+-1 \end{smallmatrix} \right]$.  Notice that complex conjugation is
+not a multiplication by a complex number.
+Below you will prove, however,
+that multiplications by complex numbers together with conjugation do 
 in fact ``generate'' all the real-linear operators.
 
 For those matrices representing complex numbers,
@@ -1582,7 +1585,7 @@ Here on the left-hand side we tacitly use the extended real sense
 ($x$ is real, no?) and on the
 right-hand side we tacitly use the Riemann sphere sense ($z$ seems complex).
 This could, obviously, cause confusion.
-In this book, infinite limits are going to be in the Riemann sphere sense
+In this book, limits are going to be in the Riemann sphere sense
 unless either otherwise noted or obvious.
 
 \medskip
@@ -1671,6 +1674,23 @@ Then
 f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
 \end{equation*}
 
+Translations are easy to understand, they just move the point.  Complex
+dilation $D_a$ is the traditional Euclidean plane-geometry dilation by $\sabs{a}$
+and rotation by $\arg a$.  The inversion is the Euclidean plane-geometry inversion
+across the unit circle
+and complex conjugation, see \figureref{fig:inversion}.  The Euclidean
+inversion across the circle simply inverts the distance to the origin:
+\begin{equation*}
+\frac{1}{\sabs{z}} e^{i \arg z} = 
+\frac{\sabs{z}}{\sabs{z}^2} e^{i \arg z} = \frac{1}{\bar{z}} .
+\end{equation*}
+So to get our complex inversion $I(z)$ we also conjugate.
+
+\begin{myfig}
+\subimport*{figures/}{inversion.pdf_t}
+\caption{Complex inversion.\label{fig:inversion}}
+\end{myfig}
+
 This sort of decomposition is quite useful in proving statements about
 LFTs that are preserved under composition:
 one only needs to prove them for $T_a$, $D_a$, and $I$.  This technique
@@ -1714,11 +1734,11 @@ We identify $\C\bP^1$ with $\C_\infty$ in the following
 way.  Denote by
 \glsadd{not:CP1pt}%
 $[z:w] \in \C \bP^1$
-the equivalence class of vectors in $\C^2$ under
-$\sim$ that contains $(z,w) \in \C^2$.
-Then define the map $\Phi \colon \C_\infty \to \C \bP^1$ as
+the equivalence class (under $\sim$) of vectors in $\C^2$
+that contains $(z,w) \in \C^2$.
+Then define the map $\Psi \colon \C_\infty \to \C \bP^1$ as
 \begin{equation*}
-\Phi(z) =
+\Psi(z) =
 \begin{cases}
 [z:1] & \text{if } z \in \C , \\
 [1:0] & \text{if } z=\infty .
@@ -1727,7 +1747,7 @@ Then define the map $\Phi \colon \C_\infty \to \C \bP^1$ as
 
 \begin{exbox}
 \begin{exercise}
-Prove that the $\Phi$ defined above is bijective.
+Prove that the $\Psi$ defined above is bijective.
 \end{exercise}
 \end{exbox}
 
@@ -1746,23 +1766,23 @@ c & d
 An invertible $M$ takes one-dimensional subspaces to one-dimensional
 subspaces, so it sounds plausible.
 
-First, $\Phi \circ f$ for $z \in \C \setminus \bigl\{ \nicefrac{-d}{c} \bigr\}$
+First, $\Psi \circ f$ for $z \in \C \setminus \bigl\{ \nicefrac{-d}{c} \bigr\}$
 is equal to
 \begin{equation*}
-\Phi \circ f(z) =
+\Psi \circ f(z) =
 \left[\frac{a z + b}{c z + d}: 1 \right]
 =
 \left[a z + b: c z + d \right] ,
 \end{equation*}
 where the second inequality follows by definition of $\sim$.
 When $z = \nicefrac{-d}{c}$, then $cz+d = 0$, or $f(0) = \infty$
-and $\Phi(\infty) = [1:0] = [az+b : cz+d]$ as well.
+and $\Psi(\infty) = [1:0] = [az+b : cz+d]$ as well.
 
-Let us consider $\Phi \circ f \circ \Phi^{-1}$.
+Let us consider $\Psi \circ f \circ \Psi^{-1}$.
 If $w \not= 0$, then $[z:w] = [ \nicefrac{z}{w}:1 ]$.  So
 \begin{equation*}
-\Phi \circ f \circ \Phi^{-1} \bigl([z:w]\bigr) =
-\Phi \circ f \left(\frac{z}{w}\right) =
+\Psi \circ f \circ \Psi^{-1} \bigl([z:w]\bigr) =
+\Psi \circ f \left(\frac{z}{w}\right) =
 \left[a \frac{z}{w} + b : c \frac{z}{w} + d \right] =
 \left[a z + b w: c z + d w \right] .
 \end{equation*}
@@ -1784,20 +1804,20 @@ $\C^2 \setminus \{ 0 \}$ to $\C^2 \setminus \{ 0 \}$.
 Let $\pi \colon \C^2 \setminus \{ 0 \} \to \C \bP^1$ be the map\footnote{The
 ``quotient map'' or the ``natural projection.''}
 $\pi \bigl( (z,w) \bigr) =
-[z:w]$.  The following commutative diagram\footnote{By the diagram being
-commutative we mean that if we take two different routes in the picture
-we get the same map.}
+[z:w]$.  The following commutative diagram\footnote{A diagram is
+commutative if taking two different routes in the picture
+gives the same map.}
 may
 illustrate the entire situation better:
 \begin{equation*}
 \begin{tikzcd}
 \C^2 \setminus \{ 0 \} \arrow[r,"M"] \arrow[d,"\pi"] &
 \C^2 \setminus \{ 0 \} \arrow[d,"\pi"] \\
-\C \bP^1 \arrow[r,"\Phi \circ f \circ \Phi^{-1}"] \arrow[d,shift left,"\Phi^{-1}"] &
-\C \bP^1 \arrow[d,shift left,"\Phi^{-1}"]
+\C \bP^1 \arrow[r,"\Psi \circ f \circ \Psi^{-1}"] \arrow[d,shift left,"\Psi^{-1}"] &
+\C \bP^1 \arrow[d,shift left,"\Psi^{-1}"]
 \\
-\C_\infty \arrow[r,"f"]\arrow[u,shift left,"\Phi"] &
-\C_\infty \arrow[u,shift left,"\Phi"]
+\C_\infty \arrow[r,"f"]\arrow[u,shift left,"\Psi"] &
+\C_\infty \arrow[u,shift left,"\Psi"]
 \end{tikzcd}
 \end{equation*}
 
@@ -1833,7 +1853,7 @@ it as an exercise to figure out the inverse.
 
 \begin{exbox}
 \begin{exercise}
-Figure out what $C^{-1}$ is.  Hint: Think of $\C_\infty$ as $\C \bP^1$
+Figure out what $C^{-1}$ (inverse of Cayley) is.  Hint: Think of $\C_\infty$ as $\C \bP^1$
 and $C$ as a matrix.  It is really easy to invert $2 \times 2$ matrices.
 \end{exercise}
 
@@ -1851,7 +1871,7 @@ $T_a$, $D_a$, and $I$ for $a\in \C$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Cross ratio *}
+\section{Cross ratio \texorpdfstring{$\star$}{*}}
 
 There is a certain quantity that is preserved by LFTs, the
 \emph{\myindex{cross ratio}}:
@@ -1868,8 +1888,11 @@ where $z_1,z_2,z_3,z_4$ are complex numbers.  The cross ratio
 was already described by the ancient Greeks and plays a key role in
 projective geometry.
 The definition is extended to when one of the numbers is $\infty$ by simply
-erasing the affected terms from the ratios.  Pretend that say $z_3-\infty$
-is really equal to $z_4-\infty$ and thus they cancel.
+erasing the affected terms from the ratios.  For instance, if $z_1=\infty$,
+then pretend that $z_3-\infty$
+is really equal to $z_4-\infty$ and thus they cancel:
+this makes sense as $\lim_{z\to\infty} \frac{z_3-z}{z_4-z} = 1$.
+Consequently,
 \begin{align*}
 (\infty,z_2;z_3,z_4)
 & =
@@ -1891,27 +1914,30 @@ is really equal to $z_4-\infty$ and thus they cancel.
 \frac{z_3-z_1}{z_3-z_2} .
 \end{align*}
 
-By ``preserved by LFTs'' we mean that if $f(z)$ is an LFT, then
+By ``preserved by LFTs'' we mean:
+
+\begin{prop} \label{prop:crossratioinvariant}
+Suppose that $f$ is an LFT, then
 \begin{equation*}
 (z_1,z_2;z_3,z_4) =
 \bigl(f(z_1),f(z_2);f(z_3),f(z_4)\bigr) .
 \end{equation*}
+\end{prop}
 
 \begin{exbox}
-\begin{exercise} \label{exercise:crossratioinvariant}
-Prove the invariance of cross ratios under LFTs.
+\begin{exercise}
+Prove \propref{prop:crossratioinvariant}.
 \end{exercise}
 
 \begin{exercise}
 Prove that four distinct points are on a line or a circle if and only if the cross
 ratio is real.
-Hint: See \exerciseref{exercise:crossratioinvariant}
-and \exerciseref{exercise:anycircletorealline}.
+Hint: See also \exerciseref{exercise:anycircletorealline}.
 \end{exercise}
 \end{exbox}
 
-Cross ratios give a convenient way to describe LFTs.  For example, 
-for three distinct numbers $z_2,z_3,z_4$, the
+Cross ratios give a convenient way to describe LFTs.
+For three distinct numbers $z_2,z_3,z_4$, the
 function
 \begin{equation*}
 f(z) =
@@ -1965,7 +1991,7 @@ generalize polynomials in $z \in \C$;  we wish to study functions
 that,
 at least locally, behave like $P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots +
 a_1 z + a_0$.  Polynomials are easy to understand and easy to work
-with.  Unfortunately there aren't that many of them.  For instance, there is
+with.  Alas, there aren't that many of them.  For instance, there is
 no nonzero polynomial that solves the most basic of differential equations: $f' =
 f$.  We must enlarge our horizons a bit.
 
@@ -2995,7 +3021,7 @@ $\det Df\big|_p = \babs{\frac{\partial f}{\partial z}(p)}^2 -
 \end{exercise}
 \end{exbox}
 
-\subsection{Conformality *}
+\subsection{Conformality \texorpdfstring{$\star$}{*}}
 
 The actual definition of ``conformal mapping'' is 
 a real differentiable bijective mapping $f \colon U \to V$ of open
@@ -8406,7 +8432,7 @@ of $\ann(p;\sabs{z_1},\sabs{z_2})$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Homotopy version of Cauchy *}
+\section{Homotopy version of Cauchy \texorpdfstring{$\star$}{*}}
 
 \subsection{Homotopy}
 
@@ -8785,7 +8811,7 @@ and only if $V$ is simply connected in the sense of homotopy.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Cauchy via Green's *}
+\section{Cauchy via Green's \texorpdfstring{$\star$}{*}}
 
 \subsection{Green's theorem in the complex plane}
 
@@ -9032,7 +9058,7 @@ dA
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Domains with piecewise-\texorpdfstring{$C^1$}{C1} boundary *}
+\section{Domains with piecewise-\texorpdfstring{$C^1$}{C1} boundary \texorpdfstring{$\star$}{*}}
 
 The way Green's theorem, and hence Cauchy's theorem is often given, and
 the way it is most often used is for a domain with piecewise-$C^1$
@@ -11131,7 +11157,7 @@ of $P_t$ (up to multiplicity) in $\D$ is constant as a function of $t$.
 A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
 sorts of things to the topology.  The surprisingly famous\footnote{%
 It is called a ``blow-up'' and it is used in obtaining a Fields medal.
-Unfortunately, the medal has already been obtained by Hironaka, and you
+Alas, the medal has already been obtained by Hironaka, and you
 have to find your own map if you want your own medal.}
 map $(x,y) \mapsto (x,xy)$
 takes all of $\R^2$, which is both an open and a closed set, to the
@@ -12096,6 +12122,16 @@ such that $f(p) = 0$ and
 $f'(p) > 0$ (real and positive) is unique.
 \end{thm}
 
+See \figureref{fig:riemannmap} for the mapping that takes the
+upper half-disc to the unit disc.  You will explicitly construct this map in
+\exerciseref{exercise:explicitriemann}.
+
+\begin{myfig}
+\includegraphics{figures/riemannmap}
+\caption{The Riemann map for the upper half-disc with $p=(\sqrt{2}-1)i$.%
+\label{fig:riemannmap}}
+\end{myfig}
+
 The proof of the theorem is a wonderful example of how to solve
 a problem by formulating the correct extremal problem.  The $f$
 in the theorem will come about by maximizing
@@ -12224,23 +12260,17 @@ $f \colon U \to \D$ such that $f(p) = 0$ and $f'(p) > 0$ is unique if it exists.
 \end{exercise}
 \end{exbox}
 
+\begin{remark}
 The mapping from the theorem can be useful, but of course the theorem
 itself doesn't tell you how to construct it.
-You will construct the maps in a couple of simple cases in the exercises.
-See for instance \figureref{fig:riemannmap} for the mapping that takes the
-upper half-disc to the unit disc.
 There are entire books
 written on the subject, collecting the techniques for constructing
 these maps for various types of domains.
 For instance, there is an explicit formula for the map given any polygon
 called the Schwarz--Christoffel mapping.
 Let us not worry about these constructions here.
+\end{remark}
 
-\begin{myfig}
-\includegraphics{figures/riemannmap}
-\caption{The Riemann map for the upper half-disc with $p=(\sqrt{2}-1)i$.%
-\label{fig:riemannmap}}
-\end{myfig}
 
 \begin{remark}
 Another common question we will not worry about
@@ -12255,20 +12285,21 @@ Again, we refer the reader to more advanced literature.
 \end{remark}
 
 \begin{exbox}
-\begin{exercise}
-Explicitly find the unique biholomorphic map (the Riemann map)
-$f \colon U \to \D$
-for the following $U$ using the $p$ provided, that is,
+\begin{exercise} \label{exercise:explicitriemann}
+Find the unique biholomorphic map (the Riemann map)
+$f \colon U \to \D$ explicitly
+for the following $U$ and $p$, that is,
 such that $f(p) = 0$ and $f'(p) > 0$:
 \begin{exparts}
 \item
 The strip $U = \{ z : -1 < \Im z < 1 \}$, $p=0$.
 \item
-The quadrant $U = \{ z : \Re z > 0 \text{ and } \Im z > 0 \}$, $p=1+i$.
+The quadrant $U = \{ z : \Re z > 0 \text{ and } \Im z > 0 \}$,
+$p=\frac{1+i}{\sqrt{2}}$.
 \item
 The upper half-disc $U = \{ z : \sabs{z} < 1 \text{ and } \Im z > 1 \}$, $p
 = (\sqrt{2}-1)i$.  Hint:  Start with the inverse of the Cayley map, and
-don't worry about $p$ at first.  See \figureref{fig:rimemannmap}
+don't worry about $p$ at first.  See \figureref{fig:riemannmap}.
 \end{exparts}
 \end{exercise}
 
@@ -12327,7 +12358,7 @@ since every nonempty perfect set is uncountable
 \end{exercise}
 \end{exbox}
 
-\subsection{Simply connected is simply connected *}
+\subsection{Simply connected is simply connected \texorpdfstring{$\star$}{*}}
 
 Let us finally prove that simply connected (in the sense of homology,
 \defnref{defn:simplyconnected:homology} that we have been using all this
@@ -14486,7 +14517,7 @@ Find an example $f$ that does not extend to be harmonic through the origin.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Subharmonic functions *}
+\section{Subharmonic functions \texorpdfstring{$\star$}{*}}
 \label{sec:subharmonic}
 
 Holomorphic, and hence harmonic, functions are very rigid.
@@ -16840,7 +16871,7 @@ $P_p$ at $p$.
 Sometimes convergence happens simply by grouping the terms correctly.
 In other words, given the right $\{ K_n \}$ one can choose $R_n = 0$.  
 Suppose we want a function with a poles at all $n \in \Z$ with
-singular parts $\frac{1}{z-n}$.  Unfortunately
+singular parts $\frac{1}{z-n}$.  Regrettably,
 \begin{equation*}
 \sum_{n\in \Z} \frac{1}{z-n}
 \end{equation*}
