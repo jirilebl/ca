@@ -67,12 +67,6 @@ int main()
   begin();
   //border();
 
-  bold();
-  solid();
-  circle(P(0,0),1);
-  circle(P(2.6,0),1);
-  plain();
-
   arrow(P(1.1,0.0),P(1.5,0.0));
 
   pen(Black(0.2));
@@ -109,6 +103,13 @@ int main()
 
   draw_line (0.5,-0.3,0.85,0.0,10);
   draw_line (0.5,0.3,0.85,0.0,10);
+
+  bold();
+  solid();
+  circle(P(0,0),1);
+  circle(P(2.6,0),1);
+  plain();
+
 
   tikz_format();
   end();
