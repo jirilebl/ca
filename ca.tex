@@ -2045,8 +2045,8 @@ if it is complex differentiable at every point.  That is, if
 \eqref{eq:complexdiff} exists for all $z_0 \in U$.
 \end{defn}
 
-Above, we proved the following proposition that justifies our motivation
-for the complex derivative:
+Above, we proved the following proposition, which justifies our motivation
+for the complex derivative.
 
 \begin{prop}
 If $P(z)$ is a polynomial, then $P \colon \C \to \C$ is holomorphic.
@@ -2087,7 +2087,8 @@ differentiable (in the real sense
 and as a function of two real variables,
 see \sectionref{sec:derinsv} in the appendix) function.
 If we think of $\C$ as $\R^2$,
-then the real derivative of $f$ is a $2 \times 2$ real matrix $D f$.
+then the real derivative of $f$ is a $2 \times 2$ real matrix $D f$
+that approximates $f$ locally.
 That is, $f$ is (real) differentiable at $z_0$ if there exists
 a $2 \times 2$ real matrix $Df|_{z_0}$ such that
 \begin{equation*}
@@ -2096,7 +2097,7 @@ a $2 \times 2$ real matrix $Df|_{z_0}$ such that
 We think of $h$ as a column vector in $\R^2$ 
 to be able to apply it to the
 $2 \times 2$ real matrix $Df|_{z_0}$.
-A key point here is that the limit is being taken
+A key point here is that the limit is taken
 as $h$ moves in $\C$ (or $\R^2$ if you wish).
 So $f(z_0+h) - f(z_0) - (Df|_{z_0}) h$ is $o(\sabs{h})$ as needed.
 The trick is to see when $(Df|_{z_0}) h$ corresponds to $\xi h$
@@ -2112,11 +2113,11 @@ y}\big|_{z_0} \\[5pt]
 \frac{\partial v}{\partial x}\big|_{z_0} & \frac{\partial v}{\partial y}\big|_{z_0}
 \end{bmatrix} .
 \end{equation*}
-As we have seen in the last chapter, only a matrix of the form
+We have seen in the last chapter that only a matrix of the form
 $\left[ \begin{smallmatrix}
 a & -b \\ b & a
 \end{smallmatrix} \right]$ corresponds to multiplication a complex number $a+ib$.
-So the derivative $Df|_{z_0}$ corresponds to multiplication by a
+Ergo, the derivative $Df|_{z_0}$ corresponds to multiplication by a
 complex number only if it is of the form
 $\left[ \begin{smallmatrix}
 a & -b \\ b & a
@@ -2128,17 +2129,17 @@ a & -b \\ b & a
 \frac{\partial v}{\partial x}\Big|_{z_0} =
 -\frac{\partial u}{\partial y}\Big|_{z_0} .
 \end{equation*}
-In this case $Df|_{z_0}$ corresponds to multiplication by the number
+In that event, $Df|_{z_0}$ corresponds to multiplication by the number
 $\xi = \frac{\partial u}{\partial x}\big|_{z_0} + i \frac{\partial v}{\partial
 x}\big|_{z_0}$, which is equal to
 $\frac{\partial v}{\partial y}\big|_{z_0} - i \frac{\partial u}{\partial
 y}\big|_{z_0}$.
-So we get that
+Consequently,
 \begin{equation*}
 0 = \lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - \xi h}}{\sabs{h}} =
 \lim_{h \to 0} \abs{\frac{f(z_0+h) - f(z_0)}{h} - \xi} ,
 \end{equation*}
-or in other words
+that is to say,
 \begin{equation*}
 \lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi .
 \end{equation*}
@@ -2171,7 +2172,8 @@ $\frac{\partial v}{\partial x}\big|_{z_0} =
 
 If the partial derivatives exist and are continuous, then $f$ is
 (real) differentiable (see \sectionref{sec:derinsv} again).
-So we have the following, perhaps easier to apply, result.
+Thus we have the following, perhaps easier to apply, result
+for continuously differentiable functions.
 
 \begin{cor}
 Let $U \subset \C$ be open and let $f = u+iv \colon U \to \C$ be a function
@@ -2202,15 +2204,15 @@ except that Euler was really Swiss, he only lived in Germany for a long time.}.
 This book is dedicated to their
 solutions.
 
-So continuously differentiable functions that satisfy
+Hence, continuously differentiable functions that satisfy
 the Cauchy--Riemann equations are holomorphic.
 On the other hand,
 a function that is complex differentiable everywhere (a holomorphic
 function) is differentiable in the real sense,
 and thus the partial derivatives exist and satisfy the Cauchy--Riemann
 equations.  We will show later that holomorphic functions are
-continuously differentiable and not just differentiable, and in fact they
-are infinitely differentiable.
+continuously differentiable and not just differentiable, they are
+infinitely differentiable.
 
 \begin{exbox}
 \begin{exercise} \label{exercise:exponentialholomorphic}
@@ -2298,7 +2300,7 @@ is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)
 
 \begin{proof}
 We offer two proofs.  The first works only for holomorphic
-functions, and the second is generalizable to nonholomorphic functions
+functions, and the second allow a generalization to nonholomorphic functions
 with the Wirtinger operators in the next section (an exercise).
 
 Let $h \not= 0$, and let $k = f(z+h) -f(z)$.  Then
@@ -2320,7 +2322,7 @@ the limit as $h \to 0$.
 
 Let's see the second proof.
 Complex differentiable functions are real differentiable, so
-the proof follows from the standard real chain rule (\thmref{thm:realchain}).
+we apply the standard real chain rule (\thmref{thm:realchain}).
 Let $w = f(z) \in V$.  Then
 \begin{equation*}
 D(g \circ f)|_z = Dg|_w Df|_z .
@@ -2328,7 +2330,7 @@ D(g \circ f)|_z = Dg|_w Df|_z .
 Each of the $2 \times 2$ matrices $Dg|_w$ and $Df|_z$ correspond to complex
 numbers as $f$ and $g$ are both holomorphic.  A product $Dg|_w Df|_z$
 of two such matrices again corresponds to a complex number.  So
-$D(g \circ f)|_z$ corresponds to a complex number and so $g \circ f$
+$D(g \circ f)|_z$ corresponds to a complex number and $g \circ f$
 complex differentiable at $z$.
 \end{proof}
 
@@ -2358,7 +2360,7 @@ Let $z = \gamma(t_0)$.  Then
 D(f \circ \gamma)|_{t_0} =
 Df|_z D\gamma|_{t_0} .
 \end{equation*}
-That is as an equation of real linear operators.  Now $Df|_z$ corresponds
+That is an equation of real linear operators.  Now $Df|_z$ corresponds
 to multiplication by the complex number $f'(z)$, and $D\gamma|_{t_0}$
 is the $2 \times 1$ matrix (column vector) represented by $\gamma'(t_0)$.
 The result follows.
