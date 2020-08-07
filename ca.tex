@@ -2012,11 +2012,11 @@ So $P(z_0+h)$ is approximated (locally) by $c_0 + c_1 h$
 up to an error that vanishes faster than $h$.
 We should emphasize that the limits are as a complex $h$ goes to $0$.
 
-Therefore, we wish to study functions that are
-locally approximated by $c_0 + c_1 h$ in the same way.  More formally
+Accordingly, we wish to study functions that are
+locally approximated by $c_0 + c_1 h$ in the same way.  More formally,
 we want functions such that
 \begin{equation*}
-f(z_0+h) = f(z_0) + \xi h + o(\sabs{h})
+f(z_0+h) = \underbrace{f(z_0)}_{c_0} + \underbrace{\xi h}_{c_1 h} + o(\sabs{h})
 \end{equation*}
 for some $\xi \in \C$, where
 \glsadd{not:oofh}%
@@ -2056,7 +2056,7 @@ The most basic result about holomorphic functions is that they are
 continuous.
 This can be proved either directly from the definition (exercise),
 or using that a holomorphic function is
-(real) differentiable as we will see shortly.
+(real) differentiable as we will observe shortly.
 
 \begin{prop} \label{prop:holiscont}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic, then $f$
@@ -2201,8 +2201,7 @@ the equations first appeared in the work of d'Alembert, and
 it was Euler who first connected them to analytic functions.
 So perhaps they had better be called the French-guy--German-guy equations,
 except that Euler was really Swiss, he only lived in Germany for a long time.}.
-This book is dedicated to their
-solutions.
+Complex analysis, then, is the study of their solutions.
 
 Hence, continuously differentiable functions that satisfy
 the Cauchy--Riemann equations are holomorphic.
@@ -2211,7 +2210,7 @@ a function that is complex differentiable everywhere (a holomorphic
 function) is differentiable in the real sense,
 and thus the partial derivatives exist and satisfy the Cauchy--Riemann
 equations.  We will show later that holomorphic functions are
-continuously differentiable and not just differentiable, they are
+continuously differentiable---and not just differentiable, they are
 infinitely differentiable.
 
 \begin{exbox}
@@ -2316,7 +2315,7 @@ Let $h \not= 0$, and let $k = f(z+h) -f(z)$.  Then
 \frac{f(z+h)-f(z)}{h} .
 \end{split}
 \end{equation*}
-A differentiable function is continuous, so as $h \to 0$, then $k \to 0$.
+A differentiable function is continuous, so $k \to 0$ as $h \to 0$.
 The proof then follows by continuity of complex multiplication and taking
 the limit as $h \to 0$.
 
@@ -2327,42 +2326,45 @@ Let $w = f(z) \in V$.  Then
 \begin{equation*}
 D(g \circ f)|_z = Dg|_w Df|_z .
 \end{equation*}
-Each of the $2 \times 2$ matrices $Dg|_w$ and $Df|_z$ correspond to complex
+The $2 \times 2$ matrices $Dg|_w$ and $Df|_z$ correspond to complex
 numbers as $f$ and $g$ are both holomorphic.  A product $Dg|_w Df|_z$
-of two such matrices again corresponds to a complex number.  So
-$D(g \circ f)|_z$ corresponds to a complex number and $g \circ f$
-complex differentiable at $z$.
+of two such matrices again corresponds to a complex number, the product of
+the two.
+So $D(g \circ f)|_z$ corresponds to the pertinent complex number and $g \circ f$
+complex differentiable at $z$, and the given equality holds.
 \end{proof}
 
-We still get this simple statement of the chain rule
+This simple statement of the chain rule still holds
 if we plug a real differentiable function of one variable
 into a complex differentiable
 one.  If $\gamma \colon (a,b)
 \to \C$ is a (real) differentiable function, where
 $\gamma = \alpha + i \beta$,
-then write $\gamma' = \alpha' + i \beta'$.
+then write $\gamma' = \alpha' + i \beta'$, which can also be interpreted
+as a $2 \times 1$ matrix (column vector)
+$\left[\begin{smallmatrix}\alpha'\\\beta'\end{smallmatrix}\right]$.
 
 \begin{prop}[Chain rule]
 \index{chain rule!composition of real and complex derivative}%
 \label{prop:chainrule2}%
 Let $U \subset \C$ be open,
-$\gamma \colon (a,b) \to U$ (real) differentiable at $t_0 \in (a,b)$,
-and $f \colon U \to \C$ complex differentiable at $\gamma(t_0)$.
+$\gamma \colon (a,b) \to U$ (real) differentiable at $t \in (a,b)$,
+and $f \colon U \to \C$ complex differentiable at $\gamma(t)$.
 Then the composition $f \circ \gamma$ is (real) differentiable
-at $t_0$ and $(f \circ \gamma)'(t_0) = f'\bigl(\gamma(t_0)\bigr) \gamma'(t_0)$.
+at $t$ and $(f \circ \gamma)'(t) = f'\bigl(\gamma(t)\bigr) \gamma'(t)$.
 \end{prop}
 
 \begin{proof}
-The first proof follows almost in the same way.  But it may be useful to see
+The first proof follows almost in the same way.  But it is useful to see
 how we think of it in terms of real derivatives.
-Let $z = \gamma(t_0)$.  Then 
+Let $z = \gamma(t)$.  Then 
 \begin{equation*}
-D(f \circ \gamma)|_{t_0} =
-Df|_z D\gamma|_{t_0} .
+D(f \circ \gamma)|_{t} =
+Df|_z D\gamma|_{t} .
 \end{equation*}
 That is an equation of real linear operators.  Now $Df|_z$ corresponds
-to multiplication by the complex number $f'(z)$, and $D\gamma|_{t_0}$
-is the $2 \times 1$ matrix (column vector) represented by $\gamma'(t_0)$.
+to multiplication by the complex number $f'(z)$, and $D\gamma|_{t}$
+is the $2 \times 1$ matrix (column vector) represented by $\gamma'(t)$.
 The result follows.
 \end{proof}
 
@@ -2435,7 +2437,7 @@ Is every solution to
 the Cauchy--Riemann equations holomorphic?  Above, we saw that the answer
 is affirmative for continuously differentiable functions, or at least
 functions differentiable as functions of two variables.
-In general, the answer is false%
+Surprisingly, the answer is false%
 \footnote{%
 A good thorough account of this problem is:
 J.\ D.\ Gray and  S.\ A.\ Morris,
@@ -3325,7 +3327,6 @@ R = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
 \end{equation}
 where we interpret $\frac{1}{\infty} = 0$ and $\frac{1}{0} = \infty$,
 so $R=\infty$ is allowed.
-
 By the standard root test, the series $\sum \sabs{c_n} r^n$
 converges if
 \begin{equation*}
@@ -3360,7 +3361,7 @@ in the complement of the closure $\overline{\Delta_R(p)}$.
 Convergence (or divergence) on the boundary circle $\partial \Delta_R(p)$
 is a tricky matter.
 
-A useful criterion for the radius of convergence is that the sequence
+A useful criterion for convergence is that the sequence
 $\bigl\{ \sabs{c_n} r^n \bigr\}$ is
 bounded whenever $0 < r < R$.
 
@@ -3376,10 +3377,10 @@ $0 < r < R$ there exists an $M > 0$ such that
 
 It is not necessarily true that $\bigl\{ \sabs{c_n} R^n \bigr\}$
 is bounded if $R$ is the radius of convergence.
-For example, both $\sum z^n$ and $\sum n z^n$ have
-radius of convergence 1 and the sequence of coefficients
+The series $\sum z^n$ and $\sum n z^n$ have
+radius of convergence 1, while the sequence of coefficients
 is bounded in the first case and
-not in the second.  However, $\{ n r^n \}$ is bounded for every $r < 1$.
+not in the second.  However, $\{ n r^n \}$ is bounded for all $r < 1$.
 
 \begin{proof}
 Suppose the series converges in $\Delta_{R}(p)$ and
@@ -3601,11 +3602,12 @@ Eventually, we will see that analytic functions and holomorphic functions are
 one and the same.\footnote{%
 For this reason, some authors define ``analytic'' to mean complex differentiable,
 which is no problem eventually, but right now it would be.}
-Let us start by proving that
+We start by proving that
 analytic functions are holomorphic, that is, they are complex
 differentiable.
 
 \begin{prop}
+\pagebreak[2]
 Let $f \colon \Delta_R(p) \to \C$ be defined by
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n ,
