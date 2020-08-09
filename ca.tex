@@ -307,6 +307,12 @@
   {.5em}% Space after theorem head 2
   {}% Theorem head spec (can be left empty, meaning "normal")
 
+% FIXME: Don't know if we should do this.  It is not as straightforward
+%of a decision as it seems
+% FIXME: It is also not finished in marking, chapter 1 till 1.4 is done
+%\newcommand{\neededexmark}{$\blacklozenge$}
+%\newcommand{\optneededexmark}{$\lozenge$}
+
 \newenvironment{exbox}{%
     \def\FrameCommand{\vrule width 1pt \relax\hspace{10pt}}%
     \MakeFramed{\advance\hsize-\width\FrameRestore}%
@@ -732,7 +738,7 @@ To make it a field, we define addition and product:
 \end{align*}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Check that $\C$ is a field, where the additive
 identity is $0=(0,0)$ and the multiplicative identity is $1=(1,0)$.
 That is, $\C$ is an abelian group under addition,
@@ -909,7 +915,7 @@ $\lim\limits_{n\to\infty} \bar{a}_n =
 \end{prop}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Prove the proposition.
 \end{exercise}
 \end{exbox}
@@ -1025,7 +1031,7 @@ Suppose $f \colon [a,b] \to \C$ is (Riemann) integrable.  Then $\sabs{f}$ is
 \end{prop}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Prove the proposition.  Hint: After you know integrability, consider
 a Riemann sum and the regular triangle inequality.
 \end{exercise}
@@ -1209,7 +1215,7 @@ e^{z+w} = e^z e^w .
 \end{prop}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Prove the proposition using the definition and trigonometric identities.
 \end{exercise}
 \end{exbox}
@@ -1379,7 +1385,7 @@ showing that if $2k\pi < \Im z \leq 2(k+1)\pi$ and
 $2k\pi < \Im w \leq 2(k+1)\pi$, then $e^z=e^w$ implies $z=w$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Use $e^{z+w} = e^z e^w$ and $e^0 = 1 \not= 0$ to show that $e^z \not=0$ for all
 $z \in \C$.  In other words, if a function $f$ satisfies $f(z+w)=f(z)f(w)$
 and $f(0) = 1$, then $f(z) \not= 0$ for all $z$.
@@ -1487,7 +1493,7 @@ distances would lead to the same topology and so the same limits.
 \end{myfig}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Show that $\Phi$ is bijective.
 \end{exercise}
 
@@ -1499,7 +1505,7 @@ points in $\C$ using polar coordinates $re^{\theta}$.  Then prove that $\Phi$ of
 $(\phi,\theta)$ is $(\cot \nicefrac{\phi}{2})e^{i\theta}$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Show that the topology induced on $\C$ by the topology of $S^2$ using $\Phi$
 as above is equivalent to the standard one.  That is, show that a set $U
 \subset \C$
@@ -1522,33 +1528,33 @@ Indeed, topologically, it is the same as the
 ``one-point compactification'' of $\C$.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Suppose that $L \in \C$ and $z_0 \in \C$.
 Show that $\lim_{z\to z_0} f(z) = L$ in the sense of the Riemann sphere
 if and only if $\lim_{z \to z_0} f(z) = L$ in the usual sense (the euclidean
 metric on $\C$).
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Suppose that $L \in \C$.
 Show that $\lim_{z\to \infty} f(z) = L$ in the sense of the Riemann sphere
 if and only if, for every $\epsilon > 0$ there exists an $M$ such that
 $\sabs{f(z)-L} < \epsilon$ whenever $\sabs{z} > M$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Suppose that $z_0 \in \C$.
 Show that $\lim_{z\to \infty} f(z) = \infty$ in the sense of the Riemann sphere
 if and only if, for every $M > 0$ there exists a $\delta > 0$ such that
 $\sabs{f(z)} > M$ whenever $\sabs{z-z_0} < \delta$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Show that $\lim\limits_{z\to\infty} f(z) = L$ for some $L \in \C_\infty$ if and only if
 $\lim\limits_{z \to 0} f(\nicefrac{1}{z}) = L$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Show that $\lim\limits_{z\to z_0} f(z) = \infty$ for some $z_0 \in \C_\infty$ if and only if
 $\lim\limits_{z \to z_0} \frac{1}{f(z)} = 0$.
 \end{exercise}
@@ -1559,7 +1565,8 @@ as $\infty$, and the value of $z$ at $\infty$ as $\infty$.
 In fact, any nonconstant polynomial is $\infty$ at $\infty$.
 
 \begin{exbox}
-\begin{exercise} \label{exercise:polygoesinf}
+\begin{exercise}%[\neededexmark]
+\label{exercise:polygoesinf}
 Suppose $P(z) = a_d z^d + a_{d-1} z^{d-1} + \cdots + a_1 z + a_0$ be
 a polynomial where $a_0,\ldots,a_d \in \C$.  Prove that if $d \geq 1$
 and $a_d \not=0$ ($P$ is nonconstant),
@@ -1634,11 +1641,11 @@ If $c=0$, then set $f(\infty) = \infty$.  In either case, $f$ is a map of
 the Riemann sphere to itself.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Prove that an LFT is a bijective mapping of the Riemann sphere to itself.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}%[\neededexmark]
 Prove that an LFT extended to the Riemann sphere as above is continuous.
 \end{exercise}
 \end{exbox}
@@ -2450,10 +2457,9 @@ as the following exercise shows.
 \begin{exercise} \label{exercise:nonholCRsol}
 Let $f(0) = 0$ and $f(z) = e^{-z^{-4}}$ for $z \not=0$.  Prove that partial
 derivatives exist at every point (including the origin) and $f$
-satisfies the Cauchy--Riemann equations at every point.
-Then prove
-that $f$ is not complex differentiable at the origin.  In fact, $f$ is not
-even continuous.
+satisfies the Cauchy--Riemann equations at every point,
+but $f$ is not complex differentiable at the origin ($f$ is not
+even continuous).
 \end{exercise}
 \end{exbox}
 
@@ -2668,10 +2674,10 @@ work as if $z$ and $\bar{z}$ really were independent variables.  For example:
 =
 z^2 ( 3 \bar{z}^2 ) + 0 .
 \end{equation*}
-In that sense (at least for polynomials) a function is holomorphic 
+So at least for polynomials, a function is holomorphic 
 if it does not depend on $\bar{z}$.
 However, the function $z^2 \bar{z}^3 + z^{10}$ is not holomorphic
-and so
+and
 $\frac{d}{dz} \bigl[ z^2 \bar{z}^3 + z^{10} \bigr]$
 does not exist.
 
@@ -2702,7 +2708,8 @@ That is, write $x$ and $y$ in terms of $z$ and $\bar{z}$, and then show
 that $\bar{z}$ cancels.
 \end{exercise}
 
-\begin{exercise} \label{exercise:wirtingerandbar}
+\begin{exercise}%[\optneededexmark]
+\label{exercise:wirtingerandbar}
 Suppose $f \colon U \to \C$ is real differentiable and let $\bar{f}$
 denote the complex conjugate of $f$.  Show
 \begin{equation*}
@@ -2719,7 +2726,8 @@ Suppose $f \colon U \to \C$ is such that both $f$ and its conjugate
 $\bar{f}$ is holomorphic.  Show that $f$ is constant.
 \end{exercise}
 
-\begin{exercise} \label{exercise:wirtingerchain}
+\begin{exercise}%[\optneededexmark]
+\label{exercise:wirtingerchain}
 Prove a Wirtinger operator version of
 the chain rule\index{chain rule!Wirtinger operators}
 for real differentiable
@@ -2824,8 +2832,9 @@ $C(z)
 =
 \frac{z - i}{z + i}$
 takes the upper half-plane
-$\bH = \{ z \in \C : \Im z > 0 \}$ to the unit disc $\D$,
-in other words $C|_{\bH} \colon \bH \to \D$ is a biholomorphism
+$\bH = \{ z \in \C : \Im z > 0 \}$ to the unit disc $\D$ and
+has a holomorphic inverse.
+In other words, $C|_{\bH} \colon \bH \to \D$ is a biholomorphism
 making $\bH$ and $\D$ biholomorphic.
 
 The reader can check that for any nonempty open $U \subset \C$, the set
@@ -2863,7 +2872,7 @@ f'(z) =
 
 Locally, the relationship between nonzero derivative and invertibility is
 the inverse function theorem.  Consider a holomorphic function
-$f = u+iv$ and its real derivative $Df$ and its complex derivative $f'$.
+$f = u+iv$, its real derivative $Df$, and its complex derivative $f'$.
 The real derivative as a matrix is
 \begin{equation*}
 Df =
@@ -2941,7 +2950,7 @@ exponential, the logarithm,
 has infinitely many values at each point is key to complex analysis.  So
 much so that we've named a whole chapter after the logarithm.
 
-Another interesting remark about biholomorphisms, is that generally
+Another interesting remark about biholomorphisms is that generally
 there are very few biholomorphisms for a specific $U$ and $V$.  We will
 compute later the automorphism group of the disc and other sets and it is
 in fact rather small.  For instance, automorphisms of $\C$ are simply the affine maps $a
@@ -3767,7 +3776,7 @@ Using the corollary,
 prove that $c_n = 0$ for all $n$ and hence $f$ is identically zero.
 \end{exercise}
 
-\begin{exercise} \label{exercise:antiderseries}
+\begin{exercise}
 Suppose $f \colon \Delta_R(p) \to \C$ is given by a convergent power
 series
 $f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n$.
@@ -4556,7 +4565,8 @@ See also \exerciseref{exercise:nonconstantnonzerochain}.
 \end{remark}
 
 \begin{exbox}
-\begin{exercise} \label{exercise:pathsum}
+\begin{exercise}%[\neededexmark]
+\label{exercise:pathsum}
 Let $\gamma_1 \colon [a,b] \to \C$ and $\gamma_2 \colon [b,c] \to \C$
 be two piecewise-$C^1$ paths and $\gamma_1(b)=\gamma_2(b)$.
 Prove that the function $\gamma \colon [a,c] \to
@@ -5066,7 +5076,8 @@ $z \in U$.  See \figureref{fig:starshaped}.
 A convex set is star-like, but not vice-versa.
 
 \begin{exbox}
-\begin{exercise} \label{exercise:triangleinstarlike}
+\begin{exercise}%[\neededexmark]
+\label{exercise:triangleinstarlike}
 Prove that if $U \subset \C$ is star-like with respect to $z_0$ and $[a,b]
 \subset U$, then the triangle $T$ with vertices $z_0$, $a$, and $b$ is entirely
 contained in $U$.
@@ -5415,7 +5426,7 @@ The circle of radius 5 centered at $i+1$ oriented clockwise.
 \end{exparts}
 \end{exercise}
 
-\begin{exercise} \label{exercise:cauchycont}
+\begin{exercise}
 Strenghten the theorem:  Show that the conclusion holds if
 we only assume that $f \colon \overline{\Delta_r(p)} \to \C$
 is continuous and $f$ is holomorphic on $\Delta_r(p)$.
@@ -5813,7 +5824,8 @@ not necessary to assume that $f'$ is holomorphic, it will follow from your
 work.
 \end{exercise}
 
-\begin{exercise} \label{exercise:partialderscont}
+\begin{exercise}%[\neededexmark]
+\label{exercise:partialderscont}
 Suppose $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$,
 where $U \subset \C$ is open, and for any fixed $t \in (a,b)$, the function
 $z \mapsto f(z,t)$ is holomorphic.  Prove that
@@ -6642,7 +6654,7 @@ an $x$ such that $f_n'(x)$ does not converge.
 \end{exparts}
 \end{exercise}
 
-\begin{exercise} \label{exercise:weiercircle}
+\begin{exercise}
 \pagebreak[2]
 Weierstrass approximation theorem says that any continuous function on an
 interval $[a,b] \subset \R$ can be uniformly approximated (on $[a,b]$) by
@@ -7372,8 +7384,8 @@ on this component, and as it is constant, it must be zero.
 \end{proof}
 
 \begin{exbox}
-\begin{exercise} \label{exercise:windingcircle}
-%FIXME: mark needed/used exercises
+\begin{exercise}%[\neededexmark]
+\label{exercise:windingcircle}
 Show that $n\bigl(\partial \Delta_r(p);z\bigr) = 0$ if $z \notin
 \overline{\Delta_r(p)}$ and 
 $n\bigl(\partial \Delta_r(p);z\bigr) = 1$ if $z \in \Delta_r(p)$.
@@ -7387,7 +7399,8 @@ Prove that
 $n\bigl(\gamma;z\bigr) = n$ if $z \in \Delta_r(p)$.
 \end{exercise}
 
-\begin{exercise} \label{exercise:windingcircles}
+\begin{exercise}%[\neededexmark]
+\label{exercise:windingcircles}
 Suppose $0 < r_1 < r_2 < \infty$.
 Let $\Gamma = \partial \Delta_{r_2}(p) - \partial \Delta_{r_1} (p)$
 (that is, the outside circles goes counterclockwise, the inside circle goes
@@ -7398,8 +7411,8 @@ $n(\Gamma;z) = 1$.  If $r_2 < \sabs{z-p}$, then
 $n(\Gamma;z) = 0$.
 \end{exercise}
 
-\begin{exercise} \label{exercise:rayktimes}
-%FIXME: used but in an optional section
+\begin{exercise}%[\optneededexmark]
+\label{exercise:rayktimes}
 Suppose $\gamma \colon [a,b] \to \C$ be a closed $C^1$ path such that
 $\gamma(a) = \gamma(b)$ is some real negative number.  Suppose
 that $\gamma(t)$ is real and negative for only $k$ distinct $t$ (and it
@@ -9505,7 +9518,8 @@ $g'(z) = (z-p) \varphi'(z) + \varphi(z)$, we have $g'(p) = \varphi(p) \not= 0$.
 \end{proof}
 
 \begin{exbox}
-\begin{exercise} \label{exercise:order}
+\begin{exercise}%[\neededexmark]
+\label{exercise:order}
 Suppose $U \subset \C$ is open and
 $f \colon U \to \C$ holomorphic.
 Show that $f$ has a zero of order $k$ at $p \in U$
@@ -10051,7 +10065,8 @@ for all $r > 0$ such that $\Delta_r(p) \subset U$,
 then $f$ has an essential singularity at $p$.
 \end{exercise}
 
-\begin{exercise} \label{exercise:singofexp}
+\begin{exercise}%[\optneededexmark]
+\label{exercise:singofexp}
 Suppose that $g \colon \Delta_r(p) \setminus \{ p \} \to \C$
 has an isolated singularity.  Prove that $f(z) = e^{g(z)}$
 has either a removable singularity, in which case $g$
@@ -13183,8 +13198,8 @@ modulus principle for holomorphic functions.
 Hint: Consider $\log \sabs{f(z)}$.
 \end{exercise}
 
-\begin{exercise} \label{exercise:maxprincsecondharmonic}
-%FIXME: needed
+\begin{exercise}%[\neededexmark]
+\label{exercise:maxprincsecondharmonic}
 Prove the second version of the maximum principle: If $U \subset \C$
 is a bounded domain and
 $f \colon \widebar{U} \to \R$ is continuous and harmonic on $U$,
@@ -14587,8 +14602,8 @@ are also much easier to draw than functions on $\C$.
 \end{myfig}
 
 \begin{exbox}
-\begin{exercise}\label{exercise:uppersemicontclosedopen}
-%FIXME: mark needed/used exercises
+\begin{exercise}%[\neededexmark]
+\label{exercise:uppersemicontclosedopen}
 Consider $f \colon U \to \R \cup \{-\infty\}$.
 \begin{exparts}
 \item
@@ -14606,8 +14621,8 @@ is closed (in the subspace topology of $U$).
 \end{exparts}
 \end{exercise}
 
-\begin{exercise}\label{exercise:uppersemicontmax}
-%FIXME: mark needed/used exercises
+\begin{exercise}%[\neededexmark]
+\label{exercise:uppersemicontmax}
 Prove that an upper-semicontinuous function defined on a compact set achieves a maximum.
 \end{exercise}
 
@@ -14809,7 +14824,7 @@ $f(z) \leq g(z)$ for all $z \in \partial U$.  Prove that
 $f(z) \leq g(z)$ for all $z \in U$.
 \end{exercise}
 
-\begin{exercise} \label{exercise:onlyniceuneededforsubharmonic}
+\begin{exercise}
 Let $g$ be a function
 harmonic on a disc $\Delta \subset \C$ and continuous on
 $\overline{\Delta}$.  Prove that for every $\epsilon > 0$ there exists
@@ -15396,8 +15411,8 @@ $\sum_{n=1}^\infty \Log (1+a_n)$ converges.  Note: We already proved one
 direction.
 \end{exercise}
 
-\begin{exercise}\label{exercise:proddiff}
-%FIXME: mark needed/used exercises
+\begin{exercise}%[\neededexmark]
+\label{exercise:proddiff}
 Suppose $U \subset \C$ is a domain,
 $f_n \colon U \to \C$ are holomorphic, and
 \begin{equation*}
@@ -17532,7 +17547,8 @@ $p \in U$ and $f \colon U \to \C$ holomorphic.  Prove that the restriction
 $f|_W$ allows unrestricted continuation to $U$ with $p$ as a starting point.
 \end{exercise}
 
-\begin{exercise} \label{exercise:startingpointcont}
+\begin{exercise}%[\neededexmark]
+\label{exercise:startingpointcont}
 Let $U \subset \C$ be a domain, $W \subset U$ a nonempty connected open subset,
 and $f \colon W \to \C$ holomorphic.  Suppose $f$ admits unrestricted
 continuation to $U$ with $p_1 \in W$ as a starting point.  Prove
@@ -19365,7 +19381,8 @@ For the other direction, see \exerciseref{exercise:reverseclosedseq}.
 \end{proof}
 
 \begin{exbox}
-\begin{exercise} \label{exercise:reverseclosedseq}
+\begin{exercise}%[\neededexmark]
+\label{exercise:reverseclosedseq}
 Finish the proof of 
 \propref{prop:msclosureapprseq}.
 Let $(X,d)$ be a metric space and
@@ -19477,8 +19494,24 @@ to $y \in \R^n$ and hence $\R^n$ is complete.
 A subset of $\R^n$ with the subspace metric need not be
 complete.  For example, $(0,1]$ with the subspace metric is not
 complete as $\{ \nicefrac{1}{n} \}$ is a Cauchy sequence in $(0,1]$
-with no limit in $(0,1]$.  But see also
-\exerciseref{exercise:closedcomplete}.
+with no limit in $(0,1]$.
+However,
+once we have one complete metric space, any closed subspace is
+also a complete metric space.  After all, one way
+to think of a closed set is that it contains all points
+that can be reached from the set via a sequence.
+The proof is again an exercise.
+
+\begin{prop} \label{prop:closedcomplete}
+Suppose $(X,d)$ is a complete metric space and $E \subset X$
+is closed, then $E$ is a complete metric space with the subspace topology.
+\end{prop}
+
+\begin{exbox}
+\begin{exercise}%[\neededexmark]
+Prove \propref{prop:closedcomplete}.
+\end{exercise}
+\end{exbox}
 
 In the language of metric spaces,
 as uniform limits of continuous functions are continuous,
@@ -19492,27 +19525,9 @@ The space of continuous functions $C([a,b],\R)$ with the uniform
 norm as metric is a complete metric space.
 \end{prop}
 
-Once we have one complete metric space, any closed subspace is
-also a complete metric space.  After all, one way
-to think of a closed set is that it contains all points
-that can be reached from the set via a sequence.
-The proof is again an exercise.
-
-\begin{prop} \label{prop:closedcomplete}
-Suppose $(X,d)$ is a complete metric space and $E \subset X$
-is closed, then $E$ is a complete metric space with the subspace topology.
-\end{prop}
-
 \begin{exbox}
-\begin{exercise} \label{exercise:closedcomplete}
-Prove \propref{prop:closedcomplete}.  That is,
-let $(X,d)$ be a complete metric space and $E \subset X$ a closed set.
-Show that $E$ with the subspace metric is a complete metric space.
-\end{exercise}
-
-\begin{exercise} \label{exercise:CabRcomplete}
-Let $C([a,b],\R)$ be the metric space as in \exampleref{example:msC01}.  Show that
-$C([a,b],\R)$ is a complete metric space.
+\begin{exercise}%[\neededexmark]
+Prove \propref{prop:CabRcomplete}.
 \end{exercise}
 \end{exbox}
 
@@ -20030,7 +20045,7 @@ Prove that $K$ is compact as a subset of $(X,d)$ if and only if $K$ is
 compact as a subset of itself with the subspace metric.
 \end{exercise}
 
-\begin{exercise} \label{exercise:relativelycompactseq}
+\begin{exercise}
 Let $(X,d)$ be a complete metric space.
 We say a set $S \subset X$ is \emph{\myindex{relatively compact}}
 if the closure $\widebar{S}$ is compact.
@@ -21677,7 +21692,8 @@ $f(x) = \int_0^x f'(s) \,ds$ and then rewrite the integral to go
 from $0$ to $1$.
 \end{exercise}
 
-\begin{exercise} \label{exercise:severalvariableLiebniz}
+\begin{exercise}%[\neededexmark]
+\label{exercise:severalvariableLiebniz}
 Let $U \subset \R^n$ be an open set and suppose
 $f(x,y_1,y_2,\ldots,y_n)$ is a continuous
 function defined on $[0,1] \times U \subset \R^{n+1}$.
@@ -22444,7 +22460,7 @@ the partials exist and are continuous, the function is
 differentiable.
 \end{exercise}
 
-\begin{exercise} \label{exercise:noncontpartialsexist}
+\begin{exercise}
 Define a function $f \colon \R^2 \to \R$ by
 (see \figureref{fig:xyxsqysqvol2})
 \begin{equation*}
@@ -22561,7 +22577,7 @@ $f(f(x_0))$,
 $f(f(f(x_0)))$, etc.
 
 \begin{exbox}
-\begin{exercise} \label{exercise:nofixedpoint}
+\begin{exercise}
 \begin{exparts}
 \item
 Find an example of a contraction $f \colon X \to X$
@@ -22860,7 +22876,8 @@ Show that $f$ is not continuously differentiable.
 \end{exparts}
 \end{exercise}
 
-\begin{exercise}[Polar coordinates] \label{mv:exercise:polarcoordinates}
+\begin{exercise}[Polar coordinates]%[\neededexmark, Polar coordinates]
+\label{mv:exercise:polarcoordinates}
 \index{polar coordinates}
 Define a mapping $F(r,\theta) = \bigl(r \cos(\theta), r \sin(\theta) \bigr)$.
 \begin{exparts}
