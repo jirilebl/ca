@@ -2815,9 +2815,10 @@ $U$ and $V$ are \emph{\myindex{biholomorphic}}.
 If $U = V$, then a biholomorphism $f$ is called an
 \emph{\myindex{automorphism}}\footnote{%
 The word automorphism is used in other contexts as well, it always means
-that it is the right sort of equivalence in whatever context you are in.
-In topology it may mean homeomorphism, in differential geometry a
-diffeomorphism, in group theory it may mean a bijective homomorphism.}.
+that it maps the set to itself and
+is the right sort of equivalence in the context you are in.
+In topology it means a homeomorphism, in differential geometry a
+diffeomorphism, in group theory an isomorphism.}.
 Let $\operatorname{Aut(U)}$ denote the set of all automorphisms of $U$.
 Traditionally,
 a biholomorphism
@@ -2858,10 +2859,12 @@ $a z + b$ is an automorphism of $\C$.
 \end{exercise}
 \end{exbox}
 
-A biholomorphism $f$ has the property that $f'(z) \not= 0$ for all $z$.  To
-see this note that $f^{-1}\bigl(f(z)\bigr) = z$ and both $f$ and $f^{-1}$
-are holomorphic.  Differentiate the equality using the chain rule to find
-$(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$.  So $f'(z)$ cannot be zero.
+A biholomorphism $f$ has the property that $f'(z) \not= 0$ for all $z$.
+Indeed,
+$f$ and $f^{-1}$ are holomorphic, so differentiate the
+equality
+$f^{-1}\bigl(f(z)\bigr) = z$ using the chain rule to find
+$(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$.  Hence, $f'(z)$ cannot be zero.
 If $w = f(z)$, then
 \begin{equation*}
 (f^{-1})'(w) = \frac{1}{f'(z)}
@@ -2945,20 +2948,21 @@ everywhere need not be globally invertible.  The exponential $e^z$
 is never zero, and thus so is its derivative.  However, $e^{z} = e^{z+2\pi i}$,
 so the
 exponential is not injective.
-The fact that the inverse of the
+That the inverse of the
 exponential, the logarithm,
-has infinitely many values at each point is key to complex analysis.  So
-much so that we've named a whole chapter after the logarithm.
+has infinitely many values at each point is fundamental to complex analysis.
+So much so that we've named a whole chapter after the logarithm.
 
 Another interesting remark about biholomorphisms is that generally
-there are very few biholomorphisms for a specific $U$ and $V$.  We will
-compute later the automorphism group of the disc and other sets and it is
-in fact rather small.  For instance, automorphisms of $\C$ are simply the affine maps $a
+there are very few biholomorphisms for a specific open sets $U$ and $V$.  We will
+compute later the automorphism group of a few sets such as the disc or the
+complex plane, and it is in fact rather small.
+For instance, automorphisms of $\C$ are simply the affine maps $a
 z + b$.  On the other hand, at each point, there are a huge number of
 holomorphic functions with nonzero derivative.  So there are lots of local
 coordinate changes, but few global coordinate changes.
 
-In the following couple of exercises, you may want to apply the inverse
+In the following exercises, you may want to apply the inverse
 function theorem to show that the inverse is holomorphic.
 
 \begin{exbox}
@@ -3025,7 +3029,7 @@ circle.
 \begin{exercise}
 \begin{exparts}
 \item
-Suppose $f$ is antiholomorphic, that is assume $f$ is real differentiable
+Suppose $f$ is antiholomorphic, that is assume $f$ is (real) differentiable
 and $\frac{\partial f}{\partial z} = 0$.  Show that
 $\det Df\big|_p = - \babs{\frac{\partial f}{\partial \bar{z}}(p)}^2$.  In other words,
 the Jacobian determinant is nonpositive, and $f$ flips orientation.
@@ -3040,7 +3044,7 @@ $\det Df\big|_p = \babs{\frac{\partial f}{\partial z}(p)}^2 -
 \subsection{Conformality \texorpdfstring{$\star$}{*}}
 
 The actual definition of ``conformal mapping'' is 
-a real differentiable bijective mapping $f \colon U \to V$ of open
+a (real) differentiable bijective mapping $f \colon U \to V$ of open
 $U, V \subset \R^2$ that preserves
 a)~orientation, and b)~angles.
 Both of these are taken in the infinitesimal sense, that is, they are
@@ -3056,9 +3060,9 @@ Df|_p \alpha'(0)
 \quad = \quad
 \text{angle between } \gamma'(0) \text{ and } \alpha'(0) .
 \end{equation*}
-We are really just doing linear algebra.
-We can take the angle to be the signed angle starting at one vector and
-ending at the other vector, as we are preserving orientation.
+As we are preserving orientation,
+we can take the angle to be the signed angle starting at one vector and
+ending at the other vector. 
 
 \begin{myfig}
 \subimport*{figures/}{conform.pdf_t}
@@ -3068,7 +3072,8 @@ ending at the other vector, as we are preserving orientation.
 By preserving angles we also mean that no vector can be taken to zero,
 as zero does not make any well-defined angle with anything else.
 Thus $Df$ must be invertible at every point for a conformal map.
-
+We are really just doing linear algebra, so let us see the relevant
+linear algebra statement.
 
 \begin{prop}
 A $2\times 2$ real matrix $M$
@@ -3091,13 +3096,13 @@ $w=\left[\begin{smallmatrix}0\\1\end{smallmatrix}\right]$ are
 orthogonal, and so $Mv$ and $Mw$ are orthogonal:
 \begin{equation*}
 0 = Mv \cdot Mw = 
-\begin{bmatrix} a\\b \end{bmatrix}
+\begin{bmatrix} a\\c \end{bmatrix}
 \cdot
-\begin{bmatrix} c\\d \end{bmatrix}
+\begin{bmatrix} b\\d \end{bmatrix}
 =
-ac+bd .
+ab+cd .
 \end{equation*}
-As $M$ is nonsingular, either $a$ or $b$ is nonzero.  In either case,
+As $M$ is nonsingular, either $a$ or $c$ is nonzero.  In either case,
 there must exist some nonzero $r \in \R$ such that
 \begin{equation*}
 M =
@@ -3110,9 +3115,9 @@ A similar calculation using
 $v=\left[\begin{smallmatrix}1\\1\end{smallmatrix}\right]$ and
 $w=\left[\begin{smallmatrix}1\\-1\end{smallmatrix}\right]$ results in
 $a^2+c^2 = b^2+d^2 = r^2(a^2+c^2)$.  Or in other words $r=\pm 1$.
-
-We have not yet used that $M$ preserves orientation, that is, $\det M > 0$.
-As $\det M = r(a^2+c^2)$ we find that $r=1$, and hence
+That $M$ preserves orientation means $\det M > 0$.
+As $\det M = r(a^2+c^2)$, we find $r=1$.
+Hence,
 \begin{equation*}
 M =
 \begin{bmatrix}
@@ -3125,26 +3130,32 @@ $a+ic$.
 
 For the converse, assume $M$ is multiplication by the
 nonzero complex number~$\xi$.
-If $z = \sabs{z} e^{i\theta}$ and $w = \sabs{w} e^{i\psi}$ are two nonzero
-complex numbers, then the angle between them, $\theta-\psi$, can be
+Let
+$z = \sabs{z} e^{i\theta}$ and $w = \sabs{w} e^{i\psi}$ be two nonzero
+complex numbers, thinking of them as vectors in $\R^2$.
+The (signed) angle between them, $\theta-\psi$, can be
 computed using
 \begin{equation*}
-e^{i(\theta-\psi)}
+\frac{z\bar{w}}{\sabs{z}\sabs{w}}
 =
-\frac{z\bar{w}}{\sabs{z}\sabs{w}} .
+e^{i(\theta-\psi)} .
 \end{equation*}
 Similarly the angle between 
 $\xi z$ and $\xi w$ can be computed using
 \begin{equation*}
-\frac{\Re \xi z\overline{\xi w}}{\sabs{\xi z}\sabs{\xi w}} 
+\frac{\xi z\overline{\xi w}}{\sabs{\xi z}\sabs{\xi w}} 
 =
-\frac{\sabs{\xi}^2 \Re z\overline{w}}{\sabs{\xi}^2 \sabs{z}\sabs{w}} 
+\frac{\sabs{\xi}^2 z\overline{w}}{\sabs{\xi}^2 \sabs{z}\sabs{w}} 
 =
-\frac{\Re z\overline{w}}{\sabs{z}\sabs{w}} e^{i(\theta-\psi)}.
+\frac{z\overline{w}}{\sabs{z}\sabs{w}} = e^{i(\theta-\psi)}.
 \end{equation*}
-So the angle is the same.  As $\det M =
-\sabs{\xi}^2 > 0$, $M$ preserves orientation.
+So the (signed) angle is the same, and multiplication by $\xi$ preserves
+orientation and angles.
 \end{proof}
+
+Another way to see that if $M$ is multiplication by $\xi$, then
+$M$ preserves orientation is to note that
+$\det M = \sabs{\xi}^2 > 0$.
 
 Applying the proposition to $Df$ we find:
 
@@ -3173,7 +3184,7 @@ orientation if and only if $M$ corresponds to the mapping $h \mapsto \xi
 Let $U \subset \C$ be open.
 Prove that real differentiable function $f \colon U \to \C$ preserves angles
 and reverses orientation if and only if the conjugate $\bar{f}$ is
-holomorphic.
+holomorphic and $\bar{f}'$ never vanishes.
 \end{exercise}
 \end{exbox}
 
