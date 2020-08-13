@@ -3184,7 +3184,7 @@ orientation if and only if $M$ corresponds to the mapping $h \mapsto \xi
 Let $U \subset \C$ be open.
 Prove that real differentiable function $f \colon U \to \C$ preserves angles
 and reverses orientation if and only if the conjugate $\bar{f}$ is
-holomorphic and $\bar{f}'$ never vanishes.
+holomorphic and its derivative never vanishes.
 \end{exercise}
 \end{exbox}
 
@@ -3205,8 +3205,9 @@ function really behaves like $z^n$ behaves near the origin for some $n$.
 A key point about the function $z \mapsto z^n$ is that it is $n$-to-$1$.
 That is, there are $n$ distinct roots of any complex number except $0$,
 which has in some sense also $n$ roots but they are all $0$.  For any nonzero
-number write $w = re^{i\theta}$.  Then the $n$ roots are easily seen
-(using the polar form) as
+number, write $w = re^{i\theta}$.  It is easy to verify that
+the $n$ $n$\textsuperscript{th} roots of $w$ are 
+(using the polar form)
 \begin{equation*}
 r^{1/n} e^{i\theta/n}
 , \quad
@@ -3277,7 +3278,7 @@ A \emph{\myindex{power series}} around $p \in \C$ is simply the series
 \end{equation*}
 where $c_n$ are some complex numbers.  Where it converges it defines a
 function of $z$.  As the series clearly converges at $z=p$, we worry about
-convergence at other points.  So we say the series is
+convergence at other points.  We say the series is
 \emph{convergent}\index{convergent power series}, if there is
 some $z \not= p$ where the series converges.
 
@@ -3345,8 +3346,12 @@ Let $r = \sabs{z-p}$, then we have the real series $\sum \sabs{c_n} r^n$.  Defin
 \begin{equation} \label{eq:rconvdef}
 R = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
 \end{equation}
-where we interpret $\frac{1}{\infty} = 0$ and $\frac{1}{0} = \infty$,
-so $R=\infty$ is allowed.
+where we interpret $\nicefrac{1}{\infty} = 0$ and $\nicefrac{1}{0} = \infty$,
+so $R=\infty$ is allowed.\footnote{%
+This is not the ``extended reals sense,''
+we are really extending just the nonnegative reals, and that's why
+something like $\nicefrac{1}{0}=\infty$ makes sense here, for the same
+reason as on the Riemann sphere.}
 By the standard root test, the series $\sum \sabs{c_n} r^n$
 converges if
 \begin{equation*}
@@ -3435,7 +3440,7 @@ are arbitrary we get convergence everywhere.
 \begin{exercise}
 Prove the triangle inequality for series.  If $\sum_{n=0}^\infty c_n$
 converges, then $\abs{\sum_{n=0}^\infty c_n} \leq \sum_{n=0}^\infty
-\sabs{c_n}$ (possibly the right-hand side is $\infty$).
+\sabs{c_n}$ (the right-hand side is possibly $\infty$).
 \end{exercise}
 \end{exbox}
 
@@ -3470,8 +3475,8 @@ $U = \C$ if $R=\infty$, and let $K \subset U$ be compact.
 Then the series converges uniformly absolutely on $K$.
 \end{prop}
 
-In other words, power series converges uniformly (absolutely) on
-compact subsets.
+Less formally, power series converges uniformly (absolutely) on
+compact subsets of its domain of convergence.
 
 \begin{proof}
 Without loss of generality suppose $R < \infty$.
@@ -3562,7 +3567,7 @@ then use the absolute convergence.
 
 \begin{remark}
 The last few exercises say that we can add and multiply series, however,
-we won't need them later on as the two results are easy for holomorphic
+we won't really need them as the two results are easy for holomorphic
 functions, and we will show later that power series are
 holomorphic and vice versa.  You should still try them, they are good
 practice.
@@ -3580,7 +3585,7 @@ From the beginnings of calculus until the 19\textsuperscript{th} century,
 when mathematicians considered a ``function'' they really meant
 ``analytic function'' (or something like it) in modern language.
 One can talk about
-both complex and real-analytic functions depending on if the
+both complex-analytic and real-analytic functions depending on if the
 variables are real or complex, and they may depend on one or several variables,
 but we are interested in complex-analytic functions of one variable. 
 As there is little chance of confusion, we say just ``analytic'' instead of
@@ -3924,6 +3929,9 @@ identically zero, then there is a disc $\Delta_r(p)$ such that $f(z) \not=
 
 Another common application of the theorem is the following weaker statement:
 ``If the function is zero on a nonempty open subset, then $f \equiv 0$.''
+Think of the implications:  If $f \colon U \to \C$ is analytic, and we know
+$f$ in a tiny disc $\Delta_r(p)$ for an arbitrarily small $r$, then
+we know $f$ on all of $U$.
 
 \begin{proof}
 Suppose $f$ is not identically zero.
@@ -3950,7 +3958,8 @@ So the only points of $Z_f$ that are not isolated are those that are in the
 interior of $Z_f$.  Let $Z_f' \subset Z_f$ be the set of nonisolated points
 of $Z_f$.  This set must be closed as $Z_f$ is closed, and no sequence
 of points in $Z_f'$ can
-got to an isolated point of $Z_f$.  We have proved above that nonisolated
+have an isolated point of $Z_f$ as a limit.
+We have proved above that nonisolated
 points must be interior points of $Z_f$ (and hence of $Z_f'$).
 So $Z_f'$ is both open and closed.  As $U$ is connected and 
 that $Z_f' \not= U$, we conclude $Z_f' = \emptyset$.
@@ -3967,12 +3976,18 @@ Prove that $f \equiv g$.
 \end{exercise}
 
 \begin{exercise}
+\begin{exparts}
+\item
 Suppose $U \subset \C$ is a domain,
 $f \colon U \to \C$ and $g \colon U \to \C$ are analytic,
 and $f(z)g(z) = 0$ for all $z \in U$.
 Prove that either $f$ or $g$ is identically zero.
 (In other words, the ring of holomorphic functions on $U$ is an integral
 domain.)
+\item
+Find an open but disconnected $U$ and holomorphic $f$ and $g$,
+such that still $fg = 0$, but neither $f$ nor $g$ is identically zero.
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -3980,13 +3995,7 @@ Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ is
 analytic and not constant.  Show that if $K \subset U$ is compact,
 then $Z_f \cap K$ is finite.
 \end{exercise}
-\end{exbox}
 
-Think of the implications.  If $f \colon U \to \C$ is analytic, and we know
-$f$ in a tiny disc $\Delta_r(p)$ for an arbitrarily small $r$, then
-we know $f$ on all of $U$.
-
-\begin{exbox}
 \begin{exercise}
 Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ and $g \colon U \to
 \C$ are analytic, and $p \in U$.  Suppose that $f^{(k)}(p) = g^{(k)}(p)$
@@ -4003,7 +4012,8 @@ all $z$ in a neighborhood of some $z_0 \in U$, then $f$ is constant.
 Suppose $U \subset \C$ is a domain, $a, b, c \in \C$, and $z_0 \in U$.
 Show that
 an analytic solution $f$ on $U$ to the linear equation $f'(z) = a f(z) + b$
-given $f(z_0) = c$ is unique if it exists.
+given $f(z_0) = c$ is unique.  Hint: Show that the power series at $z_0$ is uniquely
+determined.
 \end{exercise}
 \end{exbox}
 
