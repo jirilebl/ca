@@ -3792,7 +3792,7 @@ Using the corollary,
 prove that $c_n = 0$ for all $n$ and hence $f$ is identically zero.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:antidefpowerser}
 Suppose $f \colon \Delta_R(p) \to \C$ is given by a convergent power
 series
 $f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n$.
@@ -4069,7 +4069,7 @@ A path $\gamma$ is \emph{simple closed}\index{simple closed path}
 if $\gamma(a)=\gamma(b)$ and $\gamma|_{(a,b]}$ is injective.
 \end{defn}
 
-Our paths will be piecewise-$C^1$,
+Our paths will essentially all be piecewise-$C^1$,
 so we may forget to mention it sometime.
 By ``piecewise-$C^1$,''
 we mean that there exist numbers $t_0 = a < t_1 < \cdots
@@ -4086,9 +4086,9 @@ exist for all $\ell$ (except, of course, only one exists at $a$ or $b$),
 and these limits are nonzero.
 Another way to say it is that $\gamma'(t)$ extends to a nonzero
 continuous function on each closed interval $[t_{\ell-1},t_{\ell}]$.
-Allowing these ``corners'' makes working with path easier
+Allowing these ``corners'' makes working with paths easier
 as we can define them easily piece-wise, and finitely many corners like
-this will make no difference on the calculations.
+this make no difference for integrals.
 Do note also that we are saying that paths are continuous.  We will allow
 discontinuities just a little later with ``chains.''
 
@@ -4129,7 +4129,7 @@ $\lim_{t \downarrow 1} \gamma'(t) = i$, and so on.
 
 \begin{defn}
 Given a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$ and a continuous
-function $f$ defined on 
+function $f$ on 
 $\gamma$, 
 we define the \emph{\myindex{line integral}}\footnote{%
 This integral is also called
@@ -4144,9 +4144,10 @@ a \emph{\myindex{contour integral}}.}
 \end{equation*}
 \end{defn}
 
-The definition makes sense despite $\gamma'(t)$ not existing at possibly
-finitely many points.  The integrand is undefined
-at finitely many points but is piecewise continuous, and this is enough
+The right hand side makes sense.
+The integrand is undefined
+at finitely many points (where $\gamma'(t)$ does not exist),
+but it is piecewise continuous, and this is enough
 to be Riemann integrable: On each closed interval
 $[t_{\ell-1},t_\ell]$, the integrand extends to a continuous
 function.
@@ -4186,7 +4187,7 @@ i r^{n+1}
 e^{i(n+1)t} \, dt .
 \end{equation*}
 The result follows as the integral on the right-hand side is zero
-(write it in terms of sines and cosines, exercise below) unless $n+1 = 0$,
+(write it in terms of sines and cosines, exercise below), unless $n+1 = 0$,
 in which case, the integral 
 is $2\pi$ and $r^{n+1} = 1$.  Note in particular that the value of the
 integral does not depend on $r$.
@@ -4195,6 +4196,12 @@ integral does not depend on $r$.
 \begin{exbox}
 \begin{exercise}
 Prove that if $k\not= 0$, then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
+\end{exercise}
+
+\begin{exercise}
+Let $f(z) = \sum_{n=-d}^d c_n z^n$ and $\gamma$ as in
+\exampleref{example:integralpowerz}.
+Compute $\int_\gamma f(z) \, dz$.
 \end{exercise}
 
 \begin{exercise}
@@ -4373,7 +4380,7 @@ Due to the reparametrization result above,
 we often write down the ``boundary'' of a certain open set
 (as long as that boundary is piecewise-$C^1$ of course)
 and consider any parametrization going counterclockwise
-when integrating it, without explicitly giving the parametrization.
+when integrating over it, without explicitly giving the parametrization.
 For instance, given a disc $\Delta_r(p)$, we parametrize
 the boundary $\partial \Delta_r(p)$ by
 $\gamma  \colon [0,2\pi] \to \C$ given by $\gamma(t) = p +
@@ -4384,39 +4391,38 @@ re^{it}$, and then we write
 =
 \int_{\gamma} f(z) \, dz .
 \end{equation*}
-This equality could be simply taken as a definition of integration over
+This equality can be simply taken as a definition of integration over
 $\partial \Delta_r(p)$.
 
-A version of reparametrization is the following ``$u$-substitution'' type of
-result.
+Finally, there is the ``$u$-substitution'' from calculus.
 
 \begin{prop} \label{prop:usubst}
-Let $U,V \subset \C$ be open sets, $\gamma \colon [a,b] \to V$ be a
-piecewise-$C^1$ path, $h \colon V \to U$ be holomorphic, and $f \colon U \to \C$
-is continuous.  Then $h \circ \gamma$ is a piecewise-$C^1$ path in $V$ and
+Let $U,V \subset \C$ be open, $\gamma \colon [a,b] \to V$ 
+piecewise-$C^1$ path, $g \colon V \to U$ holomorphic, and $f \colon U \to \C$
+continuous.  Then $g \circ \gamma$ is a piecewise-$C^1$ path in $V$ and
 \begin{equation*}
-\int_{\gamma} f\bigl(h(z)\bigr) h'(z) \, dz
+\int_{\gamma} f\bigl(g(z)\bigr) g'(z) \, dz
 =
-\int_{h \circ \gamma} f(w) \, dw .
+\int_{g \circ \gamma} f(w) \, dw .
 \end{equation*}
 \end{prop}
 
 \begin{proof}
-That $h \circ \gamma$ is a piecewise-$C^1$ path is obvious.  To prove the
-equality we just parametrize and apply the chain rule, in particular
-$(h \circ \gamma)'(t) = h'\bigl(\gamma(t)\bigr) \gamma'(t)$:
+That $g \circ \gamma$ is a piecewise-$C^1$ path is obvious.  To prove the
+equality we apply the chain rule,
+$(g \circ \gamma)'(t) = g'\bigl(\gamma(t)\bigr) \gamma'(t)$:
 \begin{equation*}
 \begin{split}
-\int_{\gamma} f\bigl(h(z)\bigr) h'(z) \, dz
+\int_{\gamma} f\bigl(g(z)\bigr) g'(z) \, dz
 & =
 \int_a^b
-f\Bigl(h\bigl(\gamma(t)\bigr)\Bigr) h'\bigl(\gamma(t)\bigr) \gamma'(t) \, dt
+f\Bigl(g\bigl(\gamma(t)\bigr)\Bigr) g'\bigl(\gamma(t)\bigr) \gamma'(t) \, dt
 \\
 & =
 \int_a^b
-f\bigl((h \circ \gamma)(t)\bigr) (h \circ \gamma)'(t) \, dt
+f\bigl((g \circ \gamma)(t)\bigr) (g \circ \gamma)'(t) \, dt
 =
-\int_{h \circ \gamma} f(w) \, dw . \qedhere
+\int_{g \circ \gamma} f(w) \, dw . \qedhere
 \end{split}
 \end{equation*}
 \end{proof}
@@ -4447,7 +4453,7 @@ we define
 \int_a^b f\bigl( \gamma(t) \bigr) \sabs{\gamma'(t)} \, dt .
 \end{equation*}
 
-With this definition we can do some estimates on line integrals.
+%With this definition we can do some estimates on line integrals.
 
 \begin{prop}[Triangle inequality for line integrals]%
 \index{triangle inequality!line integrals}
@@ -4482,8 +4488,9 @@ M
 Arclength is not preserved under uniform convergence of the paths.
 In other words, just because the images of two paths are very close to each
 other, does not mean that the integrals over them will be the same.
-So one has to be careful when saying that two paths are close to each other.  You
-would need that the derivatives are close as well.
+So one has to be careful when saying that two paths are close to each other.
+You would need that the derivatives are close as well since $\gamma'$ appears
+under the integral.
 
 \begin{exbox}
 \begin{exercise}
@@ -4509,7 +4516,7 @@ The resulting objects are called \emph{chains}, and they
 are just formal combinations of paths.  For example, if $\gamma$
 and $\alpha$ are piecewise-$C^1$ paths, then the chain  $\gamma+\alpha$
 is an object over which we can integrate functions that are continuous
-on the image of both:
+on both paths:
 \begin{equation*}
 \int_{\gamma + \alpha} f(z) \, dz
 \overset{\text{def}}{=}
@@ -4625,11 +4632,12 @@ prevents $\gamma$ being constant.
 \end{exbox}
 
 Using \exerciseref{exercise:pathsum},
-we can assume that any chain that is put together
+any chain that is put together
 from connecting paths can be converted and integrated as a single path,
 and so in the sequel we may do this procedure implicitly.
 
 \begin{defn}
+\pagebreak[2]
 \glsadd{not:segment}%
 Given two points $z,w \in \C$, the \emph{\myindex{segment}} $[z,w]$ is the path
 $\gamma \colon [0,1] \to \C$ given by $\gamma(t) = (1-t)z + tw$.
@@ -4678,7 +4686,7 @@ the word anyway.}
 of $f$.
 \end{defn}
 
-Primitives do not always exist, but if they do exist, then they are unique up
+Primitives do not always exist, but if they do, then they are unique up
 to a constant.
 
 \begin{prop} \label{prop:primunique}
@@ -4790,7 +4798,7 @@ but right now it is rather appealing.
 
 \begin{cor}[Cauchy's theorem for polynomials] \label{cor:cauchyforpoly}
 Suppose $P(z)$ is a polynomial and $\Gamma$ is
-a cycle.
+a cycle (in $\C$).
 Then
 \begin{equation*}
 \int_\Gamma P(z) \, dz = 0 .
@@ -4803,6 +4811,17 @@ Prove Cauchy's theorem for polynomials.
 \end{exercise}
 
 \begin{exercise}
+Suppose $f$ is given by a power series at $p$ that converges in $\Delta_R(p)$.  Let
+$\Gamma$ be a cycle in $\Delta_R(p)$.  Prove that
+\begin{equation*}
+\int_\Gamma f(z) \, dz = 0 .
+\avoidbreak
+\end{equation*}
+% This makes it too easy
+%Hint: \exerciseref{exercise:antidefpowerser}.
+\end{exercise}
+
+\begin{exercise}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ holomorphic, and
 $\Gamma$ is a cycle in $U$.  
 For $p \in U$, find a holomorphic $g \colon U \to \C$ with $g(p) = 0$
@@ -4810,17 +4829,15 @@ and $g'(p) = 0$ such that $\int_\Gamma g(z)\, dz = \int_\Gamma f(z) \, dz$.
 \end{exercise}
 
 \begin{exercise}
+Let $n\not=-1$ be an integer and $\Gamma$ a cycle in $\C \setminus \{ 0 \}$.
 Compute
 \begin{equation*}
-\int_\Gamma z^n \, dz
-\avoidbreak
+\int_\Gamma z^n \, dz .
 \end{equation*}
-for any integer $n \not= -1$ and any cycle $\Gamma$ in
-$\C \setminus \{ 0 \}$.
 \end{exercise}
 
 \begin{exercise}
-Using \exampleref{example:integralpowerz}, argue that $\frac{1}{z}$ does
+Using \exampleref{example:integralpowerz}, argue that $\nicefrac{1}{z}$ does
 not have a primitive in $\C \setminus \{ 0 \}$.
 \end{exercise}
 \end{exbox}
@@ -4848,11 +4865,11 @@ In particular, $T$ is the smallest convex set containing the vertices.
 Do note that we have defined a triangle as the solid triangle, including
 the inside.
 
-We order the vertices so that the boundary $\partial T$ has positive orientation;
-as we travel from $a$ to $b$ to $c$ the inside of the triangle 
+Order the vertices so that the boundary $\partial T$ has positive orientation;
+if we travel from $a$ to $b$ to $c$ the inside of the triangle 
 is on the left.  More precisely if we translate so that $a$ is
 the origin and rotate so that $b$ is on the positive real line, then $c$
-should have positive imaginary part.  See \figureref{fig:triang}.  We define the boundary chain (cycle)
+has positive imaginary part.  See \figureref{fig:triang}.  Define the boundary cycle
 of $T$ as
 \begin{equation*}
 \partial T = [a,b] + [b,c] + [c,a] .
@@ -4869,6 +4886,7 @@ rather than just another statement of Cauchy's theorem
 is that in the proof, we are only assuming that the complex derivative exists
 and not that it is continuous, which is what Cauchy
 assumed.}]\index{Cauchy--Goursat theorem}\label{thm:cauchygoursat}
+\pagebreak[2]
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is
 holomorphic,
 and $T \subset U$ is a triangle.  Then
@@ -4902,7 +4920,7 @@ $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side of $T$ in half.  See
 
 Each $T_k$ is positively oriented.
 The sides of the inner $T_4$ triangle have the opposite
-orientation as the inner sides of $T_1$ through $T_3$, and
+orientation as the inner sides of $T_1$, $T_2$, and $T_3$, and
 so the line integral over these sides cancels.  Therefore,
 \begin{equation*}
 c = 
@@ -4917,7 +4935,7 @@ c =
 \int_{\partial T_4} f(z) \, dz } .
 \end{equation*}
 One of the four integrals, say that over $\partial T_j$,
-must have modulus at least $\frac{c}{4}$.  Label
+must have modulus at least $\nicefrac{c}{4}$.  Label
 that triangle $T^1 = T_j$:
 \begin{equation*}
 \abs{\int_{\partial T^1} f(z) \, dz } \geq \frac{c}{4} .
@@ -4926,11 +4944,11 @@ Now cut $T^1$ into subtriangles
 $T_1^1$, $T_2^1$, $T_3^1$, $T_4^1$ as above and repeat the procedure.  There
 is one of these four whose integral is at least $\frac{c}{4^2}$ let that be
 $T^2$.  Rinse and repeat.
-All in all, for the $k$\textsuperscript{th} triangle $T^k$ we have
+All in all, for the $k$\textsuperscript{th} triangle $T^k$,
 \begin{equation*}
 \abs{\int_{\partial T^k} f(z) \, dz } \geq \frac{c}{4^k} .
 \end{equation*}
-We have $T^k \subset T^{k-1} \subset \cdots \subset T$.
+Furthermore, $T^k \subset T^{k-1} \subset \cdots \subset T$.
 The subtriangles are all similar triangles (same angles),
 but of exactly half the size.
 In particular,
@@ -4951,14 +4969,14 @@ And as the diameter goes to zero, it must be a single point:
 \{ z_0 \} = \bigcap_{k=1}^\infty T^k .
 \end{equation*}
 
-Let us write
+Write
 \begin{equation*}
 f(z) = f(z_0) + \alpha (z-z_0) + g(z) ,
 \end{equation*}
 for some continuous $g(z)$.
-If $f$ was differentiable, we could choose an $\alpha$ that would make 
-$\frac{g(z)}{z-z_0}$ go to zero as $z \to z_0$.
-Let us prove that it doesn't for any $\alpha$.  Fix $\alpha$
+Were $f$ differentiable, there would be an $\alpha$ so that
+$\frac{g(z)}{z-z_0}$ would go to zero as $z \to z_0$.
+Let us prove that it doesn't go to zero for any $\alpha$.  Fix $\alpha$
 and thus $g$.  If $g(z_0) \not= 0$,
 then we are done, so assume $g(z_0) = 0$.
 \hyperref[cor:cauchyforpoly]{Cauchy's theorem for polynomials} says
@@ -4982,9 +5000,10 @@ And so
 Let $\ell$ be the sum of the length of the sides of $T$.
 The sum of the length of the sides of $T^k$ is
 $\frac{\ell}{2^k}$, so
-by mean value theorem for integrals\footnote{%
+by the mean value theorem for integrals\footnote{%
 If $\varphi \colon [a,b] \to \R$ is continuous, then there is an $x \in [a,b]$
-such that $\varphi(x) = \frac{1}{b-a} \int_a^b \varphi(t) \, dt$.},
+such that $\varphi(x) = \frac{1}{b-a} \int_a^b \varphi(t) \, dt$.
+To apply it here, parametrize the entire triangle with unit speed.},
 there is a $z_k \in \partial T^k$ such that
 \begin{equation*}
 \sabs{g(z_k)} = 
@@ -5068,8 +5087,8 @@ vector calculus in $\R^2$.
 \end{exercise}
 
 \begin{exercise}
-Let $X \subset \C$ be a closed convex set and $\xi \in \partial X$.
-Prove that $X$ is an intersection of closed half-plane (see previous
+Let $X \subset \C$ be a closed convex set.
+Prove that $X$ is an intersection of closed half-planes (see previous
 exercise).
 \end{exercise}
 
@@ -5112,7 +5131,7 @@ Suppose $U \subset \C$ is open and star-like.  Prove that $U$ is connected.
 \begin{exparts}
 \item
 Prove that if $U_1,\ldots,U_n \subset \C$ are convex and $U_1 \cap 
-\cap \cdots U_n \not= \emptyset$, then the union $U_1 \cup \cdots \cup U_n$
+\cdots \cap U_n \not= \emptyset$, then the union $U_1 \cup \cdots \cup U_n$
 is star-like.
 \item
 Find an example of convex $U_1,U_2,U_3 \subset \C$ where
@@ -5220,8 +5239,8 @@ there exists a holomorphic $F \colon U \to \C$
 such that $F' = f$.
 \end{cor}
 
-We also get another corollary, which we state
-as a theorem as it is one of the fundamental results.
+We also get another corollary, which we call
+a theorem as it is one of the fundamental results.
 
 \begin{thm}[Cauchy's theorem for star-like domains]
 \index{Cauchy's theorem!star-like domains}%
