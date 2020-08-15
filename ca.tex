@@ -5508,8 +5508,8 @@ $p$ oriented counterclockwise.
 
 \begin{proof}
 First fix an $r$ such that $0 < r < R$.
-In particular, $\overline{\Delta_r(p)} \subset U$,
-the disc of radius $r$ (including the boundary) is in $U$.
+Thus $\overline{\Delta_r(p)} \subset U$, and in particular,
+$\partial \Delta_r(p) \subset U$.
 Fix a $z \in \Delta_r(p)$.
 For $\zeta \in \partial \Delta_r(p)$, 
 \begin{equation*}
@@ -5528,7 +5528,7 @@ the geometric series
 \end{equation*}
 converges uniformly absolutely for $\zeta \in \partial \Delta_r(p)$.
 
-We write $f(z)$ using the Cauchy integral formula:
+Write $f(z)$ using the Cauchy integral formula:
 \begin{equation*}
 \begin{split}
 f(z)
@@ -5598,9 +5598,9 @@ $\sum
 (and hence uniformly).
 
 We proved convergence in $\Delta_r(p)$.
-By the uniqueness of the power series (see \corref{cor:convpowserinfdif}),
-the $c_n$ we compute are the same for every $r < R$, and hence
-we get convergence in $\Delta_R(p)$.
+By uniqueness of the power series (see \corref{cor:convpowserinfdif}),
+the $c_n$ we compute are the same for every $r < R$.  Hence,
+we get the same series for every $r$ and it converges in $\Delta_R(p)$.
 \end{proof}
 
 The key point in the proof is writing the \emph{\myindex{Cauchy kernel}}
@@ -5613,7 +5613,7 @@ $\frac{1}{\zeta-z}$ as
 \end{equation*}
 and then using the geometric series.  This is a common technique, take a
 feature of the kernel, in this case having a series, and proving that the
-integral has that same feature.  So in this case the thing is to figure out
+integral has that same feature.  In the proof above the thing is to figure out
 how to massage the kernel so that in the geometric series we get terms
 that are something times ${(z-p)}^n$.
 
@@ -5622,10 +5622,14 @@ that $f$ has a power series, we computed
 that the radius of convergence is at least $R$, where $R$ is the maximum $R$
 such that $\Delta_R(p) \subset U$.  See \figureref{fig:largestr}.
 That is a surprisingly powerful result.
-Nothing like that is true for power series in real variable.
+Nothing like that is true for power series in real variable,
+see \exerciseref{exercise:realradconvhard}.
 It allows for computation of the radius of convergence (or at least a lower
 bound for it) just from knowing the 
-domain of definition of a holomorphic function.
+domain of definition of a holomorphic function.  The radius of convergence
+then gives us bounds on the derivatives, and so we know quite a bit about
+the size of the derivatives of a function just from knowing how far away from a point is
+it still holomorphic.
 
 \begin{myfig}
 \subimport*{figures/}{largestr.pdf_t}
@@ -5668,7 +5672,7 @@ Hint: Showing that it is at least something is the easier part, showing it
 can be no larger than what you think it is, that is the harder part.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:realradconvhard}
 \pagebreak[2]
 Show that for the so-called real-analytic functions, the radius of
 convergence cannot be read-off from the domain.
@@ -5678,7 +5682,7 @@ entire real line, can be expressed as a real power series
 $\sum_{n=0}^\infty c_n {(x-a)}^n$ for every $a \in \R$, but
 this power series always has a finite radius of convergence.
 Compute this radius of convergence for every $a$.  Hint: Consider
-the holomorphic function $\frac{1}{1+z^2}$ and find its discontinuities.
+the holomorphic function $\frac{1}{1+z^2}$.
 \end{exercise}
 
 \begin{exercise}
@@ -5711,7 +5715,7 @@ for all $n \in \N$.  Prove that $f$ is identically zero.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $g(z)$ is such that
+Suppose that $g \colon \D \to \C$ is such that
 \begin{equation*}
 \lim_{h \to 0}
 \frac{g(z+h)-g(z)}{\bar{h}}
@@ -5883,13 +5887,13 @@ $U \times (a,b)$ by using continuity of $f$ on $U \times (a,b)$.  No such
 result is true for nonholomorphic functions.  Prove that the function defined by
 $f(x,t) = t \sin\bigl(\nicefrac{x}{t}\bigr)$ for $t \not= 0$ and $f(x,0) =  0$,
 is continuous as a function of $\R^2$, and for each fixed $t$, the function
-$x \mapsto f(x,t)$ is differentiable (infinitely differentiable in fact)
+$x \mapsto f(x,t)$ is differentiable (infinitely differentiable in fact),
 but $\frac{\partial f}{\partial x}$ is not continuous as a function of both
 $x$ and $t$.
 \end{exercise}
 \end{exbox}
 
-The fact that $f'$ is holomorphic also surprisingly gives us a
+The fact that $f'$ is holomorphic, surprisingly, gives us a
 certain converse to Cauchy.
 Morera's theorem is quite a useful tool for showing
 holomorphicity as it is often easier to integrate a continuous
