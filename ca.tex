@@ -5984,8 +5984,8 @@ If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
 \begin{proof}
 Suppose $\sabs{f(z)}$ achieves a local maximum at $p \in U$.
 Without loss of generality suppose $p = 0$.
-By multiplying by some
-$e^{i\theta}$, also assume that $f(0)$ is nonnegative and real.
+Also assume that $f(0)$ is nonnegative and real, otherwise multiply by 
+some $e^{i\theta}$.
 We write\footnote{%
 Perhaps you're thinking to yourself: Of course we write that $\xi$ is
 nonnegative by writing $\xi \geq 0$.  But we mean that ``$\xi \geq 0$''
@@ -6088,9 +6088,14 @@ that is, prove \corref{cor:maxmodprincpartdeux}.
 \begin{exercise}[Minimum modulus principle]\index{minimum modulus principle}
 Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.
-If $\sabs{f(z)}$ achieves a local minimum at $p \in U$ and $f(p) \not= 0$,
-then $f$ is constant.  Also show by example that the hypothesis
+\begin{exparts}
+\item
+Prove that if $\sabs{f(z)}$ achieves a local minimum at $p \in U$ and $f(p) \not= 0$,
+then $f$ is constant.
+\item
+Show by example that the hypothesis
 $f(p) \not= 0$ is necessary.
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}[Maximum modulus principle, part trois]
@@ -6123,7 +6128,7 @@ $\bigl\{ z \in U : \sabs{f(z)} \leq M \bigr\}$.
 \end{exercise}
 
 \begin{exercise}
-Let $P(z)$ be a nonconstant polynomial.  Show that for each $c > 0$,
+Let $P(z)$ be a nonconstant polynomial.  Show that for every $c > 0$,
 each component of the set $\bigl\{ z \in \C : \sabs{P(z)} < c \bigr\}$
 contains at least one zero (root) of $P$.  Hint: Do the two previous
 exercises first.
@@ -6202,8 +6207,25 @@ d \zeta
 \end{equation*}
 \end{proof}
 
+A better estimate is not possible if we are only given the information
+$M = \snorm{f}_{\partial \Delta_r(p)}$.
+Cauchy estimates say that
+$\sabs{c_n} \leq \frac{M}{r^n}$.
+But if $f(z) = \frac{M}{r^n} z^n$, then
+$\sabs{c_n} = \frac{M}{r^n}$.  It is left as an exercise that up to
+multiplication by $e^{i\theta}$, this is the only such example.
+
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}[Easy]
+Suppose $f \colon \D \to \C$ is holomorphic and for each $M > 0$, there
+exists an $n \in \N$ such that
+\begin{equation*}
+\abs{\frac{f^{(n)}(0)}{n!}} \geq M .
+\end{equation*}
+Prove that $f$ is unbounded.
+\end{exercise}
+
+\begin{exercise}[Easy]
 Suppose $f \colon \D \to \D$ is holomorphic.
 \begin{exparts}
 \item
@@ -6215,6 +6237,7 @@ $\sabs{f^{(n)}(0)} = n!$.
 \end{exparts}
 \end{exercise}
 
+
 \begin{exercise}
 Let $\bH = \{ z \in \C : \Im z > 0 \}$ be the upper half-plane
 and $f \colon \bH \to \D$ holomorphic.  Prove
@@ -6224,13 +6247,15 @@ and $f \colon \bH \to \D$ holomorphic.  Prove
 \end{exercise}
 
 \begin{exercise}
-Prove by example that a better estimate of $\sabs{c_n}$ than Cauchy's
-is impossible if we are only given
-$\snorm{f}_{\partial \Delta_r(p)}$.  That is, given an $n$ and $r$ find
-a function holomorphic on an open neighborhood of $\overline{\Delta_r(p)}$
-such that $\sabs{c_n} = \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^n}$.
-In fact, for each $n$ you can find a function that works for all $r$.
-Hint: Think simple!
+Suppose $U \subset \C$ is a domain,
+$\overline{\Delta_r(0)} \subset U$, and
+$f \colon U \to \C$ is holomorphic such that
+$\snorm{f}_{\partial \Delta_r(0)} = M$.
+Cauchy estimates say that for every $n$,
+$\sabs{f^{(n)}(0)} \leq \frac{n! M}{r^n}$.  Prove that if for some $n$, 
+$\sabs{f^{(n)}(0)} = \frac{n! M}{r^n}$, then $f(z) = c z^n$ for some $c \in
+\C$.  Hint: The inequalities are equalities in the proof (there are
+really two inequalities in the proof).
 \end{exercise}
 \end{exbox}
 
@@ -6392,8 +6417,8 @@ h(z)
 = \int_0^1 0 \, dt = 0.
 \end{equation*}
 We used Fubini's theorem to swap the integrals:
-The integral over $\partial T$ is really an integral over an interval
-and the integrand is continuous, so Fubini applies.
+The integral over $\partial T$ is really a sum of integrals over an interval
+and the integrand in each is continuous, so Fubini applies.
 Morera's theorem now says that $h(z)$ is
 holomorphic.
 \end{proof}
@@ -6437,7 +6462,7 @@ say that $h(z)$ is holomorphic.
 
 In either case, the idea is to swap some limits (something that must always
 be justified),
-and the two techniques above are the two kinds of swaps that come up most
+and the two techniques above are two kinds of swaps that come up
 often (Fubini, and differentiating under the integral).  By writing each
 path in a chain as an integral of one real variable we obtain the following
 corollary.
@@ -6486,8 +6511,8 @@ then $f|_{\Delta_r(p)}$ is holomorphic.
 
 It is not necessarily true that $Cu$ tends to $u$ as we approach the
 boundary of the disc unless $u$ came from 
-a holomorphic function to begin with.  That is, $Cu$ might have limits at
-the boundary of the disc, but they need not be equal to what $u$ is.
+a holomorphic function to begin with.  That is, $Cu$ might (or might not) have limits at
+the boundary of the disc, but they need not be equal to $u$.
 
 
 \begin{exbox}
@@ -6501,7 +6526,7 @@ $\zeta \in \partial \D$
 and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}[Easy]
 Suppose $g \colon U \times [a,b] \to \C$ is continuous, 
 for each fixed $t \in [a,b]$, $z\mapsto g(z,t)$ is holomorphic,
 and $\sabs{g(z,t)} \leq M$ for all $(z,t) \in U \times
@@ -6531,12 +6556,12 @@ When dealing with a class of functions, any analyst worth their
 salt will ask\footnote{Apparently the salt thing
 comes from Roman times, soldiers were
 paid partly with salt to preserve their meats.  So if you didn't ask,
-your meats will not be salty.} about the right topology for this class of
+you will have to eat only vegetables.} about the right topology for this class of
 functions.
 Another consequence of Cauchy's formula is that the right topology for
 holomorphic functions is the same as that for continuous functions: uniform
 convergence on compact subsets.  In fact, that's the convergence that we
-used for the convergence of power series.
+used for power series.
 
 \begin{defn}
 A sequence of functions $f_n \colon U \to \C$ converges
