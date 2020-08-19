@@ -3001,7 +3001,7 @@ $\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.
 Consider $\Delta_1$ a closed disc of radius 1 centered at $i$ and $\Delta_2$ a closed disc of radius 1 centered $-i$.
 Find a biholomorphism of $\C \setminus (\Delta_1 \cup \Delta_2)$
 onto the unit disc.
-Hint: Figure out what $\frac{1}{z}$ does to the two circles.
+Hint: Figure out what $\nicefrac{1}{z}$ does to the two circles.
 \end{exercise}
 
 \begin{exercise}
@@ -3419,7 +3419,7 @@ Then
 \sqrt[n]{\sabs{c_n} s^n}=
 \frac{s}{r}\sqrt[n]{\sabs{c_n} r^n} \leq \frac{s}{r} \sqrt[n]{M} .
 \end{equation*}
-The limsup of the right-hand side is strictly less than 1 as $\frac{s}{r} < 1$.
+The limsup of the right-hand side is strictly less than 1 as $\nicefrac{s}{r} < 1$.
 So the series converges absolutely in
 $\overline{\Delta_s(p)}$.  As $s$ and $r$ with $0 < s < r < R$ were
 arbitrary,
@@ -5754,7 +5754,7 @@ Even worse, the real derivative could even be discontinuous.
 \begin{exbox}
 \begin{exercise}
 Let $f \colon \R \to \R$ be defined by $f(0) = 0$ and $f(x) = x^2
-\sin\bigl( \frac{1}{x} \bigr)$ for $x \not= 0$.
+\sin\bigl( \nicefrac{1}{x} \bigr)$ for $x \not= 0$.
 \begin{exparts}
 \item
 Show that $f$ is
@@ -5885,7 +5885,7 @@ The previous exercise may seem trivial, but the key is that we can prove
 (using Cauchy's formula) that the partials are continuous as a function of
 $U \times (a,b)$ by using continuity of $f$ on $U \times (a,b)$.  No such
 result is true for nonholomorphic functions.  Prove that the function defined by
-$f(x,t) = t \sin\bigl(\nicefrac{x}{t}\bigr)$ for $t \not= 0$ and $f(x,0) =  0$,
+$f(x,t) = t \sin(\nicefrac{x}{t})$ for $t \not= 0$ and $f(x,0) =  0$,
 is continuous as a function of $\R^2$, and for each fixed $t$, the function
 $x \mapsto f(x,t)$ is differentiable (infinitely differentiable in fact),
 but $\frac{\partial f}{\partial x}$ is not continuous as a function of both
@@ -6651,16 +6651,16 @@ The set $K'$ is also compact: It is clearly
 bounded, let us show it is closed.  Suppose that $p$ is not in $K'$.
 By compactness of $K$, there is a $q \in K$ such that $\sabs{p-q}$
 is the distance of $p$ to $K$.  As $p \not\in K'$,
-$\sabs{p-q} > \frac{d}{2}$.
+$\sabs{p-q} > \nicefrac{d}{2}$.
 Every point in $\Delta_{\sabs{p-q}-d/2}(p)$
-is also further than $\frac{d}{2}$ from $K$, so
+is also further than $\nicefrac{d}{2}$ from $K$, so
 complement of $K'$ is open.
 
 As $\{ f_n \}$ converges uniformly on compact subsets, it converges uniformly
 on $K'$.  Given an $\epsilon > 0$, find an $N$ such that 
 $\sabs{f(z)-f_n(z)} < \epsilon$ for all $z \in K'$ and
 all $n \geq N$.
-For any $p \in K$, use the Cauchy estimates in a $\frac{d}{2}$ disc
+For any $p \in K$, use the Cauchy estimates in a $\nicefrac{d}{2}$ disc
 on $f(z)-f_n(z)$:
 \begin{equation*}
 \abs{
@@ -7099,7 +7099,7 @@ Never doubt the courage of the French. They were the ones who discovered that sn
 
 \subsection{The logarithm}
 
-Let us look at the function $z^n$ for $n \in \Z$.\footnote{It appears,
+Let us ponder over the primitives of $z^n$ for $n \in \Z$.\footnote{It appears,
 doesn't it, that elementary complex analysis is the study of $z^n$.}
 When $n \geq 0$, 
 then $z^n$ is defined in the entire plane, and a primitive is
@@ -7109,14 +7109,14 @@ a primitive is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
 \nicefrac{1}{z}$?  It has a primitive, but never defined in
 the entire punctured plane.
 
-We proved that in any star-like domain, a holomorphic function has a
+We demonstrated that in any star-like domain, a holomorphic function has a
 primitive.  Consider the so-called \emph{\myindex{slit plane}}
 \begin{equation*}
 U = \C \setminus (-\infty,0] = \C \setminus \bigl\{ z \in \C : \Re z \leq 0 , \Im z = 0 \bigr\}.
 \end{equation*}
 It is a star-like domain and
 so there exists a
-primitive for $\frac{1}{z}$ in $U$.
+primitive for $\nicefrac{1}{z}$ in $U$.
 If we
 require that this primitive is $0$ at $z=1$,
 we get a function
@@ -7125,13 +7125,14 @@ we get a function
 \operatorname{Log} \colon U \to \C ,
 \end{equation*}
 called the \emph{\myindex{principal branch}} of the logarithm.
-We had another thing before called the ``principal branch,'' 
-the principal branch of the argument.  Let us show that
+We saw another gadget before called the ``principal branch,'' 
+the principal branch of the argument, $\Arg$.  Let us show that
 \begin{equation*}
 \Log z = \log \sabs{z} + i \Arg z ,
 \end{equation*}
-where $\log \sabs{z}$ is just the standard real logarithm.  Let
-$L(z) = \log \sabs{z} + i \Arg z$ and let us show that $L = \Log$.  We see
+where $\log \sabs{z}$ is just the standard real logarithm of $\sabs{z}$.
+Set $L(z) = \log \sabs{z} + i \Arg z$, and let us show that $L = \Log$.
+Observe
 \begin{equation*}
 e^{L(z)}
 =
@@ -7147,9 +7148,10 @@ Take the derivative of both sides of $z = e^{L(z)}$,
 1 = L'(z) e^{L(z)} = L'(z) z .
 \end{equation*}
 Et voil\`a!\footnote{Cauchy was French, n'est pas?}
-We have $L'(z) = \frac{1}{z}$, so $L = \Log$.
+We have $L'(z) = \nicefrac{1}{z}$, so $L = \Log$.
 
-We could have used any branch of the argument.  We 
+If we use a different branch of the argument we get another
+antiderivative of $\nicefrac{1}{z}$.  We 
 make the definition
 \glsadd{not:log}%
 \begin{equation*}
@@ -7165,6 +7167,10 @@ since the $\arg$ on the right-hand side has infinitely many values.
 The value of $\log (-1)$ is $\pi i$, but also $-\pi i$, $3\pi i$,
 or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So $\log$ is a function just as much
 as $\arg$ is a function.  See \figureref{fig:loggraph}.
+The double duty of ``$\log$'' is almost never a
+problem and it is generally clear which $\log$ one is talking about based on
+what sort of things are being plugged into it.
+
 
 \begin{myfig}
 \includegraphics{figures/logrealgraph}
@@ -7176,24 +7182,20 @@ part is an infinite spiral, only two turns are pictured.  A path on the
 graph around the unit circle is marked.\label{fig:loggraph}}
 \end{myfig}
 
-The double duty of ``$\log$'' is a small price to pay.  It is almost never a
-problem and it is generally clear which $\log$ one is talking about based on
-what sort of things are being plugged into it.
-
 While $\log$ is not really a function---it is a multivalued
 function\footnote{%
-Cauchy: Quel Malheur!  Je d{\'e}teste le logarithme! Je veux devenir plombier.}---it is really
+Cauchy: Quel Malheur!  Je d{\'e}teste le logarithme! Je veux devenir plombier.}---it is
 the definition that we want.
-The principal branch, while 
-useful when one wants to get some actual numbers, is not always what we
-want.  It is not as useful as one would think.
+The principal branch,
+useful when one wants to get some actual numbers, is often not what we
+need; it is not as useful as one would think.
 And beware that computers like to give back the principal branch even 
 when it doesn't make any sense.
 
 So how do we use $\log$?  Well it comes up in line integrals, which are used
 to count and classify zeros and/or singularities of functions, or vice
 versa---zeros and singularities are used to compute line integrals.
-Let us compute the integral of $\frac{1}{z}$ around the unit
+Let us compute the integral of $\nicefrac{1}{z}$ around the unit
 circle $\partial \D$, oriented counterclockwise as usual (parametrized
 by $e^{it}$).  Suppose we start and end the integration at 
 $z=1$:
@@ -7227,13 +7229,13 @@ the beginning and the end is precisely that $2\pi i$.
 
 To make working with $\log$ easier, we usually talk about a
 \emph{\myindex{branch of the logarithm}}.  So $L \colon U \to \C$ is a branch
-of the logarithm if $L$ is holomorphic, $L'(z) = \frac{1}{z}$, and $L(z)$ is equal
+of the logarithm if $L$ is holomorphic, $L'(z) = \nicefrac{1}{z}$, and $L(z)$ is equal
 to some value of $\log z$ for every $z \in U$.  It is not possible to define
 a branch of the logarithm in every $U$, but for example we can do it in every
 star-like $U$ where $0 \notin U$.  In general, one can define a branch of
 the logarithm in every simply connected domain, that is, a domain without holes,
 that does not contain zero.
-More on this later.  Similarly we can define branches of $\log (z-p)$,
+More on this later.  Similarly we define branches of $\log (z-p)$,
 a primitive of $\frac{1}{z-p}$, in which case the domain
 should not contain $p$.
 
@@ -7241,8 +7243,8 @@ We may also talk about branches more loosely, and talk
 about following them along a path.  That doesn't mean that we really define
 a single branch, it means that we define a branch in some small open set,
 follow its values for a while, then switch to another branch that 
-happens to agree with the first branch at least at the point where we are
-at.  See \figureref{fig:followbranch}.  This is really what we did in the
+happens to agree with the first branch at least at the point where we
+switch.  See \figureref{fig:followbranch}.  This is really what we did in the
 ``computation'' above.  We followed $\log$ from $1$ along the circle until we
 ended up at $1$ again, and our branches that we followed ended up $2\pi i$
 off.  We will see an example of this briefly.
@@ -7259,7 +7261,7 @@ are marked.\label{fig:followbranch}}
 
 \begin{exbox}
 \begin{exercise}
-Suppose $a \in \C$ is a nonzero complex number, and
+Suppose $a \in \C \setminus \{ 0 \}$, and
 $R_a = \{ \lambda a \in \C : \lambda \geq 0 \}$
 is the ray from the origin through $a$.  Prove
 that there exists a branch of the $\log$ in $\C \setminus R_a$.
@@ -7268,16 +7270,15 @@ that there exists a branch of the $\log$ in $\C \setminus R_a$.
 \begin{exercise}
 For $n \in \N$ let $\gamma \colon [0,2\pi] \to \C$ be $\gamma(t) = e^{int}$,
 the unit circle traversed $n$ times counterclockwise.  Compute
-$\int_\gamma \frac{1}{z} \, dz$.  Try to argue by splitting up the integral
+$\int_\gamma \frac{1}{z} \, dz$.  Argue by splitting up the integral
 into pieces and using branches of the $\log$.
 \end{exercise}
 
 \begin{exercise}
 Suppose
-$U \subset \C$ is an open set with
+$U \subset \C$ is open with
 $\partial \D \subset U$,
-$f \colon U \to \C$ is a holomorphic
-function,
+$f \colon U \to \C$ is holomorphic,
 such that
 $f(z)$ is never negative real or zero.
 Compute
@@ -7318,15 +7319,16 @@ the
 \end{defn}
 
 Intuitively, the winding number is the number of times that $\Gamma$ winds
-around $p$.  This intuition is confirmed by trying to integrate
-$\frac{1}{z}$ for the path $e^{it}$ for $t \in [0,2\pi]$, that gets you 
-a winding number $1$, as it goes once counterclockwise direction around zero.  If we do
+around $p$.  This intuition is confirmed by integrating
+$\nicefrac{1}{z}$ for the path $e^{it}$ for $t \in [0,2\pi]$ to get
+a winding number $1$ around $p=0$,
+as it goes once counterclockwise direction around zero.  If we do
 the integral with $e^{2it}$, we go around zero twice in the
 counterclockwise direction, and the winding number really is $2$.  Similarly
 if we use $e^{-it}$, then we go around zero once in the
 clockwise direction, and the winding number is $-1$.
 
-The first thing to prove is to show that the winding number is an integer.
+The first thing to observe is that the winding number is an integer.
 
 \begin{prop} \label{prop:indexinteger}
 Suppose $\Gamma$ is a cycle and $p \notin \Gamma$.  Then
@@ -7338,16 +7340,16 @@ $n(\Gamma;p)$ is an integer.
 %is an integer.
 \end{prop}
 
-Intuitively, the proof is to take a closed path $\gamma$
+The proof is to take a closed path $\gamma$
 and to follow a branch of $\log$ around $\gamma$, and
-see by how much it changes.  See \figureref{fig:followbranch}, and we
-go all the way around a loop.  Since we really just follow the argument
-and we have gone some number of times around $p$ along $\gamma$, the
-argument has changed by some multiple of $2\pi$.
+see by how much it changes.  See \figureref{fig:followbranch}, where we
+go all the way around a loop.  Since we follow the argument
+and we go some number of times around $p$ along $\gamma$, the
+argument changes by some multiple of $2\pi$.
 
 \begin{proof}
-As a cycle is (equivalent to) a linear combination (over the integers) of closed paths,
-then we only need to prove the result for closed piecewise-$C^1$ paths.
+A cycle is (equivalent to) a linear combination (over the integers) of closed paths,
+so we only need to consider closed piecewise-$C^1$ paths.
 Let $\gamma \colon [0,1] \to \C$ be the path.
 The path $\gamma$ as a set is compact.  It can be covered by finitely many
 discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
@@ -7355,8 +7357,8 @@ partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ such that
 $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
 does not contain $p$,
 so in each one there exists a branch of $\log (z-p)$, call it $L_j$,
-such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)$
-(pick $L_1$ arbitrarily, then pick $L_2,\ldots,L_n$ accordingly).
+such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)$.
+Pick $L_1$ arbitrarily, then pick $L_2,\ldots,L_n$ accordingly.
 Call $z_0 = \gamma(0) = \gamma(1)$.  So
 \begin{multline*}
 n(\gamma;p)
@@ -7387,7 +7389,7 @@ the partition $t_0,\ldots,t_n$ exists.  Hint: Some of the discs may
 \end{exercise}
 \end{exbox}
 
-The second thing to notice is that $n(\Gamma;z)$ is constant as long as we
+The second thing to observe is that $n(\Gamma;z)$ is constant as long as we
 do not cross $\Gamma$.
 
 \begin{prop} \label{prop:windingconstant}
@@ -7411,11 +7413,11 @@ marked.\label{fig:indexconstant}}
 \end{myfig}
 
 \begin{proof}
-Consider the function
+Let us show that the function
 \begin{equation*}
-p \mapsto n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz .
+p \mapsto n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz
 \end{equation*}
-Let us show that this function is continuous on $\C \setminus \Gamma$.
+is continuous on $\C \setminus \Gamma$.
 Fix $p_0 \in \C \setminus \Gamma$, and let
 \glsadd{not:distancetoset}%
 $d = d(p_0,\Gamma)$ be the
@@ -7424,7 +7426,7 @@ $p_0$ to $\Gamma$, namely
 $d = \inf \bigl\{ \sabs{z-p_0} : z \in \Gamma \bigr\}$.
 As $\Gamma$ is compact, $d > 0$.  
 For any $p \in \Delta_{d/2}(p_0)$, we have $\sabs{z-p} \geq
-\frac{d}{2}$ for every $z \in \Gamma$.  Let $\ell$ be the length of
+\nicefrac{d}{2}$ for every $z \in \Gamma$.  Let $\ell$ be the length of
 $\Gamma$, that is $\ell = \int_\Gamma \sabs{dz}$.  Then,
 \begin{equation*}
 \begin{split}
@@ -7440,17 +7442,17 @@ $\Gamma$, that is $\ell = \int_\Gamma \sabs{dz}$.  Then,
 \end{equation*}
 So, $n(\Gamma;p)$ is a continuous function of $p$.
 As it is continuous
-and integer valued, it is constant on any connected component of
+and integer-valued, it is constant on any connected component of
 $\C \setminus \Gamma$ (the set where it is defined).
 
-Next, for any $p \in \C \setminus \Gamma$,
+For any $p \in \C \setminus \Gamma$,
 \begin{equation*}
 \sabs{n(\Gamma;p)} \leq \frac{1}{2\pi} \int_\Gamma \frac{1}{\sabs{z-p}} \,
 \sabs{dz} \leq \frac{1}{2\pi} \frac{\ell}{d(p,\Gamma)} .
 \end{equation*}
-On the unbounded component---as $\Gamma$ is compact---we can find $p$
-with $d(p,\Gamma)$ arbitrarily large, meaning $n(\Gamma;p)$ is arbitrarily small
-on this component, and as it is constant, it must be zero.
+On the unbounded component---as $\Gamma$ is compact---there are $p$
+with $d(p,\Gamma)$ arbitrarily large, so $n(\Gamma;p)$ is arbitrarily small
+on this component.  As it is constant, it is zero.
 \end{proof}
 
 \begin{exbox}
@@ -8034,9 +8036,9 @@ constant on $S$.  As $\varphi(\infty) = 0$, $\varphi|_S \equiv 0$.  In
 other words, $U$ is simply connected.
 \end{proof}
 
-It is important to use $\C_\infty$ and not $\C$ in the proposition
-above.  If $U = \C \setminus \{ 0 \}$ is the punctured plane, then
-$\C \setminus U = \{ 0 \}$, which is connected, but 
+It is important to use $\C_\infty$ and not $\C$ in the proposition.
+If $U = \C \setminus \{ 0 \}$ is the punctured plane, then
+$\C \setminus U = \{ 0 \}$ is connected, but 
 $\C_\infty \setminus U = \{ 0, \infty \}$ is not connected.
 
 \begin{exbox}
@@ -8516,7 +8518,7 @@ somewhere.  Suppose $\sum_{n=-\infty}^\infty c_n {(z-p)}^n$ is a Laurent
 series that converges at $z_1$ and $z_2$ where
 $0 < \sabs{z_1} < \sabs{z_2} < \infty$.
 Prove that the series converges uniformly absolutely on compact subsets
-of $\ann(p;\sabs{z_1},\sabs{z_2})$.
+of $\ann\bigl(p;\sabs{z_1},\sabs{z_2}\bigr)$.
 \end{exercise}
 \end{exbox}
 
@@ -9741,8 +9743,8 @@ is an automorphism, then $f(z) = e^{i\theta} z$ for some $\theta$.
 
 \begin{exercise}
 Prove that if
-$f \colon \D \setminus \bigl\{ 0, \frac{1}{2} \bigr\} \to \D \setminus
-\bigl\{ 0 , \frac{1}{2} \bigr\}$
+$f \colon \D \setminus \bigl\{ 0, \nicefrac{1}{2} \bigr\} \to \D \setminus
+\bigl\{ 0 , \nicefrac{1}{2} \bigr\}$
 is an automorphism then $f(z) = z$ or $f(z) = \frac{1-2z}{2-z}$.
 \end{exercise}
 
@@ -10179,7 +10181,7 @@ Similarly, we can define a function on subsets of $\C_\infty$, just as
 we did with LFTs.
 We define holomorphicity at $\infty$ when $U \subset
 \C_\infty$ by saying that $f$ is \emph{\myindex{holomorphic at $\infty$}}
-if $f\bigl(\frac{1}{z}\bigr)$ is holomorphic at $0$.
+if $f(\nicefrac{1}{z})$ is holomorphic at $0$.
 So with this terminology, an LFT is a biholomorphic mapping $f \colon
 \C_\infty \to \C_\infty$.  It is left as an exercise that
 these are the only biholomorphisms of the Riemann sphere and so
@@ -10501,7 +10503,7 @@ $n(\Gamma_r;i) = 0$.
 Another application to real integrals is to simply recognize 
 a path integral.  For example, integrals of trigonometric functions
 are often integrals over the unit circle.  On the unit
-circle, $\bar{z} = \frac{1}{z}$.  So if $z=e^{i\theta}$,
+circle, $\bar{z} = \nicefrac{1}{z}$.  So if $z=e^{i\theta}$,
 $\cos \theta = \Re z = \frac{z+1/z}{2}$ and
 $\sin \theta = \Im z = \frac{z-1/z}{2i}$.
 
@@ -12140,13 +12142,13 @@ hypothesis that would make it a normal family?
 
 \begin{exercise}
 Given $c \in [0,1)$ let $\sF_c$ be the set of holomorphic
-$f \colon \D \to \D$ such that $f(0) = 0$ and $f\bigl(\nicefrac{1}{2}\bigr) = c$.
+$f \colon \D \to \D$ such that $f(0) = 0$ and $f(\nicefrac{1}{2}) = c$.
 \begin{exparts}
 \item
 Prove that $\sF_c = \emptyset$ if and only if $c \in
-\bigl(\nicefrac{1}{2},1\bigr)$.
+(\nicefrac{1}{2},1)$.
 \item
-Prove that for any $c \in \bigl[0,\nicefrac{1}{2}\bigr]$, there exists an
+Prove that for any $c \in [0,\nicefrac{1}{2}]$, there exists an
 $f \in \sF_c$
 such that $\sabs{f'(0)}$ is minimal (among the functions in $\sF_c$),
 and let $m_c = \inf \bigl\{ \sabs{f'(0)} : f \in \sF_c \bigr\}$.
@@ -12597,7 +12599,7 @@ Also assume that $0 \in K$.  If $K= \{0 \}$, we are done trivially, so
 assume $K$ is larger than one point.
 Consider $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
 LFT:
-$\varphi(z) = \frac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
+$\varphi(z) = \nicefrac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
 $\varphi(0) = \infty$ and $\varphi(\infty) = 0$.
 Being an LFT, $\varphi$ is a (bi)holomorphic
 mapping of $\C_\infty$ to itself, where $\varphi^{-1} = \varphi$.  Let
@@ -12676,7 +12678,7 @@ h(\xi) =
 \,
 \psi' \bigl(\psi^{-1}(\xi)\bigr)}
 \end{equation*}
-defined on $D$ has two poles: one at $\psi\bigl(\frac{1}{p}\bigr)$ and one
+defined on $D$ has two poles: one at $\psi(\nicefrac{1}{p})$ and one
 at $q_1=0$ (the third factor in the denominator is never zero).
 They are both simple poles as is easy to check and the residues are (using
 \propref{prop:residuesimpleratio})
@@ -12709,10 +12711,10 @@ and
 \end{equation*}
 The path $\gamma_1$ goes around $q_1=0$.
 Some $\gamma_j$ goes around
-$\psi\bigl(\frac{1}{p}\bigr)$, as $r$ was picked sufficiently large
+$\psi(\nicefrac{1}{p})$, as $r$ was picked sufficiently large
 precisely so that the circles $\gamma_j$ go around $S$, that is points that
 are the image of $\C \setminus U$,
-in particular $\psi\bigl(\frac{1}{p}\bigr)$.
+in particular $\psi(\nicefrac{1}{p})$.
 The sum of the residues which is zero, so 
 by the \hyperref[thm:residue]{residue theorem},
 \begin{equation*}
@@ -12740,7 +12742,7 @@ n(\Gamma;p) =
 
 If $p$ is any other point that's not on $\Gamma$, we see that $n(\Gamma;p)$
 is either $0$ or $1$, depending on if there is a pole at
-$\psi\bigl(\frac{1}{p}\bigr)$ and if $\Gamma$ goes around it or not.
+$\psi(\nicefrac{1}{p})$ and if $\Gamma$ goes around it or not.
 \end{proof}
 
 \begin{exbox}
@@ -13808,7 +13810,7 @@ Suppose $0 < r < 1$.
 \begin{exparts}
 \item
 Prove that if $f \colon \D \to \R$ is harmonic, then
-$f\bigl(\nicefrac{z}{\sabs{z}}\bigr)$ is harmonic in $\C \setminus
+$f(\nicefrac{z}{\sabs{z}})$ is harmonic in $\C \setminus
 \overline{\D}$.
 \item
 By providing an explicit formula show that the Dirichlet problem is solvable
@@ -15521,7 +15523,7 @@ E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
 \end{equation*}
 \end{defn}
 
-The function $E_m\bigl(\nicefrac{z}{a}\bigr)$ has a zero of order 1 at $a$.
+The function $E_m(\nicefrac{z}{a})$ has a zero of order 1 at $a$.
 As we are relating the absolute convergence of $\prod (1+a_n)$ to $\sum
 \sabs{a_n}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
 Before we do so, we prove a useful estimate for holomorphic functions
@@ -15625,7 +15627,7 @@ For any $r > 0$, we get $\sabs{a_n} \geq 2r$ or
 $\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
 for all large enough $n$.
 Thus if $\ell_n = n-1$, a tail of the series is bounded
-by the geometric series $\sum {\bigl(\nicefrac{1}{2}\bigr)}^n$.
+by the geometric series $\sum {(\nicefrac{1}{2})}^n$.
 
 Consider a compact set $K$ in the plane.  It is contained in some closed disc
 $\overline{\Delta_r(0)}$.  We want to get uniformly absolute convergence
@@ -16173,7 +16175,7 @@ that converges uniformly to $f$ on the square $[-1,1] \times [-1,1]$.
 
 Sometimes, we are thwarted in polynomial approximation by topology.
 For example, there is no sequence of
-polynomials $P_n(z)$ that converge to $\frac{1}{z}$ uniformly on $\partial
+polynomials $P_n(z)$ that converge to $\nicefrac{1}{z}$ uniformly on $\partial
 \D$.  This follows by \hyperref[thm:rouche]{Rouch\`e} (or
 \exerciseref{exercise:convergeboundary} and Cauchy's theorem), see the
 following exercise.
@@ -16187,7 +16189,7 @@ $\babs{P(z_0)-\frac{1}{z_0}} \geq 1$.
 
 The problem with the unit circle is that it goes around a hole.  We can approximate
 any function holomorphic in an open neighborhood of $\partial \D$ by rational
-functions if we allow a pole at $0$.  The function $\frac{1}{z}$ is already
+functions if we allow a pole at $0$.  The function $\nicefrac{1}{z}$ is already
 a rational function with a pole at zero.
 
 A polynomial is really just a rational function that has a pole at infinity.
@@ -17560,7 +17562,7 @@ along some path.  Just not every path.
 Inverses can often be continued for some paths, but as we saw in the
 example above, where
 we tried to continue the inverse of
-$w \mapsto {\bigl(\nicefrac{1}{w}-1\bigr)}^2$, inverses may not admit 
+$w \mapsto {(\nicefrac{1}{w}-1)}^2$, inverses may not admit 
 unrestricted continuation.  However, if the mapping is a so-called covering
 map (for example, a $k$-to-1 onto holomorphic map), then its inverse does
 admit such continuation.
@@ -20667,10 +20669,10 @@ Show that $\sqrt{x}$ is uniformly continuous on $[0,1]$ but not Lipschitz.
 \begin{exparts}
 \item
 Show that $f \colon (c,\infty) \to \R$ for some $c > 0$
-and defined by $f(x) = \frac{1}{x}$ is Lipschitz continuous.
+defined by $f(x) = \nicefrac{1}{x}$ is Lipschitz continuous.
 \item
 Show that $f \colon (0,\infty) \to \R$
-defined by $f(x) = \frac{1}{x}$ is not Lipschitz continuous nor uniformly
+defined by $f(x) = \nicefrac{1}{x}$ is not Lipschitz continuous nor uniformly
 continuous.
 \end{exparts}
 \end{exercise}
@@ -20755,7 +20757,7 @@ Then
 $f(x)$ converges to $L \in Y$ as $x$ goes to $p$ if and only if for every sequence $\{ x_n \}$
 in $S \setminus \{p\}$
 such that $\lim\, x_n = p$,
-the sequence $\{ f(x_n) \}$ converges to $L$.
+the sequence $\bigl\{ f(x_n) \bigr\}$ converges to $L$.
 \end{lemma}
 
 \begin{exbox}
@@ -22927,7 +22929,7 @@ Define $f \colon \R^2 \to \R^2$
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-\bigl(x^2 \sin \bigl(\nicefrac{1}{x}\bigr) + \nicefrac{x}{2} , y \bigr) &
+\bigl(x^2 \sin (\nicefrac{1}{x}) + \nicefrac{x}{2} , y \bigr) &
 \text{if } x \not= 0, \\
 (0,y) &
 \text{if } x=0.
