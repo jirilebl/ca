@@ -6698,18 +6698,18 @@ prove that for any nonnegative integer $\ell$
 
 \begin{exercise} \label{exercise:convergeboundary}
 Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \widebar{U} \to
-\C$ continuous functions that are holomorphic on $U$, and such that
+\C$ continuous functions holomorphic on $U$ such that
 the restrictions $f_n|_{\partial U}$ converge uniformly.  Prove that
 $f_n$ converge uniformly on $\widebar{U}$ to a continuous
 function $f \colon \widebar{U} \to \C$ that is holomorphic in $U$.
-Hint: First use the maximum modulus principle to show that the sequence
+Hint: Maximum modulus principle gives that the sequence
 $\{ f_n \}$
 is Cauchy at each point (actually uniformly Cauchy).  Feel free to use the
 fact that uniform limit of continuous functions is continuous.
 \end{exercise}
 
 \begin{exercise}
-Consider the functions $f_n(z) = \frac{\sin(nz)}{n}$.  Note that $f_n|_{\R}$ converge
+Consider $f_n(z) = \frac{\sin(nz)}{n}$.  Note that $f_n|_{\R}$ converge
 uniformly to the zero function.
 \begin{exparts}
 \item
@@ -6734,7 +6734,7 @@ not the uniform limit of a sequence polynomials $P_n(z)$ on $\partial \D$.
 
 \begin{exercise}\label{exercise:polylimits}
 \pagebreak[2]
-Show that
+Prove:
 \begin{exparts}
 \item
 For every holomorphic $f \colon \D \to \C$ there
@@ -6760,7 +6760,7 @@ F(z) = \int_0^\infty f(t) e^{-zt} \, dt = \lim_{r \to \infty} \int_0^r f(t)
 e^{-zt} \, dt
 \end{equation*}
 converges uniformly on compact subsets to a holomorphic function on $U$.
-Note: To use our setup, take every sequence $\{ r_n \}$
+Note: To use our setup, consider every sequence $\{ r_n \}$
 of real numbers converging to $+\infty$.
 \end{exercise}
 \end{exbox}
@@ -6772,7 +6772,7 @@ of real numbers converging to $+\infty$.
 
 \subsection{Schwarz's lemma}
 
-Recall $\D = \Delta_1(0)$ is the unit disc.  The following statement may
+The following statement may
 seem technical and specialized, but surprisingly it is incredibly
 powerful.\footnote{In graduate school, on an exam in complex
 analysis, I solved all the problems with a combination of
@@ -6781,7 +6781,7 @@ mapping theorem (which we will see later).
 My advisor
 felt compelled to remind me that there do exist other theorems in complex
 analysis.}
-Any disc can be translated and rescaled to $\D$, and any
+Any disc can be translated and rescaled to unit disc $\D$, and any
 bounded function can be rescaled to be valued in $\D$.
 
 \begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}
@@ -6831,7 +6831,7 @@ holds if $\sabs{f'(0)} = 1$.
 
 It is good to notice what the theorem says about $f(z) = z^n$
 for an integer $n > 1$.  The function $f$ takes the disc to the disc
-and $f(0) = 0$.  For $z \in z \in \D \setminus \{ 0 \}$,
+and $f(0) = 0$.  For $z \in \D \setminus \{ 0 \}$,
 \begin{equation*}
 \sabs{z^n} =
 \sabs{z}^n < \sabs{z} .
@@ -6849,7 +6849,7 @@ behave this way, not just $z^n$.
 \begin{exbox}
 \begin{exercise}
 State and prove a version of Schwarz's lemma for a holomorphic
-function $f \colon \Delta_r(p) \to \Delta_R(q)$ with $f(p)=q$.
+function $f \colon \Delta_r(p) \to \Delta_s(q)$ with $f(p)=q$.
 \end{exercise}
 
 \begin{exercise}
@@ -6867,7 +6867,10 @@ Prove that if $f \colon \bH \to \bH$ holomorphic such that $f(i) = i$, then
 
 \begin{exercise}[Tricky]
 Prove a certain generalization of Schwarz's lemma.  Suppose $U \subset \C$
-is bounded, $p \in U$, and $f \colon U \to U$ is holomorphic, and $f(p)=p$.
+is bounded,
+$f \colon U \to U$ is holomorphic,
+$p \in U$,
+and $f(p)=p$.
 \begin{exparts}
 \item
 Show $\abs{f'(p)} \leq 1$.
@@ -6891,7 +6894,7 @@ of the one for $f$.  Then apply Cauchy estimates.
 
 Let us compute the automorphism group of the disc using
 Schwarz's lemma.
-We start with certain specific automorphisms of the disc.
+We start with certain specific automorphisms.
 For $a \in \D$, define\footnote{%
 Careful when reading literature, some authors use $\frac{a-z}{1-\bar{a}z}$ as the definition.}
 \glsadd{not:varphia}%
@@ -6912,7 +6915,7 @@ $\varphi_a(\partial \D) = \partial \D$,
 and
 $\varphi_a(\D) = \D$
 \item
-$\varphi_a$ restricted to the disc is an automorphism of the disc and
+$\varphi_a$ restricted to $\D$ is an automorphism of the disc and
 \begin{equation*}
 \varphi_a^{-1} = \varphi_{-a} .
 \end{equation*}
@@ -6934,8 +6937,7 @@ Next, we prove that up to a rotation, all automorphisms of $\D$ are
 $\varphi_a$.
 \begin{myfig}
 \includegraphics{figures/varphiplot}
-\caption{What $\varphi_a$ does to the unit disc.   In this case,
-$a=-0.4$ and the position of $a$ and $\varphi_a(a)=0$ is marked with a dot.%
+\caption{What $\varphi_a$ does to the unit disc when $a=-0.4$.   The positions of $a$ and $0=\varphi_a(a)$ are marked with dots.%
 \label{fig:varphiplot}}
 \end{myfig}
 
@@ -7006,7 +7008,7 @@ for real numbers $a,b,c,d$ such that $ad-bc \not= 0$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open, $\overline{\D} \subset U$,
+Suppose $U \subset \C$ is a domain, $\overline{\D} \subset U$,
 and $f \colon U \to \C$ is holomorphic.
 Suppose $\sabs{f(z)}=1$ whenever $\sabs{z}=1$,
 that is, $f(\partial \D) \subset \partial \D$.
