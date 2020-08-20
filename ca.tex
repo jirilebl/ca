@@ -678,7 +678,7 @@ Modern\footnote{In this context, \emph{modern}
 means ``later than the middle ages.''}
 mathematics
 is taking a false statement such as ``all
-polynomials have a root'' and redefining what ``root'' could be, that is,
+polynomials have a root'' and redefining what a ``root'' could be, that is,
 redefining ``number,''
 so that the statement is true.
 In this instance, we arrive at the complex numbers.
@@ -7487,8 +7487,8 @@ $n(\Gamma;z) = 0$.
 \label{exercise:rayktimes}
 Suppose $\gamma \colon [a,b] \to \C$ be a closed $C^1$ path such that
 $\gamma(a) = \gamma(b)$ is some real negative number.  Suppose
-that $\gamma(t)$ is real and negative for only $k$ distinct $t$ (and it
-includes $a$ and $b$), and whenever $\gamma(t)$ is real and negative,
+that $\gamma(t)$ is real and negative for only $k$ distinct $t$ (that
+includes $t=a$ and $t=b$, so $k \geq 2$), and whenever $\gamma(t)$ is real and negative,
 then $\Im \gamma'(t) < 0$.  Prove that $n(\gamma;0) = k-1$.  Hint: Use
 the principal branch.
 \end{exercise}
@@ -7576,9 +7576,8 @@ the function $h(z)$ is defined for every $z \in \C$.
 Unfortunately, at some points
 we have two definitions.
 To show that $h(z)$ is well-defined, we must show that if
-$n(\Gamma;z) = 0$ and $z \in U$, that we get the same number.
-Suppose
-we have such a $z$ (in particular $z \notin \Gamma$).  Then,
+$n(\Gamma;z) = 0$ and $z \in U$, then the two definitions agree.
+Consider such a $z$ (in particular $z \notin \Gamma$).  Then,
 \begin{equation*}
 \int_\Gamma g(\zeta,z) \, d\zeta
 =
@@ -7606,7 +7605,7 @@ $h$ and apply \corref{cor:holfuncbyintegral}.
 
 The unbounded component of $\C \setminus \Gamma$ is contained in the
 set where $n(\Gamma;z) = 0$, so on this component, $h$ is defined by the
-second expression.  Take such a $z$.
+second expression.  Consider a $z$ in this component.
 Suppose $\sabs{f(\zeta)} \leq M$ for $\zeta \in \Gamma$, let $\ell$ be the length of
 $\Gamma$, and let $d(z,\Gamma)$ be the distance of $z$ to $\Gamma$.
 \begin{equation*}
@@ -7623,7 +7622,7 @@ $\Gamma$, and let $d(z,\Gamma)$ be the distance of $z$ to $\Gamma$.
 As $z \to \infty$, so does $d(z,\Gamma) \to \infty$, and so $h(z) \to 0$.
 In particular, $h$ is an entire bounded function and
 Liouville says that $h$ is constant, and that constant must be zero.
-So suppose that $z \in U \setminus \Gamma$.  Then
+So suppose $z \in U \setminus \Gamma$.  Then
 \begin{equation*}
 0 = h(z) =
 \int_\Gamma \frac{f(\zeta)-f(z)}{\zeta-z} \, d\zeta
@@ -7688,6 +7687,14 @@ are homologous in $U$, then
 The proof is immediate by applying Cauchy's theorem to $\Gamma_0-\Gamma_1$.
 
 \begin{exbox}
+\begin{exercise}[Easy]
+Suppose that $\Gamma$ is a cycle such that
+$n(\Gamma;0) = k$.  Compute
+\begin{equation*}
+\int_{\Gamma} \frac{\cos z}{z} \, dz .
+\end{equation*}
+\end{exercise}
+
 \begin{exercise}
 Let $\Gamma$ be
 a cycle in $\C \setminus \{ 0 \}$.
@@ -7711,14 +7718,6 @@ find what group is it isomorphic to).
 \end{exercise}
 
 \begin{exercise}
-Suppose that $\Gamma$ is a cycle such that
-$n(\Gamma;0) = k$.  Compute
-\begin{equation*}
-\int_{\Gamma} \frac{1}{z} \, dz .
-\end{equation*}
-\end{exercise}
-
-\begin{exercise}
 Prove that the two theorems
 (the homology versions of Cauchy's theorem and the Cauchy integral formula)
 are equivalent logically, that is, one follows
@@ -7739,11 +7738,11 @@ $\overline{\Delta_\epsilon(z_j)} \subset U$ for $j=1,2$,
 and that
 $\int_{\partial \Delta_\epsilon(z_1)} f(z) \, dz = A$ and 
 $\int_{\partial \Delta_\epsilon(z_2)} f(z) \, dz = B$.
-Compute
+In terms of $k_1$, $k_2$, $A$, and $B$,
+compute
 \begin{equation*}
-\int_{\Gamma} f(z) \, dz
+\int_{\Gamma} f(z) \, dz .
 \end{equation*}
-in terms of $k_1$, $k_2$, $A$, and $B$.
 \end{exercise}
 \end{exbox}
 
@@ -7759,12 +7758,11 @@ To avoid heated arguments with topologists of various stripes,
 it's best to just not define the term for disconnected sets.
 Hence, we only define it for domains.}
 is one without any holes.  The following is
-perhaps not the standard definition, but for domains of $\C$
+perhaps not the standard definition, but for domains in $\C$
 (connected open sets)
 it is sufficient.  We will define the term ``properly'' once we get 
 to homotopy.  We may sometimes say ``simply connected in the sense of
-homology'' to emphasize that we are using this definition, but in this book,
-a ``simply connected domain'' is this particular definition.
+homology'' to emphasize that we are using this particular definition.
 
 \begin{defn} \label{defn:simplyconnected:homology}
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
@@ -7773,9 +7771,9 @@ is homologous to zero in $U$.
 \end{defn}
 
 In other words, $U$ is simply connected
-if for every cycle $\Gamma$, we have $n(\Gamma;p) = 0$
+if $n(\Gamma;p) = 0$ for every cycle $\Gamma$ in $U$ and
 every $p \in \C \setminus U$.
-So in a simply connected domain, no cycle in $U$ can wind around any piece
+So in a simply connected domain, no cycle in $U$ can wind around any point
 of $\C \setminus U$.  Examples of simply connected domains are $\C$, $\D$, or
 $\bH$.  An example of a domain that is not simply connected is
 $\C \setminus \{ 0 \}$.
@@ -7820,10 +7818,9 @@ holomorphic.  If $\Gamma$ is a cycle in $U$, then
 The proof follows at once from \thmref{thm:CThomology},
 since if $U$ is simply connected, then
 every $\Gamma$ in $U$ is homologous to zero in $U$.
-Having Cauchy's theorem in simply connected
-domains for all cycles,
-we have primitives (antiderivatives) in simply connected
-domains.
+In simply connected domains,
+as Cauchy's theorem holds for all cycles,
+we have primitives (antiderivatives).
 
 \begin{thm}
 Let $U \subset \C$ be a simply connected domain and
@@ -7848,23 +7845,25 @@ theorem says that if $\alpha$ is another path from $p$ to $z$, then
 \end{equation*}
 So $F$ is well-defined without specifying the path.
 
-The rest of the proof can be done analogously to the proof for star-like
-domains (\propref{prop:primitiveinstarlike1} and
-\corref{cor:primitiveinstarlike}) .  Let us just reduce it to that case.
+Let us reduce the proof to the proof for 
+star-like domains (\propref{prop:primitiveinstarlike1} and
+\corref{cor:primitiveinstarlike}).
 Let $q \in U$ be a point and consider a disc $\Delta_r(q) \subset U$
 (which is star-like with respect to $q$ in particular).
 We take $\gamma$ to be the path from $p$ to $q$.
 As $F$ does not depend on the path taken, then for $z \in \Delta_r(q)$,
 \begin{equation*}
 F(z) =
-\int_{\gamma+[q,\zeta]} f(\zeta) \, d\zeta
+\int_{\gamma+[q,z]} f(\zeta) \, d\zeta
 =
 \int_{\gamma} f(\zeta) \, d\zeta
 +
-\int_{[q,\zeta]} f(\zeta) \, d\zeta .
+\int_{[q,z]} f(\zeta) \, d\zeta .
 \end{equation*}
 The first term in the sum is a constant, and the second term is precisely
-the primitive of $f$ for star-like domains, that is, the primitive in
+the primitive of $f$ from the proof of
+\propref{prop:primitiveinstarlike1},
+that is, a primitive in
 $\Delta_r(q)$.
 See \figureref{fig:anyantidef}.
 \end{proof}
@@ -7872,10 +7871,10 @@ See \figureref{fig:anyantidef}.
 \begin{myfig}
 \subimport*{figures/}{anyantidef.pdf_t}
 \caption{Existence of primitive in a simply connected
-domain with the disc $\Delta_r(q)$ marked.\label{fig:anyantidef}}
+domain with $\Delta_r(q)$ marked.\label{fig:anyantidef}}
 \end{myfig}
 
-\begin{cor}
+\begin{cor} \label{cor:simplyconimpleslog}
 Let $U \subset \C$ be a simply connected domain and
 let $f \colon U \to \C$ be a nowhere zero holomorphic
 function.  Then there exists a holomorphic $g \colon U \to \C$
@@ -7885,8 +7884,9 @@ e^{g(z)} = f(z) .
 \end{equation*}
 \end{cor}
 
-In particular, using $f(z) = z$ we find that if
-$U \subset \C \setminus \{ 0 \}$ is a simply connected domain, then
+In particular,
+if $U \subset \C \setminus \{ 0 \}$ is a simply connected domain, then
+%(let $f(z) = z$) 
 there exists a branch of the logarithm, that is,
 a holomorphic $L \colon U \to \C$ such that
 \begin{equation*}
@@ -7895,7 +7895,7 @@ e^{L(z)} = z .
 
 \begin{proof}
 The function $\frac{f'(z)}{f(z)}$ is holomorphic on $U$.
-Find a primitive $g(z)$.  Compute
+Find a primitive $g(z)$.  Compute,
 \begin{equation*}
 \frac{d}{dz} \left[ \frac{e^{g(z)}}{f(z)} \right] =
 \frac{ e^{g(z)} g'(z) f(z) - e^{g(z)} f'(z) }{{\bigl(f(z)\bigr)}^2}
@@ -7939,7 +7939,7 @@ e^{\psi(z)} = f(z) . \qedhere
 \end{proof}
 
 On the other hand, the existence of primitives or
-Cauchy's theorem without restriction on $\Gamma$ guarantees
+Cauchy's theorem without restriction on $\Gamma$ or existence of logs guarantees
 simply-connectedness.  In particular, we have the following set of equivalent
 versions of simply-connectedness for domains.
 
@@ -7951,14 +7951,17 @@ $U$ is simply connected (in the homology sense).
 \item \label{thm:simplyconnected:ii}
 Every holomorphic $f \colon U \to \C$ has a primitive.
 \item \label{thm:simplyconnected:iii}
-$\frac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
+Every nowhere zero holomorphic $f \colon U \to \C$ there exists
+a holomorphic $g \colon U \to \C$ such that $e^{g(z)} = f(z)$.
 \item \label{thm:simplyconnected:iv}
+$\frac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
+\item \label{thm:simplyconnected:v}
 For every holomorphic $f \colon U \to \C$ and every
 cycle $\Gamma$ in $U$, we have
 \begin{equation*}
 \int_\Gamma f(z) \, dz = 0 .
 \end{equation*}
-\item \label{thm:simplyconnected:v}
+\item \label{thm:simplyconnected:vi}
 For every $p \in \C \setminus U$ and every
 cycle $\Gamma$ in $U$, we have
 \begin{equation*}
@@ -7971,11 +7974,12 @@ cycle $\Gamma$ in $U$, we have
 The logic of the proof is the following diagram:
 \begin{equation*}
 \begin{tikzcd}[cramped, row sep=small]
-& \text{\ref{thm:simplyconnected:ii}} \arrow[d, Rightarrow] \arrow[dr, Rightarrow] & \\
+& \text{\ref{thm:simplyconnected:ii}} \arrow[d, Rightarrow] \arrow[r, Rightarrow] &
+\text{\ref{thm:simplyconnected:iii}} \arrow[d, Rightarrow] \\
 \text{\ref{thm:simplyconnected:i}} \arrow[ur, Rightarrow] & 
-\text{\ref{thm:simplyconnected:iv}} \arrow[d, Rightarrow] &
-\text{\ref{thm:simplyconnected:iii}} \arrow[dl, Rightarrow] \\
-& \text{\ref{thm:simplyconnected:v}} \arrow[ul, Leftrightarrow] &
+\text{\ref{thm:simplyconnected:v}} \arrow[d, Rightarrow] &
+\text{\ref{thm:simplyconnected:iv}} \arrow[dl, Rightarrow] \\
+& \text{\ref{thm:simplyconnected:vi}} \arrow[ul, Leftrightarrow] &
 \end{tikzcd}
 \end{equation*}
 We proved
@@ -7983,36 +7987,60 @@ We proved
 \ref{thm:simplyconnected:ii} above,
 and
 \ref{thm:simplyconnected:ii} $\Rightarrow$
-\ref{thm:simplyconnected:iii} is immediate.
+\ref{thm:simplyconnected:iii}
+is the same as proof of \corref{cor:simplyconimpleslog}.
+Next, suppose \ref{thm:simplyconnected:iii} is true.  Find a $g$ such that
+$e^{g(z)} = z-p$, and differentiate
+\begin{equation*}
+1 = 
+\frac{d}{dz} \left[
+z-p
+\right]
+=
+\frac{d}{dz} \left[
+e^{g(z)}
+\right]
+=
+e^{g(z)} g'(z)
+=
+(z-p) g'(z) .
+\end{equation*}
+So \ref{thm:simplyconnected:iv} follows.
+%\ref{thm:simplyconnected:iv} is immediate.
 Using Cauchy's theorem for derivatives (\corref{cor:cauchyforders}),
-\ref{thm:simplyconnected:iii} implies
+\ref{thm:simplyconnected:iv} implies
 \begin{equation*}
 \int_\Gamma \frac{1}{z-p} \, dz = 0 
 \end{equation*}
 for every $p \in \C \setminus U$,
 and hence 
-\ref{thm:simplyconnected:v} is true.
+\ref{thm:simplyconnected:vi} is true.
 As 
 \begin{equation*}
 n(\Gamma;p) = 
 \frac{1}{2\pi i}
 \int_\Gamma \frac{1}{z-p} \, dz ,
 \end{equation*}
-\ref{thm:simplyconnected:v} is simply a restatement of
+\ref{thm:simplyconnected:vi} is simply a restatement of
 \ref{thm:simplyconnected:i}.
 Again by Cauchy's theorem for derivatives,
 \ref{thm:simplyconnected:ii} $\Rightarrow$
-\ref{thm:simplyconnected:iv}.
-Finally, \ref{thm:simplyconnected:iv} $\Rightarrow$
-\ref{thm:simplyconnected:v} is immediate.
+\ref{thm:simplyconnected:v}.
+Finally, \ref{thm:simplyconnected:v} $\Rightarrow$
+\ref{thm:simplyconnected:vi} is immediate.
 \end{proof}
+
+The existence of roots, in particular the square root, can also be put on
+the list, but as the proof of that fact follows easily from the argument principle
+(\thmref{thm:argprinc} from the future),
+we will leave it as an exercise in that upcoming section.
 
 There is a simple topological criterion for
 simply-connectedness of domains in the complex plane.
 The theorem is actually an ``if and only if,'' but the other
 direction is more difficult and so let's just prove the easy direction
 at this point.
-The other direction will be much easier to prove once we have the Riemann
+The harder direction will be much easier to prove once we have the Riemann
 mapping theorem, see \subsectionref{subsec:patharoundK}, so we will
 prove it there.
 
@@ -8065,7 +8093,7 @@ Let $U_1,U_2 \subset \C$ be two simply connected domains such that $U_1 \cap
 U_2$ is nonempty and connected.
 Prove that $U = U_1 \cap U_2$ is a simply connected domain.
 Note: This is true in the plane but it is no longer true in the Riemann
-sphere, or any more general topological space.
+sphere.
 \end{exercise}
 
 \begin{exercise}
@@ -10639,14 +10667,8 @@ so one has to find a function that does.}
 
 \subsection{The argument principle}
 
-As integration picks out singularities, we can use it to count zeros and
+Integration picks out singularities, and so it can count zeros and
 poles of a function.
-By
-\emph{\myindex{zeros counted with multiplicity}}
-we mean that if
-a zero has multiplicity $m$, we repeat it $m$ times.
-For instance, $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
-Same with poles.
 
 \begin{thm}[Argument principle]\index{argument principle}\label{thm:argprinc}
 \pagebreak[2]
@@ -10682,6 +10704,12 @@ Furthermore, if $h \colon U \to \C$ is holomorphic, then
 \end{equation*}
 \end{thm}
 
+By
+\emph{\myindex{zeros counted with multiplicity}}
+we mean that if
+a zero has multiplicity $m$, we repeat it $m$ times.
+For instance, $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
+Same with poles.
 The number of zeros or poles inside an open set is always countable (unless
 $f$ is identically zero in that open set).  But there are only ever finitely
 many zeros or poles for which 
@@ -10722,6 +10750,7 @@ Another way to look at the integral is to write
 =
 n(f \circ \gamma ; 0 )
 .
+\avoidbreak
 \end{equation*}
 The
 argument principle counts the number of times 
@@ -10729,7 +10758,7 @@ $f \circ \gamma$ winds around zero.
 
 \begin{proof}[Proof of the argument principle]
 We prove the ``Furthermore'' as that proves the rest of the theorem by
-simply considering the constant $h(z) = 1$.
+considering the constant $h(z) = 1$.
 The function $h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
 at the zeros and poles of $f$.  We apply the residue theorem,
 \begin{multline*}
@@ -10743,9 +10772,9 @@ at the zeros and poles of $f$.  We apply the residue theorem,
 \sum_{j=1}^\ell n(\Gamma;p_j)\operatorname{Res}\left(h(z)
 \frac{f'(z)}{f(z)};p_j\right) .
 \end{multline*}
-We simply need to compute the residues.
+We simply compute the residues.
 Consider a zero of $f$ of multiplicity $k$ or a pole of order $-k$, and
-without loss of generality suppose that it is at the origin.
+without loss of generality suppose it is the origin.
 Write $f(z)  = z^k F(z)$ where $F(0) \not=0$
 and $h(z) = h(0) + z H(z)$.
 Then $f'(z) = k z^{k-1} F(z) + z^k F'(z)$, and so
@@ -10789,7 +10818,7 @@ inside $\Gamma$, then
 =
 z_1^k + \cdots + z_n^k .
 \end{equation*}
-So for example, if there is at most one simple zero $z_0$ of
+For example, if there is at most one simple zero $z_0$ of
 $f$ enclosed within $\Gamma$, then
 \begin{equation*}
 \frac{1}{2\pi i}
@@ -10797,6 +10826,8 @@ $f$ enclosed within $\Gamma$, then
 =
 z_0 .
 \end{equation*}
+One particular consequence of this is that zeros of polynomials vary continuously
+(interpreted in the right way) as the coefficients of $f$ change.
 
 \begin{exbox}
 \begin{exercise}
@@ -10824,8 +10855,8 @@ principle.  Hint: $\frac{z^3}{2 z^2+1}=\frac{z^2}{4} \frac{4z}{2z^2+1}$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is meromorphic function on an open neighborhood of $\overline{\D}$
-that has no pole or zero on $\partial \D$.  Suppose $\Re f(z) >
+Suppose $f$ is meromorphic on an open neighborhood of $\overline{\D}$
+and has no pole or zero on $\partial \D$.  Suppose $\Re f(z) >
 0$ for all $z \in \partial \D$, and $f(0) = 0$.  Prove that $f$ has a pole
 in $\D$.
 \end{exercise}
@@ -10850,8 +10881,28 @@ integrals exist after all).
 \begin{exercise}
 Let $P_t(z) = z^n + c_{n-1}(t) z^{n-1} + \cdots + c_1(t) z + c_0(t)$
 be a polynomial where all the coefficients $c_j$ are continuous functions
-of $[a,b]$.  Prove that the power sums of the zeros of $P_t$ are
+of $[a,b]$.
+\begin{exparts}
+\item
+Prove that the power sums of the zeros of $P_t$ are
 continuous functions of $t \in [a,b]$.
+\item
+Prove that if $\xi_0$ is a simple zero of $P_{t_0}$ for some $t_0 \in (a,b)$,
+and is the unique zero in
+$\Delta_{2r}(\xi_0)$, then
+there exists an $\epsilon > 0$ and a continuous function $\xi \colon
+(t_0-\epsilon,t_0+\epsilon) \to \Delta_r(\xi_0)$ such that $\xi(t)$
+is the unique (simple) zero of $P_t$ in $\Delta_r(\xi_0)$.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Prove that $U \subset \C$ is simply connected if and only if every nowhere
+zero holomorphic $f \colon U \to \C$ has a square root, that is, there is a
+holomorphic $g \colon U \to \C$ such that $g^2=f$.  Hint: One direction has
+been proved already.  For the other direction for $p \notin U$,
+find a $g$ such that $g^2 = z-p$, differentiate, and apply the argument
+principle.
 \end{exercise}
 \end{exbox}
 
