@@ -7760,8 +7760,11 @@ Hence, we only define it for domains.}
 is one without any holes.  The following is
 perhaps not the standard definition, but for domains in $\C$
 (connected open sets)
-it is sufficient.  We will define the term ``properly'' once we get 
-to homotopy.  We may sometimes say ``simply connected in the sense of
+it is equivalent to the correct one.
+We will define the term ``properly'' once we get 
+to homotopy.\footnote{Homotopy is in an optional section, which is the
+reason why we make this ``wrong'' definition.}
+We may sometimes say ``simply connected in the sense of
 homology'' to emphasize that we are using this particular definition.
 
 \begin{defn} \label{defn:simplyconnected:homology}
@@ -8570,7 +8573,7 @@ where $\gamma_j(a)=\gamma_j(b)$
 are \emph{\myindex{homotopic}} in $U$
 (or relative to $U$) if there exists a continuous function
 $H \colon [a,b] \times [0,1] \to U$ such that
-for all $s$ and $t$
+for all $t \in [a,b]$ and $s \in [0,1]$
 \begin{equation*}
 H(t,0) = \gamma_0(t), \qquad
 H(t,1) = \gamma_1(t), \qquad \text{and} \qquad
@@ -8601,10 +8604,11 @@ H(t,s) = (1-s) \gamma(t) .
 \end{equation*}
 This is clearly a homotopy in $\D$, $H(t,0) = \gamma(t)$,
 and $H(t,1) = 0$, so $\gamma$ is homotopic to the zero function.
+So any path in $\D$ is homotopic to a constant.
 \end{example}
 
-What we want to do is to prove that if $\gamma_0$ is homotopic to $\gamma_1$
-in $U$ and $f \colon U \to \C$ is holomorphic, then
+What we want to do is to prove that if $\gamma_0$ and $\gamma_1$ are
+piecewise-$C^1$ paths homotopic in $U$ and $f \colon U \to \C$ is holomorphic, then
 $\int_{\gamma_0} f(z)\,dz = \int_{\gamma_1} f(z)\, dz$.
 Consider the intermediate paths $\gamma_s(t) = H(t,s)$.
 The path $\gamma_s$ is very close to
@@ -8612,16 +8616,16 @@ $\gamma_{s+\epsilon}$ and so it should not be hard to prove that their
 winding number around various points is the same.
 Everything is going swimmingly until we realize that $\int_{\gamma_s} f(z)
 \, dz$ makes no sense whatsoever.  The problem is that $\gamma_s$ is only
-continuous and not a piecewise-$C^1$ path.  So in particular we can't
+continuous and not a piecewise-$C^1$ path.  We can't
 even define $n(\gamma_s;z)$ using our prior definition.
 OK, so first we need to define $n(\gamma_s;z)$ in a way that makes sense for
 any continuous closed path.
 
 \begin{lemma} \label{lemma:existenceoftheta}
 Suppose $\gamma \colon [a,b] \to \C$ is continuous and $p \notin
-\gamma$.  Given any $\theta_0$ such that
-$\gamma(a)-p = \sabs{\gamma(a)-p} e^{i\theta_0}$, that is $\theta_0$ is
-an argument of $\gamma(a)-p$.
+\gamma$.  Given any $\theta_0 \in \R$ such that
+$\gamma(a)-p = \sabs{\gamma(a)-p} e^{i\theta_0}$, that is,
+$\theta_0$ is an argument of $\gamma(a)-p$.
 Then there exists a continuous function
 $\theta \colon [a,b] \to \R$ with $\theta(a) = \theta_0$ such that
 \begin{equation*}
@@ -8649,19 +8653,19 @@ $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
 does not contain $p$,
 so in each one there exists a branch of $\log (z-p)$, call it $L_j$,
 such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)$.
-We can also make sure that $\Im L_1\bigl(\gamma(a)\bigr) = \theta_0$.
+We also ensure that $\Im L_1\bigl(\gamma(a)\bigr) = \theta_0$.
 On each $[t_{j-1},t_j]$ define
 \begin{equation*}
 \theta(t)
 =
 \Im L_j\bigl(\gamma(t)\bigr) .
 \end{equation*}
-On $[t_{j-1},t_j]$ the function is continuous as $L_j$ is continuous on 
-$\gamma\bigl([t_{j-1},t_j]\bigr)$, the definitions match up at $t_{j-1}$
+On $[t_{j-1},t_j]$ the function $\theta$ is continuous as $L_j$ is continuous on 
+$\gamma\bigl([t_{j-1},t_j]\bigr)$.  The definitions match up at $t_{j-1}$
 and $t_{j}$ with $L_{j-1}$ and $L_{j+1}$ respectively.  Thus
 $\theta$ is a continuous function on $[a,b]$.
-The formula follows $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ by
-definition of $L_j$.
+The formula $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ follows as
+$L_j$ is a branch of the log.
 
 The ``Furthermore'' bit follows as before:
 \begin{equation*}
@@ -8685,7 +8689,7 @@ L_j\bigl(\gamma(t_{j-1})\bigr)
 \end{proof}
 
 The lemma allows us to define the winding number for continuous closed paths
-by simply using the given $\theta$.  The ``Furthermore'' part of the
+by using the function $\theta$.  The ``Furthermore'' part of the
 lemma makes sure that the following definition agrees with our previous
 definition (\defnref{defn:windingnumber}).
 
@@ -8706,8 +8710,8 @@ n(\gamma;p)
 
 For a closed $\gamma$, as two different arguments of a complex number differ by
 a multiple of $2 \pi$, we see that $n(\gamma;p)$ is always an integer.
-Next let us see how the $\theta$, and therefore $n(\gamma;p)$, changes 
-as $\gamma$ is changed a little bit (for instance in a homotopy).
+Let us see how the $\theta$, and therefore $n(\gamma;p)$, changes 
+as $\gamma$ changes (for instance in a homotopy).
 
 \begin{lemma} \label{lemma:changeintheta}
 Suppose $\gamma \colon [a,b] \to \C$ and $\theta \colon [a,b] \to \C$
@@ -8724,8 +8728,8 @@ e^{i\widetilde{\theta}(t)}$.
 \end{lemma}
 
 \begin{proof}
-Let $t_j$, $D_j$, $L_j$ be the same as in \lemmaref{lemma:existenceoftheta},
-and fix some $\epsilon > 0$.
+Let $t_j$, $D_j$, $L_j$ be the same as in the proof of
+\lemmaref{lemma:existenceoftheta}, and fix some $\epsilon > 0$.
 Let $\delta > 0$ be small enough so that if $\sabs{z-\zeta}
 < \delta$ and $z,\zeta \in D_j$, then $\sabs{L_j(z)-L_j(\zeta)} < \epsilon$.
 This can be done because $D_j$ could be picked slightly smaller if needed
@@ -8741,7 +8745,7 @@ The $L_j$ and $L_{j-1}$ agree at one point of $D_{j-1} \cap D_j$ (at
 $\gamma(t_{j-1})$) and since they are both branches of $\log (z-p)$, they
 agree in the entire connected set $D_{j-1} \cap D_j$.  Thus they also
 agree at $\widetilde{\gamma}(t_{j-1})$.
-Thus
+So
 \begin{equation*}
 \widetilde{\theta}(t)
 =
@@ -8749,7 +8753,7 @@ Thus
 \end{equation*}
 is the function from \lemmaref{lemma:existenceoftheta}, as long as we make
 $\widetilde{\theta}_0 = \Im L_1\bigl(\gamma(a)\bigr)$.
-So
+Hence,
 \begin{equation*}
 \babs{\theta(t) - \widetilde{\theta}(t)}
 \leq
@@ -8847,7 +8851,8 @@ Show that $\gamma$ is homotopic in $\C \setminus \{ 0 \}$ to
 a piecewise-$C^1$ path whose image is in $\partial \D$.
 The tricky bit is to make sure that the derivative is never zero.
 \item
-Now show that any $\gamma$ is in fact homotopic to a path
+Using part a),
+show that $\gamma$ is in fact homotopic to a path
 $\alpha \colon [0,2\pi] \to \C$ given by $\alpha(t) = e^{int}$ for some
 $n \in \Z$.
 \end{exparts}
@@ -8867,9 +8872,9 @@ because that theorem makes the other direction trivial, see
 
 \begin{defn}
 A domain $U \subset \C$ is
-\emph{\myindex{simply connected in the sense of homotopy}}
+\emph{\myindex{simply connected (in the sense of homotopy)}}
 if every continuous $\gamma \colon [a,b] \to U$ such that $\gamma(a) =
-\gamma(b)$ is homotopic to a constant function.
+\gamma(b)$ is homotopic in $U$ to a constant function.
 \end{defn}
 
 Without further ado, here is the simple direction of the equivalence.
@@ -8935,8 +8940,8 @@ and only if $V$ is simply connected in the sense of homotopy.
 
 Cauchy's theorem and Cauchy's integral formula can be obtained via 
 Green's theorem.
-Let us review Green's theorem first.
-We write $dz = dx + i\, dy$ and $d\bar{z} = dx + i \, dy$ as before.
+We review Green's theorem first.
+Write $dz = dx + i\, dy$ and $d\bar{z} = dx + i \, dy$ as before.
 Given a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$, we define
 \begin{align*}
 & \int_\gamma
@@ -8960,8 +8965,8 @@ Let us state a version of Green's theorem without proof.
 The hypotheses on the domain $U$ and the $f$ are given variously in the literature,
 so if the reader is working off of a different version of Green's, then the
 hypotheses of its corollaries in this section must be modified to suit.
-We're using a version that is the simplest to state in our context, and we
-state it without proof.
+We're using a version that is the simplest to state in our context.
+See the next section for a perhaps more common version of the hypotheses.
 
 \begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
 Let $\Gamma$ be a cycle
@@ -9019,8 +9024,8 @@ Show that to prove Green's it would be sufficient to prove
 \end{exercise}
 \end{exbox}
 
-Cauchy's theorem is an immediate corollary of Green's theorem: Simply let
-$G=0$, $F$ be holomorphic, and apply the Wirtinger version of the formula.
+Cauchy's theorem is an immediate corollary of Green's theorem: In the
+Wirtinger version of the formula let $G=0$ and let $F$ be holomorphic.
 
 \begin{cor}\label{thm:cauchybygreen}
 Let $\Gamma$ be a cycle
@@ -9121,7 +9126,7 @@ We compute
 \end{equation*}
 The second equality follows because the denominator is holomorphic in
 $\zeta$.
-We now wish to let the radius $r$ go to zero.
+We now let the radius $r$ go to zero.
 The integral over $U$ is computed as the improper integral
 \begin{equation*}
 \int_{U} \frac{\frac{\partial f}{\partial
@@ -9178,10 +9183,10 @@ dA
 
 \section{Domains with piecewise-\texorpdfstring{$C^1$}{C1} boundary \texorpdfstring{$\star$}{*}}
 
-The way Green's theorem, and hence Cauchy's theorem is often given, and
+The way Green's theorem, and hence Cauchy's theorem, is often given, and
 the way it is most often used is for a domain with piecewise-$C^1$
 boundary.  To treat open sets with piecewise-$C^1$ boundary, we must
-prove the so-called Jordan curve theorem that states the rather obvious (but
+prove the so-called Jordan curve theorem that is the rather obvious (but
 surprisingly nontrivial to prove) statement that a simple closed path
 divides the plane into two components, the interior and the exterior.
 
@@ -9210,7 +9215,7 @@ connected open neighborhood $W$ of $p$ such that $W \setminus \gamma$
 has exactly two components.
 \end{lemma}
 
-Recall that by definition for a piecewise-$C^1$ path, $\gamma'$ is never
+Recall that for a piecewise-$C^1$ path, $\gamma'$ is never
 zero, including the one-sided limits of the derivative at the ``corners'' or
 the end points.  This means that a $C^1$ path is locally a graph:
 If $\gamma \colon [-1,1] \to \C$ is a continuously differentiable function,
@@ -9227,22 +9232,23 @@ By rotating, choosing a small neighborhood of $p$, and scaling,
 we assume that $a=-1$, $b=1$, and $p = \gamma(0)$.
 We further assume that
 $p=0$, $\Re \gamma(-1) = -1$,
-$\gamma'$ exists for all $t \not=0$, and $\Re \gamma'(t)$ is
+$\gamma'$ exists for all $t \not=0$ (it may or may not exist at $t=0$),
+and $\Re \gamma'(t)$ is
 never zero, including the one-sided limits at $t=0$.
 
 Without loss of generality, $\Re \gamma'(t) > 0$ for all $t$ from $-1$ to $0$,
 including the left-hand one-sided limit at $0$.  Using the implicit function
 theorem the set $\gamma\bigl([-1,0]\bigr)$ is a graph of $y$ over $x$, that
-is there is a $C^1$ function $f_1 \colon [-1,0] \to \R$ such that
+is, there is a $C^1$ function $f_1 \colon [-1,0] \to \R$ such that
 $y=f_1(x)$ gives $\gamma\bigl([-1,0]\bigr)$ (as usual $z=x+iy$).
 
 If the right-hand one-sided limit of $\gamma'(t)$ at $t=0$ also has positive real
 part, then $\Re \gamma'(t) > 0$ for all $t > 0$ as it is never zero.
 By the same argument as
 above, $\gamma\bigl([0,1]\bigr)$ is a graph $y=f_2(x)$ for $x \in [0,1]$.
-In other words, the entire $\gamma$ is a graph.  If $M > 0$ is such that
-$-M<f_1(x),f_2(x)<M$ for all $x$, then
-We can choose $W=(-1,1) \times (-M,M)$.  It is not hard to see that a
+In other words, the entire $\gamma$ is a graph, $y=f(x)$.  If $M > 0$ is such that
+$-M<f(x)<M$ for all $x$, then
+we choose $W=(-1,1) \times (-M,M)$.  It is not hard to see that a
 graph separates the rectangle $W$ into two parts.
 
 Now suppose that the right-hand side limit of $\gamma'(t)$ has negative real
@@ -9250,7 +9256,8 @@ part.  In this case, we write $\gamma\bigl([0,1]\bigr)$ as a graph $y=f_2(x)$
 for $x \in [-1,0]$.  Without loss of generality suppose $f_2(x) > f_1(x)$
 for some $x < 0$, then by injectivity of $\gamma$ and intermediate value
 theorem, we have $f_2(x) > f_1(x)$ for all $x \in [-1,0)$.
-Pick $W$ in the same way, it is not hard to see that the
+Pick $W$ in the same way ($M$ is such that $-M < f_j(x) < M$ for $x \in
+[-1,1]$), it is not hard to see that the
 set where either $x \geq 0$, or where $y > f_2(x)$ or where $y < f_1(x)$
 is connected, and it is disconnected from the set between the graphs, that
 is where $x < 0$ and $f_1(x) < y < f_2(x)$.  Again $W \setminus \gamma$ has
@@ -9273,7 +9280,8 @@ Think about $\gamma$ oscillating wildly and going in and out of the disc.
 
 \begin{exercise}
 Find an example injective piecewise-$C^1$ path that is not a graph of a
-function near some point, that is, an example where the second case of the
+function near some point even after an arbitrary rotation,
+that is, an example where the second case of the
 proof is really necessary.
 \end{exercise}
 
@@ -9314,15 +9322,17 @@ and the unbounded component of $\C \setminus \gamma$ is called the
 
 \begin{proof}
 A ray is a set that is a straight line starting at some point $q$
-going to infinity at some angle.  Find a ray $R$ starting at some point
-$q$ that intersects $\gamma$ exactly once.  For example, consider
+going to infinity at some angle.
+Consider
 intersections of $\gamma$ with vertical lines.  For some vertical line,
 the intersection with $\gamma$ with the largest $y$ coordinate ($z=x+iy$)
 is at a point where $\gamma'$ exists and does not point along the vertical line (otherwise
 simply move the line a little, there are only finitely many points where
 $\gamma'$ does not exist).  Then near this intersection, the set $\gamma$
 can be written as a graph $y=f(x)$ using the implicit function theorem.
-So pick $q$ to be some point slightly below this graph.
+Pick a point $q$ to be some point slightly below this graph, and let $R$ be the
+ray going vertically up from $q$.  Note that $R$ intersects $\gamma$ exactly
+once.
 See \figureref{fig:rayjordan}.
 \begin{myfig}
 \subimport*{figures/}{rayjordan.pdf_t}
@@ -9331,11 +9341,11 @@ only once.\label{fig:rayjordan}}
 \end{myfig}
 
 Without loss of generality after rotation and scaling, let $q$ be the origin and
-the ray be the negative real axis.  Then $\gamma$ intersects the negative
+the ray $R$ be the negative real axis.  Then $\gamma$ intersects the negative
 real axis at exactly one point.
-We can reparametrize so that this negative
-real is the beginning and point of $\gamma \colon [0,1] \to \C$.  This point was 
-originally a point where $\gamma$ was $C^1$ and hence $\gamma'(0) =
+We reparametrize so that this negative real intersection
+is the beginning and ending point of $\gamma \colon [0,1] \to \C$.  This
+point is a point where $\gamma$ is $C^1$ and hence $\gamma'(0) =
 \gamma'(1)$.  Also $\gamma'(0) = \gamma'(1)$ does not point along the ray,
 that is, either $\Im \gamma'(0) = \Im \gamma'(1) > 0$ or it is negative.
 We then apply
@@ -9370,8 +9380,8 @@ In particular, $\gamma \subset \partial U$.  But as $U$ is a component of $\C
 \setminus \gamma$, we get $\partial U \subset \gamma$ and hence $\partial U =
 \gamma$.
 If $U'$ is any component of $\C \setminus \gamma$, then it must
-have nonempty boundary and $\partial U' \subset \gamma$.  But the points of
-$\gamma$ are near only points of $U$ or the unbounded component, so it must
+have nonempty boundary and $\partial U' \subset \gamma$.  But the points
+near $\gamma$ are only points of $U$ or the unbounded component, so it must
 be that $U' = U$ or $U'$ is the unbounded component.
 \end{proof}
 
@@ -9384,16 +9394,17 @@ the boundary $\partial U$ such that $n(\Gamma;z) = 1$ for all $z \in U$ and
 $n(\Gamma;z) = 0$ for all $z \notin \widebar{U}$.
 \end{prop}
 
-By a slight abuse of notation we write $\partial U$ for $\Gamma$ when we use
-the boundary as a cycle, and we say that the boundary is
-\emph{\myindex{positively oriented}}.
+By a slight abuse of notation we write $\partial U$ for $\Gamma$ and we use
+the boundary as a cycle.
+Because the winding number is $1$ around the interior, we say that the boundary
+is \emph{\myindex{positively oriented}}.
 
 \begin{proof}
 Without loss of generality, we assume that $U$ is connected by taking
 one component.
 Let $\gamma_1,\ldots,\gamma_k$ be the disjoint simple closed piecewise-$C^1$
 paths comprising the boundary of $U$, suppose that they are all positively
-oriented, that is the winding number around the interiors is $1$.
+oriented, that is the winding number around their interiors is $1$.
 The set $\C \setminus U$
 has one unbounded component and suppose $\gamma_1$ is a subset of the
 unbounded component of $\C \setminus U$.  Let $U'$ be the interior of
@@ -9412,25 +9423,25 @@ We need to prove that the set of $z$ such that $n(\Gamma;z) = 1$ is equal to
 $U$ and $n(\Gamma;z) = 0$ for all $z$ in the complement of $\widebar{U}$.
 
 First suppose that $z \in U$.  Then $z \in U'$ so $n(\gamma_1;z) = 1$.
-If $j\not=1$, then the interior of $\gamma_j$ cannot be in $U$, as the
-exterior of $\gamma_j$ contains $\gamma_1$ and therefore points of $U$,
-and every point of $\gamma_j$ must be in the closure of $\C \setminus
-\widebar{U}$ (so the interior of $\gamma_j$ is not in $U$).
-So $z$ is in the exterior of $\gamma_j$ and so
-$n(\gamma_j;z) = 0$.
+If $j\not=1$, then no point of the interior of $\gamma_j$ can be in $U$, as the
+exterior of $\gamma_j$ contains $\gamma_1$ and therefore points of $U$.
+So $U$ is a subset of the intersection of $U'$ and the exterior of
+$\gamma_j$.
+So $z$ is in the exterior of $\gamma_j$ and $n(\gamma_j;z) = 0$.  Hence
+$n(\Gamma;z) = 1$.
 
-On the other hand if $z$ is in the complement $\widebar{U}$, then either it
+On the other hand, if $z$ is in the complement $\widebar{U}$, then either it
 is in the exterior of $\gamma_1$ and hence in the exterior of all the
 $\gamma_j$, or it is in the interior of $\gamma_1$ and also in the interior
 of some $\gamma_j$.  As $U$ is connected and contains exterior points
 of all $\gamma_2,\ldots,\gamma_k$, it is not possible for a point to be in
-the interior of two of these paths.  Hence there is exactly one $j\not= 1$
+the interior of two of these paths.  Hence if $z \in U'$, there is exactly one $j\not= 1$
 such that $z$ is in the interior of $\gamma_j$.  In either case,
 $n(\Gamma;z) = 0$.
 \end{proof}
 
-Green's theorem and the Cauchy integral formula for open sets with $C^1$
-boundary follow immediately
+Green's theorem and the Cauchy integral formula for open sets with
+piecewise-$C^1$ boundary follow immediately
 using $\partial U$ instead of $\Gamma$.
 For example, let us state the Green's theorem in the short version 
 as in \exerciseref{exercise:shortgreen} for brevity.
@@ -9452,8 +9463,9 @@ of $\widebar{U}$, then
 \end{thm}
 
 In fact, the conditions on $F$ can be weakened considerably.  For example,
-a common and easy to prove statement is that $F$ needs to be $C^1$ only
-inside, but it needs to have bounded partial derivatives in order for the
+a common and easy to prove statement is that $F$ needs to be continuous on
+$\widebar{U}$ and $C^1$ only
+inside $U$, but it needs to have bounded partial derivatives in order for the
 right-hand side to be integrable.
 
 \begin{exbox}
@@ -9468,7 +9480,8 @@ continuously differentiable on $U$ with bounded partial derivatives on $U$.
 \begin{exercise}
 Suppose we drop the requirement that each point in $\partial U$ is in the
 closure of $\C \setminus \widebar{U}$ but require only that $\partial U$ is still
-composed of piecewise-$C^1$ curves (and still bounded).  Find an explicit counterexample to
+composed of disjoint simple closed piecewise-$C^1$ curves (and still bounded).
+Find an explicit counterexample to
 the Green's theorem as given above.  Hint: Consider the boundary being two
 circles, and one of these circles is not in the closure of 
 $\C \setminus \widebar{U}$.
@@ -9478,7 +9491,7 @@ $\C \setminus \widebar{U}$.
 Prove that the following definition of piecewise-$C^1$ boundary is
 equivalent to the one we gave for bounded open sets.  An open $U \subset
 \C$ has piecewise-$C^1$ boundary if for every $p \in \partial U$
-there exists a neighborhood $W$ of $p$ and an injective piecewise-$C^1$ path $\gamma
+there exists an open neighborhood $W$ of $p$ and an injective piecewise-$C^1$ path $\gamma
 \colon [a,b] \to \C$ such that $W \cap \partial U =
 \gamma\bigl((a,b)\bigr)$, and every $p \in \partial U$ is in the closure
 of $\C \setminus \widebar{U}$.
@@ -17721,7 +17734,7 @@ are
 \emph{\myindex{fixed-endpoint homotopic}} in $U$
 (or relative to $U$) if there exists a continuous function
 $H \colon [0,1] \times [0,1] \to U$ such that
-for all $s$ and $t$
+for all $s$ and $t$ in $[0,1]$
 \begin{equation*}
 H(t,0) = \gamma_0(t), \qquad
 H(t,1) = \gamma_1(t), \qquad
