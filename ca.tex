@@ -8141,7 +8141,7 @@ Q: What do you call a banana with a hole?
 A: A banannulus.}.
 \end{defn}
 
-A common case we see often is when $r_1 = 0$, that is,
+A common case is when $r_1 = 0$, that is,
 the punctured disc
 \begin{equation*}
 \ann(p;0,r) = \Delta_r(p) \setminus \{ p \} .
@@ -8163,7 +8163,7 @@ Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^{\infty} c_n {(z-p)}^n ,
 \end{equation*}
-where the convergence is uniformly absolute on every compact subset of
+converging uniformly absolutely on compact subsets of
 $\ann(p;r_1,r_2)$.  The numbers $c_n$ are given by
 \begin{equation*}
 c_n = 
@@ -8221,15 +8221,22 @@ Define the cycle
 \end{equation*}
 That is, $\Gamma$ goes around the larger ($s_2$) circle counterclockwise and
 around the smaller ($s_1$) circle clockwise.
+See \figureref{fig:twoannuli}.
+
+\begin{myfig}
+\subimport*{figures/}{twoannuli.pdf_t}
+\caption{The two annuli, the smaller annulus is shaded darker.  The two
+pieces of $\Gamma$ are noted with the circular arrows.\label{fig:twoannuli}}
+\end{myfig}
 
 If $q \in \C \setminus \ann(p;r_1,r_2)$, then $n(\Gamma;q) = 0$:
-If $q$ is in the ``hole'' of the annulus, then
+If $q$ is in the ``hole'' of the annulus $\ann(p;r_1,r_2)$, then
 $n\bigl(\partial \Delta_{s_j}(p);q\bigr) = 1$ for both $j=1,2$, and 
 if $q$ is outside the annulus altogether, then
-$n\bigl(\partial \Delta_{s_j}(p);q\bigr) = -1$ for both $j=1,2$,
-see \exerciseref{exercise:windingcircle} or.
-\exerciseref{exercise:windingcircles}.
-So $\Gamma$ is homologous to zero in the annulus.
+$n\bigl(\partial \Delta_{s_j}(p);q\bigr) = -1$ for both $j=1,2$ 
+(see \exerciseref{exercise:windingcircle} or
+\exerciseref{exercise:windingcircles}).
+So $\Gamma$ is homologous to zero in the annulus $\ann(p;r_1,r_2)$.
 On the other hand if $q$ is in the (smaller) annulus $\ann(p;s_1,s_2)$,
 then for similar reasons, $n(\Gamma;q) = 1$.
 
@@ -8245,15 +8252,6 @@ f(z) =
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta  .
 \end{equation*}
-See \figureref{fig:twoannuli}.
-
-
-\begin{myfig}
-\subimport*{figures/}{twoannuli.pdf_t}
-\caption{The two annuli, the smaller annulus is shaded darker.  The two
-pieces of $\Gamma$ are noted with the circular arrows.\label{fig:twoannuli}}
-\end{myfig}
-
 
 Let us expand the two bits separately.  First
 if $\zeta \in \partial \Delta_{s_2}$, then
@@ -8327,7 +8325,7 @@ $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} < 1$ and so
 {(z-p)}^{n} .
 \end{split}
 \end{equation*}
-Adding these together we have the right thing, except the formula for $c_n$
+Adding these together we have the right thing, except that the formula for $c_n$
 is not quite right.  Given any $s$ such that
 $r_1 < s < r_2$,
 the cycle
@@ -8376,9 +8374,9 @@ that
 \begin{equation*}
 f(z)
 =
-\sum_{n=-\infty}^{\infty} d_n {(z-p)}^{n} 
+\sum_{n=-\infty}^{\infty} d_n {(z-p)}^{n} ,
 \end{equation*}
-with uniform absolute convergence on compact subsets of $\ann(p;r_1,r_2)$.
+converging uniformly absolutely on compact subsets of $\ann(p;r_1,r_2)$.
 Then
 \begin{equation*}
 \begin{split}
