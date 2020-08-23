@@ -9515,11 +9515,11 @@ the votes do.
 
 \section{Zeros of holomorphic functions}
 
-By the identity theorem, we know that zeros of holomorphic functions are
-isolated (or the function is identically zero).  Let us expand on how a
-function behaves near a zero.
+Per the identity theorem, zeros of a holomorphic function are
+isolated (or the function is identically zero).  Let us investigate how a
+holomorphic function behaves near a zero.
 Several times before, we have used parts of the following rather simple
-lemma.  We can now give a more complete statement.  
+lemma.  We now give a more complete and formal statement.  
 
 \begin{lemma}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be holomorphic, $p \in U$,
@@ -9533,6 +9533,8 @@ and $g(p) \not= 0$.
 Furthermore, $k$ is the smallest integer such that the $k$\textsuperscript{th}
 derivative $f^{(k)}(p) \not= 0$.
 \end{lemma}
+
+Before we prove the lemma, let us give a name to this integer $k$.
 
 \begin{defn}
 Suppose $f$ has an isolated zero at $p$.
@@ -9560,16 +9562,15 @@ say that when $f(p) \not= 0$, then $p$ is
 a zero of order $0$, which sounds somewhat idiotic, but it all fits a general
 picture, and we will see that negative orders might also make sense
 in just a little while.
-However, when we will say that $f$ has a zero, we will never mean that it has a
-``zero of order zero,'' we will mean an honest zero.
+However, when we will say ``$f$ has a zero at $p$,'' we will never mean that it has a
+``zero of order zero,'' we will mean an honest zero, $f(p) = 0$.
 
-Another remark (hidden in the lemma)
-that may be good to emphasize is that if $f^{(k)}(p) = 0$
+A consequence that may be good to emphasize is that if $f^{(k)}(p) = 0$
 for all $k$, then all coefficients of the power series of $f$ at $p$ are
 zero and $f$ is identically zero.  In other words, \emph{every isolated
 zero of a holomorphic function is of finite order}.
 In yet other words, \emph{a zero of a holomorphic function of
-infinite order means that function is identically zero}.
+infinite order means that the function is identically zero}.
 No such
 thing is true for real differentiable functions (see the exercises).
 
@@ -9585,15 +9586,17 @@ f(z) =
 = {(z-p)}^k
 \sum_{n=0}^\infty c_{n+k} {(z-p)}^{n} ,
 \end{equation*}
-where $k$ is the smallest $n$ such that $c_n \not= 0$ (Hence the ``Furthermore'').
+where $k$ is the smallest $n$ such that $c_n \not= 0$ (hence the ``Furthermore'').
 Clearly $k > 0$.
 The series $\sum_{n=0}^\infty c_{n+k}{(z-p)}^n$
 is equal to $\frac{f(z)}{{(z-p)}^k}$ on
 the punctured disc $\Delta_r(p)\setminus \{ p \}$, where the series
-converged.
+for $f$ converges.
 So it can define $g$ near $p$.  Uniqueness follows rather easily:
-If ${(z-p)}^{k_1} g_1(z) = {(z-p)}^{k_2} g_2(z)$, where without loss of generality
-$k_1 \leq k_2$ and $g_1(p) \not= 0$ and $g_2(p) \not= 0$, then 
+If ${(z-p)}^{k_1} g_1(z) = {(z-p)}^{k_2} g_2(z)$, where
+$g_1(p) \not= 0$ and $g_2(p) \not= 0$.
+Without loss of generality
+$k_1 \leq k_2$, then 
 $g_1(z) = {(z-p)}^{k_2-k_1} g_2(z)$.  Plug in $z=p$ to see that $k_2 =
 k_1$.
 \end{proof}
@@ -9622,9 +9625,9 @@ Let $V = \Delta_r(p)$ be a disc such that $f(z) \not= 0$ for any $z \in
 \Delta_r(p) \setminus \{ p \}$.  Use the lemma to get a function $h$ holomorphic
 on $\Delta_r(p)$ such that $h(p) \not= 0$ and $f(z) = {(z-p)}^k h(z)$.  In particular,
 $h(z) \not= 0$ for any $z \in \Delta_r(p)$.
-Now $h$ is nowhere zero on $\Delta_r(p)$, which is simply connected,
-and so there exists a holomorphic function $\varphi$ on $\Delta_r(p)$ such that
-$\varphi^k = h$.  Then let $g(z) = (z-p)\varphi(z)$.  As
+As $h$ is nowhere zero on $\Delta_r(p)$, which is simply connected,
+there exists a holomorphic function $\varphi$ on $\Delta_r(p)$ such that
+$\varphi^k = h$.  Let $g(z) = (z-p)\varphi(z)$.  As
 $g'(z) = (z-p) \varphi'(z) + \varphi(z)$, we have $g'(p) = \varphi(p) \not= 0$.
 \end{proof}
 
@@ -9681,7 +9684,7 @@ such that $f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n} {\bigl( g(
 \begin{exercise}
 The zero set of $\Re f$ looks like $\Re z^k$:
 Show that if $f \colon U \to \C$ has a zero of order $k \in \N$ at $p \in
-U$, then there exists $k$  $C^1$ curves
+U$, then there exist $C^1$ curves
 $\gamma_j \colon (-\epsilon, \epsilon) \to \C$ for
 $j=1,\ldots,k$ with $\gamma_j(0) = p$
 and $\gamma_j'(0) \not= 0$, such that the curves only intersect
@@ -9693,7 +9696,7 @@ all $t \in (-\epsilon,\epsilon)$.
 \begin{exercise}
 Suppose $f$ is holomorphic in an open neighborhood of a point $p$
 and suppose $\Re f$ has a critical point at $p$ (derivative is zero).
-Prove that $p$ is a saddle point (neither a local minimum nor a local maximum).
+Prove that $p$ is a saddle point of $\Re f$ (neither a local minimum nor a local maximum).
 Hint: Apply the theorem and show that $k \geq 2$.  Note that $\Re z^k$ has a
 saddle point at the origin.
 \end{exercise}
@@ -9761,9 +9764,10 @@ As $f$ is bounded,
 \lim_{z\to p} \frac{g(z)-g(p)}{z-p} = \lim_{z\to p} (z-p) f(z) = 0 .
 \end{equation*}
 So $g$ is also complex differentiable at $p$ and so holomorphic on $U$.
-The order $k$ of the zero of $g$ at $p$ is at least $2$.  Write
-$g(z) = {(z-p)}^k h(z)$ where $h$ is holomorphic near $p$,
-then $f(z) = {(z-p)}^{k-2}h(z)$, or in other words, $p$ is a removable 
+The order $k$ of the zero of $g$ at $p$ is at least $2$ (as $g(p)=0$ and
+$g'(p)=0$).  Write
+$g(z) = {(z-p)}^k h(z)$, where $h$ is holomorphic near $p$.
+Then $f(z) = {(z-p)}^{k-2}h(z)$, or in other words, $p$ is a removable 
 singularity.
 \end{proof}
 
