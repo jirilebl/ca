@@ -10979,11 +10979,10 @@ N_g - P_g.
 The condition on $\Gamma$ means that the
 cycle is simple in the sense
 that only goes around any particular point either once or not at all.
-We then want to count the number of zeros and poles inside $\Gamma$.
+We then count the number of zeros and poles inside $\Gamma$.
 The strictness of the inequality is the key point,
 the nonstrict inequality is always true for any $f$ and $g$ by the triangle
 inequality.
-
 Often the theorem is only applied for holomorphic functions, that is,
 functions without poles.
 
@@ -10998,7 +10997,8 @@ to multiplicity) in $V$.
 
 Observe that for holomorphic functions,
 the inequality precludes any zeros of $f$ or
-$g$ on $\Gamma$.  This observation is actually quite convenient in the
+$g$ on $\Gamma$, so the statement of the hypotheses is simpler.
+This observation is actually quite convenient in the
 applications as it avoids having to show some technicalities.
 
 The classical statement of the theorem uses the
@@ -11011,8 +11011,8 @@ This weaker statement of the theorem is enough for vast majority of
 applications, and has a simpler geometric meaning.  The number of zeros (or
 poles) of $f$
 inside $\Gamma$ corresponds to the number times $f(z)$ winds around zero
-as $z$ traverses $\Gamma$.  The theorem says that if $f$ is modified a
-little this does not change.  The classical visual ``proof'' is a dog on a leash
+as $z$ traverses $\Gamma$.  The classical visual ``proof'' using this weaker
+inequality is a dog on a leash
 with the master going around a tree.  The master is at $f(z)$, the tree is
 at the origin, and the dog is at $g(z)$, so the length of the leash is
 $\sabs{f(z)-g(z)}$ and the distance of the master from the tree is
@@ -11068,7 +11068,7 @@ By Rouch\`e ($P(z)$ is the dog and $1$ is the master), $P(z)$
 has the same number of zeros as the constant $1$ (that is, no zeros) in
 $\Delta_{1-\epsilon}(0)$.
 
-Similarly, take $z^n$ instead of $1$, and make $\Gamma$ be the circle of
+Second, take $z^n$ instead of $1$, and make $\Gamma$ be the circle of
 radius $1+\epsilon$ around the origin.  Then on $\Gamma$,
 \begin{equation*}
 \abs{P(z) - z^n} = 1 < \abs{z^n} .
@@ -11080,13 +11080,13 @@ all the zeros of $P(z)$ must be on the unit circle.
 
 \begin{example}
 As a more complicated example, consider $P(z) = z^4+12z^3+24z^2+4z+6$.
-Then when $\sabs{z}=1$,
+When $\sabs{z}=1$,
 \begin{multline*}
 \abs{P(z)-(z^4+24z^2)} =
 \abs{12z^3+4z+6} \leq
 \abs{12z^3}+\abs{4z}+\abs{6} \\
-= 22 < 23 = \abs{\sabs{24 z^2} - \sabs{z^4}}
-\leq \sabs{z^4+24z^2} .
+= 22 < 23 = \abs{\,\sabs{24 z^2} - \sabs{z^4}\,}
+\leq \abs{z^4+24z^2} .
 \end{multline*}
 It is easy to see that $z^4+24z^2$ has zeros at $\pm \sqrt{24} i$ (outside
 the unit circle), and two zeros at the origin (inside the unit circle).
