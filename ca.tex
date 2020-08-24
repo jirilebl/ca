@@ -5754,7 +5754,7 @@ Even worse, the real derivative could even be discontinuous.
 \begin{exbox}
 \begin{exercise}
 Let $f \colon \R \to \R$ be defined by $f(0) = 0$ and $f(x) = x^2
-\sin\bigl( \nicefrac{1}{x} \bigr)$ for $x \not= 0$.
+\sin( \nicefrac{1}{x} )$ for $x \not= 0$.
 \begin{exparts}
 \item
 Show that $f$ is
@@ -9830,10 +9830,11 @@ $f(z) e^{1/z}$ is bounded in $\Delta_r(0) \setminus \{ 0 \}$.
 \end{exercise}
 \end{exbox}
 
-Using the Riemann extension, we find a criterion for poles, and classify
+Using the Riemann extension, we will show that
+at nonessential isolated singularities
+a function blows up to a finite integral order.
+We thus obtain a criterion for poles, and classify
 poles according to order just like zeros.
-At nonessential isolated singularities
-the function blows up to a finite integral order.
 
 \begin{cor}
 \pagebreak[2]
@@ -9851,29 +9852,29 @@ is bounded near $p$ and hence $g$ has a removable singularity at $p$.
 Conversely, if there exists a $k \in \N$ such that
 $g(z) = {(z-p)}^k f(z)$ has a removable singularity at $p$,
 then $f(z)$ has a pole or a
-removable singularity at $p$
+removable singularity at $p$.
 \end{enumerate}
 \end{cor}
 
 \begin{proof}
-We start with the first item.
-The function $f$ cannot be zero in some
+Suppose $f$ has a pole at $p$.
+Then $f$ is not zero in some
 punctured neighborhood $\Delta_r(p) \setminus \{p\}$ as it goes to infinity.
 As $f$ goes to infinity,
 $\nicefrac{1}{f}$ goes to zero, and so it is bounded in some $\Delta_r(p)
 \setminus \{p\}$.
-Thus, it has a removable singularity at $p$ by Riemann extension.
+Thus, $\nicefrac{1}{f}$ has a removable singularity at $p$ by Riemann extension.
 Let $h$ be holomorphic in $\Delta_r(p)$
-such that $h(z) = \frac{1}{f(z)}$ for $z \not= p$.  By continuity, $h(p) =
-0$.  Hence $h(z) = {(z-p)}^k q(z)$ for some holomorphic $q$ and $k \in \N$,
-where $q(p) \not= 0$.  By continuity, $q$ is nonzero near $p$.
-So for $z \not= p$ near $p$,
+such that $h(z) = \nicefrac{1}{f(z)}$ for $z \not= p$.  By continuity, $h(p) =
+0$.  Hence $h(z) = {(z-p)}^k \psi(z)$ for some holomorphic $\psi$ and $k \in \N$,
+where $\psi(p) \not= 0$.  As $\psi$ is continuous, $\psi$ is nonzero near $p$.
+And for $z \not= p$ near $p$,
 \begin{equation*}
 {(z-p)}^k f(z)
 =
-{(z-p)}^k \frac{1}{{(z-p)}^k q(z)}
+{(z-p)}^k \frac{1}{{(z-p)}^k \psi(z)}
 =
-\frac{1}{q(z)} .
+\frac{1}{\psi(z)} .
 \end{equation*}
 
 The converse statement follows by noting that if $g(z)$ has a removable
@@ -9884,7 +9885,7 @@ Then
 f(z) = {(z-p)}^{\ell-k} \varphi(z) ,
 \end{equation*}
 and this either goes to $\infty$ if $k > \ell$ ($f$ has a pole) or is
-bounded if $k \leq \ell$ ($f$ has a removable singularity).
+bounded near $p$ if $k \leq \ell$ ($f$ has a removable singularity).
 \end{proof}
 
 \begin{defn}
@@ -9899,7 +9900,7 @@ has a pole at $p$, a function $f$ can be written as
 \begin{equation*}
 f(z) = \frac{g(z)}{{(z-p)}^k}
 \end{equation*}
-for some $g$ holomorphic at $p$ and $k$ is the order of the pole.
+for some $g$ holomorphic and nonzero at $p$ and $k$ is the order of the pole.
 There is a symmetry between zeros and poles:
 If $f$ has a zero of order $k$ at $p$, then $\nicefrac{1}{f}$ has a pole of
 order $k$ at $p$.
@@ -9915,7 +9916,7 @@ The point $p$ is a zero of order $\ell$ if $\ell
 \begin{exbox}
 \begin{exercise}
 Suppose $f$ has a pole of order $k \in \N$ at $p$.
-Show that there exists a holomorphic function $g$ defined near $p$
+Show that there exists a holomorphic $g$ defined near $p$
 such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
 \begin{equation*}
 f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
@@ -9975,7 +9976,7 @@ $c_{-k}
 \end{enumerate}
 \end{prop}
 
-The key point is that a Laurent series in a punctured
+The fundamental point is that a Laurent series in a punctured
 disc $\Delta_r(p) \setminus \{p\}$ is unique,
 so if the singularity is removable, the power
 series for the extended function must equal the Laurent series.
@@ -9987,7 +9988,7 @@ Prove the proposition.
 \end{exbox}
 
 \begin{defn} \label{defn:principalpart}
-Given an isolated singularity, the negative part of the series
+At an isolated singularity, the negative part of the Laurent series
 \begin{equation*}
 \sum_{n=-\infty}^{-1} c_n {(z-p)}^n 
 \end{equation*}
@@ -10004,7 +10005,7 @@ e^{1/z}
 \sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n .
 \end{equation*}
 The principal part is infinite and $e^{1/z}$ has an essential
-singularity at $0$.  This is the first example anyone ever thinks of
+singularity at $0$.  This is the first function anyone ever thinks of
 if asked for an example of an essential singularity.
 
 Suppose $P(z)$ is the principal part of $f(z)$ at an isolated singularity.
@@ -10017,7 +10018,7 @@ For entire functions, we can talk about the ``singularity at infinity.''
 If we think of $\C \subset \C_\infty$, then this makes perfect sense.
 The mapping $z \mapsto \nicefrac{1}{z}$ is a self-mapping of the Riemann
 sphere $\C_\infty$ that takes infinity to zero.  Given $f \colon \C \to
-\C$, the function $z \mapsto f\bigl( \nicefrac{1}{z} \bigr)$ has an isolated
+\C$, the function $z \mapsto f(\nicefrac{1}{z})$ has an isolated
 singularity at the origin, and that is the singularity at infinity
 of $f$.  That's exactly what happened with $e^{1/z}$ above.  The function
 $e^z$ has an essential singularity at infinity.
@@ -10034,15 +10035,15 @@ Find holomorphic functions $f$ and $g$ (different pairs for each part) with
 essential singularities at $p$, such that
 \begin{exparts}
 \item
-$fg$ has a removable singularity at $p$,
+$f+g$ has a removable singularity at $p$,
 \item
-$f+g$ has a removable singularity at $p$.
+$fg$ has a removable singularity at $p$.
 \end{exparts}
 \end{exercise}
 
 \begin{exercise}
 Suppose $f$ is a nonconstant holomorphic function defined in an open neighborhood of the
-origin such that $f(0)=0$ and $g$ is holomorphic function with
+origin such that $f(0)=0$ and $g$ is holomorphic with
 an isolated singularity at the origin.  Write $g \circ f$ for the
 composition where it is defined.  Show that $g \circ f$ has an isolated
 singularity of the same type (removable, pole, essential) as $g$.
@@ -10050,7 +10051,7 @@ Moreover, if $f'(0) \not= 0$ and $g$ has a pole of order $k$, then $g \circ f$ h
 pole of order $k$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:expofpole}
 If $f$ has a pole at $p$, then $e^{f(z)}$ has an essential singularity at
 $p$.  Hint: First do it for a simple pole.
 \end{exercise}
@@ -10083,7 +10084,8 @@ German).  But really it first appeared in a book by Briot and Bouquet in
 1859 (in French), so really it should be called the Briot--Bouquet theorem,
 no?  If we all still published in Latin, we wouldn't be in this
 mess.}]\index{Casorati--Weierstrass theorem}\label{thm:casoratiweierstrass}
-Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is holomorphic and has
+Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is
+holomorphic with
 an essential singularity at $p \in U$.  Then for every punctured disc
 $\Delta_r(p) \setminus \{ p \} \subset U$, the image
 \begin{equation*}
@@ -10102,6 +10104,11 @@ $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C \setminus \{ z_0 \}$ for
 some $z_0$.
 But that is much harder to prove.
 
+The intuitive idea of the proof of Casorati--Weierstrass is that if there
+is a whole disc $\Delta_s(q)$ missing from the image, then take $q$ to
+$\infty$ by an LFT and $\Delta_s(q)$ will become the complement of a bounded
+closed disc, allowing one to use Riemann extension.
+
 \begin{proof}
 Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic,
 $\Delta_r(p) \setminus \{ p \} \subset U$,
@@ -10116,7 +10123,7 @@ g(z) = \frac{1}{f(z) - q} .
 By assumption, $\sabs{f(z)-q} \geq s$ for $z \in \Delta_r(p) \setminus
 \{p\}$.
 Hence $\sabs{g(z)} \leq \nicefrac{1}{s}$, and $g$ has a removable
-singularity at $p$.  So
+singularity at $p$ by Riemann extension.  So
 assume that $g$ is defined and holomorphic on all of
 $\Delta_r(p)$.  For $z \in \Delta_r(p) \setminus \{ p \}$,
 \begin{equation*}
@@ -10128,48 +10135,6 @@ $f$ does not have an essential singularity at $p$.
 \end{proof}
 
 \begin{exbox}
-\begin{exercise}
-\begin{exparts}
-\item
-Prove a ``Picard for modulus'' theorem.
-Suppose $f \colon U \setminus \{ p \} \to \C$ has an essential singularity
-at $p \in U$.
-Prove that
-for every 
-$\Delta_r(p) \setminus \{ p \} \subset U$, the set
-of all moduli of all the values of $f$ on $\Delta_r(p) \setminus \{ p \}$,
-that is,
-\begin{equation*}
-\abs{f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)}
-=
-\bigl\{ \sabs{w} \in \R : w = f(z), z \in \Delta_r(p) \setminus \{ p \}
-\bigr\}
-\end{equation*}
-is $(0,\infty)$ or $[0,\infty)$.
-\item
-Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
-\end{exparts}
-\end{exercise}
-
-\begin{exercise}
-Suppose $f \colon \C \to \C$ is holomorphic and nonconstant.
-Prove that $f(\C)$ is dense in $\C$.
-Note that the so-called ``little Picard theorem'' says that $f(\C)$
-is actually everything minus possibly one point,
-but that is much harder to prove.
-\end{exercise}
-
-\begin{exercise}
-Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is
-holomorphic and has
-an essential singularity at $p \in U$.  Then for every punctured disc
-$\Delta_r(p) \setminus \{ p \} \subset U$ and every segment $[a,b] \subset
-\C$, we have
-$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) \cap [a,b] \not= \emptyset$.
-Hint: See 
-\exerciseref{exercise:segmentcomplement}.
-\end{exercise}
-
 \begin{exercise}
 Prove the converse of Casorati--Weierstrass.
 Let $U \subset \C$ be open, $p \in U$, and
@@ -10186,6 +10151,50 @@ Suppose that $g \colon \Delta_r(p) \setminus \{ p \} \to \C$
 has an isolated singularity.  Prove that $f(z) = e^{g(z)}$
 has either a removable singularity, in which case $g$
 has a removable singularity, or $f$ has an essential singularity.
+Remark: See also \exerciseref{exercise:expofpole}.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \C \to \C$ is holomorphic and nonconstant.
+Prove that $f(\C)$ is dense in $\C$.
+Note that the so-called ``little Picard theorem'' says that $f(\C)$
+is actually everything minus possibly one point,
+but that is much harder to prove.
+\end{exercise}
+
+\begin{exercise}
+\pagebreak[2]
+\begin{exparts}
+\item
+Prove a ``Picard for modulus'' theorem.
+Suppose $f \colon U \setminus \{ p \} \to \C$ has an essential singularity
+at $p \in U$.
+Prove that
+for every 
+$\Delta_r(p) \setminus \{ p \} \subset U$, the set
+of all moduli of all the values of $f$ on $\Delta_r(p) \setminus \{ p \}$,
+that is,
+\begin{equation*}
+\abs{f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)}
+=
+\bigl\{ \sabs{w} \in \R : w = f(z), z \in \Delta_r(p) \setminus \{ p \}
+\bigr\},
+\end{equation*}
+is $(0,\infty)$ or $[0,\infty)$.
+\item
+Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is
+holomorphic and has
+an essential singularity at $p \in U$.  Then for every punctured disc
+$\Delta_r(p) \setminus \{ p \} \subset U$ and every segment $[a,b] \subset
+\C$, we have
+$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) \cap [a,b] \not= \emptyset$.
+Hint: See 
+\exerciseref{exercise:segmentcomplement}.
 \end{exercise}
 \end{exbox}
 
