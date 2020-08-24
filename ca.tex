@@ -11161,7 +11161,7 @@ what can one tell about the number of zeros of the limit.  Alternatively,
 if we have a limit function with $k$ zeros, then what can
 we say about the number of zeros of the functions in the sequence.
 Recall that if a sequence of holomorphic
-functions converge uniformly on compact sets, the limit is holomorphic
+functions converges uniformly on compact sets, the limit is holomorphic
 (see \thmref{thm:unifoncompact}).
 
 \begin{thm}[Hurwitz]\index{Hurwitz's theorem}
@@ -11203,12 +11203,12 @@ and $z-(1+\nicefrac{1}{n})$ does not.
 For every $r > 0$, there is an $N$ such that
 the polynomial
 \begin{equation*}
-P_d(z) = \sum_{n=0}^d \frac{z^n}{n!}
+P_d(z) = \sum_{n=0}^d \frac{z^{n+1}}{n!}
 \end{equation*}
-has no zeros in $\Delta_r(0)$ for all $d \geq N$.
-This claim follows as $e^z$ has no zeros in the complex plane and the
-polynomials $P_d$ are the partial sums of the power series of the
-exponential, thus $P_d$ converges uniformly on compact subsets to $e^z$.
+has exactly one zero in $\Delta_r(0)$ for all $d \geq N$.
+This claim follows as $z e^z$ has exactly one zero in the complex plane, the
+polynomials $P_d$ are the partial sums of the power series of $ze^z$, and
+thus $P_d$ converges uniformly on compact subsets.
 \end{example}
 
 The $\Gamma$ in the theorem is there for defining the region
@@ -11257,9 +11257,9 @@ $\overline{\Delta_r(z_1)} \setminus \{ z_1 \}$ or
 $\overline{\Delta_r(z_2)} \setminus \{ z_2 \}$.
 For a large enough $n$, Hurwitz says that $f_n-w$ has the same number of
 zeros in $\Delta_r(z_1)$ as $f-w$ and the same for $\Delta_r(z_2)$.
-So there is $z_1' \in \Delta_r(z_1)$ and
-$z_2' \in \Delta_r(z_2)$ such that $f_n(z_1')=f_n(z_2')=w$, in particular
-$f_n$ is not injective.
+So there are $z_1' \in \Delta_r(z_1)$ and
+$z_2' \in \Delta_r(z_2)$ such that $f_n(z_1')=f_n(z_2')=w$.
+In particular, $f_n$ is not injective.
 \end{proof}
 
 \begin{exbox}
