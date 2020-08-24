@@ -9788,12 +9788,12 @@ is an automorphism, then $f(z) = e^{i\theta} z$ for some $\theta$.
 Prove that if
 $f \colon \D \setminus \bigl\{ 0, \nicefrac{1}{2} \bigr\} \to \D \setminus
 \bigl\{ 0 , \nicefrac{1}{2} \bigr\}$
-is an automorphism then $f(z) = z$ or $f(z) = \frac{1-2z}{2-z}$.
+is an automorphism, then $f(z) = z$ or $f(z) = \frac{1-2z}{2-z}$.
 \end{exercise}
 
 \begin{exercise}
 Suppose $U \subset \C$ is open, and
-$\{ z_n \}$ a sequence in $U$ converging to $p \in U$.
+$\{ z_n \}$ is a sequence in $U$ converging to $p \in U$.
 Let $S = \{ z_n : n \in \N \} \cup \{ p \}$ and let
 $f \colon U \setminus S \to \C$ be a bounded holomorphic function.
 Prove that $f$ extends through $S$:  There exists a holomorphic
@@ -10222,11 +10222,12 @@ There is a small technicality: Should one consider the function
 that is constantly $\infty$ as a meromorphic function or not.
 We will take the view that it is not a meromorphic function.
 
-So from now on, when we say that $f$ is
+From now on, when we say that $f$ is
 meromorphic, we mean that it is a holomorphic function with possible
-poles in $U$, where we set the value as $\infty$ at the poles, and
+poles in $U$.  We will assume that $f$ is defined to be $\infty$
+at the poles, and
 we will write this as $f \colon U \to \C_\infty$.  That is, even though we
-could just say $f \colon U \to \C_\infty$ is holomorphic, we will say
+could just say ``$f \colon U \to \C_\infty$ is holomorphic,'' we will say
 for emphasis ``$f \colon U \to \C_\infty$ is meromorphic.''
 
 Similarly, we can define a function on subsets of $\C_\infty$, just as
@@ -10234,7 +10235,7 @@ we did with LFTs.
 We define holomorphicity at $\infty$ when $U \subset
 \C_\infty$ by saying that $f$ is \emph{\myindex{holomorphic at $\infty$}}
 if $f(\nicefrac{1}{z})$ is holomorphic at $0$.
-So with this terminology, an LFT is a biholomorphic mapping $f \colon
+With this terminology, an LFT is a biholomorphic mapping $f \colon
 \C_\infty \to \C_\infty$.  It is left as an exercise that
 these are the only biholomorphisms of the Riemann sphere and so
 $\Aut(\C_\infty)$ consists of all the LFTs.
@@ -10298,8 +10299,12 @@ We know how to compute $c_{-1}$: for any small enough $s > 0$,
 \end{equation*}
 Via Cauchy's theorem, we relate any integral around
 a cycle to the residues that lie inside the cycle.
+With that, we can state a theorem that is often used for computing
+integrals---even integrals that do not at all seem like line integrals or
+have any complex numbers in them.
 
 \begin{thm}[Residue theorem]\index{residue theorem}\label{thm:residue}
+\pagebreak[2]
 Suppose $U \subset \C$ is open, $S \subset U$ is a finite subset,
 and $\Gamma$ is
 a cycle
@@ -10319,7 +10324,7 @@ Let $w_1,\ldots,w_\ell$ denote the elements of $S$.
 Let $r_1,\ldots,r_\ell$ be positive numbers such that
 the closed discs
 $\overline{\Delta_{r_1}(w_1)},\ldots, \overline{\Delta_{r_\ell}(w_\ell)}$
-are mutually disjoint (no pair of them intersects),
+are mutually disjoint (no pair of them intersects), and
 $\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$.
 See \figureref{fig:residues}.
 
@@ -10371,24 +10376,24 @@ By the homology version of the Cauchy theorem, \thmref{thm:CThomology}, we find
 \frac{1}{2 \pi i}
 \int_\Gamma f(z) \, dz
 -
-\sum_{j=1}^\ell
-n(\Gamma;w_j)
+\sum_{k=1}^\ell
+n(\Gamma;w_k)
 \frac{1}{2 \pi i}
-\int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz .
+\int_{\partial \Delta_{r_k}(w_k)} f(z) \, dz .
 \end{equation*}
 We recognize the formula for the $c_{-1}$ term of the Laurent series at
-$w_j$, that is,
+$w_k$, that is,
 \begin{equation*}
 \frac{1}{2 \pi i}
-\int_{\partial \Delta_{r_j}(w_j)} f(z) \, dz
-= \operatorname{Res}(f;w_j) .  \qedhere
+\int_{\partial \Delta_{r_k}(w_k)} f(z) \, dz
+= \operatorname{Res}(f;w_k) .  \qedhere
 \end{equation*}
 \end{proof}
 
 The residue theorem is supposed to be useful in computing line integrals.
 But at first glance it seems ridiculous.  How does one compute $c_{-1}$?  By
 an integral.  Well how does that help then?  It helps because there are
-easier ways to compute $c_{-1}$ then by the line integral.  The first one is
+easier ways to compute $c_{-1}$ than by the line integral.  The first one is
 almost criminally trivial, but it may be good to emphasize all of them
 by making them propositions.
 
@@ -10481,8 +10486,8 @@ See \figureref{fig:rhalfcircle}.
 \end{myfig}
 
 We ``complexify''\index{complexify}
-$\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.  Really
-that's just a fancy way of saying we are going to plug in complex numbers
+$\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.
+That's just a fancy way of saying we are going to plug in complex numbers
 into a real formula that happens to also work for complex numbers.
 By partial fractions
 \begin{equation*}
@@ -10552,7 +10557,7 @@ $n(\Gamma_r;i) = 0$.
 \end{exercise}
 \end{exbox}
 
-Another application to real integrals is to simply recognize 
+Another application to real integrals is to recognize 
 a path integral.  For example, integrals of trigonometric functions
 are often integrals over the unit circle.  On the unit
 circle, $\bar{z} = \nicefrac{1}{z}$.  So if $z=e^{i\theta}$,
@@ -10627,6 +10632,7 @@ $\sL^{-1}\left[ \frac{1}{s(s+1)} \right]$,
 $\sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$.
 \end{expartshor}
 \smallskip
+\noindent
 Hint: Pick the correct vertical line (pick a $c$) and an arc that goes
 around all the poles.
 \end{exercise}
@@ -10658,11 +10664,15 @@ $\operatorname{Res}(f;\infty)$, to be the residue
 of $g(z) = -z^{-2} f(z^{-1})$ at $0$.
 \begin{exparts}
 \item
-For any $r > R$, prove
+Prove that for
+any $r > R$,
 \begin{equation*}
 \operatorname{Res}(f;\infty) = \frac{-1}{2\pi i} \int_{\partial \Delta_r(0)}
 f(z) \, dz .
 \end{equation*}
+That is, going around a circle in reverse is going around infinity rather
+than the center (if what we are ``going around'' is defined to be whaterver
+is on our left).
 \item
 If $f$ is holomorphic on $\C$ except for finitely many isolated
 singularities.  Prove that the sum of all residues of $f$ including the
@@ -10709,22 +10719,22 @@ Then
 \frac{1}{2\pi i}
 \int_\Gamma \frac{f'(z)}{f(z)} \, dz
 =
-\sum_{j=1}^n n(\Gamma;z_j)
+\sum_{k=1}^n n(\Gamma;z_k)
 \quad
 -
 \quad
-\sum_{j=1}^\ell n(\Gamma;p_j) .
+\sum_{k=1}^\ell n(\Gamma;p_k) .
 \end{equation*}
 Furthermore, if $h \colon U \to \C$ is holomorphic, then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
 =
-\sum_{j=1}^n n(\Gamma;z_j)h(z_j) 
+\sum_{k=1}^n n(\Gamma;z_k)h(z_k) 
 \quad
 -
 \quad
-\sum_{j=1}^\ell n(\Gamma;p_j)h(p_j) .
+\sum_{k=1}^\ell n(\Gamma;p_k)h(p_k) .
 \end{equation*}
 \end{thm}
 
@@ -10734,8 +10744,9 @@ we mean that if
 a zero has multiplicity $m$, we repeat it $m$ times.
 For instance, $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
 Same with poles.
-The number of zeros or poles inside an open set is always countable (unless
-$f$ is identically zero in that open set).  But there are only ever finitely
+The number of zeros or poles inside an open set is possibly countably
+infinite (unless $f$ is identically zero in that open set).
+But there are only ever finitely
 many zeros or poles for which 
 $n(\Gamma;z) \not= 0$ (see exercises below), as long as $\Gamma$ is
 homologous to zero.  So there is always a slightly smaller $U$ that only
@@ -10758,7 +10769,7 @@ The name ``argument principle'' comes from the fact that for a path
 $\gamma$,
 the integral
 $\int_{\gamma} \frac{f'(z)}{f(z)} \, dz$
-computes $i$ times the change in argument of $f$ as we traverse $\gamma$:
+computes $i$ times the change in the argument of $f$ as we traverse $\gamma$:
 The antiderivative of
 $\frac{f'(z)}{f(z)}$
 is $\log f(z)$.
@@ -10784,43 +10795,38 @@ $f \circ \gamma$ winds around zero.
 We prove the ``Furthermore'' as that proves the rest of the theorem by
 considering the constant $h(z) = 1$.
 The function $h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
-at the zeros and poles of $f$.  We apply the residue theorem,
-\begin{multline*}
+at the zeros and poles of $f$.  Let $S$ be the set of zeros and poles of $f$,
+and apply the residue theorem:
+\begin{equation*}
 \frac{1}{2\pi i}
 \int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
-\\
 =
-\sum_{j=1}^n n(\Gamma;z_j)\operatorname{Res}\left(h(z)
-\frac{f'(z)}{f(z)};z_j\right)
--
-\sum_{j=1}^\ell n(\Gamma;p_j)\operatorname{Res}\left(h(z)
-\frac{f'(z)}{f(z)};p_j\right) .
-\end{multline*}
+\sum_{p \in S} n(\Gamma;p)\operatorname{Res}\left(h \frac{f'}{f};p\right) .
+\end{equation*}
 We simply compute the residues.
-Consider a zero of $f$ of multiplicity $k$ or a pole of order $-k$, and
+Consider a zero of $f$ of multiplicity $m$ or a pole of order $-m$, and
 without loss of generality suppose it is the origin.
-Write $f(z)  = z^k F(z)$ where $F(0) \not=0$
+Write $f(z)  = z^m F(z)$ where $F(0) \not=0$
 and $h(z) = h(0) + z H(z)$.
-Then $f'(z) = k z^{k-1} F(z) + z^k F'(z)$, and so
+Then $f'(z) = m z^{m-1} F(z) + z^m F'(z)$, and so
 \begin{multline*}
 h(z) \frac{f'(z)}{f(z)}
 =
 \bigl( h(0) + z H(z) \bigr)
-\frac{k z^{k-1} F(z) + z^k F'(z)}{z^k F(z)}
+\frac{m z^{m-1} F(z) + z^m F'(z)}{z^m F(z)}
 \\
 =
-k\, h(0) 
+m\, h(0) 
 \frac{1}{z}
 +
 h(0) 
 \frac{F'(z)}{F(z)}
 +
 H(z)
-\frac{k F(z) + z F'(z)}{F(z)} .
+\frac{m F(z) + z F'(z)}{F(z)} .
 \end{multline*}
-Everything except $k\, h(0) \frac{1}{z}$ is holomorphic.
-In other words, $\operatorname{Res}\left(h(z)
-\frac{f'(z)}{f(z)};0\right) = k\, h(0)$.
+Everything except $m\, h(0) \frac{1}{z}$ is holomorphic near $0$.
+Hence, $\operatorname{Res}\left(h\frac{f'}{f};0\right) = m\, h(0)$.
 The theorem follows.
 \end{proof}
 
@@ -10850,7 +10856,7 @@ $f$ enclosed within $\Gamma$, then
 =
 z_0 .
 \end{equation*}
-One particular consequence of this is that zeros of polynomials vary continuously
+One particular consequence of this is that zeros of a polynomial $f$ vary continuously
 (interpreted in the right way) as the coefficients of $f$ change.
 
 \begin{exbox}
@@ -10859,7 +10865,7 @@ Suppose $U \subset \C$ is open, $\Gamma$ is a cycle in $U$
 homologous to zero in $U$,
 and $f \colon U \to \C_\infty$ is meromorphic and
 has no zeros or poles on $\Gamma$.
-Show that there are only finitely many zeros and poles of $f$
+Show that there are only finitely many zeros and poles $z$ of $f$
 such that $n(\Gamma;z) \not= 0$.
 \end{exercise}
 
@@ -10869,7 +10875,7 @@ homologous to zero in $U$,
 and $f \colon U \to \C_\infty$ is meromorphic and
 has no zeros or poles on $\Gamma$.
 Show that there exists an open $U' \subset U$ such that
-the only zeros or poles of the restriction $f|_{U'}$
+the only zeros or poles $z$ of the restriction $f|_{U'}$
 are such that $n(\Gamma;z) \not= 0$.
 \end{exercise}
 
@@ -10886,7 +10892,7 @@ in $\D$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f(z)$ a degree 3 polynomial, $f(0)=1$, and
+Suppose $f(z)$ is a degree 3 polynomial, $f(0)=1$, and
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_{\partial \Delta_2(2i)} z \frac{f'(z)}{f(z)} \, dz = 2i+1 ,
@@ -10904,7 +10910,7 @@ integrals exist after all).
 
 \begin{exercise}
 Let $P_t(z) = z^n + c_{n-1}(t) z^{n-1} + \cdots + c_1(t) z + c_0(t)$
-be a polynomial where all the coefficients $c_j$ are continuous functions
+be a polynomial where all the coefficients $c_k$ are continuous functions
 of $[a,b]$.
 \begin{exparts}
 \item
