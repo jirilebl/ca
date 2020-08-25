@@ -11200,17 +11200,17 @@ $z-(1-\nicefrac{1}{n})$ has one zero in the unit disc
 and $z-(1+\nicefrac{1}{n})$ does not.
 
 \begin{example}
-For every $r > 0$, there is an $N$ such that
+For every integer $k > 0$, there is an $N$ such that
 the polynomial
 \begin{equation*}
-P_d(z) = \sum_{n=0}^d \frac{z^{n+1}}{n!}
+P_d(z) = \sum_{n=0}^d \frac{{(-1)}^n}{(2n)!}z^{2n}
 \end{equation*}
-has exactly one zero in $\Delta_r(0)$ for all $d \geq N$.
-This claim follows as $z e^z$ has exactly one zero in the complex plane, the
-polynomials $P_d$ are the partial sums of the power series of $ze^z$, and
-thus $P_d$ converges uniformly on compact subsets.
+has exactly $2k$ zeros in $\Delta_{\pi k}(0)$ for all $d \geq N$.
+This claim follows as $\cos(z)$ has exactly $2k$ zeros in that disc
+and the polynomials $P_d$ are the partial sums of the power series of
+cosine, which converges uniformly on compact subsets.
 \end{example}
-
+  
 The $\Gamma$ in the theorem is there for defining the region
 $V$, a compact set with interior and nice boundary.
 Often the theorem is applied or stated with $\Gamma$ being a small disc:
@@ -11272,6 +11272,19 @@ Give examples of both possible conclusions.
 \end{exercise}
 
 \begin{exercise}
+\begin{exparts}
+\item
+Suppose $f_n \colon \D \to \C$ is a sequence converging
+to $f \colon \D \to \C$ uniformly on compact sets such that
+for each $0 < r < 1$ the number of zeros (up to multiplicity)
+of $f_n$ in $\Delta_r(0)$ goes to infinity as $n \to \infty$.
+Prove that $f \equiv 0$.
+\item
+Find an example sequence of such maps such that $f_n(\D) = \D$.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
 Suppose 
 $f_n \colon \C \to \C$ is a sequence of holomorphic
 functions
@@ -11291,6 +11304,13 @@ $\lim z_n = z_0$ and $f_n(z_n) = w_0$ for all large enough $n$.
 \end{exercise}
 
 \begin{exercise}
+Suppose $P_t(z) = z^n + \sum_{k=0}^{n-1} a_k(t) z^k$ is a polynomial
+with continuous coefficients $a_k \colon [0,1] \to \C$.  Suppose $P_t$ has
+no zeros on $\partial \D$ for all $t \in [0,1]$.  Then the number of zeros
+of $P_t$ (up to multiplicity) in $\D$ is constant as a function of $t$.
+\end{exercise}
+
+\begin{exercise}
 \begin{exparts}
 \item
 Find an example sequence of automorphisms of $\D$ converging
@@ -11305,23 +11325,18 @@ and its derivative is never zero.
 \end{exercise}
 
 \begin{exercise}
+Let $f_n(x) = \frac{x(x-1/n)(x+1/n)}{{(1/n)}^2+x^2}$ and $f(x)=x$.
 \begin{exparts}
 \item
-Suppose $f_n \colon \D \to \C$ is a sequence converging
-to $f \colon \D \to \C$ uniformly on compact sets such that
-for each $0 < r < 1$ the number of zeros (up to multiplicity)
-of $f_n$ in $\Delta_r(0)$ goes to infinity as $n \to \infty$.
-Prove that $f \equiv 0$.
+Show that $\{ f_n \}$ converges uniformly on compact subsets of the real
+line to $f$.
 \item
-Find an example sequence of such maps such that $f_n(\D) = \D$.
+Show that on any interval $(-\epsilon,\epsilon)$, $f_n$ has three distinct zeros
+for large enough $n$, while $f(x)$ has a simple zero.
+\item
+Plug in complex values, $f_n(z)$, and show that $\{ f_n \}$ does not
+converge uniformly to anything on any disc $\Delta_{\epsilon}(0)$.
 \end{exparts}
-\end{exercise}
-
-\begin{exercise}
-Suppose $P_t(z) = z^n + \sum_{k=0}^{n-1} a_k(t) z^k$ is a polynomial
-with continuous coefficients $a_k \colon [0,1] \to \C$.  Suppose $P_t$ has
-no zeros on $\partial \D$ for all $t \in [0,1]$.  Then the number of zeros
-of $P_t$ (up to multiplicity) in $\D$ is constant as a function of $t$.
 \end{exercise}
 \end{exbox}
 
