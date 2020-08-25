@@ -11423,11 +11423,11 @@ then $f$ is constant.
 
 \begin{exercise}
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
-Suppose $\abs{f''(z)} \leq M$ for all $z \in U$ for some $M > 0$.
+Suppose $\sabs{f''(z)} \leq M$ for all $z \in U$ for some $M > 0$.
 Suppose $p \in U$ where $f'(p) \not= 0$ and $r > 0$ is such that
-$\frac{M}{2}r < \abs{f'(p)}$ and $\overline{\Delta_r(p)} \subset U$.
-Let $\delta = \abs{f'(p)}r - \frac{M}{2} r^2
-= r\left(\abs{f'(p)} - \frac{M}{2} r\right) > 0$.  Prove that
+$\frac{M}{2}r < \sabs{f'(p)}$ and $\overline{\Delta_r(p)} \subset U$.
+Let $\delta = \sabs{f'(p)}r - \frac{M}{2} r^2
+= r\bigl(\sabs{f'(p)} - \frac{M}{2} r\bigr) > 0$.  Prove that
 $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl( \Delta_r(p) \bigr)$.
 \end{exercise}
 
@@ -11461,7 +11461,6 @@ injective and has an inverse $g$ such that
 \begin{equation*}
 g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
 \end{equation*}
-
 You now have enough machinery to give a simple proof
 of the inverse function theorem for holomorphic functions
 without needing the real inverse function.
@@ -11504,7 +11503,7 @@ $f'$ is never zero.
 
 \begin{proof}
 We will prove the contrapositive.
-Suppose that $f'(p) = 0$ for some $p$
+Suppose $f'(p) = 0$ for some $p$
 and suppose $f$ is nonconstant (near $p$).
 So $f'$ has
 an isolated zero at $p$.
@@ -11516,7 +11515,7 @@ The function $z \mapsto f(z) - f(p)$ has a zero of multiplicity at least
 two.
 For $w \in \Delta_{\delta}\bigl(f(p)\bigr) \setminus \bigl\{ f(p) \bigr\}$,
 we have that
-$z \mapsto f(z)-w$ has at least two zeros counting multiplicity via
+$z \mapsto f(z)-w$ has at least two zeros in $\Delta_r(p)$ counting multiplicity via
 \hyperref[thm:rouche2]{Rouch\`e} as
 before.  As derivative of $f(z)$, hence also of $f(z)-w$, is nonzero in
 the punctured disc, all these zeros are of multiplicity one.  Ergo, $f(z)-w$
@@ -11524,7 +11523,8 @@ has more than one distinct zero, and consequently, $f$ is not injective.
 \end{proof}
 
 \begin{lemma} \label{lemma:inverseasintegral}
-If $f \colon U \to \C$ is holomorphic and injective, and
+Suppose $U \subset \C$ is open,
+$f \colon U \to \C$ is holomorphic and injective, and
 $\overline{\Delta_r(p)} \subset U$.  Then for all $w \in
 f\bigl(\Delta_r(p)\bigr)$,
 \begin{equation*}
@@ -11560,11 +11560,12 @@ injective, then $f(U)$ is open, $f'$ is never zero on $U$, and $f^{-1}
 
 \begin{proof}
 If $f$ is injective, then it is not constant, and so $f(U)$ is open by
-the open mapping theorem.  By \lemmaref{lemma:dernonzero} $f'$ is never zero
-on $U$, and by \lemmaref{lemma:inverseasintegral} and
-\lemmaref{lemma:holfuncbyintegral} (functions defined by integration against
-something holomorphic are holomorphic)
-we have that $f^{-1}$ is holomorphic.
+the \hyperref[thm:OMT]{open mapping theorem}.
+By \lemmaref{lemma:dernonzero}, $f'$ is never zero
+on $U$, by \lemmaref{lemma:inverseasintegral} the inverse is locally defined
+by an integral, and by
+\lemmaref{lemma:holfuncbyintegral},
+$f^{-1}$ is holomorphic.
 \end{proof}
 
 \begin{exbox}
@@ -12355,7 +12356,7 @@ Suppose $q \in \C \setminus U$.  Then the function $z \mapsto z-q$ is never
 zero and $U$ is simply connected, and so $z-q$ has a holomorphic square
 root, that is, there exists a function $g \colon U \to \C$ such that
 ${\bigl(g(z)\bigr)}^2 = z-q$.
-The set $g(U)$ is open by the open mapping theorem.
+The set $g(U)$ is open by the \hyperref[thm:OMT]{open mapping theorem}.
 If $g(z)=g(\zeta)$, then ${\bigl(g(z)\bigr)}^2={\bigl(g(\zeta)\bigr)}^2$ and so
 $z=\zeta$.  Thus $g$ is injective.  What's more,
 $g(z)=-g(\zeta)$ also implies $z=\zeta$.  In particular, that means that $g(z) =
@@ -12434,7 +12435,7 @@ We must have $f(p) = 0$ by taking the limit.
 Similarly 
 $\sabs{f(z)} \leq 1$ for all $z \in U$ by taking limits,
 so $f(U) \subset \overline{\D}$.
-By the open mapping theorem we get that $f(U) \subset \D$, so $f \in
+By the \hyperref[thm:OMT]{open mapping theorem} we get that $f(U) \subset \D$, so $f \in
 \sF$.  If $f$ was not onto, then it would not be the one that achieves the
 supremum for $\sabs{f'(p)}$.  Thus $f(U) = \D$ and it is the desired map.
 
