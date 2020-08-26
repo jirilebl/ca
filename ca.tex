@@ -11868,7 +11868,12 @@ As $X$ is compact, for every
 $n \in \N$ there exist
 $x_{n,1},x_{n,2},\ldots,x_{n,k_n} \in X$ such that
 \begin{equation*}
-X= \bigcup_{\ell=1}^{k_n} B(x_{n,\ell},\nicefrac{1}{n}) .
+X=
+B(x_{n,1},\nicefrac{1}{n})
+\cup
+B(x_{n,2},\nicefrac{1}{n})
+\cup \cdots \cup
+B(x_{n,k_n},\nicefrac{1}{n}) .
 \end{equation*}
 Let $D = \bigcup_{n=1}^\infty \{ x_{n,1},x_{n,2},\ldots,x_{n,k_n} \}$.
 The set $D$ is countable as it is a countable union of finite sets.
@@ -11892,39 +11897,42 @@ convergent subsequence.
 \end{thm}
 
 \begin{proof}
-As $X$ is compact, then the sequence $\{ f_n \}$ is uniformly
-equicontinuous.
 First, we show that the sequence is uniformly bounded.
-By uniform equicontinuity,
+As $X$ is compact, the sequence $\{ f_n \}$ is uniformly
+equicontinuous.
+Hence,
 there is a $\delta > 0$
 such that
 for all $x \in X$ and all $n \in \N$,
 \begin{equation*}
 B(x,\delta) \subset f_n^{-1}\bigl(B(f_n(x),1)\bigr) .
 \end{equation*}
-The space $X$ is compact, so there exist $x_1,x_2,\ldots,x_k$
-such that
+By compactness,
+there exist $x_1,x_2,\ldots,x_k$, such that
 \begin{equation*}
-X = \bigcup_{j=1}^k B(x_j,\delta) .
+X = 
+B(x_1,\delta)
+\cup
+B(x_2,\delta)
+\cup \cdots \cup
+B(x_k,\delta) .
 \end{equation*}
-As $\{ f_n \}$ is pointwise bounded there exists an $M$
-such that for $j=1,2,\ldots,k$,
+As $\{ f_n \}$ is pointwise bounded, there exists an $M$
+such that for $\ell=1,2,\ldots,k$,
 \begin{equation*}
-\sabs{f_n(x_j)} \leq M \qquad \text{for all } n.
+\sabs{f_n(x_\ell)} \leq M \qquad \text{for all } n.
 \end{equation*}
 Given any
-$x \in X$, there is a $j$ such that $x \in B(x_j,\delta)$.  Therefore,
-for all $n$ we have
-$x \in f_n^{-1}\bigl(B(f_n(x_j),1)\bigr)$, or in other words
+$x \in X$, $x \in B(x_\ell,\delta)$ for some $\ell$, and
+hence
+$x \in f_n^{-1}\bigl(B(f_n(x_\ell),1)\bigr)$
+for all $n$.
+In other words,
+$\sabs{f_n(x)-f_n(x_\ell)} < 1$.  So $\{ f_n \}$ is uniformly bounded as
+for all $n$,
 \begin{equation*}
-\sabs{f_n(x)-f_n(x_j)} < 1 .
+\sabs{f_n(x)} < 1+ \sabs{f_n(x_\ell)} \leq 1+M .
 \end{equation*}
-By reverse triangle inequality,
-\begin{equation*}
-\sabs{f_n(x)} < 1+ \sabs{f_n(x_j)} \leq 1+M .
-\end{equation*}
-And as $x$ was arbitrary, $\{f_n\}$ is uniformly bounded.
-
 
 Next, pick a countable dense subset $D \subset X$.
 By \propref{prop:subsequenceoncountableX}, find
@@ -11937,32 +11945,37 @@ such that for all $x \in X$ and all $n \in \N$,
 \begin{equation*}
 B(x,\delta) \subset g_n^{-1}\bigl(B(g_n(x),\nicefrac{\epsilon}{3})\bigr).
 \end{equation*}
-By density of $D$ and because $\delta$ is fixed, every $x \in X$ is in some $B(y,\delta)$
+By density of $D$, every $x \in X$ is in some $B(y,\delta)$
 for some $y \in D$.  By compactness of $X$,
 there is a finite subset $\{ x_1,x_2,\ldots,x_k \} \subset D$
 such that
 \begin{equation*}
-X = \bigcup_{j=1}^k B(x_j,\delta) .
+X = 
+B(x_1,\delta)
+\cup
+B(x_2,\delta) 
+\cup \cdots \cup
+B(x_k,\delta) .
 \end{equation*}
 As there are finitely many points and $\{ g_n \}$
 converges pointwise on $D$, there exists a single $N$ such that for 
 all $n,m \geq N$,
 \begin{equation*}
-\sabs{g_n(x_j)-g_m(x_j)} < \nicefrac{\epsilon}{3}
- \qquad \text{for all } j=1,2,\ldots,k.
+\sabs{g_n(x_\ell)-g_m(x_\ell)} < \nicefrac{\epsilon}{3}
+ \qquad \text{for all } \ell=1,2,\ldots,k.
 \end{equation*}
 
-Let $x \in X$ be arbitrary.  There is some $j$ such that
-$x \in B(x_j,\delta)$ and so for all $\ell \in \N$,
+Let $x \in X$ be arbitrary.  There is some $\ell$ such that
+$x \in B(x_\ell,\delta)$ and so for all $j \in \N$,
 \begin{equation*}
-\sabs{g_\ell(x)-g_\ell(x_j)} < \nicefrac{\epsilon}{3}.
+\sabs{g_j(x)-g_j(x_\ell)} < \nicefrac{\epsilon}{3}.
 \end{equation*}
 So for $n,m \geq N$,
 \begin{equation*}
 \sabs{g_n(x)-g_m(x)} \leq
-\sabs{g_n(x)-g_n(x_j)} +
-\sabs{g_n(x_j)-g_m(x_j)} +
-\sabs{g_m(x_j)-g_m(x)} <
+\sabs{g_n(x)-g_n(x_\ell)} +
+\sabs{g_n(x_\ell)-g_m(x_\ell)} +
+\sabs{g_m(x_\ell)-g_m(x)} <
 \epsilon .
 \end{equation*}
 Hence, the sequence is uniformly Cauchy.  By completeness of $\C$,
@@ -11993,7 +12006,7 @@ n
 The set $K_n$ is compact: it is closed (in $\C$) by
 \propref{prop:distcont} and obviously bounded.
 It is also easy to see that $U = \bigcup K_n$.  The interior
-of $K_n$ is given by
+of $K_n$ is given (exercise) by
 \begin{equation*}
 K^\circ_n =
 \bigl\{
@@ -12016,7 +12029,7 @@ z \in U : d(z,\partial U) > \nicefrac{1}{n} \text{ and } \sabs{z} < n
 \end{exercise}
 \end{exbox}
 
-We can now prove a version of Arzel\`a--Ascoli for open subsets of $\C$.
+We now prove a version of Arzel\`a--Ascoli for open subsets of $\C$.
 That is, a version that doesn't just work on one compact set but gets
 us uniform convergence on compact subsets.
 
@@ -12038,15 +12051,15 @@ $\{ f_{2,n} \}$ of
 $\{ f_{1,n} \}$ that converges uniformly on $K_2$, and so on.
 Finally take the diagonal sequence $\{ f_{n,n} \}$.
 Any compact $K \subset U$
-is contained in some $K^\circ_\ell$.  The $\ell$-tail of the sequence $\{ f_{n,n}
+is contained in some $K_\ell$.  The $\ell$-tail of the sequence $\{ f_{n,n}
 \}$ is a subsequence of $\{ f_{\ell,n} \}$ and hence uniformly convergent on
-$K_\ell$ and thus $K$.
+$K_\ell$ and thus on $K$.
 \end{proof}
 
 \begin{exbox}
 \begin{exercise}
 Suppose that $f_n \colon [0,1] \to \C$ are functions that are pointwise
-bounded, (real) differentiable and for some $M> 0$ we have
+bounded, (real) differentiable, and for some $M> 0$ we have
 $\sabs{f_n'(t)} \leq M$ for all $t \in [0,1]$ and all $n$.  Prove that there
 exists a subsequence that converges uniformly on $[0,1]$.
 \end{exercise}
@@ -12079,13 +12092,15 @@ pointwise, show that it converges uniformly.
 
 \begin{exercise}
 Define $f_n \colon [0,1] \to \C$ by $f_n(t) = e^{i(2\pi t + n)}$.
-First,
-prove that $\{ f_n \}$ is a uniformly equicontinuous
+\begin{exparts}
+\item
+Prove that $\{ f_n \}$ is a uniformly equicontinuous
 uniformly bounded sequence.
-Then,
-let $\delta \in \R$ be given, and define $g(t) = e^{i(2\pi t + \delta)}$.
+\item
+Let $\delta \in \R$ be given, and define $g(t) = e^{i(2\pi t + \delta)}$.
 Prove that there exists 
 a subsequence of $\{ f_n \}$ converging uniformly to $g$.
+\end{exparts}
 Hint: Feel free to use the \emph{\myindex{Kronecker density theorem}}:
 The sequence $\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
 \end{exercise}
@@ -12100,8 +12115,8 @@ For holomorphic functions, if you have a bound on the function, you have a
 bound on the derivative using the Cauchy integral formula.  A uniform
 bound on the derivative gives equicontinuity, and
 so it comes as no
-surprise that if we have a uniformly bounded set of holomorphic functions
-on a common domain, then this set is equicontinuous.
+surprise that if we have a uniformly bounded set of holomorphic functions,
+then this set is equicontinuous.
 Let us use some of the traditional language.\footnote{%
 We wouldn't want the reader to miss out on all the possibilities of making
 jokes about how Montel had a ``normal family.''}
@@ -12136,7 +12151,7 @@ but it is hard to show that it converges (or has a subsequence that does).
 One can generate ``approximate'' solutions to a problem without worrying
 about them being close to something.
 The reader has seen applications of this idea (using Bolzano--Weierstrass)
-when working with sequences of in $\C$ or $\R$ before (several times in this
+when working with sequences in $\C$ or $\R$ before (several times in this
 book already in fact).
 
 \begin{proof}
@@ -12149,8 +12164,7 @@ We need to show that it is equicontinuous at every point.
 Consider $p \in U$ and suppose $\overline{\Delta_r(p)} \subset U$
 such that $\sF$ is bounded on it.
 Say $\snorm{f}_{\overline{\Delta_r(p)}} \leq M$ for all $f \in \sF$.
-For $z \in \overline{\Delta_{r/2}(p)}$
-we have
+For $z \in \overline{\Delta_{r/2}(p)}$,
 \begin{equation*}
 \begin{split}
 \abs{f'(z)}
@@ -12173,7 +12187,7 @@ we have
 \frac{4 M}{r}.
 \end{split}
 \end{equation*}
-So for $z \in \overline{\Delta_{r/2}(p)}$,
+And so
 \begin{equation*}
 \abs{f(p)-f(z)}
 =
@@ -12240,8 +12254,14 @@ Show that $\{ f' : f \in \sF \}$ is a normal family.
 \begin{exercise}
 Let $U \subset \C$ be open and $\sF$ a set of holomorphic
 functions such that $\{ f' : f \in \sF \}$ is a normal family.
-Is $\sF$ a normal family?  If not, can you add a simple
-hypothesis that would make it a normal family?
+\begin{exparts}
+\item
+Show that $\sF$ need not be normal family.
+\item
+Add a simple
+hypothesis (one that is weaker than ``$\sF$ is locally bounded'')
+that would make it a normal family.
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
