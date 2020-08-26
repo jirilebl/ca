@@ -11648,12 +11648,12 @@ Bolzano--Weierstrass for sequences of numbers:  \emph{If $\{ z_n \}$ is a
 bounded sequence, then it has a convergent subsequence.}
 Interestingly, Montel provides just that kind of theorem for holomorphic
 functions.
-However, before we get to Montel, we must find a weaker result
+However, before we get to Montel, we must seek a weaker result
 of this kind for continuous functions, the Arzel\`a--Ascoli theorem.
-For continuous functions we need something more than just boundedness
+For continuous functions, we need something more than just boundedness
 to get the convergent subsequence,
 we need some sort of uniformity in the continuity.
-Let us start with what we mean by \emph{bounded}.
+But let us start with boundedness.
 
 \begin{defn}
 Let $X$ be any set.
@@ -11689,9 +11689,9 @@ many points, but $\R$ (or any interval) is uncountable.
 Moreover,
 the functions $x^n$ are uniformly bounded
 and converge pointwise to a function on the unit interval $[0,1]$, but the limit
-is discontinuous.  As we are interested in continuous
-functions, we must require better convergence than pointwise.  For now, let
-us ignore continuity and show that we can get pointwise
+is discontinuous.  We desire continuous
+functions, ergo we must require better convergence than pointwise.  For now,
+we ignore continuity and show that we get pointwise
 converging subsequence on a countable set
 if we start with pointwise bounded functions.
 The proof is a nice example of a diagonalization argument.
@@ -11712,7 +11712,7 @@ $\{ f_{1,k}(x_1) \}_{k=1}^\infty$ converges.
 Suppose we already defined $\{ f_{m,k} \}_{k=1}^\infty$,
 a subsequence of $\{ f_{m-1,k} \}_{k=1}^\infty$,
 such that
-$\{ f_{m,k}(x_j) \}_{k=1}^\infty$ converge for $j=1,2,\ldots,m$.
+$\{ f_{m,k}(x_j) \}_{k=1}^\infty$ converges for $j=1,2,\ldots,m$.
 Let $\{ f_{m+1,k} \}_{k=1}^\infty$ be a subsequence of
 $\{ f_{m,k} \}_{k=1}^\infty$
 such that
@@ -11737,9 +11737,14 @@ fact it converges pointwise).
 \end{exercise}
 
 \begin{exercise}
-Find a sequence of continuous functions $f_n \colon \R \to [0,1]$ that
+Prove that a uniformly convergent sequence of functions converging to a
+bounded function is uniformly bounded.
+\end{exercise}
+
+\begin{exercise}
+Define a sequence of continuous functions $f_n \colon \R \to [0,1]$ that
 converges pointwise to a function that is 1 on a dense set and 0 on another
-dense set.
+dense set.  Hint: Do it piecewise.
 \end{exercise}
 
 \begin{exercise}[Requires measure theory]
@@ -11792,8 +11797,10 @@ a finite set of uniformly continuous functions is uniformly equicontinuous.
 \end{exbox}
 
 \begin{prop}
-Let $(X,d)$ be a compact metric space and
-$f_n \colon X \to \C$ an equicontinuous sequence of functions.
+Let $(X,d)$ be a compact metric space.
+Consider an
+equicontinuous sequence of functions
+$f_n \colon X \to \C$.
 Then the sequence $\{ f_n \}$ is uniformly equicontinuous.
 \end{prop}
 
@@ -11801,9 +11808,9 @@ Then the sequence $\{ f_n \}$ is uniformly equicontinuous.
 Argue by contrapositive.  Suppose that $\{ f_n \}$ is not
 uniformly equicontinuous.  Then there exists an $\epsilon > 0$
 such that for every $k \in \N$, there
-is an $x_k,y_k \in X$ with $d(x_k,y_k) < \nicefrac{1}{k}$
+are $x_k,y_k \in X$ with $d(x_k,y_k) < \nicefrac{1}{k}$
 such that $\sabs{f_{n_k}(x_k)-f_{n_k}(y_k)} \geq \epsilon$ for some $n_k$.
-By compactness $\{x_k\}$ and $\{ y_k\}$ have convergent subsequences, so
+By compactness, $\{x_k\}$ and $\{ y_k\}$ have convergent subsequences, so
 without loss of generality, suppose that they converge, in which case
 they converge to the same $x \in X$.
 For any $\delta > 0$, take $k$ such that
@@ -11819,8 +11826,8 @@ Then
 So either 
 $\abs{f_{n_k}(x_k)-f_{n_k}(x)}$ or $\abs{f_{n_k}(x)-f_{n_k}(y_k)}$ is
 bigger than or equal to a fixed $\nicefrac{\epsilon}{2}$,
-no matter how small $\delta$
-was.  So $\{ f_n \}$ is not equicontinuous at $x$.
+no matter how small $\delta$ is.
+So $\{ f_n \}$ is not equicontinuous at $x$.
 \end{proof}
 
 \begin{exbox}
@@ -11844,8 +11851,8 @@ the Arzel\`a--Ascoli theorem.
 Unlike Bolzano--Weierstrass, Arzel\`a--Ascoli requires equicontinuity
 in addition to boundedness.  We will start with the theorem on compact
 metric spaces, and then move to open sets.
-First, we start with a lemma, showing that we can always find a countable
-set in a compact metric space.  We will then be able to apply our
+We start with a lemma, showing that a countable
+dense set exists in any compact metric space.  We will then be able to apply our
 result about countable sets.
 
 \begin{prop}
@@ -11861,15 +11868,15 @@ As $X$ is compact, for every
 $n \in \N$ there exist
 $x_{n,1},x_{n,2},\ldots,x_{n,k_n} \in X$ such that
 \begin{equation*}
-X= \bigcup_{j=1}^{k_n} B(x_{n,j},\nicefrac{1}{n}) .
+X= \bigcup_{\ell=1}^{k_n} B(x_{n,\ell},\nicefrac{1}{n}) .
 \end{equation*}
 Let $D = \bigcup_{n=1}^\infty \{ x_{n,1},x_{n,2},\ldots,x_{n,k_n} \}$.
 The set $D$ is countable as it is a countable union of finite sets.
 For every $x \in X$
 and every $\epsilon > 0$, there exists an $n$ such that
-$\nicefrac{1}{n} < \epsilon$ and an $x_{n,j} \in D$ such that
+$\nicefrac{1}{n} < \epsilon$ and an $x_{n,\ell} \in D$ such that
 \begin{equation*}
-x \in B(x_{n,j},\nicefrac{1}{n}) \subset B\left(x_{n,j},\epsilon\right) .
+x \in B(x_{n,\ell},\nicefrac{1}{n}) \subset B\left(x_{n,\ell},\epsilon\right) .
 \end{equation*}
 Hence $x \in \widebar{D}$, so $\widebar{D} = X$ and $D$ is dense.
 \end{proof}
@@ -11878,16 +11885,16 @@ Hence $x \in \widebar{D}$, so $\widebar{D} = X$ and $D$ is dense.
 \begin{thm}[Arzel\`a--Ascoli]\index{Arzel\`a--Ascoli theorem}
 \label{thm:arzelaascoli}
 Let $(X,d)$ be a compact metric space, and let $\{ f_n \}$
-be pointwise bounded and equicontinuous sequence
+be a pointwise bounded and equicontinuous sequence
 of functions $f_n \colon X \to \C$.  Then
-$\{f_n\}$ is uniformly bounded and $\{ f_n \}$ contains a uniformly
+$\{f_n\}$ is uniformly bounded and contains a uniformly
 convergent subsequence.
 \end{thm}
 
 \begin{proof}
 As $X$ is compact, then the sequence $\{ f_n \}$ is uniformly
 equicontinuous.
-Let us first show that the sequence is uniformly bounded.
+First, we show that the sequence is uniformly bounded.
 By uniform equicontinuity,
 there is a $\delta > 0$
 such that
