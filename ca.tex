@@ -11870,8 +11870,6 @@ $x_{n,1},x_{n,2},\ldots,x_{n,k_n} \in X$ such that
 \begin{equation*}
 X=
 B(x_{n,1},\nicefrac{1}{n})
-\cup
-B(x_{n,2},\nicefrac{1}{n})
 \cup \cdots \cup
 B(x_{n,k_n},\nicefrac{1}{n}) .
 \end{equation*}
@@ -11908,17 +11906,15 @@ for all $x \in X$ and all $n \in \N$,
 B(x,\delta) \subset f_n^{-1}\bigl(B(f_n(x),1)\bigr) .
 \end{equation*}
 By compactness,
-there exist $x_1,x_2,\ldots,x_k$, such that
+there exist $x_1,\ldots,x_k$, such that
 \begin{equation*}
 X = 
 B(x_1,\delta)
-\cup
-B(x_2,\delta)
 \cup \cdots \cup
 B(x_k,\delta) .
 \end{equation*}
 As $\{ f_n \}$ is pointwise bounded, there exists an $M$
-such that for $\ell=1,2,\ldots,k$,
+such that for $\ell=1,\ldots,k$,
 \begin{equation*}
 \sabs{f_n(x_\ell)} \leq M \qquad \text{for all } n.
 \end{equation*}
@@ -11947,13 +11943,11 @@ B(x,\delta) \subset g_n^{-1}\bigl(B(g_n(x),\nicefrac{\epsilon}{3})\bigr).
 \end{equation*}
 By density of $D$, every $x \in X$ is in some $B(y,\delta)$
 for some $y \in D$.  By compactness of $X$,
-there is a finite subset $\{ x_1,x_2,\ldots,x_k \} \subset D$
+there is a finite subset $\{ x_1,\ldots,x_k \} \subset D$
 such that
 \begin{equation*}
 X = 
 B(x_1,\delta)
-\cup
-B(x_2,\delta) 
 \cup \cdots \cup
 B(x_k,\delta) .
 \end{equation*}
@@ -11962,7 +11956,7 @@ converges pointwise on $D$, there exists a single $N$ such that for
 all $n,m \geq N$,
 \begin{equation*}
 \sabs{g_n(x_\ell)-g_m(x_\ell)} < \nicefrac{\epsilon}{3}
- \qquad \text{for all } \ell=1,2,\ldots,k.
+ \qquad \text{for all } \ell=1,\ldots,k.
 \end{equation*}
 
 Let $x \in X$ be arbitrary.  There is some $\ell$ such that
@@ -12375,43 +12369,43 @@ that is, that $\sF$ is not empty.  This is where we
 use that $U$ is not equal to the complex plane (by Liouville, $\sF$
 would be empty if $U = \C$).  If the complement of $U$ contained an open
 set, things would be easy, but we can only use that the complement of $U$
-contains at least one point, and that it is simply connected.  We will use
-the simply-connectedness to construct a square root, as square root squishes
+contains at least one point, and that $U$ is simply connected.  We will use
+the simply-connectedness to construct a square root, as a square root squishes
 things together.
 
-Suppose $q \in \C \setminus U$.  Then the function $z \mapsto z-q$ is never
-zero and $U$ is simply connected, and so $z-q$ has a holomorphic square
-root, that is, there exists a function $g \colon U \to \C$ such that
+Suppose $q \in \C \setminus U$.  The function $z \mapsto z-q$ is never
+zero and $U$ is simply connected, so $z-q$ has a holomorphic square
+root---there exists a $g \colon U \to \C$ such that
 ${\bigl(g(z)\bigr)}^2 = z-q$.
 The set $g(U)$ is open by the \hyperref[thm:OMT]{open mapping theorem}.
 If $g(z)=g(\zeta)$, then ${\bigl(g(z)\bigr)}^2={\bigl(g(\zeta)\bigr)}^2$ and so
 $z=\zeta$.  Thus $g$ is injective.  What's more,
-$g(z)=-g(\zeta)$ also implies $z=\zeta$.  In particular, that means that $g(z) =
--g(\zeta)$ never happens since $g$ is never zero,
-or in other words $g(U) \cap \bigl( - g(U) \bigr) = \emptyset$.  The set
+$g(z)=-g(\zeta)$ also implies $z=\zeta$.  Thus, $g(z) =
+-g(\zeta)$ never happens since $g$ is never zero.
+In other words, $g(U) \cap \bigl( - g(U) \bigr) = \emptyset$.  The set
 $- g(U)$ (the set of negatives of all points in $g(U)$) is also open, and so
-the complement of $g(U)$ contains an open disc $\Delta_r(\xi)$.  Hence
+the complement of $g(U)$ contains an open disc $\Delta_r(\xi)$.  Hence,
 \begin{equation*}
 z \mapsto \frac{r}{g(z)-\xi}
 \end{equation*}
-takes $U$ to $\D$.
-By composing with the right automorphism of the disc we can assume also that
-we have a map that takes $p$ to $0$.  Hence, $\sF$ is nonempty.
+takes $U$ to $\D$ and is injective.
+By composing with the correct automorphism of the disc,
+we find a map that takes $p$ to $0$.  Hence, $\sF$ is nonempty.
 
-OK.  Now suppose that $f \colon U \to \D$ is a injective holomorphic map
-such that $f(p) = 0$ and suppose that $f$ is not onto.  Suppose there is a
+OK.  Now suppose that $f \colon U \to \D$ is an injective holomorphic map
+such that $f(p) = 0$, but that $f$ is not onto.  There is a
 $q \in \D \setminus f(U)$.
 Recall that
 $\varphi_q(z) = \frac{z-q}{1-\bar{q}z}$ is an automorphism of $\D$ that
-takes $q$ to $0$, so consider $\varphi_q \circ f$.  This function is not
+takes $q$ to $0$, and consider $\varphi_q \circ f$.  This function is not
 zero on $U$ and thus
-again there exists a holomorphic square root $g$ on $U$ such that
+there exists a holomorphic square root $g$ on $U$, that is,
 ${\bigl(g(z)\bigr)}^2 = \varphi_q\bigl(f(z)\bigr)$.
-The square root of a number in $\D$ is still in $\D$ so $g$
-still takes $U$ to $\D$.
+The square root of a number in $\D$ is still in $\D$, so $g$
+takes $U$ to $\D$.
 If $g(z)=g(\zeta)$, then $f(z)=f(\zeta)$ and as
-$f$ is injective, $z=\zeta$, and so $g$ is injective.  
-The function $g$ now takes $p$ to one of the roots of $-q$.
+$f$ is injective, $z=\zeta$.  So $g$ is injective.  
+The function $g$ takes $p$ to one of the roots of $-q$.
 Define
 \begin{equation*}
 h = \varphi_{g(p)} \circ g .
@@ -12439,12 +12433,12 @@ As ${\bigl(g(p)\bigr)}^2 = -q$, then
 \end{equation*}
 If $\sabs{q} < 1$, then $\frac{2 \sqrt{\sabs{q}}}{1+\sabs{q}} < 1$
 (calculus exercise).
-Or in other words,
+In other words,
 \begin{equation*}
 \sabs{f'(p)} < \sabs{h'(p)} .
 \end{equation*}
 
-We now construct a sequence $\{ f_n \}$ in
+Take a sequence $\{ f_n \}$ in
 $\sF$ such that
 \begin{equation*}
 \lim_{n \to \infty} \sabs{f_n'(p)} = \sup_{f \in \sF} \sabs{f'(p)}
@@ -12462,9 +12456,9 @@ We must have $f(p) = 0$ by taking the limit.
 Similarly 
 $\sabs{f(z)} \leq 1$ for all $z \in U$ by taking limits,
 so $f(U) \subset \overline{\D}$.
-By the \hyperref[thm:OMT]{open mapping theorem} we get that $f(U) \subset \D$, so $f \in
+By the \hyperref[thm:OMT]{open mapping theorem}, $f(U) \subset \D$, so $f \in
 \sF$.  If $f$ was not onto, then it would not be the one that achieves the
-supremum for $\sabs{f'(p)}$.  Thus $f(U) = \D$ and it is the desired map.
+supremum of $\sabs{f'(p)}$.  Thus $f(U) = \D$, and $f$ is the desired map.
 
 The uniqueness is left as an exercise.
 \end{proof}
@@ -12473,13 +12467,13 @@ The uniqueness is left as an exercise.
 \begin{exercise}
 Finish the proof of the theorem:
 Given an open $U \subset \C$ and $p \in U$, prove
-that a biholomorphic map
+that a biholomorphic 
 $f \colon U \to \D$ such that $f(p) = 0$ and $f'(p) > 0$ is unique if it exists.
 \end{exercise}
 \end{exbox}
 
 \begin{remark}
-The mapping from the theorem can be useful, but of course the theorem
+The map from the theorem can be useful, but of course the theorem
 itself doesn't tell you how to construct it.
 There are entire books
 written on the subject, collecting the techniques for constructing
@@ -12491,9 +12485,9 @@ Let us not worry about these constructions here.
 
 
 \begin{remark}
-Another common question we will not worry about
+Another interesting question we will not address
 is the boundary regularity of the map.  That is, does the map extend to
-the closure $\widebar{U}$, and how ``nice'' it is.  For example, if $U$ is
+the closure $\widebar{U}$, and how ``nice'' it is.  If $U$ is
 bounded by a Jordan curve, it is known that $f$ extends to be continuous on
 $\widebar{U}$.  If $U$ has smooth boundary (locally a graph of a smooth
 function), then $f$ extends smoothly to $\widebar{U}$.
@@ -12622,6 +12616,16 @@ Then we define $H$ in the same way as we did for $\C$, and then we
 take the whole thing back to $U$.
 \end{proof}
 
+\begin{remark}
+Let us again emphasize that the definition ``simply connected in terms of
+homology'' is not standard.  It is just a shortcut we took in case we wanted
+to skip homotopy on first reading.  In the wild (outside of this book),
+``simply connected'' is
+always in terms of homotopy.  Furthermore, while for domains in $\C$ the two
+concepts happen to be the same, they are not the same for more
+general topological spaces.
+\end{remark}
+
 \begin{exbox}
 \begin{exercise}
 Without using the Riemann mapping theorem, \corref{cor:simplyconnhard},
@@ -12638,17 +12642,18 @@ mapping theorem,
 we will prove a lemma that around any compact set in some domain $U$
 we can find a cycle that goes around this compact set and is homologous to
 zero in $U$.
-What's interesting is that there is no simply connected domain 
+What's interesting is that there is no simply connected domain in sight
 in this problem, but we can still use the
 \hyperref[thm:RMT]{Riemann mapping theorem}
 to greatly
 simplify the topology of the situation.
 There are more direct and
-constructive (but no less technical) ways of proving this theorem,
-but I have an irrational affinity to using the mapping theorem.\footnote{%
+constructive (but no less technical) ways of proving the lemma below,\footnote{%
 The typical proof will put a fine enough square grid on $\C$ and then
 show that if we add up all these small cycles whose squares happen to intersect
 the compact set and remove the doubled sides, we get the cycle we want.}
+but I have an irrational affinity to using the mapping theorem, and this is
+my book after all.
 
 This lemma will allow us to finish the proof that simply
 connected domains in $\C$ are precisely those 
@@ -12671,17 +12676,17 @@ Take one point of it to infinity by an LFT
 (an inversion).
 Then use the Riemann mapping theorem to make the complement of $K$ go to
 the disc (or several discs).
-Then the path is a backwards circle very close to the boundary of the disc
+Then the path is a backwards (clockwise) circle very close to the boundary of the disc
 as this will ``go around'' (after reversing the inversion) what's
 ``outside the disc,'' that is, it will go around $K$.
 The complement of $U$
 corresponds to a compact set inside the disc so this way we will not
 ``go around'' the complement of $U$.
-Then one would want to repeat it for all components of $K$.  See
-\figureref{fig:cyclearoundcompact}.  Of course in
-reality we hit a bunch of technicalities such as $K$ possibly having
-infinitely many connected components and that the complement of a connected
-$K$ can have multiple components, and of course vague intuitive ideas are
+Then one repeat the procedure for all components of $K$.  See
+\figureref{fig:cyclearoundcompact}.  As expected,
+we hit a bunch of technicalities such as $K$ possibly having
+infinitely many connected components, that the complement of a connected
+$K$ can have multiple components, and of course that vague intuitive ideas are
 nice, but we need to actually do some grubby computation to prove anything.
 
 \begin{myfig}
@@ -12689,7 +12694,7 @@ nice, but we need to actually do some grubby computation to prove anything.
 \caption{The idea of the proof: The complement of $K$ with infinity goes to
 the inside of the disc by Riemann mapping theorem.  The inversion is the
 $\varphi$ and $\psi$ is the mapping from Riemann's theorem.
-The outside of the disc on the right is not really the image of $K$ but
+The outside of the disc on the right is not really the image of $K$, but
 morally one could think of it that way (hence the quotes).\label{fig:cyclearoundcompact}}
 \end{myfig}
 
@@ -12699,7 +12704,10 @@ has only finitely many components.  For a small enough $r > 0$ we can cover
 $K$ by finitely many discs $\Delta_r(z)$ such that $\overline{\Delta_r(z)}
 \subset U$.  In particular, for some $z_1,\ldots,z_n$,
 \begin{equation*}
-K' = \bigcup_{j=1}^n \overline{\Delta_r(z_j)}
+K' =
+\overline{\Delta_r(z_1)}
+\cup \cdots \cup
+\overline{\Delta_r(z_n)}
 \end{equation*}
 is a compact subset of $U$ and $K \subset K'$.
 As $K'$ is a union of finitely many closed discs, it has
@@ -18590,7 +18598,7 @@ Let $(X,d)$ be a metric space.
 \item \label{topology:openi} $\emptyset$ and $X$ are open.
 \item \label{topology:openii} If $V_1, V_2, \ldots, V_k$ are open, then
 \begin{equation*}
-\bigcap_{\ell=1}^k V_\ell
+V_1 \cap V_2 \cap \cdots \cap V_k
 \avoidbreak
 \end{equation*}
 is also open.  That is, a finite intersection of open sets is open.
@@ -18646,7 +18654,7 @@ an arbitrary collection of closed sets, then
 is also closed.  That is, an intersection of closed sets is closed.
 \item \label{topology:closediii} If $E_1, E_2, \ldots, E_k$ are closed, then
 \begin{equation*}
-\bigcup_{\ell=1}^k E_\ell
+E_1 \cup E_2 \cup \cdots \cup E_k
 \avoidbreak
 \end{equation*}
 is also closed.  That is, a finite union of closed sets is closed.
@@ -19741,12 +19749,12 @@ there exists a finite subset
 $\{ \lambda_1, \lambda_2,\ldots,\lambda_k \} \subset I$
 such that
 \begin{equation*}
-K \subset \bigcup_{j=1}^k U_{\lambda_j} .
+K \subset U_{\lambda_1} \cup U_{\lambda_2} \cup \cdots \cup U_{\lambda_k} .
 \end{equation*}
 \end{defn}
 
 A collection of open sets $\{ U_{\lambda} \}_{\lambda \in I}$ as above is
-said to be an \emph{\myindex{open cover}} of $K$.  So a way to say that
+said to be an \emph{\myindex{open cover}} of $K$.  A way to say that
 $K$ is compact is to say that \emph{every open cover of $K$ has a finite
 \myindex{subcover}}.
 
@@ -19791,7 +19799,13 @@ K \subset \bigcup_{n=1}^\infty B(p,n) = X .
 If $K$ is compact, then there exists some set of indices
 $n_1 < n_2 < \ldots < n_k$ such that
 \begin{equation*}
-K \subset \bigcup_{j=1}^k B(p,n_j) = B(p,n_k) .
+K \subset
+B(p,n_1)
+\cup
+B(p,n_2)
+\cup \cdots \cup
+B(p,n_k)
+= B(p,n_k) .
 \end{equation*}
 So $K$ is bounded.
 See left-hand side of \figureref{fig:compactbndclosed}.
@@ -19806,7 +19820,11 @@ K \subset \bigcup_{n=1}^\infty {C(x,\nicefrac{1}{n})}^c .
 If we take any
 finite collection of indices $n_1 < n_2 < \ldots < n_k$, then 
 \begin{equation*}
-\bigcup_{j=1}^k {C(x,\nicefrac{1}{n_j})}^c 
+{C(x,\nicefrac{1}{n_1})}^c 
+\cup
+{C(x,\nicefrac{1}{n_2})}^c 
+\cup \cdots \cup
+{C(x,\nicefrac{1}{n_k})}^c 
 =
 {C(x,\nicefrac{1}{n_k})}^c 
 \end{equation*}
