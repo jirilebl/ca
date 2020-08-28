@@ -12962,10 +12962,10 @@ dance.
 \section{Harmonic functions}
 \label{sec:harmonic}
 
-So far, we studied holomorphic functions as complex-valued functions.
+Hitherto, we examined holomorphic functions as complex-valued functions.
 However, to do analysis one needs inequalities, and complex numbers are not
-ordered.  Hence let us study the real and imaginary parts of holomorphic
-functions, the so-called harmonic functions.  Interestingly harmonic
+ordered.  Let us consider the real and imaginary parts of holomorphic
+functions, the so-called harmonic functions.  Interestingly, harmonic
 functions come up often in applied mathematics, for example as steady state
 heat or the distribution of electrostatic potential in a region without
 charge.  Harmonic functions are used to study
@@ -12976,23 +12976,23 @@ Most of the results
 we will prove for harmonic functions are analogues of the results 
 for holomorphic functions.  The reader is
 encouraged to look for these connections.
-However, the results for harmonic functions are not
+Just as it is best to study animals in their natural habitat,
+many results we proved for holomorphic functions are
+better understood as results for harmonic functions.
+Nevertheless, the results for harmonic functions are not
 always a simple application of what has already been proved for holomorphic
 functions, and even the
 statements or proofs of the analogous results may be quite different.
-While locally, harmonic
-functions are always the real or imaginary parts of holomorphic functions,
-globally, this may not be true.
-Furthermore,
-just as it is best to study animals in their natural habitat,
-many results we have proved for holomorphic functions are
-better understood as results for harmonic functions.
+Harmonic functions are somewhat more general than real and
+imaginary parts of holomorphic functions.  They are real and imaginary parts
+of holomorphic functions only locally, but perhaps not globally.
+
 
 \subsection{Real and imaginary parts of holomorphic functions}
 
 \begin{defn}
 Let $U \subset \C$ be open.
-A twice (real) continuously differentiable ($C^2$ for short) function $f \colon U \to \R$ is
+A twice continuously (real) differentiable ($C^2$ for short) function $f \colon U \to \R$ is
 \emph{\myindex{harmonic}} if
 \glsadd{not:laplacian}%
 \begin{equation*}
@@ -13011,7 +13011,8 @@ $\nabla^2 f =
 \frac{\partial^2 f}{\partial x_n^2}$, and so there
 are harmonic functions in any dimension.
 We are interested in the complex plane, $n=2$,
-which is surprisingly different from the $n \geq 3$ case.}
+which is surprisingly different from the $n \geq 3$ case.
+When $n \geq 3$, the theory has far less to do with complex analysis.}
 It is the trace of the Hessian matrix.  It is convenient 
 to note that
 \begin{equation*}
@@ -13046,7 +13047,7 @@ f
 Namely, $f$ is harmonic if and only if
 $\frac{\partial f}{\partial z}$ is holomorphic.
 Locally (in some neighborhood), we find a
-primitive, and we write
+primitive $g$ of $\frac{\partial f}{\partial z}$, and we write
 \begin{equation*}
 f(z) = g(z) + c(z) ,
 \end{equation*}
@@ -13063,12 +13064,11 @@ Let $h = \bar{c}$ be the complex conjugate of $c$.  Then
 =
 0 ,
 \end{equation*}
-so $h$ is holomorphic.  Thus
+so $h$ is holomorphic.  Thus, for some holomorphic $g$ and $h$,
 \begin{equation*}
-f(z) = g(z) + \overline{h(z)} ,
+f(z) = g(z) + \overline{h(z)} .
 \end{equation*}
-where $g$ and $h$ are holomorphic.
-Let $\varphi(z) = g(z) + h(z)$.
+Consider the holomorphic $\varphi(z) = g(z) + h(z)$.
 As $f$ is real-valued,
 \begin{equation*}
 f(z) = \Re f(z) =
@@ -13084,12 +13084,13 @@ function.
 This all works only in some neighborhood.  We cannot necessarily find a single
 $\varphi$ (the $g$ and $h$ above) in the entire
 domain $U$, unless $U$ is simply connected.  If not, we can always
-pick a simply connected neighborhood such as a disc.
+pick a simply connected neighborhood, such as a disc.
 If $U$ is simply connected, then
 $\frac{\partial f}{\partial z}$ has a primitive in $U$,
-and so we have the following proposition.
+and the computation above leads to
+the following proposition.
 
-\begin{prop}
+\begin{prop} \label{prop:harmconj}
 Let $U \subset \C$ be a simply connected domain and $f \colon U \to \R$ a
 harmonic function.  Then there exists a holomorphic $\varphi \colon
 U \to \C$ such that $f = \Re \varphi$.
@@ -13118,10 +13119,16 @@ Then
 =
 2
 \left(
-\frac{\partial^2}{\partial z \partial \bar{z}}
-\varphi(z) +
-\frac{\partial^2}{\partial \bar{z} \partial z}
+\frac{\partial}{\partial z}
+\left(
+\frac{\partial}{\partial \bar{z}}
+\varphi(z)
+\right)+
+\frac{\partial}{\partial \bar{z}}
+\left(
+\frac{\partial}{\partial z}
 \overline{\varphi(z)}
+\right)
 \right)
 =
 0 .
@@ -13138,7 +13145,7 @@ for every point $p \in U$ there exists an open neighborhood $V$ of $p$ and a
 holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
 on $V$.
 \item
-If $f$ is harmonic, then it is infinitely (real) differentiable and
+The function $f$ is harmonic if and only if
 for every $p \in U$, there exists a power series expansion
 \begin{equation*}
 f(z) =
@@ -13151,13 +13158,28 @@ on any closed disc $\overline{\Delta_r(p)} \subset U$.
 \end{enumerate}
 \end{prop}
 
+As holomorphic functions are
+infinitely differentiable, harmonic functions are as well.
+Actually, we see above that harmonic functions have a real power series
+(a power series in $x$ and $y$, or equivalently in $z$ and $\bar{z}$)
+and so they are what is called real-analytic.
+
+\begin{prop}
+If $U \subset \C$ is open and $f \colon U \to \R$ is harmonic, then $f$ is infinitely (real) differentiable.
+\end{prop}
+
+Starting with a harmonic function $f$, finding the holomorphic function whose
+real part is $f$ means finding another harmonic function such that $f+ig$ is
+holomorphic.
+
 \begin{defn}
 Let $U \subset \C$ be open and $f \colon U \to \R$ harmonic.
 If $g \colon U \to \R$ is harmonic and $f + i g$ is holomorphic,
 then $g$ is called the \emph{\myindex{harmonic conjugate}} of $f$.
 \end{defn}
 
-The proposition says that every harmonic function on a simply connected
+\propref{prop:harmconj}
+says that every harmonic function on a simply connected
 domain has a harmonic conjugate.  On the other hand, on the punctured plane
 $\C \setminus \{ 0 \}$, the harmonic function $\log \sabs{z}$ 
 fails to have a harmonic conjugate.  If it did have a harmonic conjugate,
@@ -13180,7 +13202,7 @@ The proof is trivial: The hypothesis implies that
 is holomorphic and it is real-valued on $U$, and thus constant.
 
 The real and imaginary parts of a holomorphic function are harmonic,
-however, the modulus $\sabs{f(z)}$ is not however.  Not to fear,
+however, the modulus $\sabs{f(z)}$ is not.  Not to fear,
 $\log \sabs{f(z)}$ is harmonic, at least where $f$ is nonzero.
 The fact that $\log \sabs{f(z)}$ is harmonic is just as useful
 as that the real and imaginary parts of $f$ are.  The proof is left
@@ -13220,6 +13242,13 @@ $\frac{x}{x^2+y^2}$ on $z\not=0$
 \end{exercise}
 
 \begin{exercise}
+Suppose that $U \subset \C$ is a simply connected domain
+and $f \colon U \to \R$ a harmonic function.  Prove that there exists
+a holomorphic function $\varphi \colon U \to \C$ such that
+$f(z) = \log \sabs{\varphi(z)}$.
+\end{exercise}
+
+\begin{exercise}
 Let $U,V \subset \C$ be open sets and
 $f \colon U \to V$ be holomorphic. Prove:
 \begin{exparts}
@@ -13240,14 +13269,6 @@ if $z \mapsto \sabs{f(z)}^2$ is harmonic, then $f$ is constant.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open, $\overline{\D} \subset U$,
-and $f \colon U \to \R$ is harmonic.  Expand
-$f$ as a series at the origin, and find a formula
-for the $c_n$ as in \propref{prop:harmanal} in terms
-of an integral around $\partial \D$.
-\end{exercise}
-
-\begin{exercise}
 Suppose $f \colon \C \to \R$ is harmonic.
 \begin{exparts}
 \item
@@ -13258,6 +13279,14 @@ such that $F=f$ on $\partial \D$.
 Show that if $F$ from part a) has a pole at the origin, then $f$
 is the real part of a holomorphic polynomial.
 \end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open, $\overline{\D} \subset U$,
+and $f \colon U \to \R$ is harmonic.  Expand
+$f$ as a real power series at the origin as in \propref{prop:harmanal}, and find a formula
+for the $c_n$ in terms
+of an integral around $\partial \D$.
 \end{exercise}
 
 % Best for this to be the last in this exbox,
@@ -13300,7 +13329,7 @@ The procedure above, writing
 \end{equation*}
 that is, a sum of derivatives as a composition of
 different derivatives,
-so that we could integrate in these two new variables, that procedure may
+so that we could integrate in these two new variables, may
 sound familiar.  In this case we obtained a harmonic $f$ as a function
 of $z$ (a holomorphic function) plus a function of $\bar{z}$ (an
 antiholomorphic function).
@@ -13326,7 +13355,7 @@ variables), then
 \frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2} .
 \end{equation*}
 As before, a solution $f$ to the wave equation is a function
-of $\mu$ plus a function of $\eta$.  That is, $f(x,y) = A(\mu) + B(\eta) =
+of $\mu$ plus a function of $\eta$.  That is, $f(x,t) = A(\mu) + B(\eta) =
 A(x+t)+B(x-t)$, two waves travelling in opposite directions.  The
 functions $A$ and $B$ need not be nice at all, any twice real differentiable
 functions.
@@ -13336,8 +13365,9 @@ It is interesting that one puny minus sign makes such a huge difference.
 \subsection{Identity and the maximum principle}
 
 A consequence of the propositions above is the identity theorem
-for harmonic functions.  For harmonic functions, the zero set is allowed to
-have limit points. For instance, $\Re z$ is zero on the entire imaginary
+for harmonic functions.
+The zero set of a harmonic function is allowed to have limit points.
+For instance, $\Re z$ is zero on the entire imaginary
 axis.  However, we are still not allowed open sets for nonconstant harmonic
 functions.  It is really a property of real-analytic functions, that is,
 functions that have a power series representation in terms of $x$ and $y$
@@ -13353,13 +13383,14 @@ Suppose $V \subset U$ is a nonempty open subset and $f = 0$ on $V$.  Then $f
 \begin{proof}
 Let $Z_f$ be the zero set of $f$ and let $Z$ be the closure of the interior
 of $Z_f$ in the subspace topology of $U$.
-Suppose $Z$ is nonempty and
-consider some $p \in Z$.  Then for any disc $\Delta_r(p) \subset U$, $f$ is
+The set $Z$ is nonempty by hypothesis, so
+consider some $p \in Z$.  For any disc $\Delta_r(p) \subset U$, $f$ is
 zero on some open subset of the disc.  On $\Delta_r(p)$, the function
 $f$ has a harmonic
 conjugate $g$ and $f+i g$ is a holomorphic function that is purely imaginary on
 an open subset of $\Delta_r(p)$ and hence constant on that open subset.
-By the identity theorem for holomorphic functions, $f+ig$ is constant 
+By the \hyperref[thm:identity]{identity theorem for holomorphic functions},
+$f+ig$ is constant 
 on $\Delta_r(p)$.
 Since $f$ is zero somewhere on the
 disc and constant, it is zero on the entire disc.  Thus $Z$
@@ -13383,7 +13414,7 @@ is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $
 Suppose that $f$ attains a local maximum at $p \in U$.
 The statement for a minimum follows by considering $-f$.
 Let $\Delta_r(p) \subset U$
-be a disc such that $p$ is the global maximum on $\Delta_r(p)$.
+be a disc such that $p$ is the maximum of $f$ on $\Delta_r(p)$.
 There exists a holomorphic $h \colon \Delta_r(p) \to \C$
 such that $f = \Re h$.
 Then $h$ takes
@@ -13410,6 +13441,20 @@ $f \colon \widebar{U} \to \R$ is continuous and harmonic on $U$,
 then $f$ achieves both its maximum and its minimum
 on the boundary $\partial U$.
 \end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open such that $\R \cap U \not= \emptyset$
+and $\R \cap U$ is connected.
+Suppose $f \colon U \to \R$ is harmonic
+and the zero set of the restriction $f|_{\R \cap U}$ has a limit point in
+$\R \cap U$.  Prove that $f|_{\R \cap U} \equiv 0$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \R$ is harmonic.
+Prove that $f(U)$ is an open interval or a single point.
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13418,14 +13463,14 @@ on the boundary $\partial U$.
 
 \subsection{The Dirichlet problem in a disc and the Poisson kernel}
 
-It is useful to find a harmonic function given boundary values.
-That is, given an open $U \subset \C$
+It is useful to find a harmonic function given boundary values:
+Given an open $U \subset \C$
 and a continuous $u \colon \partial U \to \R$,
 find a continuous $f \colon \widebar{U} \to \R$
 harmonic on $U$ such that $f|_{\partial U} = u$.
 This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
 solvable for many (though not all) open sets.  If the solution exists on a
-bounded domain, then it is unique.  On unbounded domains solution need not
+bounded domain, then it is unique.  On unbounded domains, the solution need not
 be unique, see \exerciseref{exercise:upperhalfplanedirichlet}.
 
 \begin{prop}
@@ -13435,8 +13480,10 @@ such that $f = g$ on $\partial U$.
 Then $f=g$ on $U$.
 \end{prop}
 
-The proof is simply the maximum principle (second version,
-\exerciseref{exercise:maxprincsecondharmonic}) applied to $f-g$.
+\begin{proof}
+Apply the maximum principle (second version,
+\exerciseref{exercise:maxprincsecondharmonic}) to $f-g$.
+\end{proof}
 
 The solution of the problem in a disc is rather useful and rather explicit.
 It is achieved by integration against the so-called
@@ -13453,8 +13500,8 @@ P_r(\theta)
 \Re \left( \frac{1+re^{i\theta}}{1-re^{i\theta}}\right) ,
 \qquad \text{for $0 \leq r < 1$.}
 \end{equation*}
-As a function of $z \in \D$, see \figureref{fig:poissongraph},
-the Poisson kernel is
+As a function of $z \in \D$
+the Poisson kernel is (see \figureref{fig:poissongraph})
 \begin{equation*}
 z \mapsto \frac{1}{2\pi} \Re \left(
 \frac{1+z}{1-z}\right).
