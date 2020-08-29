@@ -13665,7 +13665,7 @@ Pu(re^{i\theta})
 Let $M$ be the supremum of
 $u$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
 As $u$ is uniformly continuous on $\partial \D$, consider $\delta > 0$
-small enough so that $\babs{u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta})} <
+small enough so that $\babs{u(e^{i(\theta-t)})-u(e^{i\theta})} <
 \nicefrac{\epsilon}{2}$ whenever $\sabs{t} < \delta$.
 \propref{prop:Poissonprops} says there exists
 a $\delta' > 0$ such that if  
@@ -13689,7 +13689,7 @@ Pu(r e^{i\theta} ) - u(e^{i\theta})
 }
 & =
 \abs{
-\int_{-\pi}^{\pi} \Bigl( u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta}) \Bigr) P_r(t) \, dt
+\int_{-\pi}^{\pi} \bigl( u(e^{i(\theta-t)})-u(e^{i\theta}) \bigr) P_r(t) \, dt
 }
 \\
 & \leq 
@@ -13711,10 +13711,10 @@ First,
 \begin{equation*}
 \begin{split}
 \abs{
-\int_{-\pi}^{-\delta} \Bigl( u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta}) \Bigr) P_r(t) \, dt
+\int_{-\pi}^{-\delta} \bigl( u(e^{i(\theta-t)})-u(e^{i\theta}) \bigr) P_r(t) \, dt
 }
 & \leq
-\int_{-\pi}^{-\delta} \abs{ u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta}) }
+\int_{-\pi}^{-\delta} \abs{ u(e^{i(\theta-t)})-u(e^{i\theta}) }
 P_r(t) \, dt
 \\
 & \leq (\pi-\delta) 2M \frac{\epsilon}{8M\pi} < \frac{\epsilon}{4} .
@@ -13725,10 +13725,10 @@ Next the middle integral,
 \begin{equation*}
 \begin{split}
 \abs{
-\int_{-\delta}^{\delta} \Bigl( u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta}) \Bigr) P_r(t) \, dt
+\int_{-\delta}^{\delta} \bigl( u(e^{i(\theta-t)})-u(e^{i\theta}) \bigr) P_r(t) \, dt
 }
 & \leq
-\int_{-\delta}^{\delta} \abs{u\bigl(e^{i(\theta-t)}\bigr)-u(e^{i\theta})}
+\int_{-\delta}^{\delta} \abs{u(e^{i(\theta-t)})-u(e^{i\theta})}
 P_r(t) \, dt
 \\
 & \leq
@@ -13748,29 +13748,29 @@ Pu(r e^{i\theta} ) - u(e^{i\theta})
 And so $Pu(re^{i\theta}) \to u(e^{i\theta})$ uniformly in $\theta$
 as $r \uparrow 1$.
 
-Finally, we must show that for any $z_0 = e^{i\theta_0} \in \partial \D$,
-we have that
+Finally, for any $z_0 = e^{i\theta_0} \in \partial \D$,
+we must show that
 $Pu(z)$ tends to $Pu(z_0)=u(z_0)$ as $z \in \overline{\D}$ tends to $z_0$.
 Let $\epsilon > 0$ be given.  As $u = Pu|_{\partial \D}$ is
 uniformly continuous, pick a $\delta > 0$ such that
-$\sabs{Pu(e^{i\theta})-Pu(e^{i\theta_0})} < \nicefrac{\epsilon}{2}$
+$\babs{Pu(e^{i\theta})-Pu(e^{i\theta_0})} < \nicefrac{\epsilon}{2}$
 whenever $\sabs{\theta-\theta_0} < \delta$.
-Also make $\delta$ small enough so that $\sabs{Pu(re^{i
+Also make $\delta$ small enough so that $\babs{Pu(re^{i
 \theta})-Pu(e^{i\theta})} < \nicefrac{\epsilon}{2}$
 when $1 - \delta < r \leq 1$ for all $\theta$.
 Putting the two estimates together we get
 \begin{equation*}
-\sabs{Pu(re^{i\theta})-Pu(e^{i\theta_0})}
+\babs{Pu(re^{i\theta})-Pu(e^{i\theta_0})}
 \leq
-\sabs{Pu(re^{i\theta})-Pu(e^{i\theta})}
+\babs{Pu(re^{i\theta})-Pu(e^{i\theta})}
 +
-\sabs{Pu(e^{i\theta})-Pu(e^{i\theta_0})}
+\babs{Pu(e^{i\theta})-Pu(e^{i\theta_0})}
 < \epsilon
 \end{equation*}
 whenever $z=re^{i\theta}$ satisfies $1 - \delta < r \leq 1$ and
 $\sabs{\theta-\theta_0} < \delta$.
 See \figureref{fig:proofofdirichlet}.
-Therefore $Pu$ is
+Therefore, $Pu$ is
 continuous at $z_0$.
 \begin{myfig}
 \subimport*{figures/}{proofofdirichlet.pdf_t}
@@ -13789,14 +13789,14 @@ should write out the details as an exercise.
 \begin{exbox}
 \begin{exercise}
 We proved that given $\epsilon > 0$, there exists a $\delta > 0$ such that
-$\sabs{Pu(re^{i\theta})-Pu(e^{i\theta_0})} < \epsilon$
+$\babs{Pu(re^{i\theta})-Pu(e^{i\theta_0})} < \epsilon$
 when $\sabs{\theta-\theta_0} < \delta$ and
 $1 - \delta < r \leq 1$.  Prove that this really does mean that
 $\lim_{z \to z_0} Pu(z) = u(z_0) = Pu(z_0)$.
 \end{exercise}
 \end{exbox}
 
-A simple translation and scaling gives the more general version for
+Translation and scaling gives the more general version for
 any disc.
 
 \begin{cor} \label{cor:dirichsol}
@@ -13830,7 +13830,7 @@ a representation of harmonic functions in terms of boundary values, just
 like the Cauchy integral formula does for holomorphic functions.
 That is, if $\overline{\Delta_R(p)} \subset U$ and $f$ is harmonic in $U$,
 then $P[f|_{\partial \Delta_R(p)}] = f|_{\overline{\Delta_R(p)}}$.
-In particular for $z = p+re^{i\theta} \in \Delta_R(p)$,
+In particular, for $z = p+re^{i\theta} \in \Delta_R(p)$,
 \begin{equation*}
 f(z) = \int_{-\pi}^\pi f(p+Re^{it}) P_{r/R}(\theta-t) \, dt .
 \end{equation*}
@@ -13839,8 +13839,8 @@ changes based on the domain.  One can find the Poisson kernel for other
 domains than the disc (as long as the boundary is nice enough), although
 in general we do not have an explicit formula for it.  This is different
 from the Cauchy integral formula where the kernel is $\frac{1}{\zeta-z}$
-no matter what the path that we were integrating around, that is, no matter
-what domain we were solving for.
+no matter the path that we were integrating around, that is, no matter
+what domain we were solving in.
 
 The Poisson kernel is also a reproducing kernel for
 holomorphic functions, as holomorphic functions are harmonic
@@ -13853,9 +13853,9 @@ a holomorphic function, $Cu$ and $Pu$ will be different in the disc.
 For example, if $u=z+\bar{z}$ on the circle, then $Pu = z+\bar{z}$ inside
 the disc but $Cu = z$ inside the disc.
 
-A Poisson kernel also exists for higher dimensions, that is in $\R^n$ for
-$n > 2$, and has
-analogous properties, although we will not study those here.
+%A Poisson kernel also exists for higher dimensions, that is in $\R^n$ for
+%$n > 2$, and has
+%analogous properties, although we will not study those here.
 
 It is particularly useful to notice is that
 in the corollary if we plug in $r=0$, we get
@@ -13864,7 +13864,7 @@ Pu(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(p + R e^{it}) \, dt .
 \end{equation}
 That is, the value at the center of the disc, $Pu(p)$, is the average 
 value of $u$ on $\partial \Delta_R(p)$.
-In the next section we will see that this property actually characterizes
+In the next section, we will see that this property actually characterizes
 harmonic functions.
 
 \begin{exbox}
@@ -13976,7 +13976,7 @@ and zero on $\partial U$ is called a
 Find a Martin function on the upper half-plane $\bH$.
 \item
 Find a Martin function on $\{ z \in \C : \Re z > 0, 0 < \Im z < 1
-\}$.  Hint: Hyperblic sine.
+\}$.  Hint: Hyperbolic sine.
 \item
 Prove that if $U$ is bounded, then there are no Martin functions on $U$.
 \item
@@ -13985,6 +13985,7 @@ Prove that if $f$ is a Martin function on $\bH$, then $f$ is unbounded.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Suppose $0 < r < 1$.
 \begin{exparts}
 \item
@@ -14010,9 +14011,9 @@ that is $1$ when $\sabs{z}=r$.
 We can define harmonic functions in one real variable
 by saying $f$ is harmonic if and only if
 $\nabla^2 f = \frac{\partial^2}{\partial x^2} f = f'' = 0$, that is, $f(x) = Ax+B$, an affine
-linear function.  It is quite useful to think of harmonic functions as one
+linear function.  It is quite useful to think of harmonic functions on $\C$ as one
 particular analogue of affine linear functions to $\C$, although we ought
-not to take this analogy too far of course.
+not to take this analogy too far, of course.
 One property of affine linear functions is a mean-value property, that is,
 given $a < b$ then $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
 value at the center of the interval is equal to the average of values at the
