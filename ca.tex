@@ -5466,7 +5466,7 @@ The circle of radius 5 centered at $i+1$ oriented clockwise.
 \end{exparts}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:strongerCIFdisc}
 Strenghten the theorem:  Show that the conclusion holds if
 we only assume that $f \colon \overline{\Delta_r(p)} \to \C$
 is continuous and $f$ is holomorphic on $\Delta_r(p)$.
@@ -6481,20 +6481,20 @@ h(z) =
 is a holomorphic function $U$.
 \end{cor}
 
-For a continuous $u \colon \partial \Delta_r(p) \to \C$, define
-the \emph{\myindex{Cauchy transform}} $Cu \colon \Delta_r(p) \to \C$ by
+For a continuous $f \colon \partial \Delta_r(p) \to \C$, define
+the \emph{\myindex{Cauchy transform}} $Cf \colon \Delta_r(p) \to \C$ by
 \glsadd{not:Cauchytransform}%
 \begin{equation*}
-Cu(z)
+Cf(z)
 \overset{\text{def}}{=}
 \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)}
-\frac{u(\zeta)}{\zeta-z}\, d\zeta .
+\frac{f(\zeta)}{\zeta-z}\, d\zeta .
 \end{equation*}
 
 \begin{cor}
-For a continuous $u \colon \partial \Delta_r(p) \to \C$,
-the Cauchy transform $Cu \colon \Delta_r(p) \to \C$ is holomorphic.
+For a continuous $f \colon \partial \Delta_r(p) \to \C$,
+the Cauchy transform $Cf \colon \Delta_r(p) \to \C$ is holomorphic.
 \end{cor}
 
 The corollary gives a converse to Cauchy's formula.
@@ -6508,21 +6508,35 @@ f(z) =
 \end{equation*}
 then $f|_{\Delta_r(p)}$ is holomorphic.
 
-It is not necessarily true that $Cu$ tends to $u$ as we approach the
-boundary of the disc unless $u$ came from 
-a holomorphic function to begin with.  That is, $Cu$ might (or might not) have limits at
-the boundary of the disc, but they need not be equal to $u$.
+It is not necessarily true that $Cf$ tends to $f$ as we approach the
+boundary of the disc unless $f$ came from 
+a holomorphic function to begin with.  That is, $Cf$ might (or might not) have limits at
+the boundary of the disc, but they need not be equal to $f$.
 
 
 \begin{exbox}
 \begin{exercise}
 Explicitly compute
-the Cauchy transform $Cu$ on $\D$ for $u \colon \partial \D \to \C$
-given by $u(z) = \bar{z}$.  Then note that $Cu$ does not tend to $u$
+the Cauchy transform $Cf$ on $\D$ for $f \colon \partial \D \to \C$
+given by $f(z) = \bar{z}$.  Then note that $Cf$ does not tend to $f$
 as $z$ goes to $\partial \D$.
 Hint: $\bar{\zeta} = \frac{1}{\zeta}$ for
 $\zeta \in \partial \D$
 and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $g \colon \partial \Delta_r(p) \to \C$ and
+there exists a continuous
+$f \colon \overline{\Delta_r(p)} \to \C$ that is
+holomorphic in $\Delta_r(p)$, where $g = f|_{\partial \Delta_r(p)}$.
+Prove that $Cg$ extends to a
+continuous function on $\overline{\Delta_r(p)}$ such that
+$Cg(z) = g(z)$ for $z \in \partial \Delta_r(p)$.
+In other words, if $g$ is
+the boundary value of a holomorphic function, then $Cg$ does indeed tend to
+$g$ as $z$ tends to the boundary $\partial \Delta_r(p)$.
+Hint: See \exerciseref{exercise:strongerCIFdisc}.
 \end{exercise}
 
 \begin{exercise}[Easy]
@@ -13465,9 +13479,9 @@ Prove that $f(U)$ is an open interval or a single point.
 
 It is useful to find a harmonic function given boundary values:
 Given an open $U \subset \C$
-and a continuous $u \colon \partial U \to \R$,
-find a continuous $f \colon \widebar{U} \to \R$
-harmonic on $U$ such that $f|_{\partial U} = u$.
+and a continuous $f \colon \partial U \to \R$,
+find a continuous $g \colon \widebar{U} \to \R$
+harmonic on $U$ such that $g|_{\partial U} = f$.
 This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
 solvable for many (though not all) open sets.  If the solution exists on a
 bounded domain, then it is unique.  On unbounded domains, the solution need not
@@ -13599,18 +13613,18 @@ is purely imaginary.
 \end{proof}
 
 \begin{thm} \label{thm:dirichsol}
-Let $u \colon \partial \D \to \R$ be continuous.
+Let $f \colon \partial \D \to \R$ be continuous.
 Then
-$Pu \colon \overline{\D} \to \R$, defined by
-\glsadd{not:Pu}%
+$Pf \colon \overline{\D} \to \R$, defined by
+\glsadd{not:Pf}%
 \begin{equation*}
-Pu(re^{i\theta})
+Pf(re^{i\theta})
 =
 \begin{cases}
-\int_{-\pi}^\pi u(e^{it}) P_{r}(\theta-t) \, dt
+\int_{-\pi}^\pi f(e^{it}) P_{r}(\theta-t) \, dt
 &
 \text{if $r < 1$,} \\
-u(e^{i\theta}) & \text{if $r=1$,}
+f(e^{i\theta}) & \text{if $r=1$,}
 \end{cases}
 \end{equation*}
 is harmonic in $\D$ and continuous on $\overline{\D}$.
@@ -13637,14 +13651,14 @@ P_r(\theta-t)
 is harmonic as a function of $z=re^{i\theta}$.
 By differentiating under the integral,
 \begin{equation*}
-Pu(z)
+Pf(z)
 =
-Pu(re^{i\theta})
+Pf(re^{i\theta})
 =
-\int_{-\pi}^\pi u(e^{it}) P_r(\theta-t) \, dt
+\int_{-\pi}^\pi f(e^{it}) P_r(\theta-t) \, dt
 =
 \frac{1}{2\pi}
-\int_{-\pi}^\pi u(e^{it}) 
+\int_{-\pi}^\pi f(e^{it}) 
 \Re
 \left(
 \frac{1+z e^{-it}}{1-z e^{-it}}
@@ -13653,19 +13667,19 @@ Pu(re^{i\theta})
 \end{equation*}
 is harmonic for $z = re^{i\theta} \in \D$.
 
-As both $P_r$ and $u(e^{it})$ are $2 \pi$-periodic we 
+As both $P_r$ and $f(e^{it})$ are $2 \pi$-periodic we 
 change variables:
 \begin{equation*}
-Pu(re^{i\theta})
+Pf(re^{i\theta})
 =
-\int_{-\pi}^\pi u(e^{it}) P_r(\theta-t) \, dt
+\int_{-\pi}^\pi f(e^{it}) P_r(\theta-t) \, dt
 =
-\int_{-\pi}^\pi u\bigl(e^{i(\theta-t)}\bigr) P_r(t) \, dt .
+\int_{-\pi}^\pi f\bigl(e^{i(\theta-t)}\bigr) P_r(t) \, dt .
 \end{equation*}
 Let $M$ be the supremum of
-$u$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
-As $u$ is uniformly continuous on $\partial \D$, consider $\delta > 0$
-small enough so that $\babs{u(e^{i(\theta-t)})-u(e^{i\theta})} <
+$f$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
+As $f$ is uniformly continuous on $\partial \D$, consider $\delta > 0$
+small enough so that $\babs{f(e^{i(\theta-t)})-f(e^{i\theta})} <
 \nicefrac{\epsilon}{2}$ whenever $\sabs{t} < \delta$.
 \propref{prop:Poissonprops} says there exists
 a $\delta' > 0$ such that if  
@@ -13678,18 +13692,18 @@ $\int_{-\pi}^\pi P_r(t) \, dt = 1$,%
 \footnote{This is a trick you see all the time in analysis, it is good to
 remember it.}
 \begin{equation*}
-u(e^{i\theta})=
-\int_{-\pi}^\pi u(e^{i\theta}) P_r(t) \, dt .
+f(e^{i\theta})=
+\int_{-\pi}^\pi f(e^{i\theta}) P_r(t) \, dt .
 \end{equation*}
 So
 \begin{equation*}
 \begin{split}
 \sabs{
-Pu(r e^{i\theta} ) - u(e^{i\theta})
+Pf(r e^{i\theta} ) - f(e^{i\theta})
 }
 & =
 \abs{
-\int_{-\pi}^{\pi} \bigl( u(e^{i(\theta-t)})-u(e^{i\theta}) \bigr) P_r(t) \, dt
+\int_{-\pi}^{\pi} \bigl( f(e^{i(\theta-t)})-f(e^{i\theta}) \bigr) P_r(t) \, dt
 }
 \\
 & \leq 
@@ -13711,10 +13725,10 @@ First,
 \begin{equation*}
 \begin{split}
 \abs{
-\int_{-\pi}^{-\delta} \bigl( u(e^{i(\theta-t)})-u(e^{i\theta}) \bigr) P_r(t) \, dt
+\int_{-\pi}^{-\delta} \bigl( f(e^{i(\theta-t)})-f(e^{i\theta}) \bigr) P_r(t) \, dt
 }
 & \leq
-\int_{-\pi}^{-\delta} \abs{ u(e^{i(\theta-t)})-u(e^{i\theta}) }
+\int_{-\pi}^{-\delta} \abs{ f(e^{i(\theta-t)})-f(e^{i\theta}) }
 P_r(t) \, dt
 \\
 & \leq (\pi-\delta) 2M \frac{\epsilon}{8M\pi} < \frac{\epsilon}{4} .
@@ -13725,10 +13739,10 @@ Next the middle integral,
 \begin{equation*}
 \begin{split}
 \abs{
-\int_{-\delta}^{\delta} \bigl( u(e^{i(\theta-t)})-u(e^{i\theta}) \bigr) P_r(t) \, dt
+\int_{-\delta}^{\delta} \bigl( f(e^{i(\theta-t)})-f(e^{i\theta}) \bigr) P_r(t) \, dt
 }
 & \leq
-\int_{-\delta}^{\delta} \abs{u(e^{i(\theta-t)})-u(e^{i\theta})}
+\int_{-\delta}^{\delta} \abs{f(e^{i(\theta-t)})-f(e^{i\theta})}
 P_r(t) \, dt
 \\
 & \leq
@@ -13741,40 +13755,40 @@ P_r(t) \, dt
 Putting it all together, as long as $1-\delta' < r < 1$,
 \begin{equation*}
 \sabs{
-Pu(r e^{i\theta} ) - u(e^{i\theta})
+Pf(r e^{i\theta} ) - f(e^{i\theta})
 } < \frac{\epsilon}{4} + \frac{\epsilon}{2} + \frac{\epsilon}{4} =
 \epsilon.
 \end{equation*}
-And so $Pu(re^{i\theta}) \to u(e^{i\theta})$ uniformly in $\theta$
+And so $Pf(re^{i\theta}) \to f(e^{i\theta})$ uniformly in $\theta$
 as $r \uparrow 1$.
 
 Finally, for any $z_0 = e^{i\theta_0} \in \partial \D$,
 we must show that
-$Pu(z)$ tends to $Pu(z_0)=u(z_0)$ as $z \in \overline{\D}$ tends to $z_0$.
-Let $\epsilon > 0$ be given.  As $u = Pu|_{\partial \D}$ is
+$Pf(z)$ tends to $Pf(z_0)=f(z_0)$ as $z \in \overline{\D}$ tends to $z_0$.
+Let $\epsilon > 0$ be given.  As $f = Pf|_{\partial \D}$ is
 uniformly continuous, pick a $\delta > 0$ such that
-$\babs{Pu(e^{i\theta})-Pu(e^{i\theta_0})} < \nicefrac{\epsilon}{2}$
+$\babs{Pf(e^{i\theta})-Pf(e^{i\theta_0})} < \nicefrac{\epsilon}{2}$
 whenever $\sabs{\theta-\theta_0} < \delta$.
-Also make $\delta$ small enough so that $\babs{Pu(re^{i
-\theta})-Pu(e^{i\theta})} < \nicefrac{\epsilon}{2}$
+Also make $\delta$ small enough so that $\babs{Pf(re^{i
+\theta})-Pf(e^{i\theta})} < \nicefrac{\epsilon}{2}$
 when $1 - \delta < r \leq 1$ for all $\theta$.
 Putting the two estimates together we get
 \begin{equation*}
-\babs{Pu(re^{i\theta})-Pu(e^{i\theta_0})}
+\babs{Pf(re^{i\theta})-Pf(e^{i\theta_0})}
 \leq
-\babs{Pu(re^{i\theta})-Pu(e^{i\theta})}
+\babs{Pf(re^{i\theta})-Pf(e^{i\theta})}
 +
-\babs{Pu(e^{i\theta})-Pu(e^{i\theta_0})}
+\babs{Pf(e^{i\theta})-Pf(e^{i\theta_0})}
 < \epsilon
 \end{equation*}
 whenever $z=re^{i\theta}$ satisfies $1 - \delta < r \leq 1$ and
 $\sabs{\theta-\theta_0} < \delta$.
 See \figureref{fig:proofofdirichlet}.
-Therefore, $Pu$ is
+Therefore, $Pf$ is
 continuous at $z_0$.
 \begin{myfig}
 \subimport*{figures/}{proofofdirichlet.pdf_t}
-\caption{Continuity of $Pu$ at $z_0$.\label{fig:proofofdirichlet}}
+\caption{Continuity of $Pf$ at $z_0$.\label{fig:proofofdirichlet}}
 \end{myfig}
 \end{proof}
 
@@ -13789,10 +13803,10 @@ should write out the details as an exercise.
 \begin{exbox}
 \begin{exercise}
 We proved that given $\epsilon > 0$, there exists a $\delta > 0$ such that
-$\babs{Pu(re^{i\theta})-Pu(e^{i\theta_0})} < \epsilon$
+$\babs{Pf(re^{i\theta})-Pf(e^{i\theta_0})} < \epsilon$
 when $\sabs{\theta-\theta_0} < \delta$ and
 $1 - \delta < r \leq 1$.  Prove that this really does mean that
-$\lim_{z \to z_0} Pu(z) = u(z_0) = Pu(z_0)$.
+$\lim_{z \to z_0} Pf(z) = f(z_0) = Pf(z_0)$.
 \end{exercise}
 \end{exbox}
 
@@ -13800,18 +13814,18 @@ Translation and scaling gives the more general version for
 any disc.
 
 \begin{cor} \label{cor:dirichsol}
-Let $u \colon \partial \Delta_R(p) \to \R$ be continuous.
+Let $f \colon \partial \Delta_R(p) \to \R$ be continuous.
 Then
-$Pu \colon \overline{\Delta_R(p)} \to \R$, defined by
-\glsadd{not:Pu}%
+$Pf \colon \overline{\Delta_R(p)} \to \R$, defined by
+\glsadd{not:Pf}%
 \begin{equation*}
-Pu(p + re^{i\theta})
+Pf(p + re^{i\theta})
 =
 \begin{cases}
-\int_{-\pi}^\pi u(p+Re^{it}) P_{r/R}(\theta-t) \, dt
+\int_{-\pi}^\pi f(p+Re^{it}) P_{r/R}(\theta-t) \, dt
 &
 \text{if $r < R$,} \\
-u(p+Re^{i\theta}) & \text{if $r=R$,}
+f(p+Re^{i\theta}) & \text{if $r=R$,}
 \end{cases}
 \end{equation*}
 is harmonic in $\Delta_R(p)$ and continuous on $\overline{\Delta_R(p)}$.
@@ -13844,14 +13858,14 @@ what domain we were solving in.
 
 The Poisson kernel is also a reproducing kernel for
 holomorphic functions, as holomorphic functions are harmonic
-(their real and imaginary parts are).  That is, if $u$ gives the boundary
-values for a holomorphic function, then $Pu$ will be holomorphic and it will
-be equal to the Cauchy transform $Cu$ inside the disc.  Unlike the
-Cauchy transform, however, $Pu$ is always continuous up to the boundary given
-continuous data on the disc.  Thus, if $u$ is not the boundary value of
-a holomorphic function, $Cu$ and $Pu$ will be different in the disc.
-For example, if $u=z+\bar{z}$ on the circle, then $Pu = z+\bar{z}$ inside
-the disc but $Cu = z$ inside the disc.
+(their real and imaginary parts are).  That is, if $f$ gives the boundary
+values for a holomorphic function, then $Pf$ will be holomorphic and it will
+be equal to the Cauchy transform $Cf$ inside the disc.  Unlike the
+Cauchy transform, however, $Pf$ is always continuous up to the boundary given
+continuous data on the disc.  Thus, if $f$ is not the boundary value of
+a holomorphic function, $Cf$ and $Pf$ will be different in the disc.
+For example, if $f=z+\bar{z}$ on the circle, then $Pf = z+\bar{z}$ inside
+the disc but $Cf = z$ inside the disc.
 
 %A Poisson kernel also exists for higher dimensions, that is in $\R^n$ for
 %$n > 2$, and has
@@ -13859,11 +13873,11 @@ the disc but $Cu = z$ inside the disc.
 
 It is particularly useful to notice is that
 in the corollary if we plug in $r=0$, we get
-\begin{equation} \label{eq:averageofPu}
-Pu(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}u(p + R e^{it}) \, dt .
+\begin{equation} \label{eq:averageofPf}
+Pf(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}f(p + R e^{it}) \, dt .
 \end{equation}
-That is, the value at the center of the disc, $Pu(p)$, is the average 
-value of $u$ on $\partial \Delta_R(p)$.
+That is, the value at the center of the disc, $Pf(p)$, is the average 
+value of $f$ on $\partial \Delta_R(p)$.
 In the next section, we will see that this property actually characterizes
 harmonic functions.
 
@@ -13881,11 +13895,11 @@ for the real part.
 \begin{exercise}
 State and prove a version of \thmref{thm:dirichsol} for a function that is
 bounded on $\partial \D$, and continuous at all but finitely many points on
-$\partial \D$.  The conclusion should of course be then that $Pu(z)$ ($z \in
+$\partial \D$.  The conclusion should of course be then that $Pf(z)$ ($z \in
 \D$) tends
-to $u(z_0)$ ($z_0 \in \D$) only if $u$ is continuous at $z_0$.
+to $f(z_0)$ ($z_0 \in \D$) only if $f$ is continuous at $z_0$.
 Note: More advanced students should note that one does not need boundedness,
-just $u \in L^1(\partial \D)$.
+just $f \in L^1(\partial \D)$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:upperhalfplanedirichlet}
@@ -13896,24 +13910,24 @@ does not have a unique solution.  Show that $f(z) = c \Im z$ is harmonic for
 any $c \in \R$ and $f = 0$ on the real line $\R = \partial \bH$.
 \item 
 Use the previous exercise to show that the Dirichlet problem has a unique
-solution on $\bH$ for a bounded continuous $u$ on $\partial \bH$.
+solution on $\bH$ for a bounded continuous $f$ on $\partial \bH$.
 Note: Again, less than bounded is
 necessary, but it is sufficient for the exercise.  Hint: Cayley.
 \end{exparts}
 \end{exercise}
 
 \begin{exercise}
-Given a bounded continuous $u \colon \R \to \R$, prove that 
-$Pu \colon \overline{\bH} \to \R$,
+Given a bounded continuous $f \colon \R \to \R$, prove that 
+$Pf \colon \overline{\bH} \to \R$,
 \begin{equation*}
-Pu(x+iy)
+Pf(x+iy)
 =
 \begin{cases}
 \frac{1}{\pi}
-\int_{-\infty}^{\infty} u(t) \frac{y}{{(x-t)}^2+y^2} \, dt
+\int_{-\infty}^{\infty} f(t) \frac{y}{{(x-t)}^2+y^2} \, dt
 &
 \text{if $y > 0$,} \\
-u(x) & \text{if $y=0$,}
+f(x) & \text{if $y=0$,}
 \end{cases}
 \end{equation*}
 is harmonic in $\bH$ and continuous on $\overline{\bH}$.
@@ -13994,14 +14008,15 @@ $f(\nicefrac{z}{\sabs{z}})$ is harmonic in $\C \setminus
 \overline{\D}$.
 \item
 By providing an explicit formula show that the Dirichlet problem is solvable
-on $\ann(0;r,1)$, that is for any continuous function $u$ on
+on $\ann(0;r,1)$, that is for any continuous function $f$ on
 $\partial \ann(0;r,1)$, there is a harmonic function on $\ann(0;r,1)$
-continuous on $\overline{\ann(0;r,1)}$ that agrees with $u$ on the boundary.
+continuous on $\overline{\ann(0;r,1)}$ that agrees with $f$ on the boundary
+$\partial \ann(0;r,1)$.
 Remark: In \exerciseref{exercise:nodirichletsolpuncturedD} you will show
 that the Dirichlet problem is not solvable if $r=0$ (the punctured disc).
 \item
-Guess an explicit solution to the Dirichlet problem that is $0$ when $\sabs{z}=1$ and
-that is $1$ when $\sabs{z}=r$.
+Guess an explicit solution to the Dirichlet problem so that $f=0$ when $\sabs{z}=1$ and
+$f=1$ when $\sabs{z}=r$.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -14049,7 +14064,7 @@ any $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
 For any $r < R_p$,
 solve the Dirichlet problem in $\Delta_r(p)$ using the Poisson kernel
 given the boundary values
-$f|_{\partial \Delta_r(p)}$.  Using \eqref{eq:averageofPu} and the
+$f|_{\partial \Delta_r(p)}$.  Using \eqref{eq:averageofPf} and the
 uniqueness of the solution of the Dirichlet problem, we find
 \begin{equation*}
 f(p) = P\bigl[f|_{\partial \Delta_r(p)}\big](p) =
@@ -14063,7 +14078,8 @@ arbitrary closed disc.  Let $h = P\bigl[f|_{\partial \Delta_s(q)}\big]$
 be the solution of the Dirichlet problem in $\Delta_s(q)$ with boundary
 values given by $f$.  Consider $\varphi = f-h$,
 which is continuous, identically zero
-on $\partial \Delta_s(q)$ and still satisfies the mean-value property.
+on $\partial \Delta_s(q)$ and satisfies the mean-value property
+on the same discs as $f$ (as long as they lie in $\Delta_s(q)$).
 Suppose for contradiction that $\varphi$ is positive
 somewhere on $\Delta_s(q)$, let $\varphi$ achieve a maximum at $p \in
 \Delta_s(p)$.
@@ -15243,7 +15259,8 @@ where $f$ is nonzero.  If $\Delta'$ is empty, then we are done, as
 $f$ is just identically zero and hence holomorphic.
 
 Let $u$ be the real part of $f$.  On $\Delta'$, $u$ is a harmonic function.
-Let $Pu$ be the Poisson integral of $u$ on $\Delta$.  Hence $Pu$
+Write $Pu = P[u|_{\partial \Delta}]$ for the Poisson integral of $u$ on
+$\overline{\Delta}$.  Hence $Pu$
 equals $u$ on $\partial \Delta$, and $Pu$ is harmonic in all of $\Delta$.
 Consider the function
 $Pu(z) - u(z)$ on $\overline{\Delta}$.  The function is zero
