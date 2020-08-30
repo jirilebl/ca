@@ -6798,7 +6798,7 @@ analysis.}
 Any disc can be translated and rescaled to unit disc $\D$, and any
 bounded function can be rescaled to be valued in $\D$.
 
-\begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}
+\begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}\label{lemma:schwarz}
 Suppose $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
 then 
 \begin{enumerate}[(i)]
@@ -14106,17 +14106,18 @@ mean-value property on $\Delta_r(p)$, we get a contradiction
 \end{equation*}
 
 We have proved that $\varphi \leq 0$ on $\Delta_s(q)$.  By applying the same
-logic to $-\varphi$ we find that $\varphi = 0$ on $\Delta_s(q)$.  In
-particular, $f=h$ and $h$ is harmonic, so $f$ is harmonic on
+logic to $-\varphi$, we find that $\varphi = 0$ on $\Delta_s(q)$.
+Namely, $f=h$ and $h$ is harmonic, so $f$ is harmonic on
 $\Delta_s(q)$ (and thus on $U$).
 \end{proof}
 
 One immediate consequence of the mean value property is that a uniform limit
 on compact sets of harmonic functions is harmonic.  Just like for
-holomorphic function this result would be hard to prove using the definition
-of harmonic functions.  Given a sequence of any old $C^2$ functions,
+holomorphic functions, this result would be hard to prove using the definition
+of harmonic functions.  Given a sequence $\{ f_n \}$ of any old $C^2$
+functions with uniform limit $f$,
 the limit of $\nabla^2 f_n$ is not necessarily
-the $\nabla^2$ of the limit just because the convergence is uniform.  But
+$\nabla^2 f$ just because the convergence is uniform.  But
 uniform limits do go under the integral.  The following result is one part
 of what is called \emph{\myindex{Harnack's first theorem}} (there are several
 results named for Harnack about harmonic functions).
@@ -14128,7 +14129,8 @@ harmonic functions converging uniformly on compact subsets to $f \colon U
 \end{thm}
 
 \begin{proof}
-First, $f$ is continuous.  Given any disc $\overline{\Delta_r(p)} \subset U$
+First, $f$ is continuous.
+Given any disc $\overline{\Delta_r(p)} \subset U$,
 we have that $\{ f_n \}$ converges uniformly on the boundary of the disc
 and at $p$ and hence
 \begin{equation*}
@@ -14182,7 +14184,7 @@ Prove that $g \colon U \to \R$ defined by
 g(z) = \int_0^1 f(z,t) \, dt
 \avoidbreak
 \end{equation*}
-is harmonic.  Hint: Fubini.
+is harmonic.  Hint: Fubini not Leibniz.
 \end{exercise}
 
 \begin{exercise}
@@ -14191,35 +14193,35 @@ Prove that a continuous $f \colon U \to \R$
 is harmonic if it satisfies the
 \emph{\myindex{disc mean-value property}} for every $\overline{\Delta_r(p)}
 \subset U$:
-\begin{equation}
+\begin{equation*}
 f(p) = 
 \frac{1}{\pi r^2} \int_{\overline{\Delta_r(p)}} f(z) \, dA.
-\end{equation}
+\end{equation*}
 \end{exercise}
 
 \begin{exercise}
 With a little care,
 it is not necessary to assume the mean-value property for all small enough discs.
-Suppose $f \colon \D \to \R$ is
+Suppose $f \colon \overline{\D} \to \R$ is
 continuous and such that for every $p \in \D$, there exists an $r$ such that
 $\overline{\Delta_r(p)} \subset \D$ and 
 \begin{equation*}
 f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta .
 \end{equation*}
-Prove that $f$ is harmonic.
+Prove that $f$ is harmonic in $\D$.
 \end{exercise}
 \end{exbox}
 
 \subsection{Harnack's inequality}
 
 Like holomorphic functions, harmonic functions defined in a
-disc cannot just do what they want inside the disc.  Their behavior is
+disc cannot just do whatever they want inside the disc.  Their behavior is
 somewhat controlled by the size of the disc:  The further
 ``inside'' their domain of definition the disc is, the more control we have.
 The basic statement of this is
 the \emph{Harnack's inequality}\index{Harnack's inequality!disc} in the disc.
-For holomorphic functions a result of this type is
-the Schwarz lemma where we
+For holomorphic functions, an analogous result is
+\hyperref[lemma:schwarz]{Schwarz's lemma}, where we
 require that the functions are bounded (they are valued in a disc).  For harmonic
 functions, the analogue of boundedness is nonnegativity.
 
@@ -14295,7 +14297,7 @@ The inequalities are optimal.  In the unit disc $\D$, the theorem says
 \end{equation*}
 Consider the function $f(z) = \Re \frac{1+z}{1-z}$.  Except for the
 $\frac{1}{2\pi}$ it is the Poisson kernel and so 
-$f(z) > 0$ on $\D$.  Note that $f(0)=1$.  Plugging in $z=r$ we get
+$f(z) > 0$ on $\D$.  Note that $f(0)=1$.  Plugging in $z=r$, we get
 equality in the right-hand inequality above, and plugging in $z=-r$
 we get equality in the left-hand inequality above.  In other words,
 the two constants
