@@ -13277,6 +13277,12 @@ $g \circ f$ is harmonic.
 \end{exercise}
 
 \begin{exercise}
+Prove that if $f \colon \D \to \R$ is harmonic, then
+$f(\nicefrac{z}{\sabs{z}})$ is harmonic in $\C \setminus
+\overline{\D}$.
+\end{exercise}
+
+\begin{exercise}
 Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.  Prove that
 if $z \mapsto \sabs{f(z)}^2$ is harmonic, then $f$ is constant.
@@ -13480,8 +13486,8 @@ Prove that $f(U)$ is an open interval or a single point.
 It is useful to find a harmonic function given boundary values:
 Given an open $U \subset \C$
 and a continuous $f \colon \partial U \to \R$,
-find a continuous $g \colon \widebar{U} \to \R$
-harmonic on $U$ such that $g|_{\partial U} = f$.
+find a continuous $g \colon \widebar{U} \to \R$,
+harmonic on $U$, such that $g|_{\partial U} = f$.
 This problem is called the \emph{\myindex{Dirichlet problem}}, and it is
 solvable for many (though not all) open sets.  If the solution exists on a
 bounded domain, then it is unique.  On unbounded domains, the solution need not
@@ -13489,7 +13495,7 @@ be unique, see \exerciseref{exercise:upperhalfplanedirichlet}.
 
 \begin{prop}
 Suppose $U \subset \C$ is a bounded domain, $f,g \colon \widebar{U} \to \R$
-are continuous functions harmonic on $U$,
+are continuous functions, harmonic on $U$,
 such that $f = g$ on $\partial U$.
 Then $f=g$ on $U$.
 \end{prop}
@@ -13795,8 +13801,8 @@ continuous at $z_0$.
 We remark that in the proof we used the topology on $\overline{\D}$
 given by the polar coordinates, and we estimated the coordinates separately.
 Polar coordinates give a nice local homemorphism
-(a continuous bijective map with a continuous inverse) at least outside of
-the origin, which is sufficient for us as we only needed to worry about points
+(a continuous bijective map with a continuous inverse) outside of
+the origin, which is sufficient for us as we only worried about points
 on or near the boundary of $\D$.  The reader that is still unconvinced
 should write out the details as an exercise.
 
@@ -13848,24 +13854,24 @@ In particular, for $z = p+re^{i\theta} \in \Delta_R(p)$,
 \begin{equation*}
 f(z) = \int_{-\pi}^\pi f(p+Re^{it}) P_{r/R}(\theta-t) \, dt .
 \end{equation*}
-A difference with the Cauchy integral formula is that the kernel
-changes based on the domain.  One can find the Poisson kernel for other
+A difference with the Cauchy integral formula is that the Poisson kernel
+changes based on the domain.  The Poisson kernel exists for other
 domains than the disc (as long as the boundary is nice enough), although
-in general we do not have an explicit formula for it.  This is different
-from the Cauchy integral formula where the kernel is $\frac{1}{\zeta-z}$
+in general we do not have an explicit formula.  In
+the Cauchy integral formula the kernel is $\frac{1}{\zeta-z}$
 no matter the path that we were integrating around, that is, no matter
 what domain we were solving in.
 
 The Poisson kernel is also a reproducing kernel for
 holomorphic functions, as holomorphic functions are harmonic
-(their real and imaginary parts are).  That is, if $f$ gives the boundary
-values for a holomorphic function, then $Pf$ will be holomorphic and it will
-be equal to the Cauchy transform $Cf$ inside the disc.  Unlike the
+(their real and imaginary parts are).  If $f$ gives the boundary
+values for a holomorphic function, then $Pf$ is holomorphic and it equals
+the Cauchy transform $Cf$ inside the disc.  Unlike the
 Cauchy transform, however, $Pf$ is always continuous up to the boundary given
 continuous data on the disc.  Thus, if $f$ is not the boundary value of
-a holomorphic function, $Cf$ and $Pf$ will be different in the disc.
-For example, if $f=z+\bar{z}$ on the circle, then $Pf = z+\bar{z}$ inside
-the disc but $Cf = z$ inside the disc.
+a holomorphic function, $Cf$ and $Pf$ are different in the disc.
+For example, if $f=z+\bar{z}$ on the circle, then $Pf = z+\bar{z}$ in $\D$
+but $Cf = z$ in $\D$.
 
 %A Poisson kernel also exists for higher dimensions, that is in $\R^n$ for
 %$n > 2$, and has
@@ -13876,7 +13882,7 @@ in the corollary if we plug in $r=0$, we get
 \begin{equation} \label{eq:averageofPf}
 Pf(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}f(p + R e^{it}) \, dt .
 \end{equation}
-That is, the value at the center of the disc, $Pf(p)$, is the average 
+The value at the center of the disc, $Pf(p)$, is the average 
 value of $f$ on $\partial \Delta_R(p)$.
 In the next section, we will see that this property actually characterizes
 harmonic functions.
@@ -13892,7 +13898,7 @@ holomorphic function with those boundary values, but we can do it at least
 for the real part.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:dirichDwithsings}
 State and prove a version of \thmref{thm:dirichsol} for a function that is
 bounded on $\partial \D$, and continuous at all but finitely many points on
 $\partial \D$.  The conclusion should of course be then that $Pf(z)$ ($z \in
@@ -13903,20 +13909,13 @@ just $f \in L^1(\partial \D)$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:upperhalfplanedirichlet}
-\begin{exparts}
-\item (Easy)
 Dirichlet problem on the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$
-does not have a unique solution.  Show that $f(z) = c \Im z$ is harmonic for
-any $c \in \R$ and $f = 0$ on the real line $\R = \partial \bH$.
-\item 
-Use the previous exercise to show that the Dirichlet problem has a unique
-solution on $\bH$ for a bounded continuous $f$ on $\partial \bH$.
-Note: Again, less than bounded is
-necessary, but it is sufficient for the exercise.  Hint: Cayley.
-\end{exparts}
+does not have a unique solution.  Hint:  Find two distinct
+harmonic functions that are zero on $\R$.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[2]
 Given a bounded continuous $f \colon \R \to \R$, prove that 
 $Pf \colon \overline{\bH} \to \R$,
 \begin{equation*}
@@ -13931,6 +13930,30 @@ f(x) & \text{if $y=0$,}
 \end{cases}
 \end{equation*}
 is harmonic in $\bH$ and continuous on $\overline{\bH}$.
+\end{exercise}
+
+\begin{exercise}\label{exercise:martinfunctions}
+Given an open $U \subset \C$,
+a continuous function $f \colon \widebar{U} \to \R$,
+positive and harmonic on $U$,
+and zero on $\partial U$ is called a
+\emph{\myindex{Martin function}}.
+\begin{exparts}
+\item
+Find a Martin function on the upper half-plane $\bH$.
+\item
+Find a Martin function on $\{ z \in \C : \Re z > 0, 0 < \Im z < 1
+\}$.  Hint: Hyperbolic sine.
+\item
+Prove that if $U$ is bounded, then there are no Martin functions on $U$.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Explicitly solve the following Dirichlet problem:  Let $0 < r < R$ and $a,b
+\in \R$ be given.  Find a continuous $f \colon \overline{\ann(0;r,R)} \to
+\R$, harmonic on $\ann(0;r,R)$, such that $f=a$ on $\sabs{z}=r$ and $f=b$
+on $\sabs{z}=R$.
 \end{exercise}
 
 \begin{exercise}
@@ -13976,47 +13999,6 @@ the boundary, that is for every
 $z_0 \in \partial \D$ and every open neighborhood
 $U$ of $z_0$, there exists no holomorphic $f \colon U \to \C$
 such that $f = h$ on $\D \cap U$.
-\end{exparts}
-\end{exercise}
-
-\begin{exercise}\label{exercise:martinfunctions}
-Given an open $U \subset \C$,
-a continuous function $f \colon \widebar{U} \to \R$,
-positive and harmonic on $U$,
-and zero on $\partial U$ is called a
-\emph{\myindex{Martin function}}.
-\begin{exparts}
-\item
-Find a Martin function on the upper half-plane $\bH$.
-\item
-Find a Martin function on $\{ z \in \C : \Re z > 0, 0 < \Im z < 1
-\}$.  Hint: Hyperbolic sine.
-\item
-Prove that if $U$ is bounded, then there are no Martin functions on $U$.
-\item
-Prove that if $f$ is a Martin function on $\bH$, then $f$ is unbounded.
-\end{exparts}
-\end{exercise}
-
-\begin{exercise}
-\pagebreak[2]
-Suppose $0 < r < 1$.
-\begin{exparts}
-\item
-Prove that if $f \colon \D \to \R$ is harmonic, then
-$f(\nicefrac{z}{\sabs{z}})$ is harmonic in $\C \setminus
-\overline{\D}$.
-\item
-By providing an explicit formula show that the Dirichlet problem is solvable
-on $\ann(0;r,1)$, that is for any continuous function $f$ on
-$\partial \ann(0;r,1)$, there is a harmonic function on $\ann(0;r,1)$
-continuous on $\overline{\ann(0;r,1)}$ that agrees with $f$ on the boundary
-$\partial \ann(0;r,1)$.
-Remark: In \exerciseref{exercise:nodirichletsolpuncturedD} you will show
-that the Dirichlet problem is not solvable if $r=0$ (the punctured disc).
-\item
-Guess an explicit solution to the Dirichlet problem so that $f=0$ when $\sabs{z}=1$ and
-$f=1$ when $\sabs{z}=r$.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -14155,6 +14137,12 @@ Prove that $f(x) = Ax + B$ for some constants $A,B$.
 \begin{exercise}
 Prove the maximum principle for harmonic functions directly from the
 mean-value property.
+\end{exercise}
+
+\begin{exercise}
+Suppose $U \subset \C$ is open, $f \colon U \to \R$ is continuous, $p \in U$
+and $f$ is harmonic on $U \setminus \{ p \}$.  Prove that $f$ is in fact
+harmonic on all of $U$.
 \end{exercise}
 
 \begin{exercise}
@@ -14315,9 +14303,9 @@ for every harmonic and nonnegative function $f$ defined on $U$.
 \end{cor}
 
 \begin{proof}
-If we prove the theorem for a larger $K$ we are done.
-As $U$ is connected, we can assume that $K$ is connected:
-First, assume $K$ has only finitely many components by replacing it
+If we prove the theorem for a larger $K$ we are done, so replace $K$
+by a larger connected compact subset of $U$.
+First, make $K$ have only finitely many components by replacing it
 by finitely many closed discs
 (see e.g.\@ the proof of \lemmaref{lemma:patharoundK}).  Then, $U$ is path
 connected and so adding in finitely many paths to $K$ we can connect
@@ -14325,13 +14313,12 @@ the discs.
 
 Suppose $r> 0$ is less than half the distance from $K$ to $\partial U$.
 There exist $N$ discs $\Delta_{r}(z_1),\ldots,\Delta_{r}(z_N)$ that cover $K$,
-where $z_j \in K$ and so $\Delta_{2r}(z_j) \subset U$ for every $j$.
-Fix $\zeta,\xi \in K$.  By reordering the discs, we can assume
-that 
+where $z_j \in K$, and so $\Delta_{2r}(z_j) \subset U$ for every $j$.
+Fix $\zeta,\xi \in K$.  After relabeling the discs,
 $\zeta \in \Delta_{r}\bigl(z_{1}\bigr)$
 and
 $\xi \in \Delta_{r}\bigl(z_{n}\bigr)$ for some $n \leq N$.
-As $K$ is connected, we can also arrange that
+As $K$ is connected, we also arrange that
 $\Delta_{r}\bigl(z_{j}\bigr) \cap \Delta_{r}\bigl(z_{j+1}\bigr)$
 is nonempty for all $j=1,\ldots,n-1$.
 Not all the discs need to be used.
@@ -14359,7 +14346,8 @@ f(w)
 \end{equation*}
 In other words, $f(w) \leq 3 f(z_j)$ and $f(z_j) \leq 3 f(w)$.
 
-First, as $\zeta \in \Delta_r(z_1)$ we get 
+We now follow the chain of discs.
+First, as $\zeta \in \Delta_r(z_1)$, we get 
 \begin{equation*}
 f(\zeta) \leq 3 f(z_1).
 \end{equation*}
@@ -14372,11 +14360,11 @@ Thus,
 \begin{equation*}
 f(z_j) \leq 3 f(q) \leq 3 \bigl( 3 f(z_{j+1}) \bigr) = 3^2 f(z_{j+1}).
 \end{equation*}
-Third, as $\xi \in \Delta_r(z_n)$ we get 
+Third, as $\xi \in \Delta_r(z_n)$, we get 
 \begin{equation*}
 f(\zeta) \leq 3 f(z_n).
 \end{equation*}
-All in all
+All in all,
 \begin{equation*}
 f(\zeta) \leq
 3^{2n+2}
@@ -14389,9 +14377,9 @@ The number $N$ only depends on $K$, not on $\zeta$, $\xi$, or $f$.
 As $\zeta$ and $\xi$ were arbitrary the theorem follows.
 \end{proof}
 
-While the constant we got in the proof is not optimal, it is explicit.
-We can actually compute some specific $C$ by knowing the distance of $K$
-to the boundary and the number of discs needed.
+The constant we get in the proof is not optimal, but it is explicit.
+We can actually compute a specific $C$ by knowing the distance of $K$
+to the boundary and the number of discs needed to cover $K$.
 
 \begin{exbox}
 \begin{exercise}[Easy]
@@ -14410,26 +14398,31 @@ $f(\nicefrac{1}{2}) \geq M$.
 \begin{exercise}
 Fix some $s > t > 0$.
 Let $U = \{z \in \C : -s < \Re z < s, -1 < \Im z < 1 \}$.
-Let $K = [-t,t]$.  Compute an explicit constant $C$
+Compute an explicit constant $C$
 (doesn't need to be optimal)
-for this setup for the general
-Harnack's inequality.
-Now do it for $K=\{-t,t\}$.
+for this following $K$ for the general
+Harnack's inequality:
+\smallskip
+\begin{expartshor}{2}
+\item
+$K = [-t,t]$.
+\item
+$K = \{-t,t\}$.
+\end{expartshor}
 \end{exercise}
 
 \begin{exercise}
-\pagebreak[2]
-As we've seen, affine linear functions $Ax+B$ are the one-real-variable
+Affine linear functions $Ax+B$ are the one-real-variable
 versions of harmonic functions.  State and prove Harnack's inequality
 (analogue of \thmref{thm:harnackineqdisc})
-in this setting for an interval $[a,b]$ instead of a disc.  You should get
-the optimal constants in the two inequalities just like we got for a disc,
+in the affine linear setting for an interval $[a,b]$ instead of a disc.
+Find the optimal constants in the two inequalities just like we got for a disc,
 and prove that the constants are optimal.
 \end{exercise}
 
 \begin{exercise}
-Let $U = \D$ and $K=\overline{\Delta_r(0)}$ in the general 
-Harnack's inequality.  Prove that the $C$ that we obtain from the theorem
+Let $U = \D$ and $K=\overline{\Delta_r(0)}$, $r < 1$, in the general 
+Harnack's inequality.  Prove that the $C$ that from the theorem
 must necessarily go to infinity as $r \uparrow 1$.
 \end{exercise}
 
@@ -14464,17 +14457,18 @@ which are all nonnegative.
 
 By monotonicity, $\{f_n\}$ converges pointwise (possibly to $+\infty$).
 If $\lim f_n(p) = +\infty$ for some $p \in U$, let $K \subset U$
-be any compact subset including $p$.
-Harnack's inequality says there is a $C$ such that
+be compact, and let $K' = K \cup \{ p \}$.
+Harnack's inequality (for $K'$) says there is a $C$ such that
 \begin{equation*}
-f_n(p) \leq \sup_{z \in K} f_n(z) \leq C \inf_{z\in K} f_n(z) .
+f_n(p) \leq \sup_{z \in K'} f_n(z) \leq C \inf_{z\in K'} f_n(z) \leq C \inf_{z\in K} f_n(z) .
+\avoidbreak
 \end{equation*}
 Thus, $f_n(z) \to +\infty$ uniformly on $K$.
 
 Therefore, suppose the limit of $\{ f_n(z) \}$ is finite
 for every $z \in U$.  Let $f \colon U \to \R$ be the limit.
-Let $K \subset U$ be any compact subset, $C$ the corresponding $C$
-from Harnack's inequality, and $p \in K$ any point.
+Let $K \subset U$ be any compact subset,
+$C$ the constant from Harnack's inequality, and $p \in K$ any point.
 Given $\epsilon > 0$,
 there is an $N$
 such that whenever $m > n \geq N$, we get
@@ -14492,11 +14486,11 @@ Harnack's first theorem,
 \thmref{thm:harnack1}.
 \end{proof}
 
-Another way of stating Harnack's principle is for a sequence of positive functions less
+Another way of stating Harnack's principle is for a sequence of nonnegative functions less
 than some fixed harmonic function $f$.  If the sequence converges to $f$ at
-one point, it converges uniformly on compact subsets.  Moreover, as positive
-harmonic functions are the harmonic analogues of bounded holomorphic
-functions, we expect a version of Montel's theorem for positive harmonic
+one point, it converges uniformly on compact subsets.  Moreover, as
+nonnegative harmonic functions are the harmonic analogues of bounded holomorphic
+functions, we expect a version of Montel's theorem for nonnegative harmonic
 functions, and Harnack delivers that as well.  We leave both proofs as
 exercises.
 
@@ -14505,28 +14499,28 @@ exercises.
 Prove yet another version of Harnack's principle.
 Suppose $U \subset \C$ is a domain,
 $\{ f_n \}$ is a sequence of nonnegative harmonic functions on
-$U$, and $p \in U$.
+$U$, and $p \in U$ is fixed.
 \begin{exparts}
 \item
 If $f_n(p) \to +\infty$, then $\{ f_n \}$ converges to $+\infty$ uniformly on
-compact sets.
+compact subets.
 \item
 If $f \colon U \to \R$ is harmonic, $f_n(z) \leq f(z)$ for all $z \in U$,
 and $f_n(p) \to f(p)$, then $\{ f_n \}$ converges to $f$ uniformly on
-compact sets.
+compact subsets.
 \end{exparts}
 \end{exercise}
 
 \begin{exercise}
 Prove a Montel-like theorem for harmonic functions.  Suppose $U \subset \C$
-is open and $\{ f_n \}$ is a sequence of positive harmonic functions.
+is open and $\{ f_n \}$ is a sequence of nonnegative harmonic functions.
 Show that at least one (or both) of the following are true:
 \begin{enumerate}[(i)]
 \item
-There exists a subsequence converging to $\infty$ uniformly on compact sets.
+There exists a subsequence converging to $\infty$ uniformly on compact subsets.
 \item
 There exists a subsequence converging to a harmonic function
-uniformly on compact sets.
+uniformly on compact subsets.
 \end{enumerate}
 \end{exercise}
 \end{exbox}
@@ -14540,9 +14534,9 @@ uniformly on compact sets.
 \subsection{Isolated singularities}
 
 For harmonic functions we get the following classification of removable
-singularities, which is sharp in fact.  That is, the harmonic function $\log
-\sabs{z}$ has a nonremovable singularity at the origin, but any function
-that blows up any slower than that, doesn't actually blow up and in fact
+singularities, which is, in fact, sharp.  The harmonic function $\log
+\sabs{z}$ has a nonremovable singularity at the origin, and any function
+that blows up any slower than that, doesn't actually blow up and, in fact,
 extends to be
 harmonic at the origin.
 
@@ -14559,16 +14553,17 @@ $f = F|_{U \setminus \{ p \}}$.
 \begin{proof}
 By considering $f(a z + b)$ we may assume, without loss of generality,
 that $p = 0$ and $\overline{\D} \subset U$.  Solve the Dirichlet problem
-in $\D$ with boundary data $u|_{\partial \D} = f|_{\partial \D}$.
+to find a continuous $u \colon \overline{\D} \to \R$,
+harmonic in $\D$ such that $u|_{\partial \D} = f|_{\partial \D}$.
 We wish to show that $u$ equals $f$ in $\D \setminus \{0\}$.
 The function
 $g = f - u$ is harmonic in $\D \setminus \{ 0 \}$ and it is zero on
 $\partial \D$.  Furthermore,
 \begin{equation*}
-\lim_{z \to 0} \frac{g(z)}{-\log \sabs{z}} = 0
+\lim_{z \to 0} \frac{g(z)}{-\log \sabs{z}} = 0.
 \end{equation*}
-or in other words, given any $\epsilon > 0$, then
-in some closed disc $\overline{\Delta_\delta(0)}$ we have
+In other words, given any $\epsilon > 0$, there is a $\delta > 0$,
+such that for all $z \in \overline{\Delta_\delta(0)} \setminus \{ 0 \}$, we have
 \begin{equation} \label{eq:removableestimateharmonic}
 -\epsilon (- \log\sabs{z})
 \leq
@@ -14581,13 +14576,14 @@ $\sabs{z}=1$ as $g=0$ there.
 The function $-\log\sabs{z}$ is harmonic outside of the origin, so
 using the maximum principle (the version in
 \exerciseref{exercise:maxprincsecondharmonic}) we have that
-\eqref{eq:removableestimateharmonic} holds also for $\delta \leq \sabs{z}
-\leq 1$.  As $\epsilon$ was arbitrary we get that $g(z) = 0$ for all
+\eqref{eq:removableestimateharmonic} holds also for $\delta < \sabs{z} < 1$,
+and thus for all $z \in \D \setminus \{ 0 \}$.
+As $\epsilon$ was arbitrary, $g(z) = 0$ for all
 $z \in \D \setminus \{0\}$, and so $u$ is the extension we are looking for.
 \end{proof}
 
-An isolated singularity of a harmonic function could be very wild, for
-example $\Re e^{1/z}$ or similar.  But if it is a $\log \sabs{f(z)}$
+An isolated singularity of a harmonic function $g$ could be very wild, for
+example $\Re e^{1/z}$ or similar.  But if $g$ is $\log \sabs{f(z)}$
 for a holomorphic $f$ that has either a pole or a zero at the origin,
 then near the origin $f$ behaves 
 like $z^n$ for $n \in \Z$ and
@@ -14595,11 +14591,11 @@ like $z^n$ for $n \in \Z$ and
 \log \abs{z^n} = 
 n \log \sabs{z} .
 \end{equation*}
-In other words, the function behaves like $\log \sabs{z}$.
+In other words, the function $g$ behaves like $\log \sabs{z}$.
 The expression is positive near the origin if $n < 0$ and negative if $n > 0$.
 \emph{B\^{o}cher's theorem}\index{Bocher's theorem@B\^{o}cher's theorem}
 is the converse of this reasoning:
-A positive harmonic function at an isolated singularity
+A nonnegative harmonic function at an isolated singularity
 at the origin can be written as
 $g(z) - C \log \sabs{z}$, where $g$ is
 harmonic at the origin.
@@ -14607,7 +14603,7 @@ harmonic at the origin.
 \begin{thm}[B\^{o}cher]
 Suppose $U \subset \C$ is open, $p \in U$, and
 $f \colon U \setminus \{ p \} \to \R$ is
-harmonic and positive.  Then there exists a harmonic function
+harmonic and nonnegative.  Then there exists a harmonic function
 $g \colon U \to \R$ and a $C \geq 0$ such that
 for all $z \in U \setminus \{ p \}$,
 \begin{equation*}
@@ -14626,8 +14622,8 @@ Thus if $\Phi$ is locally a holomorphic function
 such that $\Re \Phi = f$, then $\Phi'$ is well-defined in the entire
 punctured disc $\D \setminus \{ 0 \}$.  Fix some $q \in \D \setminus \{ 0 \}$
 and some $\Phi$ defined near $q$ such that $\Re \Phi = f$.
-Then there exists a holomorphic function $\varphi \colon
-\D \setminus \{ 0 \}$ such that $\Phi' = \varphi$ near $q$.
+Then there exists a holomorphic $\varphi \colon
+\D \setminus \{ 0 \} \to \C$ such that $\Phi' = \varphi$ near $q$.
 
 Expand $\varphi$ in $\D \setminus \{ 0 \}$ using Laurent series,
 \begin{equation*}
@@ -14649,31 +14645,32 @@ for some branch of the $\log$, where $\psi$ is a holomorphic function
 on $\D \setminus \{ 0 \}$.
 Taking the real part we get $f$, a well-defined function on
 $\D \setminus \{ 0 \}$.  That means that
-$c_{-1} \log z$ has a well-defined real part, meaning $c_{-1} \in \R$.
+$c_{-1} \log z$ has real part well-defined in $\D \setminus \{ 0 \}$,
+meaning $c_{-1} \in \R$.
 So
 \begin{equation*}
 f(z) = \Re \Phi(z) =
 c_{-1} \log \sabs{z} +  
 \Re \psi(z).
 \end{equation*}
-Positivity of $f(z)$ says that
+Nonnegativity of $f(z)$ says that
+for some integer $k \leq c_{-1}$,
 \begin{equation*}
 -k \log \sabs{z} \leq
--c_{-1} \log \sabs{z} <  \Re \psi(z)
+-c_{-1} \log \sabs{z} \leq  \Re \psi(z) .
 \end{equation*}
-for some integer $k \leq c_{-1}$.
 Then
 \begin{equation*}
-\sabs{z^{-k}} < e^{\Re \psi(z)} = \abs{e^{\psi(z)}} ,
+\sabs{z^{-k}} \leq e^{\Re \psi(z)} = \abs{e^{\psi(z)}} ,
 \end{equation*}
 or 
-$\abs{z^{-k} e^{-\psi(z)}} < 1$, that is $z^{-k} e^{-\psi(z)}$ has
-a removable singularity.  That would mean that $e^{-\psi(z)}$ has
+$\abs{z^{-k} e^{-\psi(z)}} \leq 1$, that is, $z^{-k} e^{-\psi(z)}$ has
+a removable singularity at the origin.  So $e^{-\psi(z)}$ has
 a pole or a removable singularity, but $e^{-\psi(z)}$ cannot have
 a pole (see \exerciseref{exercise:singofexp}), so $e^{-\psi(z)}$
-and so $\psi(z)$ has a removable singularity.
-As $\sabs{z}^{-c_{-1}} < \abs{e^{-\psi(z)}}$ we also
-get that $-c_{-1} \geq 0$.  We are done, $\psi$ extends through the origin
+and thus $\psi(z)$ has a removable singularity.
+As $\sabs{z}^{-c_{-1}} \leq \abs{e^{-\psi(z)}}$, we also
+find that $-c_{-1} \geq 0$.  We are done, $\psi$ extends through the origin
 and
 \begin{equation*}
 f(z) = \Re \psi(z) - (-c_{-1}) \log \sabs{z} . \qedhere
@@ -14684,6 +14681,7 @@ f(z) = \Re \psi(z) - (-c_{-1}) \log \sabs{z} . \qedhere
 \begin{exercise}
 Prove that a holomorphic $f \colon \Delta_r(p) \setminus \{ p \} \to \C$
 such that the real part of $f$ is bounded has a removable singularity at $p$.
+Prove it using harmonic functions.
 \end{exercise}
 
 \begin{exercise} \label{exercise:nodirichletsolpuncturedD}
@@ -14694,6 +14692,18 @@ Prove that the Dirichlet problem is not solvable in the punctured disc $\D
 \begin{exercise}
 Prove that given $f$, the function $g$ and the constant $C$ in 
 B\^{o}cher's theorem are unique.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \D \setminus \{ 0 \} \to \R$ is nonnegative and harmonic.
+Let $z=x+iy$.  Prove that the $C$ from B\^{o}cher's theorem can be computed by
+\begin{equation*}
+C =  \frac{-r}{2\pi} \int_0^{2\pi}
+\bigl(
+(\cos t) f_x (r\cos t,r\sin t) +
+(\sin t) f_y (r\cos t,r\sin t) 
+\bigr) \, dt .
+\end{equation*}
 \end{exercise}
 \end{exbox}
 
@@ -14713,7 +14723,7 @@ curve---such as the real line---then it extends (reflects) across.
 Suppose $U \subset \C$ is a domain symmetric across the real axis, that is,
 $z \in U$ if and only if $\bar{z} \in U$.
 Let $U_+ = \{ z \in U : \Im z > 0 \}$ and $L = U \cap \R$.
-Suppose $f \colon U_+ \cup L \to \R$ be continuous function that is
+Suppose $f \colon U_+ \cup L \to \R$ is a continuous function that is
 harmonic on $U_+$ and $f(z) = 0$ for all $z \in L$.
 
 Then there exists a harmonic $F \colon U \to \R$ such that
@@ -14780,18 +14790,48 @@ Suppose $f \colon \C \to \C$ is an entire holomorphic function.
 Suppose $f(x)$ is real for all $x \in \R$. Prove:
 \begin{exparts}
 \item
-If furthermore $f(iy)$ is purely imaginary for all $y \in \R$,
+If $f(iy)$ is purely imaginary for all $y \in \R$,
 then $f(z)=-f(-z)$ for all $z \in \C$.
 \item
-If furthermore $f(iy)$ is real for all $y \in \R$,
+If $f(iy)$ is real for all $y \in \R$,
 then $f(z)=f(-z)$ for all $z \in \C$.
 \end{exparts}
 \end{exercise}
 
+\begin{exercise} \label{exercise:Hdirichuniq}
+Prove that the Dirichlet problem has a unique bounded solution in $\bH$.
+That is,
+suppose $f,g \colon \overline{\bH} \to \R$ are 
+continuous and harmonic in $\bH$ such that $f-g$ is bounded and
+$f=g$ on $\partial \bH = \R$.  Prove that $f=g$ everywhere.
+Compare to \exerciseref{exercise:upperhalfplanedirichlet}.
+\end{exercise}
+
 \begin{exercise}
 Suppose $f \colon \overline{\bH} \to \R$ is continuous, harmonic on $\bH$, zero on $\R = \partial \bH$,
-and positive on $\bH$  (what we called a Martin function before).
+and positive on $\bH$  (a Martin function).
 Prove that $f(z) = c \Im z$ for some $c > 0$.
+Hint: Find an entire function whose imaginary part is $f$ and
+show that it has a pole at infinity.
+\end{exercise}
+
+\begin{exercise}
+\begin{exparts}
+\item
+Allow singularities in \exerciseref{exercise:Hdirichuniq}.
+Suppose $S \subset \R$ is finite, and
+$f,g \colon \overline{\bH} \setminus S \to \R$ are 
+continuous and harmonic in $\bH$ such that $f-g$ is bounded and
+$f=g$ on $\R \setminus S$.  Prove that $f=g$ everywhere.
+\item
+Show uniqueness of the bounded Dirichlet problem in $\D$ with
+discontinuities:  Suppose $S \subset \partial \D$ is finite and
+$f \colon \partial \D \setminus S \to \R$ is continuous and bounded.
+By \exerciseref{exercise:dirichDwithsings}, a continuous $g \colon
+\overline{\D} \setminus S \to \R$ harmonic in $\D$ exists such that $g=f$ on
+$\partial D \setminus S$.  Prove that there is a unique such bounded $g$.
+Hint: Part a) and Cayley.
+\end{exparts}
 \end{exercise}
 
 \begin{exercise}
@@ -14831,8 +14871,7 @@ if
 Let $U \subset \C$ be open.
 A function $f \colon U \to \R \cup \{ -\infty \}$ is 
 \emph{\myindex{subharmonic}} if it is upper-semicontinuous
-and for every
-disc $\Delta_r(p)$ with $\overline{\Delta_r(p)} \subset U$,
+and for every closed disc $\overline{\Delta_r(p)} \subset U$,
 and every continuous $g \colon \overline{\Delta_r(p)} \to \R$,
 harmonic on $\Delta_r(p)$,
 such that $f(z) \leq g(z)$ for $z \in \partial \Delta_r(p)$, we have
@@ -14845,7 +14884,7 @@ In other words, a subharmonic function is a function that is less than every
 harmonic function on every disc.
 The best way to think about subharmonic functions is an analogy to convex
 functions in $\R$.
-We saw that harmonic functions in $\R$ are just the affine linear functions:
+We saw that harmonic functions in $\R$ are the affine linear functions:
 A function $g(x)$ on $\R$ is harmonic if $g'' \equiv 0$, that is, $g(x) = Ax+B$.
 A function of one real variable is
 \emph{convex}\index{convex function} if 
@@ -14862,7 +14901,7 @@ $f(x) \leq g(x)$ for all $x \in [\alpha,\beta]$.
 %We can take the $g$ that is equal to $f$ at the endpoints.
 See \figureref{fig:convexfunc}.
 In $\R$, an interval $[\alpha,\beta]$ plays the role of a closed disc.
-So \emph{convex} is the same as \emph{subharmonic} in $\R$.
+So in $\R$, \emph{convex} is the same as \emph{subharmonic}.
 Graphs of real-valued functions of one real variable
 are also much easier to draw than functions on $\C$.
 
@@ -17297,7 +17336,7 @@ mean-value property or Morera's theorem.
 Suppose $U \subset \C$ is a domain symmetric across the real axis, that is,
 $z \in U$ if and only if $\bar{z} \in U$.
 Let $U_+ = \{ z \in U : \Im z > 0 \}$ and $L = U \cap \R$.
-Suppose $f \colon U_+ \cup L \to \C$ be continuous function that is
+Suppose $f \colon U_+ \cup L \to \C$ is a continuous function that is
 holomorphic on $U_+$ and real-valued on $L$, that is,
 $\Im f(z) = 0$ for all $z \in L$.
 
