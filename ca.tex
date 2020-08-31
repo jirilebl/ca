@@ -13278,7 +13278,7 @@ $g \circ f$ is harmonic.
 
 \begin{exercise}
 Prove that if $f \colon \D \to \R$ is harmonic, then
-$f(\nicefrac{z}{\sabs{z}})$ is harmonic in $\C \setminus
+$f(\nicefrac{z}{\sabs{z}^2})$ is harmonic in $\C \setminus
 \overline{\D}$.
 \end{exercise}
 
@@ -14808,6 +14808,25 @@ Compare to \exerciseref{exercise:upperhalfplanedirichlet}.
 \end{exercise}
 
 \begin{exercise}
+Prove a version of reflection across the circle:  Let $U \subset
+\C$ be a domain symmetric with respect to the inversion $z \mapsto
+\nicefrac{z}{\abs{z}^2}$.  Suppose $f$ is a harmonic function defined on
+$U \cap \overline{\D}$ and zero on $U \cap \partial \D$.
+Prove that $f$ extends to a harmonic function on $U$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \D \setminus \{ 0 \} \to \R$ is harmonic and $f = 0$
+on $\R \cap \bigl( \D \setminus \{ 0 \} \bigr)$.
+\begin{exparts}
+\item
+Show that $f$ has a harmonic conjugate in $\D \setminus \{ 0 \}$.
+\item
+Find an example $f$ that does not extend to be harmonic through the origin.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
 Suppose $f \colon \overline{\bH} \to \R$ is continuous, harmonic on $\bH$, zero on $\R = \partial \bH$,
 and positive on $\bH$  (a Martin function).
 Prove that $f(z) = c \Im z$ for some $c > 0$.
@@ -14831,17 +14850,6 @@ By \exerciseref{exercise:dirichDwithsings}, a continuous $g \colon
 \overline{\D} \setminus S \to \R$ harmonic in $\D$ exists such that $g=f$ on
 $\partial D \setminus S$.  Prove that there is a unique such bounded $g$.
 Hint: Part a) and Cayley.
-\end{exparts}
-\end{exercise}
-
-\begin{exercise}
-Suppose $f \colon \D \setminus \{ 0 \} \to \R$ is harmonic and $f = 0$
-on $\R \cap \bigl( \D \setminus \{ 0 \} \bigr)$.
-\begin{exparts}
-\item
-Show that $f$ has a harmonic conjugate in $\D \setminus \{ 0 \}$.
-\item
-Find an example $f$ that does not extend to be harmonic through the origin.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -15002,7 +15010,7 @@ above by continuous functions $g$ such that
 $\int_a^b g(t)\,dt$
 approximates
 $\int_a^b s(t)\,dt$.  In other words, in the definition we could replace
-step functions with continuous functions, and that is what we will use in
+step functions with continuous functions, and that is what we will do in
 the proof.
 
 \begin{proof}
@@ -15017,8 +15025,8 @@ and such that
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} f(p+re^{i\theta})\, d\theta + \epsilon .
 \end{equation*}
 Solve the Dirichlet problem in the disc $\Delta_r(p)$ for $g$ and
-in a slight abuse of notation call the solution on $\overline{\Delta_r(p)}$
-also $g$.  As $g$ is harmonic and bigger than $f$ we have by
+with a slight abuse of notation call the solution on $\overline{\Delta_r(p)}$
+also $g$.  As $g$ is harmonic and bigger than $f$, we have by
 definition of subharmonicity and the mean-value property of harmonic
 functions
 \begin{equation*}
@@ -15035,13 +15043,13 @@ there exists a closed disc
 $\overline{\Delta_s(q)} \subset U$ and a continuous
 $h \colon \overline{\Delta_s(q)} \to \R$, harmonic in $\Delta_s(q)$,
 such that $f(z) \leq h(z)$ on $\partial \Delta_s(q)$ and
-$h(p) < f(p)$ at some point $p \in \Delta_s(q)$.
+$f(p) > h(p)$ at some point $p \in \Delta_s(q)$.
 Consider $\varphi = f-h$, which is upper-semicontinuous
 on $\overline{\Delta_s(q)}$.
 Let $p$ be the point where $\varphi$ attains the maximum 
 (see \exerciseref{exercise:uppersemicontmax}).
-Then $p \in \Delta_s(q)$ and 
-$\varphi(p) > 0$ and $\varphi(z) \leq 0$
+Then $p \in \Delta_s(q)$,
+$\varphi(p) > 0$, and $\varphi(z) \leq 0$
 for all $z \in \partial \Delta_s(q)$.  The set
 $X \subset \Delta_s(q)$ where $\varphi(z) = \varphi(p)$ is compact
 (as a subset of $\overline{\Delta_s(q)}$ it is closed via
@@ -15053,16 +15061,48 @@ $\partial \Delta_r(p) \subset \Delta_s(q)$ and for a nonempty open subset
 of $\partial \Delta_r(p)$ the function $\varphi$ must be less than some fixed
 constant less than $\varphi(p)$.  This again follows via 
 \exerciseref{exercise:uppersemicontclosedopen}.
-The setup is the same as in \figureref{fig:meanvalue}.  So,
+The setup is the same as in \figureref{fig:meanvalue}.
 \begin{equation*}
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} \varphi(p+re^{i\theta})\, d\theta <
 \varphi(p) .
 \end{equation*}
-As $h$ is harmonic and satisfies the
-mean-value property, we obtain a contraction.
+So we obtain
+a contradiction,
+\begin{multline*}
+f(p)-h(p)
+\leq
+\frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}}
+\bigl( \varphi(p+re^{i\theta}) -
+h(p+re^{i\theta}) \bigr)
+\, d\theta
++
+\frac{1}{2\pi} \int_{-\pi}^{\pi} h(p+re^{i\theta}) \, d\theta
+\\
+\leq
+\frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}}
+\varphi(p+re^{i\theta})
+\, d\theta
++
+\frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}}
+\bigl( - h(p+re^{i\theta}) \bigr)
+\, d\theta
++
+\frac{1}{2\pi} \int_{-\pi}^{\pi} h(p+re^{i\theta}) \, d\theta
+\\
+=
+\frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} \varphi(p+re^{i\theta})\, d\theta <
+\varphi(p) =
+f(p)-h(p) .
+\end{multline*}
+The first inequality follows by the hypothesis for $f$ and the mean-value
+property for $h$.  The second inequality
+follows because the Darboux upper integral is
+only subadditive ($\overline{\int} (a+b) \leq \overline{\int}a +
+\overline{\int} b$).  Then that $h$ is Riemann integrable gives the next
+equality, and the final inequality is the inequality we just proved above.
 \end{proof}
 
-From now on, when we apply the property we simply write the integral and
+From now on, we simply write the integral and
 the reader substitutes the upper Darboux integral or the Lebesgue integral
 according to the reader's taste.
 
@@ -15106,11 +15146,14 @@ $\overline{\Delta_r(p)} \subset U$, then
 f(p) \leq \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta \leq f(p)
 .
 \end{equation*}
-Hence, $f = f(p)$ almost everywhere on $\partial \Delta_r(p)$.
-By upper-semicontinuity, $f = f(p)$ everywhere on $\partial \Delta_r(p)$.
-This was true for all $r$
+Hence, on every subinterval of $\theta$, $f(p+re^{i\theta}) = f(p)$
+somewhere (using either the Darboux or Lebesgue integral).
+By upper-semicontinuity for any $\theta_0$,
+$f(p+re^{i\theta_0}) = \limsup_{\theta \to \theta_0} f(p+re^{i\theta}) =
+f(p)$.  So $f = f(p)$ everywhere on $\partial \Delta_r(p)$.
+This is true for all $r$
 with $\overline{\Delta_r(p)} \subset U$, so $f=f(p)$ on $\Delta_r(p)$,
-and so the set where $f=f(p)$ is open.  The set where an upper-semicontinuous
+and the set where $f=f(p)$ is open.  The set where an upper-semicontinuous
 function attains a maximum is closed.  So $f=f(p)$ on $U$ as $U$ is
 connected.
 \end{proof}
@@ -15120,14 +15163,15 @@ connected.
 Prove that subharmonicity is a local property.  That is, given an open set
 $U \subset \C$, a function $f \colon U \to \R \cup \{ -\infty \}$ is subharmonic if
 and only if for every $p \in U$ there exists an open neighborhood $W$ of $p$,
-$W \subset U$, such that $f|_{W}$ is subharmonic.  Hint: Perhaps try to use
-the maximum principle and \propref{prop:fplushsubharmonic}.
+$W \subset U$, such that $f|_{W}$ is subharmonic.
+%Hint: Perhaps try to use
+%the maximum principle and \propref{prop:fplushsubharmonic}.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is a bounded open set, $f \colon \widebar{U} \to \R
-\cup \{-\infty\}$ is an upper-semicontinuous function, such that $f|_U$
-is subharmonic, $g \colon \widebar{U} \to \R$ is a continuous function
+Suppose $U \subset \C$ is bounded and open, $f \colon \widebar{U} \to \R
+\cup \{-\infty\}$ is upper-semicontinuous such that $f|_U$
+is subharmonic, and $g \colon \widebar{U} \to \R$ is continuous
 such that $g|_U$ is harmonic and
 $f(z) \leq g(z)$ for all $z \in \partial U$.  Prove that
 $f(z) \leq g(z)$ for all $z \in U$.
@@ -15166,14 +15210,14 @@ $\nabla^2 f \geq 0$.
 \end{prop}
 
 \begin{proof}
-Suppose $f$ is a $C^2$-smooth function on a subset of $\C \cong \R^2$
+Suppose $f$ is a $C^2$-smooth function on a subset of $\C$
 with $\nabla^2 f \geq 0$.  We wish to show that $f$ is subharmonic.
 Take a disc $\Delta$ such that $\overline{\Delta} \subset U$.
 Consider a function
 $g$ continuous on $\overline{\Delta}$,
 harmonic on $\Delta$, and such that
 $f \leq g$ on the boundary $\partial \Delta$.  Because
-$\nabla^2 (f-g) = \nabla^2 f \geq 0$, we assume $g = 0$ and $f \leq 0$
+$\nabla^2 (f-g) = \nabla^2 f \geq 0$, we can assume $g = 0$ and $f \leq 0$
 on the boundary $\partial \Delta$. 
 
 Suppose $\nabla^2 f > 0$ at all points on $\Delta$.
@@ -15230,7 +15274,7 @@ Suppose $\overline{\Delta_r(p)} \subset U$.  For any $\alpha$,
 \frac{1}{2\pi} \int_{-\pi}^{\pi} f_\alpha (p+re^{i\theta})\, d\theta 
 \geq f_\alpha(p) .
 \end{equation*}
-Taking the supremum on the right over $\alpha$ obtains the results.
+Taking the supremum on the right over $\alpha$ obtains the result.
 \end{proof}
 
 \begin{exbox}
@@ -15305,7 +15349,7 @@ $\overline{\Delta}$.  Hence $Pu$
 equals $u$ on $\partial \Delta$, and $Pu$ is harmonic in all of $\Delta$.
 Consider the function
 $Pu(z) - u(z)$ on $\overline{\Delta}$.  The function is zero
-on $\partial \Delta$ and it is harmonic on $\Delta'$.  By rescaling $f$
+on $\partial \Delta$ and it is harmonic on $\Delta'$.  By rescaling $f$,
 we can without loss of generality assume that $\abs{f(z)} < 1$ for all $z
 \in \overline{\Delta}$.  For any $t >0$, the function 
 $z \mapsto t \log \abs{f(z)}$ is subharmonic on $\Delta'$ and
@@ -15340,10 +15384,10 @@ On $W$, $u=0$ and so $Pu-u$ is harmonic on $W$
 and continuous on $\widebar{W}$.  Furthermore,
 $Pu-u=0$ on $\overline{\Delta'} \cup \partial \Delta$,
 and so $Pu-u=0$ on $\partial W$.  By the maximum principle, $Pu=u$ on $W$
-and therefore on all of $\overline{\Delta}$.
-Similarly, if $v$ is the imaginary part of $f$, then $Pv = v$ on
-$\overline{\Delta}$.
-In other words, $u$ and $v$ are harmonic on $\Delta$.
+and therefore on all of $\overline{\Delta}$.  All in all, $u$ is harmonic on
+$\Delta$.
+Repeating the whole procedure for $v$, the imaginary part of $f$, we find
+that $v$ is harmonic as well.
 As $\Delta$ is simply connected,
 let $\tilde{v}$ be the harmonic conjugate of $u$ that equals $v$ at
 some point of $\Delta'$.  As $f$ is holomorphic on $\Delta'$,
@@ -15378,7 +15422,7 @@ afterall be pieced together unlike harmonic functions).
 If a solution exists, it clearly must equal to the Perron solution.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}[Easy]
 \pagebreak[2]
 Suppose $U \subset \C$ is a domain and
 $u \colon \widebar{U} \to \R$ is continuous and
