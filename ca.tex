@@ -15846,7 +15846,7 @@ $z \in \overline{\D}$.
 
 \begin{proof}
 The lemma clearly holds for $m=0$.
-Differentiating $1-E_m(z)$, we find using the finite geometric sum,
+Differentiating $1-E_m(z)$ and using the finite geometric sum, we find
 \begin{multline*}
 -E'_m(z) =
 \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
@@ -15871,7 +15871,8 @@ for $f$ at $0$ are be nonnegative.  By \lemmaref{lemma:maxprincpositive},
 \end{equation*}
 \end{proof}
 
-We can prescribe the zeros of an entire function arbitrarily.
+The Weierstrass product theorem says that
+we can prescribe the zeros of an entire function arbitrarily.
 The only requirement is the obvious one from the identity theorem:
 the zeros have no limit point in $\C$.
 
@@ -15903,14 +15904,14 @@ converges for all $r > 0$ can be used.
 
 \begin{proof}
 Ignore the zero at the origin, and just consider the nonzero
-zeros $\{ a_n \}$.  We claim that at least one sequence
+zeros $\{ a_n \}$.  We claim that at least one sequence $\{ \ell_n \}$
 such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
 Indeed, choosing $\ell_n = n-1$ would suffice:
 As $\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
 For any $r > 0$, we get $\sabs{a_n} \geq 2r$ or
 $\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
 for all large enough $n$.
-Thus if $\ell_n = n-1$, a tail of the series is bounded
+If $\ell_n = n-1$, a tail of the series is bounded
 by the geometric series $\sum {(\nicefrac{1}{2})}^n$.
 
 Consider a compact set $K$ in the plane.  It is contained in some closed disc
@@ -15939,9 +15940,9 @@ is uniform in $K$, as the far right-hand side above does not depend on $z$.
 
 There are many choices for the sequence $\{ \ell_n \}$.  The proof says
 that the convergence of \eqref{eq:pnconvergence} 
-for every $r>0$ guarantees convergence of the product, but we may still try
-to make a convenient choice of $\{ \ell_n \}$, and we often
-make a much more convenient choice than $\ell_n=n-1$.
+for every $r>0$ guarantees convergence of the product, but we may try
+to make a convenient choice of $\{ \ell_n \}$, and often
+there is a more convenient choice than $\ell_n=n-1$.
 
 Now that we can prescribe zeros of an entire function, we
 use it to divide out all the zeros of any other entire function, and
@@ -16011,7 +16012,8 @@ with no limit points, and $\{ c_n \}$ an arbitrary sequence of complex
 numbers.  Construct an entire function $f$ such that $f(a_n) = c_n$.
 Hint:  For any radius $r > 0$, a point $p \in \C$, $\sabs{p} > r$, and
 an $\epsilon > 0$, try to find a function with some prescribed zeros
-such that $f(p) =1$ and $\snorm{f}_{B(0,r)} < \epsilon$.  Another hint:
+such that $f(p) =1$ and $\sabs{f(z)} < \epsilon$ for all $z \in \Delta_r(0)$.
+Another hint:
 If $\sabs{w} < 1$, then $\sabs{w}^n$ goes to zero.
 \end{exercise}
 \end{exbox}
@@ -16068,8 +16070,8 @@ e^{g(z)}
 \prod_{n=1}^\infty 
 \left(1-\frac{z^2}{n^2}\right)
 \end{equation*}
-for some entire function $g$.  We need to show that $g \equiv 1$.  By the
-computation of the derivative above, $g(0) = 1$.
+for some entire function $g$.  We need to show that $g \equiv 0$.  By the
+computation of the derivative above, $g(0) = 0$.
 
 We wish to convert the product to a series using the
 logarithm, as series are simpler to handle\footnote{Any calculus student
@@ -16090,10 +16092,10 @@ is well-defined.  We can find the logarithmic derivative by differentiating
 the series for $\log \varphi(z)$
 since for the derivative we only need to work locally and we can use
 any branch of the logarithm.
-So, locally, using any branch of the logarithm,
-we pick $k$ large enough so that $\Re \bigl( 1-\frac{z^2}{n^2} \bigr) > 0$
-for all $n \geq k$,
-so that we can use \propref{prop:infproductwithlogs},
+Locally, using any branch of the logarithm,
+pick $k$ large enough so that $\Re \bigl( 1-\frac{z^2}{n^2} \bigr) > 0$
+for all $n \geq k$, and
+\propref{prop:infproductwithlogs} applies:
 \begin{multline*}
 \pi \cot (\pi z) =
 \frac{\pi \cos (\pi z)}{\sin(\pi z)}
@@ -16139,8 +16141,9 @@ The penultimate equality would not be true without the derivative as what's
 inside the square brackets may differ by a constant.
 Since the far left-hand side and the far right-hand side do not have any
 logarithms in them they are clearly well-defined.
-One can show the equality without the $g'$ as a nice exercise in applying
-the residue theorem.
+The equality hods with $g'=0$, which is 
+a nice exercise in applying the residue theorem, and we
+leave it to the reader.
 
 \begin{exbox}
 \begin{exercise}
@@ -16176,7 +16179,7 @@ with uniform convergence on compact subsets of $\C \setminus \Z$.
 \end{exercise}
 \end{exbox}
 
-In particular, the exercise says that $g'(z)=0$, and as $g(0)=1$ we have $g \equiv 1$.
+In particular, the exercise says that $g'(z)=0$, and as $g(0)=0$ we have $g \equiv 0$.
 We have thus proved the following proposition.
 
 \begin{prop}
@@ -16187,7 +16190,7 @@ For all $z \in \C$,
 \left(1-\frac{z^2}{n^2}\right) ,
 \avoidbreak
 \end{equation*}
-with uniform absolute convergence on compact sets.
+with uniform absolute convergence on compact subsets.
 \end{prop}
 
 
