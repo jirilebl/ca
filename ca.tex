@@ -15795,13 +15795,13 @@ we have to be a smidge trickier than just trying to factor out $(z-z_n)$
 for all the zeros.  To
 get the product to converge, we multiply the factor by something to
 make the factor closer to $1$.  We start with functions that have a zero at
-$1$.
+$z=1$.
 
 \begin{defn}
 Define the \emph{\myindex{elementary factors}}
 \glsadd{not:elemfact}%
 \begin{equation*}
-E_0(z) = (1-z), \qquad
+E_0(z) = 1-z, \qquad
 E_m(z) = (1-z) \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right)
 .
 \end{equation*}
@@ -15811,9 +15811,9 @@ The function $E_m(\nicefrac{z}{a})$ has a zero of order 1 at $a$.
 As we are relating the absolute convergence of $\prod (1+a_n)$ to $\sum
 \sabs{a_n}$, let us consider what happens to $\babs{E_m(z)-1}=\babs{1-E_m(z)}$.
 Before we do so, we prove a useful estimate for holomorphic functions
-on the disc.  By the maximum modulus principle the maximum is attained at
-the boundary.
-If the derivatives are all positive, then it is attained
+on the disc.
+By the maximum modulus principle, the maximum is attained at the boundary.
+If the derivatives at the origin are all positive, then it is attained
 at a very specific point.
 
 \begin{lemma} \label{lemma:maxprincpositive}
@@ -15862,7 +15862,7 @@ z^m \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right) .
 \end{multline*}
 Notably, $1-E_m(z)$ has a zero of order $m+1$ at $z=0$.  Thus $f(z) =
 \frac{1-E_m(z)}{z^{m+1}}$ has a removable singularity.  From the formula for
-the derivative $-E_m'(z)$ it is clear the coefficients of the power series
+the derivative $-E_m'(z)$, it is clear the coefficients of the power series
 for $f$ at $0$ are be nonnegative.  By \lemmaref{lemma:maxprincpositive},
 \begin{equation*}
 \abs{\frac{1-E_m(z)}{z^{m+1}}} \leq
