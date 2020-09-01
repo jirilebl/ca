@@ -15456,25 +15456,24 @@ I became insane, with long intervals of horrible sanity.
 
 If a
 function has zeros at $0$, $1$, and $i$ we
-could write $f$ as
-$f(z) = g(z) z(z-1)(z-i)$.  And if those were the only zeros, then 
-$g$ would be never zero.  If there are infinitely many zeros, however,
+can write $f$ as
+$f(z) = g(z) z(z-1)(z-i)$.  And if those are the only zeros, then 
+$g$ is never zero.  If there are infinitely many zeros, however,
 things become difficult.
 Can we factor out the zeros out of $\sin z$?  Can we
 write $\sin z$ as something times
 \begin{equation*}
 \prod_{n \in \Z} (z-\pi n) \, ?
 \end{equation*}
-Not quite, but sort of,
-though we have to be careful about convergence.\footnote{Beware of
+Not quite, but sort of, if
+we take care of convergence.\footnote{Beware of
 formal expressions bearing gifts.
 Especially ones with infinite sets in them.
 For example, $\prod_{n \in \Z} (z-\pi n)$ does not make sense.}
-Of course, we must first
-figure out what do we mean by convergence.  Even once we figure out
-what convergence means, it will still require a bit more work as
-we will need to use
-more complicated factors to make convergence happen the way we want to.
+Of course, we need to first
+figure out what we mean by convergence.  Once we figure that out,
+we will show that convergence happens the way we want to
+if we use slightly more complicated factors.
 
 \begin{defn}
 The product
@@ -15510,14 +15509,14 @@ In particular, $a_n \not= -1$ for any $n$.  Then
 }{
 \prod_{n=1}^{k} (1+a_n)
 }
-=1+a_k
+=1+a_k .
 \end{equation*}
 Taking the limit, we see that $1+a_k$ must go to 1, and so $a_k$ must go to 0.
 
 A key idea about products is to relate infinite products to sums using the
 logarithm, which is something we can easily do if dealing with positive
-numbers.  This means that absolutely convergent products can be understood
-if we can understand absolutely convergent sums, which we do.
+numbers.  This way, absolutely convergent products can be understood
+if we understand absolutely convergent sums, which we do.
 
 \begin{prop} \label{prop:infprodabsconvinfsum}
 The product $\prod_{n=1}^\infty \bigl(1+\sabs{a_n}\bigr)$ converges if and only if
@@ -15543,8 +15542,8 @@ Consider
 \end{equation*}
 
 For the other direction, suppose that the sequence of partial products
-converges.  All but finitely many $n$, we must
-have $\sabs{a_n} < 1$.  Otherwise the product would double infinitely often and go to
+converges.  For all but finitely many $n$, $\sabs{a_n} < 1$.
+Otherwise the product would double infinitely often and go to
 infinity.  So suppose that $\sabs{a_n} < 1$ for all $n \geq N$.
 If $\sabs{a_n} < 1$, then $\sabs{a_n} \leq 2 \log \bigl(1+\sabs{a_n}\bigr)$,
 and
@@ -15569,7 +15568,7 @@ As for series, we need to know that absolute convergence really is convergence.
 \begin{prop} \label{prop:infproductwithlogs}
 If $\prod_{n=1}^\infty (1+a_n)$ converges absolutely, then it converges.
 
-Moreover, if furthermore $\Re a_n > -1$ for all $n$, then 
+Moreover, if $\Re a_n > -1$ for all $n$, then 
 \begin{equation*}
 \prod_{n=1}^\infty (1+a_n)
 =
@@ -15586,7 +15585,8 @@ If the product converges absolutely, then $\sabs{a_n}$ goes to $0$, and we
 may assume that $\Re a_n > -1$ for all $n$.  In particular,
 $\Log (1+a_n)$ is well-defined for the principal branch of the logarithm.
 Let $m > k$ be two positive integers.
-\begin{multline} \label{eq:infprodest1}
+\begin{equation} \label{eq:infprodest1}
+\begin{split}
 \abs{
 \sum_{n=1}^m 
 \abs{\Log (1+a_n)}
@@ -15594,20 +15594,21 @@ Let $m > k$ be two positive integers.
 \sum_{n=1}^k 
 \abs{\Log (1+a_n)}
 }
-\leq
+& \leq
 \sum_{n=k+1}^m 
 \abs{
 \Log (1+a_n)
 }
 \\
-\leq
+& \leq
 \sum_{n=k+1}^m 
 \left(
 \log \sabs{1+a_n}
 +
 \abs{ \Arg (1+a_n)}
 \right) .
-\end{multline}
+\end{split}
+\end{equation}
 As before,
 \begin{equation*}
 \sum_{n=1}^\ell \log \sabs{1+a_n} \leq
@@ -15615,7 +15616,7 @@ As before,
 \leq
 \sum_{n=1}^\ell \sabs{a_n} ,
 \end{equation*}
-and this series on the right converges via \propref{prop:infprodabsconvinfsum}.
+and the series on the right converges via \propref{prop:infprodabsconvinfsum}.
 Next, $\Arg(1+a_n)$ is between $\nicefrac{-\pi}{2}$ and
 $\nicefrac{\pi}{2}$, and $a_n$ is going to zero.  So for all $n$ large
 enough, $\babs{\Arg(1+a_n)} \leq 2\sabs{a_n}$.  As $\sum
@@ -15648,7 +15649,8 @@ $\sum_{n=1}^k \Log z_n = \Log \prod_{n=1}^k z_n$.
 However,
 $\sum_{n=1}^k \Log z_n = \log \prod_{n=1}^k z_n$ for some branch of the
 logarithm because the arguments might add up to something outside the range
-$(-\pi,\pi]$.
+$(-\pi,\pi]$, but it will be off by some multiple of $2\pi$.
+
 
 \begin{prop}
 If $\prod_{n=1}^\infty (1+a_n)$ converges absolutely to $0$, then there
@@ -15656,14 +15658,14 @@ exists a $n$ such that $a_n=-1$.
 \end{prop}
 
 \begin{proof}
-As before, as $\sabs{a_n}$ goes to zero,
+As before, because $\sabs{a_n}$ goes to zero,
 $\Re a_n > -1$ for all large enough $n$.  The product
 of those terms converges to a nonzero number by the ``Moreover'' part of the
 proposition.  The only way to get zero as a limit is for one of the initial
 terms to be zero, that is, if $a_n=-1$ for some $n$.
 \end{proof}
 
-Just as for series, an absolutely convergent power series can be reordered.
+Just as series, an absolutely convergent power series can be reordered.
 
 \begin{prop}
 Suppose $\prod_{n=1}^\infty (1+a_n)$ converges absolutely to $L$.
