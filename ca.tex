@@ -16179,7 +16179,7 @@ with uniform convergence on compact subsets of $\C \setminus \Z$.
 \end{exercise}
 \end{exbox}
 
-In particular, the exercise says that $g'(z)=0$, and as $g(0)=0$ we have $g \equiv 0$.
+In particular, the exercise says that $g'(z)=0$, and as $g(0)=0$, we find $g \equiv 0$.
 We have thus proved the following proposition.
 
 \begin{prop}
@@ -16222,7 +16222,7 @@ converging uniformly on compact subsets of $U$.
 \subsection{The product theorem in any open set}
 
 The product theorem holds in any open set.  The proof is very similar too.
-However, what changes is that the zeros can no longer congregate on any point of
+What changes is that the zeros can no longer congregate on any point of
 the boundary as well as at infinity.  There are a couple of ways to handle
 this, one is to move infinity first and make sure all the zeros are bounded.
 The other way is to not move anything by splitting up the sequence of zeros in a
@@ -16251,9 +16251,9 @@ Let
 \begin{equation*}
 D = \left\{ z \in U :
 d(z,\C \setminus U) < \frac{1}{\sabs{z}+1}
-\right\} .
+\right\} ,
 \end{equation*}
-As usual, $d(z,\C\setminus U) = \inf_{\zeta \in \C \setminus U}
+where $d(z,\C\setminus U) = \inf_{\zeta \in \C \setminus U}
 \sabs{z-\zeta}$.  For $z \in U$ it is the distance to the boundary.
 Divide $\{ a_n \}$ into two parts:
 Let $\{ a^1_n \}$ be those $a_n$ that lie in $D$ and $\{ a^2_n \}$
@@ -16274,13 +16274,13 @@ We claim that
 $\sabs{a^1_n-p_n}$ goes to zero as $n$ goes to infinity.
 Indeed, suppose not, then there is an $\epsilon > 0$ and
 a subsequence such that 
-$\abs{a^1_{n_k}-p_{n_k}} > \epsilon$ for all $m$.  As these are the
+$\abs{a^1_{n_k}-p_{n_k}} > \epsilon$ for all $k$.  As these are the
 distances to the boundary and $a^1_{n_k} \in D$,
-we must have that $\sabs{a^1_{n_k}} < \nicefrac{1}{\epsilon}+1$ for all $m$.
-In particular these $\{ a^1_{n_k} \}$ must have a limit point and since they
+we must have that $\sabs{a^1_{n_k}} < \nicefrac{1}{\epsilon}-1$ for all $k$.
+In particular, these $\{ a^1_{n_k} \}$ must have a limit point and since they
 are all at least $\epsilon$ away from the boundary this limit point would be
 in $U$.  That is a contradiction.  Hence
-$\sabs{a^1_n-p_n}$ goes to infinity.
+$\sabs{a^1_n-p_n}$ goes to $0$.
 
 \begin{myfig}
 \subimport*{figures/}{weiergeneral.pdf_t}
@@ -16315,13 +16315,14 @@ E_n\left(
 \frac{a^1_n-p_n}{z-p_n}
 \right)
 \end{equation*}
-converges uniformly on $K$.  Thus this product $f_1$ converges
+converges uniformly on $K$.  As $K$ is arbitrary, $f_1$ converges
 uniformly on compact subsets of $U$.  We are thus done with $f_1$.
 
-For $f_2$, note that $\{a^2_n\}$ must go to infinity.  Otherwise, the
-sequence would have a finite limit point, but this limit point would have to
-be in $U$ as whenever $\sabs{a^2_n} \leq r$ then $d(a^2_n,\C\setminus U)
-\geq \frac{1}{r+1}$.  But then we can construct an entire function with
+For $f_2$, note that $\{a^2_n\}$ must go to infinity and has no finite limit
+points.  Indeed, if $\sabs{a^2_n} \leq r$, then $d(a^2_n,\C\setminus U)
+\geq \frac{1}{r+1}$, and $\{ a^2_n \}$ has no limit points in
+$U$.
+We can, therefore, construct an entire function with
 these zeros.
 \end{proof}
 
@@ -16362,8 +16363,8 @@ divisors, and a field of fractions is only defined for integral domains.
 
 \begin{exbox}
 \begin{exercise}
-Given a domain $U \subset \C$ and $f$ and $g$ holomorphic on $U$, neither of
-which is identically zero.  Prove that there exists a functions $h$, $F$,
+Given a domain $U \subset \C$ and $f,g \colon U \to \C$ holomorphic, neither of
+which is identically zero.  Prove that there exist functions $h$, $F$,
 and $G$ holomorphic on $U$, such that $F$ and $G$ have no common zeros and
 $f=hF$ and $g=hG$.
 \end{exercise}
@@ -16494,7 +16495,7 @@ $\overline{\D}$.
 \begin{exercise}
 Prove that if a sequence of polynomials $\{ P_n \}$ converges uniformly on
 $\C$,
-then there is an $N$ such that $P_n - P_m$ is constant for all $n,m \geq N$
+then there is an $N$ such that $P_n - P_m$ is a constant for all $n,m \geq N$
 (so the limit is $P_N$ plus a constant).
 \end{exercise}
 \end{exbox}
