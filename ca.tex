@@ -16658,24 +16658,25 @@ functions with poles in a given set.  This procedure is called
 path to where we need them to be.
 
 \begin{lemma} \label{lemma:polepushing}
-Suppose $K \subset \C$ is compact, $S \subset \C_{\infty} \setminus K$
-intersects every component of $\C_\infty \setminus K$,
-and $p \in \C \setminus K$.
+Suppose $K \subset \C$ is compact,
+$p \in \C \setminus K$, and
+$q \in \C_{\infty} \setminus K$ is
+in the same component of $\C_{\infty} \setminus K$ as $p$.
 Then for every $\epsilon > 0$,
-there exists a rational function $R$ with poles in $S$ such that
+there exists a rational function $R$ with pole at $q$ such that
 \begin{equation*}
 \abs{\frac{1}{z-p}-R(z)} < \epsilon \qquad \text{for all $z \in K$.}
 \end{equation*}
 \end{lemma}
 
 \begin{proof}
-Take $q\in S$ be in the same component of $\C_\infty \setminus K$ as $p$.
 Suppose first that $q \not= \infty$.
-As the component of $\C_\infty \setminus K$ is open and connected, it is path connected.
+As the component of $\C_\infty \setminus K$ is open and connected, it is
+path connected,
+so we connect $p$ and $q$ by a path.
 And as a path is compact,
-we connect $p$ and $q$ by a path and
-we cover the path by finitely many discs.  In particular,
-there exist points $p=z_1,z_2,\ldots,z_n=q$ and
+we cover the path by finitely many discs as follows: 
+There exist points $p=z_1,z_2,\ldots,z_n=q$ and
 finitely many discs $\Delta_{r}(z_1),\ldots,\Delta_{r}(z_n)$
 of some radius $r > 0$
 such that $z_{j+1} \in \Delta_{r}(z_j)$
@@ -16694,8 +16695,9 @@ at $z_2$ may be written as
 a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^k}$
 or $(z-z_2)^k$.  If we can uniformly approximate $\frac{1}{z-z_2}$ on $K$ by a rational
 function with a pole at $z_3$, we can approximate $R$ by a rational function
-with a pole at $z_3$.  Rinse and repeat.
-
+with a pole at $z_3$.
+And so we can approximate $\frac{1}{z-p}$ with a rational function with a pole at $z_3$.
+Rinse and repeat.
 
 So without loss of generality suppose $z_1=p$ and $z_2=q$.
 Then
@@ -16709,7 +16711,7 @@ Then
 \sum_{k=0}^\infty
 {\left(\frac{p-q}{z-q}\right)}^k ,
 \end{equation*}
-which converges uniformly on $K$ as
+which converges uniformly on $K$ as if $z \in K$, then
 \begin{equation*}
 \abs{\frac{p-q}{z-q}}
 \leq 
@@ -16785,17 +16787,17 @@ Proof: Let $K_n = \bigl\{ z \in \C : \sabs{z} \leq n, \Im z \in
 $K_n$ is compact and has three components.  There is a function $f$
 that is holomorphic on a neighborhood of $K_n$, and it equals $0$ on $K_n \setminus \R$
 and $1$ on $K_n \cap \R$.
-Indeed, pick three disconnected neighborhoods of the three components of $K_n$ and
-set the function to be identically $0$ or $1$ on the corresponding
-component, constants being holomorphic.
+Indeed, pick three disconnected neighborhoods of the three components of
+$K_n$, and set the function to be identically $0$ or $1$ on the corresponding
+component.  Constants are holomorphic.
 Runge says that there is a polynomial $P_n(z)$ such that $\sabs{P_n(z)-f(z)}
 \leq \nicefrac{1}{n}$ for $z \in K_n$.  The sequence $\{ P_n \}$ then does
-the job.  Since $K_n \subset K_{n+1}$ for all $n$ and $\bigcup K_n = \C$
-we get that eventually any $z$ is in some $K_n$ (and all the later sets).
-It follows that $\lim P_n(z)$ is the right thing.
+the job.  Since $K_n \subset K_{n+1}$ for all $n$ and $\bigcup K_n = \C$,
+eventually any $z$ is in some $K_n$ (and all the later sets).
+It follows that $\lim P_n(z)$ goes to $0$ or $1$ as required.
 
 But be careful with what we proved.  We have a pointwise limit only.  The sequence
-does \emph{not} converge uniformly on compact sets.  That is easy to see,
+does \emph{not} converge uniformly on compact subsets of $\C$.  That is easy to see,
 otherwise the limit would be continuous.
 \end{example}
 
@@ -16821,8 +16823,8 @@ component of $\C_\infty \setminus K'_n$ that is completely contained in $U$.
 In particular, we added only bounded components.
 The set $K_n$ is still closed (in $\C$) and bounded and hence compact.
 If $X$ is a component of $\C_\infty \setminus K'_n$ that we added into
-$K_n$, then we still have that $X \subset K_{n+1}$, and as $X$ is open,
-$X$ is in the interior of $K_{n+1}$.  So all the conditions are still
+$K_n$, then $X \subset K_{m}$ for all $m > n$, and as $X$ is open,
+$X$ is in the interior of $K_{m}$.  So all the conditions are 
 satisfied.
 \end{proof}
 
@@ -16851,7 +16853,7 @@ $n \geq N$. So $\{ R_n \}$ converges to $f$ uniformly on compact subsets.
 
 \begin{exbox}
 \begin{exercise}
-Prove a version of \corref{cor:rungeseq} where we only require that the
+Prove a version of \corref{cor:rungeseq}, where we only require that the
 closure $\bar{S}$ intersects every component of $\C_\infty \setminus U$.
 \end{exercise}
 
@@ -16923,12 +16925,12 @@ uniformly on compact subsets of $U$ to $f$.
 \item
 Suppose there is at least one $p \in \partial U$ such that
 $\Delta_\epsilon(p) \setminus \widebar{U}$ is empty for some $\epsilon > 0$.
-Find a counterexample $U$, $f$, and $\{ f_n \}$ to the conclusion of part a).
+Find a counterexample $U$ and $f$ to the conclusion of part a).
 \item
 Suppose there is at least one $p \in \partial U$ such that
 $\Delta_\epsilon(p) \setminus \widebar{U}$ is nonempty but disconnected for
 every $\epsilon > 0$.
-Find a counterexample $U$, $f$, and $\{ f_n \}$ to the conclusion of part a).
+Find a counterexample $U$ and $f$ to the conclusion of part a).
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -16967,11 +16969,11 @@ is compact.
 \begin{proof}
 Clearly $K \subset \widehat{K}$.  As $\widehat{K}$
 is the intersection of closed sets, that is sets where
-$\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$, it is closed.
+$\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$ for some specific $P$, it is closed.
 It must be
 bounded since $K$ is bounded:  If $\sabs{z} \leq M$ for some $M$ on $K$,
-then all points of $\widehat{K}$ also satisfy $\sabs{z} \leq M$.  Thus
-$\widehat{K}$ is compact.
+then all points of $\widehat{K}$ also satisfy $\sabs{z} \leq M$ (use $P(z)=z$).
+Thus $\widehat{K}$ is compact.
 \end{proof}
 
 \begin{example}
@@ -16982,7 +16984,7 @@ Furthermore, as above, $\sabs{z} \leq 1$ for all $z \in \widehat{K}$.
 So, $\widehat{K} = \overline{\D}$.
 \end{example}
 
-\begin{prop}
+\begin{prop} \label{prop:convergenceonKhat}
 Suppose $K \subset \C$ is compact, $\widehat{K}$ is its polynomial hull,
 and $\{ P_n \}$ is a sequence of polynomials converging uniformly on
 $K$.  Then $\{ P_n \}$ converges uniformly on $\widehat{K}$.  
@@ -17015,7 +17017,7 @@ complement (in either $\C$ or $\C_\infty$) is connected.
 The function that is $1$ at $p$ and $0$ on $\C \setminus X$ is
 holomorphic in a neighborhood of $Q$.
 Use \hyperref[thm:rungecpt]{Runge} to approximate this function on $Q$
-by a polynomial $P(z)$ to say within $\nicefrac{1}{2}$.  In other words,
+by a polynomial $P(z)$ to within $\nicefrac{1}{2}$.  In other words,
 $\abs{P(p)-1} < \nicefrac{1}{2}$ so 
 $\abs{P(p)} > \nicefrac{1}{2}$, and for all $z \in \C \setminus X$ (and
 therefore all $z \in K$),
@@ -17032,10 +17034,10 @@ principle says that
 \sabs{P(p)} \leq
 \sup_{z \in \partial B} \sabs{P(z)}
 \leq
-\sup_{z \in K} \sabs{P(z)},
+\sup_{z \in K} \sabs{P(z)}.
 \avoidbreak
 \end{equation*}
-so $p \in \widehat{K}$.
+So $p \in \widehat{K}$.
 \end{proof}
 
 \begin{myfig}
@@ -17064,7 +17066,7 @@ The domain $U$ is polynomially convex.
 \begin{proof}
 Suppose \ref{cor:polyhull:i} is true.
 Then $\C_\infty \setminus U$ has exactly one component.
-So \hyperref[cor:rungeseq]{Runge} says that we can approximate any function
+\hyperref[cor:rungeseq]{Runge} says that we can approximate any function
 holomorphic on $U$ by polynomials
 (rational functions with a pole at $\infty$) uniformly on compact sets.
 Namely \ref{cor:polyhull:ii} holds.
@@ -17076,7 +17078,8 @@ Then $p$ is not in $K$ and so $p$ is in one of the bounded components of $\C \se
 Consider $f(z) = \frac{1}{z-p}$, which is holomorphic on $U$, so find
 a sequence of polynomials $\{ P_n \}$ converging uniformly to $f$ on compact
 subsets.
-By the proposition the sequence converges uniformly on $\widehat{K}$.
+By \propref{prop:convergenceonKhat},
+the sequence converges uniformly on $\widehat{K}$.
 Thus it converges to a holomorphic function on
 $g$ defined on $U \cup \widehat{K}$, which is an open set by
 \thmref{thm:polyhull}, and it is connected as each component of $\C \setminus K$ we added
@@ -17139,7 +17142,7 @@ if for every compact $K \subset U$ we have $\widehat{K} \subset U$.
 
 \begin{exercise}
 Prove that if the hull is defined in terms of continuous functions on $\C$
-rather than polyomials, then $\widehat{K} = K$ for every compact $K$.
+rather than polynomials, then $\widehat{K} = K$ for every compact $K$.
 \end{exercise}
 \end{exbox}
 
