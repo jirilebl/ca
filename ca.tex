@@ -827,7 +827,7 @@ variables.
 \subsection{The geometry and topology of the plane}
 
 The size of $z$ is measured by the so-called \emph{\myindex{modulus}},
-which is just the \emph{\myindex{Euclidean distance}}:
+which is just the \emph{\myindex{euclidean distance}}:
 \glsadd{not:mod}%
 \begin{equation*}
 \sabs{z} \overset{\text{def}}{=} \sqrt{z \bar{z}} = \sqrt{x^2+y^2} .
@@ -1682,10 +1682,10 @@ f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
 \end{equation*}
 
 Translations are easy to understand, they just move the point.  Complex
-dilation $D_a$ is the traditional Euclidean plane-geometry dilation by $\sabs{a}$
-and rotation by $\arg a$.  The inversion is the Euclidean plane-geometry inversion
+dilation $D_a$ is the traditional euclidean plane-geometry dilation by $\sabs{a}$
+and rotation by $\arg a$.  The inversion is the euclidean plane-geometry inversion
 across the unit circle
-and complex conjugation, see \figureref{fig:inversion}.  The Euclidean
+and complex conjugation, see \figureref{fig:inversion}.  The euclidean
 inversion across the circle simply inverts the distance to the origin:
 \begin{equation*}
 \frac{1}{\sabs{z}} e^{i \arg z} = 
@@ -17378,7 +17378,7 @@ principle\footnote{Sometimes it is called
 \emph{\myindex{Riemann--Schwarz principle}} as Riemann saw it first, but he 
 didn't properly justify it, so Schwarz has dibs on it.},
 which 
-says that we can sometimes reflect values across some boundary.
+says that we can, under some conditions, reflect values across some boundary.
 We have seen the harmonic version (see \thmref{thm:schwarzreflectionharm})
 of this theorem.
 The proof of the principle works the same for both
@@ -17453,50 +17453,47 @@ intersects $L$ either at a vertex or side.  See \figureref{fig:splittriang}.
 
 Call such a triangle $T$, and suppose it is above the axis.
 In either case, we can translate the triangle by $\epsilon$, that is
-consider $T_\epsilon = \{ z \in T : z-\epsilon \in T \}$.
+consider $T_\epsilon = \{ z \in T : z-i\epsilon \in T \}$.
 The triangle $T_\epsilon \in U_+$ and so
 the integral over $\partial T_\epsilon$
 is zero.  We can write the integral over $\partial T_\epsilon$
 as
 \begin{equation*}
 0 = \int_{\partial T_\epsilon} F(z) \, dz =
-\int_{\partial T} F(z+\epsilon) \, dz .
+\int_{\partial T} F(z+i\epsilon) \, dz .
 \end{equation*}
 The function $F$ is uniformly continuous on some neighborhood of $T$,
-thus $F(z+\epsilon)$ converges uniformly to $F(z)$ as $\epsilon \to 0$.
-Thus $\int_{\partial T} F(z) \, dz = 0$.
+thus $F(z+i\epsilon)$ converges uniformly to $F(z)$ as $\epsilon \to 0$.
+Consequently, $\int_{\partial T} F(z) \, dz = 0$.
 Morera then implies that $F$ is holomorphic.
 \end{proof}
 
 The theorem is often applied by first mapping some curve to the real line.
-This curve must be nice-enough, that is, real-analytic.  Similarly the fact
+This curve must be nice enough, that is, real-analytic.  Similarly the fact
 that $f$ is real-valued can be replaced by being valued in some
 real-analytic curve.
-
-\begin{defn}
 A set
 $C \subset \C$ is a \emph{\myindex{real-analytic curve}}
 if it is the image of an interval under an injective real-analytic
 map $\gamma \colon (a,b) \to \C$ with non-vanishing derivative.
-\end{defn}
 
 By $\gamma$ being real-analytic we mean that at each point it has a power
-series expansion.  Equivalently then a real-analytic function is just a
-restriction of a holomorphic function to the real-line by just plugging
+series expansion.  Equivalently, a real-analytic function is a
+restriction of a holomorphic function to the real line by just plugging
 complex numbers into the power series.  Therefore, the actual definition we
 will use is the following.
 
 \begin{defn}
 A set $C \subset \C$ is a \emph{real-analytic curve}
-if there exists a domain $U \subset \C$ such that
+if there exists a domain $V \subset \C$ such that
 $V \cap \R = (a,b)$ and an injective holomorphic $\varphi \colon V \to \C$
 such that $\varphi\bigl( (a,b) \bigr) = C$.
 \end{defn}
 
-The images of the sets
+The images $\varphi(V_+)$ and $\varphi(V_-)$ of the sets
 $V_+ = \{ z \in V : \Im z > 0 \}$ and $V_- = \{ z \in V : \Im z < 0 \}$
 can be considered the ``sides'' of $C$.
-By rotation and translation we can ``switch sides.''
+We can ``switch sides'' by rotation and translation.
 
 \begin{cor}[Schwarz reflection principle for curves]
 \index{Schwarz reflection principle!holomorphic functions, general version}
@@ -17524,34 +17521,37 @@ and such that $f\bigl(\varphi(V_+)\bigr) \subset H$.
 Write $L = (a,b) = V \cap \R$ as before.
 Consider the composition $\psi \circ f \circ \varphi$, which is
 holomorphic in $V_+$, continuous on $V_+ \cup L$, and
-real-valued on $L$.  So Schwarz reflection principle holds,
-and we get holomorphic $G \colon V \to \C$ extending
+real-valued on $L$.  So the Schwarz reflection principle holds,
+and we get a holomorphic $G \colon V \to \C$ extending
 $\psi \circ f \circ \varphi$.
 
 We possibly make $V$ smaller yet to ensure that $G(V) \subset \psi(H)$ so that
 we may invert $\psi$ on the image.
-We can then write $F = \psi^{-1} \circ G \circ \varphi^{-1}$.  The set $W$
-is $\psi(V)$.
+The set $W$ is $\psi(V)$ and on $W$
+we then write $F = \psi^{-1} \circ G \circ \varphi^{-1}$, it agrees with
+$f$ on $W \cap U$, and so we get our extension.
 \end{proof}
 
 The corollary says that we can extend holomorphic functions across
 real-analytic boundaries as long as the function is continuous and valued in
-a real-analytic curve on the boundary.  However, the downside is that it
+a real-analytic curve on the boundary.  However, the downside of this more
+general statement is that it
 does not say how to figure out exactly the size of the neighborhood $W$.
 One could note the sizes of the neighborhoods $V$ and $H$
 and then follow ``reductions of $V$'' in the proof to work out how far
 the extension goes, but that does require understanding how far the
-functions defining the curves extend.
+functions defining the curves extend as invertible functions.
 
-In practice, the extension is applied to rather special curves and so we can
-explicitly figure out the form of the extension.  Let us give one such
-special case, the circle.  The reflection across the unit circle is
-$\nicefrac{1}{\bar{z}}$, and it is very similar to reflection across the
-line.  The reflection across the circle is the reflection from
-Euclidean geometry.
+In practice, the extension is often applied to rather special curves such as
+a straight line or a circle and so we can
+explicitly figure out the form of the extension and where it is defined.
+The original version is for a
+straight line, so let us give the circle version.
+The reflection across the unit circle, $\nicefrac{1}{\bar{z}}$, is the inversion from
+euclidean geometry.
 If $z = re^{i\theta}$, then the reflection
-$\nicefrac{1}{\bar{z}} = \frac{1}{r} e^{i\theta}$ is on the same ray from
-the origin by the modulus is the reciprocal.
+$\nicefrac{1}{\bar{z}} = (\nicefrac{1}{r}) e^{i\theta}$ is on the same ray from
+the origin but the modulus is the reciprocal.
 
 \begin{cor}[Schwarz reflection principle for a circle]
 \index{Schwarz reflection principle!holomorphic functions, circle version}
@@ -17560,14 +17560,14 @@ Suppose $U \subset \C \setminus \{ 0 \}$ is a domain, $\partial \D \subset U$,
 and $U$ is symmetric with respect to reflection across $\partial \D$,
 that is, $z \in U$ implies $\nicefrac{1}{\bar{z}} \in U$.
 Let $U_{\text{in}} = U \cap \D$ and $U_{\text{out}} = U \setminus \overline{\D}$.
-If $f \colon U \cap \D \to \C$ is a continuous
+If $f \colon U \cap \overline{\D} \to \C$ is a continuous
 function holomorphic on $U_{\text{in}}$ such that $f(\partial \D) \subset \partial
 \D$, then there exists a holomorphic $F \colon U \to \C$ such that
 $F|_{U \cap \overline{\D}} = f$.
 \end{cor}
 
-The proof is left as an exercise, but the idea is simply to define
-Define $F(z) = f(z)$ on $U \cap \D$, and for $z \in U_{\text{out}}$ define
+The proof is left as an exercise, but the idea is to define
+$F(z) = f(z)$ on $U \cap \overline{\D}$, and for $z \in U_{\text{out}}$, define
 \begin{equation*}
 F(z) = \frac{1}{~\overline{f(\nicefrac{1}{\bar{z}})}~} .
 \end{equation*}
@@ -17578,9 +17578,9 @@ Prove \corref{thm:schwarzreflectioncircleholo}.  Hint: Cayley.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U = \{ z : \Im z > 0 \text{ and } \Re z > 0 \}$
+Suppose $U = \{ z \in \C : \Im z > 0 \text{ and } \Re z > 0 \}$
 and $f \colon \widebar{U} \to \C$ is continuous, holomorphic 
-on $U$, real-valued when $\Im z =0$ and imaginary-value
+on $U$, real-valued when $\Im z =0$, and imaginary-valued
 when $\Re z = 0$.  Prove that $f$ extends to an entire holomorphic function.
 \end{exercise}
 
@@ -17599,7 +17599,7 @@ $f=g$ on $\D$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f \colon \C \to \C$ is holomorphic and $f$ is real
+Suppose $f \colon \C \to \C$ is holomorphic and $f$ is real-valued
 on the line $\Re z = 0$ and the line $\Re z = 1$.  Prove that $f$ is
 2-periodic, that is, $f(z+2) = f(z)$ for all $z$.
 \end{exercise}
@@ -17624,12 +17624,14 @@ origin.  That is, for any open neighborhood $V$ of $0$ there
 exists no holomorphic
 $\varphi \colon V \to \C$ such that $\varphi = f$ on $U \cap V$.
 \item
-Show that $f$ actually extends as a
+Show that $f$ extends as a
 $C^\infty$ smooth (infinitely real differentiable) function on $\widebar{U}$.
-It is enough to show that
+Hint: It is enough to show that
 all real partial derivatives of $f$ of all orders on $U$
-are locally bounded 
-for any $z \in \partial U$ (bounded in some compact neighborhood of $z$).
+are locally bounded on $\widebar{U}$: In particular, for any $z \in \partial U$ 
+and any real derivative,
+there is a neighborhood $V$ of $z$ such that the derivative
+is bounded on $U \cap V$, and that is only tricky at $z=0$.
 \end{exparts}
 This is an example for 
 boundary behavior of holomorphic functions.  A
@@ -17689,8 +17691,8 @@ The value
 $f_t\bigl(\gamma(t)\bigr)$ is really what we mean by the value of
 the extension at $\gamma(t)$, and what we would really want
 ``$f\bigl(\gamma(t)\bigr)$'' to be.
-Though of course, this is not defined for $\gamma(t)$ outside of
-$\Delta_r(p)$.
+Though of course, $f\bigl(\gamma(t)\bigr)$ is not defined for $\gamma(t)$ outside of
+$U$.
 The identity theorem implies that the definition of
 $f_t\bigl(\gamma(t)\bigr)$ is unique.
 
@@ -17728,7 +17730,7 @@ and holomorphic functions $\varphi_j \colon \Delta_j \to \C$,
 such that for all $j$, $[t_{j-1},t_j] \subset \Delta_j$,
 $\varphi_{j-1} = \varphi_j$ on $\Delta_{j-1} \cap \Delta_j$,
 and such that $\varphi_1 = f$ on $\Delta_1 \cap U$.
-Furthermore if $(f_t,D_t)$ is the continuation and $t \in [t_{j-1},t_j]$,
+Furthermore, if $(f_t,D_t)$ is a continuation and $t \in [t_{j-1},t_j]$,
 then $\varphi_j\bigl(\gamma(t)\bigr) = f_t\bigl(\gamma(t)\bigr)$.
 \end{prop}
 
@@ -22186,7 +22188,7 @@ Hint: See also \exerciseref{exercise:integralcontcontextra} and
 \subsection{The derivative}
 
 In the following, the norm $\snorm{\cdot}$ of a vector in $\R^n$
-is the Euclidean norm
+is the euclidean norm
 \glsadd{not:euclidnorm}%
 $\snorm{x} = \sqrt{x_1^2+\cdots+x_n^2}$.
 When applied to a linear mapping (a matrix) it is the
@@ -22494,7 +22496,7 @@ the components of $D\varphi|_{t_0}$ are just the derivatives of the
 components of $\varphi$, and $D\varphi|_{t_0} h = \varphi'(t_0) \cdot h$,
 where $h$ is the dot product.  Then
 $\snorm{\varphi'(t_0)}$
-is the Euclidean norm in $\R^n$.  And in fact, in this setting it is the same
+is the euclidean norm in $\R^n$.  And in fact, in this setting it is the same
 as the operator norm.
 
 \begin{lemma}
