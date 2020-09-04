@@ -17128,6 +17128,12 @@ $\bigcup K_n = U$, and such that $\widehat{K_n} = K_n$.
 \end{exercise}
 
 \begin{exercise}
+Suppose $U_1 \subset U_2 \subset \cdots$ be a sequence
+of nested polynomially convex domains in $\C$.  Let $U = \bigcup U_n$.
+Prove that $U$ is polynomially convex.
+\end{exercise}
+
+\begin{exercise}
 Instead of polynomials define
 \begin{equation*}
 \widehat{K} = \bigl\{ z \in \C : f(z) \leq \sup_{\zeta \in K}
@@ -17177,7 +17183,7 @@ limit point in $U$, and for every $p \in S$ there is a principal part
 \begin{equation*}
 P_p(z) = \sum_{n=1}^{k_p} \frac{c_{p,n}}{{(z-p)}^n}
 \end{equation*}
-of some order $k_p$.  Then there exists a meromorphic function $f$ in $U$
+of a pole of order $k_p$.  Then there exists a meromorphic function $f$ in $U$
 with poles precisely at points of $S$, and for each $p \in S$,
 the principal part of $f$ at $p$ is $P_p$.
 \end{thm}
@@ -17216,22 +17222,22 @@ K_\ell$ for some $\ell$.  Write
 \begin{equation*}
 \sum_{n=1}^\infty \bigl( f_n(z) - R_n(z) \bigr)
 =
-\sum_{n=1}^{\ell+1} \bigl( f_n(z) - R_n(z) \bigr)
+\sum_{n=1}^{\ell} \bigl( f_n(z) - R_n(z) \bigr)
 +
-\sum_{n=\ell+2}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
+\sum_{n=\ell+1}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
 \end{equation*}
 The first term has poles on $K_\ell$ (but not on $K$),
 but the second term does not.  Furthermore, for all $z \in K_\ell$, and
 hence in $K$, we have
 \begin{equation*}
-\sum_{n=\ell+2}^\infty \abs{ f_n(z) - R_n(z) }
+\sum_{n=\ell+1}^\infty \abs{ f_n(z) - R_n(z) }
 \leq
-\sum_{n=\ell+2}^\infty 2^{-n} .
+\sum_{n=\ell+1}^\infty 2^{-n} .
 \end{equation*}
 The sum converges uniformly absolutely on $K$ (Weierstrass $M$-test,
 \exerciseref{exercise:weierMtest}).
 So the series for $f$ converges uniformly absolutely
-on compact subsets of $U \setminus S$ and so $f$ is holomorphic on $U
+on compact subsets of $U \setminus S$ and $f$ is holomorphic on $U
 \setminus S$.  Let us see that it has the right sort of singularities.
 Suppose $p \in S_\ell$.  A neighborhood of $p$ contains no other
 singularities.  Then
@@ -17241,10 +17247,10 @@ f(z) =
 +
 \bigl( f_\ell(z) - R_\ell(z) \bigr)
 +
-\sum_{n=\ell+2}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
+\sum_{n=\ell+1}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
 \end{equation*}
 The first sum and the last sum are holomorphic on a neighborhood of $p$:
-The first sum has poles in $K_{\ell-2}$ and
+The first sum has all its poles in $K_{\ell-1}$ and
 the last sum has no singularities on $K_\ell$.
 The function $R_\ell$ is holomorphic in all of $U$.
 So $f$ has the same singularity at $p$ as $f_\ell$ and the same principal
@@ -17283,7 +17289,7 @@ The Mittag-Leffler theorem is a sister theorem to
 the
 \hyperref[thm:weierprod]{Weierstrass product theorem}.
 In Weierstrass's theorem
-we can prescribe zeros rather than poles.  In fact, with just a little bit
+we prescribe zeros rather than poles.  In fact, with just a little bit
 of trickery, one could use the Mittag-Leffler theorem to prove
 the Weierstrass theorem.  Again, see the exercises.
 
@@ -17325,10 +17331,9 @@ $\Delta_{\epsilon}(p) \cap U$.  Hint: The trick is constructing $S$.
 \end{exercise}
 
 \begin{exercise}
-One cannot just specify any old principal part if the singularities are not
-poles.  Find a principal part $P(z)$ for an isolated singularity at the
-origin such that there exists no holomorphic $f \colon \C \setminus \{ 0 \}
-\to \C$ whose principal part at the origin is $P(z)$.
+Suppose that instead of principal parts of poles, $P_p(z)$ are principal
+parts of essential singularities, which converge in $\C \setminus \{ p \}$.
+Prove the Mittag-Leffler with this setup.
 \end{exercise}
 
 \begin{exercise}
@@ -17359,11 +17364,11 @@ May the forces of evil become confused on the way to your house.
 \section{Schwarz reflection principle}
 
 One of the consequences of the identity theorem is that once we know a
-function in a neighborhood we know it in the whole domain, if it was defined
-in a domain that is.  If a holomorphic function $f$ is defined in a
+function in a neighborhood we know it in the whole domain.
+If a holomorphic function $f$ is defined in a
 domain $U$ and $U \subset W$ for some other domain $W$,
 then we may want to find a holomorphic function in $W$ that agrees with
-$f$ on $U$.  By the identity theorem the extension is unique, but it may not
+$f$ on $U$.  By the identity theorem, the extension is unique, but it may not
 always exist.  If $f(z) =
 \nicefrac{1}{z}$ in $U = \C \setminus \{ 0 \}$, there is no way
 of extending it to $W = \C$.
@@ -17591,6 +17596,12 @@ Let $T = \{ e^{it} : \alpha < t < \beta \}$ be a small arc of the unit
 circle.  Suppose $f \colon \D \cup T \to \C$ and $g \colon \D \cup T \to \C$
 are continuous and holomorphic in $\D$ such that $g = f$ on $T$.  Prove that
 $f=g$ on $\D$.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f \colon \C \to \C$ is holomorphic and $f$ is real
+on the line $\Re z = 0$ and the line $\Re z = 1$.  Prove that $f$ is
+2-periodic, that is, $f(z+2) = f(z)$ for all $z$.
 \end{exercise}
 
 \begin{exercise}
