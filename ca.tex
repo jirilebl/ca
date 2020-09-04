@@ -17837,7 +17837,7 @@ is not well-defined, it depends on the path taken.
 %For any $q$ there exists infinitely many
 %paths to $q$ along which the logarithm continues and along each it continues to
 %a different value.
-In general,
+Moreover,
 not every function allows unrestricted continuation even if it allows
 continuation along some path to every point.
 
@@ -17845,13 +17845,13 @@ continuation along some path to every point.
 Consider a branch of the square root $\sqrt{z}$ such that $\sqrt{1}=1$
 defined in some neighborhood of $1$.  The logarithm allows
 unrestricted continuation in $\C \setminus \{ 0 \}$, and so does the square root.
-If we continue from $z=1$ along a closed that does not go around the origin and comes
-back to $z=1$, we get the continuation also has a value $1$ there.  However,
+If we continue from $z=1$ along a closed path that does not go around the origin and comes
+back to $z=1$, the continuation of the root also has the value $1$ there.  However,
 if we go around a path that goes once around the origin, the continuation
-will have a value of $-1$ at $z=1$.  OK so far nothing new.
+will have a value of $-1$ at $z=1$.  OK, nothing new so far.
 
-Now consider the function $f(z) = \frac{1}{1+\sqrt{z}}$ where the square
-root is as before.  As we can continue the square root we can try to
+Now consider the function $f(z) = \frac{1}{1+\sqrt{z}}$, where the square
+root is as before.  As we can continue the square root, we can try to
 continue $f$.  If we take a path starting at $z=1$ that does not go around the origin
 (such as a small loop near $1$), then we obtain the square root being $1$
 and so $f$ also continues along this loop.  However, if we take the
@@ -17859,7 +17859,7 @@ unit circle and go once around the origin, the square root becomes $-1$
 once we get back to $z=1$,
 and so $f$ cannot be analytically continued along this path.  That is, $f$
 does not allow unrestricted continuation in $\C \setminus \{ 0 \}$ even
-though it may allow continuation to every point of $\C \setminus \{ 0 \}$
+though it allows continuation to every point of $\C \setminus \{ 0 \}$
 along some path.  Just not every path.
 \end{example}
 
@@ -17893,7 +17893,7 @@ Suppose $U,V \subset \C$ are open, $f \colon U \to V$ holomorphic, $k$-to-1,
 and onto.
 Using \exerciseref{exercise:ktoone}, $f'$ never vanishes and
 it is locally invertible.  It is not hard to
-prove that $f$ is in fact a covering map.  We leave this as an exercise.
+prove that $f$ is a covering map.  We leave this as an exercise.
 \end{example}
 
 \begin{prop}
@@ -17904,22 +17904,22 @@ of $p$, and admits unrestricted analytic continuation to $V$.
 \end{prop}
 
 \begin{proof}
-Take $\gamma \colon [0,1] \to V$ be continuous and $\gamma(0) = p$.
+Consider a continuous $\gamma \colon [0,1] \to V$, where $\gamma(0) = p$.
 At each point $w$ of $\gamma$ using the definition of covering map,
 we can find a disc $\Delta \subset V$ centered at $w$ such that $f^{-1}(D)$ has 
 disjoint components and for each component $f^{-1}$ can be defined as a
 holomorphic map onto that component.  As $\gamma$ is compact, finitely many
 such discs $\Delta_1,\ldots,\Delta_n$ cover $\gamma$ such that $\Delta_{j-1}
-\cap \Delta_j \not= \empty$ and $p \in \Delta_1$, and given any choice
+\cap \Delta_j \not= \emptyset$ and $p \in \Delta_1$.  Given any choice
 of $f^{-1}$ at $p$, we can define $f^{-1}$ in $\Delta_j$ that agrees with
-our choice of on $\Delta_{j-1}$.  In other words, we can continue $f^{-1}$
+our choice of on $\Delta_{j-1}$ for all $j$.  In other words, we can continue $f^{-1}$
 along $\gamma$.
 \end{proof}
 
 \begin{exbox}
 \begin{exercise}
 Let $U \subset \C$ be a domain, $W \subset U$ a connected open subset,
-$p \in U$ and $f \colon U \to \C$ holomorphic.  Prove that the restriction
+$p \in W$ and $f \colon U \to \C$ holomorphic.  Prove that the restriction
 $f|_W$ allows unrestricted continuation to $U$ with $p$ as a starting point.
 \end{exercise}
 
