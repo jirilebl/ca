@@ -17959,8 +17959,8 @@ will be the same if the paths do not change much.  We therefore want to
 introduce a topological equivalence that tells us how we navigate the domain
 around the various holes, an equivalence that doesn't care exactly what
 path we take as long as we can deform one path to the other.
-We have seen that for closed paths that homotopy is such an equivalence, although
-here we look at paths from one fixed point to another point.  The definition
+We have seen that for closed paths, homotopy is such an equivalence, although
+here we look at paths from one fixed point to another.  The definition
 is almost the same (compare \defnref{defn:homotopy}), except instead of ``closed'' we require that the paths
 are ``from $p$ to $q$.''
 
@@ -17999,9 +17999,9 @@ the value of the continuation at $q$ is the same for homotopic paths.
 
 \begin{prop}
 \pagebreak[2]
-Suppose $U \subset \C$ is a connected domain,
+Suppose $U \subset \C$ is a domain,
 $p \in U$,
-$W \subset U$ is an open neighborhood of $p$,
+$W \subset U$ is an open connected neighborhood of $p$,
 and $f \colon W \to \C$ is holomorphic and admits unrestricted continuation
 to $U$.  Suppose further that
 $\gamma_0 \colon [0,1] \to U$ and
@@ -18009,8 +18009,8 @@ $\gamma_1 \colon [0,1] \to U$ are continuous, $\gamma_0(0)=\gamma_1(0)=p$
 and
 $\gamma_0(1)=\gamma_1(1)=q$, and $\gamma_0$ and $\gamma_1$ are fixed-endpoint
 homotopic in $U$.
-Then the value at $q$ of the continuation along $\gamma_0$ is equal to the
-value at $q$ of the continuation along $\gamma_1$.
+Then the value at $q$ of the continuation of $f$ along $\gamma_0$ is equal to the
+value at $q$ of the continuation of $f$ along $\gamma_1$.
 \end{prop}
 
 \begin{proof}
@@ -18048,11 +18048,11 @@ $\gamma_0(1)=\gamma_1(1)=q$.  Let
 \begin{equation*}
 H(t,s) = (1-s)\gamma_0(t)+s\gamma_1(t) .
 \end{equation*}
-As $U$ is convex, we have that $H(t,s) \in U$ for all $(t,s) \in
-[0,1]\times[0,1]$, furthermore
+As $U$ is convex, $H(t,s) \in U$ for all $(t,s) \in
+[0,1]\times[0,1]$.  Furthermore
 $H(0,s) = \gamma_0(0)=\gamma_1(0)$ and
 $H(1,s) = \gamma_0(1)=\gamma_1(1)$.  So $H$ is a fixed-endpoint homotopy in
-$U$, and so by the proposition, we have that the value of the extension at
+$U$, and by the proposition, the value of the extension at
 $q$ is the same whether we extend along $\gamma_0$ or $\gamma_1$.
 \end{proof}
 
@@ -18082,7 +18082,7 @@ The \hyperref[thm:RMT]{Riemann mapping theorem}
 implies that every domain has a universal cover that
 is either $\C$ or $\D$.  In fact, the little Picard theorem, which we do
 not prove, says that any entire function misses at most one value.  So
-the only domains with universal cover of $\C$ are $\C$ itself (the identity) and
+the only domains with $\C$ as a universal cover are $\C$ itself (the identity) and
 $\C \setminus \{ p \}$ (the exponential, $e^{z-p}$).
 Every other domain in $\C$ has $\D$ as the universal cover.
 
@@ -18091,7 +18091,7 @@ We leave the proof as an exercise.
 
 \begin{cor} \label{cor:coverscover}
 Suppose $U,V,W \subset \C$ are domains, $h \colon U \to V$ is a 
-holomorphic covering map and $f \colon W \to V$ is a universal cover ($W$ is
+holomorphic covering map and $f \colon W \to V$ is a holomorphic universal cover ($W$ is
 simply connected).  Then there exists a holomorphic covering map
 $g \colon W \to U$ such that $f = h \circ g$.
 \end{cor}
@@ -18113,7 +18113,7 @@ Suppose $U_1,U_2,V \subset \C$ are domains and $f \colon U_1 \to V$ and $g \colo
 U_2 \to V$ are
 universal holomorphic covering maps ($U_1$ and $U_2$ are simply connected).
 Then there
-exists a biholomorphism $\phi \colon U_1 \to U_2$
+exists a biholomorphism $\varphi \colon U_1 \to U_2$
 such that $f = g \circ \varphi$.
 \end{cor}
 
@@ -18162,14 +18162,14 @@ See \exerciseref{exercise:segmentcomplement}.
 \end{exercise}
 
 \begin{exercise}
-Suppose $K \subset \C$ is compact and connected and contains more than one
+Suppose $K \subset \C$ is compact, connected, and contains more than one
 point.  Show that there
 exists a universal cover $f \colon \D \to \C \setminus K$.
 \end{exercise}
 
 \begin{exercise}
 Suppose $U \subset \C$ is a domain and $f \colon U \to U$ is a holomorphic
-covering map which is not injective.  Prove that the universal covering map
+covering map that is not injective.  Prove that the universal covering map
 of $U$ is infinite-to-one.
 \end{exercise}
 
@@ -18193,15 +18193,18 @@ Except in mathematics, the shortest distance between point A and point B is seld
 ---Albert Einstein
 \end{myquote}
 
+Let us give an introduction to metric spaces for the student that may not
+have seen metric spaces in full generality.
+This appendix is an adapted and shortened
+version of chapter 7 from \cite{ra:book}.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Metric spaces}
 \label{sec:metric}
 
-This chapter is an adapted and shortened version of chapter 7 from
-\cite{ra:book}.
 The main idea in analysis is to take limits and talk about continuity.
-We wish to abstract what this means to be able to take limits in various
+We wish to abstract what it means to be able to take limits in various
 contexts.  The most basic such abstraction is a
 \emph{\myindex{metric space}}.
 While it
@@ -18220,9 +18223,8 @@ be a function such that for all $x,y,z \in X$
 (nonnegativity),
 %
 \item \label{metric:zero}
-\makebox[2.8in][l]{$d(x,y) = 0$ if and only if $x = y$,}
-%(identity) FIXME: that's not standard naming and "identity of indiscernibles"
-% is too much useless verbiage
+\makebox[2.8in][l]{$d(x,y) = 0$ if and only if $x = y$}
+(identity of indiscernibles),
 %
 \item \label{metric:com}
 \makebox[2.8in][l]{$d(x,y) = d(y,x)$} 
@@ -18243,7 +18245,7 @@ we may write simply $X$ instead of $(X,d)$.
 The geometric idea is that $d$ is the distance between two points. 
 Items \ref{metric:pos}--\ref{metric:com} have obvious geometric
 interpretation: Distance is always nonnegative, the only point that is
-distance $0$ away from $x$ is $x$ itself, and finally that the distance from
+distance $0$ away from $x$ is $x$ itself, and that the distance from
 $x$ to $y$ is the same as the distance from $y$ to $x$.  The triangle
 inequality \ref{metric:triang} has the interpretation given in
 \figureref{fig:mstriang}.
@@ -18256,7 +18258,7 @@ For the purposes of drawing, it is convenient to draw figures and
 diagrams in the plane with the metric being the euclidean distance.
 However, that is only one particular metric space.  Just because a
 certain fact seems to be clear from drawing a picture does not mean it is
-true.  You might be getting sidetracked by intuition from euclidean
+true in every metric space.  You might be getting sidetracked by intuition from euclidean
 geometry,
 whereas the concept of a metric space is a lot more general.
 
@@ -18346,12 +18348,12 @@ Let us construct the
 standard metric\index{standard metric on $\R^n$} for $\R^n$.  Define
 \begin{equation*}
 d(x,y) =
-\sqrt{
-{(x_1-y_1)}^2 + 
-{(x_2-y_2)}^2 + 
-\cdots +
-{(x_n-y_n)}^2
-} =
+%\sqrt{
+%{(x_1-y_1)}^2 + 
+%{(x_2-y_2)}^2 + 
+%\cdots +
+%{(x_n-y_n)}^2
+%} =
 \sqrt{
 \sum_{j=1}^n
 {(x_j-y_j)}^2 
@@ -18372,12 +18374,12 @@ the Cauchy--Schwarz inequality.
 \sum_{j=1}^n
 {(x_j-y_j+y_j-z_j)}^2 
 \\
-& =
-\sum_{j=1}^n
-\Bigl(
-{(x_j-y_j)}^2+{(y_j-z_j)}^2 + 2(x_j-y_j)(y_j-z_j)
-\Bigr)
-\\
+%& =
+%\sum_{j=1}^n
+%\Bigl(
+%{(x_j-y_j)}^2+{(y_j-z_j)}^2 + 2(x_j-y_j)(y_j-z_j)
+%\Bigr)
+%\\
 & =
 \sum_{j=1}^n
 {(x_j-y_j)}^2
@@ -18592,7 +18594,7 @@ Note: $d_H$ can be defined for arbitrary nonempty subsets if we allow the
 extended reals.
 \begin{exparts}
 \item
-Let $Y \subset \sP(X)$ be the set of bounded nonempty subsets.
+Let $Y$ be the set of bounded nonempty subsets of $X$.
 Prove that
 $(Y,d_H)$ is a so-called \emph{\myindex{pseudometric space}}:
 $d_H$ satisfies the metric properties
@@ -18876,7 +18878,7 @@ proving that $C(x,\delta)$ is closed.
 \end{exercise}
 \end{exbox}
 
-Again be careful about what is the metric space we are working in.
+Be careful about what metric space you find yourself in.
 As $[0,\nicefrac{1}{2})$ is
 an open ball in $[0,1]$, this means that $[0,\nicefrac{1}{2})$ is
 an open set in $[0,1]$.  On the other hand $[0,\nicefrac{1}{2})$
@@ -18938,7 +18940,7 @@ For an open subset of an open set or a closed subset of a closed
 set, matters are simpler.
 
 \begin{prop} \label{prop:topology:subspacesame}
-Suppose $(X,d)$ is a metric space, $V \subset X$ is open
+Suppose $(X,d)$ is a metric space, $V \subset X$ is open,
 and $E \subset X$ is closed.
 \begin{enumerate}[(i)]
 \item \label{prop:topology:subspacesame:i}
@@ -18979,7 +18981,7 @@ every open set can be written as a union of closed sets.
 Let $X$ be a set and $d$, $d'$ be two metrics on $X$.
 Suppose there exists an $\alpha > 0$ and $\beta > 0$
 such that $\alpha d(x,y) \leq d'(x,y) \leq \beta d(x,y)$ for all $x,y \in X$.
-Show that $U$ is open in $(X,d)$ if and only if $U$ is open in $(X,d')$.
+Show that $U \subset X$ is open in $(X,d)$ if and only if $U$ is open in $(X,d')$.
 That is, the topologies of $(X,d)$ and $(X,d')$ are the same.
 \end{exercise}
 
@@ -20413,7 +20415,7 @@ Any bounded sequence $\{ x_k
 
 \begin{exercise}
 Let $X$ be a metric space and
-$C \subset \sP(X)$ the set of nonempty compact subsets of $X$.
+$C$ the set of nonempty compact subsets of $X$.
 Using the Hausdorff metric from \exerciseref{exercise:mshausdorffpseudo},
 show that $(C,d_H)$ is a metric space.  That is, show that
 if $L$ and $K$ are nonempty compact subsets, then $d_H(L,K) = 0$
