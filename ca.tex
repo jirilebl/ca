@@ -17485,14 +17485,14 @@ will use is the following.
 
 \begin{defn}
 A set $C \subset \C$ is a \emph{real-analytic curve}
-if there exists a domain $V \subset \C$ such that
+if there exist a domain $V \subset \C$ such that
 $V \cap \R = (a,b)$ and an injective holomorphic $\varphi \colon V \to \C$
 such that $\varphi\bigl( (a,b) \bigr) = C$.
 \end{defn}
 
 The images $\varphi(V_+)$ and $\varphi(V_-)$ of the sets
 $V_+ = \{ z \in V : \Im z > 0 \}$ and $V_- = \{ z \in V : \Im z < 0 \}$
-can be considered the ``sides'' of $C$.
+are the two ``sides'' of $C$.
 We can ``switch sides'' by rotation and translation.
 
 \begin{cor}[Schwarz reflection principle for curves]
@@ -19019,13 +19019,9 @@ U$.
 
 \subsection{Connected sets}
 
-Let us generalize the idea of an interval to general metric spaces.  One of
-the main features of an interval in $\R$ is that it is
-connected---that we can continuously move from one point of it to
-another point without jumping.
-In $\R$ we usually study functions on intervals,
-and in more general metric spaces such as the plane
-we usually study functions on connected sets.
+A set is connected if we can continuously move from one point of it to
+another point without jumping.  For example, an interval in $\R$.
+We usually study functions on connected sets.
 
 \begin{defn}
 A nonempty%
@@ -19034,7 +19030,7 @@ and the empty set would then be connected.
 We avoid the empty set for essentially the same reason why
 $1$ is neither a prime nor a composite number:  Our connected sets have exactly
 two clopen subsets and disconnected sets have more than two.  The empty set
-has exactly one.}
+has exactly one.  We will not dwell on this technicality.}
 metric space $(X,d)$ is \emph{\myindex{connected}} if the
 only subsets of $X$ that are both open and closed (so-called
 \emph{\myindex{clopen}} subsets) are $\emptyset$ and $X$ itself.
@@ -19048,7 +19044,7 @@ mean that $A$ with the subspace topology is connected.
 In other words, a nonempty $X$ is connected if whenever we write
 $X = X_1 \cup X_2$ where $X_1 \cap X_2 = \emptyset$ and $X_1$ and $X_2$ are
 open, then either $X_1 = \emptyset$ or $X_2 = \emptyset$.
-So to show $X$ is disconnected, to find nonempty
+So to show $X$ is disconnected, we find nonempty
 disjoint open sets $X_1$ and
 $X_2$ whose union is $X$.
 We state this idea as a proposition for subsets.
@@ -19086,13 +19082,13 @@ From the discussion above it follows that $S$ is disconnected.
 For the other direction start with nonempty disjoint $S_1$ and $S_2$ that are
 open in $S$ and such that $S = S_1 \cup S_2$.  Then use
 \propref{prop:topology:subspaceopen} again to find $U_1$ and $U_2$
-open in $X$ such that $U_1 \cap S = S_1$ and.
+open in $X$ such that $U_1 \cap S = S_1$ and
 $U_2 \cap S = S_2$.
 \end{proof}
 
-\begin{example}
+\begin{example}\label{example:disconnectedsetinR}
 Let $S \subset \R$ be such that $x < z < y$ with $x,y \in S$
-and $z \notin S$.  Claim: \emph{$S$ is disconnected}.  Proof:  Notice
+and $z \notin S$.  Claim: \emph{$S$ is disconnected}.  Proof:
 \begin{equation*}
 \bigl( (-\infty,z) \cap S \bigr)
 \cup
@@ -19109,9 +19105,8 @@ an interval or a single point.
 \begin{proof}
 Suppose $S$ is connected.  If $S$ is a single point,
 then we are done.  So suppose $x < y$ and $x,y \in S$.  If $z \in \R$ is such
-that $x < z < y$, then $(-\infty,z) \cap S$ is nonempty and $(z,\infty) \cap
-S$ is nonempty.  The two sets are disjoint.  As
-$S$ is connected, we must have they their union is not $S$, so $z \in S$.
+that $x < z < y$, then by same logic as in
+\exampleref{example:disconnectedsetinR}, $z \in S$.
 So $S$ is an interval.
 
 If $S$ is a single point, it is connected.
@@ -19129,21 +19124,20 @@ and $y \in U_2 \cap S$.  Without loss of generality, assume $x < y$.
 As $S$ is an interval, $[x,y] \subset S$.
 Note that $U_2 \cap [x,y] \not= \emptyset$, and
 let $z = \inf (U_2 \cap [x,y])$.
-We wish to show that $z \in U_1$.
+%We wish to show that $z \in U_1$.
 If $z = x$, then $z \in U_1$.
 If $z > x$,
 then for any $\delta > 0$ the ball $B(z,\delta) =
 (z-\delta,z+\delta)$ contains points of $[x,y]$ not in $U_2$,
 as $z$ is the infimum of such points.
 So $z \notin U_2$ as $U_2$ is open.
-Therefore, $z \in U_1$ as every point of $[x,y]$ is in
-$U_1$ or $U_2$.
+Therefore, $z \in U_1$. % as every point of $[x,y]$ is in $U_1$ or $U_2$.
 As $U_1$ is open,
 $B(z,\delta) \subset U_1$ for a small enough $\delta > 0$.
 As $z$ is the infimum of the nonempty set $U_2 \cap [x,y]$, 
 there must exist some $w \in U_2 \cap [x,y]$
 such that $w \in [z,z+\delta) \subset B(z,\delta) \subset U_1$.
-Therefore, $w \in U_1 \cap U_2 \cap [x,y]$.
+%Therefore, $w \in U_1 \cap U_2 \cap [x,y]$.
 So $U_1 \cap S$ and $U_2 \cap S$ are not disjoint, and
 $S$ is connected.
 \end{proof}
@@ -19180,15 +19174,15 @@ $U \cap V = \emptyset$, and $U \cap V = \Q$.
 \begin{exercise}
 Suppose $\{ S_i \}$, $i \in \N$,
 is a collection of connected subsets of a metric space $(X,d)$,
-and there exists an $x \in X$ such that $x \in S_i$ for all $i \in \N$.
-Show that $\bigcup_{i=1}^\infty S_i$ is connected.
+and there exists an $x \in X$ such that $x \in S_k$ for all $k \in \N$.
+Show that $\bigcup_{k=1}^\infty S_k$ is connected.
 \end{exercise}
 \end{exbox}
 
 \subsection{Closure and boundary}
 
 Sometimes we wish to take a set and throw in everything that we can approach
-from the set.  This concept is called the closure.
+from within the set.  This concept is called the closure.
 More precisely the closure of $A$ is the intersection of all closed sets that contain $A$.
 
 \begin{defn}
@@ -19242,19 +19236,18 @@ if and only if for every $\delta > 0$, $B(x,\delta) \cap A \not=\emptyset$.
 \end{prop}
 
 \begin{proof}
-Let us show that $x \notin \widebar{A}$ if and only if there exists
-a $\delta > 0$ such that $B(x,\delta) \cap A = \emptyset$.
-
+We will prove the two contrapositives.
+%Let us show that $x \notin \widebar{A}$ if and only if there exists
+%a $\delta > 0$ such that $B(x,\delta) \cap A = \emptyset$.
 First suppose $x \notin \widebar{A}$.  As $\widebar{A}$ is
 closed,
 $B(x,\delta) \subset \widebar{A}^c$
 for some $\delta > 0$.
-As $A \subset \widebar{A}$ we
-see that $B(x,\delta) \subset \widebar{A}^c \subset A^c$ and hence
+Furthermore, $\widebar{A}^c \subset A^c$, and hence
 $B(x,\delta) \cap A = \emptyset$.
 
-On the other hand, suppose there is a $\delta > 0$, such that
-$B(x,\delta) \cap A = \emptyset$. 
+On the other hand, suppose 
+$B(x,\delta) \cap A = \emptyset$ for some $\delta > 0$. 
 In other words,
 $A \subset {B(x,\delta)}^c$.
 As 
@@ -19263,8 +19256,8 @@ and $\widebar{A}$ is the intersection
 of closed sets containing $A$, we have $x \notin \widebar{A}$.
 \end{proof}
 
-We can also talk about the interior of a set
-(points we cannot approach from the complement),
+We also talk about the interior of a set
+(points we cannot approach from the complement)
 and the boundary of a set (points we can
 approach both from the set and its complement).
 
@@ -19391,7 +19384,7 @@ Hint: Think of sets in $\R^2$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $(X,d)$ is a metric space and $A \subset X$.  Prove that
+Prove that
 $A^\circ = \bigcup \{ V : V \text{ is open and } V \subset A \}$.
 \end{exercise}
 \end{exbox}
@@ -19430,7 +19423,7 @@ is said to be
 a \emph{\myindex{subsequence}} of $\{x_n \}$.
 \end{defn}
 
-In what follows we cheat a little
+In what follows, we cheat a little
 and use the definite article in front of the word \emph{limit}
 before we prove that the limit is unique.
 
@@ -19475,7 +19468,7 @@ d(y,x_n) + d(x_n,x)
 <
 \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon .
 \end{equation*}
-So $x=y$ and the limit (if it exists) is unique.
+So $x=y$, and the limit (if it exists) is unique.
 \end{proof}
 
 The proofs of the following propositions are left as exercises.
@@ -19521,25 +19514,30 @@ Prove \propref{prop:mssubseq}.
 \end{exbox}
 
 \begin{example}
-Take $C([0,1],\R)$ be the set of continuous functions with the metric being
-the uniform metric.  We saw that we obtain a metric space.
+We saw that that the set of continuous functions $C([0,1],\R)$ with the uniform metric
+is a metric space.
 If we look at the definition of convergence, we notice that it is identical
 to uniform convergence.  That is, $\{ f_n \}$ converges uniformly if and only
 if it converges in the metric space sense.
 \end{example}
 
 \begin{remark}
-It is perhaps surprising that on the set of functions $f \colon [a,b] \to
-\R$ (continuous or not)
-there is no metric that gives pointwise convergence.  Although the proof of
-this fact is beyond the scope of this book.
+It is perhaps surprising that on the set of functions $f \colon S \to
+\R$ for an uncountable $S$, there is no metric that gives pointwise convergence.
+A metric space $(X,d)$ is so-called \emph{\myindex{first countable}}, that
+is, at each $x \in X$ there exists a sequence of neighbourhoods $U_j$ such
+that any neighbourhood $U$ of $x$ contains one of the $U_j$s, a so-called
+countable neighborhood basis.  In a metric space, $B(x,\nicefrac{1}{n})$
+does the job.  But functions on an uncountable set $S$ with pointwise
+convergence does not have a first countable topology.  We do not want to
+wade too deep into into general topology to prove this fact.
 \end{remark}
 
 \begin{exbox}
 \begin{exercise}
 \begin{exparts}
 \item
-Show that $d(x,y) = \min \{ 1, \abs{x-y} \}$ defines a metric on $\R$.
+Show that $d(x,y) = \min \bigl\{ 1, \sabs{x-y} \bigr\}$ defines a metric on $\R$.
 \item
 Show that a sequence converges in $(\R,d)$ if and only if it converges
 in the standard metric.
@@ -19556,7 +19554,7 @@ $\{ x_{f(n)} \}_{n=1}^\infty$ converges to $x$.
 \end{exercise}
 
 \begin{exercise}
-If $(X,d)$ is a metric space where $d$ is the discrete metric.  Suppose 
+Let $(X,d)$ be a metric space where $d$ is the discrete metric.  Suppose 
 $\{ x_n \}$ is a convergent sequence in $X$.  Show that there exists
 a $K \in \N$ such that for all $n \geq K$ we have $x_n = x_K$.
 \end{exercise}
@@ -19629,11 +19627,11 @@ the sequence
 $\{ x_j \}_{j=1}^\infty$ converges to
 $y = (y_1,y_2,\ldots,y_n) \in \R^n$.
 Given $\epsilon > 0$, there exists an $M$, such that for all
-$j \geq M$ we have
+$j \geq M$,
 \begin{equation*}
 d(y,x_j) < \epsilon.
 \end{equation*}
-Fix some $k=1,2,\ldots,n$.  For $j \geq M$ we have
+Fix some $k=1,2,\ldots,n$.  For $j \geq M$,
 \begin{equation*}
 \bigl\lvert y_k - x_{j,k} \bigr\rvert
 =
@@ -19664,9 +19662,8 @@ $y = (y_1,y_2,\ldots,y_n) \in \R^n$.
 \end{proof}
 
 \begin{example}
-The set $\C$ of complex numbers $z = x+iy$ is considered 
-as the metric space $\R^2$.  The proposition says that the
-sequence $\{ z_j \}_{j=1}^\infty = \{ x_j + iy_j \}_{j=1}^\infty$ converges
+For $\C$, the proposition says that
+$\{ z_j \}_{j=1}^\infty = \{ x_j + iy_j \}_{j=1}^\infty$ converges
 to $z = x+iy$
 if and only if $\{ x_j \}$ converges to $x$ and 
 $\{ y_j \}$ converges to $y$.
@@ -19675,9 +19672,9 @@ $\{ y_j \}$ converges to $y$.
 \begin{exbox}
 \begin{exercise}
 Consider $\R^n$, and let $d$ be the standard euclidean metric.
-Let $d'(x,y) = \sum_{\ell=1}^n \abs{x_\ell-y_\ell}$
-and $d''(x,y) = \max \{ \abs{x_1-y_1},\abs{x_2-y_2},\cdots,\abs{x_n-y_n}
-\}$.
+Let $d'(x,y) = \sum_{\ell=1}^n \sabs{x_\ell-y_\ell}$
+and $d''(x,y) = \max \bigl\{ \sabs{x_1-y_1},\sabs{x_2-y_2},\cdots,\sabs{x_n-y_n}
+\bigr\}$.
 \begin{exparts}
 \item
 Use \exerciseref{exercise:mscross}, to show that
@@ -19700,7 +19697,7 @@ $\{ x_j \}$ converges to $p$ in $(\R^n,d'')$.
 
 \subsection{Convergence and topology}
 
-The topology, that is, the set of open sets of a space encodes which
+The topology---the set of open sets of a space---encodes which
 sequences converge.
 
 \begin{prop} \label{prop:msconvtopo}
@@ -19711,19 +19708,19 @@ we have $x_n \in U$.
 \end{prop}
 
 \begin{proof}
-First suppose $\{ x_n \}$ converges.  Let $U$ be an open neighborhood
+Suppose $\{ x_n \}$ converges to $x$.  Let $U$ be an open neighborhood
 of $x$, then there exists an $\epsilon > 0$ such that $B(x,\epsilon) \subset
 U$.  As the sequence converges, find an $M \in \N$ such that for all $n \geq
-M$ we have $d(x,x_n) < \epsilon$ or in other words $x_n \in B(x,\epsilon)
+M$ we have $d(x,x_n) < \epsilon$, or in other words $x_n \in B(x,\epsilon)
 \subset U$.
 
-Let us prove the other direction.  Given $\epsilon > 0$ let $U =
+Let us prove the other direction.  Given $\epsilon > 0$, let $U =
 B(x,\epsilon)$ be the neighborhood of $x$.  Then there is an $M \in \N$
 such that for $n \geq M$ we have $x_n \in U = B(x,\epsilon)$ or in other
 words, $d(x,x_n) < \epsilon$.
 \end{proof}
 
-A set is closed when it contains the limits of its convergent sequences.
+A closed set contains the limits of its convergent sequences.
 
 \begin{prop} \label{prop:msclosedlim}
 Let $(X,d)$ be a metric space, $E \subset X$ a closed set,
@@ -19784,9 +19781,9 @@ $x_n \in E$ for infinitely many $n \in \N$.  Show $p \in E$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $\{ V_n \}_{n=1}^\infty$ is a collection of open sets
+Suppose $\{ V_n \}_{n=1}^\infty$ is a sequence of open sets
 in $(X,d)$
-such that $V_{n+1} \supset V_n$.  Let $\{ x_n \}$ be a sequence
+such that $V_{n+1} \supset V_n$ for all $n$.  Let $\{ x_n \}$ be a sequence
 such that $x_n \in V_{n+1} \setminus V_n$ and suppose 
 $\{ x_n \}$ converges to $p \in X$.  Show that $p \in \partial V$
 where $V = \bigcup_{n=1}^\infty V_n$.
@@ -19800,8 +19797,6 @@ where $V = \bigcup_{n=1}^\infty V_n$.
 
 \subsection{Cauchy sequences and completeness}
 
-Just like with sequences of real numbers we define Cauchy sequences.
-
 \begin{defn}
 Let $(X,d)$ be a metric space.
 A sequence $\{ x_n \}$ in $X$ is a \emph{\myindex{Cauchy sequence}} if
@@ -19812,22 +19807,18 @@ d(x_n, x_k) < \epsilon .
 \end{equation*}
 \end{defn}
 
-The definition is again simply a translation of the concept
-from the real numbers to metric spaces,
-provided we equip the real numbers with
-the standard metric $d(x,y) = \abs{x-y}$.
-
 \begin{prop}
 A convergent sequence in a metric space is Cauchy.
 \end{prop}
 
 \begin{proof}
 Suppose $\{ x_n \}$ converges to $x$.
-Given $\epsilon > 0$ there is an $M$ such that for $n \geq M$
-we have $d(x,x_n) < \nicefrac{\epsilon}{2}$.  Hence
-for all $n,k \geq M$ we have
+Given $\epsilon > 0$, there is an $M$ such that
+$d(x,x_n) < \nicefrac{\epsilon}{2}$ for all $n \geq M$.
+Hence,
 $d(x_n,x_k) \leq d(x_n,x) + d(x,x_k) < \nicefrac{\epsilon}{2} +
-\nicefrac{\epsilon}{2} = \epsilon$.
+\nicefrac{\epsilon}{2} = \epsilon$
+for all $n,k \geq M$.
 \end{proof}
 
 \begin{defn}
@@ -19852,7 +19843,7 @@ $d(x_i,x_j) < \epsilon$
 for all
 $i,j \geq M$.
 
-Fix some $k=1,2,\ldots,n$, for $i,j \geq M$ we have
+Fix some $k=1,2,\ldots,n$.  For $i,j \geq M$,
 \begin{equation*}
 \bigl\lvert x_{i,k} - x_{j,k} \bigr\rvert
 =
@@ -19862,11 +19853,11 @@ Fix some $k=1,2,\ldots,n$, for $i,j \geq M$ we have
 = d(x_i,x_j) < \epsilon .
 \end{equation*}
 Hence the sequence $\{ x_{j,k} \}_{j=1}^\infty$ is Cauchy.  As $\R$ is
-complete the sequence converges; there exists an $y_k \in \R$ such that
+complete the sequence converges; there exists a $y_k \in \R$ such that
 $y_k = \lim_{j\to\infty} x_{j,k}$.
 Write $y = (y_1,y_2,\ldots,y_n) \in \R^n$.
 By \propref{prop:msconveuc}, $\{ x_j \}$ converges
-to $y \in \R^n$ and hence $\R^n$ is complete.
+to $y \in \R^n$, and hence $\R^n$ is complete.
 \end{proof}
 
 A subset of $\R^n$ with the subspace metric need not be
@@ -19935,24 +19926,18 @@ $K$ is compact is to say that \emph{every open cover of $K$ has a finite
 \begin{example}
 Let $\R$ be the metric space with the standard metric.
 
-The set $\R$ is not compact.  Proof: Take the sets $U_j = (-j,j)$.
-Any $x \in \R$ is in some $U_j$, so we have an open cover.
-Suppose we have a finite
-subcover $\R \subset U_{j_1} \cup U_{j_2} \cup \cdots \cup U_{j_k}$,
-and suppose $j_1 < j_2 < \cdots < j_k$.  Then $\R \subset U_{j_k}$, but that is
-a contradiction as $j_k \in \R$ on one hand and $j_k \notin U_{j_k} =
-(-j_k,j_k)$ on the
-other.
+The set $\R$ is not compact.  Proof: Take the sets $U_n = (-n,n)$.
+It is an open cover, but the union of a finite subset of these sets
+is just $(-n,n)$ for some $n$.
 
 The set $(0,1) \subset \R$ is also not compact.  Proof:  Take the 
-sets $U_{j} = (\nicefrac{1}{j},1-\nicefrac{1}{j})$ for $j=3,4,5,\ldots$.
-As above $(0,1) = \bigcup_{j=3}^\infty U_j$.  And similarly as above,
-if there exists a finite subcover, then there is one $U_j$ such that $(0,1)
-\subset U_j$, which again leads to a contradiction.
+sets $U_{n} = (\nicefrac{1}{n},1-\nicefrac{1}{n})$ for $n=3,4,5,\ldots$.
+As above $(0,1) = \bigcup_{n=3}^\infty U_n$, but the union of finitely many
+is just $U_n$ again and not all of $(0,1)$.
 
 The set $\{ 0 \} \subset \R$ is compact.  Proof: Given any open cover $\{
 U_{\lambda} \}_{\lambda \in I}$, there must exist a $\lambda_0$ such that $0
-\in U_{\lambda_0}$ as it is a cover.  But then $U_{\lambda_0}$ gives a
+\in U_{\lambda_0}$ as it is a cover, so $U_{\lambda_0}$ gives a
 finite subcover.
 
 We will prove below that $[0,1]$, and in fact any closed and bounded
@@ -20017,7 +20002,7 @@ See right-hand side of \figureref{fig:compactbndclosed}.
 \end{myfig}
 
 We prove below that 
-in finite dimensional euclidean space
+in a finite dimensional euclidean space
 every closed bounded set is compact.
 So closed bounded sets
 of $\R^n$ are examples of compact sets.
@@ -20029,7 +20014,8 @@ where closed and bounded is not
 enough to give compactness: $C([a,b],\R)$ is a complete metric
 space, but the closed unit ball $C(0,1)$ is not compact, see
 \exerciseref{exercise:msclbounnotcompt}.  However, see also
-\exerciseref{exercise:mstotbound}.
+\exerciseref{exercise:mstotbound}.  As this issue is such a common mistake, let me
+repeat it in italic: \emph{Closed and bounded is not the same as compact.}
 
 A useful property of compact sets in a metric space is that every
 sequence in the set has a convergent subsequence converging
@@ -20094,16 +20080,15 @@ cover there is a single $\delta > 0$.  The $\delta$ depends on the cover,
 but of course it does not depend on $x$.
 
 For example, let $K = [-10,10]$ and for $n \in \Z$ let $U_n =
-(n,n+2)$ define sets in an open cover.
+(n,n+2)$ define an open cover.
 Take $x \in K$. There is an $n \in \Z$, 
 such that $n \leq x < n+1$.
 If $n \leq x < n+\nicefrac{1}{2}$, then
 $B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n-1}$.
 If $n+ \nicefrac{1}{2} \leq x < n+1$, then
 $B\bigl(x,\nicefrac{1}{2}\bigr) \subset U_{n}$.  So $\delta =
-\nicefrac{1}{2}$.  If instead we let $U'_n =
-\bigl(\frac{n}{2},\frac{n+2}{2} \bigr)$, then we again obtain an open
-cover, but now the best $\delta$ we can find is $\nicefrac{1}{4}$.
+\nicefrac{1}{2}$.  If instead we take the open cover by $U'_n =
+\bigl(\frac{n}{2},\frac{n+2}{2} \bigr)$, the best $\delta$ is $\nicefrac{1}{4}$.
 
 \begin{thm} \label{thm:mscompactisseqcpt}
 Let $(X,d)$ be a metric space.  Then $K \subset X$ is compact if
@@ -20260,17 +20245,17 @@ subsequence so there is a subsequence $\{ x_{k_j} \}_{j=1}^\infty$
 that is convergent.  The subsequence 
 $\{ y_{k_j} \}_{j=1}^\infty$ is also a bounded sequence so there exists
 a subsequence
-$\{ y_{k_{j_i}} \}_{i=1}^\infty$ that is convergent.  A subsequence of a
+$\{ y_{k_{j_\ell}} \}_{\ell=1}^\infty$ that is convergent.  A subsequence of a
 convergent sequence is still convergent, so 
-$\{ x_{k_{j_i}} \}_{i=1}^\infty$ is convergent.
+$\{ x_{k_{j_\ell}} \}_{\ell=1}^\infty$ is convergent.
 Let
 \begin{equation*}
-x = \lim_{i\to\infty} x_{k_{j_i}}
+x = \lim_{\ell\to\infty} x_{k_{j_\ell}}
 \qquad \text{and} \qquad
-y = \lim_{i\to\infty} y_{k_{j_i}} .
+y = \lim_{\ell\to\infty} y_{k_{j_\ell}} .
 \end{equation*}
 By \propref{prop:msconveuc},
-$\bigl\{ (x_{k_{j_i}},y_{k_{j_i}}) \bigr\}_{i=1}^\infty$ converges to $(x,y)$.
+$\bigl\{ (x_{k_{j_\ell}},y_{k_{j_\ell}}) \bigr\}_{\ell=1}^\infty$ converges to $(x,y)$.
 Furthermore, as $a \leq x_k \leq b$ and
 $c \leq y_k \leq d$ for all $k$, we know that $(x,y) \in B$.
 \end{proof}
