@@ -6,7 +6,8 @@ Guide to Cultivating Complex Analysis: Indoctrination in One Variable
 One-semester graduate level mathematics textbook on basic complex analysis in
 one variable.  Written for the graduate complex analysis course (5283) at
 at Oklahoma State University.  There is a bit more than a one-semester's worth of
-material in there to allow some choices.
+material in there to allow some choices.  If the metric space appendix is
+also covered first, then it is quite a bit more than one-semester's worth.
 
 See https://www.jirka.org/ca/
 
