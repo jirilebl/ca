@@ -2936,8 +2936,8 @@ g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} \qquad \text{for all $w \in W$}.
 
 The hypothesis that $f$ is continuously differentiable is completely
 superfluous.\footnote{Cauchy (early 1800s)
-assumed continuity of the derivative for his work, it was
-Goursat more than half a century later that showed that continuity of the
+assumed continuity of the derivative for his work.
+It was Goursat more than half a century later that showed that continuity of the
 derivative came for free.}
 Every holomorphic function is continuously
 differentiable, although you will have to wait till around
@@ -2945,7 +2945,7 @@ differentiable, although you will have to wait till around
 
 A holomorphic function whose derivative is nonzero
 everywhere need not be globally invertible.  The exponential $e^z$
-is never zero, and thus so is its derivative.  However, $e^{z} = e^{z+2\pi i}$,
+is never zero, and thus neither is its derivative.  However, $e^{z} = e^{z+2\pi i}$,
 so the
 exponential is not injective.
 That the inverse of the
@@ -5144,7 +5144,7 @@ is not star-like.
 
 \begin{prop} \label{prop:primitiveinstarlike1}
 Suppose $U \subset \C$ is open and star-like,
-and $f \colon U \to \C$ is continuous such that
+$f \colon U \to \C$ is continuous, and
 \begin{equation*}
 \int_{\partial T} f(z) \, dz = 0
 \end{equation*}
@@ -5954,7 +5954,21 @@ Suppose that
 \int_{\partial T} \Im f(z) \, dz = 0
 \avoidbreak
 \end{equation*}
-for every triangle such that $T \subset U$.  Then $f$ is constant.
+for every triangle such that $T \subset U$.  Prove that $f$ is constant.
+\end{exercise}
+
+\begin{exercise}
+Prove Morera for rectangles.  That is, suppose that $U \subset \C$ is open,
+$f \colon U \to \C$ is continuous,
+and
+\begin{equation*}
+\int_{\partial R} f(z) \, dz = 0
+\end{equation*}
+for every rectangle $R \subset U$ of the form
+$a < \Re z < b$, $c < \Im z < d$.  Prove that $f$ is holomorphic.
+Hint:  You may need to prove an analogue of
+\propref{prop:primitiveinstarlike1} for rectangles, which is trickier with
+rectangles.
 \end{exercise}
 \end{exbox}
 
@@ -6080,8 +6094,7 @@ other words,
 
 \begin{exbox}
 \begin{exercise}
-Prove the second version of the maximum modulus principle,
-that is, prove \corref{cor:maxmodprincpartdeux}.
+Prove \corref{cor:maxmodprincpartdeux}.
 \end{exercise}
 
 \begin{exercise}[Minimum modulus principle]\index{minimum modulus principle}
@@ -6089,7 +6102,7 @@ Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.
 \begin{exparts}
 \item
-Prove that if $\sabs{f(z)}$ achieves a local minimum at $p \in U$ and $f(p) \not= 0$,
+Prove that if $\sabs{f(z)}$ has a local minimum at $p \in U$ and $f(p) \not= 0$,
 then $f$ is constant.
 \item
 Show by example that the hypothesis
@@ -6262,6 +6275,11 @@ A holomorphic function $f \colon \C \to \C$ is called
 an \emph{\myindex{entire holomorphic function}} or perhaps
 just \emph{entire} for short.
 \end{defn}
+
+Polynomials are one type of entire functions and we saw that 
+nonconstant polynomials are unbounded.  While in general the behavior of
+entire functions such as $\exp z$ as we approach infinity is wilder than that of the
+polynomials, they are unbounded.
 
 \begin{thm}[Liouville\footnote{%
 Liouville proved a different (though similar) theorem.  This particular one
@@ -6565,10 +6583,10 @@ $\lim_{z \to \infty} f(z) = 0$.
 \subsection{Convergence of sequences of holomorphic functions}
 
 When dealing with a class of functions, any analyst worth their
-salt will ask\footnote{Apparently the salt thing
+salt\footnote{Apparently the salt thing
 comes from Roman times, soldiers were
 paid partly with salt to preserve their meats.  So if you didn't ask,
-you will have to eat only vegetables.} about the right topology for this class of
+you will have to eat only vegetables.} will ask about the right topology for this class of
 functions.
 Another consequence of Cauchy's formula is that the right topology for
 holomorphic functions is the same as that for continuous functions: uniform
@@ -6723,7 +6741,7 @@ fact that uniform limit of continuous functions is continuous.
 
 \begin{exercise}
 Consider $f_n(z) = \frac{\sin(nz)}{n}$.  Note that $f_n|_{\R}$ converge
-uniformly to the zero function.
+uniformly to zero.
 \begin{exparts}
 \item
 Show that for no $a < b$ is there a $\delta > 0$ such that
@@ -21633,11 +21651,7 @@ Find an explicit example of a sequence of
 differentiable functions on $[-1,1]$ that converge uniformly to
 a function $f$ such that $f$ is not differentiable.
 Hint:
-There are many possibilities,
-simplest is perhaps to combine $\abs{x}$ and $\frac{n}{2}x^2 +
-\frac{1}{2n}$, another is to
-consider $\sqrt{x^2+{(\nicefrac{1}{n})}^2}$.  Show that these functions are differentiable,
-converge uniformly, and then show that the limit is not differentiable.
+Perhaps $\sqrt{x^2+{(\nicefrac{1}{n})}^2}$?
 \end{exercise}
 
 \begin{exercise}
@@ -21658,7 +21672,7 @@ Let $f(x,y)$ be a function of two variables and define
 \begin{equation*}
 g(y) = \int_a^b f(x,y) \,dx .
 \end{equation*}
-Question is, is $g$ is continuous?
+Question is: Is $g$ is continuous?
 We are really asking when do two limiting operations commute,
 which is not always possible, so some extra hypothesis
 is necessary.  A sufficient (but not
@@ -21682,13 +21696,12 @@ In particular, there exists a $\delta > 0$ such that
 whenever $\widetilde{y} \in [c,d]$ and
 $\abs{\widetilde{y}-y} < \delta$ we have
 $\abs{f(x,\widetilde{y})-f(x,y)} < \epsilon$ for all $x \in [a,b]$.
-If we let $h_n(x)= f(x,y_n)$ and $h(x) = f(x,y)$,
-we have just shown that
+Let $h_n(x)= f(x,y_n)$ and $h(x) = f(x,y)$.
+We have just shown that
 $h_n \colon [a,b] \to \R$ converges uniformly 
 to
-$h \colon [a,b] \to \R$ as $n$ goes to $\infty$.
-Uniform convergence implies the limit can be taken underneath the integral.
-So
+$h \colon [a,b] \to \R$ as $n\to \infty$.
+So we can take the limit underneath the integral:
 \begin{equation*}
 \lim_{n\to \infty}
 g(y_n)
@@ -21715,7 +21728,7 @@ $[a,b] \times \R$, then $g$ is continuous on $\R$.
 \begin{exercise} \label{exercise:integralcontcontextra}
 Prove a stronger version of \propref{prop:integralcontcont}:
 If $f \colon (a,b) \times (c,d) \to \R$ is a bounded continuous function,
-then $g \colon [c,d] \to \R$ defined by
+then $g \colon (c,d) \to \R$ defined by
 \begin{equation*}
 g(y) = \int_a^b f(x,y) \,dx  \qquad \text{is continuous}.
 \end{equation*}
@@ -21759,18 +21772,18 @@ Let
 g_n(x,y)
 =
 \begin{cases}
-f\left(a+\frac{k(b-a)}{n},y\right)
-& \text{if } a+\frac{(k-1)(b-a)}{n} \leq x < a+\frac{k(b-a)}{n} ,
-k=1,\ldots,n,
+f(a,y) & \text{if } x=a ,
 \\
-f(b,y) & \text{if } x=b .
+f\left(a+\frac{k(b-a)}{n},y\right)
+& \text{if } a+\frac{(k-1)(b-a)}{n} < x \leq a+\frac{k(b-a)}{n} , ~
+k=1,\ldots,n.
 \end{cases}
 \end{equation*}
 This is the ``right-hand rule'' step function with sub
 interval length $\frac{b-a}{n}$:
 Integrating $g_n$ with respect to $x$ is the right-hand rule for integrating $f$.
-Suppose $n$ is large enough so that $\frac{b-a}{n} < \delta$.  Then,
-via the uniform continuity estimate we find that $\babs{f(x,y)-g_n(x,y)} < \epsilon$
+Let $n$ be large enough so that $\frac{b-a}{n} < \delta$.  Then,
+via the uniform continuity estimate, we find that $\babs{f(x,y)-g_n(x,y)} < \epsilon$
 for all $x$ and $y$. So
 \begin{equation*}
 \abs{
@@ -21811,7 +21824,7 @@ hand rule.  Putting it all together,
 \int_a^b g_n(x,y) \, dx
 \right) \, dy
 \\
-& \leq
+& =
 \lim_{n \to \infty}
 \int_c^d
 \left(
@@ -21819,7 +21832,7 @@ hand rule.  Putting it all together,
 \frac{b-a}{n} f\left(a+\frac{k(b-a)}{n},y\right)
 \right) \, dy
 \\
-& \leq
+& =
 \lim_{n \to \infty}
 \sum_{k=1}^n
 \frac{b-a}{n} 
@@ -21858,7 +21871,7 @@ Compute
 \int_0^1 \int_0^1 \frac{x^2-y^2}{{(x^2+y^2)}^2} \, dy \, dx .
 \end{equation*}
 You will need to interpret the integrals as improper, that
-is, the limit of $\int_\epsilon^1$ as $\epsilon \to 0^+$.
+is, the limit of $\int_\epsilon^1$ as $\epsilon \downarrow 0$.
 \end{exercise}
 \end{exbox}
 
@@ -22002,8 +22015,7 @@ See \figureref{fig:diffunderexample}.
 \caption{The graph $z= \frac{x^y-1}{\ln(x)}$ on $[0,1] \times [0,1]$.\label{fig:diffunderexample}}
 \end{myfig}
 
-
-Therefore
+Therefore,
 $g$ is a continuous function of on $[0,1]$, and $g(0) = 0$.
 For any $\epsilon > 0$, the $y$ derivative of the integrand, $x^y$,
 is continuous on $[0,1] \times [\epsilon,1]$.  Therefore,
@@ -22137,10 +22149,11 @@ but is not continuous at $(0,0)$.
 Show that $\int_0^1 \frac{\partial f}{\partial y}(x,0) \, dx$ does not
 exist even if we take improper integrals, that is,
 that the limit
-$\lim\limits_{h \to 0^+} \int_h^1 \frac{\partial f}{\partial y}(x,0) \, dx$
+$\lim\limits_{h \downarrow 0} \int_h^1 \frac{\partial f}{\partial y}(x,0) \, dx$
 does not exist.
 \end{exparts}
 Note: Feel free to use what you know about sine and cosine from calculus.
+\pagebreak[2]
 \end{exercise}
 
 \begin{exercise} \label{exercise:strongerleibniz}
