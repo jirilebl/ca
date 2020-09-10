@@ -48,34 +48,21 @@
 %symmetric for web
 \usepackage[inner=1.2in,outer=1.2in,top=1in,bottom=1in]{geometry}
 %PRINT asymetric for book
-%\usepackage[inner=1.3in,outer=1.1in,top=1in,bottom=1in]{geometry}
+%\usepackage[inner=1.4in,outer=1.0in,top=1in,bottom=1in]{geometry}
 
 \usepackage[margin=10pt,font=small,labelfont=bf,labelsep=colon,singlelinecheck=false]{caption}
 
-%FIXME: this is nonsense, this should be done above, except maybe the
-%cutting down
-
-% smaller margins top/bottom margins
-%\addtolength{\textheight}{0.8in}
-%\addtolength{\topmargin}{-0.3in}
-
 %PRINT
-% (not for the coil version)
-%First offset even/odd pages a bit
-% not for the coil bound full letter size one
-%\addtolength{\oddsidemargin}{0.2in}
-%\addtolength{\evensidemargin}{-0.2in}
-
-%PRINT
-% (not for the coil version)
+% (not for the coil version or any version other than crown quatro using the
+%  ghostscript conversion)
 %Now cut page size a bit.  I'll run it through ghostcript anyway
 %to convert to the right size, but this is good for crown quatro
 %conversion, don't use for the full letter size versions
-%\addtolength{\paperwidth}{-0.3in}
-%\addtolength{\paperheight}{-1in}
-%\addtolength{\topmargin}{-0.5in}
-%\addtolength{\oddsidemargin}{-0.15in}
-%\addtolength{\evensidemargin}{-0.15in}
+%\addtolength{\paperwidth}{-0.25in}
+%\addtolength{\paperheight}{-0.5in}
+%\addtolength{\topmargin}{-0.13in}
+%\addtolength{\oddsidemargin}{-0.125in}
+%\addtolength{\evensidemargin}{-0.125in}
 
 
 \usepackage{url}
@@ -90,12 +77,12 @@
 
 \usepackage[all]{hypcap}
 
-\usepackage{draftwatermark}
-\SetWatermarkText{Work in progress!  Draft as of \today. May change substantially!}
-\SetWatermarkAngle{90}
-\SetWatermarkHorCenter{0.5in}
-\SetWatermarkColor[gray]{0.7}
-\SetWatermarkScale{0.16}
+%\usepackage{draftwatermark}
+%\SetWatermarkText{Work in progress!  Draft as of \today. May change substantially!}
+%\SetWatermarkAngle{90}
+%\SetWatermarkHorCenter{0.5in}
+%\SetWatermarkColor[gray]{0.7}
+%\SetWatermarkScale{0.16}
 %\SetWatermarkScale{0.18}
 
 \definecolor{gray75}{gray}{0.75}
@@ -419,7 +406,7 @@
 \flushright
 {\Huge\bfseries \sffamily Guide to Cultivating Complex Analysis}
 \noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
-\hfill\emph{\Large \sffamily Indoctrination in One Variable}
+\hfill\emph{\Large \sffamily Working the Complex Field}
 \end{minipage}}
 
 \vspace{\stretch{1}}
@@ -430,7 +417,7 @@
 Ji{\v r}\'i Lebl\\[3ex]} 
 \today
 \\
-(version 0.0)
+(version 1.0)
 \end{minipage}}
 
 %\addtolength{\textwidth}{\centeroffset}
@@ -453,7 +440,15 @@ Copyright \copyright 2019--2020 Ji{\v r}\'i Lebl
 %PRINT
 % not for the coil version
 %\noindent
-%ISBN 978-0-359-64225-0
+%ISBN 979-8-6850-5792-1
+
+%PRINT
+% not for lulu
+%\medskip
+%\noindent
+%Cover image: Field in South Czechia, \copyright 2008 Ji{\v r}\'i Lebl, all rights reserved.  Cover
+%image cannot be reused in derivative works.
+
 
 \bigskip
 
@@ -521,7 +516,7 @@ and helpful suggestions.
 \textbf{More information:}
 \\
 See \url{https://www.jirka.org/ca/} for more information
-(including contact information).
+(including contacts).
 
 \medskip
 
@@ -6365,7 +6360,7 @@ polynomial $Q$ of degree $d-1$.
 \end{exercise}
 
 \begin{exercise}[Easy]
-Prove the one-dimensional version of the Jacobian conjecture:
+Prove the one-dimensional version of the \emph{\myindex{Jacobian conjecture}}:
 Suppose that $P(z)$ is a polynomial and $P'(z)$ is nonzero for all $z$,
 then $P$ is an automorphism of $\C$, that is $P(z) = az+b$ and $a \not= 0$.
 \end{exercise}
@@ -22938,11 +22933,11 @@ d(x_{n+1},x_n) = d\bigl(f(x_n),f(x_{n-1})\bigr)
 Suppose $m > n$, then
 \begin{multline*}
 d(x_m,x_n)
-\leq \sum_{i=n}^{m-1} d(x_{i+1},x_i)
-\leq \sum_{i=n}^{m-1} k^i d(x_1,x_0)
-= k^n d(x_1,x_0) \sum_{i=0}^{m-n-1} k^i
+\leq \sum_{\ell=n}^{m-1} d(x_{\ell+1},x_\ell)
+\leq \sum_{\ell=n}^{m-1} k^\ell d(x_1,x_0)
+= k^n d(x_1,x_0) \sum_{\ell=0}^{m-n-1} k^\ell
 \\
-\leq k^n d(x_1,x_0) \sum_{i=0}^{\infty} k^i
+\leq k^n d(x_1,x_0) \sum_{\ell=0}^{\infty} k^\ell
 = k^n d(x_1,x_0) \frac{1}{1-k} .
 \end{multline*}
 So the sequence is Cauchy.  Since $X$ is complete,
@@ -22965,7 +22960,7 @@ proved.
 
 The proof is constructive.  Not only do we know 
 a unique fixed point exists.  We also know how to find it.  Start with
-any $x_0 \in X$, and iterate $f(x_0)$,
+any $x_0 \in X$ and iterate $f(x_0)$,
 $f(f(x_0))$,
 $f(f(f(x_0)))$, etc.
 
@@ -22999,22 +22994,21 @@ $f(x) = x$, and show that $x = \sqrt{2}$.
 \subsection{Inverse function theorem}
 \label{subsec:svinvfuncthm}
 
-To prove the inverse function theorem we use the contraction mapping
+To prove the inverse function theorem, we use the contraction mapping
 principle (\thmref{thm:contr}).
-Intuitively if a function is continuously differentiable, then it
-locally ``behaves like'' the derivative (which is a linear function).
+Intuitively, we again consider that if a function is continuously differentiable, then it
+locally ``behaves like'' the derivative (a linear function).
 The idea of the inverse function theorem is that if a function is
 continuously differentiable and the derivative is invertible, the function is
 (locally) invertible.
 
 \begin{thm}[Inverse function theorem]\index{inverse function theorem}
 \label{thm:inverse}
-Let $U \subset \R^n$ be an open set and let
-$f \colon U \to \R^n$ be a continuously differentiable function.
-Suppose $p \in U$ and $Df|_p$ is invertible
+Suppose $U \subset \R^n$ is open, 
+$f \colon U \to \R^n$ is continuously differentiable, $p \in U$, and $Df|_p$ is invertible
 (that is, $\det Df|_p \not=0$).
 Then there exist open sets $V, W \subset \R^n$ such that
-$p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is one-to-one,
+$p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is injective (one-to-one),
 and hence a $g \colon W \to V$ exists such that
 $g(y) = (f|_V)^{-1}(y)$.
 See \figureref{fig:inversefuncRn}.
@@ -23040,7 +23034,7 @@ $V$ around $p$ such that
 The inequality implies that $Df|_x$ is invertible for all $x \in V$
 (see exercise below).
 
-Given $y \in \R^n$ we define $\varphi_y \colon C \to \R^n$ by
+Given $y \in \R^n$, define $\varphi_y \colon C \to \R^n$ by
 \begin{equation*}
 \varphi_y (x) = x + A^{-1}\bigl(y-f(x)\bigr) .
 \end{equation*}
@@ -23050,11 +23044,11 @@ $y-f(x) = 0$, or in other words $f(x)=y$.  Using the chain rule we obtain
 \begin{equation*}
 D\varphi_y|_x = I - A^{-1} Df|_x = A^{-1} \bigl( A-Df|_x \bigr) .
 \end{equation*}
-So for $x \in V$ we have
+So for $x \in V$,
 \begin{equation*}
 \snorm{D\varphi_y|_x} \leq \snorm{A^{-1}} \, \snorm{A-Df|_x} < \nicefrac{1}{2} .
 \end{equation*}
-As $V$ is a ball, it is convex.  Hence
+As $V$ is a ball, it is convex.  Hence,
 \begin{equation*}
 \snorm{\varphi_y(x_1)-\varphi_y(x_2)} \leq \frac{1}{2} \snorm{x_1-x_2} 
 \qquad
@@ -23076,7 +23070,6 @@ Let $W = f(V)$.  We need to show that $W$ is open.  Take a $y_0 \in W$.
 There is a unique $x_0 \in V$ such that $f(x_0) = y_0$.
 Let $r > 0$ be small enough such that the closed ball $C(x_0,r) \subset V$
 (such $r > 0$ exists as $V$ is open).
-
 Suppose $y$ is such that
 \begin{equation*}
 \snorm{y-y_0} <
@@ -23108,14 +23101,14 @@ contraction on $C(x_0,r)$ and $C(x_0,r)$ is complete (closed subset of $\R^n$
 is complete).
 Apply the contraction mapping principle to obtain a fixed point $x$,
 i.e.\ $\varphi_y(x) = x$.  That is, $f(x) = y$, and $y \in
-f\bigl(C(x_0,r)\bigr) \subset f(V) = W$.  Therefore $W$ is open.
+f\bigl(C(x_0,r)\bigr) \subset f(V) = W$.  Therefore, $W$ is open.
 
 Next we need to show that $g$ is continuously differentiable and compute
 its derivative.  First let us show that it is differentiable.
-Let $y \in W$ and $k \in \R^n$, $k\not= 0$, such that $y+k \in W$.
+Consider $y \in W$ and $k \in \R^n$, $k\not= 0$, such that $y+k \in W$.
 Because $f|_V$ is a one-to-one and onto mapping of $V$ onto $W$,
 there are unique
-$x \in V$ and $h \in \R^n$, $h \not= 0$ and $x+h \in V$, such that
+$x \in V$ and $h \in \R^n$, where $h \not= 0$ and $x+h \in V$, such that
 $f(x) = y$ and $f(x+h) = y+k$.
 In other words, $g(y) = x$ and $g(y+k) = x+h$.  See
 \figureref{fig:inversefuncRn2}.
@@ -23136,7 +23129,7 @@ So
 \end{equation*}
 By the inverse triangle inequality, $\snorm{h} - \snorm{A^{-1}k} \leq
 \frac{1}{2}\snorm{h}$.
-So
+Hence,
 \begin{equation*}
 \snorm{h} \leq 2 \snorm{A^{-1}k} \leq 2 \snorm{A^{-1}} \, \snorm{k}.
 \end{equation*}
@@ -23167,17 +23160,17 @@ $g$ at $y$ is.  Then
 \frac{\snorm{f(x+h)-f(x)-Df|_x h}}{\snorm{h}} .
 \end{split}
 \end{equation*}
-As $k$ goes to $0$, so does $h$.  So the right-hand side goes to $0$ as $f$ is
-differentiable, and
-the left-hand side also goes to $0$.  And
-$B$ is precisely what we wanted $Dg|_y$ to be.
+As $k$ goes to $0$, so does $h$, and, as $f$ is differentiable, so does the right-hand side.
+So $g$ is differentiable with , and $B$
+is precisely what we claimed $Dg|_y$ to be.
 
-We have $g$ is differentiable, let us show it is $C^1(W)$.
+Let us show $g$ is continuously
+differentiable.
 The function $g \colon W \to V$ is continuous (it is differentiable),
 $Df$ is a continuous function from $V$
-to the linear operators on $\R^n$,
-and $X \mapsto X^{-1}$ is a continuous function on
-the set of invertible operators.
+to the space of $n \times n$ matrices (each entry is continuous),
+and the inverse of a matrix $M$ is $M^{-1} = \frac{1}{\det M} \operatorname{adj} M$,
+so $M \mapsto M^{-1}$ is continuous outside the set where $\det M = 0$.
 As
 $Dg|_y = {\bigl( Df|_{g(y)}\bigr)}^{-1}$ is the composition
 of these three
@@ -23185,21 +23178,17 @@ continuous functions, it is continuous.
 \end{proof}
 
 \begin{example}
-Also note that just because $Df|_x$ is invertible everywhere does not
+Just because $Df|_x$ is invertible everywhere does not
 mean that $f$ is
-one-to-one globally.  It is ``locally'' one-to-one but perhaps not
-``globally.''  For an
-example, take the map $f \colon \R^2 \setminus \{ 0 \} \to \R^2$ defined
-by $f(x,y) = (x^2-y^2,2xy)$.
-It is left to student to show that $f$ is
-differentiable and the derivative is invertible.
-
+one-to-one globally.  Consider
+the map $f \colon \R^2 \setminus \{ 0 \} \to \R^2 \setminus \{
+0 \}$ defined
+by $f(x,y) = (x^2-y^2,2xy)$,  that is, the mapping $z \mapsto z^2$ in the
+complex plane.  It is not hard to check that
+the derivative is invertible on $\R^2 \setminus \{ 0 \}$.
 On the other hand, the mapping is 2-to-1 globally (except at the origin).
-For every
-$(a,b)$ that is not the origin, there are exactly two
-solutions to $x^2-y^2=a$ and $2xy=b$.  We leave it to the reader
-to show that there is at least one solution, and then notice
-that replacing $x$ and $y$ with $-x$ and $-y$ obtains another solution.
+For every $(a,b) \not= (0,0)$, there are exactly two
+solutions to $x^2-y^2=a$ and $2xy=b$.
 \end{example}
 
 The invertibility of the derivative is not a necessary
@@ -23210,8 +23199,9 @@ inverse is not differentiable at $x=0$.
 
 \begin{remark}
 As a side note, there is a related famous, and as yet unsolved problem,
-called the \emph{\myindex{Jacobian conjecture}}.  If $F \colon \R^n \to
-\R^n$ is polynomial (each component is a polynomial) and $\det DF$ is a nonzero
+called the \emph{\myindex{Jacobian conjecture}}.  If $F \colon \R^n \to \R^n$
+(or more famously $F \colon \C^n \to \C^n$)
+is polynomial (each component is a polynomial) and $\det DF$ is a nonzero
 constant, does $F$ have a polynomial inverse?
 The inverse function theorem gives a local $C^1$ inverse, but can one always
 find a global polynomial inverse is the question.
@@ -23221,7 +23211,7 @@ find a global polynomial inverse is the question.
 \begin{exercise}
 \begin{exparts}
 \item
-Given a linear operator $A$ on $\R^n$ such that
+Suppose $A$ is a linear operator on $\R^n$ such that
 $\snorm{I-A} < 1$ ($I$ is the identity). Prove that $A$ is invertible.
 \item
 For two linear operators $A$ and $B$ on $\R^n$ where $A$ is invertible,
@@ -23280,13 +23270,13 @@ Show that $F$ is continuously differentiable (for all $(r,\theta) \in
 \item
 Compute $DF|_{(0,\theta)}$ for any $\theta$.
 \item
-Show that if $r \not= 0$, then $DF|_{(r,\theta)}$ is invertible, therefore an
+Show that if $r \not= 0$, then $DF|_{(r,\theta)}$ is invertible, and so an
 inverse of $F$ exists locally as long as $r \not= 0$.
 \item
 Show that $F \colon \R^2 \to \R^2$ is onto, and for each point $(x,y) \in
 \R^2$, the set $F^{-1}(x,y)$ is infinite.
 \item
-Show that $F|_{(0,\infty) \times [0,2\pi)}$ is one to one and onto
+Show that $F|_{(0,\infty) \times [0,2\pi)}$ is one-to-one and onto
 $\R^2 \setminus \bigl\{ (0,0) \bigr\}$.
 \end{exparts}
 \end{exercise}
@@ -23300,26 +23290,21 @@ $\R^2 \setminus \bigl\{ (0,0) \bigr\}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Let us just quickly review some of the basic notation that we use in this
-book, that is perhaps not described elsewhere.
-We use $\C$, $\R$ for complex and real numbers, and $i$ for imaginary unit
-(a square root of $-1$).  We use
-$\N = \{ 1,2,3, \ldots \}$ for 
-the natural numbers,
-$\Z$ for all integers, and
-$\Q$ for rational real numbers,
+Let us quickly review some basic notation used.
+We use $\C$, $\R$ for complex and real numbers ($i$ for imaginary unit),
+$\N = \{ 1,2,3, \ldots \}$ for the natural numbers,
+$\Z$ for all integers, and $\Q$ for rational real numbers.
 
 \glsadd{not:setminus}%
 We denote the set subtraction by 
-$Y \setminus X$,
-meaning all elements of
-$Y$ that are not in $X$.
+$Y \setminus X$ (all elements of
+$Y$ that are not in $X$).
 \glsadd{not:complement}%
-We the complement of a set is $X^c$, in which case
+We write the complement of a set as $X^c$, in which case
 the ambient set should be clear.
 \glsadd{not:closure}%
-The topological closure of a set $X$ is denoted by $\widebar{X}$, its
-boundary is denoted by
+The topological closure of a set $X$ is denoted by $\widebar{X}$ and its
+boundary by
 \glsadd{not:boundary}%
 $\partial X$.  By $\partial X$ we may also mean the path that gives the
 topological boundary traversed counterclockwise.
@@ -23330,13 +23315,9 @@ $X^\circ$.
 \glsadd{not:function}%
 The notation $f \colon X \to Y$ is a function with domain $X$ and
 codomain $Y$.  By $f(S)$ we mean the direct image of $S$ by $f$.
-The notation $f^{-1}$ means the inverse image of sets and
-single points, and when the mapping is bijective (one-to-one and onto),
-we use it for the inverse mapping.  So for example $f^{-1}(T)$ for
-a set $T \subset Y$ denotes all the points of $X$ that $f$ maps to $T$.
-If $q$ is a point, then $f^{-1}(q)$ denotes the set of all the points that map to $q$.
-If the mapping is bijective, then $f^{-1}(q)$ just denotes the unique point
-mapping to $q$.
+By $f^{-1}$ we mean the inverse image of sets and
+single points, and if $f$ is bijective (one-to-one and onto),
+we use it for the inverse mapping.
 To define a function without necessarily giving it a name, we use
 \glsadd{not:mapsto}%
 \begin{equation*}
@@ -23345,12 +23326,13 @@ x \mapsto F(x) ,
 where $F(x)$ would generally be some formula giving the output.
 The notation
 \glsadd{not:restriction}%
-\begin{equation*}
-f|_S
-\end{equation*}
+$f|_S$
 means the restriction of $f$ to $S$:
 a function
 $f|_S \colon S \to Y$ such that $f|_S(x) = f(x)$ for all $x \in S$.
+For derivatives, vertical bar means evaluation,
+$\frac{\partial f}{\partial x}\big|_p$ means 
+$\frac{\partial f}{\partial x}$ evaluated at $p$.
 To say that two functions $f$ and $g$ are identically equal,
 that is that $f(x) = g(x)$ for all $x$ in the domain,
 we write
@@ -23360,19 +23342,31 @@ f \equiv g .
 \end{equation*}
 The notation
 \glsadd{not:composition}%
-\begin{equation*}
-f \circ g
-\end{equation*}
+$f \circ g$
 denotes the composition defined by $x \mapsto f\bigl(g(x)\bigr)$.
 
-We write
+For one-sided limits we use
+\glsadd{not:limupfunc}%
+\glsadd{not:limdownfunc}%
+\begin{equation*}
+\lim_{t \uparrow a} f(t) \quad \Bigl( = \lim_{\substack{t \to a\\t < a}} f(t)
+\Bigr)
+\qquad \text{and} \qquad
+\lim_{t \downarrow a} f(t) \quad \Bigl( = \lim_{\substack{t \to a\\t > a}} f(t)
+\Bigr) ,
+\end{equation*}
+as these seemed clearer in some of the situations in this book.
+We may write $\{ x_n \}$ for a sequence $\{x_n\}_{n=1}^\infty$ and similarly
+$\lim x_n$ instead of $\lim_{n\to \infty} x_n$ when it is clear that $n$ is
+the index of the sequence.
+
+To define $X$ to be $Y$ rather than just show equality, we write
 \glsadd{not:definition}%
 \begin{equation*}
 X
 \overset{\text{def}}{=}
-Y
+Y .
 \end{equation*}
-to define $X$ to be $Y$ rather than just show equality.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

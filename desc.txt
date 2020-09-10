@@ -1,0 +1,20 @@
+An introductory course in complex analysis for incoming graduate students. Created to teach Math 5283 at Oklahoma State University. The book has somewhat more material than could fit in a one-semester course, allowing some choices. There are also appendices on metric spaces and some basic analysis background to make for a longer and more complete course for those that have only had an introduction to basic analysis on the real line.
+
+Table of contents:
+
+Introduction
+1. The Complex Plane
+2. Holomorphic and Analytic Functions
+3. Line Integrals and Rudimentary Cauchy Theorems
+4. The Logarithm and Cauchy
+5. Counting Zeros and Singularities
+6. Montel and Riemann
+7. Harmonic Functions
+8. Weierstrass Factorization
+9. Rational Approximation
+10. Analytic Continuation
+Appendix A. Metric Spaces
+Appendix B. Results From Basic Analysis
+Appendix C. Basic Notation and Terminology
+
+Jiří Lebl is an Associate Professor at Oklahoma State University.
