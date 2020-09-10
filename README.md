@@ -1,7 +1,5 @@
-Guide to Cultivating Complex Analysis: Indoctrination in One Variable
----------------------------------------------------------------------
-
-**Note:** Work in progress.  It is still being updated/modified.
+Guide to Cultivating Complex Analysis: Working the Complex Field
+----------------------------------------------------------------
 
 One-semester graduate level mathematics textbook on basic complex analysis in
 one variable.  Written for the graduate complex analysis course (5283) at
