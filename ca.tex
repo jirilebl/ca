@@ -19571,11 +19571,10 @@ that $\R^n$ contains a countable dense subset.
 
 \begin{exercise} \label{exercise:extendedrealsmetric}
 Take $\R^* = \{ -\infty \} \cup \R \cup \{ \infty \}$ be the extended reals.
-Define $d(x,y) = \bigl\lvert \frac{x}{1+\abs{x}} - \frac{y}{1+\abs{y}}
-\bigr\rvert$
+Define $d(x,y) = \babs{\frac{x}{1+\sabs{x}} - \frac{y}{1+\sabs{y}}}$
 if $x, y \in \R$,
-define $d(\infty,x) = \bigl\lvert 1 - \frac{x}{1+\abs{x}} \bigr\rvert$,
-$d(-\infty,x) = \bigl\lvert 1 + \frac{x}{1+\abs{x}} \bigr\rvert$
+define $d(\infty,x) = \babs{1 - \frac{x}{1+\sabs{x}}}$,
+$d(-\infty,x) = \babs{1 + \frac{x}{1+\sabs{x}}}$
 for all $x \in \R$, and
 let $d(\infty,-\infty) = 2$.
 \begin{exparts}
@@ -21494,8 +21493,8 @@ We compute $\int_a^b f(x)\,dx$.
 For $n \geq M$ ($M$ is the same as above),
 \begin{equation*}
 \begin{split}
-\abs{\int_a^b f(x)\,dx - \int_a^b f_n(x)\,dx} & = 
-\abs{ \int_a^b \bigl(f(x) - f_n(x)\bigr)\,dx}
+\abs{\int_a^b f(x)\,dx - \int_a^b f_n(x) \, dx} & = 
+\abs{\int_a^b \bigl(f(x) - f_n(x)\bigr) \, dx}
 \\
 & \leq
 \frac{\epsilon}{2(b-a)} (b-a) = \frac{\epsilon}{2} < \epsilon .
@@ -21910,25 +21909,27 @@ g'(y) = \int_a^b \frac{\partial f}{\partial y}(x,y) \,dx .
 \end{thm}
 
 The hypotheses on $f$ and $\frac{\partial f}{\partial y}$ can be
-weakened, see e.g.\ \exerciseref{exercise:strongerleibniz},
-but not dropped outright.
-The main point in the proof is for
-$\frac{\partial f}{\partial y}$ to exist and be continuous for all $x$
-up to the ends, but we only need a small
-interval in the $y$ direction.  In applications, we often make $[c,d]$ be a
+weakened to some degree, see e.g.\ \exerciseref{exercise:strongerleibniz}.
+The proof below requires that
+$\frac{\partial f}{\partial y}$ exists and is continuous
+as a function of two variables, and the $x$ interval must be the entire
+closed interval $[a,b]$.
+The $y$ interval
+$[c,d]$ can be replaced by a small (open or closed) interval if
+needed, and in applications, we often make $[c,d]$ be a
 small interval around the point where we need to differentiate.
 
 \begin{proof}
 Fix $y \in [c,d]$ and let $\epsilon > 0$ be given.
-As $\frac{\partial f}{\partial y}$ is continuous on $[a,b] \times [c,d]$ it
+As $\frac{\partial f}{\partial y}$ is continuous on $[a,b] \times [c,d]$, it
 is uniformly continuous.  In particular, there exists $\delta > 0$ such that
 whenever $y_1 \in [c,d]$ with
-$\abs{y_1-y} < \delta$ and all $x \in [a,b]$ we have
+$\sabs{y_1-y} < \delta$ and all $x \in [a,b]$ we have
 \begin{equation*}
 \abs{\frac{\partial f}{\partial y}(x,y_1)-\frac{\partial f}{\partial y}(x,y)} < \epsilon .
 \end{equation*}
 
-Suppose $h$ is such that $y+h \in [c,d]$ and $\abs{h} < \delta$.
+Suppose $h$ is such that $y+h \in [c,d]$ and $\sabs{h} < \delta$.
 Fix $x$ for a moment
 and apply the mean value theorem to find a $y_1$ between $y$ and $y+h$ such that
 \begin{equation*}
@@ -21936,7 +21937,7 @@ and apply the mean value theorem to find a $y_1$ between $y$ and $y+h$ such that
 =
 \frac{\partial f}{\partial y}(x,y_1) .
 \end{equation*}
-As $\abs{y_1-y} \leq \abs{h} < \delta$,
+As $\sabs{y_1-y} \leq \sabs{h} < \delta$,
 \begin{equation*}
 \abs{
 \frac{f(x,y+h)-f(x,y)}{h}
@@ -22017,7 +22018,7 @@ See \figureref{fig:diffunderexample}.
 
 Therefore,
 $g$ is a continuous function of on $[0,1]$, and $g(0) = 0$.
-For any $\epsilon > 0$, the $y$ derivative of the integrand, $x^y$,
+For $0 < \epsilon < 1$, the $y$ derivative of the integrand, $x^y$,
 is continuous on $[0,1] \times [\epsilon,1]$.  Therefore,
 for $y >0$ we may differentiate under the integral sign
 \begin{equation*}
@@ -22027,8 +22028,10 @@ g'(y) =
 \int_0^{1} x^y \,dx =
 \frac{1}{y+1} .
 \end{equation*}
-We need to figure out $g(1)$, knowing $g'(y) = \frac{1}{y+1}$ and $g(0) =
-0$.  By elementary calculus we find $g(1) = \int_0^1 g'(y)\,dy = \ln(2)$.  Therefore
+We know $g$ is continuous on $[0,1]$, $g(0)=0$, and
+for $y \in (0,1)$, $g$ is differentiable and
+$g'(y) = \frac{1}{y+1}$.  So $g(1) = \int_0^1 g'(y)\,dy = \ln(2)$.
+In other words,
 \begin{equation*}
 \int_0^{1} \frac{x-1}{\ln(x)} \,dx  = \ln(2).
 \end{equation*}
@@ -22061,9 +22064,15 @@ Show that $f$ is differentiable.
 
 \begin{exercise}
 Suppose $f \colon \R \to \R$ is an infinitely differentiable function (all derivatives exist)
-such that $f(0) = 0$.  Then show that there exists an infinitely
-differentiable function $g \colon \R \to \R$ such that $f(x) = x\,g(x)$.  Finally show that
-if $f'(0) \not= 0$, then $g(0) \not= 0$.\\
+such that $f(0) = 0$.
+\begin{exparts}
+\item
+Show that there exists an infinitely
+differentiable function $g \colon \R \to \R$ such that $f(x) = x\,g(x)$.
+\item
+Show that
+if $f'(0) \not= 0$, then $g(0) \not= 0$.
+\end{exparts}
 Hint: First write
 $f(x) = \int_0^x f'(s) \,ds$ and then rewrite the integral to go
 from $0$ to $1$.
@@ -22071,7 +22080,7 @@ from $0$ to $1$.
 
 \begin{exercise}%[\neededexmark]
 \label{exercise:severalvariableLiebniz}
-Let $U \subset \R^n$ be an open set and suppose
+Let $U \subset \R^n$ be open and suppose
 $f(x,y_1,y_2,\ldots,y_n)$ is a continuous
 function defined on $[0,1] \times U \subset \R^{n+1}$.
 Suppose
@@ -22079,7 +22088,7 @@ $\frac{\partial f}{\partial y_1},
 \frac{\partial f}{\partial y_2},\ldots,
 \frac{\partial f}{\partial y_n}$
 exist and are continuous on $[0,1] \times U$.
-Then prove that $F \colon U \to \R$ defined by
+Prove that $F \colon U \to \R$ defined by
 \begin{equation*}
 F(y_1,y_2,\ldots,y_n) =
 \int_0^1
@@ -22204,25 +22213,27 @@ $\snorm{Ax} \leq \snorm{A} \snorm{x}$.
 \item
 Find an explicit $2 \times 2$ matrix $A$ and a vector $x \in \R^2$
 such that $\snorm{Ax} < \snorm{A} \snorm{x}$.
+\item
+If $A$ is a $1 \times n$ or $n \times 1$ matrix, then the operator norm
+$\snorm{A}$ is the same as the euclidean norm of the entries of $A$.
 \end{exparts} 
 \end{exercise}
 \end{exbox}
 
-For a function $f \colon \R \to \R$, 
-the derivative at $x$ exists if 
-there is a number $a$ (the derivative of $f$ at $x$) such that
+The derivative of $f \colon \R \to \R$ at $x \in \R$
+exists if there is a number $a$ (the derivative of $f$ at $x$) such that
 \begin{equation*}
 \lim_{h \to 0} \abs{\frac{f(x+h)-f(x)}{h} - a} =
 \lim_{h \to 0} \frac{\sabs{f(x+h)-f(x) - ah}}{\sabs{h}}
 = 0.
 \end{equation*}
-
 Multiplying by $a$ is a linear map in one dimension:
-$h \mapsto ah$.  Let us extend this idea to more variables.
+$h \mapsto ah$.  So the derivative is a linear map.
+Let us extend this idea to more variables.
 
 \begin{defn}
-Let $U \subset \R^n$ be an open subset and $f \colon U \to \R^m$.  We
-say $f$ is \emph{(real) differentiable\index{real differentiable}}
+Let $U \subset \R^n$ be open.  We say $f \colon U \to \R^m$
+is \emph{(real) differentiable\index{real differentiable}}
 at $x \in U$ if there exists
 a linear $A \colon \R^n \to \R^m$ such that
 \begin{equation*}
@@ -22231,8 +22242,8 @@ a linear $A \colon \R^n \to \R^m$ such that
 \end{equation*}
 We write $Df|_x = A$\glsadd{not:mvder} and
 we say $A$ is the \emph{(real) derivative\index{real derivative}} of $f$ at $x$.
-When $f$ is \emph{(real) differentiable} at
-every $x \in U$, we say that $f$ is (real) differentiable.  See
+When $f$ is (real) differentiable at
+every $x \in U$, we say that $f$ is \emph{(real) differentiable}.  See
 \figureref{fig:svder}.
 \end{defn}
 
@@ -22243,13 +22254,15 @@ in the $x_1x_2$-plane based at $(x_1,x_2)$, and the vector
 $Ah \in \R^1$ is shown along the $y$ direction.\label{fig:svder}}
 \end{myfig}
 
-We cheated somewhat and said that $A$
+Intuitively, $f$ is differentiable at $x$ if $f$ ``infinitesimally close''
+to a linear map near $x$.
+We cheated a bit and said that $A$
 is \emph{the} derivative, let us prove that we were justified.
 
 \begin{prop}
-Let $U \subset \R^n$ be an open subset and $f \colon U \to \R^m$.  Suppose
-$x \in U$ and there exist linear
-$A,B \colon \R^n \to \R^m$ such that
+Let $U \subset \R^n$ be open, $f \colon U \to \R^m$ a function,
+$x \in U$, and 
+$A,B \colon \R^n \to \R^m$ are linear such that
 \begin{equation*}
 \lim_{h \to 0}
 \frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0
@@ -22272,9 +22285,9 @@ Bh}}{\snorm{h}} .
 \end{split}
 \end{equation*}
 So 
-$\frac{\snorm{(A-B)h}}{\snorm{h}} = \norm{(A-B)\frac{h}{\snorm{h}}} \to 0$
-as $h \to 0$.  For an arbitrarily small $h$, $\frac{h}{\snorm{h}}$ is
-on the unit sphere, and a linear mapping vanishing on the unit sphere is
+$\frac{\snorm{(A-B)h}}{\snorm{h}} = \bnorm{(A-B)\frac{h}{\snorm{h}}} \to 0$
+as $h \to 0$.  Any point on the unit sphere can be written as $\frac{h}{\snorm{h}}$
+for an arbitrarily small $h$, and a linear mapping vanishing on the unit sphere is
 zero everywhere.
 \end{proof}
 
@@ -22295,7 +22308,7 @@ Let $f \colon \R^2 \to \R^2$ be defined by
 \begin{equation*}
 f(x,y) = \bigl(f_1(x,y),f_2(x,y)\bigr) = (1+x+2y+x^2,2x+3y+xy).
 \end{equation*}
-Let us show that $f$ is differentiable at the origin and let us 
+Let us show that $f$ is differentiable at the origin and 
 compute the derivative,
 directly using the definition.  If the
 derivative exists, it can be
@@ -22358,9 +22371,9 @@ Suppose $U \subset \R^n$ is open,
 $f \colon U \to \R^m$ and
 $g \colon U \to \R^m$ are differentiable at $p$,
 and $\alpha \in \R$.  Then the functions $f+g$ and $\alpha f$
-are differentiable at $p$ and
+are differentiable at $p$, and
 \begin{equation*}
-D(f+g)|_p = Df|_p + Dg|_p , \qquad \text{and} \qquad D(\alpha f)|_p = \alpha
+D(f+g)|_p = Df|_p + Dg|_p \qquad \text{and} \qquad D(\alpha f)|_p = \alpha
 Df|_p .
 \end{equation*}
 \end{prop}
@@ -22450,11 +22463,11 @@ First, $\snorm{B}$ is constant and $f$ is differentiable at $p$,
 so
 the term $\snorm{B}\frac{\snorm{r(h)}}{\snorm{h}}$ goes to $0$.
 Next as $f$ is continuous at $p$, we have that as 
-$h$ goes to $0$, then $k$ goes to $0$.  Therefore
+$h$ goes to $0$, then $k$ goes to $0$.  Therefore,
 $\frac
 {\snorm{g(q+k)-g(q) - Bk}}
 {\snorm{k}}$ goes to $0$ because $g$ is differentiable at $q$.
-Finally 
+Finally,
 \begin{equation*}
 \frac
 {\snorm{f(p+h)-f(p)}}
@@ -22468,14 +22481,14 @@ Finally
 \end{equation*}
 As $f$ is differentiable at $p$,
 for small enough $h$, the quantity
-$\frac{\snorm{f(p+h)-f(p)-Ah}}{\snorm{h}}$ is bounded.  Therefore the
-term
+$\frac{\snorm{f(p+h)-f(p)-Ah}}{\snorm{h}}$ is bounded.
+Therefore, the term
 $
 \frac
 {\snorm{f(p+h)-f(p)}}
 {\snorm{h}}
 $
-stays bounded as $h$ goes to $0$.  Therefore, 
+stays bounded as $h$ goes to $0$.  Hence, 
 $\frac{\snorm{F(p+h)-F(p) - BAh}}{\snorm{h}}$ goes to zero, and
 $DF|_p = BA$, which is what was claimed.
 \end{proof}
@@ -22484,7 +22497,7 @@ Let us prove a ``mean value theorem'' for vector-valued functions.
 For a function $\varphi \colon [a,b] \to \R^n$, we think of the derivative
 $D\varphi|_{t_0}$ as a vector, and so 
 it is often just written as $\varphi'(t_0)$, it is not hard to check that
-the components of $D\varphi|_{t_0}$ are just the derivatives of the
+the entries of the matrix $D\varphi|_{t_0}$ are just the derivatives of the
 components of $\varphi$, and $D\varphi|_{t_0} h = \varphi'(t_0) \cdot h$,
 where $h$ is the dot product.  Then
 $\snorm{\varphi'(t_0)}$
@@ -22539,7 +22552,7 @@ $x$ to $y$ lies in $U$.
 
 \begin{prop} \label{mv:prop:convexlip}
 Let $U \subset \R^n$ be a convex open set, $f \colon U \to \R^m$
-a differentiable function, and an $M$ be such that
+a differentiable function, and $M$ be such that
 \begin{equation*}
 \snorm{Df|_x} \leq M
 \qquad \text{for all } x \in U.
@@ -22578,8 +22591,8 @@ M \snorm{y-x} . \qedhere
 Let us solve the differential equation $Df = 0$.
 
 \begin{cor} \label{thm:svzerodersol}
-If $U \subset \R^n$ is connected and $f \colon U \to \R^m$ is differentiable
-and $Df|_x = 0$, for all $x \in U$, then $f$ is constant.
+If $U \subset \R^n$ is open and connected, $f \colon U \to \R^m$ is differentiable,
+and $Df|_x = 0$ for all $x \in U$, then $f$ is constant.
 \end{cor}
 
 \begin{proof}
@@ -22670,7 +22683,8 @@ Df|_p \, e_j =
 \frac{\partial f_k}{\partial x_j}\Big|_p \,e_k ,
 \end{equation*}
 where $e_j$ denote the vectors of the standard basis in the appropriate
-space.
+space.  Recall that the standard basis element $e_j$ is the vector with all
+zeros except a $1$ at the $j$\textsuperscript{th} entry.
 
 \begin{proof}
 Fix a $j$ and note that
@@ -22692,7 +22706,7 @@ Let us represent $f$ by components
 $f = (f_1,f_2,\ldots,f_m)$, since it is vector-valued.
 Taking a limit in $\R^m$
 is the same as taking the limit in each component separately.  
-For any $k$
+For any $k$,
 \begin{equation*}
 \frac{\partial f_k}{\partial x_j} \Big|_p
 =
@@ -22714,7 +22728,10 @@ Let $U \subset \R^n$ be open.
 We say $f \colon U \to \R^m$ is
 \emph{\myindex{continuously differentiable}},
 if all partial derivatives
-$\frac{\partial f_j}{\partial x_k}$ exist and are continuous.
+$\frac{\partial f_j}{\partial x_k}$ exist and are continuous.\footnote{%
+Alternatively, people define $f$ being continuously differentiable
+if $Df|_x$ is a continuous function taking $x \in U$ to the space of linear
+operators.  The propositions in this section say the two definitions are equivalent.}
 \end{defn}
 
 \begin{prop} \label{mv:prop:contdiffpartials}
@@ -22727,7 +22744,6 @@ $f$ is differentiable.
 \begin{proof}
 Fix $x \in U$.  We do induction on dimension.  The case $n=1$ is left
 as an exercise.
-
 Suppose the conclusion is true for $\R^{n-1}$,
 that is,
 if we restrict to the first $n-1$ variables, the function is differentiable.
