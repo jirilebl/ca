@@ -22735,9 +22735,9 @@ operators.  The propositions in this section say the two definitions are equival
 \end{defn}
 
 \begin{prop} \label{mv:prop:contdiffpartials}
-Let $U \subset \R^n$ be open and
-$f \colon U \to \R^m$.  If the function
-$f$ is continuously differentiable, then
+Let $U \subset \R^n$ be open.
+If $f \colon U \to \R^m$ is
+continuously differentiable, then
 $f$ is differentiable.
 \end{prop}
 
@@ -22747,7 +22747,7 @@ as an exercise.
 Suppose the conclusion is true for $\R^{n-1}$,
 that is,
 if we restrict to the first $n-1$ variables, the function is differentiable.
-It is easy to see that the first $n-1$
+The first $n-1$
 partial derivatives of $f$ restricted to the set where the last coordinate is
 fixed are the same as those for $f$.
 In the following, by a slight abuse of notation,
@@ -22793,7 +22793,7 @@ v =
 \end{equation*}
 Let $\epsilon > 0$ be given.  By the induction hypothesis, there
 is a $\delta > 0$ such that
-for any $k \in \R^{n-1}$ with $\snorm{k} < \delta$ we have
+for any $k \in \R^{n-1}$ with $\snorm{k} < \delta$,
 \begin{equation*}
 \frac{\snorm{f(x+k) - f(x) - A' k}}{\snorm{k}} < \epsilon .
 \end{equation*}
@@ -22826,9 +22826,8 @@ for each $j$ there is some $\theta_j \in [0,t]$ (or $[t,0]$ if $t < 0$), such th
 f_j(x+k + t e_n) - f_j(x+k) =
 t \frac{\partial f_j}{\partial x_n}\Big|_{(x+k+\theta_j e_n)}.
 \end{equation*}
-Note that if $\snorm{h} < \delta$, then $\snorm{k+\theta_j e_n} \leq \snorm{h}
-< \delta$.
-So to finish,
+Note that $\snorm{k+\theta_j e_n} \leq \snorm{h} < \delta$.
+To finish,
 \begin{equation*}
 \begin{split}
 \snorm{f(x+h) - f(x) - Ah}
@@ -22847,11 +22846,11 @@ t \frac{\partial f_j}{\partial x_n}\Big|_{x}\right)}^2} + \epsilon \snorm{k}
 
 \begin{exbox}
 \begin{exercise}
-Prove the assertion about the base case
-in the proof of \propref{mv:prop:contdiffpartials}.  That is, prove that
+Prove the base case
+in \propref{mv:prop:contdiffpartials}: Prove that
 if $n=1$ and 
-the partials exist and are continuous, the function is 
-differentiable.
+``the partials exist and are continuous,'' the function is 
+differentiable.  Note that $f$ is vector-valued.
 \end{exercise}
 
 \begin{exercise}
@@ -22884,7 +22883,7 @@ Define $f \colon \R^2 \to \R$ as
 f(x,y) =
 \begin{cases}
 (x^2+y^2)\sin\bigl({(x^2+y^2)}^{-1}\bigr) & \text{if } (x,y) \not= (0,0), \\
-0 & \text{else.}
+0 & \text{if } (x,y) = (0,0).
 \end{cases}
 \end{equation*}
 Show that $f$ is differentiable at the origin, but that it is not 
