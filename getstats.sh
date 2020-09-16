@@ -11,5 +11,8 @@ echo "Figures (excluding appendix):  \t"`cat ca.tex | sed '/^[\]appendix/q' | gr
 echo
 echo "Exercises:                     \t"`grep '^[\]begin{exercise' ca.tex | wc -l`
 echo "Exercises (excluding appendix):\t"`cat ca.tex | sed '/^[\]appendix/q' | grep '^[\]begin{exercise' | wc -l`
+echo
+echo "Footnotes:                     \t"`grep '[\]footnote{' ca.tex | wc -l`
+echo "Exercises (excluding appendix):\t"`cat ca.tex | sed '/^[\]appendix/q' | grep '[\]footnote{' | wc -l`
 
 echo
