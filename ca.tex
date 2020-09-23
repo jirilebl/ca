@@ -10953,7 +10953,7 @@ principle.
 \end{exercise}
 \end{exbox}
 
-\subsection{Rouch\`e's theorem}
+\subsection{Rouch\'e's theorem}
 
 The next theorem allows us to count zeros (or poles) of a function that is
 close to another function.  In rough terms,
@@ -10969,8 +10969,8 @@ $1$ on $\partial \D$.  So poles are allowed to ``cancel'' zeros, but this
 balance is always maintained.  If we do not allow any poles
 whatsoever, then the theorem says that the number of zeros does not change.
 
-\begin{thm}[Rouch\`e\footnote{%
-The stronger version we state was actually proved by Estermann in 1962.}]\index{Rouch\`e's theorem}\label{thm:rouche}
+\begin{thm}[Rouch\'e\footnote{%
+The stronger version we state was actually proved by Estermann in 1962.}]\index{Rouch\'e's theorem}\label{thm:rouche}
 \pagebreak[2]
 Suppose $U \subset \C$ is open, $\Gamma$ is a cycle
 in $U$ homologous to zero in $U$,
@@ -11003,7 +11003,7 @@ inequality.
 Often the theorem is only applied for holomorphic functions, that is,
 functions without poles.
 
-\begin{cor}[Rouch\`e]\label{thm:rouche2}
+\begin{cor}[Rouch\'e]\label{thm:rouche2}
 Let $U$, $\Gamma$ and $V$ be as in \thmref{thm:rouche}.
 Suppose $f \colon U \to \C$ and $g \colon U \to \C$
 are holomorphic such that
@@ -11046,7 +11046,7 @@ around the tree $k$ times.  See \figureref{fig:dogandtree}.
 Let us get to the rigorous proof of the symmetric version of the
 theorem.
 
-\begin{proof}[Proof of Rouch\`e]
+\begin{proof}[Proof of Rouch\'e]
 Write the inequality as
 \begin{equation*}
 \abs{\frac{f(z)}{g(z)} + 1} <
@@ -11070,10 +11070,10 @@ The argument principle finishes the proof.
 \end{proof}
 
 \begin{example}
-A typical application of Rouch\`e is to approximately locate zeros of
+A typical application of Rouch\'e is to approximately locate zeros of
 polynomials.  Consider $P(z) = z^n + 1$.  We can explicitly find the roots,
 but let us forget we can do so,
-and show using Rouch\`e that they are all on the unit circle.
+and show using Rouch\'e that they are all on the unit circle.
 
 First
 consider $\Gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
@@ -11081,7 +11081,7 @@ around the origin.  On $\Gamma$,
 \begin{equation*}
 \abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
 \end{equation*}
-By Rouch\`e ($P(z)$ is the dog and $1$ is the master), $P(z)$
+By Rouch\'e ($P(z)$ is the dog and $1$ is the master), $P(z)$
 has the same number of zeros as the constant $1$ (that is, no zeros) in
 $\Delta_{1-\epsilon}(0)$.
 
@@ -11090,7 +11090,7 @@ radius $1+\epsilon$ around the origin.  Then on $\Gamma$,
 \begin{equation*}
 \abs{P(z) - z^n} = 1 < \abs{z^n} .
 \end{equation*}
-By Rouch\`e, $P(z)$ and $z^n$ have the same number of zeros in
+By Rouch\'e, $P(z)$ and $z^n$ have the same number of zeros in
 $\Delta_{1+\epsilon}(0)$, that is, $n$ zeros.  As $\epsilon$ was arbitrary,
 all the zeros of $P(z)$ must be on the unit circle.
 \end{example}
@@ -11123,7 +11123,7 @@ These are not the ideal estimates (largest zero of $P$ has modulus less than
 
 \begin{exbox}
 \begin{exercise}
-Using Rouch\`e's theorem, count the number of zeros of $z^7-4z^3-11$ in $\ann(p;1,2)$.
+Using Rouch\'e's theorem, count the number of zeros of $z^7-4z^3-11$ in $\ann(p;1,2)$.
 \end{exercise}
 
 \begin{exercise}
@@ -11204,7 +11204,7 @@ So for all $n$ large enough,
 \begin{equation*}
 \sabs{f(z)-f_n(z)} < \delta < \sabs{f(z)}
 \end{equation*}
-for all $z \in \Gamma$.  By \hyperref[thm:rouche2]{Rouch\`e's theorem},
+for all $z \in \Gamma$.  By \hyperref[thm:rouche2]{Rouch\'e's theorem},
 $f$ and $f_n$ have the same number of zeros in $V$.
 \end{proof}
 
@@ -11399,7 +11399,7 @@ all $z \in \partial \Delta_r(p)$,
 \abs{\bigl( f(z)-w \bigr) - \bigl( f(z)-f(p) \bigr)} = \abs{f(p)-w} <
 \delta < \abs{f(z)-f(p)} .
 \end{equation*}
-By \hyperref[thm:rouche2]{Rouch\`e}, $z \mapsto f(z)-w$ has at least one zero in $\Delta_r(p)$.
+By \hyperref[thm:rouche2]{Rouch\'e}, $z \mapsto f(z)-w$ has at least one zero in $\Delta_r(p)$.
 In other words,
 \begin{equation*}
 \Delta_{\delta}\bigl(f(p)\bigr) \subset
@@ -11533,7 +11533,7 @@ two.
 For $w \in \Delta_{\delta}\bigl(f(p)\bigr) \setminus \bigl\{ f(p) \bigr\}$,
 we have that
 $z \mapsto f(z)-w$ has at least two zeros in $\Delta_r(p)$ counting multiplicity via
-\hyperref[thm:rouche2]{Rouch\`e} as
+\hyperref[thm:rouche2]{Rouch\'e} as
 before.  As derivative of $f(z)$, hence also of $f(z)-w$, is nonzero in
 the punctured disc, all these zeros are of multiplicity one.  Ergo, $f(z)-w$
 has more than one distinct zero, and consequently, $f$ is not injective.
@@ -16467,7 +16467,7 @@ that converges uniformly to $f$ on the square $[-1,1] \times [-1,1]$.
 Sometimes, we are thwarted in polynomial approximation by topology.
 For example, there is no sequence of
 polynomials $P_n(z)$ that converge to $\nicefrac{1}{z}$ uniformly on $\partial
-\D$.  This follows by \hyperref[thm:rouche]{Rouch\`e} (or
+\D$.  This follows by \hyperref[thm:rouche]{Rouch\'e} (or
 \exerciseref{exercise:convergeboundary} and Cauchy's theorem), see the
 following exercise.
 
