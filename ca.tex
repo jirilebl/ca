@@ -617,7 +617,7 @@ to go through chapters
 Cauchy, to get through basic theory of holomorphic functions,
 then getting to \ref{ch:montelriemann} (Montel and Riemann mapping),
 and some bits of \ref{ch:harmonic} (harmonic functions).
-Then there are some extra topics for a different
+There are some extra topics for a different
 plan such as
 \ref{ch:weier} (Weierstrass factorization),
 \ref{ch:runge} (Runge), and
@@ -681,7 +681,7 @@ From \glsadd{not:Z}$\Z$, we define the rational numbers
 \glsadd{not:Z}$\Q$ to solve\footnote{%
 Do we really solve it by writing $x = \nicefrac{1}{2}$?  After all, 
 $\nicefrac{1}{2}$ is just a placeholder for an object that we can't describe
-in another way other than ``whatever $1$ divided by $2$ would be if it existed.''}
+in a way other than ``whatever $1$ divided by $2$ would be if it existed.''}
 equations such as $2x=1$.  We extend
 \glsadd{not:Q}$\Q$ to the real numbers \glsadd{not:R}$\R$
 to solve equations such as $x^2=2$.  Actually our definition 
@@ -700,7 +700,7 @@ are false and bizarre counterexamples abound.
 On the other hand, a complex analysis course fills the student with
 unrealistic optimism.  It is replete with na\"ive and silly statements
 that only a bad calculus student could entertain.\footnote{%
-E.g., if you can differentiate once, you can differentiate twice.
+E.g.:  If you can differentiate once, you can differentiate twice.
 Every function acts sort of like a linear function.
 If all derivatives are zero at a point, the function is constant.
 Etc.}
@@ -710,10 +710,10 @@ of contemporary analysis.
 \subsection{The complex numbers as the plane}
 
 You have surely seen the complex number field,
-but let us review how one can define it.
+but let us review its definition anyway.
 As a set, let the \emph{\myindex{complex number field}}
 \glsadd{not:C}$\C$ be the set $\R^2 = \R \times \R$.
-As the set is a plane, we call it the \emph{\myindex{complex plane}}%
+The set is a plane, so we call it the \emph{\myindex{complex plane}}%
 \footnote{Although there is that odd mathematician out there that
 thinks that the \emph{complex plane} is $\C^2 = \C \times \C$.
 If you hear someone say that, politely whack them over the head for me.}.
@@ -744,7 +744,7 @@ being no ``j'' in ``imaginary.''}%
 \begin{equation*}
 i \overset{\text{def}}{=} (0,1) .
 \end{equation*}
-With this definition $(x,y) = x+iy$.  From now on, this is the only way we
+With this notation, $(x,y) = x+iy$.  From now on, $x+iy$ is the only way we
 will write
 the complex numbers in terms of the coordinates $x$ and $y$.
 We call $x+iy$ the \emph{\myindex{cartesian}}
@@ -753,13 +753,13 @@ The number $i$ has the magical property that
 \begin{equation*}
 i^2 = -1 .
 \end{equation*}
-It is the solution to $z^2+1=0$.
 For this reason we sometimes%
 \footnote{There are those that \emph{always} write $\sqrt{-1}$ instead of $i$.
 Those people also deserve a good whack.}
 write $i = \sqrt{-1}$.
-We will prove later that every polynomial has roots over the complex numbers.
 Note that there is another square root of $-1$, that is, $-i$.
+The numbers $i$ and $-i$ are the solutions to $z^2+1=0$.
+We will prove later that every polynomial has roots over the complex numbers.
 
 Given a complex number $z=x+iy$, its ``evil twin'' is 
 the \emph{\myindex{complex conjugate}} of $z$:
@@ -813,7 +813,8 @@ variables.
 \subsection{The geometry and topology of the plane}
 
 The size of $z$ is measured by the so-called \emph{\myindex{modulus}},
-which is just the \emph{\myindex{euclidean distance}}:
+which is just the \emph{\myindex{euclidean distance}}
+of $0$ and $z$:
 \glsadd{not:mod}%
 \begin{equation*}
 \sabs{z} \overset{\text{def}}{=} \sqrt{z \bar{z}} = \sqrt{x^2+y^2} .
@@ -952,7 +953,7 @@ domains are simply vacuous.}
 
 \begin{defn}
 An open and connected set $U \subset \C$ is called a
-\emph{\myindex{domain}}.\footnote{Perhaps domain is a tad unfortunate since
+\emph{\myindex{domain}}.\footnote{Perhaps ``domain'' is a tad unfortunate since
 we also call the $X$ in $f \colon X \to Y$ a ``domain'' of the function,
 even if $X$ is not a domain in the sense of topology.}
 \end{defn}
@@ -973,9 +974,9 @@ and $v = \Im f$ for real-valued functions $u,v \colon X \to \R$, and then
 f = u+iv .
 \end{equation*}
 
-If $X \subset \C$, then we can think of $X \subset \R^2$.
+If $X \subset \C$, then we think of $X \subset \R^2$.
 A derivative in $x$ or $y$ (where $z=x+iy$) is then applied to the
-components (as if $f$ was valued in $\R^2$):
+components (just as if $f$ was valued in $\R^2$):
 \begin{equation*}
 \frac{\partial f}{\partial x} = 
 \frac{\partial u}{\partial x} + i
@@ -986,11 +987,11 @@ components (as if $f$ was valued in $\R^2$):
 \frac{\partial v}{\partial y} .
 \end{equation*}
 
-If $X \subset \R$, that is if $f$ is a complex-valued
-function of one real variable, $f' = u' + iv'$.
-This is equivalent to treating $f$ as a function from $\R$ to $\R^2$
+If $X \subset \R$, that is, if $f$ is a complex-valued
+function of one real variable, then $f' = u' + iv'$.
+Equivalently, we treat $f$ as a function from $\R$ to $\R^2$
 and hence $f'$ is a $2 \times 1$ matrix---a column vector, or in other words
-representing a complex number if we are identifying $\C$ and $\R^2$.
+$f'$ represents a complex number if we are identifying $\C$ and $\R^2$.
 
 Similarly when integrating.  For $f \colon [a,b] \to \C$,
 we say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
@@ -16633,7 +16634,7 @@ $\sabs{f(z)-g(z)} < \epsilon$ on $K$.  We leave the following statement as
 a simple exercise in chasing those epsilons.
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise} \label{exercise:approxbyfamily}
 Let $K$ be a set and $\sF$ a set of functions on $K$.  Rigorously prove:
 \begin{exparts}
 \item
@@ -16698,7 +16699,7 @@ at $z_2$ may be written as
 a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^k}$
 or $(z-z_2)^k$.  If we can uniformly approximate $\frac{1}{z-z_2}$ on $K$ by a rational
 function with a pole at $z_3$, we can approximate $R$ by a rational function
-with a pole at $z_3$.
+with a pole at $z_3$, see \exerciseref{exercise:approxbyfamily}.
 And so we can approximate $\frac{1}{z-p}$ with a rational function with a pole at $z_3$.
 Rinse and repeat.
 
