@@ -1108,7 +1108,7 @@ determinant appearing in the denominator for the multiplicative inverse.
 \begin{exercise}
 Prove that if the $2 \times 2$ matrix $M$ represents a complex number
 $a+ib$, then $M$ has two eigenvalues: $a \pm i b$ with the corresponding
-eigenvectors $\left[ \begin{smallmatrix} 1 \\ \pm i \end{smallmatrix}
+eigenvectors $\left[ \begin{smallmatrix} 1 \\ \mp i \end{smallmatrix}
 \right]$.
 \end{exercise}
 
@@ -1190,8 +1190,8 @@ and
 \sabs{e^{x-iy}} =
 e^x .
 \end{equation*}
-It is possible to not resort to the real exponentials, sines, and cosines
-to define the complex exponential, and we will do so in due course.
+It is possible to define the complex exponential without resorting to
+the real exponential, sine, and cosine, and we will do so in due course.
 But we are impatient and we want something to play around with now, without waiting.
 
 \begin{prop}
@@ -1209,7 +1209,7 @@ Prove the proposition using the definition and trigonometric identities.
 
 We remark that $e^z$ is the unique continuous
 function on $\C$ that satisfies $e^{z+w} = e^z e^w$ and $e^0 = 1$.
-Let us not worry about that.
+Let us not worry about proving that.
 For real $\theta$, the definition
 of the exponential gives the so-called
 \emph{\myindex{Euler's formula}}:
@@ -1305,7 +1305,7 @@ integer $k$.  In other words,
 $\arg z$ is not a function in the classical sense, but a
 \emph{\myindex{multivalued function}}%
 \footnote{Non-complex analysts will sometimes claim that a multivalued
-function is nonsense, but you can safely ignore them.}.  The correct
+function is nonsense, but you can safely ignore those troublemakers.}.  The correct
 definition is
 \glsadd{not:arg}%
 \begin{equation*}
@@ -1385,7 +1385,7 @@ e^{z} =
 e^{x+iy} =
 e^x e^{iy} ,
 \end{equation*}
-and since $\sabs{e^{iy}} =1$, we find that the vertical line $x=c$ is taken to a
+and $\sabs{e^{iy}} =1$, the exponential takes the vertical line $x=c$ to a
 circle of radius $e^c$.  See \figureref{fig:expplotlines}.
 Thus, the exponential takes the strip $a < x < b$ to the
 annulus
@@ -1489,7 +1489,7 @@ Suppose $(\phi,\theta)$
 are spherical coordinates on $S^2$, where $0 \leq \phi \leq \pi$ is the zenith (angle made
 with the $z$-axis) and $-\pi < \theta \leq \pi$ the azimuth, and we write
 points in $\C$ using polar coordinates $re^{\theta}$.  Then prove that $\Phi$ of
-$(\phi,\theta)$ is $(\cot \nicefrac{\phi}{2})e^{i\theta}$.
+$(\phi,\theta)$ is $\cot (\nicefrac{\phi}{2})\,e^{i\theta}$.
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
@@ -1516,21 +1516,21 @@ Indeed, topologically, it is the same as the
 
 \begin{exbox}
 \begin{exercise}%[\neededexmark]
-Suppose that $L \in \C$ and $z_0 \in \C$.
+Suppose $L \in \C$ and $z_0 \in \C$.
 Show that $\lim_{z\to z_0} f(z) = L$ in the sense of the Riemann sphere
 if and only if $\lim_{z \to z_0} f(z) = L$ in the usual sense (the euclidean
 metric on $\C$).
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
-Suppose that $L \in \C$.
+Suppose $L \in \C$.
 Show that $\lim_{z\to \infty} f(z) = L$ in the sense of the Riemann sphere
 if and only if, for every $\epsilon > 0$ there exists an $M$ such that
 $\sabs{f(z)-L} < \epsilon$ whenever $\sabs{z} > M$.
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
-Suppose that $z_0 \in \C$.
+Suppose $z_0 \in \C$.
 Show that $\lim_{z\to \infty} f(z) = \infty$ in the sense of the Riemann sphere
 if and only if, for every $M > 0$ there exists a $\delta > 0$ such that
 $\sabs{f(z)} > M$ whenever $\sabs{z-z_0} < \delta$.
