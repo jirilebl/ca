@@ -4677,9 +4677,8 @@ to a constant.
 
 \begin{prop} \label{prop:primunique}
 Suppose $U \subset \C$ is a domain, and
-holomorphic functions
 $F \colon U \to \C$ and
-$G \colon U \to \C$, such that $F' = G'$.  Then
+$G \colon U \to \C$ are holomorphic functions such that $F' = G'$.  Then
 there is a constant $C$ such that
 $F(z) = G(z) + C$.
 \end{prop}
@@ -4687,7 +4686,7 @@ $F(z) = G(z) + C$.
 \begin{exbox}
 \begin{exercise}
 Prove the proposition.
-Make sure to use that $U$ is a domain (connected) somewhere.
+Make sure you use that $U$ is a domain (connected).
 \end{exercise}
 \end{exbox}
 
@@ -4725,8 +4724,8 @@ of the expression.
 \end{proof}
 
 \begin{remark}
-The hypothesis that $f=F'$ is continuous is extraneous,
-we will soon prove that a derivative of a holomorphic function is
+The hypothesis that $f=F'$ is continuous is extraneous.
+We will soon prove that a derivative of a holomorphic function is
 holomorphic.  As that is not yet proved, we need $F'$ to be at least
 continuous so that the integral makes sense.\footnote{%
 A real derivative is only integrable
@@ -5035,7 +5034,7 @@ $-1-i$, $1-i$, $1+i$, and $-1+i$ and notice that $0$ is in the interior.
 Compute $\int_{\partial R} \frac{1}{z} \, dz$,
 notice that it is nonzero, and argue why it does not violate the
 Cauchy--Goursat theorem for rectangles (see the previous exercise).
-Hint: We do not yet have complex logarithm, so you can't use that,
+Hint: We do not yet have the complex logarithm, so you can't use that,
 but notice that for instance:
 $\frac{1}{t-i} = \frac{t}{t^2+1} + i \frac{1}{t^2+1}$.
 \end{exercise}
@@ -5043,8 +5042,8 @@ $\frac{1}{t-i} = \frac{t}{t^2+1} + i \frac{1}{t^2+1}$.
 
 A triangle is one type of a convex set, but as convex sets come up
 often, let us give some basic properties of convex sets as exercises.
-They may be good to do in order and possibly use previous ones in the next
-ones.
+These may be good to do in order and possibly use earlier ones in solving
+the later ones.
 
 \begin{exbox}
 \begin{exercise}
@@ -5583,7 +5582,7 @@ $\sum
 {\left(\frac{z-p}{\zeta-p}\right)}^n$ converges uniformly absolutely
 (and hence uniformly).
 
-We proved convergence in $\Delta_r(p)$.
+We found a power series converging to $f(z)$ for all $z \in \Delta_r(p)$.
 By uniqueness of the power series (see \corref{cor:convpowserinfdif}),
 the $c_n$ we compute are the same for every $r < R$.  Hence,
 we get the same series for every $r$ and it converges in $\Delta_R(p)$.
@@ -5599,7 +5598,7 @@ $\frac{1}{\zeta-z}$ as
 \end{equation*}
 and then using the geometric series.  This is a common technique, take a
 feature of the kernel, in this case having a series, and proving that the
-integral has that same feature.  In the proof above the thing is to figure out
+integral has that same feature.  In the proof above the trick is to figure out
 how to massage the kernel so that in the geometric series we get terms
 that are something times ${(z-p)}^n$.
 
@@ -5608,7 +5607,7 @@ that $f$ has a power series, we computed
 that the radius of convergence is at least $R$, where $R$ is the maximum $R$
 such that $\Delta_R(p) \subset U$.  See \figureref{fig:largestr}.
 That is a surprisingly powerful result.
-Nothing like that is true for power series in real variable,
+Nothing like that is true for power series in a real variable,
 see \exerciseref{exercise:realradconvhard}.
 It allows for computation of the radius of convergence (or at least a lower
 bound for it) just from knowing the 
@@ -5632,7 +5631,7 @@ Let $U \subset \C$ be an open set.  A function $f \colon U \to \C$
 is holomorphic if and only if $f$ is analytic.
 \end{cor}
 
-As a corollary of this corollary we find that all the results that we proved
+As a corollary of this corollary, we find that all the results that we proved
 for analytic functions are true for holomorphic functions.  And it goes the
 other way too.  For example, it is easy to show that the composition of
 holomorphic functions is holomorphic (the chain rule).  It is much
@@ -5661,8 +5660,8 @@ can be no larger than what you think it is, that is the harder part.
 \begin{exercise}\label{exercise:realradconvhard}
 \pagebreak[2]
 Show that for the so-called real-analytic functions, the radius of
-convergence cannot be read-off from the domain.
-Show that the function $f(x) = \frac{1}{1+x^2}$,
+convergence cannot be read-off from the domain:
+Prove that the function $f(x) = \frac{1}{1+x^2}$,
 which is defined on the
 entire real line, can be expressed as a real power series
 $\sum_{n=0}^\infty c_n {(x-a)}^n$ for every $a \in \R$, but
@@ -5816,8 +5815,8 @@ d \zeta
 d \zeta .
 \end{split}
 \end{equation*}
-Here, we are really passing the partial derivatives in the real and
-imaginary parts (the $x$ and the $y$ if $z=x+iy$) under the integral,
+Here, we are really passing the partial derivatives in $x$ and $y$ (where $z=x+iy$)
+underneath the integral,
 which can be done by 
 the Leibniz integral rule, \thmref{thm:Leibnizrule}, for instance.
 Actually it requires the simple generalization \exerciseref{exercise:severalvariableLiebniz}.
@@ -5898,9 +5897,10 @@ for every triangle such that $T \subset U$.  Then $f$ is holomorphic.
 \end{thm}
 
 \begin{proof}
-As holomorphicity is a local property we can assume that $U$ is a disc.
-We then apply \propref{prop:primitiveinstarlike1} to show that $f$ has
-a primitive $F$ in the disc $U$, and $f = F'$ is thus holomorphic.
+As holomorphicity is a local property, we can assume that $U$ is a disc.
+\propref{prop:primitiveinstarlike1} then says that $f$ has
+a primitive $F$ in the disc $U$, and $f = F'$ is thus holomorphic
+as complex derivatives are holomorphic.
 \end{proof}
 
 Let us remark that in the proof,
@@ -5925,7 +5925,7 @@ Write $d\bar{z} = dx - i \, dy$.
 Suppose that 
 for every triangle such that $T \subset U$ we have
 \begin{equation*}
-\int_{\partial T} f(z) \, d\bar{z} = 0
+\int_{\partial T} f(z) \, d\bar{z} = 0 .
 \avoidbreak
 \end{equation*}
 Prove that $f$
@@ -5965,10 +5965,10 @@ A simple and yet surprisingly useful consequence of Cauchy's formula is the
 so-called \emph{maximum modulus principle}
 (sometimes just \emph{maximum principle}),
 which has several different versions.
-We prove the one statement and leave other versions as exercises.
+We prove one statement and leave other versions as exercises.
 The main idea is that the modulus of a holomorphic function never
-achieves a maximum.  So if we wish to bound $\sabs{f(z)}$, we only need to
-get a bound near the boundary.
+achieves a maximum.  In other words, $\sabs{f(z)}$ is bounded
+by its values near the boundary of the domain.
 The basic idea of the proof is that Cauchy's integral formula tells us that
 $f(z)$ is an average of the values of $f$ in a circle around $z$, and the
 average can't be bigger than the numbers we're averaging.
