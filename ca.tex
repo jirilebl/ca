@@ -261,6 +261,9 @@
 % Very simple indexing
 \newcommand{\myindex}[1]{#1\index{#1}}
 
+% Quotes
+\newcommand{\myquote}[1]{``#1''}
+
 \author{Ji\v{r}\'i Lebl}
 
 \title{Guide to Cultivating Complex Analysis}
@@ -333,7 +336,7 @@
 {\par\noindent\rule{\textwidth}{0.5pt}
 \end{figure}}
 
-\newenvironment{myquote}{%
+\newenvironment{myepigraph}{%
     \begin{quote}%
     \begingroup\itshape
 }{%
@@ -536,11 +539,11 @@ at github: \url{https://github.com/jirilebl/ca}
 \addcontentsline{toc}{chapter}{Introduction}
 \markboth{INTRODUCTION}{INTRODUCTION}
 
-\begin{myquote}
+\begin{myepigraph}
 If you cannot prove a man wrong, don't panic. You can always call him names.
 
 ---Oscar Wilde 
-\end{myquote}
+\end{myepigraph}
 
 The purpose of this book is to teach a one-semester graduate course in
 complex analysis for incoming graduate students.\footnote{I wrote it
@@ -596,11 +599,11 @@ It is really a better way to think about complex variables.
 
 We try not to define any conflicting terminology or notation
 with what the reader has learned before.
-Mainly, the term ``differentiable'' is generally left for the real
-derivative and we use ``complex differentiable'' when needed.  Although
+Mainly, the term \myquote{differentiable} is generally left for the real
+derivative and we use \myquote{complex differentiable} when needed.  Although
 to be sure, 
-we generally write ``(real) differentiable'' or
-``differentiable (in the real sense)'' to
+we generally write \myquote{(real) differentiable} or
+\myquote{differentiable (in the real sense)} to
 make it clear when we mean real differentiability.
 
 Finally, some sections early in the book are marked with a $\star$ and those
@@ -650,22 +653,23 @@ as an example application of Riemann mapping.
 
 \chapter{The Complex Plane} \label{ch:complexplane}
 
-\begin{myquote}
+\begin{myepigraph}
 It's clearly a budget. It's got a lot of numbers in it.
 
 ---George W.\ Bush
-\end{myquote}
+\end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Complex numbers} \label{sec:complexnums}
 
 Modern\footnote{In this context, \emph{modern}
-means ``later than the middle ages.''}
+means \myquote{later than the middle ages.}}
 mathematics
-is taking a false statement such as ``all
-polynomials have a root'' and redefining what a ``root'' could be, that is,
-redefining ``number,''
+is taking a false statement such as
+\myquote{all polynomials have a root} and redefining what a
+\myquote{root} could be, that is,
+redefining \myquote{number,}
 so that the statement is true.
 In this instance, we arrive at the complex numbers.
 Although this technique (moving the goalposts)
@@ -681,7 +685,8 @@ From \glsadd{not:Z}$\Z$, we define the rational numbers
 \glsadd{not:Z}$\Q$ to solve\footnote{%
 Do we really solve it by writing $x = \nicefrac{1}{2}$?  After all, 
 $\nicefrac{1}{2}$ is just a placeholder for an object that we can't describe
-in a way other than ``whatever $1$ divided by $2$ would be if it existed.''}
+in a way other than
+\myquote{whatever $1$ divided by $2$ would be if it existed.}}
 equations such as $2x=1$.  We extend
 \glsadd{not:Q}$\Q$ to the real numbers \glsadd{not:R}$\R$
 to solve equations such as $x^2=2$.  Actually our definition 
@@ -739,7 +744,7 @@ complex number $(x,0)$.
 With this identification $\R \subset \C$.
 We also define the \emph{\myindex{imaginary unit}}%
 \footnote{Beware of engineers, they think it is called $j$, despite there
-being no ``j'' in ``imaginary.''}%
+being no \myquote{j} in \myquote{imaginary.}}%
 \glsadd{not:i}
 \begin{equation*}
 i \overset{\text{def}}{=} (0,1) .
@@ -761,7 +766,7 @@ Note that there is another square root of $-1$, that is, $-i$.
 The numbers $i$ and $-i$ are the solutions to $z^2+1=0$.
 We will prove later that every polynomial has roots over the complex numbers.
 
-Given a complex number $z=x+iy$, its ``evil twin'' is 
+Given a complex number $z=x+iy$, its \myquote{evil twin} is 
 the \emph{\myindex{complex conjugate}} of $z$:
 \glsadd{not:conj}%
 \begin{equation*}
@@ -805,7 +810,7 @@ z^2 - i \bar{z}^2 + z \bar{z}
 \end{equation*}
 It may seem that an expression in terms of $z$ and $\bar{z}$ is more
 complicated.  In particular, $z$ and $\bar{z}$ are not
-``independent variables.''  However, it is particularly powerful to
+\myquote{independent variables.}  However, it is particularly powerful to
 think in terms of $z$ and $\bar{z}$ instead of $x$ and $y$, and to pretend
 in many contexts as if $z$ and $\bar{z}$ were actually independent
 variables.
@@ -932,7 +937,7 @@ A disc centered at the origin of radius $1$ is called the
 The unit disc will come up often in this course, as it turns out that
 a lot of complex analysis can be done by looking at just the unit disc.
 
-A useful ``version'' of the unit disc, is the \emph{\myindex{upper half-plane}}:
+A useful \myquote{version} of the unit disc, is the \emph{\myindex{upper half-plane}}:
 \glsadd{not:H}%
 \begin{equation*}
 \bH 
@@ -953,8 +958,8 @@ domains are simply vacuous.}
 
 \begin{defn}
 An open and connected set $U \subset \C$ is called a
-\emph{\myindex{domain}}.\footnote{Perhaps ``domain'' is a tad unfortunate since
-we also call the $X$ in $f \colon X \to Y$ a ``domain'' of the function,
+\emph{\myindex{domain}}.\footnote{Perhaps \myquote{domain} is a tad unfortunate since
+we also call the $X$ in $f \colon X \to Y$ a \myquote{domain} of the function,
 even if $X$ is not a domain in the sense of topology.}
 \end{defn}
 
@@ -1085,7 +1090,7 @@ operator and can be represented by the matrix $\left[ \begin{smallmatrix} 1 & 0 
 not a multiplication by a complex number.
 Below you will prove, however,
 that multiplications by complex numbers together with conjugation do 
-in fact ``generate'' all the real-linear operators.
+in fact \myquote{generate} all the real-linear operators.
 
 For those matrices representing complex numbers,
 we can also multiply the $2 \times 2$ matrices themselves,
@@ -1334,7 +1339,7 @@ one's hopes are dashed by the cruel reality of $\Arg$ not being continuous
 on the negative real axis.  See \figureref{fig:arggraph}.
 The principal branch is somewhat less useful than one may think.
 There is also the issue that not everyone agrees
-on what ``principal branch'' means; some mathematicians sacrifice the
+on what \myquote{principal branch} means; some mathematicians sacrifice the
 positive real axis and let $\theta$ be in the range $[0,2\pi)$.
 
 \begin{myfig}
@@ -1512,7 +1517,7 @@ including
 the cases when $z_0 = \infty$, $L = \infty$, or both.
 Conveniently the Riemann sphere is compact.
 Indeed, topologically, it is the same as the
-``one-point compactification'' of $\C$.
+\myquote{one-point compactification} of $\C$.
 
 \begin{exbox}
 \begin{exercise}%[\neededexmark]
@@ -1696,7 +1701,7 @@ We leave this fact as an exercise.
 
 \begin{exbox}
 \begin{exercise}
-Prove that if we include straight lines in the set of ``circles'', then
+Prove that if we include straight lines in the set of \myquote{circles,} then
 an LFT takes circles to circles.
 \end{exercise}
 
@@ -1719,8 +1724,8 @@ space is then defined by
 \overset{\text{def}}{=}
 \faktor{\C^2 \setminus \{ 0\}}{\sim} \ .
 \end{equation*}
-In other words, $\C \bP^1$ is the set of ``complex lines through the
-origin'' in $\C^2$, or yet in other words,
+In other words, $\C \bP^1$ is the set of \myquote{complex lines through the
+origin} in $\C^2$, or yet in other words,
 it is the set of one-dimensional vector
 subspaces of $\C^2$.
 
@@ -1796,7 +1801,7 @@ conversely every invertible $2 \times 2$ matrix $M$ corresponds to an LFT.
 An invertible $2 \times 2$ matrix $M$ gives a map from
 $\C^2 \setminus \{ 0 \}$ to $\C^2 \setminus \{ 0 \}$.
 Let $\pi \colon \C^2 \setminus \{ 0 \} \to \C \bP^1$ be the map\footnote{The
-``quotient map'' or the ``natural projection.''}
+\myquote{quotient map} or the \myquote{natural projection.}}
 $\pi \bigl( (z,w) \bigr) =
 [z:w]$.  The following commutative diagram\footnote{A diagram is
 commutative if taking two different routes in the picture
@@ -1911,7 +1916,7 @@ Consequently,
 \frac{z_3-z_1}{z_3-z_2} .
 \end{align*}
 
-By ``preserved by LFTs'' we mean:
+By \myquote{preserved by LFTs} we mean:
 
 \begin{prop} \label{prop:crossratioinvariant}
 Suppose that $f$ is an LFT, then
@@ -1970,11 +1975,11 @@ Hint: Inverse image of the real line is a circle or a straight line.
 
 \chapter{Holomorphic and Analytic Functions} \label{ch:holanal}
 
-\begin{myquote}
+\begin{myepigraph}
 If this is coffee, please bring me some tea; but if this is tea, please bring me some coffee.
 
 ---Abraham Lincoln
-\end{myquote}
+\end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2643,8 +2648,8 @@ Do not confuse the notation
 even though $\frac{df}{dz}$ and 
 $\frac{\partial f}{\partial z}$ look similar.
 Consider a polynomial $P$ in $x$ and $y$, or equivalently
-in $z$ and $\bar{z}$.\footnote{Usually when we say ``polynomial'' in this
-book we mean just a polynomial in $z$, so we will always specify
+in $z$ and $\bar{z}$.\footnote{Usually when we say \myquote{polynomial} in this
+book, we mean a polynomial in $z$, so we will always explicitly mention
 if we mean a polynomial in $x$ and $y$, or $z$ and $\bar{z}$.}
 The Wirtinger operators exist and
 work as if $z$ and $\bar{z}$ really were independent variables.  For example:
@@ -2743,7 +2748,7 @@ and
 \frac{\partial \bar{f}}{\partial \bar{z}}\Big|_p .
 \end{equation*}
 Remark: This almost makes it seem like a nonholomorphic function is a
-function of not just $z$, but two ``independent'' variables $z$ and
+function of not just $z$, but two \myquote{independent} variables $z$ and
 $\bar{z}$.
 \end{exercise}
 
@@ -3030,7 +3035,7 @@ $\det Df\big|_p = \babs{\frac{\partial f}{\partial z}(p)}^2 -
 
 \subsection{Conformality \texorpdfstring{$\star$}{*}}
 
-The actual definition of ``conformal mapping'' is 
+The actual definition of \myquote{conformal mapping} is 
 a (real) differentiable bijective mapping $f \colon U \to V$ of open
 $U, V \subset \R^2$ that preserves
 a)~orientation, and b)~angles.
@@ -3335,7 +3340,7 @@ R = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
 \end{equation}
 where we interpret $\nicefrac{1}{\infty} = 0$ and $\nicefrac{1}{0} = \infty$,
 so $R=\infty$ is allowed.\footnote{%
-This is not the ``extended reals sense,''
+This is not the \myquote{extended reals sense,}
 we are really extending just the nonnegative reals, and that's why
 something like $\nicefrac{1}{0}=\infty$ makes sense here, for the same
 reason as on the Riemann sphere.}
@@ -3568,14 +3573,14 @@ practice.
 
 Functions that possess a convergent power series are called analytic.
 From the beginnings of calculus until the 19\textsuperscript{th} century, 
-when mathematicians considered a ``function'' they really meant
-``analytic function'' (or something like it) in modern language.
+when mathematicians considered a \myquote{function} they really meant
+\myquote{analytic function} (or something like it) in modern language.
 One can talk about
 both complex-analytic and real-analytic functions depending on if the
 variables are real or complex, and they may depend on one or several variables,
 but we are interested in complex-analytic functions of one variable. 
-As there is little chance of confusion, we say just ``analytic'' instead of
-``complex-analytic.''
+As there is little chance of confusion, we say just \myquote{analytic} instead of
+\myquote{complex-analytic.}
 
 \begin{defn}
 Let $U \subset \C$ be open.  A function $f \colon U \to \C$
@@ -3600,7 +3605,8 @@ using the geometric series.
 
 \begin{exercise}
 Suppose $f(z) = \sum_{n=0}^\infty a_n z^n$ converges and defines a
-function on $\D$ such that $f(z) = f(-z)$ for all $z \in \D$ ($f$ is ``even'').
+function on $\D$ such that $f(z) = f(-z)$ for all $z \in \D$ ($f$ is
+\myquote{even}).
 Prove that there exists a function defined by a power series
 $g(z) = \sum_{n=0}^\infty b_n z^n$ converging in $\D$ such that
 $f(z) = g(z^2)$.
@@ -3611,7 +3617,7 @@ $f(z) = g(z^2)$.
 
 Eventually, we will see that analytic functions and holomorphic functions are
 one and the same.\footnote{%
-For this reason, some authors define ``analytic'' to mean complex differentiable,
+For this reason, some authors define \myquote{analytic} to mean complex differentiable,
 which is no problem eventually, but right now it would be.}
 We start by proving that
 analytic functions are holomorphic, that is, they are complex
@@ -3824,7 +3830,7 @@ $f(z) = e^z$.
 It is not hard to check directly (exercise)
 that the series converges in all of $\C$.
 We now know that power series are holomorphic and we know how
-to differentiate them, we do it term-by-term, that is, ``formally.''
+to differentiate them, we do it term-by-term, that is, \myquote{formally.}
 Let $f$ be a convergent power series at the origin
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n ,
@@ -3873,7 +3879,7 @@ $f''(z) = -f(z)$.
 Show that there exists a holomorphic $f \colon \C \to \C$ that
 solves $f'(z) + z f(z) = 0$ and such that $f(0) = 1$.  Hint: Solve formally
 as a power series,
-then see if you can guess the answer in ``closed form,'' that is, in terms
+then see if you can guess the answer in \myquote{closed form,} that is, in terms
 of the exponential.  Hint \#2: What is $f'(0)$?
 \end{exercise}
 
@@ -3907,14 +3913,14 @@ In other words, all points of $Z_f$ are isolated unless $f \equiv 0$.
 The points in the set $Z_f$ are called the \emph{zeros}\index{zero} of $f$.
 \end{defn}
 
-The ``In other words'' bit is
+The \myquote{In other words} bit is
 one consequence of this theorem that we will use very often.  More
 concretely, if $f(p)=0$, but $f$ is not
 identically zero, then there is a disc $\Delta_r(p)$ such that $f(z) \not=
 0$ for all $z \in \Delta_r(p) \setminus \{ 0 \}$.
 
 Another common application of the theorem is the following weaker statement:
-``If the function is zero on a nonempty open subset, then $f \equiv 0$.''
+\myquote{If the function is zero on a nonempty open subset, then $f \equiv 0$.}
 Think of the implications:  If $f \colon U \to \C$ is analytic, and we know
 $f$ in a tiny disc $\Delta_r(p)$ for an arbitrarily small $r$, then
 we know $f$ on all of $U$.
@@ -4027,11 +4033,11 @@ In particular, the support cannot be compact.
 
 \chapter{Line Integrals and Rudimentary Cauchy Theorems} \label{ch:cauchysimple}
 
-\begin{myquote}
+\begin{myepigraph}
 The Brain: Pinky, are you pondering what I am pondering?
 
 Pinky:  Uh, I think so, Brain, but we'll never get a monkey to use dental floss.
-\end{myquote}
+\end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -4057,7 +4063,7 @@ if $\gamma(a)=\gamma(b)$ and $\gamma|_{(a,b]}$ is injective.
 
 Our paths will essentially all be piecewise-$C^1$,
 so we may forget to mention it sometime.
-By ``piecewise-$C^1$,''
+By \myquote{piecewise-$C^1$,}
 we mean that there exist numbers $t_0 = a < t_1 < \cdots
 < t_k = b$ for some $k$ such that $\gamma|_{[t_{\ell-1},t_\ell]}$ is
 continuously differentiable ($C^1$) up to
@@ -4072,11 +4078,11 @@ exist for all $\ell$ (except, of course, only one exists at $a$ or $b$),
 and these limits are nonzero.
 Another way to say it is that $\gamma'(t)$ extends to a nonzero
 continuous function on each closed interval $[t_{\ell-1},t_{\ell}]$.
-Allowing these ``corners'' makes working with paths easier
+Allowing these \myquote{corners} makes working with paths easier
 as we can define them easily piece-wise, and finitely many corners like
 this make no difference for integrals.
 Do note also that we are saying that paths are continuous.  We will allow
-discontinuities just a little later with ``chains.''
+discontinuities just a little later with \myquote{chains.}
 
 When we say that $\gamma$ is a path in $U \subset \C$\index{path in $U$},
 we mean that
@@ -4327,12 +4333,12 @@ $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 
 \begin{exercise}
 Any piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$
-can be reparametrized to a $C^1$ ``path'' as long as the derivative
+can be reparametrized to a $C^1$ \myquote{path} as long as the derivative
 is allowed to vanish at some points.
 That is, there exists a strictly increasing
 continuous $h \colon [a,b] \to [a,b]$ such that
 $\gamma \circ h$ is $C^1$.
-Hint: Make the derivative at the ``corners'' zero.
+Hint: Make the derivative zero at the \myquote{corners}.
 \end{exercise}
 
 \begin{exercise}[Tricky]
@@ -4357,13 +4363,13 @@ We think of the path
 as the set
 $\gamma\bigl([a,b]\bigr)$,
 not the parametrization, and where the path is $C^1$
-we want it to not have ``corners.''
+we want it to not have \myquote{corners.}
 In practical terms, we don't often use this requirement,
 but it does make some more geometric arguments quite a bit simpler.
 \end{remark}
 
 Due to the reparametrization result above,
-we often write down the ``boundary'' of a certain open set
+we often write down the \myquote{boundary} of a certain open set
 (as long as that boundary is piecewise-$C^1$ of course)
 and consider any parametrization going counterclockwise
 when integrating over it, without explicitly giving the parametrization.
@@ -4380,7 +4386,7 @@ re^{it}$, and then we write
 This equality can be simply taken as a definition of integration over
 $\partial \Delta_r(p)$.
 
-Finally, there is the ``$u$-substitution'' from calculus.
+Finally, there is the \myquote{$u$-substitution} from calculus.
 
 \begin{prop} \label{prop:usubst}
 Let $U,V \subset \C$ be open, $\gamma \colon [a,b] \to V$ 
@@ -4497,7 +4503,7 @@ $\int_{\gamma_n} \sabs{dz} \to
 
 \subsection{Chains}
 
-It is useful to combine paths; to have a certain ``arithmetic'' of paths.
+It is useful to combine paths; to have a certain \myquote{arithmetic} of paths.
 The resulting objects are called \emph{chains}, and they
 are just formal combinations of paths.  For example, if $\gamma$
 and $\alpha$ are piecewise-$C^1$ paths, then the chain  $\gamma+\alpha$
@@ -4611,7 +4617,8 @@ but otherwise injective).  Show that as chains, $\gamma$ is not equivalent to th
 Note: Closed $\gamma$ is trickier.
 \item
 Find a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$
-that is equivalent to the zero chain.  Note that our definition of ``path''
+that is equivalent to the zero chain.  Note that our definition of
+\myquote{path}
 prevents $\gamma$ being constant.
 \end{exparts}
 \end{exercise}
@@ -4665,7 +4672,7 @@ smaller $U$.
 Let $U \subset \C$ be open and $f \colon U \to \C$
 a function.  A holomorphic $F \colon U \to \C$ with $f = F'$
 is called a (holomorphic)\footnote{%
-We will usually say just ``primitive'' as it is generally clear that it must be
+We will usually say just \myquote{primitive} as it is generally clear that it must be
 a holomorphic primitive, and besides, that is the only way that we will use
 the word anyway.}
 \emph{\myindex{primitive}}\index{holomorphic primitive} (or an \emph{\myindex{antiderivative}})
@@ -4770,7 +4777,7 @@ We will prove several versions of Cauchy's theorem, although this one is
 somewhat different from the others.  Usually there will be a restriction on
 the $U$ or perhaps the path or cycle $\Gamma$ rather
 than on the function being integrated.
-A version of Cauchy's theorem can be taken as an ``independence of path''
+A version of Cauchy's theorem can be taken as an \myquote{independence of path}
 result saying that we can define a function at $z$ by a line integral
 from some fixed point to $z$.  The result will be that such a function has a
 primitive.  So the other versions of Cauchy's theorem will generally
@@ -4827,7 +4834,7 @@ not have a primitive in $\C \setminus \{ 0 \}$.
 \end{exercise}
 \end{exbox}
 
-\subsection{Cauchy--Goursat, the ``Cauchy for triangles''}
+\subsection{Cauchy--Goursat, the \myquote{Cauchy for triangles}}
 
 \begin{defn}
 A set $X$ is \emph{\myindex{convex}} if the segment $[a,b] \subset X$ for all $a,b \in
@@ -5285,8 +5292,9 @@ satisfies $\frac{\partial u}{\partial y} = \frac{\partial v}{\partial x}$
 then there exists a real-valued $f \colon \R^2 \to \R$ such that
 $\nabla f = (u,v)$ (the vector field is conservative, a gradient).}
 More concisely, \emph{an irrotational vector field
-in a star-like domain is conservative.}  See the ``conservative vector
-fields'' section of your favorite calculus textbook.  You can gain a lot of
+in a star-like domain is conservative.}
+See the \myquote{conservative vector fields} section
+of your favorite calculus textbook.  You can gain a lot of
 intuition on the current material on holomorphic functions by reviewing the
 vector calculus analogues.
 \end{remark}
@@ -5401,7 +5409,7 @@ f(z) . \qedhere
 \begin{exbox}
 \begin{exercise}
 Make the construction of $c_1$ and $c_2$ and the two star-like domains
-in the proof explicit.  That is, exactly describe the ``cut'' that makes
+in the proof explicit.  That is, exactly describe the \myquote{cut} that makes
 $c_1$ and $c_2$, and describe two starlike domains (you don't have to do the
 two pictured).
 \end{exercise}
@@ -5726,7 +5734,7 @@ $f$ is infinitely complex differentiable.  In particular, $f'$ is
 holomorphic.
 \end{thm}
 
-The ``in particular'' is an important consequence.  It is also a somewhat
+The \myquote{in particular} is an important consequence.  It is also a somewhat
 surprising consequence.
 It says that if $f$ is differentiable in some way,
 then so is the derivative.  Nothing like that is true for the real
@@ -5988,8 +5996,9 @@ Also assume that $f(0)$ is nonnegative and real, otherwise multiply by
 some $e^{i\theta}$.
 We write\footnote{%
 Perhaps you're thinking to yourself: Of course we write that $\xi$ is
-nonnegative by writing $\xi \geq 0$.  But we mean that ``$\xi \geq 0$''
-is a shortcut to ``$\xi \in \R$ and $\xi \geq 0$.''}
+nonnegative by writing $\xi \geq 0$.
+But we mean that \myquote{$\xi \geq 0$}
+is a shortcut to \myquote{$\xi \in \R$ and $\xi \geq 0$.}}
 that as $f(0) \geq 0$.
 
 Let $\gamma_r$ be a small circle of radius $r$ traversed counterclockwise
@@ -6364,7 +6373,7 @@ onto.
 
 \begin{exercise}
 Suppose $f$ is entire and is never zero.  For any $M > 0$ let
-$X_M = \bigl\{ z \in \C : \sabs{f(z)} = M \bigr\}$ (Note that $X_M$
+$X_M = \bigl\{ z \in \C : \sabs{f(z)} = M \bigr\}$ (note that $X_M$
 is closed).
 \begin{exparts}
 \item Show that $X_M$ is nonempty for any $M > 0$.
@@ -6588,7 +6597,7 @@ to $f \colon U \to \C$ if for every compact $K \subset U$,
 $f_n|_K$ converges uniformly to $f|_K$.
 \end{defn}
 
-What do we mean by ``the right topology'' for a class of functions?
+What do we mean by \myquote{the right topology} for a class of functions?
 Well, we mean the most natural
 topology that preserves the class (limits in that topology are still in that
 class).  
@@ -7104,11 +7113,11 @@ If equality holds, then $f(z) = \varphi_{-b}\bigl( e^{i\theta} \varphi_a(z)
 
 \chapter{The Logarithm and Cauchy} \label{ch:log}
 
-\begin{myquote}
+\begin{myepigraph}
 Never doubt the courage of the French. They were the ones who discovered that snails are edible.
 
 ---Doug Larson
-\end{myquote}
+\end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -7143,7 +7152,7 @@ we get a function
 \operatorname{Log} \colon U \to \C ,
 \end{equation*}
 called the \emph{\myindex{principal branch}} of the logarithm.
-We saw another gadget before called the ``principal branch,'' 
+We saw another gadget before called the \myquote{principal branch,} 
 the principal branch of the argument, $\Arg$.  Let us show that
 \begin{equation*}
 \Log z = \log \sabs{z} + i \Arg z ,
@@ -7185,7 +7194,7 @@ since the $\arg$ on the right-hand side has infinitely many values.
 The value of $\log (-1)$ is $\pi i$, but also $-\pi i$, $3\pi i$,
 or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So $\log$ is a function just as much
 as $\arg$ is a function.  See \figureref{fig:loggraph}.
-The double duty of ``$\log$'' is almost never a
+The double duty of \myquote{$\log$} is almost never a
 problem and it is generally clear which $\log$ one is talking about based on
 what sort of things are being plugged into it.
 
@@ -7194,7 +7203,7 @@ what sort of things are being plugged into it.
 \includegraphics{figures/logrealgraph}
 \qquad
 \includegraphics{figures/arggraph2}
-\caption{``Graphs'' of the real part (left) and imaginary part (right)
+\caption{\myquote{Graphs} of the real part (left) and imaginary part (right)
 of the complex logarithm $\log z = \log \sabs{z} + i \arg z$.  The imaginary
 part is an infinite spiral, only two turns are pictured.  A path on the
 graph around the unit circle is marked.\label{fig:loggraph}}
@@ -7263,7 +7272,7 @@ a single branch, it means that we define a branch in some small open set,
 follow its values for a while, then switch to another branch that 
 happens to agree with the first branch at least at the point where we
 switch.  See \figureref{fig:followbranch}.  This is really what we did in the
-``computation'' above.  We followed $\log$ from $1$ along the circle until we
+\myquote{computation} above.  We followed $\log$ from $1$ along the circle until we
 ended up at $1$ again, and our branches that we followed ended up $2\pi i$
 off.  We will see an example of this briefly.
 
@@ -7403,7 +7412,7 @@ $\arg$.
 Fill in the details in the existence of the partition.  That is, once you
 cover $\gamma$ by finitely many discs that do not contain $p$ show that
 the partition $t_0,\ldots,t_n$ exists.  Hint: Some of the discs may
-``repeat,'' but make sure that you do not get ``stuck'' before reaching 1.
+\myquote{repeat,} but make sure that you do not get \myquote{stuck} before reaching 1.
 \end{exercise}
 \end{exbox}
 
@@ -7528,7 +7537,8 @@ say $\Gamma$ is \emph{\myindex{homologous to zero} in $U$}.
 
 What homologous to zero means is that $\Gamma$ does not wind around any
 point in the complement of $U$.
-Do note that ``homologous to zero'' does not mean ``equivalent to zero.''
+Do note that \myquote{homologous to zero} does not mean
+\myquote{equivalent to zero.}
 For instance, if $U = \C$, then every $\Gamma$ is homologous to zero trivially.
 Also note the dependence on $U$.  The unit circle is homologous to zero in
 $U = \C$, but it is not homologous to zero in $U = \C \setminus \{ 0 \}$.
@@ -7771,7 +7781,7 @@ compute
 
 A simply connected domain\footnote{%
 There is no agreement among various mathematicians (I've asked a few) if
-a (path-)disconnected set can be ``simply connected.''
+a (path-)disconnected set can be \myquote{simply connected.}
 To avoid heated arguments with topologists of various stripes,
 it's best to just not define the term for disconnected sets.
 Hence, we only define it for domains.}
@@ -7779,11 +7789,12 @@ is one without any holes.  The following is
 perhaps not the standard definition, but for domains in $\C$
 (connected open sets)
 it is equivalent to the correct one.
-We will define the term ``properly'' once we get 
+We will define the term \myquote{properly} once we get 
 to homotopy.\footnote{Homotopy is in an optional section, which is the
-reason why we make this ``wrong'' definition.}
-We may sometimes say ``simply connected in the sense of
-homology'' to emphasize that we are using this particular definition.
+reason why we make this \myquote{wrong} definition.}
+We may sometimes say
+\myquote{simply connected in the sense of homology}
+to emphasize that we are using this particular definition.
 
 \begin{defn} \label{defn:simplyconnected:homology}
 A domain $U \subset \C$ is \emph{\myindex{simply connected}}
@@ -8058,7 +8069,7 @@ we will leave it as an exercise in that upcoming section.
 
 There is a simple topological criterion for
 simply-connectedness of domains in the complex plane.
-The theorem is actually an ``if and only if,'' but the other
+The theorem is actually an \myquote{if and only if,} but the other
 direction is more difficult and so let's just prove the easy direction
 at this point.
 The harder direction will be much easier to prove once we have the Riemann
@@ -8169,10 +8180,10 @@ the punctured disc
 \end{equation*}
 When $r_2 = \infty$ on the other hand,
 $\ann(p;r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$ (if $r > 0$).  We will,
-however, avoid temptation calling $\ann(p;r,\infty)$ an ``annulus.''%
-\footnote{``Holey plane'' perhaps?  A punctured disc also ought not to be
-called an ``annulus'', and calling $\ann(0;0,\infty) = \C \setminus
-\{ 0 \}$ an ``annulus'' is right out!}
+however, avoid temptation calling $\ann(p;r,\infty)$ an \myquote{annulus.}%
+\footnote{\myquote{Holey plane} perhaps?  A punctured disc also ought not to be
+called an \myquote{annulus,} and calling $\ann(0;0,\infty) = \C \setminus
+\{ 0 \}$ an \myquote{annulus} is right out!}
 
 \begin{thm}[\myindex{Existence of Laurent series}]
 \index{Laurent series!existence}%
@@ -8251,7 +8262,7 @@ pieces of $\Gamma$ are noted with the circular arrows.\label{fig:twoannuli}}
 \end{myfig}
 
 If $q \in \C \setminus \ann(p;r_1,r_2)$, then $n(\Gamma;q) = 0$:
-If $q$ is in the ``hole'' of the annulus $\ann(p;r_1,r_2)$, then
+If $q$ is in the \myquote{hole} of the annulus $\ann(p;r_1,r_2)$, then
 $n\bigl(\partial \Delta_{s_j}(p);q\bigr) = 1$ for both $j=1,2$, and 
 if $q$ is outside the annulus altogether, then
 $n\bigl(\partial \Delta_{s_j}(p);q\bigr) = -1$ for both $j=1,2$ 
@@ -8685,7 +8696,7 @@ $\theta$ is a continuous function on $[a,b]$.
 The formula $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ follows as
 $L_j$ is a branch of the log.
 
-The ``Furthermore'' bit follows as before:
+The \myquote{Furthermore} bit follows as before:
 \begin{equation*}
 \begin{split}
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
@@ -8707,7 +8718,7 @@ L_j\bigl(\gamma(t_{j-1})\bigr)
 \end{proof}
 
 The lemma allows us to define the winding number for continuous closed paths
-by using the function $\theta$.  The ``Furthermore'' part of the
+by using the function $\theta$.  The \myquote{Furthermore} part of the
 lemma makes sure that the following definition agrees with our previous
 definition (\defnref{defn:windingnumber}).
 
@@ -8828,8 +8839,9 @@ piecewise-$C^1$ paths in $U$ that are homotopic in $U$.  Then
 
 A corollary of the corollary is the homotopy version of Cauchy's theorem.
 While a constant is not technically a path in the way that we defined
-``path,'' the integral can easily be defined on it (it is zero), and the integral of any
-function over it is zero.  The following version of Cauchy
+\myquote{path,} the integral can easily be defined on it (it is zero),
+and the integral of any function over it is zero.
+The following version of Cauchy
 is then just a special case of the corollary above.
 
 \begin{thm}[Cauchy's theorem (homotopy version)]
@@ -9234,7 +9246,8 @@ has exactly two components.
 \end{lemma}
 
 Recall that for a piecewise-$C^1$ path, $\gamma'$ is never
-zero, including the one-sided limits of the derivative at the ``corners'' or
+zero, including the one-sided limits of the derivative at the
+\myquote{corners} or
 the end points.  This means that a $C^1$ path is locally a graph:
 If $\gamma \colon [-1,1] \to \C$ is a continuously differentiable function,
 $\gamma(0) = 0$,
@@ -9313,7 +9326,7 @@ Find an example of a bounded open set $U$ whose boundary is a union of
 infinitely many disjoint simple closed curves such that there is some point
 on $p \in \partial U$ such that for every neighborhood $W$ of $p$,
 the set $W \setminus \partial U$ has infinitely many components.
-(In particular, this is not an open set with piecewise-$C^1$ boundary).
+(In particular, this is not an open set with piecewise-$C^1$ boundary.)
 \end{exercise}
 \end{exbox}
 
@@ -9522,12 +9535,12 @@ of $\C \setminus \widebar{U}$.
 
 \chapter{Counting Zeros and Singularities} \label{ch:counting}
 
-\begin{myquote}
+\begin{myepigraph}
 The people who cast the votes don't decide an election, the people who count
 the votes do.
 
 ---Joseph Stalin
-\end{myquote}
+\end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -9580,8 +9593,9 @@ say that when $f(p) \not= 0$, then $p$ is
 a zero of order $0$, which sounds somewhat idiotic, but it all fits a general
 picture, and we will see that negative orders might also make sense
 in just a little while.
-However, when we will say ``$f$ has a zero at $p$,'' we will never mean that it has a
-``zero of order zero,'' we will mean an honest zero, $f(p) = 0$.
+However, when we say \myquote{$f$ has a zero at $p$,}
+we never mean that it has a
+\myquote{zero of order zero,} we mean an honest zero, $f(p) = 0$.
 
 A consequence that may be good to emphasize is that if $f^{(k)}(p) = 0$
 for all $k$, then all coefficients of the power series of $f$ at $p$ are
@@ -9604,7 +9618,8 @@ f(z) =
 = {(z-p)}^k
 \sum_{n=0}^\infty c_{n+k} {(z-p)}^{n} ,
 \end{equation*}
-where $k$ is the smallest $n$ such that $c_n \not= 0$ (hence the ``Furthermore'').
+where $k$ is the smallest $n$ such that $c_n \not= 0$
+(hence the \myquote{Furthermore}).
 Clearly $k > 0$.
 The series $\sum_{n=0}^\infty c_{n+k}{(z-p)}^n$
 is equal to $\frac{f(z)}{{(z-p)}^k}$ on
@@ -10032,7 +10047,8 @@ singularity, as it is defined by a power series.
 
 \medskip
 
-For entire functions, we can talk about the ``singularity at infinity.''
+For entire functions, we can talk about the
+\myquote{singularity at infinity.}
 If we think of $\C \subset \C_\infty$, then this makes perfect sense.
 The mapping $z \mapsto \nicefrac{1}{z}$ is a self-mapping of the Riemann
 sphere $\C_\infty$ that takes infinity to zero.  Given $f \colon \C \to
@@ -10175,7 +10191,7 @@ Remark: See also \exerciseref{exercise:expofpole}.
 \begin{exercise}
 Suppose $f \colon \C \to \C$ is holomorphic and nonconstant.
 Prove that $f(\C)$ is dense in $\C$.
-Note that the so-called ``little Picard theorem'' says that $f(\C)$
+Note that the so-called \myquote{little Picard theorem} says that $f(\C)$
 is actually everything minus possibly one point,
 but that is much harder to prove.
 \end{exercise}
@@ -10184,7 +10200,7 @@ but that is much harder to prove.
 \pagebreak[2]
 \begin{exparts}
 \item
-Prove a ``Picard for modulus'' theorem.
+Prove a \myquote{Picard for modulus} theorem.
 Suppose $f \colon U \setminus \{ p \} \to \C$ has an essential singularity
 at $p \in U$.
 Prove that
@@ -10233,8 +10249,9 @@ f \colon U \to \C_{\infty}
 by simply setting $f(p) = \infty$ at all the poles.
 By the definition of a pole, the extended function is then continuous.
 In fact, a way to define
-a meromorphic function is as a ``holomorphic function
-$f \colon U \to \C_{\infty}$.''  Holomorphicity at a pole can be
+a meromorphic function is as a
+\myquote{holomorphic function $f \colon U \to \C_{\infty}$.}
+Holomorphicity at a pole can be
 rephrased as holomorphicity of a function $\frac{1}{f(z)}$ at $p$.
 There is a small technicality: Should one consider the function
 that is constantly $\infty$ as a meromorphic function or not.
@@ -10245,8 +10262,8 @@ meromorphic, we mean that it is a holomorphic function with possible
 poles in $U$.  We will assume that $f$ is defined to be $\infty$
 at the poles, and
 we will write this as $f \colon U \to \C_\infty$.  That is, even though we
-could just say ``$f \colon U \to \C_\infty$ is holomorphic,'' we will say
-for emphasis ``$f \colon U \to \C_\infty$ is meromorphic.''
+could just say \myquote{$f \colon U \to \C_\infty$ is holomorphic,} we will, for emphasis,
+say \myquote{$f \colon U \to \C_\infty$ is meromorphic.}
 
 Similarly, we can define a function on subsets of $\C_\infty$, just as
 we did with LFTs.
@@ -10291,8 +10308,8 @@ f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 \end{equation}
 The only power ${(z-p)}^n$ that does not have a primitive in
 $\Delta_r(p) \setminus \{ p \}$ is ${(z-p)}^{-1}$.  It is the only power
-a line integral of $f$ around $p$ ``sees,'' that is, it is
-what's left, or the ``residue''\footnote{%
+a line integral of $f$ around $p$ \myquote{sees,} that is, it is
+what's left, or the \myquote{residue}\footnote{%
 Q: Why did the mathematician name their dog Cauchy?
 A: Because it left a residue at every pole.}
 of integrating $f(z)$ around a closed path.
@@ -10503,7 +10520,7 @@ See \figureref{fig:rhalfcircle}.
 \caption{The cycle $\Gamma_r$.\label{fig:rhalfcircle}}
 \end{myfig}
 
-We ``complexify''\index{complexify}
+We \myquote{complexify}\index{complexify}
 $\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.
 That's just a fancy way of saying we are going to plug in complex numbers
 into a real formula that happens to also work for complex numbers.
@@ -10619,7 +10636,7 @@ For all integers $n \in \Z$, compute
 
 \begin{exercise}
 Compute
-(Hint: $\cos(3x) = \Re e^{i3x}$)
+(hint: $\cos(3x) = \Re e^{i3x}$)
 \smallskip
 \begin{expartshor}{2}
 \item
@@ -10689,7 +10706,7 @@ any $r > R$,
 f(z) \, dz .
 \end{equation*}
 That is, going around a circle in reverse is going around infinity rather
-than the center (if what we are ``going around'' is defined to be whaterver
+than the center (if what we are \myquote{going around} is defined to be whaterver
 is on our left).
 \item
 If $f$ is holomorphic on $\C$ except for finitely many isolated
@@ -10774,16 +10791,17 @@ zero in that smaller $U$.
 Why do we say that the theorem counts the number of zeros and poles?
 Suppose $\Gamma$ only goes around every point in $z \in U$ at most once
 in the positive direction or not at all.  That is,
-$n(\Gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the ``inside of
-$\Gamma$'' as the points where $n(\Gamma;z)=1$.  If $f$ has 
-$n$ zeros and $\ell$ poles (counting multiplicity) inside $\Gamma$, then
+$n(\Gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the
+\myquote{inside of $\Gamma$} as the points where $n(\Gamma;z)=1$.
+If $f$ has $n$ zeros and $\ell$ poles (counting multiplicity)
+inside $\Gamma$, then
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\Gamma \frac{f'(z)}{f(z)} \, dz
 = n - \ell .
 \end{equation*}
 
-The name ``argument principle'' comes from the fact that for a path
+The name \myquote{argument principle} comes from the fact that for a path
 $\gamma$,
 the integral
 $\int_{\gamma} \frac{f'(z)}{f(z)} \, dz$
@@ -10810,7 +10828,7 @@ argument principle counts the number of times
 $f \circ \gamma$ winds around zero.
 
 \begin{proof}[Proof of the argument principle]
-We prove the ``Furthermore'' as that proves the rest of the theorem by
+We prove the \myquote{Furthermore} as that proves the rest of the theorem by
 considering the constant $h(z) = 1$.
 The function $h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
 at the zeros and poles of $f$.  Let $S$ be the set of zeros and poles of $f$,
@@ -10964,9 +10982,9 @@ if the function does not change much on the curve}.
 For instance, the functions $z^2$ and $(z-\epsilon)(z+\epsilon)$
 are close on $\partial \D$, and they have the same number of
 zeros in the disc.
-A nonzero point might ``split'' into a zero and a
+A nonzero point might \myquote{split} into a zero and a
 pole, that is $\frac{z-\epsilon}{z+\epsilon}$ is very close to the function
-$1$ on $\partial \D$.  So poles are allowed to ``cancel'' zeros, but this
+$1$ on $\partial \D$.  So poles are allowed to \myquote{cancel} zeros, but this
 balance is always maintained.  If we do not allow any poles
 whatsoever, then the theorem says that the number of zeros does not change.
 
@@ -11029,12 +11047,12 @@ This weaker statement of the theorem is enough for vast majority of
 applications, and has a simpler geometric meaning.  The number of zeros (or
 poles) of $f$
 inside $\Gamma$ corresponds to the number times $f(z)$ winds around zero
-as $z$ traverses $\Gamma$.  The classical visual ``proof'' using this weaker
+as $z$ traverses $\Gamma$.  The classical visual \myquote{proof} using this weaker
 inequality is a dog on a leash
 with the master going around a tree.  The master is at $f(z)$, the tree is
 at the origin, and the dog is at $g(z)$, so the length of the leash is
 $\sabs{f(z)-g(z)}$ and the distance of the master from the tree is
-$\sabs{f(z)}$.  So the ``proof'' of the theorem is to observe that if the
+$\sabs{f(z)}$.  So the \myquote{proof} of the theorem is to observe that if the
 master walks around a tree $k$ times, and the dog is never further from the
 master than the distance of the master to the tree, then the dog also walked
 around the tree $k$ times.  See \figureref{fig:dogandtree}.
@@ -11364,7 +11382,7 @@ converge uniformly to anything on any disc $\Delta_{\epsilon}(0)$.
 
 A continuous function from a domain $U \subset \R^2$ to $\R^2$ can do all
 sorts of things to the topology.  The surprisingly famous\footnote{%
-It is called a ``blow-up'' and it is used in obtaining a Fields medal.
+It is called a \myquote{blow-up} and it is used in obtaining a Fields medal.
 Alas, the medal has already been obtained by Hironaka, and you
 have to find your own map if you want your own medal.}
 map $(x,y) \mapsto (x,xy)$
@@ -11643,12 +11661,12 @@ no matter how one orders the zeros.
 
 \chapter{Montel and Riemann} \label{ch:montelriemann}
 
-\begin{myquote}
+\begin{myepigraph}
 A round man cannot be expected to fit in a square hole right away. He must
 have time to modify his shape.
 
 ---Mark Twain
-\end{myquote}
+\end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -12131,7 +12149,7 @@ surprise that if we have a uniformly bounded set of holomorphic functions,
 then this set is equicontinuous.
 Let us use some of the traditional language.\footnote{%
 We wouldn't want the reader to miss out on all the possibilities of making
-jokes about how Montel had a ``normal family.''}
+jokes about how Montel had a \myquote{normal family.}}
 
 \begin{defn}
 Let $U \subset \C$ be open.
@@ -12160,7 +12178,7 @@ converges uniformly on compact sets).
 The theorem allows quite incredible applications.  The thing is,
 using just the definitions, it is easy to show that a sequence is bounded,
 but it is hard to show that it converges (or has a subsequence that does).
-One can generate ``approximate'' solutions to a problem without worrying
+One can generate \myquote{approximate} solutions to a problem without worrying
 about them being close to something.
 The reader has seen applications of this idea (using Bolzano--Weierstrass)
 when working with sequences in $\C$ or $\R$ before (several times in this
@@ -12232,7 +12250,7 @@ problem using Montel's theorem.
 
 Another common application of Montel is to use it via Vitali's theorem, which is
 an exercise below.  Given a locally bounded sequence of holomorphic
-functions, one only needs to prove pointwise convergence at ``enough''
+functions, one only needs to prove pointwise convergence at \myquote{enough}
 points to get that the sequence actually converges uniformly on compact subsets.
 
 \begin{exbox}
@@ -12243,7 +12261,7 @@ then $\sF$ is locally bounded.
 \end{exercise}
 
 \begin{exercise}
-Prove that ``locally bounded'' means ``bounded on compact sets,''
+Prove that \myquote{locally bounded} means \myquote{bounded on compact sets,}
 that is, $\sF$ is locally bounded if and only if
 for every compact $K \subset U$ there is an $M >0$ such that
 $\snorm{f}_K \leq M$ for all $f \in \sF$.
@@ -12271,7 +12289,7 @@ functions such that $\{ f' : f \in \sF \}$ is a normal family.
 Show that $\sF$ need not be normal family.
 \item
 Add a simple
-hypothesis (one that is weaker than ``$\sF$ is locally bounded'')
+hypothesis (one that is weaker than \myquote{$\sF$ is locally bounded})
 that would make it a normal family.
 \end{exparts}
 \end{exercise}
@@ -12505,7 +12523,7 @@ Let us not worry about these constructions here.
 \begin{remark}
 Another interesting question we will not address
 is the boundary regularity of the map.  That is, does the map extend to
-the closure $\widebar{U}$, and how ``nice'' it is.  If $U$ is
+the closure $\widebar{U}$, and how \myquote{nice} it is.  If $U$ is
 bounded by a Jordan curve, it is known that $f$ extends to be continuous on
 $\widebar{U}$.  If $U$ has smooth boundary (locally a graph of a smooth
 function), then $f$ extends smoothly to $\widebar{U}$.
@@ -12584,7 +12602,7 @@ Let $S \subset \C$ be a countable closed subset.
 Prove that $U = \C \setminus S$ is not biholomorphic
 to any subset of $\D$.  Hint: A countable closed contains isolated points
 since every nonempty perfect set is uncountable
-(Feel free to assume this fact).
+(feel free to assume this fact).
 \end{exercise}
 \end{exbox}
 
@@ -12635,10 +12653,11 @@ take the whole thing back to $U$.
 \end{proof}
 
 \begin{remark}
-Let us again emphasize that the definition ``simply connected in terms of
-homology'' is not standard.  It is just a shortcut we took in case we wanted
+Let us again emphasize that the definition
+\myquote{simply connected in terms of homology} is not standard.
+It is just a shortcut we took in case we wanted
 to skip homotopy on first reading.  In the wild (outside of this book),
-``simply connected'' is
+\myquote{simply connected} is
 always in terms of homotopy.  Furthermore, while for domains in $\C$ the two
 concepts happen to be the same, they are not the same for more
 general topological spaces.
@@ -12695,11 +12714,11 @@ Take one point of it to infinity by an LFT
 Then use the Riemann mapping theorem to make the complement of $K$ go to
 the disc (or several discs).
 Then the path is a backwards (clockwise) circle very close to the boundary of the disc
-as this will ``go around'' (after reversing the inversion) what's
-``outside the disc,'' that is, it will go around $K$.
+as this will \myquote{go around} (after reversing the inversion) what's
+\myquote{outside the disc,} that is, it will go around $K$.
 The complement of $U$
 corresponds to a compact set inside the disc so this way we will not
-``go around'' the complement of $U$.
+\myquote{go around} the complement of $U$.
 Then one repeat the procedure for all components of $K$.  See
 \figureref{fig:cyclearoundcompact}.  As expected,
 we hit a bunch of technicalities such as $K$ possibly having
@@ -12968,12 +12987,12 @@ $\sabs{p-q} < \delta$ ($\Gamma$ is within $\delta$ of $K$).
 
 \chapter{Harmonic Functions} \label{ch:harmonic}
 
-\begin{myquote}
+\begin{myepigraph}
 If you cannot get rid of the family skeleton, you may as well make it
 dance.
 
 ---George Bernard Shaw
-\end{myquote}
+\end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -13335,7 +13354,8 @@ and nonnegative, then $f$ is constant.
 
 \begin{remark}
 As in \exerciseref{exercise:Liouvilleharmonic},
-the analogue of ``bounded'' for holomorphic functions is ``nonnegative''
+the analogue of \myquote{bounded} for holomorphic functions is
+\myquote{nonnegative}
 for harmonic functions.  Afterall, if $f$ is
 a bounded holomorphic function, then $\log \sabs{f(z)+M}$ or $\Re f(z) + M$
 is nonnegative for large enough $M$.  Conversely if $\log \sabs{f(z)} \geq
@@ -14043,7 +14063,7 @@ $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
 \end{thm}
 
 \begin{proof}
-One direction (and the ``Moreover'') is simple.
+One direction (and the \myquote{Moreover}) is simple.
 Suppose $f$ is harmonic.
 Take $p \in U$ and
 any $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
@@ -14209,7 +14229,7 @@ Prove that $f$ is harmonic in $\D$.
 Like holomorphic functions, harmonic functions defined in a
 disc cannot just do whatever they want inside the disc.  Their behavior is
 somewhat controlled by the size of the disc:  The further
-``inside'' their domain of definition the disc is, the more control we have.
+\myquote{inside} their domain of definition the disc is, the more control we have.
 The basic statement of this is
 the \emph{Harnack's inequality}\index{Harnack's inequality!disc} in the disc.
 For holomorphic functions, an analogous result is
@@ -15255,7 +15275,8 @@ Finish the proof of \propref{prop:C2subharmonic}.
 The supremum of convex functions is convex.
 Similarly,
 the supremum of subharmonic functions is subharmonic, as long as
-the supremum is upper-semicontinuous.  We can therefore ``piece together''
+the supremum is upper-semicontinuous.  We can therefore
+\myquote{piece together}
 many subharmonic functions by taking suprema.
 
 \begin{prop}
@@ -15322,8 +15343,9 @@ Hint \#2: Integrate the partial sums, and use polar coordinates.
 In complex analysis,
 we are really interested in proving results for harmonic functions,
 as we are interested in proving results for holomorphic functions.
-However, harmonic functions are very rigid, they cannot be ``put together''
-easily.  Furthermore, there aren't that many of them.  There are a lot of
+However, harmonic functions are very rigid, they cannot be
+\myquote{put together} easily.
+Furthermore, there aren't that many of them.  There are a lot of
 subharmonic functions.
 An example of the use of subharmonic functions to
 the theory of holomorphic functions is the theorem of 
@@ -15447,11 +15469,11 @@ such that $v|_{\partial U} \leq u|_{\partial U}$.
 
 \chapter{Weierstrass Factorization} \label{ch:weier}
 
-\begin{myquote}
+\begin{myepigraph}
 I became insane, with long intervals of horrible sanity.
 
 ---Edgar Allan Poe
-\end{myquote}
+\end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -15664,7 +15686,7 @@ exists a $n$ such that $a_n=-1$.
 \begin{proof}
 As before, because $\sabs{a_n}$ goes to zero,
 $\Re a_n > -1$ for all large enough $n$.  The product
-of those terms converges to a nonzero number by the ``Moreover'' part of the
+of those terms converges to a nonzero number by the \myquote{Moreover} part of the
 proposition.  The only way to get zero as a limit is for one of the initial
 terms to be zero, that is, if $a_n=-1$ for some $n$.
 \end{proof}
@@ -15911,7 +15933,8 @@ Ignore the zero at the origin, and just consider the nonzero
 zeros $\{ a_n \}$.  We claim that at least one sequence $\{ \ell_n \}$
 such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
 Indeed, choosing $\ell_n = n-1$ would suffice:
-As $\{ a_n \}$ has no limit points in $\C$ it must ``escape to infinity.''
+As $\{ a_n \}$ has no limit points in $\C$ it must
+\myquote{escape to infinity.}
 For any $r > 0$, we get $\sabs{a_n} \geq 2r$ or
 $\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
 for all large enough $n$.
@@ -16406,11 +16429,11 @@ a nonconstant function.  Show that there exists a holomorphic $g \colon U
 
 \chapter{Rational Approximation} \label{ch:runge}
 
-\begin{myquote}
+\begin{myepigraph}
 It has been said that man is a rational animal. All my life I have been searching for evidence which could support this.
 
 ---Bertrand Russell
-\end{myquote}
+\end{myepigraph}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16658,7 +16681,7 @@ $\sF$, then $f$ can be uniformly approximated by functions in $\sF$.
 
 Let us now approximate simple poles of the form $\frac{1}{z-p}$ by rational
 functions with poles in a given set.  This procedure is called
-\emph{\myindex{pole pushing}} as we are going to ``push'' the poles along a
+\emph{\myindex{pole pushing}} as we are going to \myquote{push} the poles along a
 path to where we need them to be.
 
 \begin{lemma} \label{lemma:polepushing}
@@ -17006,7 +17029,7 @@ describe.\footnote{In the analysis of several complex variables,
 polynomial hulls are far more difficult to handle, and they are the subject
 of ongoing research.}
 They are given simply by a topological property: The polynomial
-hull just ``fills in the holes.''
+hull just \myquote{fills in the holes.}
 
 
 \begin{thm}\label{thm:polyhull}
@@ -17046,7 +17069,7 @@ So $p \in \widehat{K}$.
 
 \begin{myfig}
 \subimport*{figures/}{fillholes.pdf_t}
-\caption{Polynomial hull is ``filling holes.''\label{fig:fillholes}}
+\caption{Polynomial hull is \myquote{filling holes.}\label{fig:fillholes}}
 \end{myfig}
 
 Note that the components of $\C \setminus K$ are open sets.
@@ -17357,11 +17380,11 @@ Use part a) to prove the Weierstrass product theorem.
 
 \chapter{Analytic Continuation} \label{ch:analcont}
 
-\begin{myquote}
+\begin{myepigraph}
 May the forces of evil become confused on the way to your house.
 
 ---George Carlin
-\end{myquote}
+\end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -17496,8 +17519,8 @@ such that $\varphi\bigl( (a,b) \bigr) = C$.
 
 The images $\varphi(V_+)$ and $\varphi(V_-)$ of the sets
 $V_+ = \{ z \in V : \Im z > 0 \}$ and $V_- = \{ z \in V : \Im z < 0 \}$
-are the two ``sides'' of $C$.
-We can ``switch sides'' by rotation and translation.
+are the two \myquote{sides} of $C$.
+We can \myquote{switch sides} by rotation and translation.
 
 \begin{cor}[Schwarz reflection principle for curves]
 \index{Schwarz reflection principle!holomorphic functions, general version}
@@ -17542,7 +17565,7 @@ a real-analytic curve on the boundary.  However, the downside of this more
 general statement is that it
 does not say how to figure out exactly the size of the neighborhood $W$.
 One could note the sizes of the neighborhoods $V$ and $H$
-and then follow ``reductions of $V$'' in the proof to work out how far
+and then follow \myquote{reductions of $V$} in the proof to work out how far
 the extension goes, but that does require understanding how far the
 functions defining the curves extend as invertible functions.
 
@@ -17621,7 +17644,7 @@ for all $z \in U$.
 \item
 Show that $f(z) = e^{-1/g(z)}$ is holomorphic in $U$
 and extends to a continuous function on the closure
-$\widebar{U}$.  (The hard part is continuity at $z=0$).
+$\widebar{U}$.  (The hard part is continuity at $z=0$.)
 \item
 Show that $f$ does not extend holomorphically through the
 origin.  That is, for any open neighborhood $V$ of $0$ there
@@ -17653,7 +17676,7 @@ boundary but still not extend.
 
 More generally than a reflection, we define a continuation along a path.
 We have seen such continuation with
-the logarithm.  We define a function locally and ``continue'' it
+the logarithm.  We define a function locally and \myquote{continue} it
 uniquely to another point of the domain along some path.
 We have also seen some problems with this approach:
 When dealing with the log in the punctured plane, we could go around the origin
@@ -17694,7 +17717,7 @@ is called a \emph{\myindex{function element}}.
 The value
 $f_t\bigl(\gamma(t)\bigr)$ is really what we mean by the value of
 the extension at $\gamma(t)$, and what we would really want
-``$f\bigl(\gamma(t)\bigr)$'' to be.
+\myquote{$f\bigl(\gamma(t)\bigr)$} to be.
 Though of course, $f\bigl(\gamma(t)\bigr)$ is not defined for $\gamma(t)$ outside of
 $U$.
 The identity theorem implies that the definition of
@@ -17965,8 +17988,9 @@ around the various holes, an equivalence that doesn't care exactly what
 path we take as long as we can deform one path to the other.
 We have seen that for closed paths, homotopy is such an equivalence, although
 here we look at paths from one fixed point to another.  The definition
-is almost the same (compare \defnref{defn:homotopy}), except instead of ``closed'' we require that the paths
-are ``from $p$ to $q$.''
+is almost the same (compare \defnref{defn:homotopy}), except instead of
+\myquote{closed} we require that the paths
+are \myquote{from $p$ to $q$.}
 
 \begin{defn}
 Let $U \subset \C$ be open and $p,q \in U$.
@@ -18078,8 +18102,8 @@ covering map}} (or \emph{\myindex{universal cover}} for short) of $V$
 and $U$ is called the \emph{\myindex{universal covering space}} of $V$.
 We will not prove so, but every domain in
 $\C$ has a universal cover.\footnote{Actually every reasonably nice topological space
-has a topological universal cover, where the ``local biholomorphism'' is
-replaced by ``local homeomorphism.''}
+has a topological universal cover, where the \myquote{local biholomorphism} is
+replaced by \myquote{local homeomorphism.}}
 What we proved above is that the only universal covering of a simply
 connected domain is essentially just a biholomorphism.
 The \hyperref[thm:RMT]{Riemann mapping theorem}
@@ -18190,11 +18214,11 @@ of $U$ is infinite-to-one.
 
 \chapter{Metric Spaces} \label{ap:metric}
 
-\begin{myquote}
+\begin{myepigraph}
 Except in mathematics, the shortest distance between point A and point B is seldom a straight line. I don't believe in mathematics.
 
 ---Albert Einstein
-\end{myquote}
+\end{myepigraph}
 
 Let us give an introduction to metric spaces for the student that may not
 have seen metric spaces in full generality.
@@ -18743,9 +18767,10 @@ open neighborhood.
 \caption{Open set in a metric space.  Note that $\delta$ depends on $x$.\label{fig:msopenset}}
 \end{myfig}
 
-Intuitively, an open set $V$ is a set that does not include its ``boundary.''
+Intuitively, an open set $V$ is a set that does not include its
+\myquote{boundary.}
 Wherever we are in $V$,
-we are allowed to ``wiggle'' a little bit and
+we are allowed to \myquote{wiggle} a little bit and
 stay in $V$.  Similarly, a set $E$ is closed if everything not in $E$
 is some distance away from $E$.
 The open and closed balls are examples of open and closed sets
@@ -19007,7 +19032,7 @@ the same.
 \end{exercise}
 
 \begin{exercise}
-For every $x \in \R^n$ and every $\delta > 0$ define the ``rectangle''
+For every $x \in \R^n$ and every $\delta > 0$ define the \myquote{rectangle}
 $R(x,\delta) =
 (x_1-\delta,x_1+\delta) \times
 (x_2-\delta,x_2+\delta) \times \cdots \times
@@ -19231,7 +19256,7 @@ and hence $\overline{(0,1)} = (0,1]$ when working in $(0,\infty)$.
 \end{example}
 
 Let us justify the statement that the closure is everything that we can
-``approach'' from the set.
+\myquote{approach} from the set.
 
 \begin{prop} \label{prop:msclosureappr}
 Let $(X,d)$ be a metric space and $A \subset X$.  Then $x \in \widebar{A}$
@@ -20877,7 +20902,7 @@ $d_Y\bigl(f(p),f(q)\bigr) < \epsilon$.
 \end{defn}
 
 A uniformly continuous function is continuous, but not necessarily
-vice versa.  It is ``vice versa'' if $X$ is compact.
+vice versa.  It is \myquote{vice versa} if $X$ is compact.
 
 \begin{thm} \label{thm:Xcompactfunifcont}
 Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
@@ -21073,12 +21098,12 @@ $\lim_{x \to p} f(x) = f(p)$.
 
 \chapter{Results From Basic Analysis} \label{ap:basicanal}
 
-\begin{myquote}
+\begin{myepigraph}
 I refuse to answer that question on the grounds that I don't know the
 answer.
 
 ---Douglas Adams
-\end{myquote}
+\end{myepigraph}
 
 For this book,
 we assume as a prerequisite a basic knowledge of analysis on the real line.
@@ -21222,7 +21247,7 @@ the \emph{\myindex{uniform norm}},
 
 Note that if $f$ is not bounded, then $\snorm{f}_S = \infty$.  Therefore,
 unless dealing with bounded functions, we treat the norm as an extended real,
-so it is not what people would call a ``norm'' unless we restrict to bounded functions.
+so it is not what people would call a \myquote{norm} unless we restrict to bounded functions.
 
 \begin{prop}
 A sequence $f_n \colon S \to \R$ converges
@@ -21765,7 +21790,7 @@ f\left(a+\frac{k(b-a)}{n},y\right)
 k=1,\ldots,n.
 \end{cases}
 \end{equation*}
-This is the ``right-hand rule'' step function with sub
+This is the \myquote{right-hand rule} step function with sub
 interval length $\frac{b-a}{n}$:
 Integrating $g_n$ with respect to $x$ is the right-hand rule for integrating $f$.
 Let $n$ be large enough so that $\frac{b-a}{n} < \delta$.  Then,
@@ -21871,7 +21896,8 @@ g(y) = \int_a^b f(x,y) \,dx .
 If $f$ is continuous on $[a,b] \times [c,d]$, then
 \propref{prop:integralcontcont}
 says that $g$ is continuous on $[c,d]$.
-Suppose $f$ is differentiable in $y$.  Can we ``differentiate under the integral?''
+Suppose $f$ is differentiable in $y$.
+Can we \myquote{differentiate under the integral?}
 Differentiation is a limit and we are again asking when do the
 two limiting operations, integration and differentiation, commute.
 The first
@@ -22241,7 +22267,7 @@ in the $x_1x_2$-plane based at $(x_1,x_2)$, and the vector
 $Ah \in \R^1$ is shown along the $y$ direction.\label{fig:svder}}
 \end{myfig}
 
-Intuitively, $f$ is differentiable at $x$ if $f$ ``infinitesimally close''
+Intuitively, $f$ is differentiable at $x$ if $f$ \myquote{infinitesimally close}
 to a linear map near $x$.
 We cheated a bit and said that $A$
 is \emph{the} derivative, let us prove that we were justified.
@@ -22389,7 +22415,8 @@ If $A \colon X \to Y$ and $B \colon Y \to Z$ are linear maps, then
 they are their own derivative.  The composition
 $BA$, a linear map from $X$ to $Z$, is also its own derivative, and
 so the derivative of the composition is the composition
-of the derivatives.  As differentiable maps are ``infinitesimally close''
+of the derivatives.
+As differentiable maps are \myquote{infinitesimally close}
 to linear maps, they have the same property:
 
 \begin{thm}[Chain rule]\index{chain rule!real derivative} \label{thm:realchain}
@@ -22480,7 +22507,7 @@ $\frac{\snorm{F(p+h)-F(p) - BAh}}{\snorm{h}}$ goes to zero, and
 $DF|_p = BA$, which is what was claimed.
 \end{proof}
 
-Let us prove a ``mean value theorem'' for vector-valued functions.
+Let us prove a \myquote{mean value theorem} for vector-valued functions.
 For a function $\varphi \colon [a,b] \to \R^n$, we think of the derivative
 $D\varphi|_{t_0}$ as a vector, and so 
 it is often just written as $\varphi'(t_0)$, it is not hard to check that
@@ -22834,9 +22861,9 @@ t \frac{\partial f_j}{\partial x_n}\Big|_{x}\right)}^2} + \epsilon \snorm{k}
 \begin{exbox}
 \begin{exercise}
 Prove the base case
-in \propref{mv:prop:contdiffpartials}: Prove that
-if $n=1$ and 
-``the partials exist and are continuous,'' the function is 
+in \propref{mv:prop:contdiffpartials}:
+If $n=1$ and 
+\myquote{the partials exist and are continuous,} then the function is 
 differentiable.  Note that $f$ is vector-valued.
 \end{exercise}
 
@@ -22989,7 +23016,7 @@ $f(x) = x$, and show that $x = \sqrt{2}$.
 To prove the inverse function theorem, we use the contraction mapping
 principle (\thmref{thm:contr}).
 Intuitively, we again consider that if a function is continuously differentiable, then it
-locally ``behaves like'' the derivative (a linear function).
+locally \myquote{behaves like} the derivative (a linear function).
 The idea of the inverse function theorem is that if a function is
 continuously differentiable and the derivative is invertible, the function is
 (locally) invertible.
