@@ -1118,7 +1118,7 @@ eigenvectors $\left[ \begin{smallmatrix} 1 \\ \mp i \end{smallmatrix}
 \end{exercise}
 
 \begin{exercise} \label{exercise:reallinmap}
-Prove that any real-linear operator on $\C$ (that is, any 
+Prove that every real-linear operator on $\C$ (that is, every 
 $2 \times 2$ real matrix $M$) can be represented 
 by two complex numbers $\xi$ and $\zeta$, and the formula
 $z \mapsto \xi z + \zeta \bar{z}$.
@@ -1554,7 +1554,7 @@ $\lim\limits_{z \to z_0} \frac{1}{f(z)} = 0$.
 
 It then makes sense to talk about the value of $\nicefrac{1}{z}$ at the origin
 as $\infty$, and the value of $z$ at $\infty$ as $\infty$.
-In fact, any nonconstant polynomial is $\infty$ at $\infty$.
+In fact, every nonconstant polynomial is $\infty$ at $\infty$.
 
 \begin{exbox}
 \begin{exercise}%[\neededexmark]
@@ -1601,8 +1601,8 @@ then $\lim_{z \to \infty} f(z) = \infty$,
 $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
 \bigl(f(z)+g(z)\bigr) = 0$.
 On the other hand, it is reasonable to define $\nicefrac{c}{0} = \infty$ for
-any $c \not= 0$, $\nicefrac{c}{\infty} = 0$ for any $c \not= \infty$,
-and $c \cdot \infty = \infty$ for any $c \not= 0$.
+$c \not= 0$, $\nicefrac{c}{\infty} = 0$ for $c \not= \infty$,
+and $c \cdot \infty = \infty$ for $c \not= 0$.
 Just make sure to definitely avoid doing any additions and subtractions of
 infinities!
 
@@ -1691,7 +1691,7 @@ So to get our complex inversion $I(z)$ we also conjugate.
 \end{myfig}
 
 This sort of decomposition is quite useful in proving statements about
-LFTs that are preserved under composition:
+LFTs that are preserved under composition;
 one only needs to prove them for $T_a$, $D_a$, and $I$.  This technique
 will come in handy in just the next exercise.
 Let us include straight lines in the set of circles.  After all, a straight
@@ -1857,7 +1857,7 @@ and $C$ as a matrix.  It is really easy to invert $2 \times 2$ matrices.
 \end{exercise}
 
 \begin{exercise}
-For any LFT $f(z) = \frac{az+b}{cz+d}$ find $f^{-1}$.
+For every LFT $f(z) = \frac{az+b}{cz+d}$ find $f^{-1}$.
 Hint: Same hint as above.
 \end{exercise}
 \end{exbox}
@@ -1892,8 +1892,8 @@ and plays a key role in projective geometry.
 The definition is extended to when one of the numbers is $\infty$ by simply
 erasing the affected terms from the ratios.  For instance, if $z_1=\infty$,
 then pretend that $z_3-\infty$
-is really equal to $z_4-\infty$ and thus they cancel:
-this makes sense as $\lim_{z\to\infty} \frac{z_3-z}{z_4-z} = 1$.
+is really equal to $z_4-\infty$ and
+thus they cancel---this makes sense as $\lim_{z\to\infty} \frac{z_3-z}{z_4-z} = 1$.
 Consequently,
 \begin{align*}
 (\infty,z_2;z_3,z_4)
@@ -2600,7 +2600,7 @@ In the second form, we want to think of the derivative in
 the imaginary direction as a derivative in $iy$ and not the partial
 derivative in $y$.  That is why the $\nicefrac{1}{i}$ is there.
 If $f$ is complex differentiable, $h$ can
-approach zero from any direction:
+approach zero from every direction:
 \begin{equation*}
 f'(z) =
 \lim_{\substack{h \to 0\\h\in\C}}
@@ -2642,7 +2642,7 @@ The complex derivative $f'$, sometimes written as $\frac{df}{dz}$,
 only exists for holomorphic functions.
 The Wirtinger operators
 $\frac{\partial f}{\partial z}$ and
-$\frac{\partial f}{\partial \bar{z}}$ make sense for any real differentiable
+$\frac{\partial f}{\partial \bar{z}}$ make sense for every real differentiable
 function.
 Do not confuse the notation
 even though $\frac{df}{dz}$ and 
@@ -2686,7 +2686,7 @@ $\frac{\partial}{\partial \bar{z}} \left[ z^m\bar{z}^n \right]$.
 \begin{exercise}
 Let $f \colon U \subset \C \to \C$ be real differentiable at $p \in U$.
 The derivative $Df|_{p}$ can be represented by two numbers $\xi$ and
-$\zeta$: it is the real linear map $h \mapsto \xi h + \zeta \bar{h}$
+$\zeta$: It is the real linear map $h \mapsto \xi h + \zeta \bar{h}$
 (see \exerciseref{exercise:reallinmap}).
 Show that $\frac{\partial f}{\partial z} \big|_p = \xi$ and
 $\frac{\partial f}{\partial \bar{z}} \big|_p = \zeta$.
@@ -2830,7 +2830,7 @@ has a holomorphic inverse.
 In other words, $C|_{\bH} \colon \bH \to \D$ is a biholomorphism
 making $\bH$ and $\D$ biholomorphic.
 
-The reader can check that for any nonempty open $U \subset \C$, the set
+The reader can check that for a nonempty open $U \subset \C$, the set
 $\operatorname{Aut}(U)$ is a group under
 composition, although we will not be too worried about the group
 structure.
@@ -3079,7 +3079,7 @@ Suppose that $M$ preserves orientation and angles.
 As we said $M$ must be nonsingular.
 Let $M =
 \left[\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right]$.
-As $M$ preserves angles, given any two vectors $v$ and
+As $M$ preserves angles, given two vectors $v$ and
 $w$ in $\R^2$, the angle between $Mv$ and $Mw$ is the same as the angle
 between $v$ and $w$.
 The vectors
@@ -3191,13 +3191,13 @@ To understand holomorphic functions locally,
 it is sufficient to understand $z \mapsto z^n$.  We will prove that
 holomorphic functions are just power series and so we can always factor
 a $z^n$ for some $n$ out of a power series that vanishes at the origin,
-which is, after all, just a sum of such terms.  This means that any holomorphic
+which is, after all, just a sum of such terms.  This means that every holomorphic
 function really behaves like $z^n$ behaves near the origin for some $n$.
 
 A key point about the function $z \mapsto z^n$ is that it is $n$-to-$1$.
-That is, there are $n$ distinct roots of any complex number except $0$,
-which has in some sense also $n$ roots but they are all $0$.  For any nonzero
-number, write $w = re^{i\theta}$.  It is easy to verify that
+That is, there are $n$ distinct roots of every complex number except $0$,
+which has in some sense also $n$ roots but they are all $0$.  For a nonzero
+number $w$, write $w = re^{i\theta}$.  It is easy to verify that
 the $n$ $n$\textsuperscript{th} roots of $w$ are 
 (using the polar form)
 \begin{equation*}
@@ -3884,7 +3884,7 @@ of the exponential.  Hint \#2: What is $f'(0)$?
 \end{exercise}
 
 \begin{exercise}
-For any $a,b \in \C$, show that there exists a holomorphic $f \colon \C \to
+Given $a,b \in \C$, show that there exists a holomorphic $f \colon \C \to
 \C$ such that $f''(z) = z f(z)$, and $f(0) = a$ and $f'(0) = b$.
 Hint: Define formally and show convergence.
 Note: These are the \emph{\myindex{Airy functions}}, and they have some
@@ -4235,8 +4235,9 @@ there exist continuous (complex-valued) $F$ and $G$ such that
 =
 \int_{\gamma} F \, dz + G \, d\bar{z} .
 \end{equation*}
-Then show that any line integral
-can be computed if you only know how to compute integrals of the form $\int_\gamma f(z) \, dz$.
+Then show that every line integral
+can be computed if you only know how to compute integrals of the form
+$\int_\gamma f(z) \, dz$.
 \end{exercise}
 \end{exbox}
 
@@ -4317,7 +4318,7 @@ are compact.
 Prove in the case when $f=1$.
 Hint: fundamental theorem of calculus.
 \item
-Prove the proposition for any continuous $f$.
+Prove the proposition for continuous $f$.
 Hint: Cut the path into small pieces where
 you can approximate $f$ by a constant and apply the
 last part.
@@ -4569,7 +4570,7 @@ the set where the continuous $f$ is defined is not a big deal.  We could
 take $f$ to be continuous on $U$, $\C$, or just the images of
 $\Gamma_1$ and $\Gamma_2$.
 By Tietze's extension theorem (a theorem in any metric space),
-any continuous function on a closed subset of
+every continuous function on a closed subset of
 $\C$ (such as the images of $\Gamma_1$ and $\Gamma_2$) extends to a
 continuous function on $\C$.
 The way we defined things, we do not need Tietze.
@@ -4600,7 +4601,7 @@ for all $f$ continuous on the image of $\gamma$ we have
 
 \begin{exercise}
 Let $\partial \D$ denote the counterclockwise path around the unit disc.
-Show that for any integer $n$, the chain $n \partial \D$ is equivalent to
+Show that for every integer $n$, the chain $n \partial \D$ is equivalent to
 the path $\gamma \colon [0,2\pi] \to \C$ given by $\gamma(t) = e^{int}$,
 the path that goes $n$ times around the unit disc counterclockwise.
 \end{exercise}
@@ -5387,7 +5388,7 @@ d \zeta
 \int_0^{2\pi} f(z+se^{it}) \, dt .
 \end{equation*}
 As the integral over $\gamma$ (which does not depend on $s$)
-is equal to the integral over $\alpha$ for any $s > 0$ small enough,
+is equal to the integral over $\alpha$ for all $s > 0$ small enough,
 we can take the limit as $s \to 0$.
 By continuity of $f$ at $z$,
 \begin{equation*}
@@ -5415,8 +5416,8 @@ two pictured).
 \end{exercise}
 
 \begin{exercise}
-Show why the theorem should be surprising.  Given any $a,b \in \C$ and $z
-\in \D$, construct a continuous 
+Show why the theorem should be surprising.  Given $a,b \in \C$ and $z \in \D$,
+construct a continuous 
 $f \colon \C \to \C$ such that $\frac{1}{2\pi i}\int_{\partial \D}
 \frac{f(\zeta)}{\zeta -z} \, d\zeta = a$ and $f(z) = b$.
 \end{exercise}
@@ -5864,7 +5865,7 @@ work.
 \begin{exercise}%[\neededexmark]
 \label{exercise:partialderscont}
 Suppose $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$,
-where $U \subset \C$ is open, and for any fixed $t \in (a,b)$, the function
+where $U \subset \C$ is open, and for every fixed $t \in (a,b)$, the function
 $z \mapsto f(z,t)$ is holomorphic.  Prove that
 $\frac{\partial f}{\partial z}$ is a continuous function of $U \times
 (a,b)$.  Then show that this means that
@@ -6058,7 +6059,7 @@ or
 \int_0^{2\pi}
 \Bigl(\sabs{f(re^{it})}-\Re f(re^{it})\Bigr)\, dt .
 \end{equation*}
-The inequality $\sabs{w} - \Re w \geq 0$ holds for any $w \in \C$,
+The inequality $\sabs{w} - \Re w \geq 0$ holds for all $w \in \C$,
 so
 $\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence
 $\sabs{f(re^{it})}=\Re f(re^{it})$.  Thus $\Im f(re^{it}) = 0$
@@ -6372,12 +6373,12 @@ onto.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is entire and is never zero.  For any $M > 0$ let
+Suppose $f$ is entire and is never zero.  For $M > 0$, let
 $X_M = \bigl\{ z \in \C : \sabs{f(z)} = M \bigr\}$ (note that $X_M$
 is closed).
 \begin{exparts}
-\item Show that $X_M$ is nonempty for any $M > 0$.
-\item Show that for any $M$, the set $X_M$ has no bounded topological components.
+\item Show that $X_M$ is nonempty for all $M > 0$.
+\item Show that for every $M$, the set $X_M$ has no bounded topological components.
 \end{exparts}
 Hint: See the exercises for the maximum modulus principle.
 \end{exercise}
@@ -6619,7 +6620,7 @@ which is not differentiable.
 Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
 of holomorphic functions converging uniformly on compact subsets to
 $f \colon U \to \C$.  Then $f$ is holomorphic.
-Furthermore, for any $\ell$, the $\ell$\textsuperscript{th} derivative
+Moreover, for all $\ell$, the $\ell$\textsuperscript{th} derivative
 $f_n^{(\ell)}$ converges uniformly on compact subsets to $f^{(\ell)}$.
 \end{thm}
 
@@ -6714,7 +6715,7 @@ holomorphic functions, we can differentiate by integrating.
 Let $U \subset \C$ be open, $K \subset U$ be compact, $r > 0$, and
 $K' = \bigcup_{z\in K} \overline{\Delta_r(z)}$
 is such that $K' \subset U$.  If $f \colon U \to \C$ is holomorphic,
-prove that for any nonnegative integer $\ell$
+prove that for every nonnegative integer $\ell$
 \begin{equation*}
 \snorm{f^{(\ell)}}_{K}
 \leq
@@ -6744,15 +6745,15 @@ Show that for no $a < b$ is there a $\delta > 0$ such that
 $f_n$ converges uniformly on the rectangle $R = \bigl\{ z \in \C : a \leq \Re z
 \leq b , -\delta \leq \Im z \leq \delta \bigr\}$.
 \item
-In any $[a,b] \subset \R$, find 
+In every $[a,b] \subset \R$, find 
 an $x$ such that $f_n'(x)$ does not converge.
 \end{exparts}
 \end{exercise}
 
 \begin{exercise}
 \pagebreak[2]
-Weierstrass approximation theorem says that any continuous function on an
-interval $[a,b] \subset \R$ can be uniformly approximated (on $[a,b]$) by
+Weierstrass approximation theorem says that every continuous function on an
+interval $[a,b] \subset \R$ is uniformly approximated (on $[a,b]$) by
 polynomials $P(z)$.  Prove why such a theorem cannot be proved
 on a closed curve such as the unit circle $\partial \D$.  That is,
 find a continuous function $f \colon \partial \D \to \C$ that is
@@ -7469,7 +7470,7 @@ $\Gamma$, that is $\ell = \int_\Gamma \sabs{dz}$.  Then,
 \end{equation*}
 So, $n(\Gamma;p)$ is a continuous function of $p$.
 As it is continuous
-and integer-valued, it is constant on any connected component of
+and integer-valued, it is constant on every connected component of
 $\C \setminus \Gamma$ (the set where it is defined).
 
 For any $p \in \C \setminus \Gamma$,
@@ -7622,7 +7623,7 @@ So $h \colon \C \to \C$ is well-defined.
 Next we show that $h$ is
 holomorphic.
 Holomorphicity is a local property, so we only need to prove it 
-in a neighborhood of any point.
+in a neighborhood of every point.
 The set where $n(\Gamma;z) = 0$ is open as it is a
 union of topological components of $\C \setminus \Gamma$.
 So each point has a neighborhood where $h$ is defined
@@ -7816,7 +7817,7 @@ See the exercises below.
 \begin{exercise}
 \begin{exparts}
 \item
-Prove that any star-like domain (e.g.\ $\C$, $\D$, and $\bH$) in $\C$ is simply connected.
+Prove that every star-like domain (e.g.\ $\C$, $\D$, and $\bH$) in $\C$ is simply connected.
 \item
 Prove that $\C \setminus \{ 0 \}$ is not simply connected.
 \end{exparts}
@@ -8633,7 +8634,7 @@ H(t,s) = (1-s) \gamma(t) .
 \end{equation*}
 This is clearly a homotopy in $\D$, $H(t,0) = \gamma(t)$,
 and $H(t,1) = 0$, so $\gamma$ is homotopic to the zero function.
-So any path in $\D$ is homotopic to a constant.
+So every path in $\D$ is homotopic to a constant.
 \end{example}
 
 What we want to do is to prove that if $\gamma_0$ and $\gamma_1$ are
@@ -9857,7 +9858,7 @@ Hint: Make sure to handle the zeros of $f$ and $g$.
 
 \begin{exercise}
 Prove that there does \emph{not} exist a nonzero holomorphic
-$f \colon \Delta_r(0) \to \C$ (for any $r > 0$)
+$f \colon \Delta_r(0) \to \C$ (for every $r > 0$)
 such that
 $f(z) e^{1/z}$ is bounded in $\Delta_r(0) \setminus \{ 0 \}$.
 \end{exercise}
@@ -10326,7 +10327,7 @@ where $c_{-1}$ is the coefficient of ${(z-p)}^{-1}$ in the Laurent series
 expansion \eqref{eq:laurentser} in a punctured disc $\Delta_r(p) \setminus \{ p \}$.
 \end{defn}
 
-We know how to compute $c_{-1}$: for any small enough $s > 0$,
+We know how to compute $c_{-1}$: For small enough $s > 0$,
 \begin{equation*}
 \operatorname{Res}(f;p) 
 =
@@ -10699,8 +10700,7 @@ $\operatorname{Res}(f;\infty)$, to be the residue
 of $g(z) = -z^{-2} f(z^{-1})$ at $0$.
 \begin{exparts}
 \item
-Prove that for
-any $r > R$,
+Prove that for all $r > R$,
 \begin{equation*}
 \operatorname{Res}(f;\infty) = \frac{-1}{2\pi i} \int_{\partial \Delta_r(0)}
 f(z) \, dz .
@@ -11367,7 +11367,7 @@ Let $f_n(x) = \frac{x(x-1/n)(x+1/n)}{{(1/n)}^2+x^2}$ and $f(x)=x$.
 Show that $\{ f_n \}$ converges uniformly on compact subsets of the real
 line to $f$.
 \item
-Show that on any interval $(-\epsilon,\epsilon)$, $f_n$ has three distinct zeros
+Show that on every interval $(-\epsilon,\epsilon)$, $f_n$ has three distinct zeros
 for large enough $n$, while $f(x)$ has a simple zero.
 \item
 Plug in complex values, $f_n(z)$, and show that $\{ f_n \}$ does not
@@ -11519,9 +11519,9 @@ show that $g$ is complex differentiable at all $w_0 \in W$.
 
 So far, nothing really new for holomorphic functions.
 It is the next
-result that is surprising: being injective
+result that is surprising: Being injective
 implies that the derivative is nonzero.
-A priory this should make no sense at all and it is not true for real functions.
+A priory, this should make no sense at all and it is not true for real functions.
 A function $f \colon \R \to \R$ such as $f(x) = x^3$
 is injective, but its derivative is zero at $x=0$, and $f^{-1}(x) =
 \sqrt[3]{x}$ is not differentiable at $x=0$.
@@ -12022,7 +12022,7 @@ It is sometimes called an \emph{\myindex{exhaustion by compact sets}}.
 Let $U \subset \C$ be open.  Then there exists a sequence $K_n$
 of compact subsets of $U$ such that $K_n \subset K^\circ_{n+1}$ (each set
 is contained in the interior of the next), $\bigcup_{n=1}^\infty K_n = U$, and
-for any compact $K \subset U$, there is an $n$ such that $K \subset K_n$.
+for every compact $K \subset U$, there is an $n$ such that $K \subset K_n$.
 \end{lemma}
 
 \begin{proof}
@@ -12033,7 +12033,7 @@ z \in U : d(z,\partial U) \geq \nicefrac{1}{n} \text{ and } \sabs{z} \leq
 n
 \bigr\} .
 \end{equation*}
-The set $K_n$ is compact: it is closed (in $\C$) by
+The set $K_n$ is compact: It is closed (in $\C$) by
 \propref{prop:distcont} and obviously bounded.
 It is also easy to see that $U = \bigcup K_n$.  The interior
 of $K_n$ is given (exercise) by
@@ -12302,7 +12302,7 @@ $f \colon \D \to \D$ such that $f(0) = 0$ and $f(\nicefrac{1}{2}) = c$.
 Prove that $\sF_c = \emptyset$ if and only if $c \in
 (\nicefrac{1}{2},1)$.
 \item
-Prove that for any $c \in [0,\nicefrac{1}{2}]$, there exists an
+Prove that for each $c \in [0,\nicefrac{1}{2}]$, there exists an
 $f \in \sF_c$
 such that $\sabs{f'(0)}$ is minimal (among the functions in $\sF_c$),
 and let $m_c = \inf \bigl\{ \sabs{f'(0)} : f \in \sF_c \bigr\}$.
@@ -12399,7 +12399,8 @@ velocity is largest, no?
 Consider $\sF$ to be the family of injective (univalent) holomorphic
 $f \colon U \to \D$ such that $f(p) = 0$.  We're trying to find
 an $f \in \sF$ that is onto.
-Before we rush off to Montel, however, we first have to show that any
+Before we rush off to Montel, however, we must show that some
+injective
 $f \colon U \to \D$ actually exists,
 that is, that $\sF$ is not empty.  This is where we
 use that $U$ is not equal to the complex plane (by Liouville, $\sF$
@@ -12793,7 +12794,7 @@ In other words, there is
 a biholomorphic $\psi \colon V \to D$.  We can arrange that $q_1=0$
 and $\psi(0)=0$.
 
-The set $\C_\infty \setminus U$ is compact: it is a closed subset of
+The set $\C_\infty \setminus U$ is compact: It is a closed subset of
 a compact set $\C_\infty$.  As $\varphi$ is continuous,
 $\varphi(\C_\infty \setminus U)$ is compact, and a subset of $V$.
 And as $\psi$ is continuous,
@@ -12909,7 +12910,7 @@ n(\Gamma;p) =
 = - \operatorname{Res}(h;0) = 1 .
 \end{equation*}
 
-If $p$ is any other point that's not on $\Gamma$, we see that $n(\Gamma;p)$
+If $p$ is any other point not on $\Gamma$, then $n(\Gamma;p)$
 is either $0$ or $1$, depending on if there is a pole at
 $\psi(\nicefrac{1}{p})$ and if $\Gamma$ goes around it or not.
 \end{proof}
@@ -13191,7 +13192,7 @@ c_0
 \sum_{n=1}^\infty c_n {(z-p)}^n + \bar{c}_n {\overline{(z-p)}}^n
 \end{equation*}
 converging uniformly absolutely
-on any closed disc $\overline{\Delta_r(p)} \subset U$.
+on every closed disc $\overline{\Delta_r(p)} \subset U$.
 \end{enumerate}
 \end{prop}
 
@@ -14414,7 +14415,7 @@ is not assumed to be connected.
 \begin{exercise}[Easy]
 Find the following counterexample of Harnack's inequality
 if $f$ is not assumed to be
-nonnegative.  For any $M > 0$ find
+nonnegative.  For every $M > 0$ find
 a harmonic function $f \colon \D \to \R$ such that $f(0) = 1$ and
 $f(\nicefrac{1}{2}) \geq M$.
 \end{exercise}
@@ -15900,7 +15901,7 @@ for $f$ at $0$ are be nonnegative.  By \lemmaref{lemma:maxprincpositive},
 The Weierstrass product theorem says that
 we can prescribe the zeros of an entire function arbitrarily.
 The only requirement is the obvious one from the identity theorem:
-the zeros have no limit point in $\C$.
+The zeros have no limit point in $\C$.
 
 \begin{thm}[Weierstrass product theorem in $\C$]
 \index{Weierstrass product theorem in $\C$}
@@ -16454,7 +16455,7 @@ continuous functions.
 \begin{example}
 Let $z = x+iy$.
 By Stone--Weierstrass,
-any continuous function on the closed unit disc $\overline{\D}$
+every continuous function on the closed unit disc $\overline{\D}$
 is a uniform limit of a sequence of polynomials
 $Q_n(x,y)$ (polynomials of both $x$ and $y$), but only a function that is
 holomorphic on $\D$ can be the uniform limit of polynomials
@@ -16544,14 +16545,13 @@ integral are the rational functions.
 Let $U \subset \C$ be open, $K \subset U$ compact, $f \colon U \to \C$
 holomorphic, and $\Gamma$ a cycle in $U$ homologous to zero in $U$
 such that $\Gamma \cap K = \emptyset$ and $n(\Gamma;z) = 1$ for all $z \in
-K$.  Then for any $\epsilon > 0$, there exists a rational function $R(z)$ with
+K$.  Then for every $\epsilon > 0$, there exists a rational function $R(z)$ with
 poles on $\Gamma$ such that $\sabs{f(z)-R(z)} < \epsilon$ for all $z \in K$.
 \end{lemma}
 
 \begin{proof}
 The hypotheses mean that \hyperref[thm:CIFhomology]{Cauchy's integral formula}
-applies for any $z
-\in K$:
+applies for any $z \in K$:
 \begin{equation*}
 f(z) =
 \frac{1}{2\pi i}
@@ -16887,7 +16887,7 @@ closure $\bar{S}$ intersects every component of $\C_\infty \setminus U$.
 \begin{exercise}
 Prove that if $U \subset V \subset \C$ are open sets such that
 $\C_\infty \setminus V$ intersects every component of
-$\C_\infty \setminus U$, then any holomorphic $f \colon U \to \C$
+$\C_\infty \setminus U$, then every holomorphic $f \colon U \to \C$
 can be written as a limit of a sequence of functions holomorphic in $V$
 converging uniformly on compact subsets of $U$.
 \end{exercise}
@@ -17351,7 +17351,7 @@ $\sabs{f(z)-g(z)} < \epsilon$ for all $z \in K$.
 \end{exercise}
 
 \begin{exercise}
-Prove that for any open $U \subset \C$ there exists a meromorphic function
+Prove that for every open $U \subset \C$ there exists a meromorphic function
 $f \colon U \to \C_\infty$ such that for every $p \in \partial U$
 and every $\epsilon > 0$, there are infinitely many poles of $f$ in
 $\Delta_{\epsilon}(p) \cap U$.  Hint: The trick is constructing $S$.
@@ -18568,7 +18568,7 @@ a nonempty set.
 
 \begin{exbox}
 \begin{exercise}
-Show that for any set $X$, the discrete metric ($d(x,y) = 1$ if $x\not=y$ and
+Show that for any given set $X$, the discrete metric ($d(x,y) = 1$ if $x\not=y$ and
 $d(x,x) = 0$) does give a metric space $(X,d)$.
 \end{exercise}
 
@@ -18658,7 +18658,8 @@ Find a metric $d$ on $\N$, such that $\N$ is an unbounded set in $(\N,d)$.
 \item
 Find a metric $d$ on $\N$, such that $\N$ is a bounded set in $(\N,d)$.
 \item
-Find a metric $d$ on $\N$ such that for any $n \in \N$ and any $\epsilon > 0$
+Find a metric $d$ on $\N$ such that for every $n \in \N$ and
+every $\epsilon > 0$,
 there exists an $m \in \N$ such that $d(n,m) < \epsilon$.
 \end{exparts}
 \end{exercise}
@@ -19017,7 +19018,7 @@ That is, the topologies of $(X,d)$ and $(X,d')$ are the same.
 Let $(X,d)$ be a metric space.
 \begin{exparts}
 \item
-For any $x \in X$ and $\delta > 0$, show
+For every $x \in X$ and $\delta > 0$, show
 $\overline{B(x,\delta)} \subset C(x,\delta)$.
 \item
 Is it always true that
@@ -20220,7 +20221,7 @@ which is a contradiction.
 
 \begin{example}
 The Bolzano--Weierstrass theorem for sequences of real numbers
-says that any bounded sequence in $\R$ has a convergent
+says that a bounded sequence in $\R$ has a convergent
 subsequence.  Therefore, any sequence in a closed interval $[a,b] \subset \R$ has 
 a convergent subsequence.  The limit must also be in $[a,b]$ as limits
 preserve non-strict inequalities.  Hence a closed bounded interval $[a,b]
@@ -20519,8 +20520,8 @@ polynomial in $n$ variables is continuous.
 \end{example}
 
 Be careful about taking limits separately.  It is not enough that
-for any $y$, the function $g(x) = f(x,y)$ is
-continuous, and for and for any $x$, that the function $h(y) = f(x,y)$
+for every $y$, the function $g(x) = f(x,y)$ is
+continuous, and for every $x$, the function $h(y) = f(x,y)$
 is continuous.  The function $f(x,y)$ could still be discontinuous.
 
 \begin{exbox}
@@ -20530,9 +20531,9 @@ $f(x,y) = \frac{xy}{x^2+y^2}$ if $(x,y) \not= (0,0)$.
 See \figureref{fig:xyxsqysq}.
 \begin{exparts}
 \item
-Show that for any fixed $x$,
+Show that for each fixed $x$,
 the function that takes $y$ to $f(x,y)$ is continuous.  Similarly
-for any fixed $y$, the function that takes $x$ to $f(x,y)$ is continuous.
+for each fixed $y$, the function that takes $x$ to $f(x,y)$ is continuous.
 \item
 Show that $f$ is not continuous.
 \end{exparts}
@@ -20748,7 +20749,7 @@ d(f,g) = \snorm{f-g}_S = \sup_{x \in X} \abs{f(x)-g(x)} .
 \item
 Show that $d$ makes $C(X,\R)$ into a metric space.
 \item
-Show that for any $x \in X$, the evaluation function
+Show that for each $x \in X$, the evaluation function
 $E_x \colon C(X,\R) \to \R$ defined by $E_x(f) = f(x)$
 is a continuous function.
 \end{exparts}
@@ -22124,7 +22125,7 @@ f(x,y) =
 \end{equation*}
 \begin{exparts}
 \item
-Prove that for any fixed $y$ the function $x \mapsto f(x,y)$ is
+Prove that for each fixed $y$ the function $x \mapsto f(x,y)$ is
 Riemann integrable on $[0,1]$ and
 \begin{equation*}
 g(y) = \int_0^1 f(x,y) \, dx = \frac{y}{2y^2+2} .
@@ -23271,7 +23272,7 @@ Show that $f$ is differentiable everywhere.
 \item
 Show that $Df|_{(0,0)}$ is invertible.
 \item
-Show that $f$ is not one-to-one in any neighborhood of the origin (it is
+Show that $f$ is not one-to-one in every neighborhood of the origin (it is
 not locally invertible, that is, the inverse function theorem does not work).
 \item
 Show that $f$ is not continuously differentiable.
@@ -23287,7 +23288,7 @@ Define a mapping $F(r,\theta) = \bigl(r \cos(\theta), r \sin(\theta) \bigr)$.
 Show that $F$ is continuously differentiable (for all $(r,\theta) \in
 \R^2$).
 \item
-Compute $DF|_{(0,\theta)}$ for any $\theta$.
+Compute $DF|_{(0,\theta)}$ for all $\theta$.
 \item
 Show that if $r \not= 0$, then $DF|_{(r,\theta)}$ is invertible, and so an
 inverse of $F$ exists locally as long as $r \not= 0$.
