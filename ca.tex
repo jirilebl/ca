@@ -14691,15 +14691,15 @@ for some integer $k \leq c_{-1}$,
 \end{equation*}
 Then
 \begin{equation*}
-\sabs{z^{-k}} \leq e^{\Re \psi(z)} = \abs{e^{\psi(z)}} ,
+\sabs{z^{-k}} \leq e^{\Re \psi(z)} = \babs{e^{\psi(z)}} ,
 \end{equation*}
 or 
-$\abs{z^{-k} e^{-\psi(z)}} \leq 1$, that is, $z^{-k} e^{-\psi(z)}$ has
+$\sabs{z^{-k} e^{-\psi(z)}} \leq 1$, that is, $z^{-k} e^{-\psi(z)}$ has
 a removable singularity at the origin.  So $e^{-\psi(z)}$ has
 a pole or a removable singularity, but $e^{-\psi(z)}$ cannot have
 a pole (see \exerciseref{exercise:singofexp}), so $e^{-\psi(z)}$
 and thus $\psi(z)$ has a removable singularity.
-As $\sabs{z}^{-c_{-1}} \leq \abs{e^{-\psi(z)}}$, we also
+As $\sabs{z}^{-c_{-1}} \leq \sabs{e^{-\psi(z)}}$, we also
 find that $-c_{-1} \geq 0$.  We are done, $\psi$ extends through the origin
 and
 \begin{equation*}
@@ -14884,9 +14884,9 @@ Hint: Part a) and Cayley.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f \colon \C \to \C$ is an entire holomorphic function such that
+Suppose $f$ is an entire holomorphic function and
 $\Re f(iy) = \Re f(1+iy) = 0$ for all $y \in \R$.  Prove
-that $f$ is $2$-periodic, that is, $f(z+2)=f(z)$ for all $z \in \C$.
+that $f$ is $2$-periodic: $f(z+2)=f(z)$ for all $z \in \C$.
 \end{exercise}
 \end{exbox}
 
@@ -14896,10 +14896,10 @@ that $f$ is $2$-periodic, that is, $f(z+2)=f(z)$ for all $z \in \C$.
 \section{Subharmonic functions \texorpdfstring{$\star$}{*}}
 \label{sec:subharmonic}
 
-Holomorphic, and hence harmonic, functions are very rigid.
+Harmonic (and holomorphic) functions are very rigid.
 There is a less restrictive (and much larger) set of functions that allows
 us to study harmonic functions.  In essence, we replace equalities, which are
-hard to solve, by inequalities, which are easier to work with.
+hard, by inequalities, which are easier to work with.
 
 \subsection{Basic properties}
 
@@ -15355,7 +15355,7 @@ Hint \#2: Integrate the partial sums, and use polar coordinates.
 In complex analysis,
 we are really interested in proving results for harmonic functions,
 as we are interested in proving results for holomorphic functions.
-However, harmonic functions are very rigid, they cannot be
+However, harmonic functions are rigid, they cannot be
 \myquote{put together} easily.
 Furthermore, there aren't that many of them.  There are a lot of
 subharmonic functions.
@@ -15364,7 +15364,7 @@ the theory of holomorphic functions is the theorem of
 Rad\'o, which is a complementary result to the Riemann extension theorem.
 Here, on the one hand, the function is
 continuous and vanishes on the set you wish to extend across, but on the
-other hand you know nothing about the size of this set.
+other hand, you know nothing about the size of this set.
 
 \begin{thm}[Rad\'o]\index{Rad\'o's theorem}\label{thm:rado}
 Let $U \subset \C$ be open and $f \colon U \to \C$ a continuous
@@ -15376,8 +15376,8 @@ Then $f$ is holomorphic.
 \begin{proof}
 Holomorphicity is local, so
 it is enough to prove the theorem for a small disc $\Delta$
-such that $f$ is continuous
-on the closure $\overline{\Delta}$, let $\Delta'$ be the part of the disc
+assuming $f$ is continuous
+on the closure $\overline{\Delta}$.  Let $\Delta' \subset \Delta$ be the set
 where $f$ is nonzero.  If $\Delta'$ is empty, then we are done, as
 $f$ is just identically zero and hence holomorphic.
 
@@ -15395,8 +15395,8 @@ upper-semicontinuous on $\overline{\Delta'}$.  Further, it is negative
 on $\partial \Delta$.  The function $z \mapsto -t \log \abs{f(z)}$ is
 superharmonic (minus a subharmonic function) on $\Delta'$,
 lower-semicontinuous on $\overline{\Delta'}$ and positive on $\partial
-\Delta$.  On the set $\Delta \setminus \Delta'$ where $f$ is zero, the two functions are $-\infty$ and
-$+\infty$ respectively.
+\Delta$.  On the set $\Delta \setminus \Delta'$, where $f$ is zero,
+the two functions are $-\infty$ and $+\infty$ respectively.
 See \figureref{fig:radosthm}.
 Therefore, for all $t > 0$ and 
 $z \in \partial \Delta \cup (\Delta \setminus \Delta')$,
