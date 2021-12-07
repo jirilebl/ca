@@ -4143,6 +4143,7 @@ but it is piecewise continuous, and this is enough
 to be Riemann integrable: On each closed interval
 $[t_{\ell-1},t_\ell]$, the integrand extends to a continuous
 function.
+Note that the definition makes sense even if $\gamma'(t)$ is zero somewhere.
 
 Let us compute the most important example of a line integral.
 
@@ -4216,7 +4217,7 @@ Then
 & =
 \int_{\gamma} f(z) \, dx + i f(z) \, dy
 =
-\int_a^b \bigl( f(z) x'(t) + i f(z) y'(t) \bigr) \, dt .
+\int_a^b \underbrace{\Bigl( f\bigl(\gamma(t)\bigr) x'(t) + i f\bigl(\gamma(t)\bigr) y'(t) \Bigr)}_{f(\gamma(t)) \gamma'(t)} \, dt .
 \end{split}
 \end{equation*}
 In the second line you should recognize the definition of a line integral
@@ -4236,18 +4237,18 @@ there exist continuous (complex-valued) $F$ and $G$ such that
 \int_{\gamma} F \, dz + G \, d\bar{z} .
 \end{equation*}
 Then show that every line integral
-can be computed if you only know how to compute integrals of the form
+can be computed even if you only know how to compute integrals of the form
 $\int_\gamma f(z) \, dz$.
 \end{exercise}
 \end{exbox}
 
 The value of the integral does not depend on how we parametrize the image of
 the path, except that it does depend on orientation (which direction we
-went).  It is easy to see why when
+go).  It is easy to see why when
 $\gamma \colon [a,b] \to \C$ is continuously differentiable and we have
 an increasing continuously differentiable $h \colon [c,d] \to [a,b]$ such
 that $h(c)=a$ and $h(d) = b$.  Then $\gamma \circ h$ is a new
-smooth path that is a different parametrization of $\gamma$.
+$C^1$ path that is a different parametrization of $\gamma$.
 Change of variable $t=h(s)$ from calculus says
 \begin{equation*}
 \begin{split}
@@ -4262,7 +4263,7 @@ Change of variable $t=h(s)$ from calculus says
 \end{split}
 \end{equation*}
 If, on the other hand, $h$ is decreasing and $h(c)=b$ and $h(d)=a$, then the
-sign flips in the change of variables and
+sign flips in the change of variables:
 \begin{equation*}
 \int_{\gamma} f(z) \, dz =
 - \int_{\gamma \circ h} f(z) \, dz.
@@ -4290,6 +4291,7 @@ $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$ (simple closed paths).
 \end{enumerate}
 Then there exists a strictly monotone continuous $h \colon [c,d] \to [a,b]$ such
 that $\gamma\bigl(h(t)\bigr) = \alpha(t)$ for all $t \in [c,d]$.
+Furthermore:
 \begin{enumerate}[(i)]
 \item
 If $h$ is increasing, then for every $f$ continuous on the path,
@@ -4392,7 +4394,11 @@ Finally, there is the \myquote{$u$-substitution} from calculus.
 \begin{prop} \label{prop:usubst}
 Let $U,V \subset \C$ be open, $\gamma \colon [a,b] \to V$ 
 piecewise-$C^1$ path, $g \colon V \to U$ holomorphic, and $f \colon U \to \C$
-continuous.  Then $g \circ \gamma$ is a piecewise-$C^1$ path in $V$ and
+continuous.  Then $g \circ \gamma$ is a piecewise-$C^1$ path in $V$
+(possibly with vanishing derivative\footnote{%
+There does exist a reparametrization with nonvanishing derivative, if we really
+really wanted one.},
+however, if $g'$ is zero on $\gamma$) and
 \begin{equation*}
 \int_{\gamma} f\bigl(g(z)\bigr) g'(z) \, dz
 =
@@ -4401,8 +4407,9 @@ continuous.  Then $g \circ \gamma$ is a piecewise-$C^1$ path in $V$ and
 \end{prop}
 
 \begin{proof}
-That $g \circ \gamma$ is a piecewise-$C^1$ path is obvious.  To prove the
-equality we apply the chain rule,
+That $g \circ \gamma$ is a piecewise-$C^1$ path (except with perhaps
+vanishing derivative) is obvious.  To prove the equality,
+apply the chain rule,
 $(g \circ \gamma)'(t) = g'\bigl(\gamma(t)\bigr) \gamma'(t)$:
 \begin{equation*}
 \begin{split}
@@ -4436,7 +4443,7 @@ Let $f \colon \partial \D \to \C$ be a continuous function.  Prove that
 \subsection{Arclength integral}
 
 We can also integrate with respect to arclength, the $ds$ from calculus.
-We will write $ds$ as $\sabs{dz}$.  That is, for an $f$ continuous on
+We will write $ds$ as $\sabs{dz}$.  For an $f$ continuous on
 a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$,
 we define
 \glsadd{not:arclength}
@@ -4455,6 +4462,7 @@ a piecewise-$C^1$ path and $f$ is a continuous function on
 $\gamma$.  Then
 \begin{equation*}
 \abs{\int_\gamma f(z) \, dz} \leq \int_\gamma \sabs{f(z)} \, \sabs{dz} .
+\avoidbreak
 \end{equation*}
 In particular, if $\sabs{f(z)} \leq M$ on $\gamma$ and $\ell = \int_\gamma ds
 = \int_{\gamma} \sabs{dz}$ is the length of $\gamma$, then
@@ -9134,7 +9142,7 @@ Notice that it would lead to an impossible result.
 
 \begin{proof}
 Fix $z \in U$.  We wish to apply Green's theorem,
-but the integrand is not smooth at $z$.
+but the integrand is not even continuous at $z$.
 Let $\Delta_r(z)$ be a small disc such that
 $\overline{\Delta_r(z)} \subset U$.  Green's now applies on $U \setminus \Delta_r(z)$.  See
 \figureref{fig:cauchypompeiu}.
@@ -15246,7 +15254,7 @@ $\nabla^2 f \geq 0$.
 \end{prop}
 
 \begin{proof}
-Suppose $f$ is a $C^2$-smooth function on a subset of $\C$
+Suppose $f$ is a $C^2$ function on a subset of $\C$
 with $\nabla^2 f \geq 0$.  We wish to show that $f$ is subharmonic.
 Take a disc $\Delta$ such that $\overline{\Delta} \subset U$.
 Consider a function
@@ -17663,7 +17671,7 @@ exists no holomorphic
 $\varphi \colon V \to \C$ such that $\varphi = f$ on $U \cap V$.
 \item
 Show that $f$ extends as a
-$C^\infty$ smooth (infinitely real differentiable) function on $\widebar{U}$.
+$C^\infty$ (infinitely real differentiable) function on $\widebar{U}$.
 Hint: It is enough to show that
 all real partial derivatives of $f$ of all orders on $U$
 are locally bounded on $\widebar{U}$: In particular, for any $z \in \partial U$ 
