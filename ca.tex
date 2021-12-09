@@ -429,7 +429,7 @@ Typeset in \LaTeX.
 \bigskip
 
 \noindent
-Copyright \copyright 2019--2020 Ji{\v r}\'i Lebl
+Copyright \copyright 2019--2021 Ji{\v r}\'i Lebl
 
 %PRINT
 % not for the coil version
@@ -549,7 +549,7 @@ The purpose of this book is to teach a one-semester graduate course in
 complex analysis for incoming graduate students.\footnote{I wrote it
 specifically to teach Math 5283 at Oklahoma State University.}
 The first seven chapters is a natural first semester in a two semester sequence where the second
-semester could be several complex variables (e.g. \cite{scv:book})
+semester could be several complex variables (e.g., \cite{scv:book})
 or perhaps harmonic analysis.
 It could perhaps be used for a more elementary two-semester sequence if the
 appendix is covered first, and all the optional bits of the main text are
@@ -3867,7 +3867,7 @@ we conclude $C=1$.
 \begin{exercise}
 Prove that the series for the exponential converges by computing
 the radius of convergence directly
-(e.g.\ show that the series converges for every $z \in \C$).
+(e.g., show that the series converges for every $z \in \C$).
 \end{exercise}
 
 \begin{exercise}
@@ -4600,8 +4600,8 @@ Let $\gamma_1 \colon [a,b] \to \C$ and $\gamma_2 \colon [b,c] \to \C$
 be two piecewise-$C^1$ paths and $\gamma_1(b)=\gamma_2(b)$.
 Prove that the function $\gamma \colon [a,c] \to
 \C$ defined by $\gamma(t) = \gamma_1(t)$ if $t \in [a,b]$ and $\gamma(t)
-= \gamma_2(t)$ if $t \in [b,c]$ is a piecewise-$C^1$ path and
-for all $f$ continuous on the image of $\gamma$ we have
+= \gamma_2(t)$ if $t \in [b,c]$ is a piecewise-$C^1$ path, and
+for all $f$ continuous on the image of $\gamma$, we have
 \begin{equation*}
 \int_{\gamma} f(z)\,dz = \int_{\gamma_1 + \gamma_2} f(z) \, dz .
 \end{equation*}
@@ -4745,8 +4745,8 @@ We will soon prove that a derivative of a holomorphic function is
 holomorphic.  As that is not yet proved, we need $F'$ to be at least
 continuous so that the integral makes sense.\footnote{%
 A real derivative is only integrable
-by a so-called gauge or Henstock--Kurzweil integral, Riemann or
-even Lebesgue are not enough, so integrability is not an idle concern.
+by a so-called gauge or Henstock--Kurzweil integral---Riemann or
+even Lebesgue are not enough---so integrability is not an idle concern.
 If the reader is willing to hunt ants with a sledgehammer, then
 the statement and proof of the proposition is perfectly fine at this stage
 if one uses the gauge integral even without any hypothesis on $f$.}
@@ -4850,9 +4850,10 @@ not have a primitive in $\C \setminus \{ 0 \}$.
 A set $X$ is \emph{\myindex{convex}} if the segment $[a,b] \subset X$ for all $a,b \in
 X$.
 Let $a,b,c \in C$ be distinct points in $\C$ that do not lie on a
-straight line, a \emph{\myindex{triangle}} $T$
+straight line.
+A \emph{\myindex{triangle}} $T$
 with vertices $a,b,c$ is the convex hull
-of $\{ a,b,c \}$, that is
+of $\{ a,b,c \}$, that is,
 the set of all points
 \begin{equation*}
 t_1 a + t_2 b + t_3 c ,
@@ -5505,7 +5506,7 @@ c_n =
 dz  ,
 \avoidbreak
 \end{equation*}
-where $\gamma$ is any circle of radius $r$, $0 < r < R$ centered at
+where $\gamma$ is any circle of radius $r$, $0 < r < R$, centered at
 $p$ oriented counterclockwise.
 \end{thm}
 
@@ -5614,9 +5615,11 @@ $\frac{1}{\zeta-z}$ as
 \frac{1}{\zeta-p}
 \frac{\zeta-p}{\zeta-z}
 \end{equation*}
-and then using the geometric series.  This is a common technique, take a
-feature of the kernel, in this case having a series, and proving that the
-integral has that same feature.  In the proof above the trick is to figure out
+and then using the geometric series.  This is a common technique:
+Given an
+integral of a function against a kernel,
+take a feature of the kernel, in this case having a series, and prove that the
+integral has that same feature.  In the proof above, the trick is to figure out
 how to massage the kernel so that in the geometric series we get terms
 that are something times ${(z-p)}^n$.
 
@@ -5750,7 +5753,7 @@ It says that if $f$ is differentiable in some way,
 then so is the derivative.  Nothing like that is true for the real
 derivative:
 Any continuous function $g \colon (a,b) \to \R$ is a derivative
-of a real differentiable function, e.g.\ $f(x) = \int_a^x g(t)\,dt$,
+of a real differentiable function, e.g., $f(x) = \int_a^x g(t)\,dt$,
 and continuous functions need not be differentiable anywhere.
 Even worse, the real derivative could even be discontinuous.
 
@@ -5837,7 +5840,8 @@ Here, we are really passing the partial derivatives in $x$ and $y$ (where $z=x+i
 underneath the integral,
 which can be done by 
 the Leibniz integral rule, \thmref{thm:Leibnizrule}, for instance.
-Actually it requires the simple generalization \exerciseref{exercise:severalvariableLiebniz}.
+Actually it requires the simple generalization in
+\exerciseref{exercise:severalvariableLiebniz}.
 We have used that the
 $x$ and $y$ partial derivatives of 
 $\frac{f(\zeta)}{(\zeta-z)^{k+2}}$ are continuous
@@ -7826,7 +7830,7 @@ See the exercises below.
 \begin{exercise}
 \begin{exparts}
 \item
-Prove that every star-like domain (e.g.\ $\C$, $\D$, and $\bH$) in $\C$ is simply connected.
+Prove that every star-like domain (e.g., $\C$, $\D$, and $\bH$) in $\C$ is simply connected.
 \item
 Prove that $\C \setminus \{ 0 \}$ is not simply connected.
 \end{exparts}
@@ -14264,7 +14268,7 @@ Then for all $z \in \overline{\Delta_r(p)}$,
 
 \begin{proof}
 If we prove the inequality for $z$ on 
-$\partial \Delta_r(p)$, i.e.\ $\sabs{z-p}=r$, we are done
+$\partial \Delta_r(p)$, i.e., $\sabs{z-p}=r$, we are done
 as $\frac{R+r}{R-r}$ is increasing in $r$ and
 $\frac{R-r}{R+r}$ is decreasing in $r$.  So 
 assume $z = p+re^{i\theta}$.
@@ -14346,7 +14350,7 @@ If we prove the theorem for a larger $K$ we are done, so replace $K$
 by a larger connected compact subset of $U$.
 First, make $K$ have only finitely many components by replacing it
 by finitely many closed discs
-(see e.g.\@ the proof of \lemmaref{lemma:patharoundK}).  Then, $U$ is path
+(see the proof of \lemmaref{lemma:patharoundK}).  Then, $U$ is path
 connected and so adding in finitely many paths to $K$ we can connect
 the discs.
 
@@ -20348,8 +20352,8 @@ $X$ is an infinite set.  Then:
 \item $(X,d)$ is a complete metric space.
 \item Any subset $K \subset X$ is closed and bounded.
 \item A subset $K \subset X$ is compact if and only if it is a finite set.
-\item The conclusion of the Lebesgue covering lemma is always satisfied with
-e.g. $\delta = \nicefrac{1}{2}$, even for noncompact $K \subset X$.
+\item The conclusion of the Lebesgue covering lemma is always satisfied
+with any $\delta \in (0,1)$, even for noncompact $K \subset X$.
 \end{enumerate}
 The proofs
 of the statements are either trivial or are relegated to the exercises
@@ -20394,7 +20398,7 @@ $d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \not= k$.
 \begin{exercise}
 Let $C([0,1],\R)$ be the metric space of \exampleref{example:msC01}.
 Let $K$ be the set of $f \in C([0,1],\R)$ such that
-$f$ is equal to a quadratic polynomial, i.e.\ $f(x) = a+bx+cx^2$, and such that
+$f$ is equal to a quadratic polynomial, i.e., $f(x) = a+bx+cx^2$, and such that
 $\abs{f(x)} \leq 1$ for all $x \in [0,1]$,
 that is $f \in C(0,1)$.  Show that $K$ is compact.
 \end{exercise}
@@ -21943,7 +21947,7 @@ g'(y) = \int_a^b \frac{\partial f}{\partial y}(x,y) \,dx .
 \end{thm}
 
 The hypotheses on $f$ and $\frac{\partial f}{\partial y}$ can be
-weakened to a degree, see e.g.\ \exerciseref{exercise:strongerleibniz}.
+weakened to a degree. See, e.g., \exerciseref{exercise:strongerleibniz}.
 The proof below requires that
 $\frac{\partial f}{\partial y}$ exists and is continuous
 as a function of two variables, and the $x$ interval must be the entire
@@ -22941,7 +22945,7 @@ Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
 A mapping
 $f \colon X \to Y$ is said to be a \emph{\myindex{contraction}}
 (or a contractive map) if it is
-a $k$-Lipschitz map for some $k < 1$, i.e.\ if there exists a $k < 1$ such that
+a $k$-Lipschitz map for some $k < 1$, i.e., if there exists a $k < 1$ such that
 \begin{equation*}
 d_Y\bigl(f(p),f(q)\bigr) \leq k\, d_X(p,q)
 \qquad \text{for all } p,q \in X.
@@ -23140,7 +23144,7 @@ So $\varphi_y$ takes $C(x_0,r)$ into $B(x_0,r) \subset C(x_0,r)$.  It is a
 contraction on $C(x_0,r)$ and $C(x_0,r)$ is complete (closed subset of $\R^n$
 is complete).
 Apply the contraction mapping principle to obtain a fixed point $x$,
-i.e.\ $\varphi_y(x) = x$.  That is, $f(x) = y$, and $y \in
+i.e., $\varphi_y(x) = x$.  That is, $f(x) = y$, and $y \in
 f\bigl(C(x_0,r)\bigr) \subset f(V) = W$.  Therefore, $W$ is open.
 
 Next we need to show that $g$ is continuously differentiable and compute
