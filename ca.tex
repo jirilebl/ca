@@ -18579,7 +18579,7 @@ Suppose $X$ is nonempty.
 Then $S \subset X$ is bounded if and only if
 \begin{enumerate}[(i)]
 \item
-for every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
+For every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
 all $x \in S$.
 \item 
 \glsadd{not:diam}%
@@ -19132,16 +19132,17 @@ not be empty, but $U_1 \cap U_2 \cap S = \emptyset$.\label{fig:disconsubset}}
 
 
 \begin{proof}
-The proof follows by \propref{prop:topology:subspaceopen}.
-If $U_1$ and $U_2$ as in the statement are open in $X$,
-then $U_1 \cap S$ and $U_2 \cap S$ are open in $S$.
-From the discussion above it follows that $S$ is disconnected.
-
-For the other direction start with nonempty disjoint $S_1$ and $S_2$ that are
-open in $S$ and such that $S = S_1 \cup S_2$.  Then use
-\propref{prop:topology:subspaceopen} again to find $U_1$ and $U_2$
-open in $X$ such that $U_1 \cap S = S_1$ and
+First suppose $S$ is disconnected: there are
+nonempty disjoint $S_1$ and $S_2$ that are
+open in $S$ and $S = S_1 \cup S_2$.
+\propref{prop:topology:subspaceopen} says there exist $U_1$ and $U_2$
+that are open in $X$ such that $U_1 \cap S = S_1$ and
 $U_2 \cap S = S_2$.
+
+For the other direction start with the $U_1$ and $U_2$.
+Then $U_1 \cap S$ and $U_2 \cap S$ are open in $S$ by
+\propref{prop:topology:subspaceopen}.
+Via the discussion before the proposition, $S$ is disconnected.
 \end{proof}
 
 \begin{example}\label{example:disconnectedsetinR}
@@ -19226,7 +19227,7 @@ Prove that $\Q$ is
 \emph{\myindex{totally disconnected}}, that is, show 
 that for every $x, y \in \Q$ with $x \not= y$, there exists an
 two open sets $U$ and $V$, such that $x \in U$, $y \in V$,
-$U \cap V = \emptyset$, and $U \cap V = \Q$.
+$U \cap V = \emptyset$, and $U \cup V = \Q$.
 \end{exercise}
 
 \begin{exercise}
