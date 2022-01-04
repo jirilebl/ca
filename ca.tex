@@ -1243,7 +1243,7 @@ into the formulas above, now that we know how to evaluate the exponential:
 As complex numbers are just the plane, we can use polar coordinates
 to represent complex numbers.
 That is, $x = r \cos \theta$ and $y= r \sin \theta$.
-We write this form as
+We write $z$ in polar form as
 \begin{equation*}
 z = x+iy = r e^{i \theta} .
 \end{equation*}
@@ -1463,7 +1463,7 @@ there is a unique line in $\R^3$ through the point $(0,0,1)$ and $p$.
 It is not difficult to prove that this line is never parallel to the
 $xy$-plane, that is, to $\C$, and hence it must intersect $\C$ in a unique
 point $\xi \in \C$ (a plane and a line intersect at a unique point unless
-the two are parallel).  Define:
+the two are parallel).  Define
 \begin{equation*}
 \Phi(p) = \xi.
 \end{equation*}
@@ -6845,7 +6845,7 @@ As $f(0) = 0$, the constant term is zero when $f$ is expanded at $0$, and hence
 f(z) = \sum_{n=1}^\infty c_n z^n = z \sum_{n=1}^\infty c_n z^{n-1} = z g(z) ,
 \end{equation*}
 where $g(z)$ is a holomorphic function of $\D$.  For
-$z \in \partial \Delta_r(0)$
+$z \in \partial \Delta_r(0)$,
 where $r < 1$, we have
 \begin{equation*}
 \sabs{g(z)} = \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r} .
@@ -6882,8 +6882,8 @@ $\sabs{f'(0)} = 0 < 1$, but notice that a bound on the derivative
 does not hold at other points:
 By picking the right $z$ and $n$,
 we can make $\sabs{f'(z)}$ as large as we want.
-We can also make $\sabs{z^n}$ arbitrarily small for $z \in \D$ by picking
-large enough $n$, though we cannot make it bigger than $\sabs{z}$.  What is
+We can also make $\sabs{z^n}$ arbitrarily small for a fixed $z \in \D$ by picking
+a large enough $n$, though we cannot make it bigger than $\sabs{z}$.  What is
 interesting is that Schwarz's lemma says that all holomorphic functions
 behave this way, not just $z^n$.
 
@@ -7145,7 +7145,7 @@ doesn't it, that elementary complex analysis is the study of $z^n$.}
 When $n \geq 0$, 
 then $z^n$ is defined in the entire plane, and a primitive is
 simply $\frac{z^{n+1}}{n+1}$.  If $n < -1$, then $z^n$ is defined
-in the punctured plane $\C \setminus \{0\}$, but again
+in the punctured plane $\C \setminus \{0\}$, and again
 a primitive is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
 \nicefrac{1}{z}$?  It has a primitive, but never defined in
 the entire punctured plane.
@@ -7276,7 +7276,7 @@ a branch of the logarithm in every $U$, but for example we can do it in every
 star-like $U$ where $0 \notin U$.  In general, one can define a branch of
 the logarithm in every simply connected domain, that is, a domain without holes,
 that does not contain zero.
-More on this later.  Similarly we define branches of $\log (z-p)$,
+More on this later.  Similarly, we define branches of $\log (z-p)$,
 a primitive of $\frac{1}{z-p}$, in which case the domain
 should not contain $p$.
 
@@ -14529,7 +14529,8 @@ Harnack's first theorem,
 \thmref{thm:harnack1}.
 \end{proof}
 
-Another way of stating Harnack's principle is for a sequence of nonnegative functions less
+Another way of stating Harnack's principle is to make it about
+a sequence of nonnegative functions less
 than some fixed harmonic function $f$.  If the sequence converges to $f$ at
 one point, it converges uniformly on compact subsets.  Moreover, as
 nonnegative harmonic functions are the harmonic analogues of bounded holomorphic
@@ -14576,9 +14577,10 @@ uniformly on compact subsets.
 
 \subsection{Isolated singularities}
 
-For harmonic functions we get the following classification of removable
-singularities, which is, in fact, sharp.  The harmonic function $\log
-\sabs{z}$ has a nonremovable singularity at the origin, and any function
+For harmonic functions, we get the following classification of removable
+singularities, which is sharp, that is, best possible.
+The harmonic function $\log \sabs{z}$
+has a nonremovable singularity at the origin, and any function
 that blows up any slower than that, doesn't actually blow up and, in fact,
 extends to be
 harmonic at the origin.
@@ -14605,8 +14607,9 @@ $\partial \D$.  Furthermore,
 \begin{equation*}
 \lim_{z \to 0} \frac{g(z)}{-\log \sabs{z}} = 0.
 \end{equation*}
-In other words, given any $\epsilon > 0$, there is a $\delta > 0$,
-such that for all $z \in \overline{\Delta_\delta(0)} \setminus \{ 0 \}$, we have
+Equivalently, given any $\epsilon > 0$, there is a $\delta > 0$
+(we can assume $\delta < 1$)
+such that for all $z \in \overline{\Delta_\delta(0)} \setminus \{ 0 \}$,
 \begin{equation} \label{eq:removableestimateharmonic}
 -\epsilon (- \log\sabs{z})
 \leq
@@ -14617,12 +14620,12 @@ g(z)
 The estimate \eqref{eq:removableestimateharmonic} holds also when
 $\sabs{z}=1$ as $g=0$ there.
 The function $-\log\sabs{z}$ is harmonic outside of the origin, so
-using the maximum principle (the version in
-\exerciseref{exercise:maxprincsecondharmonic}) we have that
+the maximum principle (the version in
+\exerciseref{exercise:maxprincsecondharmonic}) implies that
 \eqref{eq:removableestimateharmonic} holds also for $\delta < \sabs{z} < 1$,
 and thus for all $z \in \D \setminus \{ 0 \}$.
-As $\epsilon$ was arbitrary, $g(z) = 0$ for all
-$z \in \D \setminus \{0\}$, and so $u$ is the extension we are looking for.
+As the estimate holds for all $\epsilon > 0$, we have $g(z) = 0$ for all
+$z \in \D \setminus \{0\}$.  So $u$ is the extension we are looking for.
 \end{proof}
 
 An isolated singularity of a harmonic function $g$ could be very wild, for
@@ -14760,9 +14763,10 @@ We will prove the corresponding holomorphic version
 Basically the reflection principle says that if a harmonic function vanishes on a nice enough
 curve---such as the real line---then it extends (reflects) across.
 
-\begin{thm}[Schwarz reflection principle for harmonic functions]
-\index{Schwarz reflection principle!harmonic functions}
+\begin{thm}[Schwarz reflection principle for harmonic functions]%
+\index{Schwarz reflection principle!harmonic functions}%
 \label{thm:schwarzreflectionharm}
+%\pagebreak[2]
 Suppose $U \subset \C$ is a domain symmetric across the real axis, that is,
 $z \in U$ if and only if $\bar{z} \in U$.
 Let $U_+ = \{ z \in U : \Im z > 0 \}$ and $L = U \cap \R$.
