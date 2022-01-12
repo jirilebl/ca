@@ -1543,12 +1543,14 @@ $\sabs{f(z)} > M$ whenever $\sabs{z-z_0} < \delta$.
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
-Show that $\lim\limits_{z\to\infty} f(z) = L$ for some $L \in \C_\infty$ if and only if
+Suppose $L \in \C_\infty$.
+Show that $\lim\limits_{z\to\infty} f(z) = L$ if and only if
 $\lim\limits_{z \to 0} f(\nicefrac{1}{z}) = L$.
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
-Show that $\lim\limits_{z\to z_0} f(z) = \infty$ for some $z_0 \in \C_\infty$ if and only if
+Suppose $z_0 \in \C_\infty$.
+Show that $\lim\limits_{z\to z_0} f(z) = \infty$ if and only if
 $\lim\limits_{z \to z_0} \frac{1}{f(z)} = 0$.
 \end{exercise}
 \end{exbox}
@@ -1694,7 +1696,7 @@ So to get our complex inversion $I(z)$ we also conjugate.
 This sort of decomposition is quite useful in proving statements about
 LFTs that are preserved under composition;
 one only needs to prove them for $T_a$, $D_a$, and $I$.  This technique
-will come in handy in just the next exercise.
+will come in handy in the very next exercise.
 Let us include straight lines in the set of circles.  After all, a straight
 line is just a circle through infinity: Think about the circle of radius $r$
 centered at $ir$ as $r \to \infty$.  Then an LFT takes circles to circles.
@@ -9311,8 +9313,8 @@ two components.  See \figureref{fig:localjordan}.
 \begin{myfig}
 \subimport*{figures/}{localjordan.pdf_t}
 \caption{A path divides the plane into two pieces, the first case, $\Re
-\gamma'(t) > 0$ for all $t$ is on the left, and the second case,
-$\Re \gamma'(t) < 0$ for $t > 0$ is on the right.
+\gamma'(t) > 0$ for all $t$, is on the left, and the second case,
+$\Re \gamma'(t) < 0$ for $t > 0$, is on the right.
 \label{fig:localjordan}}
 \end{myfig}
 \end{proof}
@@ -9348,8 +9350,8 @@ the set $W \setminus \partial U$ has infinitely many components.
 The next theorem is usually stated for just continuous paths, but that makes
 it harder to prove.  For piecewise-$C^1$ paths, the proof, apart from some
 technicalities, is not hard, and we have actually already proved the
-local part of it.  Main issue with continuous only paths would be that
-locally they may not be a graph of a function, but a $C^1$ path is always
+local part of it.  The main issue with paths that are continuous only is that
+locally they may not be a graph of a function.  A $C^1$ path is always
 locally a graph with respect to one of the variables, and a piecewise-$C^1$
 path, as we saw above, is almost a graph.
 
@@ -12739,7 +12741,7 @@ as this will \myquote{go around} (after reversing the inversion) what's
 The complement of $U$
 corresponds to a compact set inside the disc so this way we will not
 \myquote{go around} the complement of $U$.
-Then one repeat the procedure for all components of $K$.  See
+Then we repeat the procedure for all components of $K$.  See
 \figureref{fig:cyclearoundcompact}.  As expected,
 we hit a bunch of technicalities such as $K$ possibly having
 infinitely many connected components, that the complement of a connected
