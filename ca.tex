@@ -1596,18 +1596,20 @@ The arithmetic that one can
 reasonably define with the Riemann sphere $\infty$ is quite different from
 the $\infty$ of the extended reals
 (we may write the real infinity as $+\infty$ for emphasis).
-No additions or subtractions make sense here.
-Even something like
-$\infty+\infty$ does not make sense, even though this is common for the
-extended reals:  For instance, if $f(z) = z$ and $g(z) = -z$,
+For finite number $z \in \C$, we could define $z+\infty = \infty$,
+but neither $\infty+\infty$ nor $\infty-\infty$ makes sense.
+For instance, if $f(z) = z$ and $g(z) = -z$,
 then $\lim_{z \to \infty} f(z) = \infty$,
 $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
-\bigl(f(z)+g(z)\bigr) = 0$.
-On the other hand, it is reasonable to define $\nicefrac{c}{0} = \infty$ for
+\bigl(f(z)+g(z)\bigr) = 0$, so $\infty+\infty$ does not make sense.
+It is reasonable to define $\nicefrac{c}{0} = \infty$ for
 $c \not= 0$, $\nicefrac{c}{\infty} = 0$ for $c \not= \infty$,
 and $c \cdot \infty = \infty$ for $c \not= 0$.
-Just make sure to definitely avoid doing any additions and subtractions of
-infinities!
+We could also define $\infty \cdot \infty = \infty$, $\frac{0}{\infty} = 0$,
+and
+$\frac{\infty}{0} = \infty$.
+But the expressions $0 \cdot \infty$, $\frac{0}{0}$, and
+$\frac{\infty}{\infty}$ had better be left undefined.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1860,7 +1862,7 @@ and $C$ as a matrix.  It is really easy to invert $2 \times 2$ matrices.
 \end{exercise}
 
 \begin{exercise}
-For every LFT $f(z) = \frac{az+b}{cz+d}$ find $f^{-1}$.
+For every LFT $f(z) = \frac{az+b}{cz+d}$, find $f^{-1}$.
 Hint: Same hint as above.
 \end{exercise}
 \end{exbox}
