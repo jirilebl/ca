@@ -1379,7 +1379,7 @@ $2k\pi < \Im w \leq 2(k+1)\pi$, then $e^z=e^w$ implies $z=w$.
 
 \begin{exercise}%[\neededexmark]
 Use $e^{z+w} = e^z e^w$ and $e^0 = 1 \not= 0$ to show that $e^z \not=0$ for all
-$z \in \C$.  In other words, if a function $f$ satisfies $f(z+w)=f(z)f(w)$
+$z \in \C$.  In other words, show that if a function $f$ satisfies $f(z+w)=f(z)f(w)$
 and $f(0) = 1$, then $f(z) \not= 0$ for all $z$.
 \end{exercise}
 \end{exbox}
@@ -1589,26 +1589,29 @@ right-hand side we tacitly use the Riemann sphere sense ($z$ seems complex).
 This could, obviously, cause confusion.
 In this book, limits are going to be in the Riemann sphere sense
 unless either otherwise noted or obvious.
+If confusion could arise, we will write the extended real $\infty$
+as $+\infty$.
 
 \medskip
 
-The arithmetic that one can 
-reasonably define with the Riemann sphere $\infty$ is quite different from
-the $\infty$ of the extended reals
-(we may write the real infinity as $+\infty$ for emphasis).
-For finite number $z \in \C$, we could define $z+\infty = \infty$,
+The (partial) arithmetic that one can 
+reasonably define with the $\infty$ of the Riemann sphere
+is quite different from
+the $\infty$ of the extended reals.
+For $c \not= \infty$, we could define $z+\infty = \infty$,
 but neither $\infty+\infty$ nor $\infty-\infty$ makes sense.
 For instance, if $f(z) = z$ and $g(z) = -z$,
 then $\lim_{z \to \infty} f(z) = \infty$,
 $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
 \bigl(f(z)+g(z)\bigr) = 0$, so $\infty+\infty$ does not make sense.
-It is reasonable to define $\nicefrac{c}{0} = \infty$ for
+Unlike for the extended reals,
+it is reasonable (and useful) to define $\nicefrac{c}{0} = \infty$ for
 $c \not= 0$, $\nicefrac{c}{\infty} = 0$ for $c \not= \infty$,
 and $c \cdot \infty = \infty$ for $c \not= 0$.
-We could also define $\infty \cdot \infty = \infty$, $\frac{0}{\infty} = 0$,
-and
-$\frac{\infty}{0} = \infty$.
-But the expressions $0 \cdot \infty$, $\frac{0}{0}$, and
+%We could also define $\infty \cdot \infty = \infty$, $\frac{0}{\infty} = 0$,
+%and
+%$\frac{\infty}{0} = \infty$.
+The expressions $0 \cdot \infty$, $\frac{0}{0}$, and
 $\frac{\infty}{\infty}$ had better be left undefined.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
