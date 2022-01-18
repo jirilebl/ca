@@ -1598,14 +1598,14 @@ The (partial) arithmetic that one can
 reasonably define with the $\infty$ of the Riemann sphere
 is quite different from
 the $\infty$ of the extended reals.
-For $c \not= \infty$, we could define $z+\infty = \infty$,
+For $c \not= \infty$, we could define $c+\infty = \infty$,
 but neither $\infty+\infty$ nor $\infty-\infty$ makes sense.
 For instance, if $f(z) = z$ and $g(z) = -z$,
 then $\lim_{z \to \infty} f(z) = \infty$,
 $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
 \bigl(f(z)+g(z)\bigr) = 0$, so $\infty+\infty$ does not make sense.
 Unlike for the extended reals,
-it is reasonable (and useful) to define $\nicefrac{c}{0} = \infty$ for
+it is reasonable (and at times useful) to define $\nicefrac{c}{0} = \infty$ for
 $c \not= 0$, $\nicefrac{c}{\infty} = 0$ for $c \not= \infty$,
 and $c \cdot \infty = \infty$ for $c \not= 0$.
 %We could also define $\infty \cdot \infty = \infty$, $\frac{0}{\infty} = 0$,
@@ -1682,8 +1682,8 @@ f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
 \end{equation*}
 
 Translations are easy to understand, they just move the point.  Complex
-dilation $D_a$ is the traditional euclidean plane-geometry dilation by $\sabs{a}$
-and rotation by $\arg a$.  The inversion is the euclidean plane-geometry inversion
+dilation $D_a$ is the traditional euclidean plane geometry dilation by $\sabs{a}$
+and rotation by $\arg a$.  The inversion is the euclidean plane geometry inversion
 across the unit circle
 and complex conjugation, see \figureref{fig:inversion}.  The euclidean
 inversion across the circle simply inverts the distance to the origin:
@@ -1719,7 +1719,8 @@ that takes that circle or line to the real line.
 \end{exercise}
 \end{exbox}
 
-One way to view an LFT is as a $2 \times 2$ complex matrix.  For this purpose
+One way to view an LFT is as a $2 \times 2$ complex matrix.  For this
+purpose,
 we need to view the Riemann sphere as the so-called one-dimensional
 \emph{\myindex{projective space}}.
 Define the equivalence relation $\sim$ on $\C^2 \setminus \{ 0 \}$ by
@@ -1741,9 +1742,9 @@ We identify $\C\bP^1$ with $\C_\infty$ in the following
 way.  Denote by
 \glsadd{not:CP1pt}%
 $[z:w] \in \C \bP^1$
-the equivalence class (under $\sim$) of vectors in $\C^2$
-that contains $(z,w) \in \C^2$.
-Then define the map $\Psi \colon \C_\infty \to \C \bP^1$ as
+the equivalence class (under $\sim$) of vectors in $\C^2 \setminus \{0\}$
+that contains $(z,w) \in \C^2 \setminus \{0\}$.
+Define the bijection $\Psi \colon \C_\infty \to \C \bP^1$ as
 \begin{equation*}
 \Psi(z) =
 \begin{cases}
@@ -2125,10 +2126,10 @@ $\left[ \begin{smallmatrix}
 a & -b \\ b & a
 \end{smallmatrix} \right]$ corresponds to multiplication a complex number $a+ib$.
 Ergo, the derivative $Df|_{z_0}$ corresponds to multiplication by a
-complex number only if it is of the form
+complex number if only if it is of the form
 $\left[ \begin{smallmatrix}
 a & -b \\ b & a
-\end{smallmatrix} \right]$, or in other words,
+\end{smallmatrix} \right]$, in other words,
 \begin{equation*}
 \frac{\partial u}{\partial x}\Big|_{z_0} =
 \frac{\partial v}{\partial y}\Big|_{z_0}
@@ -2152,15 +2153,22 @@ that is to say,
 \end{equation*}
 So $f$ is complex differentiable at $z_0$ and $f'(z_0) = \xi$.
 
-We proved that if $f$ is differentiable at $z_0$ (in the real sense), then 
-the complex derivative exists at $z_0$ if and only if 
+We proved that if $f$ is differentiable at $z_0$ (in the real sense),
+with
 $\frac{\partial u}{\partial x}\big|_{z_0} = \frac{\partial v}{\partial
 y}\big|_{z_0}$ and $\frac{\partial v}{\partial x}\big|_{z_0} = -\frac{\partial
-u}{\partial y}\big|_{z_0}$.
-By working backwards, it is immediate
-that if $f$ is complex differentiable at $z_0$, then it is real
+u}{\partial y}\big|_{z_0}$, then
+the complex derivative exists at $z_0$.
+Conversely,
+if $f$ is complex differentiable at $z_0$, then it is real
 differentiable at $z_0$,
-as the complex derivative $f'(z_0)$ gives the $Df|_{z_0}$.  Let us formalize
+as the complex derivative $f'(z_0)$ gives the $Df|_{z_0}$, and the two
+equations 
+$\frac{\partial u}{\partial x}\big|_{z_0} = \frac{\partial v}{\partial
+y}\big|_{z_0}$ and $\frac{\partial v}{\partial x}\big|_{z_0} = -\frac{\partial
+u}{\partial y}\big|_{z_0}$
+must also hold.
+Let us formalize
 what we just proved.
 
 \begin{prop}
@@ -2174,7 +2182,12 @@ $\frac{\partial u}{\partial x}\big|_{z_0} =
 \frac{\partial v}{\partial y}\big|_{z_0}$
 and
 $\frac{\partial v}{\partial x}\big|_{z_0} =
--\frac{\partial u}{\partial y}\big|_{z_0}$ .
+-\frac{\partial u}{\partial y}\big|_{z_0}$.
+In this case,
+$f'(z_0) = 
+\frac{\partial u}{\partial x}\big|_{z_0} + i \frac{\partial v}{\partial
+x}\big|_{z_0} = \frac{\partial v}{\partial y}\big|_{z_0} - i \frac{\partial
+u}{\partial y}\big|_{z_0}$.
 \end{prop}
 
 If the partial derivatives exist and are continuous, then $f$ is
@@ -2207,7 +2220,7 @@ The equations \eqref{eq:CReqreal} are called the
 the equations first appeared in the work of d'Alembert, and
 it was Euler who first connected them to analytic functions.
 Perhaps they had better be called the French-guy--German-guy equations,
-except that Euler was really Swiss, he only lived in Germany for a long time.}.
+except that Euler was really Swiss---he only lived in Germany for a long time.}.
 Complex analysis, then, is the study of their solutions.
 
 Hence, continuously differentiable functions that satisfy
@@ -2217,7 +2230,7 @@ a function that is complex differentiable everywhere (a holomorphic
 function) is differentiable in the real sense,
 and thus the partial derivatives exist and satisfy the Cauchy--Riemann
 equations.  We will show later that holomorphic functions are
-continuously differentiable---and not just differentiable, they are
+continuously differentiable---and not just that, they are
 infinitely differentiable.
 
 \begin{exbox}
@@ -2297,6 +2310,8 @@ Follows from the standard real result,
 see \thmref{thm:svzerodersol} in the appendix.
 \end{proof}
 
+Next, what would calculus be without chain rule.
+
 \begin{prop}[Chain rule] \index{chain rule!complex derivative}
 Let $U \subset \C$ and $V \subset \C$ be open, $f \colon U \to V$
 complex differentiable at $z \in U$, and $g \colon V \to \C$ complex differentiable
@@ -2306,7 +2321,7 @@ is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)
 
 \begin{proof}
 We offer two proofs.  The first works only for holomorphic
-functions, and the second allow a generalization to nonholomorphic functions
+functions, and the second allows a generalization to nonholomorphic functions
 with the Wirtinger operators in the next section (an exercise).
 
 Let $h \not= 0$, and let $k = f(z+h) -f(z)$.  Then
@@ -2375,6 +2390,9 @@ is the $2 \times 1$ matrix (column vector) represented by $\gamma'(t)$.
 The result follows.
 \end{proof}
 
+Finally, every calculus student needs linearity, product and quotient rules,
+and the power rule.
+
 \begin{prop} \label{prop:sumproddiv}
 Let $U \subset \C$ be open, and $f \colon U \to \C$ and
 $g \colon U \to \C$ holomorphic.
@@ -2396,10 +2414,10 @@ Note that
 a holomorphic function is continuous, and so the set
 $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
 
-\begin{prop}[Power rule] \label{prop:powerrule}
+\begin{prop}[Power rule and its consequences] \label{prop:powerrule}
 \leavevmode
 \begin{enumerate}[(i)]
-\item For nonzero integers $n$, the function $z \mapsto z^n$ is holomorphic
+\item For every nonzero integer $n$, the function $z \mapsto z^n$ is holomorphic
 where defined (outside the origin if $n$ negative) and $(z^n)' = n z^{n-1}$.
 \item
 A polynomial $P(z) = \sum_{n=0}^d c_n z^n$ is
@@ -2422,8 +2440,8 @@ f(z)g(z+h) - f(z)g(z)$.
 \end{exercise}
 
 \begin{exercise}
-Prove the first two items of \propref{prop:powerrule}.
-Hint: For the power rule, first prove that $z$ is complex differentiable,
+Prove the first item of \propref{prop:powerrule}, the power rule.
+Hint: First prove that $z$ is complex differentiable,
 then prove $z^n$ is differentiable for positive $n$ (use product rule and
 induction), and finally prove
 that $z^n$ is differentiable for negative $n$.
@@ -2433,9 +2451,9 @@ computing it.
 
 \begin{exercise}
 Prove the last two items of \propref{prop:powerrule}:
-Polynonomials $P(z)$ are holomorphic on $\C$,
+Polynonomials $P(z)$ are holomorphic on $\C$ (and compute their derivative),
 and rational functions
-$\frac{P(z)}{Q(z)}$ is holomorphic on the set where $Q$ is nonzero.
+$\frac{P(z)}{Q(z)}$ are holomorphic on the set where $Q$ is nonzero.
 \end{exercise}
 \end{exbox}
 
