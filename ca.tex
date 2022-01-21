@@ -2018,7 +2018,8 @@ Then
 \end{equation*}
 So $P(z_0+h)$ is approximated (locally) by $c_0 + c_1 h$
 up to an error that vanishes faster than $h$.
-We should emphasize that the limits are as a complex $h$ goes to $0$.
+We should emphasize that the limits are \myquote{as a \emph{complex} $h$
+goes to $0$.}
 
 Accordingly, we wish to study functions that are
 locally approximated by $c_0 + c_1 h$ in the same way.  More formally,
@@ -2028,8 +2029,10 @@ f(z_0+h) = \underbrace{f(z_0)}_{c_0} + \underbrace{\xi h}_{c_1 h} + o(\sabs{h})
 \end{equation*}
 for some $\xi \in \C$, where
 \glsadd{not:oofh}%
-$o(\sabs{h})$ means any function of $h$
-that goes to zero faster than $\sabs{h}$.
+$o(\sabs{h})$ means any
+function $\varphi(h)$ such that
+$\lim_{h\to0} \frac{\varphi(h)}{\sabs{h}} = 0$.
+% function of $h$ that goes to zero faster than $\sabs{h}$.
 
 \begin{defn}
 Suppose $U \subset \C$ is open.
@@ -2205,8 +2208,8 @@ Then
 \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} , \qquad
 \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
 \end{equation}
-if and only if $f$ is complex differentiable at all $z \in U$, or in
-other words, if
+if and only if $f$ is complex differentiable at all $z \in U$ (holomorphic), or in
+other words,
 \begin{equation*}
 f'(z) =
 \lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
