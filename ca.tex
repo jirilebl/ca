@@ -2208,8 +2208,8 @@ Then
 \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} , \qquad
 \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
 \end{equation}
-if and only if $f$ is complex differentiable at all $z \in U$ (holomorphic), or in
-other words,
+if and only if $f$ is holomorphic (complex differentiable at all $z \in U$),
+or in other words,
 \begin{equation*}
 f'(z) =
 \lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
@@ -2355,8 +2355,8 @@ The $2 \times 2$ matrices $Dg|_w$ and $Df|_z$ correspond to complex
 numbers as $f$ and $g$ are both holomorphic.  A product $Dg|_w Df|_z$
 of two such matrices again corresponds to a complex number, the product of
 the two.
-So $D(g \circ f)|_z$ corresponds to the pertinent complex number and $g \circ f$
-complex differentiable at $z$, and the given equality holds.
+So $D(g \circ f)|_z$ corresponds to the pertinent complex number.
+Hence $g \circ f$ is complex differentiable at $z$ and the given equality holds.
 \end{proof}
 
 This simple statement of the chain rule still holds
@@ -2474,6 +2474,8 @@ Analytic?}  The American Mathematical Monthly, Vol.\ 85, No.\ 4 (Apr.,
 1978), pp. 246--256.} if we only assume the existence of partial derivatives,
 as the following exercise shows.
 
+%Comment: This exercise is here and not in the previous section because
+%it is convenient to have the power rule and chain rule.
 \begin{exbox}
 \begin{exercise} \label{exercise:nonholCRsol}
 Let $f(0) = 0$ and $f(z) = e^{-z^{-4}}$ for $z \not=0$.  Prove that partial
@@ -2697,7 +2699,8 @@ z^2 ( 3 \bar{z}^2 ) + 0 .
 \end{equation*}
 So at least for polynomials, a function is holomorphic 
 if it does not depend on $\bar{z}$.
-However, the function $z^2 \bar{z}^3 + z^{10}$ is not holomorphic
+Note that
+the function $z^2 \bar{z}^3 + z^{10}$ is not holomorphic
 and
 $\frac{d}{dz} \bigl[ z^2 \bar{z}^3 + z^{10} \bigr]$
 does not exist.
@@ -2835,8 +2838,8 @@ If there exists a biholomorphism $f \colon U \to V$, we say that
 $U$ and $V$ are \emph{\myindex{biholomorphic}}.
 If $U = V$, then a biholomorphism $f$ is called an
 \emph{\myindex{automorphism}}\footnote{%
-The word automorphism is used in other contexts as well, it always means
-that it maps the set to itself and
+The word automorphism is used in other contexts as well.
+It always means that it maps the set to itself and
 is the right sort of equivalence in the context you are in.
 In topology it means a homeomorphism, in differential geometry a
 diffeomorphism, in group theory an isomorphism.}.
@@ -2917,7 +2920,7 @@ so using the Cauchy--Riemann equations, we compute the Jacobian determinant,
 +
 {\left(\frac{\partial v}{\partial x}\right)}^2
 =
-\abs{f'(z)}^2 .
+\babs{f'(z)}^2 .
 \end{equation*}
 The Jacobian determinant is nonzero (positive) and $Df$ is invertible
 whenever $f'(z)$ is nonzero.
