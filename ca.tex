@@ -2799,7 +2799,9 @@ g(z) =
 for all $z \in U$ (note the bar on the $h$), then $f$ is real differentiable, and satisfies
 \begin{equation*}
 \frac{\partial f}{\partial z} \equiv 0, \qquad \text{and} \qquad
-\frac{\partial f}{\partial \bar{z}}\Big|_{p} = g(p).
+%\frac{\partial f}{\partial \bar{z}}\Big|_{p} = g(p) \quad
+%\text{for all } p \in U.
+\frac{\partial f}{\partial \bar{z}} \equiv g .
 \end{equation*}
 \end{exercise}
 
@@ -2939,8 +2941,8 @@ differentiable with $D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
 
 An inverse of a $2 \times 2$ matrix that represents a complex number also
 represents a complex number (the reciprocal).  So if $f$
-satisfied the Cauchy--Riemann equations, so does the inverse.  We 
-instantly obtain the holomorphic inverse function theorem.
+satisfies the Cauchy--Riemann equations, so does the inverse.
+We instantly obtain the holomorphic inverse function theorem.
 
 \begin{thm}[Inverse function theorem for holomorphic functions]
 \index{inverse function theorem!holomorphic functions}
@@ -2952,7 +2954,7 @@ Then there exist open sets $V, W \subset \C$ such that
 $p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is injective
 (one-to-one),
 and hence a $g \colon W \to V$ exists such that
-$g(y) = (f|_V)^{-1}(y)$.
+$g(w) = (f|_V)^{-1}(w)$.
 Furthermore, $g$ is holomorphic and
 \begin{equation*}
 g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} \qquad \text{for all $w \in W$}.
@@ -3228,7 +3230,8 @@ which is, after all, just a sum of such terms.  This means that every holomorphi
 function really behaves like $z^n$ behaves near the origin for some $n$.
 
 A key point about the function $z \mapsto z^n$ is that it is $n$-to-$1$.
-That is, there are $n$ distinct roots of every complex number except $0$,
+That is, there are $n$ distinct $n$\textsuperscript{th} roots of every complex
+number except $0$,
 which has in some sense also $n$ roots, but they are all $0$.  For a nonzero
 number $w$, write $w = re^{i\theta}$.  It is easy to verify that
 the $n$ $n$\textsuperscript{th} roots of $w$ are 
@@ -3381,14 +3384,15 @@ By the standard root test, the series $\sum \sabs{c_n} r^n$
 converges if
 \begin{equation*}
 \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n} r^n} = 
-r \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n}} = r \frac{1}{R} < 1 ,
+r \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n}} = r \frac{1}{R} < 1 .
 \end{equation*}
-and it diverges if $r \frac{1}{R} > 1$.  In other words,
-the series converges if
-$r < R$
-and diverges if
-$r > R$.  See \figureref{fig:radiusconvcomplex}.
-We have proved the following proposition:
+So the power series converges absolutely when $r < R$.
+If $r \frac{1}{R} > 1$, then for infinitely many $n$,
+$\sabs{c_n {(z-p)}^n} > 1$. So the series
+diverges if $r > R$.
+%$\sum c_n {(z-p)}^n$ diverges.
+See \figureref{fig:radiusconvcomplex}.
+We proved:
 
 \begin{prop}[Cauchy--Hadamard theorem\footnote{%
 Cauchy published this result in 1821, and Hadamard, despite also being
