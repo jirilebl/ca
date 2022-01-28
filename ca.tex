@@ -2954,7 +2954,7 @@ Then there exist open sets $V, W \subset \C$ such that
 $p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is injective
 (one-to-one),
 and hence a $g \colon W \to V$ exists such that
-$g(w) = (f|_V)^{-1}(w)$.
+$g(w) = (f|_V)^{-1}(w)$ for all $w \in W$.
 Furthermore, $g$ is holomorphic and
 \begin{equation*}
 g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} \qquad \text{for all $w \in W$}.
@@ -3434,7 +3434,7 @@ is bounded if $R$ is the radius of convergence.
 The two series $\sum z^n$ and $\sum n z^n$ have
 radius of convergence 1, while the sequence of coefficients
 is bounded in the first case and
-not in the second.  However, $\{ n r^n \}$ is bounded for all $r < 1$.
+not in the second.  However, $\{ n r^n \}$ is bounded for every $r < 1$.
 
 \begin{proof}
 Suppose the series converges in $\Delta_{R}(p)$ and
@@ -3491,7 +3491,7 @@ so it converges, and
 \abs{\sum_{n=m+1}^\infty c_n {(z-p)}^n} \leq
 \sum_{n=m+1}^\infty \sabs{c_n} \sabs{z-p}^n .
 \end{equation*}
-The right-hand side goes to zero uniformly in $z \in K$,
+The right-hand side goes to zero uniformly in $z \in K$ as $m \to \infty$,
 and so
 a uniformly absolutely convergent series also converges
 uniformly.  So the name fits the crime.
@@ -3594,7 +3594,7 @@ then use the absolute convergence.
 \end{exbox}
 
 \begin{remark}
-The last few exercises say that we can add and multiply series; however,
+The last few exercises say that we can add and multiply power series; however,
 we won't really need them as the two results are easy for holomorphic
 functions, and we will show later that power series are
 holomorphic and vice versa.  You should still try them, they are good
@@ -3667,7 +3667,7 @@ Let $f \colon \Delta_R(p) \to \C$ be defined by
 f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n ,
 \qquad \text{converging in } \Delta_R(p) .
 \end{equation*}
-Then $f$ is complex differentiable at every $z \in \Delta_R(p)$ and
+Then $f$ is complex differentiable at every $z \in \Delta_R(p)$, and
 \begin{equation*}
 f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1} ,
 \qquad \text{converging in } \Delta_R(p) .
@@ -3694,7 +3694,7 @@ term-wise.  For $z_0,z \in \Delta_R(0)$,
 =
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k} .
 \end{equation*}
-The right-hand side is defined even if $z_0 = z$.
+The right-hand side is defined even if $z = z_0$.
 We must show that this expression is continuous as a function of $z$
 at $z_0$.
 It is continuous provided that the series
@@ -3717,7 +3717,7 @@ n
 \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1} .
 \end{equation*}
 The expression
-$\sabs{c_n} r^{n-1}$ is bounded by some $M > 0$ because the series for $f$ converges
+$\sabs{c_n} r^{n-1}$ is bounded by some $M > 0$, because the series for $f$ converges
 in $\Delta_R(0)$ and $r < R$.
 As
 \begin{equation*}
@@ -3762,9 +3762,10 @@ differentiable.
 
 \begin{cor} \label{cor:convpowserinfdif}
 \pagebreak[2]
-Let $f \colon \Delta_R(p) \to \C$ be defined by a convergent power series
+Let $f \colon \Delta_R(p) \to \C$ be defined by
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
+f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n ,
+\qquad \text{converging in } \Delta_R(p) .
 \end{equation*}
 Then $f$ is infinitely complex differentiable in $\Delta_R(p)$,
 and the $k$\textsuperscript{th} derivative is given by
@@ -23111,7 +23112,7 @@ $f \colon U \to \R^n$ is continuously differentiable, $p \in U$, and $Df|_p$ is 
 Then there exist open sets $V, W \subset \R^n$ such that
 $p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is injective (one-to-one),
 and hence a $g \colon W \to V$ exists such that
-$g(y) = (f|_V)^{-1}(y)$.
+$g(y) = (f|_V)^{-1}(y)$ for all $y \in W$.
 See \figureref{fig:inversefuncRn}.
 Furthermore, $g$ is continuously differentiable
 and 
