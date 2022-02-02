@@ -3170,7 +3170,7 @@ computed using
 =
 e^{i(\theta-\psi)} .
 \end{equation*}
-Similarly the angle between 
+Similarly, the angle between 
 $\xi z$ and $\xi w$ can be computed using
 \begin{equation*}
 \frac{\xi z\overline{\xi w}}{\sabs{\xi z}\sabs{\xi w}} 
@@ -3179,11 +3179,16 @@ $\xi z$ and $\xi w$ can be computed using
 =
 \frac{z\overline{w}}{\sabs{z}\sabs{w}} = e^{i(\theta-\psi)}.
 \end{equation*}
-So the (signed) angle is the same, and multiplication by $\xi$ preserves
+The (signed) angle is the same, so $z \mapsto \xi z$ preserves
 orientation and angles.
 \end{proof}
 
-Another way to see that if $M$ is multiplication by $\xi$, then
+Per \exerciseref{exercise:reallinmap},
+an arbitrary $M$ is given by
+$Mz = \xi z + \zeta \bar{z}$ for some $\xi,\zeta \in \C$.
+The proposition says that $M$ preserves orientation and angles if and only
+if $\zeta=0$.
+Another way to see that if $Mz = \xi z$, then
 $M$ preserves orientation is to note that
 $\det M = \sabs{\xi}^2 > 0$.
 
@@ -3969,16 +3974,16 @@ we know $f$ on all of $U$.
 
 \begin{proof}
 Suppose $f$ is not identically zero.
-The set $Z_f$ is closed as $f$ is continuous.  So we have to show
+The set $Z_f$ is closed (in $U$, of course) as $f$ is continuous.  We must show
 that points of $Z_f$ are isolated.
-Without loss of generality suppose that $0 \in U$ and $0 \in Z_f$,
+Without loss of generality suppose $0 \in U$ and $0 \in Z_f$,
 and suppose $0$ is not in the interior of $Z_f$.
-Write $f$ near $0$ as
+Near $0$, write
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n .
 \end{equation*}
-As $f(0) = 0$, $c_0 =0$.  Let $k$ be the first $k$ such that $c_k \not=0$,
-such a $k$ exists as otherwise $f$ would be identically zero near $0$
+As $f(0) = 0$, $c_0 =0$.  Let $k$ be the smallest $k$ such that $c_k \not=0$;
+this $k$ exists as otherwise $f$ would be identically zero near $0$
 and we assumed $0$ is not in the interior of $Z_f$.  Then
 \begin{equation*}
 f(z) = z^k \sum_{n=k}^\infty c_n z^{n-k} = z^k g(z) .
@@ -4359,8 +4364,8 @@ Hint: First prove $\gamma^{-1}$ is a continuous function on
 $\gamma\bigl([a,b]\bigr)$ using that closed subsets of $[a,b]$
 are compact.
 \item
-Prove in the case when $f=1$.
-Hint: fundamental theorem of calculus.
+Prove in the case when $f\equiv 1$.
+Hint: the fundamental theorem of calculus.
 \item
 Prove the proposition for continuous $f$.
 Hint: Cut the path into small pieces where
