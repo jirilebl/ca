@@ -3685,7 +3685,7 @@ f'(z) = \sum_{n=1}^\infty n c_n {(z-p)}^{n-1} ,
 
 \begin{proof}
 Without loss of generality, let $p=0$.
-Differentiate $z^n$ at $z_0$ by considering the difference
+Differentiate $z^n$ at some $z_0$ by considering the difference
 quotient
 \begin{equation*}
 \frac{z^n-z_0^n}{z-z_0}
@@ -3693,7 +3693,8 @@ quotient
 \sum_{k=0}^{n-1}
 z^k z_0^{n-1-k} ,
 \end{equation*}
-which goes to $n z_0^{n-1}$ as $z \to z_0$.
+which goes to $n z_0^{n-1}$ as $z \to z_0$, as
+the right-hand side is defined even if $z = z_0$.
 Apply the formula to $f$
 term-wise.  For $z_0,z \in \Delta_R(0)$,
 \begin{equation*}
@@ -3703,8 +3704,7 @@ term-wise.  For $z_0,z \in \Delta_R(0)$,
 =
 \sum_{n=1}^\infty c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k} .
 \end{equation*}
-The right-hand side is defined even if $z = z_0$.
-We must show that this expression is continuous as a function of $z$
+We must show that the expression on the right gives as a continuous function of $z$
 at $z_0$.
 It is continuous provided that the series
 in the expression converges uniformly for $z$ in a
@@ -3874,8 +3874,6 @@ $f(z) = e^z$.
 \end{prop}
 
 \begin{proof}
-It is not hard to check directly (exercise)
-that the series converges in all of $\C$.
 We now know that power series are holomorphic and we know how
 to differentiate them, we do it term-by-term, that is, \myquote{formally.}
 Let $f$ be a convergent power series at the origin
@@ -3893,6 +3891,8 @@ f'(z) =
 \end{equation*}
 As the coefficients of the power series at zero are unique, we get
 $c_n = (n+1) c_{n+1}$.  By induction, $c_n = \frac{1}{n!}$.
+It is not hard to check directly (exercise)
+that the series a converges in all of $\C$.
 
 Let us prove that $f$ is the exponential.  Both functions are
 holomorphic, the exponential is never zero, and both are equal to their
