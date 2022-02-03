@@ -4052,7 +4052,7 @@ Suppose $U \subset \C$ is a domain, $a, b, c \in \C$, and $z_0 \in U$.
 Show that
 an analytic solution $f$ on $U$ to the linear equation $f'(z) = a f(z) + b$
 given $f(z_0) = c$ is unique.  Hint: Show that the power series at $z_0$ is uniquely
-determined.
+determined.  Just show uniqueness, no need to show existence.
 \end{exercise}
 \end{exbox}
 
@@ -5704,7 +5704,7 @@ for analytic functions are true for holomorphic functions.  And it goes the
 other way too.  For example, it is easy to show that the composition of
 holomorphic functions is holomorphic (the chain rule).  It is much
 harder to prove directly that composition of power series is again a
-power series.  Similarly for product of power series.
+power series.  Similarly for a product of power series.
 And we have just proved what we postponed in a remark: A convergent power
 series defines an analytic function.  We only proved before that it defines
 a holomorphic function.
@@ -6353,11 +6353,12 @@ Expand $f$ at the origin.
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n .
 \end{equation*}
-As $f$ converges in a disc of an arbitrary radius $r$, the Cauchy estimates
+As $f$ is holomorphic on a disc of arbitrary radius, the Cauchy estimates
 say
 \begin{equation*}
 \sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^n} \leq
-\frac{M}{r^n} .
+\frac{M}{r^n}
+\qquad \text{for all } r > 0 .
 \end{equation*}
 Letting $r \to \infty$ shows that $c_n = 0$ for $n \geq 1$.  In other
 words, $f(z) = c_0$ for all $z$.
@@ -6552,7 +6553,7 @@ h(z) =
 \int_\Gamma \psi(z,w) \, dw
 \avoidbreak
 \end{equation*}
-is a holomorphic function $U$.
+is a holomorphic function on $U$.
 \end{cor}
 
 For a continuous $f \colon \partial \Delta_r(p) \to \C$, define
