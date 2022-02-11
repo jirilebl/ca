@@ -22386,7 +22386,7 @@ Suppose $h \in \R^n$, $h \not= 0$.  Compute
 \begin{equation*}
 \begin{split}
 \frac{\snorm{(A-B)h}}{\snorm{h}} & =
-\frac{\snorm{f(x+h)-f(x) - Ah - (f(x+h)-f(x) - Bh)}}{\snorm{h}} \\
+\frac{\snorm{-\bigl( f(x+h)-f(x) - Ah \bigr) + f(x+h)-f(x) - Bh}}{\snorm{h}} \\
 & \leq
 \frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} + \frac{\snorm{f(x+h)-f(x) -
 Bh}}{\snorm{h}} .
