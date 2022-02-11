@@ -22458,17 +22458,17 @@ differentiable at $p \in U$.  Then $f$ is continuous at $p$.
 \end{prop}
 
 \begin{proof}
-Another way to write the differentiability of $f$ at $p$ is to first write
+Another way to write the differentiability of $f$ at $p$ is to consider
 \begin{equation*}
-r(h) = f(p+h)-f(p) - Df|_p h ,
+r(h) = f(p+h)-f(p) - Df|_p h .
 \end{equation*}
-and $\frac{\snorm{r(h)}}{\snorm{h}}$ must go to zero as $h \to 0$.
-So
-$r(h)$ itself must go to zero.  The mapping $h \mapsto Df|_p h$
-is a linear mapping between finite-dimensional spaces, it is
-therefore continuous
-and goes to zero as $h \to 0$.  So
-$f(p+h)$ must go to $f(p)$ as $h \to 0$.
+The function $f$ is differentiable at $p$ if
+$\frac{\snorm{r(h)}}{\snorm{h}}$ goes to zero as $h \to 0$,
+so
+$r(h)$ goes to zero.  The derivative $D f|_p$
+is a linear map from $\R^n$ to $\R^m$ and hence
+$D f|_p h \to 0$ as $h \to 0$.  Thus,
+$f(p+h)$ goes to $f(p)$ as $h \to 0$.
 \end{proof}
 
 The derivative is itself a linear operator on the space of differentiable
@@ -22506,9 +22506,9 @@ and
 \end{equation*}
 \end{proof}
 
-If $A \colon X \to Y$ and $B \colon Y \to Z$ are linear maps, then 
+If $A \colon \R^n \to \R^m$ and $B \colon \R^m \to \R^k$ are linear, then 
 they are their own derivative.  The composition
-$BA$, a linear map from $X$ to $Z$, is also its own derivative, and
+$BA$, a linear map from $\R^n$ to $\R^k$, is also its own derivative, and
 so the derivative of the composition is the composition
 of the derivatives.
 As differentiable maps are \myquote{infinitesimally close}
@@ -22741,8 +22741,8 @@ variable.  Show $f$ is differentiable and find $Df$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f \colon \R^n \to \R$ and $h \colon \R^n \to \R$ are two 
-differentiable functions such that $Df|_x = Dh|_x$ for all $x \in \R^n$.
+Suppose $f \colon \R^n \to \R$ and $h \colon \R^n \to \R$ are 
+differentiable and $Df|_x = Dh|_x$ for all $x \in \R^n$.
 Prove that
 if $f(0) = h(0)$, then $f(x) = h(x)$ for all $x \in \R^n$.
 \end{exercise}
