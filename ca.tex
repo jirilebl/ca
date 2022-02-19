@@ -835,9 +835,10 @@ If $z,w \in \C$, then
 \begin{enumerate}[(i)]
 \item
 $\sabs{\Re z\bar{w}} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz inequality\footnote{%
-Some say it should be Cauchy--Bunyakovsky--Schwarz, but that is wrong.
-Bunyakovsky and Schwarz proved the infinite-dimensional version.  This is
-just Cauchy inequality, but lamentably that name refers to a different
+Some wrongly say it should be Cauchy--Bunyakovsky--Schwarz.
+Bunyakovsky and Schwarz proved the infinite-dimensional version.
+This version ought to be called
+Cauchy inequality, but lamentably that name could refer to a different
 inequality, one that we will call the Cauchy estimates.}, note: $\Re z
 \bar{w}$ is the real dot product),\index{Cauchy--Schwarz}
 \item
@@ -1293,7 +1294,7 @@ $z$ and $w$ respectively.  Write $\theta$ for the angle between $\ell_z$ and
 $\ell_w$.  Then prove that
 $\Re z\bar{w} = \sabs{z} \sabs{w} \cos \theta$.
 Note that $\Re z\bar{w}$ is the standard real dot product in $\R^2$, and so
-this is the formula for the dot product from calculus.
+you are asked to prove the formula for the dot product from calculus.
 \end{exercise}
 \end{exbox}
 
@@ -1458,7 +1459,7 @@ and think of the corresponding neighborhood of the origin.
 More concretely, we can give $\C_{\infty}$ a metric space structure.
 Let $S^2$ be the unit sphere in $\R^3$,
 that is, the set described by $x^2 + y^2 + z^2 = 1$ if $(x,y,z)$ are the
-coordinates.\footnote{This is possibly the only instance in this book where
+coordinates.\footnote{This paragraph is possibly the only instance in this book where
 $z$ is a real number.}  The plane $\R^2$ with coordinates $(x,y)$ can be
 identified with $\C$ with coordinate $\xi$ by taking $x+iy = \xi$.
 Given any point $p \in S^2$ that is not the north pole $(0,0,1) \in S^2$,
@@ -1588,7 +1589,7 @@ For example,
 Here on the left-hand side we tacitly use the extended real sense
 ($x$ is real, no?) and on the
 right-hand side we tacitly use the Riemann sphere sense ($z$ seems complex).
-This could, obviously, cause confusion.
+Such implicit assumptions could, obviously, cause confusion.
 In this book, limits are going to be in the Riemann sphere sense
 unless either otherwise noted or obvious.
 If confusion could arise, we will write the extended real $\infty$
@@ -1850,7 +1851,7 @@ unit disc $\D$.  Let us see why.  The map takes $z \in \C$ to the unit disc if
 \end{equation*}
 In other words, $\sabs{z+i} > \sabs{z - i}$: The distance of $z$
 to $-i$ is larger than the distance of $z$ to $i$.  It is straightforward
-plane geometry to see this means that $z \in \bH$.  See
+plane geometry to see that $z \in \bH$.  See
 \figureref{fig:cayleydisc}.
 \begin{myfig}
 \subimport*{figures/}{cayleydisc.pdf_t}
@@ -1905,7 +1906,7 @@ The definition is extended to when one of the numbers is $\infty$ by simply
 erasing the affected terms from the ratios.  For instance, if $z_1=\infty$,
 then pretend that $z_3-\infty$
 is really equal to $z_4-\infty$ and
-thus they cancel---this makes sense as $\lim_{z\to\infty} \frac{z_3-z}{z_4-z} = 1$.
+thus they cancel---which makes sense as $\lim_{z\to\infty} \frac{z_3-z}{z_4-z} = 1$.
 Consequently,
 \begin{align*}
 (\infty,z_2;z_3,z_4)
@@ -2068,7 +2069,7 @@ If $P(z)$ is a polynomial, then $P \colon \C \to \C$ is holomorphic.
 
 The most basic result about holomorphic functions is that they are
 continuous.
-This can be proved either directly from the definition (exercise),
+This fact can be proved either directly from the definition (exercise),
 or using that a holomorphic function is
 (real) differentiable as we will observe shortly.
 
@@ -2783,7 +2784,7 @@ and
 \frac{\partial g}{\partial \bar{z}}\Big|_{f(p)}
 \frac{\partial \bar{f}}{\partial \bar{z}}\Big|_p .
 \end{equation*}
-Remark: This almost makes it seem like a nonholomorphic function is a
+Remark: This chain rule almost makes it seem like a nonholomorphic function is a
 function of not just $z$, but two \myquote{independent} variables $z$ and
 $\bar{z}$.
 \end{exercise}
@@ -3234,8 +3235,8 @@ To understand holomorphic functions locally,
 it is sufficient to understand $z \mapsto z^n$.  We will prove that
 holomorphic functions are just power series and so we can always factor
 a $z^n$ for some $n$ out of a power series that vanishes at the origin,
-which is, after all, just a sum of such terms.  This means that every holomorphic
-function really behaves like $z^n$ behaves near the origin for some $n$.
+which is, after all, just a sum of such terms.  Consequently, every holomorphic
+function really behaves sort of like $z^n$ behaves near the origin for some $n$.
 
 A key point about the function $z \mapsto z^n$ is that it is $n$-to-$1$.
 That is, there are $n$ distinct $n$\textsuperscript{th} roots of every complex
@@ -3384,9 +3385,9 @@ R = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} ,
 \end{equation}
 where we interpret $\nicefrac{1}{\infty} = 0$ and $\nicefrac{1}{0} = \infty$,
 so $R=\infty$ is allowed.\footnote{%
-This is not the \myquote{extended reals sense,}
-we are really extending just the nonnegative reals, and that's why
-something like $\nicefrac{1}{0}=\infty$ makes sense here, for the same
+We are not using the \myquote{extended reals sense} here,
+we are really extending just the nonnegative reals, and so
+something like $\nicefrac{1}{0}=\infty$ makes sense, for the same
 reason as on the Riemann sphere.}
 By the standard root test, the series $\sum \sabs{c_n} r^n$
 converges if
@@ -4124,8 +4125,8 @@ and these limits are nonzero.
 Another way to say it is that $\gamma'(t)$ extends to a nonzero
 continuous function on each closed interval $[t_{\ell-1},t_{\ell}]$.
 Allowing these \myquote{corners} makes working with paths easier
-as we can define them easily piece-wise, and finitely many corners like
-this make no difference for integrals.
+as we can define them easily piece-wise, and finitely many such corners
+make no difference for integrals.
 Do note also that we are saying that paths are continuous.  We will allow
 discontinuities just a little later with \myquote{chains.}
 
@@ -4184,7 +4185,7 @@ a \emph{\myindex{contour integral}}.}
 The right-hand side makes sense.
 The integrand is undefined
 at finitely many points (where $\gamma'(t)$ does not exist),
-but it is piecewise continuous, and this is enough
+but it is piecewise continuous, which is enough
 to be Riemann integrable: On each closed interval
 $[t_{\ell-1},t_\ell]$, the integrand extends to a continuous
 function.
@@ -4930,7 +4931,7 @@ of $T$ as
 \end{myfig}
 
 \begin{thm}[Cauchy--Goursat\footnote{%
-What makes this the Goursat theorem
+What makes this theorem the Goursat theorem
 rather than just another statement of Cauchy's theorem
 is that in the proof, we are only assuming that the complex derivative exists
 and not that it is continuous, which is what Cauchy
@@ -5661,7 +5662,8 @@ $\frac{1}{\zeta-z}$ as
 \frac{1}{\zeta-p}
 \frac{\zeta-p}{\zeta-z}
 \end{equation*}
-and then using the geometric series.  This is a common technique:
+and then using the geometric series.
+The proof illustrates a common technique:
 Given an
 integral of a function against a kernel,
 take a feature of the kernel, in this case having a series, and prove that the
@@ -5918,7 +5920,7 @@ Compute
 Give a different proof of the Cauchy formula for derivatives by using the difference
 quotient.  First show the formula for $f'$, then again using the difference
 quotient and the fact that the kernel (the function inside) is holomorphic
-in $z$, show the formula for $f''$, etc.  For this to work it is
+in $z$, show the formula for $f''$, etc.  For this procedure to work it is
 not necessary to assume that $f'$ is holomorphic, it will follow from your
 work.
 \end{exercise}
@@ -5929,7 +5931,7 @@ Suppose $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$,
 where $U \subset \C$ is open, and for every fixed $t \in (a,b)$, the function
 $z \mapsto f(z,t)$ is holomorphic.  Prove that
 $\frac{\partial f}{\partial z}$ is a continuous function of $U \times
-(a,b)$.  Then show that this means that
+(a,b)$.  As a consequence, show that
 $\frac{\partial f}{\partial x}$
 and
 $\frac{\partial f}{\partial y}$ are continuous (where $z=x+iy$).
@@ -5973,7 +5975,7 @@ a primitive $F$ in the disc $U$, and $f = F'$ is thus holomorphic
 as complex derivatives are holomorphic.
 \end{proof}
 
-Let us remark that in the proof,
+We remark that in the proof,
 the reduction to a disc (or some other simpler set)
 is important.  It is not true
 that every function satisfying the hypotheses of Morera's theorem has a
@@ -6126,7 +6128,7 @@ $\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence
 $\sabs{f(re^{it})}=\Re f(re^{it})$.  Thus $\Im f(re^{it}) = 0$
 and 
 $f(re^{it})=\sabs{f(re^{it})} = f(0)$ for all $t$.
-This is all true for every small enough $r$, and consequently the set where
+This reasoning works for every small enough $r$, and consequently the set where
 $f(z) = f(0)$ contains a small disc.  As holomorphic functions are analytic
 the identity theorem (\thmref{thm:identity}) implies that $f$ is constant in
 $U$.
@@ -6224,7 +6226,7 @@ Liouville's theorem on entire holomorphic functions, which at once gives the
 fundamental theorem of algebra.
 Some analysts like to make fun of algebraists at this stage, saying that the
 standard proof of their fundamental theorem uses analysis.
-One can take this even further.
+One can go even further.
 It is not a theorem of algebra at all!
 It is a theorem in
 complex analysis.\footnote{There! It's ours now and you can't have it back.}
@@ -6283,7 +6285,7 @@ Cauchy estimates say that
 $\sabs{c_n} \leq \frac{M}{r^n}$.
 But if $f(z) = \frac{M}{r^n} z^n$, then
 $\sabs{c_n} = \frac{M}{r^n}$.  It is left as an exercise that up to
-multiplication by $e^{i\theta}$, this is the only such example.
+multiplication by $e^{i\theta}$, this example is the only one.
 
 \begin{exbox}
 \begin{exercise}[Easy]
@@ -6500,7 +6502,7 @@ holomorphic.
 
 \begin{proof}[Proof B]
 The second proof\footnote{%
-For no good rational reason, this is the one I have seen more often,
+For no good rational reason, this proof is the one I have seen more often,
 possibly because complex analysts are often PDE
 people and they rather differentiate than integrate.}
 is to apply Wirtinger derivatives and differentiate under the integral:
@@ -6672,7 +6674,7 @@ we can see that uniform convergence on compact sets is enough.
 In other words, uniform convergence on compact subsets is the right topology
 for continuous functions.
 
-It is rather surprising that this is the right topology for holomorphic
+It is rather surprising that this topology is the right one for holomorphic
 functions.  For real
 differentiable functions nothing like that holds: $\sabs{x}^{1+1/n}$
 is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$,
@@ -7232,7 +7234,7 @@ e^{\log \sabs{z}} e^{i \Arg z}
 \sabs{z} e^{i \Arg z} = z .
 \end{equation*}
 So $L$ is the inverse of the exponential, at least for $z \in U$.
-This means in particular that $L$ is holomorphic by the inverse function
+In particular, $L$ is holomorphic by the inverse function
 theorem.
 Take the derivative of both sides of $z = e^{L(z)}$,
 \begin{equation*}
@@ -7326,19 +7328,19 @@ a branch of the logarithm in every $U$, but for example we can do it in every
 star-like $U$ where $0 \notin U$.  In general, one can define a branch of
 the logarithm in every simply connected domain, that is, a domain without holes,
 that does not contain zero.
-More on this later.  Similarly, we define branches of $\log (z-p)$,
+More on that later.  Similarly, we define branches of $\log (z-p)$,
 a primitive of $\frac{1}{z-p}$, in which case the domain
 should not contain $p$.
 
 We may also talk about branches more loosely, and talk
-about following them along a path.  That doesn't mean that we really define
-a single branch, it means that we define a branch in some small open set,
+about following them along a path.  We don't define
+a single branch---we define a branch in some small open set,
 follow its values for a while, then switch to another branch that 
-happens to agree with the first branch at least at the point where we
-switch.  See \figureref{fig:followbranch}.  This is really what we did in the
-\myquote{computation} above.  We followed $\log$ from $1$ along the circle until we
-ended up at $1$ again, and our branches that we followed ended up $2\pi i$
-off.  We will see an example of this briefly.
+happens to agree with the first branch at the point where we
+switch.  See \figureref{fig:followbranch}.  Really, we did precisely that in the
+\myquote{computation} above:  We followed $\log$ from $1$ along the circle until we
+ended up at $1$ again, and the branches that we followed ended up $2\pi i$
+off.  We will see this procedure used more formally in just a moment.
 
 %Used in two places
 \begin{myfig}
@@ -8188,7 +8190,7 @@ Prove that $U = U_1 \cup U_2$ is a simply connected domain.
 Let $U_1,U_2 \subset \C$ be two simply connected domains such that $U_1 \cap
 U_2$ is nonempty and connected.
 Prove that $U = U_1 \cap U_2$ is a simply connected domain.
-Note: This is true in the plane but it is no longer true in the Riemann
+Note: This result is true in the plane, but it is no longer true in the Riemann
 sphere.
 \end{exercise}
 
@@ -8825,7 +8827,7 @@ Let $t_j$, $D_j$, $L_j$ be the same as in the proof of
 \lemmaref{lemma:existenceoftheta}, and fix some $\epsilon > 0$.
 Let $\delta > 0$ be small enough so that if $\sabs{z-\zeta}
 < \delta$ and $z,\zeta \in D_j$, then $\sabs{L_j(z)-L_j(\zeta)} < \epsilon$.
-This can be done because $D_j$ could be picked slightly smaller if needed
+Such a $\delta$ exists as $D_j$ could be picked slightly smaller if needed
 to make sure that $p \not\in \overline{D_j}$ and so that each $L_j$
 is uniformly continuous on $\overline{D_j}$ and therefore on $D_j$.
 
@@ -9190,7 +9192,7 @@ sense (the function is integrable).  Hint: Use polar coordinates.
 \begin{exercise}
 The reader may be tempted to
 differentiate in $\bar{z}$ under the second integral in the 
-Cauchy--Pompeiu formula.  Why is this not possible?
+Cauchy--Pompeiu formula.  Why is that not possible?
 Notice that it would lead to an impossible result.
 \end{exercise}
 \end{exbox}
@@ -9312,7 +9314,7 @@ has exactly two components.
 Recall that for a piecewise-$C^1$ path, $\gamma'$ is never
 zero, including the one-sided limits of the derivative at the
 \myquote{corners} or
-the end points.  This means that a $C^1$ path is locally a graph:
+the end points.  A $C^1$ path is thus locally a graph:
 If $\gamma \colon [-1,1] \to \C$ is a continuously differentiable function,
 $\gamma(0) = 0$,
 and $\Re \gamma'(0) \not= 0$, then
@@ -9369,7 +9371,7 @@ $\Re \gamma'(t) < 0$ for $t > 0$, is on the right.
 \begin{exbox}
 \begin{exercise}
 Show that $W$ can be also chosen to be a disc.
-This is not as trivial as it may seem.
+It is not as trivial as it may seem.
 Think about $\gamma$ oscillating wildly and going in and out of the disc.
 \end{exercise}
 
@@ -9390,7 +9392,7 @@ Find an example of a bounded open set $U$ whose boundary is a union of
 infinitely many disjoint simple closed curves such that there is some point
 on $p \in \partial U$ such that for every neighborhood $W$ of $p$,
 the set $W \setminus \partial U$ has infinitely many components.
-(In particular, this is not an open set with piecewise-$C^1$ boundary.)
+(In particular, $U$ is not an open set with piecewise-$C^1$ boundary.)
 \end{exercise}
 \end{exbox}
 
@@ -9704,7 +9706,7 @@ function $z^k$ acts near the origin.
 \begin{thm}
 Suppose $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic.
 Suppose $p \in U$ is a zero\footnote{In this theorem, do note
-that $k \in \N$, in particular $k > 0$, and so this really is an actual zero
+that $k \in \N$, in particular $k > 0$, and so $p$ really is an actual zero
 of $f$.} of $f$ of order $k \in \N$.  Then there exists an open neighborhood $V$
 of $p$ and a holomorphic $g \colon V \to \C$ such that
 \begin{equation*}
@@ -9981,7 +9983,7 @@ Then
 \begin{equation*}
 f(z) = {(z-p)}^{\ell-k} \varphi(z) ,
 \end{equation*}
-and this either goes to $\infty$ if $k > \ell$ ($f$ has a pole) or is
+and this expression either goes to $\infty$ if $k > \ell$ ($f$ has a pole) or is
 bounded near $p$ if $k \leq \ell$ ($f$ has a removable singularity).
 \end{proof}
 
@@ -10102,7 +10104,7 @@ e^{1/z}
 \sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n .
 \end{equation*}
 The principal part is infinite and $e^{1/z}$ has an essential
-singularity at $0$.  This is the first function anyone ever thinks of
+singularity at $0$.  This function is the first one anyone ever thinks of
 if asked for an example of an essential singularity.
 
 Suppose $P(z)$ is the principal part of $f(z)$ at an isolated singularity.
@@ -10113,7 +10115,7 @@ singularity, as it is defined by a power series.
 
 For entire functions, we can talk about the
 \myquote{singularity at infinity.}
-If we think of $\C \subset \C_\infty$, then this makes perfect sense.
+If we think of $\C \subset \C_\infty$, then this phrase makes perfect sense.
 The mapping $z \mapsto \nicefrac{1}{z}$ is a self-mapping of the Riemann
 sphere $\C_\infty$ that takes infinity to zero.  Given $f \colon \C \to
 \C$, the function $z \mapsto f(\nicefrac{1}{z})$ has an isolated
@@ -10325,7 +10327,7 @@ From now on, when we say that $f$ is
 meromorphic, we mean that it is a holomorphic function with possible
 poles in $U$.  We will assume that $f$ is defined to be $\infty$
 at the poles, and
-we will write this as $f \colon U \to \C_\infty$.  That is, even though we
+we will write $f \colon U \to \C_\infty$.  That is, even though we
 could just say \myquote{$f \colon U \to \C_\infty$ is holomorphic,} we will, for emphasis,
 say \myquote{$f \colon U \to \C_\infty$ is meromorphic.}
 
@@ -10408,7 +10410,7 @@ Suppose $U \subset \C$ is open, $S \subset U$ is a finite subset,
 and $\Gamma$ is
 a cycle
 in $U \setminus S$
-homologous to zero in $U$.\footnote{As usual, this means that
+homologous to zero in $U$.\footnote{As usual, this statement means that
 $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.}
 Suppose $f \colon U \setminus S \to \C$ is holomorphic (isolated
 singularities on $S$).
@@ -10955,7 +10957,7 @@ $f$ enclosed within $\Gamma$, then
 =
 z_0 .
 \end{equation*}
-One particular consequence of this is that zeros of a polynomial $f$ vary continuously
+One particular useful consequence is that zeros of a polynomial $f$ vary continuously
 (interpreted in the right way) as the coefficients of $f$ change.
 
 \begin{exbox}
@@ -11225,7 +11227,7 @@ Suppose
 $P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_0$.
 If $M > \max\left\{ 1, \sum_{j=0}^{n-1} \sabs{a_j} \right\}$,
 prove that $P$ has $n$ zeros (up to multiplicity) in the disc $\Delta_M(0)$
-and no zeros outside.  Do this without applying the fundamental theorem of
+and no zeros outside.  Do this exercise without applying the fundamental theorem of
 algebra.
 \end{exercise}
 
@@ -11584,11 +11586,11 @@ So far, nothing really new for holomorphic functions.
 It is the next
 result that is surprising: Being injective
 implies that the derivative is nonzero.
-A priory, this should make no sense at all and it is not true for real functions.
+A priory, this statement should make no sense at all and it is not true for real functions.
 A function $f \colon \R \to \R$ such as $f(x) = x^3$
 is injective, but its derivative is zero at $x=0$, and $f^{-1}(x) =
 \sqrt[3]{x}$ is not differentiable at $x=0$.
-Intuitively the way to think about it is that a holomorphic function is
+For holomorphic functions, intuitively, a holomorphic function is
 locally like $z^k$ for some $k$, and the only way that $z^k$ is injective
 for complex $z$ is
 if $k=1$, in which case the derivative is nonzero.
@@ -11821,8 +11823,8 @@ $x_j$ for $j=1,2,\ldots,m+1$).  Rinse and repeat.
 If $X$ is finite, we are done as the process stops at some point.
 If $X$ is countably infinite,
 we pick the sequence
-$\{ f_{k,k} \}_{k=1}^\infty$.
-This is a subsequence of the original sequence $\{ f_n \}_{n=1}^\infty$.
+$\{ f_{k,k} \}_{k=1}^\infty$,
+which is a subsequence of the original sequence $\{ f_n \}_{n=1}^\infty$.
 For any $m$, the tail $\{ f_{k,k} \}_{k=m}^\infty$ is a subsequence of $\{ f_{m,k}
 \}_{k=1}^\infty$
 and hence for any $m$ the sequence $\{ f_{k,k}(x_m) \}_{k=1}^\infty$ converges.
@@ -12106,7 +12108,7 @@ K^\circ_n =
 z \in U : d(z,\partial U) > \nicefrac{1}{n} \text{ and } \sabs{z} < n
 \bigr\} .
 \end{equation*}
-From this it is clear that $K_n \subset K^\circ_{n+1}$, and
+It is then clear that $K_n \subset K^\circ_{n+1}$, and
 $U = \bigcup K^\circ_n$ (it is an open cover).
 Therefore, any compact $K \subset U$
 is contained in some $K^\circ_n$, and hence in $K_n$.
@@ -12419,9 +12421,9 @@ then the power series converges in $\Delta_r(p)$.
 
 \subsection{The theorem}
 
-Every simply connected domain in $\C$ (except $\C$ itself) is really
+The Riemann mapping theorem says that
+every simply connected domain in $\C$ (except $\C$ itself) is really
 equivalent (biholomorphically, conformally) to $\D$.
-This is the content of the so-called Riemann mapping theorem.
 It is a theorem that gets cited a lot in all sorts of branches of
 mathematics.\footnote{For example, a beginning course on topology might cite
 the theorem to say that any simply connected domain in $\R^2$
@@ -12470,7 +12472,7 @@ an $f \in \sF$ that is onto.
 Before we rush off to Montel, however, we must show that some
 injective
 $f \colon U \to \D$ actually exists,
-that is, that $\sF$ is not empty.  This is where we
+that is, that $\sF$ is not empty.  Here is where we
 use that $U$ is not equal to the complex plane (by Liouville, $\sF$
 would be empty if $U = \C$).  If the complement of $U$ contained an open
 set, things would be easy, but we can only use that the complement of $U$
@@ -12783,7 +12785,7 @@ Take one point of it to infinity by an LFT
 Then use the Riemann mapping theorem to make the complement of $K$ go to
 the disc (or several discs).
 Then the path is a backwards (clockwise) circle very close to the boundary of the disc
-as this will \myquote{go around} (after reversing the inversion) what's
+to \myquote{go around} (after reversing the inversion) what's
 \myquote{outside the disc,} that is, it will go around $K$.
 The complement of $U$
 corresponds to a compact set inside the disc so this way we will not
@@ -13025,7 +13027,7 @@ with the following property.
 For every cycle $\Gamma$ in $\C \setminus K$ such that $n(\Gamma;z)=1$ for
 all $z \in K_1$,
 there exists a $\zeta \in K \setminus K_1$ where $n(\Gamma;\zeta)=1$.
-Why does this not contradict the construction in the proof of the lemma?
+Why does this example not contradict the construction in the proof of the lemma?
 \end{exercise}
 
 \begin{exercise}
@@ -13696,7 +13698,7 @@ result for $\delta \leq \theta \leq \pi$ by symmetry ($P_r$ is even).
 On $(0,\pi)$, $P_r$ is strictly decreasing as $\cos \theta$ is strictly
 increasing.  So we only need to show that $P_r(\delta)$ goes to $0$
 as $r \to 1$ if $\delta > 0$.
-This follows as $r \mapsto
+This fact follows as $r \mapsto
 \frac{1+re^{i\delta}}{1-re^{i\delta}}$
 is continuous at $r=1$ and
 \begin{equation*}
@@ -13904,7 +13906,7 @@ should write out the details as an exercise.
 We proved that given $\epsilon > 0$, there exists a $\delta > 0$ such that
 $\babs{Pf(re^{i\theta})-Pf(e^{i\theta_0})} < \epsilon$
 when $\sabs{\theta-\theta_0} < \delta$ and
-$1 - \delta < r \leq 1$.  Prove that this really does mean that
+$1 - \delta < r \leq 1$.  Prove that this statement really does mean that
 $\lim_{z \to z_0} Pf(z) = f(z_0) = Pf(z_0)$.
 \end{exercise}
 \end{exbox}
@@ -14299,7 +14301,7 @@ Like holomorphic functions, harmonic functions defined in a
 disc cannot just do whatever they want inside the disc.  Their behavior is
 somewhat controlled by the size of the disc:  The further
 \myquote{inside} their domain of definition the disc is, the more control we have.
-The basic statement of this is
+The basic statement of this control is
 the \emph{Harnack's inequality}\index{Harnack's inequality!disc} in the disc.
 For holomorphic functions, an analogous result is
 \hyperref[lemma:schwarz]{Schwarz's lemma}, where we
@@ -15073,7 +15075,7 @@ Suharmonic functions are also classified by a mean-value-like property,
 although it is an inequality rather than an equality.  There is a subtle
 issue of integrability.  For an upper-semicontinuous function
 the integral in the theorem need not exist as a Riemann integral.
-We will only prove this for the upper Darboux integral.
+We will only give a proof for the upper Darboux integral.
 The proof is 
 similar for the Lebesgue integral if the reader knows that, although
 the statement with the Darboux integral is sufficient for us.
@@ -15162,14 +15164,14 @@ $\partial \Delta_s(q)$.
 For some small $r < R_p$, the circle
 $\partial \Delta_r(p) \subset \Delta_s(q)$ and for a nonempty open subset
 of $\partial \Delta_r(p)$ the function $\varphi$ must be less than some fixed
-constant less than $\varphi(p)$.  This again follows via 
+constant less than $\varphi(p)$.  This fact again follows via 
 \exerciseref{exercise:uppersemicontclosedopen}.
 The setup is the same as in \figureref{fig:meanvalue}.
 \begin{equation*}
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} \varphi(p+re^{i\theta})\, d\theta <
 \varphi(p) .
 \end{equation*}
-So we obtain
+We obtain
 a contradiction,
 \begin{multline*}
 f(p)-h(p)
@@ -15254,7 +15256,7 @@ somewhere (using either the Darboux or Lebesgue integral).
 By upper-semicontinuity for any $\theta_0$,
 $f(p+re^{i\theta_0}) = \limsup_{\theta \to \theta_0} f(p+re^{i\theta}) =
 f(p)$.  So $f = f(p)$ everywhere on $\partial \Delta_r(p)$.
-This is true for all $r$
+This equality holds for all $r$
 with $\overline{\Delta_r(p)} \subset U$, so $f=f(p)$ on $\Delta_r(p)$,
 and the set where $f=f(p)$ is open.  The set where an upper-semicontinuous
 function attains a maximum is closed.  So $f=f(p)$ on $U$ as $U$ is
@@ -16303,7 +16305,7 @@ with uniform absolute convergence on compact subsets.
 \begin{exbox}
 \begin{exercise}
 Find a factorization for cosine.  Hint: There is a hard way and an
-easy way to do this (now that we know the factorization of sine).
+easy way (now that we know the factorization of sine).
 \end{exercise}
 
 \begin{exercise}
@@ -16330,7 +16332,8 @@ converging uniformly on compact subsets of $U$.
 The product theorem holds in any open set.  The proof is very similar too.
 What changes is that the zeros can no longer congregate on any point of
 the boundary as well as at infinity.  There are a couple of ways to handle
-this, one is to move infinity first and make sure all the zeros are bounded.
+this complication.
+One way is to move infinity first and make sure all the zeros are bounded.
 The other way is to not move anything by splitting up the sequence of zeros in a
 smart way into a sequence that goes to infinity and has no finite limit
 points and a sequence that has limit points on the boundary.  The tricky
@@ -16570,7 +16573,7 @@ that converges uniformly to $f$ on the square $[-1,1] \times [-1,1]$.
 Sometimes, we are thwarted in polynomial approximation by topology.
 For example, there is no sequence of
 polynomials $P_n(z)$ that converge to $\nicefrac{1}{z}$ uniformly on $\partial
-\D$.  This follows by \hyperref[thm:rouche]{Rouch\'e} (or
+\D$.  This fact follows by \hyperref[thm:rouche]{Rouch\'e} (or
 \exerciseref{exercise:convergeboundary} and Cauchy's theorem), see the
 following exercise.
 
@@ -17202,8 +17205,8 @@ By \lemmaref{lemma:patharoundK}, there exists a cycle $\Gamma$
 in $U$ such that $n(\Gamma;z) = 1$ on $K$.  That means that $K$ is
 not in the unbounded component of $\C \setminus \Gamma$ (by
 \propref{prop:windingconstant}).  By \thmref{thm:polyhull},
-$K \subset \widehat{\Gamma}$.
-This contradicts $U$ being polynomially convex.  Thus the only component of $\C_\infty
+$K \subset \widehat{\Gamma}$,
+which contradicts $U$ being polynomially convex.  Thus the only component of $\C_\infty
 \setminus U$ is the one that contains $\infty$ and so $U$ is simply
 connected.
 \end{proof}
@@ -17275,7 +17278,7 @@ $P_1(z),P_2(z),\ldots$, we wish to take
 \sum_{\ell=1}^\infty P_\ell(z) .
 \end{equation*}
 But can we?  The sum may not converge.  We must be a tad
-trickier, and this is where \hyperref[cor:rungeseq]{Runge's theorem} is useful:  Adding
+trickier, and here is where \hyperref[cor:rungeseq]{Runge's theorem} is useful:  Adding
 a holomorphic function doesn't change the principal part, but it may make
 the terms in the sum smaller and make things converge.
 We obtain the
@@ -17386,7 +17389,7 @@ does not converge, but
 \frac{2z}{z^2-n^2}
 \end{equation*}
 does converge uniformly on compact subsets of $\C \setminus \Z$.
-This corresponds to the choice of $K_n =
+This grouping corresponds to the choice of $K_n =
 \overline{\Delta_n(0)}$.  See the exercises.
 \end{example}
 
@@ -17545,8 +17548,9 @@ composed with a conjugation map, and the $z$ derivative of the conjugation
 map is zero.
 Another way to see it is to write down the power series representation.
 
-In any case, it is enough to prove that $F$ is holomorphic on $L$.
-For this, it is enough to apply Morera's theorem.  It is enough to check
+In any case, it is enough to prove that $F$ is holomorphic on $L$,
+which we can do by applying Morera's theorem.  The only
+tricky part is to check
 triangles that intersect the real line.  Such a triangle can be split into
 several triangles, each of which lies on one side of the line $L$ and
 intersects $L$ either at a vertex or side.  See \figureref{fig:splittriang}.
@@ -17738,10 +17742,9 @@ and any real derivative,
 there is a neighborhood $V$ of $z$ such that the derivative
 is bounded on $U \cap V$, and that is only tricky at $z=0$.
 \end{exparts}
-This is an example for 
-boundary behavior of holomorphic functions.  A
+This exercise shows that a
 holomorphic function can be smooth up to the
-boundary but still not extend.
+boundary but still not extend past the boundary holomorphically.
 \end{exercise}
 \end{exbox}
 
@@ -17822,7 +17825,7 @@ $\gamma(t)$.  We simply need to require $\gamma(t) \in D_t$.
 
 Since $\gamma$ (as a set) is compact, we can use only finitely many
 discs.  See \figureref{fig:followbranch2}.
-This was the way we were continuing the logarithm back in
+We were continuing the logarithm in this way back in
 \chapterref{ch:log}.
 
 \begin{prop} \label{prop:finitedisccont}
@@ -17998,7 +18001,7 @@ Suppose $U,V \subset \C$ are open, $f \colon U \to V$ holomorphic, $k$-to-1,
 and onto.
 Using \exerciseref{exercise:ktoone}, $f'$ never vanishes and
 it is locally invertible.  It is not hard to
-prove that $f$ is a covering map.  We leave this as an exercise.
+prove (exercise below) that $f$ is a covering map.
 \end{example}
 
 \begin{prop}
@@ -18856,7 +18859,7 @@ we are allowed to \myquote{wiggle} a little bit and
 stay in $V$.  Similarly, a set $E$ is closed if everything not in $E$
 is some distance away from $E$.
 The open and closed balls are examples of open and closed sets
-(this must still be proved).
+(which must still be proved).
 Not every set is either open or closed, most subsets are neither.
 
 \begin{example}
@@ -20583,8 +20586,8 @@ a_{0\,d} \, y^d ,
 \end{equation*}
 for some $d \in \N$ (the degree) and $a_{k\ell} \in \R$.  Then we claim 
 $f$ is continuous.  Let $\{ (x_n,y_n) \}_{n=1}^\infty$ be a sequence
-in $\R^2$ that converges to $(x,y) \in \R^2$.  We proved that this
-means $\lim\, x_n = x$ and $\lim\, y_n = y$.  Then
+in $\R^2$ that converges to $(x,y) \in \R^2$.  Therefore,
+$\lim\, x_n = x$ and $\lim\, y_n = y$.  Then
 \begin{equation*}
 \lim_{n\to\infty}
 f(x_n,y_n) =
@@ -21395,7 +21398,7 @@ wade too deep into general topology to prove this fact.
 
 If we have a sequence $\{ f_n \}$ of continuous functions,
 is the limit continuous?  We have seen that for pointwise
-convergence, this need not be the case, see \exerciseref{exercise:limitnotcont}.
+convergence, it need not be the case, see \exerciseref{exercise:limitnotcont}.
 If we, however, require the convergence to be uniform, the limits can
 be interchanged.
 
@@ -21535,7 +21538,7 @@ Briefly,
 The definition of the Riemann integral using Darboux sums and integrals is
 beyond the scope of this book, but let us just mention that 
 if the upper and lower Darboux integrals are equal, then a function is
-Riemann integrable, and the common value is the integral.  Given this,
+Riemann integrable, and the common value is the integral.  Given this fact,
 let us prove the theorem.
 
 \begin{proof}
@@ -21885,7 +21888,7 @@ f\left(a+\frac{k(b-a)}{n},y\right)
 k=1,\ldots,n.
 \end{cases}
 \end{equation*}
-This is the \myquote{right-hand rule} step function with sub
+This $g_n$ is the \myquote{right-hand rule} step function with sub
 interval length $\frac{b-a}{n}$:
 Integrating $g_n$ with respect to $x$ is the right-hand rule for integrating $f$.
 Let $n$ be large enough so that $\frac{b-a}{n} < \delta$.  Then,
@@ -23068,7 +23071,7 @@ Unique?  Let $x$ and $y$ both be fixed points.
 \begin{equation*}
 d(x,y) = d\bigl(f(x),f(y)\bigr) \leq k\, d(x,y) .
 \end{equation*}
-As $k < 1$ this means that $d(x,y) = 0$ and hence $x=y$.  The theorem is
+As $k < 1$, we have $d(x,y) = 0$ and hence $x=y$.  The theorem is
 proved.
 \end{proof}
 
