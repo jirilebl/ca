@@ -6244,7 +6244,7 @@ For a set $K$, denote the \emph{\myindex{supremum norm}} or
 \begin{thm}[Cauchy estimates]\index{Cauchy estimates}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be
 holomorphic, and $\overline{\Delta_r(p)} \subset U$
-a closed disc.  Expand $f(z) = \sum c_n {(z-p)}^n$.
+be a closed disc.  Expand $f(z) = \sum c_n {(z-p)}^n$.
 Then for all $n$,
 \begin{equation*}
 \sabs{c_n} =
@@ -6280,12 +6280,13 @@ d \zeta
 \end{equation*}
 \end{proof}
 
-A better estimate is not possible if we are only given the information
+A better estimate is not possible given only the information
 $M = \snorm{f}_{\partial \Delta_r(p)}$.
 Cauchy estimates say that
 $\sabs{c_n} \leq \frac{M}{r^n}$.
-But if $f(z) = \frac{M}{r^n} z^n$, then
-$\sabs{c_n} = \frac{M}{r^n}$.  It is left as an exercise that up to
+But if $f(z) = \frac{M}{r^n} {(z-p)}^n$, then
+$\snorm{f}_{\partial \Delta_r(p)} = M$ and
+$\sabs{c_n} = \frac{M}{r^n}$.  It is an exercise that up to
 multiplication by $e^{i\theta}$, this example is the only one.
 
 \begin{exbox}
