@@ -1,0 +1,197 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis: Chapter 1\\Complex numbers (1.1)\\%
+The complex numbers as the plane (1.1.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\emph{Modern mathematics} takes a false statement:
+
+\medskip
+
+\emph{All polynomials have a root.}
+
+\medskip
+\pause
+
+and redefines what it means to have a \emph{root}
+to make the statement true.
+
+\medskip
+\pause
+
+Examples:
+
+Start with $\N = \{ 1,2,3,\ldots \}$,
+and arrive at $\Z$ to solve something like $n+2=1$.
+
+\medskip
+\pause
+
+Start with $\Z$ and arrive at $\Q$ to solve
+$2x=1$.
+
+\medskip
+\pause
+
+Start with $\Q$ and arrive at $\R$ to be able to take limits.
+
+\medskip
+\pause
+
+Start with $\R$ and arrive at $\C$ to be able to solve $z^2+1=0$.
+\end{frame}
+
+\begin{frame}
+Interestingly, analysis with $\C$ is very different to analysis with $\R$.
+
+\medskip
+\pause
+
+Mainly once we ask for the complex derivative we get lots of odd statements:
+
+\medskip
+
+\emph{If you can differentiate once, you can differentiate twice.}
+
+\pause
+\emph{Every function acts sort of like a linear function.}
+
+\pause
+\emph{If all derivatives are zero at a point, the function is constant.}
+
+\pause
+etc.
+
+\medskip
+\pause
+
+A graduate real analysis course crushes the student's dreams.
+
+\medskip
+\pause
+
+A graduate complex analysis course fills the student with unrealistic
+optimism.
+
+\end{frame}
+
+\begin{frame}
+Definition of the complex numbers (complex field, complex plane):
+
+\[
+\C \overset{\text{def}}{=} \R^2
+\]
+
+with multiplication:
+\begin{align*}
+(a,b) + (c,d) & \overset{\text{def}}{=} (a+b,c+d) , \\
+(a,b) (c,d) & \overset{\text{def}}{=} (ac-bd,bc+da) .
+\end{align*}
+
+\pause
+
+This makes $\C$ into a field.
+
+\pause
+\medskip
+
+$\R \subset \C$ by identifying $x \in \R$ with $(x,0)$.
+
+\pause
+\medskip
+
+\emph{Imaginary unit:}
+\[
+i \overset{\text{def}}{=} (0,1)
+\]
+
+\pause
+\medskip
+
+$
+i^2 = -1
+$
+\qquad so
+$z^2+1=0$ has the two solutions $i$ and $-i$.
+\end{frame}
+
+\begin{frame}
+
+$(x,y) = x+iy$, so use $x+iy$ from now on (\emph{cartesian form}).
+
+\medskip
+\pause
+
+The evil twin of $z=x+iy$ is the \emph{complex conjugate}
+\[
+\bar{z} \overset{\text{def}}{=} x-iy.
+\]
+
+\medskip
+\pause
+
+Let's give names to the $x$ and $y$:
+
+\[
+\Re z = 
+\Re (x+iy)
+\overset{\text{def}}{=}
+\frac{z+\bar{z}}{2}
+= x
+\qquad \text{\emph{real part} of } z .
+\]
+
+\pause
+
+\[
+\Im z = 
+\Im (x+iy)
+\overset{\text{def}}{=}
+\frac{z-\bar{z}}{2i}
+= y
+\qquad \text{\emph{imaginary part} of } z .
+\]
+
+\pause
+
+An expression in $x,y$ can be written in terms of $z,\bar{z}$
+and vice versa:
+
+\[
+x^3 + y^3 + 3ixy
+=
+{\left( \frac{z+ \bar{z}}{2} \right)}^3 + 
+{\left( \frac{z- \bar{z}}{2i} \right)}^3 + 
+3i {\left( \frac{z+ \bar{z}}{2} \right)} 
+{\left( \frac{z- \bar{z}}{2i} \right)} ,
+\]
+or
+\[
+z^2 - i \bar{z}^2 + z \bar{z}
+=
+{(x+iy)}^2 - i {(x-iy)}^2 + 
+(x+iy)(x-iy) .
+\]
+\pause
+
+Almost looks as if $z$ and $\bar{z}$ were independent variables.
+\end{frame}
+
+\end{document}

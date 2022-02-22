@@ -1,0 +1,146 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis: Chapter 1\\Complex numbers (1.1)\\%
+Matrix representation of complex numbers (1.1.4)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+$\C$ is a 2-dimensional real vector space.
+
+\pause
+\medskip
+
+Multiplication $z \mapsto \xi z$ is a real-linear operator
+\(
+\left[
+\begin{smallmatrix}
+a & -b \\
+b & a
+\end{smallmatrix}
+\right]
+\) if $\xi = a+ib$.
+
+\pause
+\[
+\begin{bmatrix}
+a & -b \\
+b & a
+\end{bmatrix}
+\begin{bmatrix}
+c \\
+d 
+\end{bmatrix}
+=
+\begin{bmatrix}
+ac-bd \\
+bc+ad
+\end{bmatrix}
+\quad
+\text{just like}
+\quad
+(a+ib)(c+id) = (ac-bd) + i(bc+ad) .
+\]
+\pause
+\medskip
+$
+1 ~~ ``{}={}'' ~~
+\left[
+\begin{smallmatrix}
+1 & 0 \\
+0 & 1
+\end{smallmatrix}
+\right]
+\quad \text{and} \quad
+i ~~ ``{}={}'' ~~ \left[
+\begin{smallmatrix}
+0 & -1 \\
+1 & 0
+\end{smallmatrix} 
+\right]
+\quad
+$
+are identity and rotation counterclockwise by $90^{\circ}$.
+
+\pause
+\medskip
+
+$\C$ can be identified as a subring of $M_2(\R)$: Multiplying the matrices
+is multiplying the numbers (exercise).
+
+\medskip
+\pause
+
+Complex conjugation is real-linear,
+$\left[ \begin{smallmatrix} 1 & 0 \\ 0 &
+-1 \end{smallmatrix} \right]$,
+but not a multiplication by a complex number.
+
+\pause
+\medskip
+
+Multiplication by complex numbers and complex conjugation ``generate''
+the ring $M_2(\R)$:  All real-linear operator are of the form
+$z \mapsto \xi z + \zeta \bar{z}$ (exercise).
+
+\pause
+\medskip
+
+Easy exercise:
+If $M$ is $z \mapsto \xi z$, then $\det(M) = \abs{\xi}^2$.
+If $M$ is $z \mapsto \xi z+ \zeta \bar{z}$, then $\det(M) =
+\abs{\xi}^2-\abs{\zeta}^2$.
+
+\end{frame}
+
+\begin{frame}
+
+How will we use this representation of $\C$?
+
+\medskip
+\pause
+
+A differentiable
+$f \colon \C \to \C$ is really
+$f \colon \R^2 \to \R^2$.
+
+\medskip
+\pause
+
+The derivative of $f$ is a linear operator from $\R^2$ to $\R^2$.
+
+\medskip
+\pause
+
+Complex analysis is the study of functions (holomorphic) whose
+derivative is multiplication by a complex number.
+
+\medskip
+\pause
+
+The derivative is a matrix of partial derivatives, to be of the form
+$\left[
+\begin{smallmatrix}
+a & -b \\
+b & a
+\end{smallmatrix}
+\right]$ is a system of partial differential equations (PDE):
+the Cauchy--Riemann equations.
+\end{frame}
+
+\end{document}
