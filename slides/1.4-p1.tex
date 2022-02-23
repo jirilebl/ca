@@ -1,0 +1,182 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis: Chapter 1\\%
+Linear fractional transformations (1.4 part 1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+$\displaystyle
+f(z) = \frac{a z + b}{c z + d}
+\qquad \text{where} \quad ad \not= bc
+$
+\medskip
+
+is a \emph{linear fractional transformation} (LFT), (or \emph{M\"obius
+transformation}).
+
+\medskip
+\pause
+
+The condition on $a$, $b$, $c$, $d$ guarantees that the ratio does not
+simplify.
+
+\medskip
+\pause
+
+If $c=0$, $f$ can be written as $f(z)=az+b$.
+
+\medskip
+
+Define $f(\infty) = \infty$.
+
+\medskip
+\pause
+
+If $c\not=0$, the expression is defined on
+$\C \setminus \bigl\{ \nicefrac{-d}{c} \bigr\}$.
+
+\medskip
+
+Define $f\bigl(\nicefrac{-d}{c}) = \infty$ and 
+$f(\infty) = \frac{a}{c}$.
+
+\medskip
+\pause
+
+So takes the Riemann sphere to Riemann sphere.
+
+\medskip
+
+It is an easy exercise that $f \colon \C_\infty \to \C_\infty$ is bijective and continuous.
+
+\end{frame}
+
+\begin{frame}
+Any LFT is a composition of:
+
+\medskip
+\pause
+
+\emph{translations}
+\begin{equation*}
+T_a(z) = z + a , \qquad a \in \C,
+\end{equation*}
+
+\medskip
+\pause
+
+\emph{complex dilations}
+\begin{equation*}
+D_a(z) = az , \qquad a \in \C \setminus \{ 0 \} ,
+\end{equation*}
+
+\medskip
+\pause
+
+and \emph{inversions}
+\begin{equation*}
+I(z) = \frac{1}{z}.
+\end{equation*}
+
+\medskip
+\pause
+
+Consider an LFT $f(z) = \frac{az+b}{cz+d}$.  WLOG $c=1$ or $c=0$.
+
+\medskip
+\pause
+
+If $c=1$, then
+\begin{equation*}
+f(z)
+=
+\frac{a z + b}{z + d}
+=
+\frac{b-ad}{z+d}+a
+=
+T_a\biggr(D_{b-ad}\Bigr(I\bigl(T_d(z)\bigr)\Bigr)\biggr) .
+\end{equation*}
+
+\pause
+
+If $c=0$, assume $d=1$ and $f(z) = az + b$:
+\begin{equation*}
+f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+A translation $T_a$ just moves everything in $\C$ in the $a$ direction and fixes
+$\infty$.
+
+\medskip
+\pause
+
+Complex dilation $D_a$ is the normal euclidean dilation (scaling) by
+$\sabs{a}$ and rotation by $\arg a$.  It also fixes $\infty$.
+
+\medskip
+\pause
+
+The inversion is the euclidean plane geometry inversion across the unit
+circle and then a conjugation.
+
+\medskip
+\pause
+
+The euclidean inversion inverts the distance:
+
+\medskip
+
+$\displaystyle
+\qquad \qquad
+\frac{1}{\sabs{z}} e^{i \arg z} = 
+\frac{\sabs{z}}{\sabs{z}^2} e^{i \arg z} = \frac{1}{\bar{z}} .
+$
+\medskip
+
+To get complex inversion we conjugate.
+
+\vspace*{-0.97in}
+\hspace*{3in}
+\subimport*{../figures/}{inversion.pdf_t}
+
+\pause
+\vspace*{-0.15in}
+
+A use for this decomposition (exercise):
+
+\emph{LFTs take the set of straight lines and circles to
+the set of
+straight lines and circles.}
+
+\medskip
+\pause
+
+In fact, any straight line or circle
+can be taken to any other straight line or circle.
+
+\pause
+\medskip
+
+\textbf{Remark:} A straight line is really a very large circle through $\infty$.
+
+\end{frame}
+
+\end{document}
