@@ -6126,6 +6126,7 @@ or
 The inequality $\sabs{w} - \Re w \geq 0$ holds for all $w \in \C$,
 so
 $\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence
+as the integral is zero,
 $\sabs{f(re^{it})}=\Re f(re^{it})$.  Thus $\Im f(re^{it}) = 0$
 and 
 $f(re^{it})=\sabs{f(re^{it})} = f(0)$ for all $t$.
@@ -6221,8 +6222,8 @@ algebra}
 It may seem we are cramming quite a bit into one subsection, but
 we have the tools to make three fundamental results just pop out
 with little work.  The triangle inequality on
-the Cauchy integral formula obtains an estimate on the size of the
-coefficients of the power series.  These estimates immediately give
+the integral formula for the coefficients of the power series obtains an
+estimate on their size.  These estimates immediately give
 Liouville's theorem on entire holomorphic functions, which at once gives the
 fundamental theorem of algebra.
 Some analysts like to make fun of algebraists at this stage, saying that the
@@ -6354,10 +6355,11 @@ A bounded entire holomorphic function is constant.
 
 \begin{proof}
 Let $f$ be entire and suppose $\sabs{f(z)} \leq M$ for all $z \in \C$.
-Expand $f$ at the origin.
+Expand $f$ at the origin:
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n z^n .
+f(z) = \sum_{n=0}^\infty c_n z^n ,
 \end{equation*}
+which converges for all $z$.
 As $f$ is holomorphic on a disc of arbitrary radius, the Cauchy estimates
 say
 \begin{equation*}
