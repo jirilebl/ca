@@ -4393,7 +4393,7 @@ is allowed to vanish at some points.
 That is, there exists a strictly increasing
 continuous $h \colon [a,b] \to [a,b]$ such that
 $\gamma \circ h$ is $C^1$.
-Hint: Make the derivative zero at the \myquote{corners}.
+Hint: Make the derivative zero at the \myquote{corners.}
 \end{exercise}
 
 \begin{exercise}[Tricky]
@@ -6462,7 +6462,7 @@ Hint: See the exercises for the maximum modulus principle.
 
 \subsection{Holomorphic functions via integrals}
 
-It is common to define functions using line integrals, for instance,
+It is common to define functions using integrals, for instance,
 the Cauchy integral itself (usually called the Cauchy transform).
 
 \begin{lemma} \label{lemma:holfuncbyintegral}
@@ -6482,8 +6482,9 @@ This kind of lemma has two common proofs,
 and as they are both useful in other places, let us do both of them.
 
 \begin{proof}[Proof A]
-One proof is to use Morera's theorem (\thmref{thm:Morera}) and
-Fubini's theorem \thmref{thm:fubini}).
+One proof is to use Morera's theorem (\thmref{thm:Morera})
+together with Fubini \thmref{thm:fubini}), and Cauchy--Goursat
+(\thmref{thm:cauchygoursat}).
 Let $T \subset U$ be a triangle.  Then
 \begin{equation*}
 \int_{\partial T}
@@ -6666,8 +6667,9 @@ used for power series.
 A sequence of functions $f_n \colon U \to \C$ converges
 \emph{\myindex{uniformly on compact subsets}}%
 \index{convergence!uniformly on compact subsets}
-to $f \colon U \to \C$ if for every compact $K \subset U$,
-$f_n|_K$ converges uniformly to $f|_K$.
+to $f \colon U \to \C$ if
+$f_n|_K$ converges uniformly to $f|_K$
+for every compact $K \subset U$.
 \end{defn}
 
 What do we mean by \myquote{the right topology} for a class of functions?
@@ -6692,7 +6694,7 @@ which is not differentiable.
 Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
 of holomorphic functions converging uniformly on compact subsets to
 $f \colon U \to \C$.  Then $f$ is holomorphic.
-Moreover, for all $\ell$, the $\ell$\textsuperscript{th} derivative
+Moreover, for every $\ell$, the $\ell$\textsuperscript{th} derivative
 $f_n^{(\ell)}$ converges uniformly on compact subsets to $f^{(\ell)}$.
 \end{thm}
 
@@ -6703,15 +6705,16 @@ U$.  For any $z \in \Delta_r(p)$,
 f_n(z) = \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)} \frac{f_n(\zeta)}{\zeta-z} \, d\zeta .
 \end{equation*}
-The set $\partial \Delta_r(p)$ is compact.  If the distance of $z$ to
-$\partial \Delta_r(p)$ is $\delta > 0$, then for $\zeta \in \partial
-\Delta_r(p)$
+The set $\partial \Delta_r(p)$ is compact.
+Let $\delta > 0$ be the distance of $z$ to
+$\partial \Delta_r(p)$.
+For $\zeta \in \partial \Delta_r(p)$,
 \begin{equation*}
 \abs{\frac{f_n(\zeta)}{\zeta-z}
 -
 \frac{f(\zeta)}{\zeta-z}
 }
-\leq
+=
 \frac{\sabs{f_n(\zeta)-f(\zeta)}}{\sabs{\zeta-z}}
 \leq
 \frac{1}{\delta}
@@ -6733,8 +6736,10 @@ the Cauchy transform
 $C[f|_{\partial \Delta_r(p)}]$, which is holomorphic.  In other words,
 $f$ is holomorphic.
 
+Let's attack the \myquote{Moreover.}
 Suppose $K \subset U$ is compact.  If $U \not= \C$, then the distance of
-$K$ and $\partial U$ is positive, say $d > 0$.  If $U=\C$, then take $d$ to be any positive number.  Consider 
+$K$ and $\partial U$ is positive, say $d > 0$.  If $U=\C$, take arbitrary $d
+> 0$.  Consider 
 \begin{equation*}
 K' = \bigcup_{z \in K} \overline{\Delta_{d/2}(z)} .
 \end{equation*}
@@ -6773,7 +6778,7 @@ f^{(\ell)}(p)
 \leq
 \frac{\ell!2^\ell}{d^\ell}\epsilon .
 \end{equation*}
-Thus $\bigl\{ f_n^{(\ell)} \bigr\}$ converges uniformly to $f^{(\ell)}$ on $K$.
+Thus the sequence $\bigl\{ f_n^{(\ell)} \bigr\}$ converges uniformly to $f^{(\ell)}$ on $K$.
 \end{proof}
 
 The fact that we can write all the derivatives as
