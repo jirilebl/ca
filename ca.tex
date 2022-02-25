@@ -23196,7 +23196,8 @@ $\snorm{x_1-x_2} = \snorm{\varphi_y(x_1)-\varphi_y(x_2)} \leq
 That is, there exists at most one $x \in V$
 such that $f(x) = y$, and so $f|_V$ is one-to-one.
 
-Let $W = f(V)$.  We need to show that $W$ is open.  Take a $y_0 \in W$.
+Let $W = f(V)$ and let $g \colon W \to V$ be the inverse of $f|_V$.
+We need to show that $W$ is open.  Take a $y_0 \in W$.
 There is a unique $x_0 \in V$ such that $f(x_0) = y_0$.
 Let $r > 0$ be small enough such that the closed ball $C(x_0,r) \subset V$
 (such $r > 0$ exists as $V$ is open).
@@ -23206,16 +23207,16 @@ Suppose $y$ is such that
 \frac{r}{2\snorm{A^{-1}}} .
 \end{equation*}
 If we show that $y \in W$, then we have shown that $W$ is open.
-If $x \in
+If $x_1 \in
 C(x_0,r)$, then
 \begin{equation*}
 \begin{split}
-\snorm{\varphi_y(x)-x_0}
+\snorm{\varphi_y(x_1)-x_0}
 & \leq
-\snorm{\varphi_y(x)-\varphi_y(x_0)} +
+\snorm{\varphi_y(x_1)-\varphi_y(x_0)} +
 \snorm{\varphi_y(x_0)-x_0} \\
 & \leq
-\frac{1}{2}\snorm{x-x_0} +
+\frac{1}{2}\snorm{x_1-x_0} +
 \snorm{A^{-1}(y-y_0)} \\
 & \leq
 \frac{1}{2}r +
@@ -23234,7 +23235,7 @@ i.e., $\varphi_y(x) = x$.  That is, $f(x) = y$, and $y \in
 f\bigl(C(x_0,r)\bigr) \subset f(V) = W$.  Therefore, $W$ is open.
 
 Next we need to show that $g$ is continuously differentiable and compute
-its derivative.  First let us show that it is differentiable.
+its derivative.  First, let us show that it is differentiable.
 Consider $y \in W$ and $k \in \R^n$, $k\not= 0$, such that $y+k \in W$.
 Because $f|_V$ is a one-to-one and onto mapping of $V$ onto $W$,
 there are unique
