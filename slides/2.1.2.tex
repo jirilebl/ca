@@ -1,0 +1,198 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis: Chapter 1\\%
+Cauchy--Riemann equations (2.1.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Let $U \subset \C$ be open.  Think of $\C$ as $\R^2$ for a moment.
+
+\pause
+\medskip
+
+Recall that $f \colon U \to \C$ is (real) differentiable at $z_0 \in U$ if
+there exists a real-linear
+
+($2\times 2$ matrix) $Df|_{z_0}$ such that
+\[
+\lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - (Df|_{z_0}) h}}{\sabs{h}} = 0 .
+\qquad \text{(Again $h\in \C$)}
+\]
+
+\pause
+
+\[
+Df|_{z_0} =
+\begin{bmatrix}
+\frac{\partial u}{\partial x}\big|_{z_0} & \frac{\partial u}{\partial
+y}\big|_{z_0} \\[5pt]
+\frac{\partial v}{\partial x}\big|_{z_0} & \frac{\partial v}{\partial y}\big|_{z_0}
+\end{bmatrix} .
+\]
+\pause
+So we ask, when does $(Df|_{z_0})h$ correspond to $\xi h$ for some $\xi \in \C$?
+
+\medskip
+\pause
+
+Answer: When $Df|_{z_0}$ is of the form
+$\left[ \begin{smallmatrix}
+a & -b \\ b & a
+\end{smallmatrix} \right]$.
+
+\medskip
+\pause
+
+In other words, when
+\[
+\frac{\partial u}{\partial x}\Big|_{z_0} =
+\frac{\partial v}{\partial y}\Big|_{z_0}
+, \qquad
+\frac{\partial v}{\partial x}\Big|_{z_0} =
+-\frac{\partial u}{\partial y}\Big|_{z_0}
+\qquad \text{where }
+f= u + iv. 
+\]
+
+\pause
+Then
+$Df|_{z_0}$ corresponds to multiplication by 
+$\xi = \frac{\partial u}{\partial x}\big|_{z_0} + i \frac{\partial v}{\partial
+x}\big|_{z_0} = \frac{\partial v}{\partial y}\big|_{z_0} - i \frac{\partial u}{\partial
+y}\big|_{z_0}$.
+
+\end{frame}
+
+\begin{frame}
+Consequently,
+\begin{equation*}
+0 = \lim_{h \to 0} \frac{\sabs{f(z_0+h) - f(z_0) - \xi h}}{\sabs{h}} =
+\lim_{h \to 0} \abs{\frac{f(z_0+h) - f(z_0)}{h} - \xi} ,
+\end{equation*}
+\pause
+or
+\begin{equation*}
+\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h} = \xi .
+\end{equation*}
+\pause
+So $f$ is complex differentiable at $z_0$ and $f'(z_0) = \xi$.
+
+\medskip
+\pause
+
+We proved that: If $f$ is (real) differentiable at $z_0$, with
+$\frac{\partial u}{\partial x}\big|_{z_0} = \frac{\partial v}{\partial
+y}\big|_{z_0}$ and $\frac{\partial v}{\partial x}\big|_{z_0} = -\frac{\partial
+u}{\partial y}\big|_{z_0}$,
+
+then $f$ is complex differentiable at $z_0$.
+
+\end{frame}
+
+\begin{frame}
+
+Conversely,
+if $f$ is complex differentiable at $z_0$, then it is real
+differentiable at $z_0$ (the complex derivative $f'(z_0)$ gives the
+$Df|_{z_0}$).
+
+\medskip
+\pause
+
+Further,
+$\frac{\partial u}{\partial x}\big|_{z_0} = \frac{\partial v}{\partial
+y}\big|_{z_0}$ and $\frac{\partial v}{\partial x}\big|_{z_0} = -\frac{\partial
+u}{\partial y}\big|_{z_0}$
+must also hold.
+
+\pause
+
+\begin{proposition}
+Let $U \subset \C$ be open and $f = u+iv \colon U \to \C$ be a function.
+Then
+$f$ is complex differentiable at $z_0 \in U$
+if and only if
+$f$ (real) differentiable at $z_0 \in U$
+with
+$\frac{\partial u}{\partial x}\big|_{z_0} =
+\frac{\partial v}{\partial y}\big|_{z_0}$
+and
+$\frac{\partial v}{\partial x}\big|_{z_0} =
+-\frac{\partial u}{\partial y}\big|_{z_0}$.
+
+\pause
+In this case,
+$f'(z_0) = 
+\frac{\partial u}{\partial x}\big|_{z_0} + i \frac{\partial v}{\partial
+x}\big|_{z_0} = \frac{\partial v}{\partial y}\big|_{z_0} - i \frac{\partial
+u}{\partial y}\big|_{z_0}$.
+\end{proposition}
+
+\end{frame}
+
+\begin{frame}
+
+If the partial derivatives exist and are continuous, then $f$ is real
+differentiable, so:
+
+\pause
+
+\begin{corollary}
+Let $U \subset \C$ be open and let $f = u+iv \colon U \to \C$ be a function
+such that $\frac{\partial u}{\partial x}$, $\frac{\partial u}{\partial y}$, $\frac{\partial
+v}{\partial x}$, and $\frac{\partial v}{\partial y}$ exist and are continuous (that is,
+$f$ is continuously differentiable).
+\pause
+Then
+\begin{equation} \label{eq:CReqreal}
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y} , \qquad
+\frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y}
+\end{equation}
+if and only if $f$ is holomorphic (complex differentiable at all $z \in U$),
+\pause
+or in other words,
+\begin{equation*}
+f'(z) =
+\lim_{h \to 0} \frac{f(z+h) - f(z)}{h}
+\qquad
+\text{exists for all $z \in U$.}
+\end{equation*}
+\end{corollary}
+
+\pause
+
+The equations \eqref{eq:CReqreal} are called the
+\emph{Cauchy--Riemann equations}.
+
+\medskip
+\pause
+
+Complex analysis is the study of their solutions.
+
+\medskip
+\pause
+
+\textbf{Remark:} If only the partial derivatives exist but aren't
+continuous, the function may fail to be differentiable (or even continuous)
+and may not be holomorphic even if it satisfies
+\eqref{eq:CReqreal}.
+
+\end{frame}
+
+\end{document}

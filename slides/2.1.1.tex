@@ -1,0 +1,119 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis: Chapter 1\\%
+Holomorphic functions (2.1.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+
+\section{}
+Consider a polynomial
+$P(z) = a_n z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0$.
+
+\medskip
+\pause
+
+Polynomials are nice, but there aren't many of them.
+
+\medskip
+\pause
+
+We can't even solve a simple equation like: $f'=f$.
+
+\medskip
+\pause
+
+Fix $z_0 \in \C$ and expand $P(z)$:
+
+\[
+P(z) = c_0 + c_1 (z-z_0) + c_2 {(z-z_0)}^2 + \cdots + c_n {(z-z_0)}^n
+\]
+\pause
+or
+\[
+P(z_0+h) = c_0 + c_1 h + c_2 h^2 + \cdots + c_n h^n
+\]
+\pause
+Then
+\[
+\lim_{h \to 0} \frac{P(z_0+h) - P(z_0)}{h} =
+\lim_{h \to 0} \frac{P(z_0+h) - c_0}{h} = c_1 .
+\]
+\pause
+$P(z_0+h)$ is approximated (locally) by $c_0 + c_1 h$
+up to an error that vanishes faster than $h$.
+
+\medskip
+\pause
+
+The limits are ``as a \emph{complex} $h$ goes to $0$.''
+
+\end{frame}
+
+\begin{frame}
+We want functions with such a derivative.  That is, functions approximated
+by $c_0 + c_1 h$:
+\[
+f(z_0+h) = \underbrace{f(z_0)}_{c_0} + \underbrace{\xi h}_{c_1 h} + o(\sabs{h})
+\]
+
+\medskip
+\pause
+
+\begin{definition}
+Suppose $U \subset \C$ is open.
+Given $f \colon U \to \C$ and $z_0 \in U$, we say 
+$f$ is \emph{complex differentiable} at $z_0$ if
+the limit
+\[
+f'(z_0) \overset{\text{def}}{=}
+\lim_{h \to 0} \frac{f(z_0+h) - f(z_0)}{h}
+\qquad \text{exists.}
+\]
+\pause
+We call $f'(z_0)$ the \emph{complex derivative} of $f$
+at $z_0$.  Sometimes $\frac{df}{dz}$ is used.
+\pause
+
+$f \colon U \to \C$ is
+\emph{holomorphic}
+if it is complex differentiable at every point.
+\end{definition}
+
+\end{frame}
+
+\begin{frame}
+
+We have essentially proved:
+
+\begin{proposition}
+If $P(z)$ is a polynomial, then $P \colon \C \to \C$ is holomorphic.
+\end{proposition}
+\pause
+
+An exercise:
+
+\begin{proposition}
+If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic, then $f$
+is continuous.
+\end{proposition}
+
+\end{frame}
+
+\end{document}
