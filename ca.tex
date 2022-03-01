@@ -5739,7 +5739,7 @@ Show that for the so-called real-analytic functions, the radius of
 convergence cannot be read-off from the domain:
 Prove that the function $f(x) = \frac{1}{1+x^2}$,
 which is defined on the
-entire real line, can be expressed as a real power series
+entire real line, can be expressed (locally) as a real power series
 $\sum_{n=0}^\infty c_n {(x-a)}^n$ for every $a \in \R$, but
 this power series always has a finite radius of convergence.
 Compute this radius of convergence for every $a$.  Hint: Consider
@@ -6893,7 +6893,7 @@ bounded function can be rescaled to be valued in $\D$.
 Suppose $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
 then 
 \begin{enumerate}[(i)]
-\item $\sabs{f(z)} \leq \sabs{z}$, and
+\item $\sabs{f(z)} \leq \sabs{z}$ for all $z \in \D$, and
 \item $\sabs{f'(0)} \leq 1$.
 \end{enumerate}
 Furthermore, if $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus
@@ -6934,7 +6934,7 @@ As $g(0) = f'(0)$, the same conclusion, for the same reason,
 holds if $\sabs{f'(0)} = 1$.
 \end{proof}
 
-It is good to notice what the theorem says about $f(z) = z^n$
+To illustrate the theorem, consider the statement for $f(z) = z^n$
 for an integer $n > 1$.  The function $f$ takes the disc to the disc
 and $f(0) = 0$.  For $z \in \D \setminus \{ 0 \}$,
 \begin{equation*}
@@ -6997,8 +6997,9 @@ of the one for $f$.  Then apply Cauchy estimates.
 
 \subsection{Automorphisms of the disc}
 
-Let us compute the automorphism group of the disc using
-Schwarz's lemma.
+Let us compute the automorphism\footnote{Recall an automorphism of $U$ is a
+biholomorphism of $U$ to itself.}
+group of the disc using Schwarz's lemma.
 We start with certain specific automorphisms.
 For $a \in \D$, define\footnote{%
 Careful when reading literature, some authors use $\frac{a-z}{1-\bar{a}z}$ as the definition.}
@@ -7299,7 +7300,7 @@ And beware that computers like to give back the principal branch even
 when it doesn't make any sense.
 
 So how do we use $\log$?  Well it comes up in line integrals, which are used
-to count and classify zeros and/or singularities of functions, or vice
+to count and classify zeros (roots) and/or singularities of functions, or vice
 versa---zeros and singularities are used to compute line integrals.
 Let us compute the integral of $\nicefrac{1}{z}$ around the unit
 circle $\partial \D$, oriented counterclockwise as usual (parametrized
@@ -7425,12 +7426,12 @@ the
 \end{defn}
 
 Intuitively, the winding number is the number of times that $\Gamma$ winds
-around $p$.  This intuition is confirmed by integrating
+around $p$, counterclockwise.  This intuition is confirmed by integrating
 $\nicefrac{1}{z}$ for the path $e^{it}$ for $t \in [0,2\pi]$ to get
 a winding number $1$ around $p=0$,
-as it goes once counterclockwise direction around zero.  If we do
-the integral with $e^{2it}$, we go around zero twice in the
-counterclockwise direction, and the winding number really is $2$.  Similarly
+as it goes once counterclockwise around zero.  If we do
+the integral with $e^{2it}$, we go around zero twice 
+counterclockwise, and the winding number really is $2$.  Similarly,
 if we use $e^{-it}$, then we go around zero once in the
 clockwise direction, and the winding number is $-1$.
 
@@ -7481,8 +7482,9 @@ L_j\bigl(\gamma(t_{j-1})\bigr)
 =
 \frac{1}{2\pi i} \bigl( L_n(z_0) - L_1(z_0) \bigr) .
 \end{multline*}
-As $L_n$ and $L_1$ are both branches of $\log$, their difference is
-$2\pi k i$ for some $k \in \Z$, as each is $\log\sabs{z_0} + i \arg z_0$ for some value of
+As $L_n$ and $L_1$ are both branches of $\log(z-p)$, their difference is
+$2\pi k i$ for some $k \in \Z$, as each is
+$\log\sabs{z_0-p} + i \arg (z_0-p)$ for some value of
 $\arg$.
 \end{proof}
 
