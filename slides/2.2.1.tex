@@ -1,0 +1,264 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis: Chapter 2\\%
+Basic calculus (2.1.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Let's go through some of the very basic results on holomorphic functions.
+
+\medskip
+\pause
+
+First, let's solve a differential equation.
+
+\pause
+
+\begin{proposition}
+Let $U \subset \C$ be a domain (open and connected),
+and $f \colon U \to \C$ be holomorphic, and $f'(z) = 0$ for all $z \in U$.
+Then $f$ is a constant.
+\end{proposition}
+
+\pause
+
+The proof is just the standard real result, since $f'(z)=0$ implies that
+the real derivative is also zero (a zero $2 \times 2$ matrix).
+\end{frame}
+
+\begin{frame}
+\begin{proposition}[Chain rule] \index{chain rule!complex derivative}
+Let $U \subset \C$ and $V \subset \C$ be open, $f \colon U \to V$
+complex differentiable at $z \in U$, and $g \colon V \to \C$ complex differentiable
+at $f(z)$.  Then the composition $g \circ f$
+is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)$.
+\end{proposition}
+
+\pause
+
+We give two proofs.  One is an adaptation of the proof of one-variable result
+from real analysis, and the other uses the real result for functions of $\R^2$
+to $\R^2$.
+
+\medskip
+\pause
+
+\textbf{Proof A:}
+Let $h \not= 0$, and let $k = f(z+h) -f(z)$.
+
+\medskip
+\pause
+
+$\displaystyle
+\qquad
+\frac{(g \circ f)(z+h) - (g \circ f)(z)}{h}
+\pause
+ =
+\frac{g \bigl( f(z+h) \bigr) - g\bigl( f(z) \bigr)}{f(z+h)-f(z)}
+\frac{f(z+h)-f(z)}{h}
+$
+
+\pause
+\medskip
+
+\phantom{
+$\displaystyle
+\qquad
+\frac{(g \circ f)(z+h) - (g \circ f)(z)}{h}
+$}%
+$\displaystyle
+=
+\frac{g \bigl( f(z) + k \bigr) - g\bigl( f(z) \bigr)}{k}
+\frac{f(z+h)-f(z)}{h} .
+$
+
+\medskip
+\pause
+
+A differentiable function is continuous, so $k \to 0$ as $h \to 0$.
+\pause
+
+Multiplication is continuous, so take the limit $h \to 0$ to finish.
+\qed
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{Proof B:}
+Complex differentiable functions are real differentiable:
+apply the real chain rule.
+
+\medskip
+\pause
+
+For $w = f(z) \in V$,
+\[
+D(g \circ f)|_z = Dg|_w Df|_z .
+\]
+\pause
+
+The $2 \times 2$ matrices $Dg|_w$ and $Df|_z$ correspond to complex
+numbers $g'(w)$ and $f'(z)$.
+
+\medskip
+\pause
+
+The product $Dg|_w Df|_z$ of two such matrices again corresponds to a
+complex number: the product of the two numbers.
+
+\medskip
+\pause
+
+So $D(g \circ f)|_z$ corresponds to the 
+pertinent complex number.
+\qed
+\end{frame}
+
+\begin{frame}
+Chain rule of the same sort holds if we plug in a real differentiable function of
+one variable.
+
+\medskip
+\pause
+
+If $\gamma \colon (a,b) \to \C$ is (real) differentiable, where
+$\gamma = \alpha + i \beta$, then
+
+\medskip
+\pause
+
+write $\gamma' = \alpha' + i \beta'$; could be interpreted as 
+a $2 \times 1$ matrix (column vector)
+$\left[\begin{smallmatrix}\alpha'\\\beta'\end{smallmatrix}\right]$.
+
+\pause
+
+\begin{proposition}[Chain rule]
+\index{chain rule!composition of real and complex derivative}%
+\label{prop:chainrule2}%
+Let $U \subset \C$ be open,
+$\gamma \colon (a,b) \to U$ (real) differentiable at $t \in (a,b)$,
+and $f \colon U \to \C$ complex differentiable at $\gamma(t)$.
+Then the composition $f \circ \gamma$ is (real) differentiable
+at $t$ and $(f \circ \gamma)'(t) = f'\bigl(\gamma(t)\bigr) \gamma'(t)$.
+\end{proposition}
+
+\pause
+\textbf{Proof:}
+The first proof just works as is, let's see the second proof.
+
+\medskip
+\pause
+
+Let $z = \gamma(t)$.  \pause Then 
+\[
+D(f \circ \gamma)|_{t} =
+Df|_z D\gamma|_{t} .
+\]
+\pause
+$Df|_z$ corresponds
+to multiplication by $f'(z)$, and $D\gamma|_{t}$
+is the $2 \times 1$ matrix (column vector) represented by $\gamma'(t)$.
+\pause
+The result follows.
+\qed
+\end{frame}
+
+\begin{frame}
+\begin{proposition}
+Let $U \subset \C$ be open, and $f \colon U \to \C$ and
+$g \colon U \to \C$ holomorphic.
+\pause
+\begin{enumerate}[(i)]
+\item
+$f+g$ is holomorphic and $\frac{d}{dz}\bigl[ f(z)+g(z) \bigr] = f'(z) + g'(z)$.
+\pause
+\item
+$fg$ is holomorphic and $\frac{d}{dz}\bigl[f(z) g(z) \bigr] = f'(z)g(z) + f(z)g'(z)$.
+\pause
+\item
+$\nicefrac{1}{g}$ is holomorphic on $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ and
+$\frac{d}{dz}\bigl[\frac{1}{g(z)}\bigr] = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
+\end{enumerate}
+\end{proposition}
+
+\medskip
+\pause
+
+Proof: exercise.  Just adapt the one real variable proof.
+
+\medskip
+\pause
+
+\textbf{Remark:} A holomorphic function is open so
+$\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
+\end{frame}
+
+\begin{frame}
+\begin{proposition}[Power rule and its consequences]
+\begin{enumerate}[(i)]
+\pause
+\item For every nonzero integer $n$, the function $z \mapsto z^n$ is holomorphic
+where defined (outside the origin if $n$ negative) and $(z^n)' = n z^{n-1}$.
+\pause
+\item
+A polynomial $P(z) = \sum_{n=0}^d c_n z^n$ is
+holomorphic and
+$P'(z) = \sum_{n=0}^{d-1} (n+1) c_{n+1} z^n$.
+\pause
+\item Rational functions $\frac{P(z)}{Q(z)}$
+are holomorphic on the set where $Q$ is not zero.
+\end{enumerate}
+\end{proposition}
+
+\pause
+
+Proof: again exercise.
+\end{frame}
+
+\begin{frame}
+Let's mention
+an exercise that is easy to do now and relates to an earlier side remark.
+
+\medskip
+\pause
+
+Define $f \colon \C \to \C$ by $f(0)=0$ and
+$f(z) = e^{-z^{-4}}$ for $z \not=0$.
+
+\medskip
+\pause
+
+It is an exercise that
+$\frac{\partial u}{\partial x}$,
+$\frac{\partial v}{\partial x}$,
+$\frac{\partial u}{\partial y}$, and
+$\frac{\partial v}{\partial y}$ exist at all points (including
+the origin) and satisfy the Cauchy--Riemann equations,
+but $f$ is not even continuous at the origin.
+
+\medskip
+\pause
+
+The key is of course that $f$ is not differentiable (neither real nor complex)
+at the origin.
+\end{frame}
+
+\end{document}
