@@ -1,0 +1,310 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis: Chapter 2\\%
+Wirtinger operators (2.2.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Suppose $z=x+iy$.
+
+\medskip
+\pause
+
+Define
+the \emph{Wirtinger operators}:
+\[
+\frac{\partial}{\partial z}
+\overset{\text{def}}{=}
+\frac{1}{2}
+\left(
+\frac{\partial}{\partial x} - i
+\frac{\partial}{\partial y}
+\right),
+\qquad
+\frac{\partial}{\partial \bar{z}}
+\overset{\text{def}}{=}
+\frac{1}{2}
+\left(
+\frac{\partial}{\partial x} + i
+\frac{\partial}{\partial y}
+\right) .
+\]
+
+\pause
+
+Not really ``partial derivatives'' despite the notation.
+
+\medskip
+\pause
+
+The operators are really determined by wanting
+\[
+\frac{\partial}{\partial z} z = 1, \quad
+\frac{\partial}{\partial z} \bar{z} = 0, \quad
+\frac{\partial}{\partial \bar{z}} z = 0, \quad
+\frac{\partial}{\partial \bar{z}} \bar{z} = 1.
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\frac{\partial f}{\partial \bar{z}} 
+=
+\frac{1}{2}
+\left(
+\frac{\partial f}{\partial x} + i
+\frac{\partial f}{\partial y}
+\right)
+\pause
+=
+\frac{1}{2}
+\left(
+\frac{\partial u}{\partial x} 
++ i \frac{\partial v}{\partial x} 
++ i \frac{\partial u}{\partial y}
+- \frac{\partial v}{\partial y}
+\right) 
+\pause
+=
+\frac{1}{2}
+\left(
+\frac{\partial u}{\partial x} 
+- \frac{\partial v}{\partial y}
+\right)
++
+\frac{i}{2}
+\left(
+\frac{\partial v}{\partial x} 
++ \frac{\partial u}{\partial y}
+\right)
+\]
+\pause
+This expression is zero if and only if the real and imaginary
+parts are zero. \pause  Namely,
+\[
+\frac{\partial u}{\partial x} 
+- \frac{\partial v}{\partial y}
+= 0,
+\qquad
+\text{and}
+\qquad
+\frac{\partial v}{\partial x} 
++ \frac{\partial u}{\partial y} = 0
+.
+\]
+\pause
+Those are the Cauchy--Riemann equations!
+
+\pause
+
+\begin{proposition}
+Let $U \subset \C$ be open.  Then $f \colon U \to \C$ is
+holomorphic if and only if
+$f$ is (real) differentiable and
+\begin{equation*}
+\frac{\partial f}{\partial \bar{z}} \equiv 0 .
+\end{equation*}
+\end{proposition}
+\end{frame}
+
+\begin{frame}
+On the other hand, if $f$ is holomorphic,
+\[
+\frac{\partial f}{\partial z} 
+\pause
+=
+\frac{1}{2}
+\left(
+\frac{\partial u}{\partial x} 
++ \frac{\partial v}{\partial y}
+\right)
++
+\frac{i}{2}
+\left( \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}
+\right) 
+\pause
+=
+\frac{\partial u}{\partial x} 
++ i \frac{\partial v}{\partial x}
+\pause
+ =
+\frac{\partial f}{\partial x}
+\pause
+\qquad
+=
+\frac{1}{i} \left(
+\frac{\partial u}{\partial y}
++ i
+\frac{\partial v}{\partial y} 
+\right)
+\pause
+ =
+\frac{1}{i}
+\frac{\partial f}{\partial y}
+.
+\]
+\pause
+(In the second form think of derivative in $iy$ not $y$).
+
+\medskip
+\pause
+
+To compute $f'(z)$ we can approach from any direction:
+\pause
+\[
+f'(z) =
+\lim_{\substack{h \to 0\\h\in\C}}
+\frac{f(z+h)-f(z)}{h}
+\pause
+=
+\lim_{\substack{t \to 0\\t\in\R}}
+\frac{f(z+t)-f(z)}{t}
+\pause
+=
+\frac{\partial u}{\partial x} \Big|_z
++ i \frac{\partial v}{\partial x}\Big|_z
+\pause
+ =
+\frac{\partial f}{\partial x} \Big|_z ,
+\]
+\pause
+and
+\[
+f'(z) =
+\lim_{\substack{h \to 0\\h\in\C}}
+\frac{f(z+h)-f(z)}{h}
+\pause
+=
+\lim_{\substack{t \to 0\\t\in\R}}
+\frac{f(z+it)-f(z)}{it}
+\pause
+=
+\frac{1}{i}
+\left(
+\frac{\partial u}{\partial y}  \Big|_z
++ i \frac{\partial v}{\partial y} \Big|_z
+\right)
+\pause
+ =
+\frac{1}{i}
+\frac{\partial f}{\partial y} \Big|_z .
+\]
+\pause
+So for a holomorphic function
+\begin{equation*}
+f' =
+\frac{\partial f}{\partial z} .
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+The complex derivative $f'$, sometimes written as $\frac{df}{dz}$,
+only exists for holomorphic functions.
+
+\medskip
+\pause
+
+The Wirtinger operators
+$\frac{\partial f}{\partial z}$ and
+$\frac{\partial f}{\partial \bar{z}}$ make sense for every real differentiable
+function.
+
+\medskip
+\pause
+
+For polynomials the operators work as if $z$ and $\bar{z}$ were separate
+variables.  E.g. (exercise)
+\[
+\frac{\partial}{\partial z}
+\left[ z^2 \bar{z}^3 + z^{10} \right]
+=
+2z \bar{z}^3 + 10 z^{9}
+\qquad
+\text{and}
+\qquad
+\frac{\partial}{\partial \bar{z}}
+\left[ z^2 \bar{z}^3 + z^{10} \right]
+=
+z^2 ( 3 \bar{z}^2 ) + 0 .
+\]
+\pause
+So a holomorphic function is ``one that does not depend on $\bar{z}$.''
+
+\medskip
+\pause
+\textbf{Caution:}
+Note that
+$\frac{d}{dz} \left[ z^2 \bar{z}^3 + z^{10} \right]$ does not exist, while
+$\frac{\partial}{\partial z} \left[ z^2 \bar{z}^3 + z^{10} \right]$ does.
+\end{frame}
+
+\begin{frame}
+A couple of other remarks that are left as exercises.
+
+\medskip
+\pause
+\textbf{Remark 1:}
+If we write the real derivative $Df|_p$ as the map $h \mapsto \zeta h + \xi \bar{h}$,
+\pause
+then
+\[
+\frac{\partial f}{\partial z}\big|_p = \zeta
+\qquad \text{and} \qquad
+\frac{\partial f}{\partial z}\big|_p = \xi .
+\]
+
+\medskip
+\pause
+\textbf{Remark 2:}
+If $\bar{f}$ is the complex conjugate of $f$, then
+\pause
+\[
+\overline{\left(\frac{\partial f}{\partial z}\right)} = 
+\frac{\partial \bar{f}}{\partial \bar{z}}
+\qquad \text{and} \qquad
+\overline{\left(\frac{\partial f}{\partial \bar{z}}\right)} = 
+\frac{\partial \bar{f}}{\partial z} .
+\]
+
+\medskip
+\pause
+\textbf{Remark 3:} The chain rule for real differentiable functions
+can be written as
+\[
+\frac{\partial (g \circ f)}{\partial z}\Big|_p
+=
+\frac{\partial g}{\partial z}\Big|_{f(p)}
+\frac{\partial f}{\partial z}\Big|_p
++
+\frac{\partial g}{\partial \bar{z}}\Big|_{f(p)}
+\frac{\partial \bar{f}}{\partial z}\Big|_p
+\qquad
+\text{and}
+\qquad
+\frac{\partial (g \circ f)}{\partial \bar{z}}\Big|_p
+=
+\frac{\partial g}{\partial z}\Big|_{f(p)}
+\frac{\partial f}{\partial \bar{z}}\Big|_p
++
+\frac{\partial g}{\partial \bar{z}}\Big|_{f(p)}
+\frac{\partial \bar{f}}{\partial \bar{z}}\Big|_p .
+\]
+\end{frame}
+
+\end{document}
