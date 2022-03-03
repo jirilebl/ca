@@ -2856,7 +2856,7 @@ It always means that it maps the set to itself and
 is the right sort of equivalence in the context you are in.
 In topology it means a homeomorphism, in differential geometry a
 diffeomorphism, in group theory an isomorphism.}.
-Let $\operatorname{Aut(U)}$ denote the set of all automorphisms of $U$.
+Let $\Aut(U)$ denote the set of all automorphisms of $U$.
 Traditionally,
 a biholomorphism
 $f \colon U \to V$ is called a \emph{\myindex{conformal mapping}} and
@@ -2876,14 +2876,14 @@ In other words, $C|_{\bH} \colon \bH \to \D$ is a biholomorphism
 making $\bH$ and $\D$ biholomorphic.
 
 The reader can check that for a nonempty open $U \subset \C$, the set
-$\operatorname{Aut}(U)$ is a group under
+$\Aut(U)$ is a group under
 composition, although we will not be too worried about the group
 structure.
 
 \begin{exbox}
 \begin{exercise}
 Check that
-$\operatorname{Aut(U)}$ is a group under composition:
+$\Aut(U)$ is a group under composition:
 Composition of two automorphisms is an automorphism,
 there is an identity element,
 composition is associative,
@@ -2919,9 +2919,9 @@ Df =
 \begin{bmatrix}
 \frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\[5pt]
 \frac{\partial v}{\partial x} & \frac{\partial v}{\partial y}
-\end{bmatrix} ,
+\end{bmatrix} .
 \end{equation*}
-so using the Cauchy--Riemann equations, we compute the Jacobian determinant,
+Using the Cauchy--Riemann equations, we compute the Jacobian determinant,
 \begin{equation*}
 \det Df =
 \frac{\partial u}{\partial x}
@@ -7050,7 +7050,7 @@ $\varphi_a$.
 \end{myfig}
 
 \begin{prop}
-If $f \in \operatorname{Aut}(\D)$, then there exists an $a \in \D$
+If $f \in \Aut(\D)$, then there exists an $a \in \D$
 and $\theta \in \R$ such that
 \begin{equation*}
 f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} = e^{i\theta} \varphi_a(z).

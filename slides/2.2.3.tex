@@ -1,0 +1,238 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis: Chapter 2\\%
+Inverse function theorem and automorphisms (2.2.3)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Let $U, V \subset \C$ be open.
+
+\medskip
+\pause
+
+If $f \colon U \to V$ is holomorphic and bijective and
+$f^{-1}$ is holomorphic, then $f$ is 
+called a \emph{biholomorphism}, and say $U$ and $V$
+are \emph{biholomorphic}.
+
+\pause
+(surprisingly, we will later see that $f^{-1}$ is automatically holomorphic).
+
+\medskip
+\pause
+
+If $U = V$, then $f$ is called an \emph{automorphism}.
+
+\pause
+(Remark that the word ``automorphism'' appears in many different contexts.)
+
+\medskip
+\pause
+
+Denote the set of automorphism by $\Aut(U)$, which is a group under
+composition (exercise).
+
+\medskip
+\pause
+
+\textbf{Remark:} Traditionally, a biholomorphism is called a
+\emph{conformal mapping} and biholomorphic $U$ and $V$ are said to be
+\emph{conformally equivalent}.
+
+\medskip
+\pause
+
+\textbf{Example:}
+The Cayley map
+$C(z)
+=
+\frac{z - i}{z + i}$
+takes $\bH = \{ z \in \C : \Im z > 0 \}$ to $\D$, and has an inverse.
+
+That is, $C|_{\bH} \colon \bH \to \D$ is a biholomorphism.
+
+\medskip
+\pause
+
+\textbf{Example:}
+For any $a,b \in \C$, $a \not= 0$, the function $a z + b$ is an automorphism of $\C$.
+\end{frame}
+
+\begin{frame}
+Suppose $f$ is a biholomorphism.
+
+\pause
+\medskip
+
+Differentiate
+$f^{-1}\bigl(f(z)\bigr) = z$ to find $(f^{-1})' \bigl(f(z)\bigr) f'(z) = 1$.
+
+\pause
+\medskip
+
+So $f'(z) \not= 0$ for all $z$, \pause and
+if $w = f(z)$, then
+\[
+(f^{-1})'(w) = \frac{1}{f'(z)}
+\qquad \text{or} \qquad
+f'(z) =
+\frac{1}{(f^{-1})'(w)} .
+\]
+
+\medskip
+\pause
+
+Consider a holomorphic 
+$f = u+iv$.  \pause Its real derivative is
+\[
+Df =
+\begin{bmatrix}
+\frac{\partial u}{\partial x} & \frac{\partial u}{\partial y} \\[5pt]
+\frac{\partial v}{\partial x} & \frac{\partial v}{\partial y}
+\end{bmatrix} .
+\]
+\pause
+Using the Cauchy--Riemann equations, we compute the Jacobian determinant,
+\[
+\det Df \pause
+=
+\frac{\partial u}{\partial x}
+\frac{\partial v}{\partial y} -
+\frac{\partial u}{\partial y} 
+\frac{\partial v}{\partial x}
+\pause
+=
+{\left(\frac{\partial u}{\partial x}\right)}^2
++
+{\left(\frac{\partial v}{\partial x}\right)}^2
+\pause
+=
+\babs{f'(z)}^2 .
+\]
+\pause
+$\det Df$ is nonzero (positive) and $Df$ is invertible $\Leftrightarrow$
+$f'(z) \not= 0$.
+
+\medskip
+\pause
+
+Note that we also found that a holomorphic $f$ preserves
+orientation (positive $\det Df$).
+\end{frame}
+
+\begin{frame}
+The real inverse function theorem
+for continuously differentiable
+functions of $\R^2$ to $\R^2$
+says that if $Df$ is invertible at $p$, then $f$ takes a
+neighborhood $V$ of $p$ bijectively to a neighborhood $f(V)$
+of $f(p)$ and the inverse on that neighborhood is continuously
+differentiable with $D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
+
+\medskip
+\pause
+
+If a $2 \times 2$ matrix represents a complex number, its inverse
+represents the reciprocal.
+
+\medskip
+\pause
+
+So in the theorem, if $f$ is holomorphic, then so is $f^{-1}$.
+\pause
+We proved:
+
+\begin{theorem}[Inverse function theorem for holomorphic functions]
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$p \in U$, and $f'(p) \not= 0$.  Suppose further that $f$ is continuously
+differentiable.
+\pause
+Then there exist open sets $V, W \subset \C$ such that
+$p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is injective
+(one-to-one),
+and hence a $g \colon W \to V$ exists such that
+$g(w) = (f|_V)^{-1}(w)$ for all $w \in W$.
+\pause
+Furthermore, $g$ is holomorphic and
+\begin{equation*}
+g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} \qquad \text{for all $w \in W$}.
+\end{equation*}
+\end{theorem}
+
+\pause
+
+\textbf{Remark:} We will prove later a holomorphic $f$ is always
+continuously differentiable.
+\end{frame}
+
+\begin{frame}
+Just because $f'$ is never zero doesn't mean that 
+$f$ is (globally) bijective.
+
+\medskip
+\pause
+
+$e^z$ is never zero (so neither is its derivative),
+but $e^{z} = e^{z+2\pi i}$.
+
+\medskip
+\pause
+
+But locally we can invert $e^z$ and we will obtain
+(locally) the complex logarithm.
+
+\medskip
+\pause
+
+\textbf{Remark:}
+Locally, there are lots of local biholomorphisms
+(there are lots of holomorphic functions whose derivative is nonzero at a point).
+
+\medskip
+\pause
+
+However, for a fixed $U$ and $V$, there are very few biholomorphisms of $U$
+and $V$.
+
+\medskip
+\pause
+
+E.g., if $f \in \Aut(\D)$, then $f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z}$,
+\pause
+if $f \in \Aut(\C)$, then $f(z) = a z + b$.
+
+\medskip
+\pause
+
+And comparatively $\D$ and $\C$ have more automorphisms
+than most. 
+
+\medskip
+\pause
+
+E.g., a disc minus three generically placed points only has the identity 
+automorphism.
+
+\medskip
+\pause
+
+(Although we don't yet have enough machinery to prove these statements.)
+\end{frame}
+
+\end{document}
