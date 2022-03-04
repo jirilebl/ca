@@ -7667,7 +7667,7 @@ f'(\zeta)                 & \text{if } \zeta = z .
 \begin{exercise}
 Prove that $g(\zeta,z)$ is continuous in $U \times U$, and that
 the function $z \mapsto g(\zeta,z)$ is holomorphic for every fixed $\zeta \in U$.
-Hint: The only mildly tricky piece of this proof is showing that $z \mapsto
+Hint: The only tricky piece of this proof is showing that $z \mapsto
 g(\zeta,z)$ is
 holomorphic at $z=\zeta$.
 \end{exercise}
@@ -7688,8 +7688,9 @@ the function $h(z)$ is defined for every $z \in \C$.
 Unfortunately, at some points
 we have two definitions.
 To show that $h(z)$ is well-defined, we must show that if
-$n(\Gamma;z) = 0$ and $z \in U$, then the two definitions agree.
-Consider such a $z$ (in particular $z \notin \Gamma$).  Then,
+$z \in U \setminus \Gamma$ and
+$n(\Gamma;z) = 0$, then the two definitions agree.
+Consider such a $z$ (in particular, $z \notin \Gamma$).  Then,
 \begin{equation*}
 \int_\Gamma g(\zeta,z) \, d\zeta
 =
@@ -7697,7 +7698,7 @@ Consider such a $z$ (in particular $z \notin \Gamma$).  Then,
 =
 \int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta
 -
-f(z) n(\Gamma;z)
+f(z) (2\pi i) n(\Gamma;z)
 =
 \int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta .
 \end{equation*}
@@ -7709,9 +7710,9 @@ Holomorphicity is a local property, so we only need to prove it
 in a neighborhood of every point.
 The set where $n(\Gamma;z) = 0$ is open as it is a
 union of topological components of $\C \setminus \Gamma$.
-So each point has a neighborhood where $h$ is defined
+So each point in $\C$ has a neighborhood where $h$ is defined
 entirely by one or the other expression in \eqref{eq:CIFdefofh}.
-Given any point,
+Given any point in $\C$,
 take a neighborhood where one of the expressions defines
 $h$ and apply \corref{cor:holfuncbyintegral}.
 
@@ -7741,7 +7742,7 @@ So suppose $z \in U \setminus \Gamma$.  Then
 =
 \int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta
 -
-f(z) n(\Gamma;z) . \qedhere
+f(z) (2\pi i) n(\Gamma;z) . \qedhere
 \end{equation*}
 \end{proof}
 
