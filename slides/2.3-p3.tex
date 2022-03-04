@@ -1,0 +1,147 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Power series (2.3 part 3)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Let $K \subset \C$ be a set.
+A power series $\sum c_n {(z-p)}^n$
+\emph{converges uniformly absolutely}
+for $z \in K$ when $\sum \sabs{c_n} \sabs{z-p}^n$
+converges uniformly for $z \in K$.
+
+\medskip
+\pause
+
+Suppose a series converges uniformly absolutely.
+
+\medskip
+\pause
+
+It converges absolutely, so it converges, \pause and 
+\[
+\abs{
+\sum_{n=0}^\infty c_n {(z-p)}^n
+-
+\sum_{n=0}^{m} c_n {(z-p)}^n
+}
+=
+\abs{\sum_{n=m+1}^\infty c_n {(z-p)}^n} \leq
+\sum_{n=m+1}^\infty \sabs{c_n} \sabs{z-p}^n .
+\]
+\pause
+The RHS $\to 0$ uniformly in $z \in K$ as $m \to \infty$.
+
+\medskip
+\pause
+
+So a uniformly absolutely convergent series converges uniformly.
+\end{frame}
+
+\begin{frame}
+
+\begin{proposition}
+Let $\sum c_n {(z-p)}^n$ be a power series with radius of convergence $R
+> 0$.  If $0 < r < R$, then the power series converges uniformly absolutely
+in $\overline{\Delta_r(p)}$.
+\pause
+Furthermore, let $U = \Delta_R(p)$ if $R < \infty$ and
+$U = \C$ if $R=\infty$, and let $K \subset U$ be compact.
+Then the series converges uniformly absolutely on $K$.
+\end{proposition}
+
+\pause
+
+\textbf{Proof:}
+WLOG suppose $R < \infty$ and let $0 < r < R$.
+
+\medskip
+\pause
+
+$\sum c_n {(z-p)}^n$ converges absolutely
+on $\Delta_R(p)$ \quad $\Rightarrow$ \quad
+$\sum \sabs{c_n} r^n$ converges (and so does any tail).
+
+\medskip
+\pause
+
+So for $z \in \overline{\Delta_r(p)}$,
+\[
+\abs{
+\sum_{n=0}^\infty \sabs{c_n} \sabs{z-p}^n
+-
+\sum_{n=0}^{m} \sabs{c_n} \sabs{z-p}^n
+}
+\leq
+\sum_{n=m+1}^\infty \sabs{c_n} r^n .
+\]
+\pause
+The RHS, which does not depend on $z$,
+goes to zero as $m \to \infty$.
+
+\pause
+
+Hence $\sum \sabs{c_n} \sabs{z-p}^n$ converges uniformly in $\overline{\Delta_r(p)}$.
+
+\medskip
+\pause
+
+If $K \subset \Delta_{R}(p)$ is compact, $\exists$ $r < R$ such
+that $K \subset \Delta_r(p)$ \pause
+
+(consider an open cover of $K$ by discs $\Delta_r(p)$ for all $r < R$).
+
+\pause
+\medskip
+
+The result follows.
+\qed
+\end{frame}
+
+\begin{frame}
+Let us mention a couple of useful results as exercises.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+(Weierstrass $M$-test)
+Let $X$ be a set and $f_n \colon X \to \C$ is
+a sequence of functions such that
+$\abs{f_n(x)} \leq M_n$ for all $x \in X$ and $n \in \N$.
+
+\medskip
+\pause
+
+If $\sum M_n < \infty$, then $\sum f_n(x)$ converges uniformly absolutely on $X$.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Suppose
+$\sum_{n=0}^\infty a_n z^{n}$ and $\sum_{n=0}^\infty b_n z^{n}$
+have a radius of convergence at least $r > 0$.  Show that
+$\sum_{n=0}^\infty (a_n+b_n) z^{n}$ has a radius of convergence at least
+$r$ and converges to the sum of the two series.
+\end{frame}
+
+\end{document}
+

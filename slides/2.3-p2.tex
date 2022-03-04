@@ -1,0 +1,204 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Power series (2.3 part 2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Consider a power series
+\quad $\displaystyle
+\sum_{n=0}^\infty c_n {(z-p)}^n .
+$
+
+\medskip
+\pause
+
+Define
+\quad
+$\displaystyle
+R = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}} .
+$
+\quad
+We interpret $\nicefrac{1}{\infty} = 0$ and $\nicefrac{1}{0} = \infty$,
+so $R=\infty$ is allowed.
+
+\medskip
+\pause
+
+Let $r=\abs{z-p}$.
+By the root test, the series $\sum \sabs{c_n} r^n$ converges if
+\[
+\limsup_{n \to \infty} \sqrt[n]{\sabs{c_n} r^n} = 
+r \limsup_{n \to \infty} \sqrt[n]{\sabs{c_n}} = r \frac{1}{R} < 1 .
+\]
+\pause
+So the power series converges absolutely when $r < R$.
+
+\medskip
+\pause
+
+If $r \frac{1}{R} > 1$, then for infinitely many $n$,
+$\sabs{c_n {(z-p)}^n} > 1$ and the power series diverges
+if $r > R$.
+
+\pause
+
+
+\begin{proposition}[Cauchy--Hadamard theorem]
+$\sum c_n {(z-p)}^n$ converges absolutely if
+$\sabs{z-p} < R$ and diverges if
+$\sabs{z-p} > R$.
+\end{proposition}
+
+\end{frame}
+
+\begin{frame}
+$\displaystyle
+R = \frac{1}{\limsup\limits_{n \to \infty} \sqrt[n]{\sabs{c_n}}}
+$
+
+\vspace*{-0.7in}
+\hspace*{2in}%
+\scalebox{0.9}{
+\subimport*{../figures/}{radiusconvcomplex.pdf_t}
+}
+
+\vspace*{-0.1in}
+
+If $0 < R < \infty$,
+
+the power series converges absolutely
+in the disc $\Delta_R(p)$.
+
+\medskip
+\pause
+
+It diverges in the complement of the closure $\overline{\Delta_R(p)}$.
+
+\medskip
+\pause
+
+Convergence (or divergence) on the boundary circle $\partial \Delta_R(p)$
+is tricky.
+
+\medskip
+\pause
+
+$R=0$ means the power series diverges, $R=\infty$ means it converges in
+$\C$.
+
+\medskip
+\pause
+
+$R$ is called the \emph{radius of convergence}.
+\end{frame}
+
+\begin{frame}
+
+\begin{proposition}
+The series $\sum c_n {(z-p)}^n$ converges in $\Delta_{R}(p)$ for some
+$R > 0$ if and only if
+for every $r$ with
+$0 < r < R$, there exists an $M > 0$ such that
+\begin{equation*}
+\sabs{c_n} \leq \frac{M}{r^n} \qquad \text{for all } n .
+\end{equation*}
+\end{proposition}
+
+\pause
+So the sequence
+$\bigl\{ \sabs{c_n} r^n \bigr\}$ is bounded whenever $0 < r < R$.
+
+\medskip
+\pause
+
+But $\bigl\{ \sabs{c_n} R^n \bigr\}$ not necessarily bounded:
+
+\medskip
+\pause
+
+$\sum z^n$ and $\sum n z^n$ have
+radius of convergence $R=1$.
+\pause The sequence of coefficients
+is bounded in the first case and
+not in the second.
+
+\medskip
+\pause
+
+However, $\{ n r^n \}$ is bounded for every $r < 1$.
+\end{frame}
+
+\begin{frame}
+
+\textbf{Proof:}
+Suppose the series converges in $\Delta_{R}(p)$ and
+$0 < r < R$. 
+
+\medskip
+\pause
+Then $\sum \sabs{c_n}r^n$ converges, and the terms are thus bounded.
+
+\medskip
+\pause
+
+Conversely, fix $r$, suppose 
+$\sabs{c_n} r^n \leq M$ for all $n$.
+
+\medskip
+\pause
+
+Suppose $0 < s < r$.
+
+\vspace*{-0.6in}
+\hspace*{3.5in}%
+\subimport*{../figures/}{threediscs.pdf_t}
+
+\pause
+
+\vspace*{-0.7in}
+
+\qquad
+$\displaystyle
+\sqrt[n]{\sabs{c_n} s^n} \pause =
+\frac{s}{r}\sqrt[n]{\sabs{c_n} r^n} \pause
+\leq \frac{s}{r} \sqrt[n]{M} .
+$
+
+\medskip
+\pause
+
+The limsup of the RHS is strictly less than 1 as $\nicefrac{s}{r} < 1$.
+
+\medskip
+\pause
+
+The series converges absolutely in
+$\overline{\Delta_s(p)}$ by the root test.
+
+\medskip
+\pause
+
+As $s$ and $r$ with $0 < s < r < R$ were arbitrary,
+the series converges (absolutely) in $\Delta_R(p)$.
+\qed
+\end{frame}
+
+\end{document}
+

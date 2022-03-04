@@ -1,0 +1,126 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+The identity theorem (2.4.4)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Identity]
+Suppose $U \subset \C$ is a domain, 
+and $f \colon U \to \C$ analytic.
+If $Z_f = \bigl\{ z \in U : f(z) = 0 \bigr\}$
+has a limit point in $U$, then $f$ is identically zero.
+In other words, all points of $Z_f$ are isolated unless $f \equiv 0$.
+\end{theorem}
+
+\pause
+
+\begin{definition}
+The points in the set $Z_f$ are called the \emph{zeros} of $f$.
+\end{definition}
+
+\pause
+\medskip
+
+Common application:
+
+\pause
+
+\emph{If the function is zero on a nonempty open subset, then $f \equiv 0$.}
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{Proof:}
+Suppose $f$ is not identically zero.
+
+\medskip
+\pause
+
+$Z_f$ is closed (in $U$, of course) as $f$ is continuous.
+
+\medskip
+\pause
+
+Must show that points of $Z_f$ are isolated.
+
+\medskip
+\pause
+
+WLOG $0 \in U$, $0 \in Z_f$, $0$ not  in the interior of $Z_f$.
+
+\pause
+
+\[
+f(z) = \sum_{n=0}^\infty c_n z^n .
+\]
+As $f(0) = 0$, $c_0 =0$.
+\pause
+\medskip
+
+Let $k$ be the smallest $k$ such that $c_k \not=0$ (exists since $f$
+is not identically zero nearby).
+
+\pause
+
+\[
+f(z) = z^k \sum_{n=k}^\infty c_n z^{n-k} = z^k g(z) .
+\]
+$g(z)$ is a convergent power series and $g(0) = c_k \not=
+0$.
+
+\pause
+\medskip
+
+$g$ is continuous and so $g(z) \not= 0$ in a whole neighborhood of $0$.
+
+\pause
+\medskip
+
+$z^k$ is only zero at $0$ $\Rightarrow$ $0$ is an isolated zero of $f$.
+
+\end{frame}
+
+\begin{frame}
+
+So points of $Z_f$ are either interior points or isolated points.
+
+\medskip
+\pause
+
+Let $Z_f'$ be the interior points (nonisolated points).
+
+\medskip
+\pause
+
+$Z_f'$ is closed (in $U$) ($Z_f$ is closed
+and points in $Z_f'$ cannot approach isolated points).
+
+\medskip
+\pause
+
+As $Z_f'$ is open and closed, then either $U=Z_f'$ or $Z_f' = \emptyset$.
+\qed
+
+\end{frame}
+
+
+
+\end{document}

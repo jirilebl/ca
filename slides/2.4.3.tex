@@ -1,0 +1,99 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+The exponential (as power series) (2.4.3)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Previously we defined
+\[
+e^{x+iy}
+= e^x (\cos y + i \sin y)
+\]
+and we showed that $e^z$ was holomorphic. \pause Let's define it a different
+way.
+
+\medskip
+\pause
+
+\begin{proposition}
+The power series
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n ,
+\end{equation*}
+is the unique convergent power series at the origin
+such that $f(0)=1$ and $f'=f$.
+Moreover, the series converges on $\C$ and
+$f(z) = e^z$.
+\end{proposition}
+
+\pause
+
+\textbf{Proof:}
+Let $f$ be a convergent power series
+\[
+f(z) = \sum_{n=0}^\infty c_n z^n .
+\]
+\pause
+$f(0)=1$ implies that $c_0 = 1$.
+
+\end{frame}
+
+\begin{frame}
+Suppose that $f' = f$.  \pause
+\[
+f'(z) =
+\sum_{n=1}^\infty n c_n z^{n-1} =
+\sum_{n=0}^\infty (n+1) c_{n+1} z^{n} 
+\pause
+=
+f(z) = \sum_{n=0}^\infty c_n z^n .
+\]
+\pause
+Coefficients of power series are unique  so $c_n = (n+1) c_{n+1}$.
+
+\pause
+By induction, $c_n = \frac{1}{n!}$ so
+\(\displaystyle f(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n \)
+
+\pause
+And this series converges in $\C$ (exercise).
+
+\pause
+\medskip
+
+Both $f$ and the exponential are holomorphic and equal to their derivatives:
+\pause
+\[
+\frac{d}{dz} \left[ \frac{f(z)}{\exp(z)} \right]
+=
+\frac{f'(z)\exp(z) - f(z) \exp'(z)}{{\bigl(\exp(z)\bigr)}^2}
+=
+\frac{f(z)\exp(z) - f(z) \exp(z)}{{\bigl(\exp(z)\bigr)}^2}
+= 0.
+\]
+\pause
+Hence, $f(z) = C \exp(z)$ for some constant $C$.
+\pause
+As $f(0) = \exp(0) = 1$, conclude $C=1$.
+\qed
+\end{frame}
+
+
+\end{document}

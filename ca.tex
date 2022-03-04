@@ -3287,7 +3287,7 @@ to the closed lower half-plane $\{ z \in \C : \Im z \leq 0 \}$.
 \begin{myfig}
 \includegraphics{figures/zsqplot}
 \caption{What $z^2$ does to the sector
-$\frac{-\pi}{2} \leq \operatorname{Arg} z \leq \frac{\pi}{2}$, $\sabs{z} <
+$\frac{-\pi}{2} \leq \Arg z \leq \frac{\pi}{2}$, $\sabs{z} <
 1.1$.\label{fig:zsqplot}}
 \end{myfig}
 
@@ -3369,7 +3369,8 @@ about the boundary of the disc.
 \end{exercise}
 \end{exbox}
 
-A power series converges absolutely if the following series converges:
+A power series \emph{\myindex{converges absolutely}}\index{absolute convergence}
+if the following series converges:
 \begin{equation*}
 \sum_{n=0}^\infty \sabs{c_n} \sabs{z-p}^n .
 \end{equation*}
@@ -3470,7 +3471,7 @@ As $s$ and $r$ with $0 < s < r < R$ were arbitrary,
 the series converges (absolutely) in $\Delta_R(p)$.
 \end{proof}
 
-The proof is farily typical for convergence results of power series.
+The proof is fairly typical for convergence results of power series.
 Convergence in $\Delta_R(p)$, means boundedness of
 $\{ \sabs{c_n} r^n \}$ in a smaller $\Delta_r(p)$, which only gets us convergence
 in $\Delta_s(p)$.  See \figureref{fig:threediscs}.  But since $s$ and $r$
@@ -7230,7 +7231,7 @@ require that this primitive is $0$ at $z=1$,
 we get a function
 \glsadd{not:Log}%
 \begin{equation*}
-\operatorname{Log} \colon U \to \C ,
+\Log \colon U \to \C ,
 \end{equation*}
 called the \emph{\myindex{principal branch}} of the logarithm.
 We saw another gadget before called the \myquote{principal branch,} 
@@ -8268,7 +8269,8 @@ however, avoid temptation calling $\ann(p;r,\infty)$ an \myquote{annulus.}%
 called an \myquote{annulus,} and calling $\ann(0;0,\infty) = \C \setminus
 \{ 0 \}$ an \myquote{annulus} is right out!}
 
-\begin{thm}[\myindex{Existence of Laurent series}]
+\begin{thm}[Existence of Laurent series]
+\index{existence of Laurent series}%
 \index{Laurent series!existence}%
 \label{thm:laurent}%
 Suppose that $0 \leq r_1 < r_2 \leq \infty$ and
