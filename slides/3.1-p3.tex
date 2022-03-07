@@ -1,0 +1,161 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Line integrals, chains (3.1 part 3)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+It is useful to combine paths to obtain so-called \emph{chains}.
+\pause
+For two paths $\gamma$ and $\alpha$,
+\[
+\int_{\gamma + \alpha} f(z) \, dz
+\overset{\text{def}}{=}
+\int_{\gamma} f(z) \, dz +
+\int_{\alpha} f(z) \, dz .
+\]
+
+\pause
+
+\begin{definition}
+A \emph{chain} in $U \subset \C$ is an expression
+$\Gamma = a_1 \gamma_1 + \cdots + a_n \gamma_n$,
+where $a_1,\ldots,a_n \in \Z$ and $\gamma_1,\ldots,\gamma_n$
+are piecewise-$C^1$ paths in $U$. \pause  We integrate over $\Gamma$ as
+\[
+\int_{\Gamma} f(z) \, dz
+=
+\int_{a_1 \gamma_1 + \cdots + a_n \gamma_n} f(z) \, dz
+\overset{\text{def}}{=}
+a_1 \int_{\gamma_1} f(z) \, dz +
+\cdots
++
+a_n \int_{\gamma_n} f(z) \, dz .
+\]
+\pause
+Two chains $\Gamma_1$ and $\Gamma_2$ in 
+$U$ are
+\emph{equivalent} (we will write
+$\Gamma_1=\Gamma_2$) if
+\[
+\int_{\Gamma_1} f(z) \, dz = 
+\int_{\Gamma_2} f(z) \, dz
+\qquad
+\text{for all continuous } f \colon U \to \C.
+\]
+\pause
+Define the \emph{zero chain} $0$ by defining 
+$\int_0 f(z) \, dz = 0$ for all continuous $f \colon U \to \C$.
+\end{definition}
+\end{frame}
+
+\begin{frame}
+Chain arithmetic is done in the obvious way:
+
+\medskip
+\pause
+
+If $\Gamma_1 = 2 \gamma_1 + \gamma_2$ and $\Gamma_2 = 3 \gamma_2 +
+\gamma_3$,
+
+then $\Gamma_1 + \Gamma_2 = 2 \gamma_1 + 4 \gamma_2 + \gamma_3$.
+
+\medskip
+\pause
+
+Similarly, $3 \Gamma_1 = 6 \gamma_1 + 3 \gamma_2$.
+
+\medskip
+\pause
+
+We write $-\Gamma$ for $(-1)\Gamma$.
+
+\medskip
+\pause
+
+$\Gamma$ is equivalent to the zero chain if
+\begin{equation*}
+\int_\Gamma f(z)\, dz = 0
+\end{equation*}
+for all continuous $f$, and
+the chains $\Gamma_1$ and $\Gamma_2$ are equivalent if $\Gamma_1 - \Gamma_2 = 0$.
+
+\medskip
+\pause
+
+\textbf{Remark:}
+The domain of the continuous $f$ is not a big deal.  Whether on
+$U$, $\Gamma_1 \cup \Gamma_2$, or $\C$.
+By Tietze's extension theorem
+every continuous function on a closed subset of $\C$ (e.g. $\Gamma_1 \cup
+\Gamma_2$) extends to a
+continuous function on $\C$.
+
+\medskip
+\pause
+
+\textbf{Remark:}
+Equivalence is for all \emph{continuous} functions.
+We will show later that for many $U$ and many $\Gamma$,
+$\int_\Gamma f(z) \, dz = 0$ for all holomorphic $f$.
+\end{frame}
+
+\begin{frame}
+For any piecewise-$C^1$ path, we could construct an equivalent
+chain from $C^1$ paths.
+
+\medskip
+\pause
+
+Vice versa, for any chain where the paths connect together end to end,
+we could replace them with a single path.
+
+\medskip
+\pause
+
+Given two points $z,w \in \C$, the \emph{segment} $[z,w]$ is the path
+$\gamma \colon [0,1] \to \C$ given by $\gamma(t) = (1-t)z + tw$.
+\pause
+(In chain arithmetic, $-[z,w] = [w,z]$.)
+
+\medskip
+\pause
+
+A path is \emph{polygonal} if it is equivalent to a chain
+$[z_1,z_2] + [z_2,z_3] + \cdots + [z_{k-1},z_k]$.
+
+\medskip
+\pause
+
+Note that for any continuous $f$ and a path, we can find a polygonal
+path where the integral of $f$ is arbitrarily close to the original (exercise).
+
+\medskip
+\pause
+
+So really, knowing how to integrate polygonal paths is
+good enough.
+
+\medskip
+\pause
+
+Most often used paths are composed of segments and arcs of circles.
+\end{frame}
+
+\end{document}

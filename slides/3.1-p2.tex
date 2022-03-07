@@ -1,0 +1,279 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Line integrals (3.1 part 2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+The value of an integral does not depend on the parametrization,
+\pause
+except for orientation.
+
+\medskip
+\pause
+
+Suppose $\gamma \colon [a,b] \to \C$ is $C^1$ and 
+$h \colon [c,d] \to [a,b]$ is $C^1$,
+
+$h' > 0$ (increasing),
+$h(c)=a$, and $h(d) = b$.
+
+\medskip
+\pause
+
+Then $\gamma \circ h$ is a new $C^1$ path (different parametrization of
+$\gamma$).
+
+\medskip
+\pause
+
+Change of variable $t=h(s)$ says
+\[
+\int_{\gamma} f(z) \, dz
+\pause
+=
+\int_a^b f\bigl( \gamma(t) \bigr) \gamma'(t) \, dt
+\pause
+ =
+\int_c^d f\Bigl( \gamma\bigl(h(s)\bigr) \Bigr) \gamma'\bigl(h(s)\bigr) h'(s) \, ds
+\pause
+=
+\int_{\gamma \circ h} f(z) \, dz.
+\]
+\pause
+If $h' < 0$, $h(c)=b$ and $h(d)=a$, \pause then
+\[
+\int_{\gamma} f(z) \, dz =
+- \int_{\gamma \circ h} f(z) \, dz.
+\]
+\end{frame}
+
+\begin{frame}
+The general version is more difficult and left as an exercise
+(we only morally need it).
+
+\pause
+
+\begin{proposition}[Reparametrization]
+Suppose $\gamma \colon [a,b] \to \C$ and $\alpha \colon [c,d] \to \C$ are
+piecewise-$C^1$ paths such that
+$\gamma\bigl([a,b]\bigr) = \alpha\bigl([c,d]\bigr)$.
+Suppose either
+\begin{enumerate}[(i)]
+\item
+$\gamma$ and $\alpha$ are injective, or
+\item
+$\gamma|_{(a,b]}$ and
+$\alpha|_{(c,d]}$ are injective and 
+$\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$ (simple closed paths).
+\end{enumerate}
+\pause
+Then there exists a strictly monotone continuous $h \colon [c,d] \to [a,b]$ such
+that $\gamma\bigl(h(t)\bigr) = \alpha(t)$ for all $t \in [c,d]$.
+\pause
+Furthermore:
+\begin{enumerate}[(i)]
+\item
+If $h$ is increasing, then for every $f$ continuous on the path,
+$\displaystyle
+\int_\gamma f(z) \, dz = \int_{\alpha} f(z) \, dz .
+$
+\item
+If $h$ is decreasing, then for every $f$ continuous on the path,
+$\displaystyle
+\int_\gamma f(z) \, dz = - \int_{\alpha} f(z) \, dz .
+$
+\end{enumerate}
+\end{proposition}
+\end{frame}
+
+\begin{frame}
+Hence, we often write down the
+boundary of some open set as our path
+
+(as long as it's piecewise-$C^1$).
+
+\medskip
+\pause
+
+We consider any parametrization going counterclockwise around the interior.
+
+\medskip
+\pause
+
+For instance, given a disc $\Delta_r(p)$, we parametrize
+the boundary $\partial \Delta_r(p)$ by
+
+$\gamma  \colon [0,2\pi] \to \C$ given by $\gamma(t) = p + re^{it}$,
+
+\medskip
+\pause
+
+and then 
+\begin{equation*}
+\int_{\partial \Delta_r(p)} f(z) \, dz
+=
+\int_{\gamma} f(z) \, dz .
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+There is also the ``$u$-substitution'' from calculus.
+\pause
+
+\begin{proposition}
+Let $U,V \subset \C$ be open, $\gamma \colon [a,b] \to V$ 
+piecewise-$C^1$ path, $g \colon V \to U$ holomorphic, and $f \colon U \to \C$
+continuous.
+\pause
+Then $g \circ \gamma$ is a piecewise-$C^1$ path in $V$
+(possibly with vanishing derivative, however, if $g'$ is zero on $\gamma$) and
+\pause
+\begin{equation*}
+\int_{\gamma} f\bigl(g(z)\bigr) g'(z) \, dz
+=
+\int_{g \circ \gamma} f(w) \, dw .
+\end{equation*}
+\end{proposition}
+
+\pause
+\textbf{Proof:}
+Clearly $g \circ \gamma$ is a piecewise-$C^1$ path (except with perhaps
+vanishing derivative).
+
+\medskip
+\pause
+Apply the chain rule,
+$(g \circ \gamma)'(t) = g'\bigl(\gamma(t)\bigr) \gamma'(t)$:
+\pause
+\[
+\int_{\gamma} f\bigl(g(z)\bigr) g'(z) \, dz
+\pause
+=
+\int_a^b
+f\Bigl(g\bigl(\gamma(t)\bigr)\Bigr) g'\bigl(\gamma(t)\bigr) \gamma'(t) \, dt
+\pause
+=
+\int_a^b
+f\bigl((g \circ \gamma)(t)\bigr) (g \circ \gamma)'(t) \, dt
+\pause
+=
+\int_{g \circ \gamma} f(w) \, dw .
+\]
+\qed
+\end{frame}
+
+\begin{frame}
+%\subsection{Arclength integral}
+We also integrate with respect to arclength (the $ds$ from calculus).
+
+\medskip
+\pause
+
+For an $f$ continuous on a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$,
+we define
+\[
+\int_\gamma f(z) \, \sabs{dz}
+\overset{\text{def}}{=}
+\int_a^b f\bigl( \gamma(t) \bigr) \sabs{\gamma'(t)} \, dt .
+\]
+
+\pause
+
+For example,
+\[
+\int_\gamma \sabs{dz} =
+\int_a^b \sabs{\gamma'(t)} \, dt
+\qquad
+\left(
+=
+\int_\gamma ds \right)
+\]
+is the length of $\gamma$.
+\end{frame}
+
+\begin{frame}
+\begin{proposition}[Triangle inequality for line integrals]
+Suppose $\gamma \colon [a,b] \to \C$ is 
+a piecewise-$C^1$ path and $f$ is a continuous function on
+$\gamma$.  Then
+\begin{equation*}
+\abs{\int_\gamma f(z) \, dz} \leq \int_\gamma \sabs{f(z)} \, \sabs{dz} .
+\end{equation*}
+\pause
+In particular, if $\sabs{f(z)} \leq M$ on $\gamma$ and $\ell = \int_{\gamma} \sabs{dz}$, then
+\begin{equation*}
+\abs{\int_\gamma f(z) \, dz} \leq M \ell .
+\end{equation*}
+\end{proposition} 
+\pause
+
+\textbf{Proof:}
+We estimate
+\[
+\abs{\int_\gamma f(z) \, dz}
+\pause
+=
+\abs{\int_a^b f\bigl( \gamma(t) \bigr) \gamma'(t) \, dt}
+\pause
+\leq
+\int_a^b \abs{ f\bigl( \gamma(t) \bigr) }  \sabs{ \gamma'(t) } \, dt
+\pause
+\leq
+\pause
+M
+\int_a^b \sabs{ \gamma'(t) } \, dt .
+\]
+\qed
+\end{frame}
+
+\begin{frame}
+Note that while uniform convergence of the functions, $f_n \to f$ passes under the
+integral:
+\[
+\lim_{n\to\infty} \int_{\gamma} f_n(z) \, dz
+=
+\int_{\gamma} f(z) \, dz
+\qquad
+\lim_{n\to\infty} \int_{\gamma} f_n(z) \, \sabs{dz}
+=
+\int_{\gamma} f(z) \, \sabs{dz}
+\]
+\pause
+Uniform convergence of the paths $\gamma_n \to \gamma$ does not (for either
+integral):
+
+\pause
+\medskip
+For instance, there exists (exercise) uniformly convergent $\gamma_n \to 0$ such that
+\[
+\lim_{n\to\infty} \int_{\gamma_n} \sabs{dz} = \infty
+\]
+
+\pause
+
+So arclength is not preserved under uniform convergence of paths.
+
+\medskip
+\pause
+
+For this you would also need $\gamma_n'$ to also converge.
+\end{frame}
+
+\end{document}

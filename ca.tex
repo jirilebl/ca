@@ -4120,7 +4120,7 @@ By \myquote{piecewise-$C^1$,}
 we mean that there exist numbers $t_0 = a < t_1 < \cdots
 < t_k = b$ for some $k$ such that $\gamma|_{[t_{\ell-1},t_\ell]}$ is
 continuously differentiable ($C^1$) up to
-the boundary for every $\ell$ and its derivative is never zero.
+the endpoints for every $\ell$ and its derivative is never zero.
 In other words, $\gamma$ is continuously differentiable inside all the
 subintervals $(t_{\ell-1},t_\ell)$, $\gamma'$ is never zero, the one-sided limits
 \begin{equation*}
@@ -4259,8 +4259,8 @@ Compute $\int_\gamma \bar{z}^n \, dz$ for all $n \in \Z$ and $\gamma$ as in
 \end{exbox}
 
 Our definition of the line integral is equivalent to the definition you
-have seen in multivariable calculus.  Actually it is a special case of it.
-Let $\gamma(t) = \bigl( x(t), y(t) \bigr)$, for $t \in [a,b]$, be a path,
+have seen in multivariable calculus.  Actually, it is a special case of it.
+Let $\gamma(t) = x(t) +i \, y(t)$, for $t \in [a,b]$, be a path,
 and let $dz = dx + i\, dy$.
 Then
 \begin{equation*}
@@ -4301,8 +4301,8 @@ The value of the integral does not depend on how we parametrize the image of
 the path, except that it does depend on orientation (which direction we
 go).  It is easy to see why when
 $\gamma \colon [a,b] \to \C$ is continuously differentiable and we have
-an increasing continuously differentiable $h \colon [c,d] \to [a,b]$ such
-that $h(c)=a$ and $h(d) = b$.  Then $\gamma \circ h$ is a new
+a continuously differentiable $h \colon [c,d] \to [a,b]$ such
+that $h' > 0$ (increasing), $h(c)=a$, and $h(d) = b$.  Then $\gamma \circ h$ is a new
 $C^1$ path that is a different parametrization of $\gamma$.
 Change of variable $t=h(s)$ from calculus says
 \begin{equation*}
@@ -4317,7 +4317,7 @@ Change of variable $t=h(s)$ from calculus says
 \int_{\gamma \circ h} f(z) \, dz.
 \end{split}
 \end{equation*}
-If, on the other hand, $h$ is decreasing and $h(c)=b$ and $h(d)=a$, then the
+If, however, $h' < 0$ (decreasing), $h(c)=b$, and $h(d)=a$, then the
 sign flips in the change of variables:
 \begin{equation*}
 \int_{\gamma} f(z) \, dz =
@@ -4332,6 +4332,7 @@ to refer to the image rather than the actual path parametrization, we will
 leave its proof as an exercise.
 
 \begin{prop}[Reparametrization]\index{reparametrization of paths}%
+\label{prop:reparam}
 Suppose $\gamma \colon [a,b] \to \C$ and $\alpha \colon [c,d] \to \C$ are
 piecewise-$C^1$ paths such that
 $\gamma\bigl([a,b]\bigr) = \alpha\bigl([c,d]\bigr)$.
@@ -4363,7 +4364,7 @@ If $h$ is decreasing, then for every $f$ continuous on the path,
 
 \begin{exbox}
 \begin{exercise}
-Prove the first case of the reparametrization proposition, that is,
+Prove the first case of \propref{prop:reparam},
 suppose $\gamma$ and $\alpha$ are injective.
 \begin{exparts}
 \item
@@ -4383,16 +4384,16 @@ last part.
 \end{exercise}
 
 \begin{exercise}
-Prove the second case of the reparametrization, that is,
+Prove the second case of \propref{prop:reparam}, that is,
 for simple closed paths assuming only that $\gamma|_{(a,b]}$ and
 $\alpha|_{(c,d]}$ are injective and
 $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \end{exercise}
 
 \begin{exercise}
-Any piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$
-can be reparametrized to a $C^1$ \myquote{path} as long as the derivative
-is allowed to vanish at some points.
+A piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$
+can be reparametrized to a $C^1$ \myquote{path} if the derivative
+is allowed to vanish.
 That is, there exists a strictly increasing
 continuous $h \colon [a,b] \to [a,b]$ such that
 $\gamma \circ h$ is $C^1$.
@@ -4440,6 +4441,7 @@ re^{it}$, and then we write
 \int_{\partial \Delta_r(p)} f(z) \, dz
 =
 \int_{\gamma} f(z) \, dz .
+\avoidbreak
 \end{equation*}
 This equality can be simply taken as a definition of integration over
 $\partial \Delta_r(p)$.
@@ -4605,9 +4607,9 @@ $U$ are
 $\Gamma_1=\Gamma_2$) if
 \begin{equation*}
 \int_{\Gamma_1} f(z) \, dz = 
-\int_{\Gamma_2} f(z) \, dz ,
+\int_{\Gamma_2} f(z) \, dz
 \end{equation*}
-for all continuous functions $f \colon U \to \C$.
+for all continuous $f \colon U \to \C$.
 We define the \emph{\myindex{zero chain}} $0$ by defining 
 $\int_0 f(z) \, dz = 0$ for all continuous $f \colon U \to \C$.
 \end{defn}
