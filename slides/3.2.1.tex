@@ -1,0 +1,164 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Primitives, cycles, and Cauchy for derivatives (3.2.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+Let $U \subset \C$ be open and $f \colon U \to \C$
+a function.  A holomorphic $F \colon U \to \C$ with $f = F'$
+is called a (holomorphic)
+\emph{primitive} (or an \emph{antiderivative})
+of $f$.
+\end{definition}
+\pause
+
+Primitives do not always exist, but if they do, then they are unique up
+to a constant.
+
+\begin{proposition}
+Suppose $U \subset \C$ is a domain, and
+$F \colon U \to \C$ and
+$G \colon U \to \C$ are holomorphic such that $F' = G'$.  Then
+$F(z) = G(z) + C$ for some $C \in \C$.
+\end{proposition}
+
+\pause
+Proof is an exercise.
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Fundamental theorem of calculus for line integrals]
+Suppose $U \subset \C$ is open and $f \colon U \to \C$
+is continuous with a primitive $F \colon U \to \C$ (so $F' = f$).
+
+\pause
+Let $\gamma \colon [a,b] \to U$ be a piecewise-$C^1$ path.
+Then
+\begin{equation*}
+\int_\gamma f(z) \, dz =
+F\bigl( \gamma(b) \bigr) - F\bigl( \gamma(a)
+\bigr) .
+\end{equation*}
+\end{theorem}
+
+\medskip
+\pause
+
+\textbf{Proof:}
+\[
+\int_\gamma F'(z) \, dz
+\pause
+=
+\int_a^b F'\bigl(\gamma(t)\bigr) \gamma'(t) \, dt 
+\pause
+=
+\int_a^b \frac{d}{dt} \Bigl( F\bigl(\gamma(t)\bigr) \Bigr) \, dt 
+\pause
+=
+F\bigl( \gamma(b) \bigr) - F\bigl( \gamma(a) \bigr) .
+\]
+\pause
+We used the chain rule for composing real differentiable
+and a holomorphic function,
+
+\medskip
+\pause
+and the standard (real)
+fundamental theorem of calculus (applied to the real and imaginary parts).
+\qed
+
+\medskip
+\pause
+\textbf{Remark:}
+The hypothesis that $f=F'$ is continuous is extraneous (we will
+prove later that $f$ is better than continuous, it is holomorphic).
+\end{frame}
+
+\begin{frame}
+
+\begin{definition}
+A chain $\Gamma$ that is equivalent to
+$a_1 \gamma_1 + \cdots + a_n \gamma_n$, where $\gamma_1, \ldots, \gamma_n$
+are closed piecewise-$C^1$ paths
+and $a_1,\ldots,a_n \in \Z$,
+is called a \emph{cycle}.
+\end{definition}
+
+\pause
+
+A cycle need not be a sum of closed paths, just equivalent to it.
+\pause
+
+E.g., the unit square path we saw before is a cycle and could be written
+as the chain
+$[0,1] + [1,1+i]+[1+i,i]+[i,0]$.
+
+\pause
+\medskip
+
+The fundamental theorem has an immediate corollary, noting that
+for a closed path $\gamma \colon[a,b] \to \C$, $\gamma(a)=\gamma(b)$.
+
+\pause
+
+\begin{corollary}[Cauchy's theorem for derivatives]
+Suppose $U \subset \C$ is open and $f \colon U \to \C$
+is continuous with a primitive
+$F \colon U \to \C$.
+Let $\Gamma$ be
+a cycle
+in $U$.
+Then
+\begin{equation*}
+\int_\Gamma f(z) \, dz = 0 .
+\end{equation*}
+\end{corollary}
+
+\end{frame}
+
+\begin{frame}
+We will prove several versions of Cauchy, though usually we will put
+restrictions on $U$ or the $\Gamma$ rather than the function.
+
+\medskip
+\pause
+
+Cauchy's theorem is a sort of an independence of path result
+used to define a primitive,
+so either the function has a primitive in $U$
+or we have to restrict which $\Gamma$s are allowed.
+
+\pause
+\medskip
+
+We can now prove a very neat version of the theorem (exercise):
+
+\begin{corollary}[Cauchy's theorem for polynomials]
+Suppose $P(z)$ is a polynomial and $\Gamma$ is
+a cycle (in $\C$).
+Then
+\begin{equation*}
+\int_\Gamma P(z) \, dz = 0 .
+\end{equation*}
+\end{corollary}
+\end{frame}
+
+\end{document}
