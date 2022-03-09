@@ -8109,7 +8109,8 @@ and
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iii}
 is the same as proof of \corref{cor:simplyconimpleslog}.
-Next, suppose \ref{thm:simplyconnected:iii} is true.  Find a $g$ such that
+Next, suppose \ref{thm:simplyconnected:iii} is true.  For
+$p \in \C \setminus U$, find a $g$ such that
 $e^{g(z)} = z-p$, and differentiate
 \begin{equation*}
 1 = 
@@ -8156,9 +8157,10 @@ the list, but as the proof of that fact follows easily from the argument princip
 we will leave it as an exercise in that upcoming section.
 
 There is a simple topological criterion for
-simply-connectedness of domains in the complex plane.
-The theorem is actually an \myquote{if and only if,} but the other
-direction is more difficult and so let's just prove the easy direction
+simply-connectedness of domains in the complex plane
+(simply-connectedness is, after all, a topological concept).
+The proposition below should actually be an \myquote{if and only if,} but the other
+direction is more difficult and so we just prove the easy direction
 at this point.
 The harder direction will be much easier to prove once we have the Riemann
 mapping theorem, see \subsectionref{subsec:patharoundK}, so we will
@@ -8482,8 +8484,8 @@ on compact subsets of $\Delta_{s_2}(p)$ (when $\sabs{z-p} < s_2$).
 The geometric series used for the second part converges uniformly
 absolutely when $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} \leq
 1-\epsilon$.  In other words, the series converges uniformly absolutely
-on compact subsets of $\C \setminus \Delta_{s_1}(p)$ (when $\sabs{z-p} > s_1$).
-%
+on compact subsets of $\C \setminus \overline{\Delta_{s_1}(p)}$
+(when $\sabs{z-p} > s_1$).
 Hence both parts (and so the entire series) 
 converge uniformly absolutely on compact
 subsets of $\ann(p;s_1,s_2)$.  As $s_1$ and $s_2$ were arbitrary such that
