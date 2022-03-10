@@ -7133,8 +7133,9 @@ Suppose that $f$ has no zeros in $\D$.  Prove that $f$ is constant
 (and what sort of constant).
 \item
 If $f(a) = 0$, then prove that
-$z \mapsto \frac{f(z)}{\phi_a(z)}$ is still holomorphic in $U$ and
-still takes the circle to the circle.
+$z \mapsto \frac{f(z)}{\phi_a(z)}$ is still holomorphic in $U$
+(i.e., can be defined at $a$ to be holomorphic in $U$)
+and still takes the circle to the circle.
 \item
 Now find a general formula for $f$.
 \end{exparts}
@@ -8109,7 +8110,8 @@ and
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iii}
 is the same as proof of \corref{cor:simplyconimpleslog}.
-Next, suppose \ref{thm:simplyconnected:iii} is true.  Find a $g$ such that
+Next, suppose \ref{thm:simplyconnected:iii} is true.  For
+$p \in \C \setminus U$, find a $g$ such that
 $e^{g(z)} = z-p$, and differentiate
 \begin{equation*}
 1 = 
@@ -8156,9 +8158,10 @@ the list, but as the proof of that fact follows easily from the argument princip
 we will leave it as an exercise in that upcoming section.
 
 There is a simple topological criterion for
-simply-connectedness of domains in the complex plane.
-The theorem is actually an \myquote{if and only if,} but the other
-direction is more difficult and so let's just prove the easy direction
+simply-connectedness of domains in the complex plane
+(simply-connectedness is, after all, a topological concept).
+The proposition below should actually be an \myquote{if and only if,} but the other
+direction is more difficult and so we just prove the easy direction
 at this point.
 The harder direction will be much easier to prove once we have the Riemann
 mapping theorem, see \subsectionref{subsec:patharoundK}, so we will
@@ -8482,8 +8485,8 @@ on compact subsets of $\Delta_{s_2}(p)$ (when $\sabs{z-p} < s_2$).
 The geometric series used for the second part converges uniformly
 absolutely when $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} \leq
 1-\epsilon$.  In other words, the series converges uniformly absolutely
-on compact subsets of $\C \setminus \Delta_{s_1}(p)$ (when $\sabs{z-p} > s_1$).
-%
+on compact subsets of $\C \setminus \overline{\Delta_{s_1}(p)}$
+(when $\sabs{z-p} > s_1$).
 Hence both parts (and so the entire series) 
 converge uniformly absolutely on compact
 subsets of $\ann(p;s_1,s_2)$.  As $s_1$ and $s_2$ were arbitrary such that
@@ -8675,23 +8678,22 @@ of $\ann\bigl(p;\sabs{z_1},\sabs{z_2}\bigr)$.
 
 \subsection{Homotopy}
 
-We wish to make precise the notion of slowly deforming one path into
-another.  This notion is usually called \emph{\myindex{homotopy}}.
-First, let us define this concept for closed paths.
+Slowly (continuously) deforming one path into another path
+is called \emph{\myindex{homotopy}}.  Let us
+define it for closed paths,
+where in this section by \myquote{path} we mean only
+continuous and not necessarily piecewise-\(C^1 .\)
 
 \begin{defn}\label{defn:homotopy}
 Let $U \subset \C$ be open.
-Two continuous\footnote{This definition
-works for any continuous functions $\gamma_0$ and $\gamma_1$ such that
-$\gamma_j(a)=\gamma_j(b)$, but we only need it for piecewise-$C^1$ paths in
-this section.} functions
+Two continuous functions
 $\gamma_0 \colon [a,b] \to U$ and
 $\gamma_1 \colon [a,b] \to U$
-where $\gamma_j(a)=\gamma_j(b)$
+where $\gamma_j(a)=\gamma_j(b)$ (two closed paths)
 are \emph{\myindex{homotopic}} in $U$
 (or relative to $U$) if there exists a continuous function
 $H \colon [a,b] \times [0,1] \to U$ such that
-for all $t \in [a,b]$ and $s \in [0,1]$
+for all $t \in [a,b]$ and $s \in [0,1]$,
 \begin{equation*}
 H(t,0) = \gamma_0(t), \qquad
 H(t,1) = \gamma_1(t), \qquad \text{and} \qquad
@@ -8744,7 +8746,7 @@ Suppose $\gamma \colon [a,b] \to \C$ is continuous and $p \notin
 \gamma$.  Given any $\theta_0 \in \R$ such that
 $\gamma(a)-p = \sabs{\gamma(a)-p} e^{i\theta_0}$, that is,
 $\theta_0$ is an argument of $\gamma(a)-p$.
-Then there exists a continuous function
+Then there exists a continuous
 $\theta \colon [a,b] \to \R$ with $\theta(a) = \theta_0$ such that
 \begin{equation*}
 \gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}
@@ -8832,7 +8834,7 @@ Let us see how the $\theta$, and therefore $n(\gamma;p)$, changes
 as $\gamma$ changes (for instance in a homotopy).
 
 \begin{lemma} \label{lemma:changeintheta}
-Suppose $\gamma \colon [a,b] \to \C$ and $\theta \colon [a,b] \to \C$
+Suppose $\gamma \colon [a,b] \to \C$ and $\theta \colon [a,b] \to \R$
 are continuous, $p \notin \gamma$,
 and $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ for all $t$.
 For every $\epsilon > 0$ there is a $\delta > 0$ such that
@@ -8888,7 +8890,7 @@ We can now check how $n(\gamma;p)$ changes, or not, by a homotopy.
 
 \begin{prop} \label{prop:homotopicmeanshomologous}
 Suppose $U \subset \C$ is open and suppose $\gamma_0$ and $\gamma_1$ are closed
-piecewise-$C^1$ paths in $U$ that are homotopic in $U$.  Then
+paths in $U$ that are homotopic in $U$.  Then
 \begin{equation*}
 n(\gamma_0;p) = n(\gamma_1;p) \qquad \text{for all } p \in \C \setminus U .
 \end{equation*}
@@ -18181,7 +18183,7 @@ $\gamma_0(1)=\gamma_1(1)=q$.  Let
 H(t,s) = (1-s)\gamma_0(t)+s\gamma_1(t) .
 \end{equation*}
 As $U$ is convex, $H(t,s) \in U$ for all $(t,s) \in
-[0,1]\times[0,1]$.  Furthermore
+[0,1]\times[0,1]$.  Furthermore,
 $H(0,s) = \gamma_0(0)=\gamma_1(0)$ and
 $H(1,s) = \gamma_0(1)=\gamma_1(1)$.  So $H$ is a fixed-endpoint homotopy in
 $U$, and by the proposition, the value of the extension at
