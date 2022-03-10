@@ -8357,14 +8357,14 @@ If $q \in \C \setminus \ann(p;r_1,r_2)$, then $n(\Gamma;q) = 0$:
 If $q$ is in the \myquote{hole} of the annulus $\ann(p;r_1,r_2)$, then
 $n\bigl(\partial \Delta_{s_j}(p);q\bigr) = 1$ for both $j=1,2$, and 
 if $q$ is outside the annulus altogether, then
-$n\bigl(\partial \Delta_{s_j}(p);q\bigr) = -1$ for both $j=1,2$ 
+$n\bigl(\partial \Delta_{s_j}(p);q\bigr) = 0$ for both $j=1,2$ 
 (see \exerciseref{exercise:windingcircle} or
 \exerciseref{exercise:windingcircles}).
 So $\Gamma$ is homologous to zero in the annulus $\ann(p;r_1,r_2)$.
 On the other hand, if $q$ is in the (smaller) annulus $\ann(p;s_1,s_2)$,
 then for similar reasons, $n(\Gamma;q) = 1$.
 
-Via Cauchy's theorem (\thmref{thm:CThomology}), for every $z \in \ann(p;s_1,s_2)$,
+Via Cauchy's integral formula (\thmref{thm:CIFhomology}), for every $z \in \ann(p;s_1,s_2)$,
 \begin{equation*}
 f(z) = 
 \frac{1}{2\pi i}
@@ -8435,7 +8435,7 @@ $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} < 1$ and so
 \int_{\partial \Delta_{s_1}(p)} f(\zeta){(\zeta-p)}^{m}
  \, d\zeta
 \right)
-{(z-p)}^{-m-1} .
+{(z-p)}^{-m-1}
 \\
 & =
 \sum_{n=-\infty}^{-1}
