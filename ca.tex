@@ -8315,11 +8315,12 @@ means
 \lim_{M\to \infty}
 \sum_{n=0}^{M} a_n .
 \end{equation*}
-That is, the limits are taken independently.  However, for the series we
-are interested in, we are generally talking
-about absolute convergence, so the limit may be taken in any way,
+That is, the limits are taken independently.  For the Laurent series we
+will generally have
+absolute convergence, so the limit may be taken in any way,
 and in any order.
-When working with Laurent series in particular, we know even more.
+However, it is still useful to split the Laurent series into two
+parts like that.
 Write a Laurent series as 
 \begin{multline*}
 \sum_{n=-\infty}^{\infty} c_n {(z-p)}^n
@@ -8335,7 +8336,13 @@ Write a Laurent series as
 \end{multline*}
 So the Laurent series behaves like two power series: one in $z-p$ and one
 in $\frac{1}{z-p}$.  You can therefore apply what you know about power
-series.
+series.  For example, the first one converges (uniformly absolutely on compact subsets) in $\Delta_{r_2}(p)$
+for some $r_2$,
+and the second one converges in $\C \setminus \overline{\Delta_{r_1}(p)}$
+for some $r_1$.
+If $r_1 < r_2$, then the full series converges
+(uniformly absolutely on compact subsets)
+in $\ann(p;r_1,r_2)$.
 
 \begin{proof}[Proof of the theorem]
 Choose two numbers $s_1$ and $s_2$ such that $r_1 < s_1 < s_2 < r_2$.
@@ -8620,7 +8627,7 @@ $\alpha f + \beta g$ has coefficients $\alpha a_n + \beta b_n$.
 \begin{exercise}[Easy]
 Suppose $\sum_{n=-\infty}^m c_n {(z-p)}^n$ is a Laurent series with only
 finitely many positive terms.  Show that either the series converges
-nowhere, or there exists a number $r \geq 0$ such that the series
+nowhere in $\C \setminus \{ p \}$, or there exists a number $r \geq 0$ such that the series
 converges uniformly and absolutely on compact subsets of
 $\ann(p;r,\infty)$.
 \end{exercise}
@@ -15824,7 +15831,7 @@ can be reordered and the limit remains the same.
 Given functions $g_n \colon X \to \C$, the product
 $\prod_{n=1}^{\infty} \bigl(1+g_n(x)\bigr)$ 
 \emph{converges uniformly absolutely}%
-\index{converges absolutely uniformly!infinite product}%
+\index{converges uniformly absolutely!infinite product}%
 \index{uniform absolute convergence!infinite product}
 if
 $\prod_{n=1}^{\infty} \bigl(1+\sabs{g_n(x)}\bigr)$ 
