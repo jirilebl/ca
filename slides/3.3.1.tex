@@ -1,0 +1,300 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Holomorphic functions are analytic (3.3.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+A consequence of Cauchy's formula is
+that holomorphic functions are analytic.
+
+\medskip
+\pause
+
+We already proved
+that analytic functions are holomorphic, we prove the converse.
+
+\pause
+
+\begin{theorem} \label{thm:holpower}
+Let $U \subset \C$ be open, $f \colon U \to \C$ be
+holomorphic, $p \in U$, and $\Delta_R(p) \subset U$.
+\pause
+Then there exists a power series $\sum c_n {(z-p)}^n$
+such that for all $z \in \Delta_R(p)$,
+\begin{equation*}
+f(z) = \sum_{n=0}^\infty c_n {(z-p)}^n .
+\end{equation*}
+\pause
+Moreover,
+\begin{equation*}
+c_n = 
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(z)}{{(z-p)}^{n+1}}
+\,
+dz  ,
+\end{equation*}
+where $\gamma$ is any circle of radius $r$, $0 < r < R$, centered at
+$p$ oriented counterclockwise.
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{Proof:}
+Fix an $r$ such that $0 < r < R$.
+\pause
+Thus $\overline{\Delta_r(p)} \subset U$.
+
+\pause
+\medskip
+
+Fix a $z \in \Delta_r(p)$.
+
+\pause
+\medskip
+
+For $\zeta \in \partial \Delta_r(p)$, 
+\begin{equation*}
+\abs{\frac{z-p}{\zeta-p}} =
+\frac{\sabs{z-p}}{r} < 1 .
+\end{equation*}
+
+\pause
+
+So
+\begin{equation*}
+\sum_{n=0}^\infty
+{\left(\frac{z-p}{\zeta-p}\right)}^n
+=
+\frac{1}{1-\frac{z-p}{\zeta-p}}
+=
+\frac{\zeta-p}{\zeta-z}
+\end{equation*}
+converges uniformly absolutely for $\zeta \in \partial \Delta_r(p)$.
+
+\pause
+\medskip
+
+$\displaystyle
+f(z)
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta 
+\pause
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{\zeta-p}
+\frac{\zeta-p}{\zeta-z}
+\,
+d \zeta 
+$
+
+\medskip
+\pause
+
+\hspace*{0.5in}$\displaystyle
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{\zeta-p}
+\sum_{n=0}^\infty
+{\left(\frac{z-p}{\zeta-p}\right)}^n
+\,
+d \zeta 
+\pause
+=
+\sum_{n=0}^\infty
+\underbrace{
+\left(
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
+\,
+d \zeta 
+\right)
+}_{c_n}
+{(z-p)}^n .
+$
+
+(we'll justify the last equality on next slide)
+
+\end{frame}
+
+\begin{frame}
+The last equality held because the sum converges uniformly in 
+$\zeta \in \partial \Delta_r(p)$:
+
+\pause
+\medskip
+
+$z$ is fixed and if $M$ is the supremum of $\abs{\frac{f(\zeta)}{\zeta-p}} =
+\frac{\sabs{f(\zeta)}}{r}$ on $\partial \Delta_r(p)$ (a compact set),
+\pause
+then
+\begin{equation*}
+\abs{
+\frac{f(\zeta)}{\zeta-p}
+{\left(\frac{z-p}{\zeta-p}\right)}^n
+}
+\leq
+M 
+{\left(\frac{\abs{z-p}}{r}\right)}^n,
+\qquad \text{and} \qquad
+\frac{\abs{z-p}}{r} < 1 .
+\end{equation*}
+\pause
+Thus, $\sum 
+\abs{
+\frac{f(\zeta)}{\zeta-p}
+{\left(\frac{z-p}{\zeta-p}\right)}^n
+}$ converges uniformly in $\zeta \in \partial \Delta_r(p)$,
+\pause
+\medskip
+
+and so
+$\sum 
+\frac{f(\zeta)}{\zeta-p}
+{\left(\frac{z-p}{\zeta-p}\right)}^n$ converges uniformly absolutely
+(and hence uniformly).
+
+\medskip
+\pause
+
+We found a power series converging to $f(z)$ for all $z \in \Delta_r(p)$.
+
+\pause
+\medskip
+
+By uniqueness of the power series, the $c_n$ is independent of $r$.
+
+\medskip
+\pause
+
+We get the same series for every $r$ and it converges in $\Delta_R(p)$.
+\qed
+
+\end{frame}
+
+\begin{frame}
+
+The key is writing the \emph{Cauchy kernel}
+as
+\[
+\frac{1}{\zeta-z}
+=
+\frac{1}{\zeta-p}
+\frac{\zeta-p}{\zeta-z}
+\]
+\pause
+and using the geometric series.
+
+\medskip
+
+A common technique: the integral of a function against a kernel
+gains properties of the kernel.
+
+\pause
+\medskip
+
+Besides analyticity,
+we also proved 
+
+that the radius of convergence is
+
+at least $R$, where $R$ is the
+
+maximum $R$ such that $\Delta_R(p) \subset U$.
+
+\vspace*{-0.85in}
+
+\hspace*{2.5in}%
+\subimport*{../figures/}{largestr.pdf_t}
+
+\pause
+
+\vspace*{-0.30in}
+Note that the radius of convergence
+
+gives bounds on the derivatives!
+
+\pause
+
+So we know about
+the size of the derivatives at $p$ just from knowing how far away from $p$
+is
+$f$ still holomorphic.
+
+\medskip
+\pause
+
+\textbf{Remark:}
+Nothing like this is true for real-analytic functions such as $\varphi(x) =
+\frac{1}{1+x^2}$ whose radius of convergence at $x=0$ is $1$, but $\varphi \colon
+\R \to \R$ is (real) analytic everywhere.
+
+\end{frame}
+
+\begin{frame}
+Let us restate the main conclusion:
+
+\begin{corollary}
+Let $U \subset \C$ be an open set.  A function $f \colon U \to \C$
+is holomorphic if and only if $f$ is analytic.
+\end{corollary}
+
+\medskip
+\pause
+
+Results we proved for analytic functions are true for holomorphic
+functions and vice versa.
+
+\medskip
+\pause
+
+E.g. It is easy to show 
+that the composition of
+holomorphic functions is holomorphic via the chain rule.
+
+\pause
+\medskip
+
+It is much harder to show this for analytic functions
+by directly manipulating power series.
+
+\pause
+\medskip
+
+But we don't have to, analytic functions are holomorphic.
+
+\pause
+\medskip
+
+We have also finally proved the following:
+
+\emph{A convergent power series defines an analytic function.}
+\end{frame}
+
+\end{document}

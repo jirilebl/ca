@@ -1,0 +1,213 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Cauchy for star-like sets (3.2.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+\begin{definition}
+A set $U \subset \C$ is called \emph{{star-like}} (or
+\emph{star-like with respect to $z_0$}) if there exists a
+point $z_0 \in U$ such that the segment $[z_0,z] \subset U$ for every
+$z \in U$.
+\end{definition}
+
+\medskip
+\pause
+
+\begin{center}
+\subimport*{../figures/}{starshaped.pdf_t}
+\end{center}
+
+\medskip
+\pause
+
+A convex set is star-like, but not vice versa.
+
+\end{frame}
+
+\begin{frame}
+
+\begin{proposition} \label{prop:primitiveinstarlike1}
+Suppose $U \subset \C$ is open and star-like,
+$f \colon U \to \C$ is continuous, and
+\begin{equation*}
+\int_{\partial T} f(z) \, dz = 0
+\qquad \text{for every triangle $T \subset U$.}
+\end{equation*}
+Then $f$ has a primitive:
+There exists a holomorphic $F \colon U \to \C$
+such that $F' = f$.
+\end{proposition}
+
+\pause
+
+\textbf{Proof:}
+Suppose $U$ is star-like with respect to $z_0 \in U$.
+\pause
+Define
+\begin{equation*}
+F(z) = \int_{[z_0,z]} f(\zeta) \, d\zeta .
+\end{equation*}
+\pause
+
+\vspace*{-0.2in}
+Consider a disc $\Delta_r(z) \subset U$,
+
+and $\sabs{h} < r$ so that $z+h \in \Delta_r(z)$.
+
+\pause
+\medskip
+
+$U$ is star-like w.r.t. $z_0$ $\Rightarrow$
+
+the entire triangle with vertices
+
+$z_0$, $z$, and $z+h$ is in $U$.
+
+\vspace*{-1.2in}
+
+\hspace*{2.2in}%
+\subimport*{../figures/}{triangantidef.pdf_t}
+\end{frame}
+
+\begin{frame}
+
+By hypothesis $\displaystyle \int_{[z_0,z]+[z,z+h]-[z_0,z+h]} f(\zeta) \,
+d\zeta = 0 $.
+\pause
+So
+\[
+\frac{F(z+h)-F(z)}{h}
+\pause
+=
+\frac{1}{h}
+\int_{[z_0,z+h]-[z_0,z]} f(\zeta) \, d\zeta
+\pause
+=
+\frac{1}{h}
+\int_{[z,z+h]} f(\zeta) \, d\zeta
+\hspace*{2.0in}
+\]
+\[
+\pause
+\hspace*{1in}
+=
+\frac{1}{h}
+\int_0^1 f(z+th) h \, dt
+\pause
+=
+\int_0^1 f(z+th) \, dt .
+\]
+\pause
+\vspace*{-0.1in}
+In other words,
+\vspace*{-0.1in}
+\begin{equation*}
+\begin{split}
+\abs{
+\frac{F(z+h)-F(z)}{h} 
+-
+f(z)
+}
+& =
+\abs{
+\int_0^1 f(z+th) \, dt
+-
+\int_0^1 f(z) \, dt
+}
+\\
+& \leq
+\int_0^1 \abs{f(z+th)-f(z)} \, dt .
+\end{split}
+\end{equation*}
+\pause
+By continuity of $f$ at $z$,
+\begin{equation*}
+\lim_{h \to 0}
+\frac{F(z+h)-F(z)}{h} 
+=
+f(z) . \qed
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}
+
+Cauchy--Goursat (the integral around
+triangles is zero if $f$ is holomorphic) implies
+
+\pause
+
+\begin{corollary} \label{cor:primitiveinstarlike}
+Suppose $U \subset \C$ is open and star-like
+and $f \colon U \to \C$ is holomorphic.
+Then $f$ has a primitive.
+%There exists a holomorphic $F \colon U \to \C$
+%such that $F' = f$.
+\end{corollary}
+
+\pause
+
+\begin{theorem}[Cauchy's theorem for star-like domains]
+Suppose $U \subset \C$ is open and star-like, $f \colon U \to \C$ is holomorphic,
+and $\Gamma$ is
+a cycle
+in $U$.  Then
+\begin{equation*}
+\int_{\Gamma} f(z) \, dz = 0 .
+\end{equation*}
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+The Corollary above says there is a primitive
+$F \colon U \to \C$.
+
+\pause
+
+By Cauchy's theorem for derivatives, the integral is zero. \qed
+
+\pause
+
+\medskip
+
+\textbf{Remark:}
+$\C$-valued function gives a vector-field on $\R^2$.
+
+The corollary is a special case of a theorem from vector calculus:
+
+\medskip
+
+\emph{In a star-like domain $U \subset \R^2$, if a
+$C^1$ vector field $(u,v) \colon U \to \R^2$
+satisfies $\frac{\partial u}{\partial y} = \frac{\partial v}{\partial x}$
+(\emph{irrotational}),
+then there exists a real-valued $f \colon \R^2 \to \R$ such that
+$\nabla f = (u,v)$ (conservative vector field).}
+
+%More concisely, \emph{an irrotational vector field
+%in a star-like domain is conservative.}
+
+\end{frame}
+
+
+
+
+\end{document}

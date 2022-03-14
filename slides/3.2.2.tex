@@ -1,0 +1,318 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Cauchy--Goursat, the ``Cauchy for triangles'' (3.2.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+A set $X$ is \emph{convex} 
+if $[a,b] \subset X$ for all $a,b \in X$.
+
+\medskip
+\pause
+
+Let $a,b,c \in \C$ be noncollinear.
+
+\medskip
+\pause
+
+A \emph{triangle} $T$ is with vertices $a,b,c$
+is the convex hull of $\{ a,b,c \}$,
+that is, the set of points
+\begin{equation*}
+t_1 a + t_2 b + t_3 c ,
+\end{equation*}
+where $t_1,t_2,t_3 \in [0,1]$ and $t_1+t_2+t_3 = 1$.
+
+\medskip
+\pause
+
+The triangle is oriented positively if the vertices 
+
+are ordered so that $a,b,c$ goes counterclockwise.
+
+\vspace*{-0.4in}
+\hspace*{3.1in}%
+\subimport*{../figures/}{triang.pdf_t}
+
+\vspace*{-0.4in}
+\pause
+
+The boundary $\partial T$ of $T$ is defined as the cycle
+
+\medskip
+
+$\partial T = [a,b] + [b,c] + [c,a]$.
+
+\medskip
+\pause
+
+Note that our triangle $T$ is the \textbf{solid} triangle
+
+(includes the interior).
+
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Cauchy--Goursat]
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is
+holomorphic,
+and $T \subset U$ is a triangle.  Then
+\[
+\int_{\partial T} f(z) \, dz = 0 .
+\]
+\end{theorem}
+
+\pause
+
+It is important is that $T \subset U$ means the whole solid triangle
+is in $U$, not just the boundary.
+
+\pause
+\medskip
+
+\textbf{Remark:} It is a ``Goursat'' theorem not just ``Cauchy''
+because of the proof.  In the proof, we do not assume that
+$f'$ is continuous as we have not proved that yet.
+
+\pause
+\medskip
+
+\textbf{Proof:}
+We prove the contrapositive.
+
+\medskip
+\pause
+
+Suppose $f$ is continuous and suppose $\exists$ $T \subset U$ such that
+\[
+\abs{\int_{\partial T} f(z) \, dz} = c \not= 0 .
+\]
+\pause
+We will find a point where $f$ is not complex differentiable.
+\end{frame}
+
+\begin{frame}
+Cut $T$ into four subtriangles $T_1$, $T_2$, $T_3$, $T_4$
+
+(cut each side in half)
+
+\vspace*{-0.5in}
+\hspace*{2.5in}
+\subimport*{../figures/}{trianggoursat.pdf_t}
+
+\vspace*{-0.7in}
+\pause
+
+Orient each $T_j$ positively:
+
+\medskip
+
+The inner sides cancel.
+
+\medskip
+\pause
+
+So
+
+\medskip
+
+$\displaystyle
+\quad
+c = 
+\abs{\int_{\partial T} f(z) \, dz }
+=
+\abs{\int_{\partial T_1} f(z) \, dz 
++
+\int_{\partial T_2} f(z) \, dz 
++
+\int_{\partial T_3} f(z) \, dz 
++
+\int_{\partial T_4} f(z) \, dz } . $
+
+\medskip
+\pause
+
+So for some triangle $T_j$, the integral is at least $\frac{c}{4}$.
+
+\medskip
+\pause
+
+Label that subtriangle $T^1 = T_j$ and
+$\displaystyle
+\quad
+\abs{\int_{\partial T^1} f(z) \, dz } \geq \frac{c}{4} .$
+
+\medskip
+\pause
+
+Cut $T^1$ into subtriangles $T_1^1$, $T_2^1$, $T_3^1$, $T_4^1$.
+\pause
+Integral over some $\partial T_j^1$ is at least $\frac{c}{4^2}$, so label it $T^2$.
+
+\pause
+
+Rinse and repeat.
+
+\pause
+\medskip
+
+For the $k$\textsuperscript{th} triangle $T^k$,
+$\displaystyle
+\quad
+\abs{\int_{\partial T^k} f(z) \, dz } \geq \frac{c}{4^k}.$
+\end{frame}
+
+\begin{frame}
+$T^k \subset T^{k-1} \subset \cdots \subset T$
+and in each step the triangle is exactly half the size (similar triangles):
+
+\pause
+\[
+\operatorname{diam}(T^k) =
+\frac{1}{2} \operatorname{diam}(T^{k-1})
+=
+\frac{1}{2^k} \operatorname{diam}(T) .
+\]
+\pause
+The triangles are compact, so the intersection of all of them is
+nonempty.
+
+\pause
+As the diameter also goes to zero, we get a single point:
+\[
+\{ z_0 \} = \bigcap_{k=1}^\infty T^k .
+\]
+\pause
+
+Write
+$f(z) = f(z_0) + \alpha (z-z_0) + g(z)$ for some $\alpha \in \C$.
+
+\medskip
+\pause
+
+Were $f$ complex differentiable at $z_0$, then for some $\alpha$,
+$\frac{g(z)}{z-z_0}$ would go to zero as $z \to z_0$.
+
+\medskip
+\pause
+
+We will prove
+$\frac{g(z)}{z-z_0}$ never goes to zero (no matter what $\alpha$ is).
+
+\medskip
+\pause
+
+Fix $\alpha$.  \pause  If $g(z_0) \not= 0$, we are done.
+
+\medskip
+\pause
+
+So assume $g(z_0) = 0$.  \pause
+Cauchy's theorem for polynomials says
+\[
+\int_{\partial T^k} f(z) \, dz =
+\int_{\partial T^k} \bigl( f(z_0) + \alpha (z-z_0) + g(z) \bigr) \, dz =
+\int_{\partial T^k} g(z) \, dz .
+\]
+\end{frame}
+
+\begin{frame}
+\[
+\frac{c}{4^k} \leq
+\abs{
+\int_{\partial T^k} f(z) \, dz
+}
+\pause
+=
+\abs{
+\int_{\partial T^k} g(z) \, dz 
+}
+\pause
+\leq
+\int_{\partial T^k} \sabs{g(z)} \, \sabs{dz} .
+\]
+\pause
+Let $\ell$ be the length of $\partial T$.
+
+\medskip
+\pause
+
+The length of $\partial T^k$ is $\frac{\ell}{2^k}$,
+\pause
+by the mean value theorem for integrals,
+$\exists$ $z_k \in \partial T^k$ such that
+\[
+\sabs{g(z_k)} = 
+\frac{2^k}{\ell}
+\int_{\partial T^k} \sabs{g(z)} \, \sabs{dz} .
+\]
+\pause
+$z_k \not= z_0$ as $g(z_0)=0$.
+
+\medskip
+\pause
+
+Let $d = \operatorname{diam}(T)$.  Then
+$\sabs{z_k-z_0} \leq \frac{d}{2^k}$ and
+\pause
+\[
+\abs{\frac{g(z_k)}{z_k-z_0}}
+\pause
+\geq
+\frac{2^k\sabs{g(z_k)}}{d}
+\pause
+=
+\frac{4^k}{d \ell}
+\int_{\partial T^k} \sabs{g(z)} \, \sabs{dz}
+\pause
+\geq
+\frac{4^k}{d \ell}
+\frac{c}{4^k}
+\pause
+= \frac{c}{d \ell} .
+\]
+\pause
+Since $z_k \to z_0$, we have that $\frac{g(z)}{z-z_0}$ does not 
+go to zero as $z \to z_0$.
+\pause
+\medskip
+
+So $f$ is not complex differentiable at $z_0$.
+\qed
+\end{frame}
+
+\begin{frame}
+A useful version of this result is the following exercise:
+
+\medskip
+
+\textbf{Exercise:}
+Suppose $T \subset \C$ is a triangle and $f \colon T \to \C$ a
+continuous function whose restriction to the interior of $T$ is holomorphic.
+Prove that $\int_{\partial T} f(z) \, dz = 0$.
+
+\medskip
+\pause
+
+Hint: Passing some sort of limit under the integral is required.
+
+\end{frame}
+
+\end{document}

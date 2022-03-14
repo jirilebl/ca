@@ -4906,7 +4906,7 @@ not have a primitive in $\C \setminus \{ 0 \}$.
 \begin{defn}
 A set $X$ is \emph{\myindex{convex}} if the segment $[a,b] \subset X$ for all $a,b \in
 X$.
-Let $a,b,c \in C$ be distinct points in $\C$ that do not lie on a
+Let $a,b,c \in \C$ be distinct points in $\C$ that do not lie on a
 straight line.
 A \emph{\myindex{triangle}} $T$
 with vertices $a,b,c$ is the convex hull
@@ -4962,7 +4962,7 @@ would not be true.
 \begin{proof}
 We proceed by contrapositive.
 Suppose $f$ is at least continuous, and 
-suppose there is a triangle $T$ over which the integral is not zero,
+suppose there is a triangle $T \subset U$ over whose boundary the integral is not zero,
 \begin{equation*}
 \abs{\int_{\partial T} f(z) \, dz} = c \not= 0 .
 \end{equation*}
@@ -4978,7 +4978,7 @@ $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side of $T$ in half.  See
 \label{fig:trianggoursat}}
 \end{myfig}
 
-Each $T_k$ is positively oriented.
+Each $T_j$ is positively oriented.
 The sides of the inner $T_4$ triangle have the opposite
 orientation as the inner sides of $T_1$, $T_2$, and $T_3$, and
 so the line integral over these sides cancels.  Therefore,
@@ -5034,7 +5034,7 @@ Write
 f(z) = f(z_0) + \alpha (z-z_0) + g(z) ,
 \end{equation*}
 for some continuous $g(z)$ and $\alpha \in \C$.
-Were $f$ differentiable, there would be an $\alpha$ so that
+Were $f$ complex differentiable at $z_0$, there would be an $\alpha$ so that
 $\frac{g(z)}{z-z_0}$ would go to zero as $z \to z_0$.
 Let us prove that it doesn't go to zero for any $\alpha$.  Fix $\alpha$
 and thus $g$.  If $g(z_0) \not= 0$,
@@ -5084,7 +5084,7 @@ $\sabs{z_k-z_0} \leq \frac{d}{2^k}$ and
 \frac{4^k}{d \ell}
 \frac{c}{4^k} = \frac{c}{d \ell} .
 \end{equation*}
-As $z_k \to z_0$, we find that $\frac{g(z)}{z-z_0}$ does not 
+Because $z_k \to z_0$, we find that $\frac{g(z)}{z-z_0}$ does not 
 go to zero as $z \to z_0$.  So $f$ is not complex differentiable at $z_0$.
 \end{proof}
 

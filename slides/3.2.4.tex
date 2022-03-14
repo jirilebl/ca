@@ -1,0 +1,218 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Cauchy's formula in a disc (3.2.4)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+
+We get to perhaps the most fundamental theorem in complex analysis:
+
+The Cauchy integral formula.
+
+\pause
+\medskip
+
+We prove a version this formula in a disc.
+
+\pause
+\medskip
+
+\begin{theorem}[Cauchy integral formula in a disc]
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$\overline{\Delta_r(p)} \subset U$.
+Then for all $z \in \Delta_r(p)$,
+\begin{equation*}
+f(z)
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta .
+\end{equation*}
+\end{theorem}
+
+\medskip
+\pause
+
+It should be surprising:
+\pause
+
+values inside (large set)
+
+\pause
+are given in terms of values on the boundary (small set).
+
+\medskip
+\pause
+
+A quick (but hardly only) application is to compute integrals of expressions
+such as $\frac{\cos(z^2)}{z(z-1)}$
+that blow up somewhere inside the cycle.
+
+\end{frame}
+
+\begin{frame}
+\textbf{Proof:}
+Fix $z \in \Delta_r(p)$, and write $\gamma = \partial \Delta_r(p)$ oriented counterclockwise.
+
+\medskip
+\pause
+
+Let $\Delta_s(z)$ be a small disc where $\overline{\Delta_s(z)} \subset
+\Delta_r(p)$.
+\pause
+Write $\alpha = \partial \Delta_s(z)$.
+
+\pause
+\medskip
+
+Connect $\alpha$ to $\gamma$
+via two straight lines
+
+to give two closed paths
+$c_1$ and $c_2$
+
+\vspace*{-0.35in}
+\hspace*{2.6in}%
+\subimport*{../figures/}{disccauchy.pdf_t}
+
+\pause
+\vspace*{-1.8in}
+
+As chains, $c_1+c_2 = \gamma - \alpha$.
+
+\medskip
+\pause
+
+Each $c_j$ lies in a star-like domain
+
+where $\displaystyle \zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ is holomorphic.
+\pause
+So
+
+\medskip
+
+$
+\displaystyle
+\int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta -
+\int_{\alpha} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
+$
+\medskip
+
+\hspace*{0.7in}
+$
+\displaystyle
+\int_{c_1} \frac{f(\zeta)}{\zeta-z} \, d\zeta + 
+\int_{c_2} \frac{f(\zeta)}{\zeta-z} \, d\zeta = 0 .
+$
+
+\end{frame}
+
+\begin{frame}
+So
+\[
+\frac{1}{2\pi i}
+\int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
+\frac{1}{2\pi i}
+\int_{\alpha} \frac{f(\zeta)}{\zeta-z} \, d\zeta .
+\]
+\pause
+
+Parametrize $\alpha$ as $\alpha(t) = z+s e^{i t}$.
+
+\pause
+
+\[
+\frac{1}{2\pi i}
+\int_{\alpha}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+\pause
+=
+\frac{1}{2\pi i}
+\int_0^{2\pi} \frac{f(z+se^{it})}{z + se^{it} - z} s i e^{it} \, dt
+\pause
+=
+\frac{1}{2\pi}
+\int_0^{2\pi} f(z+se^{it}) \, dt .
+\]
+
+\pause
+
+The integral over $\gamma$ (independent of $s$)
+equals the integral over $\alpha$ for all $s > 0$ small enough,
+
+\pause
+
+so we can take the limit as $s \to 0$.
+
+\pause
+\medskip
+
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+\pause
+=
+\lim_{s \downarrow 0}
+\frac{1}{2\pi i}
+\int_{\alpha}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta
+\pause
+=
+\lim_{s \downarrow 0}
+\frac{1}{2\pi}
+\int_0^{2\pi} f(z+se^{it}) \, dt
+\pause
+=
+f(z) .
+\end{equation*}
+\hspace*{3.8in}(by continuity of $f$ at $z$) \qed
+
+\end{frame}
+
+\begin{frame}
+There is a very useful consequence left as an easy exercise:
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Suppose $f$ is holomorphic in an open neighborhood of
+$\overline{\Delta_r(p)}$.
+Show that $f$ at $p$ is the average of the values on $\partial \Delta_r(p)$.
+That is, show
+\[
+f(p) = \frac{1}{2\pi} \int_0^{2\pi} f(p + r e^{it}) \, dt .
+\]
+
+
+
+
+\end{frame}
+
+\end{document}
