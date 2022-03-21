@@ -6419,8 +6419,7 @@ If $P(z)$ is a nonconstant polynomial, then $P$ has a root.
 \begin{proof}
 If $P(z)$ does not have a root, then $R(z) = \frac{1}{P(z)}$ is
 an entire holomorphic function.
-If $P(z)$ is constant, $R(z)$ is bounded.
-If $P(z)$ is nonconstant, then
+As $P(z)$ is nonconstant, then
 in \exerciseref{exercise:polygoesinf} you proved that
 $\lim_{z \to \infty} P(z) = \infty$ and so
 $\lim_{z \to \infty} R(z) = 0$.  In other words, $R(z)$ is bounded.
@@ -9556,15 +9555,15 @@ If $j\not=1$, then no point of the interior of $\gamma_j$ can be in $U$, as the
 exterior of $\gamma_j$ contains $\gamma_1$ and therefore points of $U$.
 So $U$ is a subset of the intersection of $U'$ and the exterior of
 $\gamma_j$.
-So $z$ is in the exterior of $\gamma_j$ and $n(\gamma_j;z) = 0$.  Hence
+So $z$ is in the exterior of $\gamma_j$ and $n(\gamma_j;z) = 0$.  Hence,
 $n(\Gamma;z) = 1$.
 
-On the other hand, if $z$ is in the complement $\widebar{U}$, then either it
+On the other hand, if $z$ is in the complement of $\widebar{U}$, then either it
 is in the exterior of $\gamma_1$ and hence in the exterior of all the
 $\gamma_j$, or it is in the interior of $\gamma_1$ and also in the interior
 of some $\gamma_j$.  As $U$ is connected and contains exterior points
 of all $\gamma_2,\ldots,\gamma_k$, it is not possible for a point to be in
-the interior of two of these paths.  Hence if $z \in U'$, there is exactly one $j\not= 1$
+the interior of two of these paths.  Thus, if $z \in U'$, there is exactly one $j\not= 1$
 such that $z$ is in the interior of $\gamma_j$.  In either case,
 $n(\Gamma;z) = 0$.
 \end{proof}
@@ -9618,7 +9617,7 @@ $\C \setminus \widebar{U}$.
 
 \begin{exercise}
 Prove that the following definition of piecewise-$C^1$ boundary is
-equivalent to the one we gave for bounded open sets.  An open $U \subset
+equivalent to the one we gave for bounded open sets:  An open $U \subset
 \C$ has piecewise-$C^1$ boundary if for every $p \in \partial U$
 there exists an open neighborhood $W$ of $p$ and an injective piecewise-$C^1$ path $\gamma
 \colon [a,b] \to \C$ such that $W \cap \partial U =
@@ -9634,10 +9633,9 @@ of $\C \setminus \widebar{U}$.
 \chapter{Counting Zeros and Singularities} \label{ch:counting}
 
 \begin{myepigraph}
-The people who cast the votes don't decide an election, the people who count
-the votes do.
+If you can count your money, you don't have a billion dollars.
 
----Joseph Stalin
+---J.\ Paul Getty
 \end{myepigraph}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9724,11 +9722,11 @@ is equal to $\frac{f(z)}{{(z-p)}^k}$ on
 the punctured disc $\Delta_r(p)\setminus \{ p \}$, where the series
 for $f$ converges.
 So it can define $g$ near $p$.  Uniqueness follows rather easily:
-If ${(z-p)}^{k_1} g_1(z) = {(z-p)}^{k_2} g_2(z)$, where
+Suppose ${(z-p)}^{k_1} g_1(z) = {(z-p)}^{k_2} g_2(z)$, where
 $g_1(p) \not= 0$ and $g_2(p) \not= 0$.
 Without loss of generality
 $k_1 \leq k_2$, then 
-$g_1(z) = {(z-p)}^{k_2-k_1} g_2(z)$.  Plug in $z=p$ to see that $k_2 =
+$g_1(z) = {(z-p)}^{k_2-k_1} g_2(z)$.  Plug in $z=p$ to see $k_2 =
 k_1$.
 \end{proof}
 
