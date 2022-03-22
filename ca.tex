@@ -1845,7 +1845,7 @@ C(z)
 =
 \frac{z - i}{z + i} .
 \end{equation*}
-The map is clearly an LFT, and it
+The map is clearly an LFT\@, and it
 takes the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$ to the
 unit disc $\D$.  Let us see why.  The map takes $z \in \C$ to the unit disc if
 \begin{equation*}
@@ -1902,7 +1902,7 @@ There is a certain quantity that is preserved by LFTs, the
 \end{equation*}
 where $z_1,z_2,z_3,z_4$ are complex numbers.  The cross ratio
 was already described by the ancient Greeks\footnote{Pappus of Alexandria
-lived in the early 4th century AD.  So it's not as impressively ancient as say
+lived in the early 4th century AD\@.  So it's not as impressively ancient as say
 Thales's theorem from about a thousand years earlier.  Also, isn't
 Alexandria in Egypt?}
 and plays a key role in projective geometry.
@@ -1936,7 +1936,7 @@ Consequently,
 By \myquote{preserved by LFTs} we mean:
 
 \begin{prop} \label{prop:crossratioinvariant}
-Suppose that $f$ is an LFT, then
+Suppose that $f$ is an LFT\@, then
 \begin{equation*}
 (z_1,z_2;z_3,z_4) =
 \bigl(f(z_1),f(z_2);f(z_3),f(z_4)\bigr) .
@@ -1979,7 +1979,7 @@ $f(z_3) = w_3$.
 
 \begin{exercise}
 Given distinct points $z_1,z_2,z_3 \in \C$ and
-using the cross ratio definition of an LFT, explicitly find
+using the cross ratio definition of an LFT\@, explicitly find
 the equation of a circle (or the straight line) through the three points.
 Hint: Inverse image of the real line is a circle or a straight line.
 \end{exercise}
@@ -7413,7 +7413,7 @@ find three $\gamma$s that achieve each of these three possibilities.
 
 \subsection{Winding numbers}
 
-OK.  Let's get more rigorous.
+OK\@.  Let's get more rigorous.
 
 \begin{defn}\label{defn:windingnumber}
 Let $\Gamma$ be
@@ -8259,8 +8259,8 @@ Given $0 \leq r_1 < r_2 \leq \infty$ and $p \in \C$, define
 \end{equation*}
 When $0 < r_1 < r_2 < \infty$ we call this set an
 \emph{\myindex{annulus}}\footnote{%
-Q: What do you call a banana with a hole?
-A: A banannulus.}.
+Q\@: What do you call a banana with a hole?
+A\@: A banannulus.}.
 \end{defn}
 
 A common case is when $r_1 = 0$, that is,
@@ -8744,7 +8744,7 @@ Everything is going swimmingly until we realize that $\int_{\gamma_s} f(z)
 \, dz$ makes no sense whatsoever.  The problem is that $\gamma_s$ is only
 continuous and not a piecewise-$C^1$ path.  We can't
 even define $n(\gamma_s;z)$ using our prior definition.
-OK, so first we need to define $n(\gamma_s;z)$ in a way that makes sense for
+OK\@, so first we need to define $n(\gamma_s;z)$ in a way that makes sense for
 any continuous closed path.
 
 \begin{lemma} \label{lemma:existenceoftheta}
@@ -10097,10 +10097,10 @@ f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
 is the corresponding Laurent series.
 The singularity at $p$ is
 \begin{enumerate}[(i)]
-\item \emph{removable} if and only if $c_n = 0$ for all $n < 0$.
-\item \emph{pole} of order $k \in \N$ if and only if $c_n = 0$ for all $n < -k$ and
+\item \emph{removable} if and only if $c_n = 0$ for all $n < 0$,
+\item a \emph{pole} of order $k \in \N$ if and only if $c_n = 0$ for all $n < -k$ and
 $c_{-k}
-\not= 0$.
+\not= 0$,
 \item \emph{essential} if and only if $c_n \not= 0$ for infinitely many negative $n$.
 \end{enumerate}
 \end{prop}
@@ -10388,7 +10388,8 @@ rational function (a polynomial divided by a polynomial).
 \end{exercise}
 
 \begin{exercise}
-Show that an injective holomorphic $f \colon \C_\infty \to \C_\infty$ is an LFT.
+Show that an injective holomorphic $f \colon \C_\infty \to \C_\infty$ is an
+LFT\@.
 \end{exercise}
 \end{exbox}
 
@@ -10406,8 +10407,8 @@ The only power ${(z-p)}^n$ that does not have a primitive in
 $\Delta_r(p) \setminus \{ p \}$ is ${(z-p)}^{-1}$.  It is the only power
 a line integral of $f$ around $p$ \myquote{sees,} that is, it is
 what's left, or the \myquote{residue}\footnote{%
-Q: Why did the mathematician name their dog Cauchy?
-A: Because it left a residue at every pole.}
+Q\@: Why did the mathematician name their dog Cauchy?
+A\@: Because it left a residue at every pole.}
 of integrating $f(z)$ around a closed path.
 
 \begin{defn}
@@ -10603,7 +10604,7 @@ residues.
 \begin{equation*}
 \int_{-\infty}^\infty \frac{1}{1+x^2} \, dx .
 \end{equation*}
-OK, this one is easy to compute by classical calculus, but let us ignore
+OK\@, this one is easy to compute by classical calculus, but let us ignore
 that fact for the sake of the simplicity of the example.
 
 Define the cycle $\Gamma_r = [-r,r] + \gamma_r$, where $\gamma_r(t) =
@@ -11883,7 +11884,7 @@ Prove that on no interval $[a,b] \subset \R$ does $\sin(nx)$
 have a pointwise convergent subsequence.
 First, if $f$ is the pointwise limit of a subsequence on $[a,b]$,
 use Riemann--Lebesgue lemma to show that $f=0$ almost everywhere.
-Second, use the dominated convergence theorem on $\int_{[a,b]} f^2\, dx$ to find 
+Second, consider $\int_{[a,b]} f^2\, dx$ and the dominated convergence theorem to find 
 a contradiction.
 \end{exercise}
 \end{exbox}
@@ -11982,7 +11983,7 @@ the Arzel\`a--Ascoli theorem.
 Unlike Bolzano--Weierstrass, Arzel\`a--Ascoli requires equicontinuity
 in addition to boundedness.  We will start with the theorem on compact
 metric spaces, and then move to open sets.
-We start with a lemma, showing that a countable
+We start with a lemma showing that a countable
 dense set exists in any compact metric space.  We will then be able to apply our
 result about countable sets.
 
@@ -12226,8 +12227,8 @@ Let $\delta \in \R$ be given, and define $g(t) = e^{i(2\pi t + \delta)}$.
 Prove that there exists 
 a subsequence of $\{ f_n \}$ converging uniformly to $g$.
 \end{exparts}
-Hint: Feel free to use the \emph{\myindex{Kronecker density theorem}}:
-The sequence $\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
+Feel free to use the \emph{\myindex{Kronecker density theorem}}:
+$\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
 \end{exercise}
 \end{exbox}
 
@@ -12236,14 +12237,14 @@ The sequence $\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
 \section{Montel's theorem}
 \label{sec:montel}
 
-For holomorphic functions, if you have a bound on the function, you have a
+For holomorphic functions, a bound on the function means a
 bound on the derivative using the Cauchy integral formula.  A uniform
 bound on the derivative gives equicontinuity, and
 so it comes as no
-surprise that if we have a uniformly bounded set of holomorphic functions,
-then this set is equicontinuous.
+surprise that a uniformly bounded set of holomorphic functions
+is equicontinuous.
 Let us use some of the traditional language.\footnote{%
-We wouldn't want the reader to miss out on all the possibilities of making
+We wouldn't want the reader to miss out on all the
 jokes about how Montel had a \myquote{normal family.}}
 
 \begin{defn}
@@ -12529,7 +12530,7 @@ takes $U$ to $\D$ and is injective.
 By composing with the correct automorphism of the disc,
 we find a map that takes $p$ to $0$.  Hence, $\sF$ is nonempty.
 
-OK.  Now suppose that $f \colon U \to \D$ is an injective holomorphic map
+OK\@.  Now suppose that $f \colon U \to \D$ is an injective holomorphic map
 such that $f(p) = 0$, but that $f$ is not onto.  There is a
 $q \in \D \setminus f(U)$.
 Recall that
@@ -12868,10 +12869,10 @@ So, without loss of generality, assume that $K$ is connected.
 Also assume that $0 \in K$.  If $K= \{0 \}$, we are done trivially, so
 assume $K$ is larger than one point.
 Consider $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
-LFT:
+LFT\@:
 $\varphi(z) = \nicefrac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
 $\varphi(0) = \infty$ and $\varphi(\infty) = 0$.
-Being an LFT, $\varphi$ is a (bi)holomorphic
+Being an LFT\@, $\varphi$ is a (bi)holomorphic
 mapping of $\C_\infty$ to itself, where $\varphi^{-1} = \varphi$.  Let
 \begin{equation*}
 V = \varphi(\C_\infty \setminus K) .
@@ -17986,7 +17987,7 @@ unrestricted continuation in $\C \setminus \{ 0 \}$, and so does the square root
 If we continue from $z=1$ along a closed path that does not go around the origin and comes
 back to $z=1$, the continuation of the root also has the value $1$ there.  However,
 if we go around a path that goes once around the origin, the continuation
-will have a value of $-1$ at $z=1$.  OK, nothing new so far.
+will have a value of $-1$ at $z=1$.  OK\@, nothing new so far.
 
 Now consider the function $f(z) = \frac{1}{1+\sqrt{z}}$, where the square
 root is as before.  As we can continue the square root, we can try to
@@ -23544,7 +23545,7 @@ Y .
    title={Invitation to complex analysis},
    series={MAA Textbooks},
    edition={2},
-   note={Revised by Harold P. Boas},
+   note={Revised by Harold P.\ Boas},
    publisher={Mathematical Association of America, Washington, DC},
    date={2010},
    pages={xiv+327},
@@ -23580,13 +23581,13 @@ Y .
 
 \bib{ra:book}{misc}{
    author={Lebl, Ji\v{r}\'i},
-   title={Basic analysis I: Introduction to real analysis, Volume I},
+   title={Basic analysis I\@: Introduction to real analysis, Volume I},
    note={\url{https://www.jirka.org/ra/}}
 }
 
 \bib{ra:book2}{misc}{
    author={Lebl, Ji\v{r}\'i},
-   title={Basic analysis II: Introduction to real analysis, Volume II},
+   title={Basic analysis II\@: Introduction to real analysis, Volume II},
    note={\url{https://www.jirka.org/ra/}}
 }
 
