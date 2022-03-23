@@ -5813,7 +5813,7 @@ It says that if $f$ is differentiable in some way,
 then so is the derivative.  Nothing like that is true for the real
 derivative:
 Any continuous function $g \colon (a,b) \to \R$ is a derivative
-of a real differentiable function, e.g., $f(x) = \int_a^x g(t)\,dt$,
+of a real differentiable function (e.g., $f(x) = \int_a^x g(t)\,dt$),
 and continuous functions need not be differentiable anywhere.
 Even worse, the real derivative could even be discontinuous.
 
@@ -9870,7 +9870,8 @@ an \emph{\myindex{essential singularity}}.
 In other words, $f$ has an isolated singularity at $p$ if it is defined
 and holomorphic in a punctured neighborhood
 $\Delta_r(p) \setminus \{ p \}$.  It is removable if the function extends
-across, a pole if $f$ goes to infinity, and essential otherwise.
+across, a pole if $f$ goes to infinity (e.g., $\nicefrac{1}{z}$),
+and essential otherwise (e.g., $e^{1/z}$).
 A holomorphic function must blow up in some way if a singularity is not
 removable.  That is a rather surprising property of holomorphic functions
 with a rather surprisingly simple proof.
@@ -9879,12 +9880,12 @@ with a rather surprisingly simple proof.
 \label{prop:riemannext}
 Suppose $U \subset \C$ is open, $p \in U$,
 and $f \colon U \setminus \{p\} \to \C$ holomorphic.
-If $f$ is bounded (near $p$ is enough), then $p$ is a removable singularity.
+If $f$ is bounded (near $p$ suffices), then $p$ is a removable singularity.
 \end{thm}
 
 \begin{proof}
 Define
-$g(z) = {(z-p)}^2 f(z)$ for $z \not= p$ near $p$ and $g(p) = 0$.
+$g(z) = {(z-p)}^2 f(z)$ for $z \not= p$ and $g(p) = 0$.
 The function $g$ is clearly holomorphic for $z \not= p$.  Consider the 
 difference quotient
 $\frac{g(z)-g(p)}{z-p} = (z-p) f(z)$.
@@ -9895,7 +9896,7 @@ As $f$ is bounded,
 So $g$ is also complex differentiable at $p$ and so holomorphic on $U$.
 The order $k$ of the zero of $g$ at $p$ is at least $2$ (as $g(p)=0$ and
 $g'(p)=0$).  Write
-$g(z) = {(z-p)}^k h(z)$, where $h$ is holomorphic near $p$.
+$g(z) = {(z-p)}^k h(z)$, where $h$ is holomorphic on $U$.
 Then $f(z) = {(z-p)}^{k-2}h(z)$, or in other words, $p$ is a removable 
 singularity.
 \end{proof}
@@ -9952,8 +9953,9 @@ Hint: Make sure to handle the zeros of $f$ and $g$.
 \end{exercise}
 
 \begin{exercise}
-Prove that there does \emph{not} exist a nonzero holomorphic
-$f \colon \Delta_r(0) \to \C$ (for every $r > 0$)
+Prove that there does \emph{not} exist a holomorphic
+$f \colon \Delta_r(0) \to \C$ (for any $r > 0$)
+that is not identically zero and
 such that
 $f(z) e^{1/z}$ is bounded in $\Delta_r(0) \setminus \{ 0 \}$.
 \end{exercise}
@@ -9996,8 +9998,11 @@ Thus, $\nicefrac{1}{f}$ has a removable singularity at $p$ by Riemann extension.
 Let $h$ be holomorphic in $\Delta_r(p)$
 such that $h(z) = \nicefrac{1}{f(z)}$ for $z \not= p$.  By continuity, $h(p) =
 0$.  Hence $h(z) = {(z-p)}^k \psi(z)$ for some holomorphic $\psi$ and $k \in \N$,
-where $\psi(p) \not= 0$.  As $\psi$ is continuous, $\psi$ is nonzero near $p$.
-And for $z \not= p$ near $p$,
+where $\psi(p) \not= 0$.
+As $h$ is not zero in $\Delta_r(p) \setminus \{p\}$,
+then $\psi$ is not zero in $\Delta_r(p)$
+and $\nicefrac{1}{\psi}$ is holomorphic in $\Delta_r(p)$.
+For $z \in \Delta_r(p) \setminus \{p\}$,
 \begin{equation*}
 {(z-p)}^k f(z)
 =
@@ -10029,7 +10034,7 @@ has a pole at $p$, a function $f$ can be written as
 \begin{equation*}
 f(z) = \frac{g(z)}{{(z-p)}^k}
 \end{equation*}
-for some $g$ holomorphic and nonzero at $p$ and $k$ is the order of the pole.
+for some holomorphic $g$ nonzero at $p$, and $k$ is the order of the pole.
 There is a symmetry between zeros and poles:
 If $f$ has a zero of order $k$ at $p$, then $\nicefrac{1}{f}$ has a pole of
 order $k$ at $p$.
@@ -10077,7 +10082,8 @@ Show that $f$ has an essential singularity at $p$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f \colon \D \setminus \{0\} \to \C$ is holomorphic and
+Suppose $f \colon \D \setminus \{0\} \to \C$ is holomorphic,
+not identically zero, and
 $f$ has infinitely many zeros in $\Delta_{1/2}(0) \setminus \{ 0 \}$.
 Prove that $f$ has an essential singularity at $0$.
 \end{exercise}
@@ -10092,7 +10098,7 @@ classify a singularity.
 Suppose $f \colon \Delta_r(p) \setminus \{p\} \to \C$ is holomorphic,
 and
 \begin{equation*}
-f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
+f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n
 \end{equation*}
 is the corresponding Laurent series.
 The singularity at $p$ is
@@ -10207,9 +10213,9 @@ arbitrarily close to the singularity.  The function is very wild (and
 getting wilder and wilder) as it gets close to an essential singularity.
 
 \begin{thm}[Casorati--Weierstrass\footnote{%
-Some people say it should be called Casorati--Sokhotskii(--Weierstrass) theorem as
-Casorati and Sokhotskii both published it in 1868, (Casorati in Italian
-and Sokhotskii in Russian) while Weierstrass published it in 1876 (in
+Some people say it should be called Casorati--Sochocki(--Weierstrass) theorem as
+Casorati and Sochocki both published it in 1868, (Casorati in Italian
+and Sochocki, who was Polish, in Russian) while Weierstrass published it in 1876 (in
 German).  But really it first appeared in a book by Briot and Bouquet in
 1859 (in French), so really it should be called the Briot--Bouquet theorem,
 no?  If we all still published in Latin, we wouldn't be in this
