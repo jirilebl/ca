@@ -10266,7 +10266,7 @@ $\Delta_r(p)$.  For $z \in \Delta_r(p) \setminus \{ p \}$,
 f(z) = \frac{1}{g(z)} + q .
 \end{equation*}
 If $g$ has a zero at $p$, then $f$ has a pole at $p$.  If $g$ does not
-have a zero at $p$, then $f$ has a removable singularity.  In any case,
+have a zero at $p$, then $f$ has a removable singularity.  In either case,
 $f$ does not have an essential singularity at $p$.
 \end{proof}
 
@@ -10356,7 +10356,7 @@ a meromorphic function is as a
 Holomorphicity at a pole can be
 rephrased as holomorphicity of a function $\frac{1}{f(z)}$ at $p$.
 There is a small technicality: Should one consider the function
-that is constantly $\infty$ as a meromorphic function or not.
+that is constantly $\infty$ as a meromorphic function or not?
 We will take the view that it is not a meromorphic function.
 
 From now on, when we say that $f$ is
@@ -10365,7 +10365,7 @@ poles in $U$.  We will assume that $f$ is defined to be $\infty$
 at the poles, and
 we will write $f \colon U \to \C_\infty$.  That is, even though we
 could just say \myquote{$f \colon U \to \C_\infty$ is holomorphic,} we will, for emphasis,
-say \myquote{$f \colon U \to \C_\infty$ is meromorphic.}
+usually say \myquote{$f \colon U \to \C_\infty$ is meromorphic.}
 
 Similarly, we can define a function on subsets of $\C_\infty$, just as
 we did with LFTs.
@@ -10625,7 +10625,7 @@ See \figureref{fig:rhalfcircle}.
 
 We \myquote{complexify}\index{complexify}
 $\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.
-That's just a fancy way of saying we are going to plug in complex numbers
+That's just a fancy way of saying we are going to plug complex numbers
 into a real formula that happens to also work for complex numbers.
 By partial fractions
 \begin{equation*}
@@ -10633,7 +10633,7 @@ By partial fractions
 \frac{i}{2} \frac{1}{z+i} - 
 \frac{i}{2} \frac{1}{z-i} .
 \end{equation*}
-There are isolated singularities at $\pm i$.  The cycle
+There are isolated singularities at $\pm i$, both simple poles.  The cycle
 $\Gamma_r$ goes around $i$ once, so $n(\Gamma_r;i) = 1$,
 but not around $-i$, that is, $n(\Gamma_r;-i) = 0$.
 So we only need to compute
@@ -10661,8 +10661,8 @@ We compute,
 +
 \int_{\gamma_r} \frac{1}{1+z^2} \, dz .
 \end{equation*}
-Let us find the limit as $r \to \infty$ of the second term
-via the triangle inequality.  The length of $\gamma_r$ is $r\pi$,
+Let us find the limit as $r \to \infty$ of the second term.
+The length of $\gamma_r$ is $r\pi$,
 and on $\gamma_r$ (for large enough $r$),
 $\sabs{1+z^2} \geq r^2-1$.  So
 \begin{equation*}
