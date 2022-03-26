@@ -10247,12 +10247,12 @@ closed disc, allowing one to use Riemann extension.
 
 \begin{proof}
 Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic,
-$\Delta_r(p) \setminus \{ p \} \subset U$,
+$\Delta_r(p) \subset U$,
 and that
-there is a $q \in \C$ such that $\Delta_s(q) \subset \C
+there is a $q \in \C$ and $s > 0$ such that $\Delta_s(q) \subset \C
 \setminus 
 f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)$.
-Consider $g \colon \Delta_r(p) \setminus \{p\} \to \C$ defined by
+Consider $g \colon \Delta_r(p) \setminus \{p\} \to \C$ given by
 \begin{equation*}
 g(z) = \frac{1}{f(z) - q} .
 \end{equation*}
@@ -10404,7 +10404,7 @@ LFT\@.
 \section{Residue theorem}
 
 If $f$ has an isolated singularity at $p$,
-we expand
+expand
 $f$ in the Laurent series on $\Delta_r(p) \setminus \{ p \}$:
 \begin{equation} \label{eq:laurentser}
 f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
