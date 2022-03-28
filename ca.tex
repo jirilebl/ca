@@ -6383,7 +6383,7 @@ words, $f(z) = c_0$ for all $z$.
 \begin{exbox}
 \begin{exercise}
 Suppose $f$ is entire and $\sabs{f(z)} \leq e^{\Re z}$ for all $z \in
-\C$.  Show that $f(z) = c e^z$ for all $z$.
+\C$.  Show that $f(z) = c e^z$ for some constant $c \in \C$.
 \end{exercise}
 
 \begin{exercise}
@@ -8418,7 +8418,7 @@ swap the integral and the series limit is the same as in that theorem.
 
 Similarly, 
 if $\zeta \in \partial \Delta_{s_1}$, then
-$\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} < 1$ and so
+$\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} < 1$, and so
 \begin{equation*}
 \begin{split}
 -\frac{1}{2\pi i}
@@ -10662,8 +10662,9 @@ We compute,
 \int_{\gamma_r} \frac{1}{1+z^2} \, dz .
 \end{equation*}
 Let us find the limit as $r \to \infty$ of the second term.
+Assume $r > 1$.
 The length of $\gamma_r$ is $r\pi$,
-and on $\gamma_r$ (for large enough $r$),
+and on $\gamma_r$,
 $\sabs{1+z^2} \geq r^2-1$.  So
 \begin{equation*}
 \abs{
@@ -10878,17 +10879,19 @@ Furthermore, if $h \colon U \to \C$ is holomorphic, then
 By
 \emph{\myindex{zeros counted with multiplicity}}
 we mean that if
-a zero has multiplicity $m$, we repeat it $m$ times.
+a zero has multiplicity (order) $m$, we repeat it $m$ times.
 For instance, $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
 Same with poles.
-The number of zeros or poles inside an open set is possibly countably
-infinite (unless $f$ is identically zero in that open set).
+The number of zeros or poles of a meromorphic function
+inside an open set is possibly countably
+infinite (unless $f$ is identically zero).
 But there are only ever finitely
 many zeros or poles for which 
 $n(\Gamma;z) \not= 0$ (see exercises below), as long as $\Gamma$ is
-homologous to zero.  So there is always a slightly smaller $U$ that only
+homologous to zero.  One can even find a slightly smaller $U$ that only
 includes finitely many zeros and poles and $\Gamma$ is still homologous to
-zero in that smaller $U$.
+zero in that smaller $U$, and so a theorem for finitely many zeros and poles is
+sufficient.
 
 Why do we say that the theorem counts the number of zeros and poles?
 Suppose $\Gamma$ only goes around every point in $z \in U$ at most once
