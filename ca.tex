@@ -10933,8 +10933,8 @@ argument principle counts the number of times
 $f \circ \gamma$ winds around zero.
 
 \begin{proof}[Proof of the argument principle]
-We prove the \myquote{Furthermore} as that proves the rest of the theorem by
-considering the constant $h(z) = 1$.
+We prove the \myquote{Furthermore} as that proves the first part by
+considering $h \equiv 1$.
 The function $h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
 at the zeros and poles of $f$.  Let $S$ be the set of zeros and poles of $f$,
 and apply the residue theorem:
@@ -10947,7 +10947,8 @@ and apply the residue theorem:
 We simply compute the residues.
 Consider a zero of $f$ of multiplicity $m$ or a pole of order $-m$, and
 without loss of generality suppose it is the origin.
-Write $f(z)  = z^m F(z)$ where $F(0) \not=0$
+Write $f(z)  = z^m F(z)$ where $F$ is holomorphic near $0$,
+$F(0) \not=0$,
 and $h(z) = h(0) + z H(z)$.
 Then $f'(z) = m z^{m-1} F(z) + z^m F'(z)$, and so
 \begin{multline*}
@@ -10971,16 +10972,16 @@ Hence, $\operatorname{Res}\left(h\frac{f'}{f};0\right) = m\, h(0)$.
 The theorem follows.
 \end{proof}
 
-Besides all the theoretical implications we will see,
-the argument principle can be used to locate zeros of polynomials
+Besides the theoretical implications we will see,
+there are some immediate practical ones.
+The argument principle can be used to locate zeros of polynomials
 (or holomorphic functions more generally)
 by numerical computations.  If we numerically estimate the integral to
 within a precision of at least $0.5$ (so no need to be extremely precise),
 then we know the number of zeros 
 of the polynomial enclosed by the cycle.
-
-Another interesting application is computing the power sums of the zeros of
-polynomials.  Given a polynomial $f(z)$ and a cycle $\Gamma$ going at most
+A related application is computing the power sums of the zeros.
+Given a cycle $\Gamma$ going at most
 once around a certain region, such that $z_1,\ldots,z_n$ are the zeros of $f$
 inside $\Gamma$, then
 \begin{equation*}
@@ -10989,7 +10990,7 @@ inside $\Gamma$, then
 =
 z_1^k + \cdots + z_n^k .
 \end{equation*}
-For example, if there is at most one simple zero $z_0$ of
+If there is at most one simple zero $z_0$ of
 $f$ enclosed within $\Gamma$, then
 \begin{equation*}
 \frac{1}{2\pi i}
@@ -11119,7 +11120,7 @@ N_g - P_g.
 
 The condition on $\Gamma$ means that the
 cycle is simple in the sense
-that only goes around any particular point either once or not at all.
+that it only goes around any particular point either once or not at all.
 We then count the number of zeros and poles inside $\Gamma$.
 The strictness of the inequality is the key point,
 the nonstrict inequality is always true for any $f$ and $g$ by the triangle
@@ -11220,7 +11221,7 @@ all the zeros of $P(z)$ must be on the unit circle.
 \end{example}
 
 \begin{example}
-As a more complicated example, consider $P(z) = z^4+12z^3+24z^2+4z+6$.
+Consider a more complicated polynomial $P(z) = z^4+12z^3+24z^2+4z+6$.
 When $\sabs{z}=1$,
 \begin{multline*}
 \abs{P(z)-(z^4+24z^2)} =
@@ -11366,8 +11367,8 @@ $\Delta_r(z_0)$.
 \begin{example}
 Hurwitz theorem does not work for real functions.  Let $f(x) =
 x^2$ a function on $\R$.  Then $f$ has a zero (actually a zero of order 2)
-at the $x=0$.  The functions $f_n(x) = x^2+\nicefrac{1}{n}$ converge uniformly
-to $f$, but $f_n$ has no zero for any $x$.
+at $x=0$.  The functions $f_n(x) = x^2+\nicefrac{1}{n}$ converge uniformly
+to $f$, but $f_n$ has no zero for any $x \in \R$.
 
 On the other hand, consider $f(z) = z^2$ as a function of $\C$, and let
 $f_n(z) = z^2+\nicefrac{1}{n}$.  Again $f_n$ goes to $f$ uniformly.  Now for
@@ -11421,7 +11422,8 @@ for each $0 < r < 1$ the number of zeros (up to multiplicity)
 of $f_n$ in $\Delta_r(0)$ goes to infinity as $n \to \infty$.
 Prove that $f \equiv 0$.
 \item
-Find an example sequence of such maps such that $f_n(\D) = \D$.
+Find an example sequence of such maps such that $f_n(\D) = \D$
+for all $n$.
 \end{exparts}
 \end{exercise}
 
