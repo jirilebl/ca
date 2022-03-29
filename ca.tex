@@ -9645,8 +9645,8 @@ If you can count your money, you don't have a billion dollars.
 Per the identity theorem, zeros of a holomorphic function are
 isolated (or the function is identically zero).  Let us investigate how a
 holomorphic function behaves near a zero.
-Several times before, we have used parts of the following rather simple
-lemma.  We now give a more complete and formal statement.  
+Several times before, we have used bits of the following rather simple
+result.  We now give a more complete and formal statement.  
 
 \begin{lemma}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be holomorphic, $p \in U$,
@@ -9661,11 +9661,11 @@ Furthermore, $k$ is the smallest integer such that the $k$\textsuperscript{th}
 derivative $f^{(k)}(p) \not= 0$.
 \end{lemma}
 
-Before we prove the lemma, let us give a name to this integer $k$.
+%Before we prove the lemma, let us give a name to this integer $k$.
 
 \begin{defn}
-Suppose $f$ has an isolated zero at $p$.
-The $k$ from the lemma is called the \emph{order}\index{order of a zero}
+Suppose $f$ and $k$ are as in the lemma.
+The $k$ is called the \emph{order}\index{order of a zero}
 of the zero at $p$.
 If the order is $1$, we say $p$ is a \emph{\myindex{simple zero}}.
 We will also call the order, for reasons that will be obvious very soon,
@@ -9682,7 +9682,7 @@ $k$ is the largest integer such that $\frac{f(z)}{{(z-p)}^{k}}$ is bounded
 near $p$.  That these possible definitions are equivalent
 follows from the lemma.  See \exerciseref{exercise:order} below.
 
-For completeness, the conclusion of the lemma holds also when $f(p) \not= 0$,
+The conclusion of the lemma holds also when $f(p) \not= 0$,
 in which case
 $k=0$ and $g = f$.  So one can (if one is really inclined to)
 say that when $f(p) \not= 0$, then $p$ is
@@ -9693,14 +9693,14 @@ However, when we say \myquote{$f$ has a zero at $p$,}
 we never mean that it has a
 \myquote{zero of order zero,} we mean an honest zero, $f(p) = 0$.
 
-A consequence that may be good to emphasize is that if $f^{(k)}(p) = 0$
+%A consequence that may be good to emphasize is that
+
+If $f^{(k)}(p) = 0$
 for all $k$, then all coefficients of the power series of $f$ at $p$ are
 zero and $f$ is identically zero.  In other words, \emph{every isolated
 zero of a holomorphic function is of finite order}.
-In yet other words, \emph{a zero of a holomorphic function of
-infinite order means that the function is identically zero}.
-No such
-thing is true for real differentiable functions (see the exercises).
+In yet other words, \emph{only the zero function has a zero of infinite order}.
+No such thing is true for real differentiable functions (see the exercises).
 
 \begin{proof}[Proof of the lemma]
 On $U \setminus \{ p \}$ the function $g(z) = \frac{f(z)}{{(z-p)}^k}$ is
@@ -9735,14 +9735,15 @@ function $z^k$ acts near the origin.
 
 \begin{thm}
 Suppose $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic.
-Suppose $p \in U$ is a zero\footnote{In this theorem, do note
-that $k \in \N$, in particular $k > 0$, and so $p$ really is an actual zero
-of $f$.} of $f$ of order $k \in \N$.  Then there exists an open neighborhood $V$
-of $p$ and a holomorphic $g \colon V \to \C$ such that
+Suppose $p \in U$ is a zero\footnote{As we said, by this we mean that
+this is an honest zero of $f$ and $k > 0$.}
+of $f$ of order $k \in \N$.  Then there exists an open neighborhood $V$
+of $p$ and a holomorphic $g \colon V \to \C$ with
+$g(p) = 0$ and $g'(p) \not= 0$,
+such that
 \begin{equation*}
-f(z) = {\bigl( g(z) \bigr)}^k,
+f(z) = {\bigl( g(z) \bigr)}^k.
 \end{equation*}
-where $g(p) = 0$ and $g'(p) \not= 0$.
 \end{thm}
 
 In more fancy language, $g$ is a local biholomorphic change of variables near
@@ -9789,6 +9790,7 @@ such that $f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n} g(z).$
 \end{exercise}
 
 \begin{exercise}[Easy]
+\pagebreak[2]
 Strengthen the statement of the theorem.
 Suppose $U \subset \C$ is simply connected and $f \colon U \to \C$
 is holomorphic.
@@ -9844,6 +9846,13 @@ all of $\C \setminus \{ 0 \}$) cannot be even
 continuous at the origin, no matter how we'd try to define $f(0)$.
 \end{exparts}
 \end{exercise}
+
+\begin{exercise}
+Prove L'H\^{o}pital's rule: If $f$ and $g$ are holomorphic near $p$,
+$f(p)=g(p)=0$, and
+$\lim_{z\to a} \frac{f'(z)}{g'(z)}$ exists (including $\infty$), then
+$\lim_{z\to a} \frac{f(z)}{g(z)}$ exists and equals the same thing.
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9862,6 +9871,7 @@ such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
 An isolated singularity $p$ is a \emph{\myindex{pole}} if 
 \begin{equation*}
 \lim_{z \to p} f(z) = \infty.
+\avoidbreak
 \end{equation*}
 An isolated singularity that is neither removable nor a pole is 
 an \emph{\myindex{essential singularity}}.
@@ -9879,7 +9889,7 @@ with a rather surprisingly simple proof.
 \begin{thm}[\emph{\myindex{Riemann extension theorem}}]
 \label{prop:riemannext}
 Suppose $U \subset \C$ is open, $p \in U$,
-and $f \colon U \setminus \{p\} \to \C$ holomorphic.
+and $f \colon U \setminus \{p\} \to \C$ is holomorphic.
 If $f$ is bounded (near $p$ suffices), then $p$ is a removable singularity.
 \end{thm}
 
