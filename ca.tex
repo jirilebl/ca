@@ -9645,8 +9645,7 @@ If you can count your money, you don't have a billion dollars.
 Per the identity theorem, zeros of a holomorphic function are
 isolated (or the function is identically zero).  Let us investigate how a
 holomorphic function behaves near a zero.
-Several times before, we have used bits of the following rather simple
-result.  We now give a more complete and formal statement.  
+We expand upon an idea we used several times before.
 
 \begin{lemma}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be holomorphic, $p \in U$,
@@ -9661,7 +9660,7 @@ Furthermore, $k$ is the smallest integer such that the $k$\textsuperscript{th}
 derivative $f^{(k)}(p) \not= 0$.
 \end{lemma}
 
-%Before we prove the lemma, let us give a name to this integer $k$.
+Before we prove the lemma, let us give a name to this integer $k$.
 
 \begin{defn}
 Suppose $f$ and $k$ are as in the lemma.
@@ -9692,8 +9691,6 @@ in just a little while.
 However, when we say \myquote{$f$ has a zero at $p$,}
 we never mean that it has a
 \myquote{zero of order zero,} we mean an honest zero, $f(p) = 0$.
-
-%A consequence that may be good to emphasize is that
 
 If $f^{(k)}(p) = 0$
 for all $k$, then all coefficients of the power series of $f$ at $p$ are
@@ -9849,8 +9846,8 @@ continuous at the origin, no matter how we'd try to define $f(0)$.
 
 \begin{exercise}
 Prove L'H\^{o}pital's rule: If $f$ and $g$ are holomorphic near $p$,
-$f(p)=g(p)=0$, and
-$\lim_{z\to a} \frac{f'(z)}{g'(z)}$ exists (including $\infty$), then
+both with an isolated zero at $p$, and
+$\lim_{z\to a} \frac{f'(z)}{g'(z)}$ exists (including possibly $\infty$), then
 $\lim_{z\to a} \frac{f(z)}{g(z)}$ exists and equals the same thing.
 \end{exercise}
 \end{exbox}
