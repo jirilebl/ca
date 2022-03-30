@@ -4013,6 +4013,15 @@ that $Z_f' \not= U$, we conclude $Z_f' = \emptyset$.
 Thus all points of $Z_f$ are isolated.
 \end{proof}
 
+A useful idea from the proof that is worthwhile emphasizing
+is that if we have a power series $f(z)$ at $a$,
+and $f$ has a zero at $a$ (and not identically zero),
+we can factor out some power of $z-a$,
+\begin{equation*}
+f(z) = {(z-a)}^k g(z) ,
+\end{equation*}
+where $g(z)$ is a power series at $a$ such that $g(a) \not= 0$.
+
 \begin{exbox}
 \begin{exercise}
 Suppose $U \subset \C$ is a domain,
@@ -9645,8 +9654,7 @@ If you can count your money, you don't have a billion dollars.
 Per the identity theorem, zeros of a holomorphic function are
 isolated (or the function is identically zero).  Let us investigate how a
 holomorphic function behaves near a zero.
-Several times before, we have used parts of the following rather simple
-lemma.  We now give a more complete and formal statement.  
+We expand upon an idea we used several times before.
 
 \begin{lemma}
 Let $U \subset \C$ be open, $f \colon U \to \C$ be holomorphic, $p \in U$,
@@ -9664,8 +9672,8 @@ derivative $f^{(k)}(p) \not= 0$.
 Before we prove the lemma, let us give a name to this integer $k$.
 
 \begin{defn}
-Suppose $f$ has an isolated zero at $p$.
-The $k$ from the lemma is called the \emph{order}\index{order of a zero}
+Suppose $f$ and $k$ are as in the lemma.
+The $k$ is called the \emph{order}\index{order of a zero}
 of the zero at $p$.
 If the order is $1$, we say $p$ is a \emph{\myindex{simple zero}}.
 We will also call the order, for reasons that will be obvious very soon,
@@ -9682,7 +9690,7 @@ $k$ is the largest integer such that $\frac{f(z)}{{(z-p)}^{k}}$ is bounded
 near $p$.  That these possible definitions are equivalent
 follows from the lemma.  See \exerciseref{exercise:order} below.
 
-For completeness, the conclusion of the lemma holds also when $f(p) \not= 0$,
+The conclusion of the lemma holds also when $f(p) \not= 0$,
 in which case
 $k=0$ and $g = f$.  So one can (if one is really inclined to)
 say that when $f(p) \not= 0$, then $p$ is
@@ -9693,14 +9701,12 @@ However, when we say \myquote{$f$ has a zero at $p$,}
 we never mean that it has a
 \myquote{zero of order zero,} we mean an honest zero, $f(p) = 0$.
 
-A consequence that may be good to emphasize is that if $f^{(k)}(p) = 0$
+If $f^{(k)}(p) = 0$
 for all $k$, then all coefficients of the power series of $f$ at $p$ are
 zero and $f$ is identically zero.  In other words, \emph{every isolated
 zero of a holomorphic function is of finite order}.
-In yet other words, \emph{a zero of a holomorphic function of
-infinite order means that the function is identically zero}.
-No such
-thing is true for real differentiable functions (see the exercises).
+In yet other words, \emph{only the zero function has a zero of infinite order}.
+No such thing is true for real differentiable functions (see the exercises).
 
 \begin{proof}[Proof of the lemma]
 On $U \setminus \{ p \}$ the function $g(z) = \frac{f(z)}{{(z-p)}^k}$ is
@@ -9735,14 +9741,15 @@ function $z^k$ acts near the origin.
 
 \begin{thm}
 Suppose $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic.
-Suppose $p \in U$ is a zero\footnote{In this theorem, do note
-that $k \in \N$, in particular $k > 0$, and so $p$ really is an actual zero
-of $f$.} of $f$ of order $k \in \N$.  Then there exists an open neighborhood $V$
-of $p$ and a holomorphic $g \colon V \to \C$ such that
+Suppose $p \in U$ is a zero\footnote{As we said, by this we mean that
+this is an honest zero of $f$ and $k > 0$.}
+of $f$ of order $k \in \N$.  Then there exists an open neighborhood $V$
+of $p$ and a holomorphic $g \colon V \to \C$ with
+$g(p) = 0$ and $g'(p) \not= 0$,
+such that
 \begin{equation*}
-f(z) = {\bigl( g(z) \bigr)}^k,
+f(z) = {\bigl( g(z) \bigr)}^k.
 \end{equation*}
-where $g(p) = 0$ and $g'(p) \not= 0$.
 \end{thm}
 
 In more fancy language, $g$ is a local biholomorphic change of variables near
@@ -9789,6 +9796,7 @@ such that $f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n} g(z).$
 \end{exercise}
 
 \begin{exercise}[Easy]
+\pagebreak[2]
 Strengthen the statement of the theorem.
 Suppose $U \subset \C$ is simply connected and $f \colon U \to \C$
 is holomorphic.
@@ -9844,6 +9852,13 @@ all of $\C \setminus \{ 0 \}$) cannot be even
 continuous at the origin, no matter how we'd try to define $f(0)$.
 \end{exparts}
 \end{exercise}
+
+\begin{exercise}
+Prove L'H\^{o}pital's rule: If $f$ and $g$ are holomorphic near $p$,
+both with an isolated zero at $p$, and
+$\lim_{z\to a} \frac{f'(z)}{g'(z)}$ exists (including possibly $\infty$), then
+$\lim_{z\to a} \frac{f(z)}{g(z)}$ exists and equals the same thing.
+\end{exercise}
 \end{exbox}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9862,6 +9877,7 @@ such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
 An isolated singularity $p$ is a \emph{\myindex{pole}} if 
 \begin{equation*}
 \lim_{z \to p} f(z) = \infty.
+\avoidbreak
 \end{equation*}
 An isolated singularity that is neither removable nor a pole is 
 an \emph{\myindex{essential singularity}}.
@@ -9879,7 +9895,7 @@ with a rather surprisingly simple proof.
 \begin{thm}[\emph{\myindex{Riemann extension theorem}}]
 \label{prop:riemannext}
 Suppose $U \subset \C$ is open, $p \in U$,
-and $f \colon U \setminus \{p\} \to \C$ holomorphic.
+and $f \colon U \setminus \{p\} \to \C$ is holomorphic.
 If $f$ is bounded (near $p$ suffices), then $p$ is a removable singularity.
 \end{thm}
 
@@ -10933,8 +10949,8 @@ argument principle counts the number of times
 $f \circ \gamma$ winds around zero.
 
 \begin{proof}[Proof of the argument principle]
-We prove the \myquote{Furthermore} as that proves the rest of the theorem by
-considering the constant $h(z) = 1$.
+We prove the \myquote{Furthermore} as that proves the first part by
+considering $h \equiv 1$.
 The function $h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
 at the zeros and poles of $f$.  Let $S$ be the set of zeros and poles of $f$,
 and apply the residue theorem:
@@ -10947,7 +10963,8 @@ and apply the residue theorem:
 We simply compute the residues.
 Consider a zero of $f$ of multiplicity $m$ or a pole of order $-m$, and
 without loss of generality suppose it is the origin.
-Write $f(z)  = z^m F(z)$ where $F(0) \not=0$
+Write $f(z)  = z^m F(z)$ where $F$ is holomorphic near $0$,
+$F(0) \not=0$,
 and $h(z) = h(0) + z H(z)$.
 Then $f'(z) = m z^{m-1} F(z) + z^m F'(z)$, and so
 \begin{multline*}
@@ -10971,16 +10988,16 @@ Hence, $\operatorname{Res}\left(h\frac{f'}{f};0\right) = m\, h(0)$.
 The theorem follows.
 \end{proof}
 
-Besides all the theoretical implications we will see,
-the argument principle can be used to locate zeros of polynomials
+Besides the theoretical implications we will see,
+there are some immediate practical ones.
+The argument principle can be used to locate zeros of polynomials
 (or holomorphic functions more generally)
 by numerical computations.  If we numerically estimate the integral to
 within a precision of at least $0.5$ (so no need to be extremely precise),
 then we know the number of zeros 
 of the polynomial enclosed by the cycle.
-
-Another interesting application is computing the power sums of the zeros of
-polynomials.  Given a polynomial $f(z)$ and a cycle $\Gamma$ going at most
+A related application is computing the power sums of the zeros.
+Given a cycle $\Gamma$ going at most
 once around a certain region, such that $z_1,\ldots,z_n$ are the zeros of $f$
 inside $\Gamma$, then
 \begin{equation*}
@@ -10989,7 +11006,7 @@ inside $\Gamma$, then
 =
 z_1^k + \cdots + z_n^k .
 \end{equation*}
-For example, if there is at most one simple zero $z_0$ of
+If there is at most one simple zero $z_0$ of
 $f$ enclosed within $\Gamma$, then
 \begin{equation*}
 \frac{1}{2\pi i}
@@ -11119,7 +11136,7 @@ N_g - P_g.
 
 The condition on $\Gamma$ means that the
 cycle is simple in the sense
-that only goes around any particular point either once or not at all.
+that it only goes around any particular point either once or not at all.
 We then count the number of zeros and poles inside $\Gamma$.
 The strictness of the inequality is the key point,
 the nonstrict inequality is always true for any $f$ and $g$ by the triangle
@@ -11220,7 +11237,7 @@ all the zeros of $P(z)$ must be on the unit circle.
 \end{example}
 
 \begin{example}
-As a more complicated example, consider $P(z) = z^4+12z^3+24z^2+4z+6$.
+Consider a more complicated polynomial $P(z) = z^4+12z^3+24z^2+4z+6$.
 When $\sabs{z}=1$,
 \begin{multline*}
 \abs{P(z)-(z^4+24z^2)} =
@@ -11366,8 +11383,8 @@ $\Delta_r(z_0)$.
 \begin{example}
 Hurwitz theorem does not work for real functions.  Let $f(x) =
 x^2$ a function on $\R$.  Then $f$ has a zero (actually a zero of order 2)
-at the $x=0$.  The functions $f_n(x) = x^2+\nicefrac{1}{n}$ converge uniformly
-to $f$, but $f_n$ has no zero for any $x$.
+at $x=0$.  The functions $f_n(x) = x^2+\nicefrac{1}{n}$ converge uniformly
+to $f$, but $f_n$ has no zero for any $x \in \R$.
 
 On the other hand, consider $f(z) = z^2$ as a function of $\C$, and let
 $f_n(z) = z^2+\nicefrac{1}{n}$.  Again $f_n$ goes to $f$ uniformly.  Now for
@@ -11421,7 +11438,8 @@ for each $0 < r < 1$ the number of zeros (up to multiplicity)
 of $f_n$ in $\Delta_r(0)$ goes to infinity as $n \to \infty$.
 Prove that $f \equiv 0$.
 \item
-Find an example sequence of such maps such that $f_n(\D) = \D$.
+Find an example sequence of such maps such that $f_n(\D) = \D$
+for all $n$.
 \end{exparts}
 \end{exercise}
 
