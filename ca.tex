@@ -11115,7 +11115,7 @@ The stronger version we state was actually proved by Estermann in 1962.}]\index{
 \pagebreak[2]
 Suppose $U \subset \C$ is open, $\Gamma$ is a cycle
 in $U$ homologous to zero in $U$,
-and $n(\Gamma;z)$ is either $1$ or $0$ for all $z \in U$.
+and $n(\Gamma;z)$ is either $0$ or $1$ for all $z \notin \Gamma$.
 Suppose $f \colon U \to \C_\infty$ and $g \colon U \to \C_\infty$
 are meromorphic functions with no zeros or poles on
 $\Gamma$ such that
@@ -11190,24 +11190,36 @@ theorem.
 \begin{proof}[Proof of Rouch\'e]
 Write the inequality as
 \begin{equation*}
-\abs{\frac{f(z)}{g(z)} + 1} <
+\abs{\frac{f(z)}{g(z)} - 1} <
 \abs{\frac{f(z)}{g(z)}} + 1 .
 \end{equation*}
-This inequality precludes $\frac{f(z)}{g(z)}$ ever being positive on
-$\Gamma$, and hence in a neighborhood of $\Gamma$.  Let $L$ be a branch of
-the logarithm defined on the set $\C \setminus [0,\infty)$.
 Let $\varphi(z) = \frac{f(z)}{g(z)}$.
+The inequality precludes $\varphi(z)$ ever being negative real on
+$\Gamma$ (it is also never zero there),
+and hence it is so in a neighborhood of $\Gamma$.
 The function
 $\frac{\varphi'}{\varphi}$ has a well-defined antiderivative
-$L \circ \varphi$ on a neighborhood of $\Gamma$.
-Cauchy's theorem for derivatives (\corref{cor:cauchyforders}) implies
-\begin{equation*}
+$\Log \circ \varphi$ on a neighborhood of $\Gamma$, where $\Log$ is
+the principal branch of the logarithm defined in $\C \setminus (\infty,0]$.
+Cauchy's theorem for derivatives (\corref{cor:cauchyforders})
+together with the argument principle finishes the proof:
+\begin{multline*}
 0
 = \frac{1}{2\pi i} \int_{\Gamma} \frac{\varphi'(z)}{\varphi(z)} \, dz
-= \frac{1}{2\pi i} \int_{\Gamma}
-\left( \frac{f'(z)}{f(z)} - \frac{g'(z)}{g(z)} \right) \, dz .
-\end{equation*}
-The argument principle finishes the proof.
+=
+\frac{1}{2\pi i} \int_{\Gamma}
+\left( \frac{f'(z)}{f(z)} - \frac{g'(z)}{g(z)} \right) \, dz 
+\\
+=
+\frac{1}{2\pi i} \int_{\Gamma}
+\frac{f'(z)}{f(z)} \, dz 
+-
+\frac{1}{2\pi i} \int_{\Gamma}
+\frac{f'(z)}{f(z)} \, dz 
+=
+(N_f - P_f) - (N_g - P_g) .
+\qedhere
+\end{multline*}
 \end{proof}
 
 \begin{example}
