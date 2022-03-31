@@ -5821,7 +5821,7 @@ surprising consequence.
 It says that if $f$ is differentiable in some way,
 then so is the derivative.  Nothing like that is true for the real
 derivative:
-Any continuous function $g \colon (a,b) \to \R$ is a derivative
+Any continuous $g \colon (a,b) \to \R$ is the derivative
 of a real differentiable function (e.g., $f(x) = \int_a^x g(t)\,dt$),
 and continuous functions need not be differentiable anywhere.
 Even worse, the real derivative could even be discontinuous.
@@ -5852,7 +5852,7 @@ functions.
 \index{Cauchy integral formula!derivatives}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
 $\overline{\Delta_r(p)} \subset U$.
-Then for all $z \in \Delta_r(p)$ and all $k \in \N$
+Then for all $z \in \Delta_r(p)$ and all $k \in \N$,
 \begin{equation*}
 f^{(k)}(z)
 =
@@ -5913,7 +5913,7 @@ Actually it requires the simple generalization in
 \exerciseref{exercise:severalvariableLiebniz}.
 We have used that the
 $x$ and $y$ partial derivatives of 
-$\frac{f(\zeta)}{(\zeta-z)^{k+2}}$ are continuous
+$\frac{f(\zeta)}{(\zeta-z)^{k+1}}$ are continuous
 functions of $(z,\zeta) \in \Delta_r(p) \times \partial \Delta_r(p)$.
 \end{proof}
 

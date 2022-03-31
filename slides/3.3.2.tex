@@ -1,0 +1,271 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Derivative is holomorphic and Morera (3.3.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Last time we proved holomorphic functions are analytic.
+
+\medskip
+\pause
+
+Let us restate a theorem we proved
+for analytic functions for holomorphic functions.
+
+\pause
+
+\begin{theorem}
+Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.  Then
+$f$ is infinitely complex differentiable.
+
+\pause
+In particular, $f'$ is holomorphic.
+\end{theorem}
+
+\pause
+
+Nothing like this is true for real differentiable functions.
+
+\medskip
+\pause
+
+Any continuous $g \colon (a,b) \to \R$ is the derivative of a real differentiable function
+
+E.g., $f(x) = \int_a^x g(t)\,dt$.
+
+\medskip
+\pause
+
+Even worse, the real derivative could even be discontinuous.
+
+\end{frame}
+
+\begin{frame}
+In complex analysis, we can differentiate by integrating.
+
+\pause
+
+\begin{theorem}[Cauchy integral formula for derivatives]
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$\overline{\Delta_r(p)} \subset U$.
+Then for all $k \in \N$,
+\[
+f^{(k)}(z)
+=
+\frac{k!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{(\zeta-z)^{k+1}}
+\,
+d \zeta
+\qquad
+\text{for all } z \in \Delta_r(p) .
+\]
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+All complex derivatives exist.
+
+\pause
+
+We can compute them by
+the Wirtinger operator
+$\frac{\partial}{\partial z} =
+\frac{1}{2}
+\left(
+\frac{\partial}{\partial x} - i
+\frac{\partial}{\partial y}
+\right)$,
+(where $z=x+iy$).
+\pause
+
+Suppose conclusion holds for some $k$ (Cauchy formula if $k=0$) and fix some $z \in \Delta_r(p)$.
+
+\medskip
+\pause
+
+$\displaystyle
+\quad
+f^{(k+1)}(z)
+\pause
+=
+\frac{\partial }{\partial z}
+\bigl[ f^{(k)}(z) \bigr]
+\pause
+=
+\frac{\partial }{\partial z}
+\left[
+\frac{k!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{(\zeta-z)^{k+1}}
+\,
+d \zeta
+\right]
+$
+
+\medskip
+\pause
+
+$\displaystyle
+\qquad \qquad \,\,\,\,
+= 
+\frac{k!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+f(\zeta)
+\frac{\partial }{\partial z}
+\left[
+\frac{1}{(\zeta-z)^{k+1}}
+\right]
+\,
+d \zeta
+\pause
+= 
+\frac{(k+1)!}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{(\zeta-z)^{k+2}}
+\,
+d \zeta .
+$
+
+\pause
+\medskip
+
+We passed $x$ and $y$ derivatives under the integral sign (Liebniz rule),
+\pause
+which is valid as
+
+the $x$ and $y$ derivatives of
+$\frac{f(\zeta)}{(\zeta-z)^{k+1}}$ are continuous
+functions of $(z,\zeta) \in \Delta_r(p) \times \partial \Delta_r(p)$.
+\qed
+\end{frame}
+
+\begin{frame}
+
+As an aside we mention a result that will be needed later.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Suppose $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$,
+where $U \subset \C$ is open, and for every fixed $t \in (a,b)$, the function
+$z \mapsto f(z,t)$ is holomorphic.
+
+\pause
+
+Prove that
+$\frac{\partial f}{\partial z}$ is a continuous function of $U \times
+(a,b)$.
+
+\pause
+
+Then show
+$\frac{\partial f}{\partial x}$
+and
+$\frac{\partial f}{\partial y}$ are continuous.
+
+\medskip
+\pause
+
+The above is not true for real differentiable functions:
+
+\medskip
+\pause
+
+Let $f(x,t) = t \sin(\nicefrac{x}{t})$ for $t \not= 0$ and $f(x,0) =  0$.
+
+\medskip
+\pause
+
+Then (exercise), $f$ is continuous on $\R^2$, and for each $t$
+$x \mapsto f(x,t)$ is differentiable.
+
+\medskip
+\pause
+
+But $\frac{\partial f}{\partial x}$ is not continuous as a function of both
+$x$ and $t$.
+\end{frame}
+
+\begin{frame}
+That $f'$ is holomorphic gives us a very useful converse to Cauchy.
+
+\pause
+
+\begin{theorem}[Morera]
+Let $U \subset \C$ be open and $f \colon U \to \C$ continuous.
+Suppose that
+\[
+\int_{\partial T} f(z) \, dz = 0
+\]
+for every triangle such that $T \subset U$.
+\pause
+Then $f$ is holomorphic.
+\end{theorem}
+
+\pause
+
+It is far easier to integrate a continuous $f$ than to show that $f'$ exists.
+
+\medskip
+\pause
+
+\textbf{Proof:}
+Holomorphicity is local, so assume $U$ is a disc.
+
+\medskip
+\pause
+
+A disc is starlike, and the hypothesis is precisely what we used
+to show that $f$ has a primitive $F$ in a starlike $U$.
+
+\medskip
+\pause
+
+$f = F'$ in $U$, and complex derivatives are holomorphic.
+\qed
+
+\end{frame}
+
+\begin{frame}
+The reduction to a disc is necessary:
+
+E.g. $\nicefrac{1}{z}$
+does not have a primitive in $U = \C \setminus \{ 0 \}$,
+
+but does
+satisfy hypotheses of Morera.
+
+\medskip
+\pause
+
+Typical application of Morera is something like the following exercise:
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Show that if $f \colon \C \to \C$ is continuous and holomorphic on $\C
+\setminus \R$, then $f$ is holomorphic everywhere.
+\end{frame}
+
+\end{document}
