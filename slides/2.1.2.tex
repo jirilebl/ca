@@ -43,7 +43,9 @@ Df|_{z_0} =
 \frac{\partial u}{\partial x}\big|_{z_0} & \frac{\partial u}{\partial
 y}\big|_{z_0} \\[5pt]
 \frac{\partial v}{\partial x}\big|_{z_0} & \frac{\partial v}{\partial y}\big|_{z_0}
-\end{bmatrix} .
+\end{bmatrix} ,
+\qquad \text{where }
+f= u + iv. 
 \]
 \pause
 Question: When does $(Df|_{z_0})h$ correspond to $\xi h$ for some $\xi \in \C$?
@@ -65,9 +67,7 @@ I.e., when
 \frac{\partial v}{\partial y}\Big|_{z_0}
 , \qquad
 \frac{\partial v}{\partial x}\Big|_{z_0} =
--\frac{\partial u}{\partial y}\Big|_{z_0} ,
-\qquad \text{where }
-f= u + iv. 
+-\frac{\partial u}{\partial y}\Big|_{z_0} .
 \]
 
 \pause
@@ -194,6 +194,18 @@ continuous, the function may fail to be differentiable (or even continuous)
 and may not be holomorphic even if it satisfies
 \eqref{eq:CReqreal}.
 
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+Show that $e^z$ is holomorphic, and hence $\sin z$ and $\cos z$ are
+holomorphic.
+
+\medskip
+\pause
+
+Hint: Note that $e^{x+iy} = e^x \cos y + i e^x \sin y$ and use the
+Corollary from previous slide.
 \end{frame}
 
 \end{document}

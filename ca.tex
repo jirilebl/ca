@@ -2234,15 +2234,18 @@ Perhaps they had better be called the French-guy--German-guy equations,
 except that Euler was really Swiss---he only lived in Germany for a long time.}.
 Complex analysis, then, is the study of their solutions.
 
-Hence, continuously differentiable functions that satisfy
+Hence, continuously differentiable functions satisfying
 the Cauchy--Riemann equations are holomorphic.
 On the other hand,
-a function that is complex differentiable everywhere (a holomorphic
-function) is differentiable in the real sense,
+a holomorphic function is differentiable in the real sense,
 and thus the partial derivatives exist and satisfy the Cauchy--Riemann
 equations.  We will show later that holomorphic functions are
 continuously differentiable---and not just that, they are
 infinitely differentiable.
+
+As an application of the Corollary,
+make sure to do the next exercise: The complex exponential,
+sine and cosine are all holomorphic functions.
 
 \begin{exbox}
 \begin{exercise} \label{exercise:exponentialholomorphic}
@@ -2281,9 +2284,10 @@ differentiable.
 \end{exercise}
 
 \begin{exercise}
+Consider the polar coordinates $z = r e^{i\theta}$.
 \begin{exparts}
 \item
-Show that in polar coordinates $z=re^{i\theta}$,
+Show that 
 the Cauchy--Riemann equations (outside the origin) on $f=u+iv$ are
 \begin{equation*}
 \frac{\partial u}{\partial r} = \frac{1}{r} \frac{\partial v}{\partial \theta},
@@ -2293,8 +2297,8 @@ the Cauchy--Riemann equations (outside the origin) on $f=u+iv$ are
 \item
 Use the computation to (locally) find the form of all solutions to 
 the Cauchy--Riemann equations where $\Re f = u$ does not depend on the
-argument $\theta$.  By locally we mean only in some neighborhood $U$ of a
-point $p \not= 0$.
+argument $\theta$.  By locally we mean only in some neighborhood $U$ of
+every point $p \not= 0$.
 \end{exparts}
 \end{exercise}
 \end{exbox}
