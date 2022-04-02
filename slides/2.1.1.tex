@@ -42,12 +42,12 @@ We can't even solve a simple equation like: $f'=f$.
 Fix $z_0 \in \C$ and expand $P(z)$:
 
 \[
-P(z) = c_0 + c_1 (z-z_0) + c_2 {(z-z_0)}^2 + \cdots + c_n {(z-z_0)}^n
+P(z) = c_0 + c_1 (z-z_0) + c_2 {(z-z_0)}^2 + \cdots + c_n {(z-z_0)}^n ,
 \]
 \pause
 or
 \[
-P(z_0+h) = c_0 + c_1 h + c_2 h^2 + \cdots + c_n h^n
+P(z_0+h) = c_0 + c_1 h + c_2 h^2 + \cdots + c_n h^n .
 \]
 \pause
 Then
@@ -71,15 +71,17 @@ We want functions with such a derivative.  That is, functions approximated
 by $c_0 + c_1 h$:
 \[
 f(z_0+h) = \underbrace{f(z_0)}_{c_0} + \underbrace{\xi h}_{c_1 h} + o(\sabs{h})
+\qquad \text{for some } \xi \in \C .
 \]
 
 \medskip
 \pause
 
 \begin{definition}
-Suppose $U \subset \C$ is open.
-Given $f \colon U \to \C$ and $z_0 \in U$, we say 
-$f$ is \emph{complex differentiable} at $z_0$ if
+Let $U \subset \C$ be open.
+A function
+$f \colon U \to \C$ 
+is \emph{complex differentiable} at $z_0 \in U$ if
 the limit
 \[
 f'(z_0) \overset{\text{def}}{=}
@@ -90,6 +92,7 @@ f'(z_0) \overset{\text{def}}{=}
 We call $f'(z_0)$ the \emph{complex derivative} of $f$
 at $z_0$.  Sometimes $\frac{df}{dz}$ is used.
 \pause
+\medskip
 
 $f \colon U \to \C$ is
 \emph{holomorphic}
@@ -100,7 +103,7 @@ if it is complex differentiable at every point.
 
 \begin{frame}
 
-We have essentially proved:
+We proved above:
 
 \begin{proposition}
 If $P(z)$ is a polynomial, then $P \colon \C \to \C$ is holomorphic.
