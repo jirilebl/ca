@@ -2339,7 +2339,9 @@ We offer two proofs.  The first works only for holomorphic
 functions, and the second allows a generalization to nonholomorphic functions
 with the Wirtinger operators in the next section (an exercise).
 
-Let $h \not= 0$, and let $k = f(z+h) -f(z)$.  Then
+Let $h \not= 0$, and let $k = f(z+h) -f(z)$.
+Assume first that $k\not=0$.
+Then
 \begin{equation*}
 \begin{split}
 \frac{(g \circ f)(z+h) - (g \circ f)(z)}{h}
@@ -2353,6 +2355,8 @@ Let $h \not= 0$, and let $k = f(z+h) -f(z)$.  Then
 \end{split}
 \end{equation*}
 A differentiable function is continuous, so $k \to 0$ as $h \to 0$.
+If $k=0$, then the difference quotient is zero, but $k=0$
+only happens for small enough $h\not=0$ if $f'(z)=0$.
 The proof then follows by continuity of complex multiplication and taking
 the limit as $h \to 0$.
 

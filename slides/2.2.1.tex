@@ -21,7 +21,7 @@ Basic calculus (2.2.1)}
 \end{frame}
 
 \begin{frame}
-Let's go through some of the very basic results on holomorphic functions.
+Let's go through some of the very basic calculus on holomorphic functions.
 
 \medskip
 \pause
@@ -52,7 +52,7 @@ is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)
 
 \pause
 
-We give two proofs.  One is an adaptation of the proof of one-variable result
+We give two proofs.  One is an adaptation of the proof of the one-variable result
 from real analysis, and the other uses the real result for functions of $\R^2$
 to $\R^2$.
 
@@ -61,6 +61,7 @@ to $\R^2$.
 
 \textbf{Proof A:}
 Let $h \not= 0$, and let $k = f(z+h) -f(z)$.
+Assume first $k\not= 0$.
 
 \medskip
 \pause
@@ -92,6 +93,13 @@ $
 \pause
 
 A differentiable function is continuous, so $k \to 0$ as $h \to 0$.
+
+\pause
+\medskip
+
+If $k=0$, the difference quotient is zero, but $k=0$ only happens (for small $h$)
+if $f'(z)=0$.
+
 \pause
 \medskip
 
