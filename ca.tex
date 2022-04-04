@@ -11401,7 +11401,7 @@ for all $n \geq N$, $f_n$ has $k$ zeros up to multiplicity in
 $\Delta_r(z_0)$.
 
 \begin{example}
-Hurwitz theorem does not work for real functions.  Let $f(x) =
+Hurwitz's theorem does not work for real functions.  Let $f(x) =
 x^2$ a function on $\R$.  Then $f$ has a zero (actually a zero of order 2)
 at $x=0$.  The functions $f_n(x) = x^2+\nicefrac{1}{n}$ converge uniformly
 to $f$, but $f_n$ has no zero for any $x \in \R$.
@@ -11546,13 +11546,14 @@ $V \subset U$.
 \end{thm}
 
 \begin{proof}
-Suppose $f$ is not constant.  As $U$ is a connected, $f$ is nonconstant
+Suppose $f$ is nonconstant.  As $U$ is connected, $f$ is nonconstant
 near every point.
 Let $V \subset U$ be open and $p \in V$.
-Take 
-a closed disc $\overline{\Delta_r(p)} \subset V$ small enough such that
-$f(z) \not= f(p)$ for $z \in \partial \Delta_r(p)$, which we can do as $f$
-is not constant near $p$.  There is a $\delta > 0$ such
+As $f$
+is holomorphic and nonconstant near $p$,  
+there is a closed disc $\overline{\Delta_r(p)} \subset V$ small enough such that
+$f(z) \not= f(p)$ for $z \in \partial \Delta_r(p)$.
+There is a $\delta > 0$ such
 that $\abs{f(z)-f(p)} > \delta$ for all $z \in \partial \Delta_r(p)$.
 The function $z \mapsto f(z)-f(p)$ has at least one zero in $\Delta_r(p)$
 (at $p$).  Take any $w \in \Delta_{\delta}\bigl(f(p)\bigr)$.  Then for
@@ -11561,7 +11562,8 @@ all $z \in \partial \Delta_r(p)$,
 \abs{\bigl( f(z)-w \bigr) - \bigl( f(z)-f(p) \bigr)} = \abs{f(p)-w} <
 \delta < \abs{f(z)-f(p)} .
 \end{equation*}
-By \hyperref[thm:rouche2]{Rouch\'e}, $z \mapsto f(z)-w$ has at least one zero in $\Delta_r(p)$.
+By \hyperref[thm:rouche2]{Rouch\'e}, $z \mapsto f(z)-w$ has at least one
+zero in $\Delta_r(p)$.
 In other words,
 \begin{equation*}
 \Delta_{\delta}\bigl(f(p)\bigr) \subset
@@ -11646,9 +11648,9 @@ without needing the real inverse function.
 
 \begin{exbox}
 \begin{exercise}
-Prove the inverse function theorem \thmref{thm:inversehol}
+Prove the inverse function theorem (\thmref{thm:inversehol})
 using the following outline, without appealing to the real inverse function
-theorem.
+theorem (\thmref{thm:inverse}).
 \begin{exparts}
 \item Show that for some neighborhood $V$ of $p$, $f|_V$ is injective.
 Hint: $f(z)-f(p)$ has a simple zero at $p$.
@@ -11716,7 +11718,7 @@ f^{-1}(w) = \frac{1}{2\pi i} \int_{\partial \Delta_r(p)}
 Fix $w \in f\bigl(\Delta_r(p)\bigr)$ and suppose $\zeta \in \Delta_r(p)$
 is such that $f(\zeta) = w$.
 The derivative of $f$ is never zero, and so $z \mapsto f(z)-w$ has a simple
-zero at $z=\zeta$.  By the residue theorem and
+zero at $z=\zeta$.  By the \hyperref[thm:residue]{residue theorem} and
 \propref{prop:residuesimpleratio},
 \begin{equation*}
 \frac{1}{2\pi i} \int_{\partial \Delta_r(p)}
