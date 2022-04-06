@@ -11,7 +11,8 @@ More minor things to do/think about in the next version:
   sequence?  Note that all the other propositions/theorems are stated for
   sequences.  Except in the Montel section where we switch to sets of
   functions.  Perhaps we should move the whole 6.1 section also to sets where
-  possible.
+  possible.  On the other hand, we really only ever care for sequences.
+  Does it make much difference?
 
 Things definitely for the next big version
 
