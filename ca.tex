@@ -11731,6 +11731,10 @@ zero at $z=\zeta$.  By the \hyperref[thm:residue]{residue theorem} and
 \end{equation*}
 \end{proof}
 
+Alternatively, you could note that the formula is just applying the
+\hyperref[thm:argprinc]{argument principle} with $h(z)=z$.
+In fact, that is a way that you can guess the formula.
+
 Let us put the two lemmas together to get the main result of this section.
 
 \begin{thm}
@@ -11748,6 +11752,11 @@ by an integral, and by
 \lemmaref{lemma:holfuncbyintegral},
 $f^{-1}$ is holomorphic.
 \end{proof}
+
+The inverse function theorem could be used to prove that $f^{-1}$ is
+holomorphic instead of \lemmaref{lemma:holfuncbyintegral}, although the
+fact that we have an integral formula for $f^{-1}$ is very interesting on
+its own.
 
 \begin{exbox}
 \begin{exercise}
@@ -11866,7 +11875,7 @@ For instance, $\sin(nx)$ on the real line is one such example.\footnote{%
 A proof of this fact requires some measure theory, see the exercises.}
 Below we show that for such a sequence there must always exist
 a subsequence converging at countably
-many points, but $\R$ (or any interval) is uncountable.
+many points, but $\C$ (or any open subset) is uncountable.
 Moreover,
 the functions $x^n$ are uniformly bounded
 and converge pointwise to a function on the unit interval $[0,1]$, but the limit
@@ -12006,9 +12015,9 @@ Then
 \end{equation*}
 So either 
 $\abs{f_{n_k}(x_k)-f_{n_k}(x)}$ or $\abs{f_{n_k}(x)-f_{n_k}(y_k)}$ is
-bigger than or equal to a fixed $\nicefrac{\epsilon}{2}$,
-no matter how small $\delta$ is.
-So $\{ f_n \}$ is not equicontinuous at $x$.
+bigger than or equal to a fixed $\nicefrac{\epsilon}{2}$.
+As we can do that for any $\delta$,
+$\{ f_n \}$ is not equicontinuous at $x$.
 \end{proof}
 
 \begin{exbox}
