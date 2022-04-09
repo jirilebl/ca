@@ -3254,7 +3254,28 @@ a $z^n$ for some $n$ out of a power series that vanishes at the origin,
 which is, after all, just a sum of such terms.  Consequently, every holomorphic
 function really behaves sort of like $z^n$ behaves near the origin for some $n$.
 
-A key point about the function $z \mapsto z^n$ is that it is $n$-to-$1$.
+Let's first see what $z^n$ does to angles.
+If $z = re^{i\theta}$, then
+\begin{equation*}
+z^n = r^n e^{i n\theta} .
+\end{equation*}
+So $z^2$ takes sectors with vertex at the origin and doubles their angle.
+See \figureref{fig:zsqplot}.
+It takes the first quadrant
+$\{ z \in \C : \Re z \geq 0, \Im z \geq 0 \}$
+to the closed upper half-plane $\{ z \in \C : \Im z \geq 0 \}$.
+Similarly, it takes the second quadrant
+$\{ z \in \C : \Re z \leq 0, \Im z \geq 0 \}$
+to the closed lower half-plane $\{ z \in \C : \Im z \leq 0 \}$.
+
+\begin{myfig}
+\includegraphics{figures/zsqplot}
+\caption{What $z^2$ does to the sector
+$\frac{-\pi}{4} \leq \Arg z \leq \frac{\pi}{4}$, $\sabs{z} <
+1.1$.\label{fig:zsqplot}}
+\end{myfig}
+
+Another key point about the function $z \mapsto z^n$ is that it is $n$-to-$1$.
 That is, there are $n$ distinct $n$\textsuperscript{th} roots of every complex
 number except $0$,
 which has in some sense also $n$ roots, but they are all $0$.  For a nonzero
@@ -3278,27 +3299,6 @@ called the \emph{\myindex{roots of unity}}.
 \caption{The eight $8$\textsuperscript{th} roots of a positive number $r$:
 $r^{1/8}$, $r^{1/8} e^{i \pi / 4}$,  $r^{1/8} e^{i \pi / 2}$,
 etc.\label{fig:roots}}
-\end{myfig}
-
-Another important thing about $z^n$ is what it does to angles.
-If $z = re^{i\theta}$, then
-\begin{equation*}
-z^n = r^n e^{i n\theta} .
-\end{equation*}
-So $z^2$ takes sectors with vertex at the origin and doubles their angle.
-See \figureref{fig:zsqplot}.
-It takes the first quadrant
-$\{ z \in \C : \Re z \geq 0, \Im z \geq 0 \}$
-to the closed upper half-plane $\{ z \in \C : \Im z \geq 0 \}$.
-Similarly, it takes the second quadrant
-$\{ z \in \C : \Re z \leq 0, \Im z \geq 0 \}$
-to the closed lower half-plane $\{ z \in \C : \Im z \leq 0 \}$.
-
-\begin{myfig}
-\includegraphics{figures/zsqplot}
-\caption{What $z^2$ does to the sector
-$\frac{-\pi}{2} \leq \Arg z \leq \frac{\pi}{2}$, $\sabs{z} <
-1.1$.\label{fig:zsqplot}}
 \end{myfig}
 
 \begin{exbox}
@@ -3464,7 +3464,7 @@ not in the second.  However, $\{ n r^n \}$ is bounded for every $r < 1$.
 
 \begin{proof}
 Suppose the series converges in $\Delta_{R}(p)$ and
-$0 < r < R$.  Then $\sum \sabs{c_n}r^n$ converges,
+$0 < r < R$.  Then (by Cauchy--Hadamard) $\sum \sabs{c_n}r^n$ converges,
 and the terms of that series are bounded.
 
 Conversely, fix $r$, suppose 

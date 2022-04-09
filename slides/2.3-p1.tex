@@ -21,20 +21,61 @@ Power series (2.3 part 1)}
 \end{frame}
 
 \begin{frame}
-We will prove that holomorphic functions have power series, so let's study
-power series.
+Before we look at power series, let us look at $z^n$.
 
 \medskip
 \pause
 
-We first look at $z^n$. \pause
-Locally, every power series and hence every holomorphic function looks like
-$z^n$.
+If $z = re^{i\theta}$, then
+\[
+z^n = r^n e^{i n\theta} .
+\]
+$n$\textsuperscript{th} power multiplies the angle by $n$.
+
+\medskip
+\pause
+So $z^2$ takes sectors with vertex at the origin and doubles their angle.
 
 \medskip
 \pause
 
-$z^n$ is $n$-to-1 (except at $0$): 
+$z^2$ takes the sector
+$\frac{-\pi}{4} \leq \Arg z \leq \frac{\pi}{4}$
+
+to the closed right half-plane
+
+$\{ z \in \C : \Re z \geq 0 \}$.
+
+\vspace*{-0.7in}
+\hspace{3in}%
+\includegraphics{../figures/zsqplot}
+
+\pause
+\vspace*{-0.3in}
+It takes the first quadrant
+$\{ z \in \C : \Re z \geq 0, \Im z \geq 0 \}$
+
+to the closed upper half-plane $\{ z \in \C : \Im z \geq 0 \}$.
+
+\medskip
+\pause
+
+It takes the second quadrant
+$\{ z \in \C : \Re z \leq 0, \Im z \geq 0 \}$
+
+to the closed lower half-plane $\{ z \in \C : \Im z \leq 0 \}$.
+
+\medskip
+\pause
+
+Etc.
+\end{frame}
+
+\begin{frame}
+
+$z \mapsto z^n$ is $n$-to-1 (except at $0$): 
+
+\medskip
 \pause
 For each $w = r e^{i\theta} \not=0$, there are $n$ distinct
 $n$\textsuperscript{th} roots
@@ -62,7 +103,7 @@ spaced out on a circle of radius $r^{1/n}$.
 
 \medskip
 
-e.g., in the picture $n=8$:
+E.g., in the picture, $n=8$, $\theta=0$:
 
 \medskip
 
@@ -75,52 +116,6 @@ etc.
 
 The roots of $w=1$ are
 called the \emph{roots of unity}.
-\end{frame}
-
-\begin{frame}
-If $z = re^{i\theta}$, then
-\[
-z^n = r^n e^{i n\theta} .
-\]
-It multiplies the angle by $n$.
-
-\medskip
-\pause
-So $z^2$ takes sectors with vertex at the origin and doubles their angle.
-
-\medskip
-\pause
-
-$z^2$ takes the sector
-$\frac{-\pi}{2} \leq \Arg z \leq \frac{\pi}{2}$
-
-to the closed right half-plane
-
-$\{ z \in \C : \Re z \geq 0 \}$.
-
-\vspace*{-0.7in}
-\hspace{3in}%
-\includegraphics{../figures/zsqplot}
-
-\pause
-\vspace*{-0.1in}
-It takes the first quadrant
-$\{ z \in \C : \Re z \geq 0, \Im z \geq 0 \}$
-
-to the closed upper half-plane $\{ z \in \C : \Im z \geq 0 \}$.
-
-\medskip
-\pause
-
-It takes the second quadrant
-$\{ z \in \C : \Re z \leq 0, \Im z \geq 0 \}$
-
-to the closed lower half-plane $\{ z \in \C : \Im z \leq 0 \}$.
-
-\medskip
-\pause
-
-Etc.
 \end{frame}
 
 \begin{frame}
