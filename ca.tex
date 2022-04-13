@@ -12333,7 +12333,7 @@ converges uniformly on compact sets).
 \end{thm}
 
 The theorem allows quite incredible applications.  The thing is,
-using just the definitions, it is easy to show that a sequence is bounded,
+using just the definitions, it is often easy to show that a sequence is bounded,
 but it is hard to show that it converges (or has a subsequence that does).
 One can generate \myquote{approximate} solutions to a problem without worrying
 about them being close to something.
@@ -12348,9 +12348,10 @@ Clearly $\sF$ is pointwise bounded as it is bounded on discs around
 every point.
 We need to show that it is equicontinuous at every point.
 
-Consider $p \in U$ and suppose $\overline{\Delta_r(p)} \subset U$
-such that $\sF$ is bounded on it.
-Say $\snorm{f}_{\overline{\Delta_r(p)}} \leq M$ for all $f \in \sF$.
+Consider $p \in U$ and suppose $\overline{\Delta_r(p)} \subset U$.
+The family
+$\sF$ is bounded on this disc,
+say $\snorm{f}_{\overline{\Delta_r(p)}} \leq M$ for all $f \in \sF$.
 For $z \in \overline{\Delta_{r/2}(p)}$,
 \begin{equation*}
 \begin{split}
@@ -12376,19 +12377,15 @@ For $z \in \overline{\Delta_{r/2}(p)}$,
 \end{equation*}
 And so
 \begin{equation*}
-\abs{f(p)-f(z)}
+\abs{f(z)-f(p)}
 =
 \abs{
-f(p)
--
-\left(
-f(p) + \int_{[p,z]} f'(\zeta) \, d\zeta
-\right)
+\int_{[p,z]} f'(\zeta) \, d\zeta
 }
 \leq
 \int_{[p,z]} \abs{f'(\zeta)} \, \sabs{d\zeta}
 \leq
-\frac{4 M}{r} \sabs{p-z} .
+\frac{4 M}{r} \sabs{z-p} .
 \end{equation*}
 As $M$ does not depend on the particular $f$, we get that $\sF$ is
 equicontinuous at $p$ (it is in fact Lipschitz at $p$ with the same
@@ -12525,10 +12522,8 @@ needing the mapping to be continuous.}
 \begin{thm}[Riemann mapping]\label{thm:RMT}
 %\pagebreak[2]
 Let $U \subset \C$ be a simply connected domain such that $U \not= \C$.
-Let $p \in U$ be given.  Then there exists a biholomorphic (conformal)
-map $f \colon U \to \D$ such that $f(p) = 0$.
-Furthermore, the biholomorphic map $f \colon U \to \D$
-such that $f(p) = 0$ and
+Let $p \in U$ be given.  Then there exists a unique biholomorphic (conformal)
+map $f \colon U \to \D$ such that $f(p) = 0$ and
 $f'(p) > 0$ (real and positive) is unique.
 \end{thm}
 
@@ -12602,8 +12597,8 @@ there exists a holomorphic square root $g$ on $U$, that is,
 ${\bigl(g(z)\bigr)}^2 = \varphi_q\bigl(f(z)\bigr)$.
 The square root of a number in $\D$ is still in $\D$, so $g$
 takes $U$ to $\D$.
-If $g(z)=g(\zeta)$, then $f(z)=f(\zeta)$ and as
-$f$ is injective, $z=\zeta$.  So $g$ is injective.  
+If $g(z)=g(\zeta)$, then $\varphi_q\bigl(f(z)\bigr)=\varphi_q\bigl(f(\zeta)\bigr)$ and as
+$\varphi_q \circ f$ is injective, $z=\zeta$.  So $g$ is injective.  
 The function $g$ takes $p$ to one of the roots of $-q$.
 Define
 \begin{equation*}
@@ -12614,7 +12609,7 @@ The inverse of $\varphi_a$ is $\varphi_{-a}$, so
 $g = \varphi_{-g(p)} \circ h$.
 Next, differentiate
 $\varphi_q \circ f = g^2$ at $p$, noting that
-and $\varphi_a'(0) = 1-\sabs{a}^2$:
+$\varphi_a'(0) = 1-\sabs{a}^2$:
 \begin{multline*}
 \bigl(1-\sabs{q}^2\bigr) f'(p)
 = \varphi_q'\bigl(f(p)\bigr) f'(p)
@@ -12628,7 +12623,7 @@ As ${\bigl(g(p)\bigr)}^2 = -q$, then
 \sabs{f'(p)} =
 \frac{2 \sabs{g(p)} \bigl(1-\sabs{g(p)}^2\bigr)}{1-\sabs{q}^2} \sabs{h'(p)}
 =
-\frac{2 \sqrt{\sabs{q}}}{1+\sabs{q}} \sabs{h'(p)}
+\frac{2 \sqrt{\sabs{q}}}{1+\sabs{q}} \sabs{h'(p)} .
 \end{equation*}
 If $\sabs{q} < 1$, then $\frac{2 \sqrt{\sabs{q}}}{1+\sabs{q}} < 1$
 (calculus exercise).
@@ -12640,15 +12635,15 @@ In other words,
 Take a sequence $\{ f_n \}$ in
 $\sF$ such that
 \begin{equation*}
-\lim_{n \to \infty} \sabs{f_n'(p)} = \sup_{f \in \sF} \sabs{f'(p)}
+\lim_{n \to \infty} \sabs{f_n'(p)} = \sup_{f \in \sF} \sabs{f'(p)} .
 \end{equation*}
 As all functions in $\sF$ are bounded by $1$,
 Montel says that there exists a subsequence that converges uniformly on
-compact sets to some $f$.  Assume $\{ f_n \}$ is that subsequence.
+compact sets to some holomorphic $f$.  Assume $\{ f_n \}$ is that subsequence.
 By the corollary to Hurwitz,
 \corref{cor:univalentlimit},
-the function $f$ is injective or constant.  It clearly cannot be constant,
-as we know that $f_n'(p)$ also converges (all derivatives do), and so it
+the function $f$ is injective or constant.  It cannot be constant,
+as $f_n'(p)$ converges to $f'(p)$, which
 cannot be zero as 
 $\bigl\{ \sabs{f_n'(p)} \bigr\}$ is an increasing sequence.
 We must have $f(p) = 0$ by taking the limit.
@@ -12658,6 +12653,7 @@ so $f(U) \subset \overline{\D}$.
 By the \hyperref[thm:OMT]{open mapping theorem}, $f(U) \subset \D$, so $f \in
 \sF$.  If $f$ was not onto, then it would not be the one that achieves the
 supremum of $\sabs{f'(p)}$.  Thus $f(U) = \D$, and $f$ is the desired map.
+Multiplying by $e^{i\theta}$ we can make $f'(p) > 0$.
 
 The uniqueness is left as an exercise.
 \end{proof}
