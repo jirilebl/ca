@@ -12587,7 +12587,7 @@ By composing with the correct automorphism of the disc,
 we find a map that takes $p$ to $0$.  Hence, $\sF$ is nonempty.
 
 OK\@.  Now suppose that $f \colon U \to \D$ is an injective holomorphic map
-such that $f(p) = 0$, but that $f$ is not onto.  There is a
+such that $f(p) = 0$, but that $f$ is not onto: There is a
 $q \in \D \setminus f(U)$.
 Recall that
 $\varphi_q(z) = \frac{z-q}{1-\bar{q}z}$ is an automorphism of $\D$ that
@@ -12615,7 +12615,7 @@ $\varphi_a'(0) = 1-\sabs{a}^2$:
 = \varphi_q'\bigl(f(p)\bigr) f'(p)
 = 2 g(p) g'(p)
 \\
-= 2 \varphi_{-g(p)} (0) \varphi_{-g(p)}'(0) h'(p)
+= 2 g(p) \varphi_{-g(p)}'\bigl(h(p)\bigr) h'(p)
 = 2 g(p) \bigl(1-\sabs{g(p)}^2\bigr) h'(p) .
 \end{multline*}
 As ${\bigl(g(p)\bigr)}^2 = -q$, then
@@ -12644,8 +12644,8 @@ By the corollary to Hurwitz,
 \corref{cor:univalentlimit},
 the function $f$ is injective or constant.  It cannot be constant,
 as $f_n'(p)$ converges to $f'(p)$, which
-cannot be zero as 
-$\bigl\{ \sabs{f_n'(p)} \bigr\}$ is an increasing sequence.
+cannot be zero as  
+$0 < \sabs{f_n'(p)} \leq \sabs{f'(p)}$ for any $n$.
 We must have $f(p) = 0$ by taking the limit.
 Similarly 
 $\sabs{f(z)} \leq 1$ for all $z \in U$ by taking limits,
@@ -12668,7 +12668,7 @@ $f \colon U \to \D$ such that $f(p) = 0$ and $f'(p) > 0$ is unique if it exists.
 \end{exbox}
 
 \begin{remark}
-The map from the theorem can be useful, but of course the theorem
+The map from the theorem can be useful, but the theorem
 itself doesn't tell you how to construct it.
 There are entire books
 written on the subject, collecting the techniques for constructing
@@ -12928,8 +12928,8 @@ assume $K$ is larger than one point.
 Consider $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
 LFT\@:
 $\varphi(z) = \nicefrac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
-$\varphi(0) = \infty$ and $\varphi(\infty) = 0$.
-Being an LFT\@, $\varphi$ is a (bi)holomorphic
+$\varphi(0) = \infty$, and $\varphi(\infty) = 0$.
+Being an LFT\@, $\varphi$ is a biholomorphic
 mapping of $\C_\infty$ to itself, where $\varphi^{-1} = \varphi$.  Let
 \begin{equation*}
 V = \varphi(\C_\infty \setminus K) .
@@ -12971,7 +12971,7 @@ Let $\Gamma_j=\varphi^{-1} \circ \psi^{-1} \circ \gamma_j$, and $\Gamma = \Gamma
 \cdots + \Gamma_m$.
 
 Let us compute the winding numbers.
-For any $p$ not on $\Gamma$ compute
+For any $p$ not on $\Gamma$, compute
 the winding number (see \propref{prop:usubst}):
 \begin{multline*}
 n(\Gamma;p) = 
@@ -13042,8 +13042,8 @@ Some $\gamma_j$ goes around
 $\psi(\nicefrac{1}{p})$, as $r$ was picked sufficiently large
 precisely so that the circles $\gamma_j$ go around $S$, that is, points that
 are the image of $\C \setminus U$,
-in particular $\psi(\nicefrac{1}{p})$.
-The sum of the residues which is zero, so 
+in particular $\psi(\nicefrac{1}{p})=\psi\bigl(\varphi(p)\bigr)$.
+The sum of the residues is zero, so 
 by the \hyperref[thm:residue]{residue theorem},
 \begin{equation*}
 n(\Gamma;p) = 0 .
@@ -13054,7 +13054,7 @@ $n(\Gamma;p) =
 \sum_j
 \frac{1}{2\pi i}
 \int_{\gamma_j} h(\xi) \, d\xi$.
-As $p \in K$, $\psi^{-1}(\xi) \not= p$ for all $\xi \in D$,
+As $p \in K$, $\psi(\nicefrac{1}{p}) \not= \xi$ for all $\xi \in D$,
 and so $h$ has just the pole at $0$.
 Since $\gamma_1$ traverses the circle backwards,
 \begin{equation*}
