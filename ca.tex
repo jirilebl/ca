@@ -17636,9 +17636,10 @@ composed with a conjugation map, and the $z$ derivative of the conjugation
 map is zero.
 Another way to see it is to write down the power series representation.
 
-In any case, it is enough to prove that $F$ is holomorphic on $L$,
-which we can do by applying Morera's theorem.  The only
-tricky part is to check
+Finally, we need to prove that $F$ is holomorphic near $L$,
+which we can do by applying Morera's theorem.  The function $F$ is clearly
+continuous.  The only
+tricky part is to check integrals over
 triangles that intersect the real line.  Such a triangle can be split into
 several triangles, each of which lies on one side of the line $L$ and
 intersects $L$ either at a vertex or side.  See \figureref{fig:splittriang}.
@@ -17650,7 +17651,7 @@ intersects $L$ either at a vertex or side.  See \figureref{fig:splittriang}.
 
 Call such a triangle $T$, and suppose it is above the axis.
 We can translate the triangle by $\epsilon$, that is
-consider $T_\epsilon = \{ z \in T : z-i\epsilon \in T \}$.
+consider $T_\epsilon = \{ z \in \C : z-i\epsilon \in T \}$.
 For small $\epsilon > 0$, we have
 $T_\epsilon \subset U_+$ and so
 the integral of $F$ over $\partial T_\epsilon$
@@ -17762,7 +17763,7 @@ function holomorphic on $U_{\text{in}}$ such that $f(\partial \D \cap U) \subset
 $F|_{U \cap \overline{\D}} = f$.
 \end{cor}
 
-The proof is left as an exercise, but the idea is to define
+The proof is left as an exercise: The idea is to define
 $F(z) = f(z)$ on $U \cap \overline{\D}$, and for $z \in U_{\text{out}}$, define
 \begin{equation*}
 F(z) = \frac{1}{~\overline{f(\nicefrac{1}{\bar{z}})}~} .
