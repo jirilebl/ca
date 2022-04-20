@@ -17670,11 +17670,9 @@ The theorem is often applied by first mapping some curve to the real line.
 This curve must be nice enough, that is, real-analytic.  Similarly the fact
 that $f$ is real-valued can be replaced by being valued in some
 real-analytic curve.
-A set
-$C \subset \C$ is a \emph{\myindex{real-analytic curve}}
-if it is the image of an interval under an injective real-analytic
-map $\gamma \colon (a,b) \to \C$ with non-vanishing derivative.
-
+We will define a real-analytic as the image of
+an interval under a
+real-analytic map $\gamma \colon (a,b) \to \C$.
 By $\gamma$ being real-analytic we mean that at each point it has a power
 series expansion.  Equivalently, a real-analytic function is a
 restriction of a holomorphic function to the real line by just plugging
@@ -17691,7 +17689,7 @@ such that $\varphi\bigl( (a,b) \bigr) = C$.
 The images $\varphi(V_+)$ and $\varphi(V_-)$ of the sets
 $V_+ = \{ z \in V : \Im z > 0 \}$ and $V_- = \{ z \in V : \Im z < 0 \}$
 are the two \myquote{sides} of $C$.
-We can \myquote{switch sides} by rotation and translation.
+%We can \myquote{switch sides} by rotation and translation.
 
 \begin{cor}[Schwarz reflection principle for curves]
 \index{Schwarz reflection principle!holomorphic functions, general version}
@@ -17725,9 +17723,9 @@ $\psi \circ f \circ \varphi$.
 
 We possibly make $V$ smaller yet to ensure that $G(V) \subset \psi(H)$ so that
 we may invert $\psi$ on the image.
-The set $W$ is $\psi(V)$ and on $W$
-we then write $F = \psi^{-1} \circ G \circ \varphi^{-1}$, it agrees with
-$f$ on $W \cap U$, and so we get our extension.
+The set $W$ is $\varphi(V)$ and on $W$
+we write $F = \psi^{-1} \circ G \circ \varphi^{-1}$.  This definition
+agrees with $f$ on $W \cap U$, and so we can define $F$ on $U$ as $f$.
 \end{proof}
 
 The corollary says that we can extend holomorphic functions across
@@ -17754,12 +17752,12 @@ the origin but the modulus is the reciprocal.
 \begin{cor}[Schwarz reflection principle for a circle]
 \index{Schwarz reflection principle!holomorphic functions, circle version}
 \label{thm:schwarzreflectioncircleholo}
-Suppose $U \subset \C \setminus \{ 0 \}$ is a domain, $\partial \D \subset U$,
-and $U$ is symmetric with respect to reflection across $\partial \D$,
+Suppose $U \subset \C \setminus \{ 0 \}$ is a domain,
+symmetric with respect to reflection across $\partial \D$,
 that is, $z \in U$ implies $\nicefrac{1}{\bar{z}} \in U$.
 Let $U_{\text{in}} = U \cap \D$ and $U_{\text{out}} = U \setminus \overline{\D}$.
 If $f \colon U \cap \overline{\D} \to \C$ is a continuous
-function holomorphic on $U_{\text{in}}$ such that $f(\partial \D) \subset \partial
+function holomorphic on $U_{\text{in}}$ such that $f(\partial \D \cap U) \subset \partial
 \D$, then there exists a holomorphic $F \colon U \to \C$ such that
 $F|_{U \cap \overline{\D}} = f$.
 \end{cor}
@@ -17875,18 +17873,18 @@ $f_t \colon D_t \to \C$, such that:
 \item
 $D_0 \subset U$ and $f_0 = f|_{D_0}$.
 \item
-For each $s \in [0,1]$ there is an
+For each $s \in [0,1]$, there is an
 $\epsilon > 0$ such that if $\sabs{t-s} < \epsilon$, then
 $f_t = f_s$ in $D_t \cap D_s$.
 \end{enumerate}
 We refer to the continuation as $f_t$ or perhaps $(f_t,D_t)$.
-The function together with the domain such as $(f,U)$, or $(f_t,D_t)$
+The function together with the domain such as $(f,U)$ or $(f_t,D_t)$
 is called a \emph{\myindex{function element}}.
 \end{defn}
 
 The value
 $f_t\bigl(\gamma(t)\bigr)$ is really what we mean by the value of
-the extension at $\gamma(t)$, and what we would really want
+the continuation at $\gamma(t)$, and what we would really want
 \myquote{$f\bigl(\gamma(t)\bigr)$} to be.
 Though of course, $f\bigl(\gamma(t)\bigr)$ is not defined for $\gamma(t)$ outside of
 $U$.
@@ -17908,7 +17906,8 @@ Prove the proposition.
 
 \begin{exercise}
 Prove that in the definition we could take $D_t$ to not be centered at
-$\gamma(t)$.  We simply need to require $\gamma(t) \in D_t$.
+$\gamma(t)$.  We simply need to require $\gamma(t) \in D_t$, and we would
+get the same values of $f_t\bigl(\gamma(t)\bigr)$.
 \end{exercise}
 \end{exbox}
 
