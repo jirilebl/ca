@@ -17713,7 +17713,7 @@ First start with $D$.  As it is defined by some invertible holomorphic
 function,
 there must be a neighborhood $H$ of $D$, and an injective
 holomorphic $\psi \colon H \to \C$ such that $\psi(D) \subset \R$.
-We can pick $V$ small enough so that it is symmetric across the real-axis,
+We can pick $V$ small enough so that it is symmetric across the real-axis
 and such that $f\bigl(\varphi(V_+)\bigr) \subset H$.
 Write $L = (a,b) = V \cap \R$ as before.
 Consider the composition $\psi \circ f \circ \varphi$, which is
@@ -17726,7 +17726,7 @@ We possibly make $V$ smaller yet to ensure that $G(V) \subset \psi(H)$ so that
 we may invert $\psi$ on the image.
 The set $W$ is $\varphi(V)$ and on $W$
 we write $F = \psi^{-1} \circ G \circ \varphi^{-1}$.  This definition
-agrees with $f$ on $W \cap U$, and so we can define $F$ on $U$ as $f$.
+agrees with $f$ on $W \cap U = \varphi(V_+)$, and so we can define $F$ on $U$ as $f$.
 \end{proof}
 
 The corollary says that we can extend holomorphic functions across
@@ -17758,7 +17758,7 @@ symmetric with respect to reflection across $\partial \D$,
 that is, $z \in U$ implies $\nicefrac{1}{\bar{z}} \in U$.
 Let $U_{\text{in}} = U \cap \D$ and $U_{\text{out}} = U \setminus \overline{\D}$.
 If $f \colon U \cap \overline{\D} \to \C$ is a continuous
-function holomorphic on $U_{\text{in}}$ such that $f(\partial \D \cap U) \subset \partial
+function holomorphic on $U_{\text{in}}$ such that $f(U \cap \partial \D) \subset \partial
 \D$, then there exists a holomorphic $F \colon U \to \C$ such that
 $F|_{U \cap \overline{\D}} = f$.
 \end{cor}
@@ -18029,7 +18029,7 @@ For instance for the logarithm,
 if $U = \C \setminus \{ 0 \}$, $\Delta_r(p) \subset U$, then we
 can define a branch of the logarithm in $\Delta_r(p)$, and it admits
 unrestricted continuation
-to all of $\C \setminus \{ 0 \}$, but the continuation
+to all of $\C \setminus \{ 0 \}$, but the value of the continuation
 is not well-defined, it depends on the path taken.
 %For any $q$ there exists infinitely many
 %paths to $q$ along which the logarithm continues and along each it continues to
