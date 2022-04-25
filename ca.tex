@@ -17920,8 +17920,8 @@ We were continuing the logarithm in this way back in
 \begin{prop} \label{prop:finitedisccont}
 Suppose that $f$, $U$, and $\gamma$ are as in \defnref{defn:analcont}.
 Prove that $f$ can be analytically continued along $\gamma$
-if and only if there exist numbers $0 = t_0 < t_1 < \cdots < t_n = 1$
-and open discs
+if and only if there exist numbers $0 = t_0 < t_1 < \cdots < t_n = 1$,
+open discs
 $\Delta_1,\ldots,\Delta_n$ that cover $\gamma$ (as a set),
 and holomorphic functions $\varphi_j \colon \Delta_j \to \C$,
 such that for all $j$, $[t_{j-1},t_j] \subset \Delta_j$,
@@ -18096,15 +18096,17 @@ prove (exercise below) that $f$ is a covering map.
 \begin{prop}
 Suppose $U \subset \C$ is open, $V \subset \C$ is a domain,
 $f \colon U \to V$ is a holomorphic covering map, and $p \in V$.
-Then $f^{-1}$ can be defined in some neighborhood
-of $p$, and admits unrestricted analytic continuation to $V$.
+Then starting with any value of $f^{-1}(p)$, a branch of $f^{-1}$
+can be defined in some neighborhood
+of $p$ (a holomorphic $g$ defined near $p$ such that $f \circ g$ is the
+identity) and admits unrestricted analytic continuation to $V$.
 \end{prop}
 
 \begin{proof}
 Consider a continuous $\gamma \colon [0,1] \to V$, where $\gamma(0) = p$.
 At each point $w$ of $\gamma$ using the definition of covering map,
 we can find a disc $\Delta \subset V$ centered at $w$ such that $f^{-1}(D)$ has 
-disjoint components and for each component $f^{-1}$ can be defined as a
+disjoint components and for each component, a branch of $f^{-1}$ can be defined as a
 holomorphic map onto that component.  As $\gamma$ is compact, finitely many
 such discs $\Delta_1,\ldots,\Delta_n$ cover $\gamma$ such that $\Delta_{j-1}
 \cap \Delta_j \not= \emptyset$ and $p \in \Delta_1$.  Given any choice
@@ -18294,7 +18296,7 @@ simply connected).  Then there exists a holomorphic covering map
 $g \colon W \to U$ such that $f = h \circ g$.
 \end{cor}
 
-In other words, you have the following diagram:
+In other words, you have the following commutative diagram:
 \begin{equation*}
 \begin{tikzcd}[column sep=small]
 & W \arrow[dl,"g"'] \arrow[dr,"f"] \\
@@ -18315,7 +18317,7 @@ exists a biholomorphism $\varphi \colon U_1 \to U_2$
 such that $f = g \circ \varphi$.
 \end{cor}
 
-In other words, you have the following diagram:
+In other words, you have the following commutative diagram:
 \begin{equation*}
 \begin{tikzcd}[column sep=small]
 U_1 \arrow[rr,"\varphi"] \arrow[dr,"f"'] & & U_2 \arrow[dl,"g"] \\
@@ -18326,12 +18328,12 @@ U_1 \arrow[rr,"\varphi"] \arrow[dr,"f"'] & & U_2 \arrow[dl,"g"] \\
 As an example for the setup of both corollaries,
 notice that $e^z$ is a universal covering map taking $\C$ to $\C \setminus \{ 0 \}$.
 The map $z^2$ is a covering map from $\C \setminus \{ 0 \}$ to itself.
-We might think that we can compose the two and obtain a new covering map:
+We might think we can compose the two and obtain a new universal covering map:
 \begin{equation*}
 {\bigl(e^z\bigr)}^2 = e^{2z} ,
 \end{equation*}
-and darnit, $2z$ is an automorphism of $\C$.  Since we're already drawing diagrams,
-let's also draw this one:
+and darnit, $2z$ is an automorphism of $\C$.  Since we're already drawing
+diagrams:
 \begin{equation*}
 \begin{tikzcd}[column sep=small]
 & \C \arrow[dl,"e^z"'] \arrow[dr,"e^{2z}"] \arrow[rr,"2z"] & & \C \arrow[dl,"e^z"] \\
