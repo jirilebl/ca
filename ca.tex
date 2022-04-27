@@ -17758,9 +17758,10 @@ Suppose $U \subset \C \setminus \{ 0 \}$ is a domain,
 symmetric with respect to reflection across $\partial \D$,
 that is, $z \in U$ implies $\nicefrac{1}{\bar{z}} \in U$.
 Let $U_{\text{in}} = U \cap \D$ and $U_{\text{out}} = U \setminus \overline{\D}$.
-If $f \colon U \cap \overline{\D} \to \C$ is a continuous
-function holomorphic on $U_{\text{in}}$ such that $f(U \cap \partial \D) \subset \partial
-\D$, then there exists a holomorphic $F \colon U \to \C$ such that
+If $f \colon U \cap \overline{\D} \to \C$ is continuous,
+holomorphic on $U_{\text{in}}$,
+and $f(U \cap \partial \D) \subset \partial \D$,
+then there exists a holomorphic $F \colon U \to \C$ such that
 $F|_{U \cap \overline{\D}} = f$.
 \end{cor}
 
@@ -17783,16 +17784,17 @@ when $\Re z = 0$.  Prove that $f$ extends to an entire holomorphic function.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $U \subset \bH$ is a domain in the upper half-plane
-such that the $\widebar{U} \cap \R$ contains an interval $(a,b)$.
-Suppose $f \colon U \cup (a,b) \to \C$ is continuous and holomorphic on $U$
+Suppose $U \subset \bH$ is a domain in the upper half-plane
+and $\Delta$ is a disc centered at some real number
+with $\Delta \cap \partial U = \Delta \cap \R = (a,b)$.
+Suppose $f \colon U \cup (a,b) \to \C$ is continuous, holomorphic on $U$,
 and $f$ is zero on $(a,b)$.  Prove that $f$ is identically zero.
 \end{exercise}
 
 \begin{exercise}
 Let $T = \{ e^{it} : \alpha < t < \beta \}$ be a small arc of the unit
 circle.  Suppose $f \colon \D \cup T \to \C$ and $g \colon \D \cup T \to \C$
-are continuous and holomorphic in $\D$ such that $g = f$ on $T$.  Prove that
+are continuous, holomorphic in $\D$, and $g = f$ on $T$.  Prove that
 $f=g$ on $\D$.
 \end{exercise}
 
@@ -17827,7 +17829,7 @@ $C^\infty$ (infinitely real differentiable) function on $\widebar{U}$.
 Hint: It is enough to show that
 all real partial derivatives of $f$ of all orders on $U$
 are locally bounded on $\widebar{U}$: In particular, for any $z \in \partial U$ 
-and any real derivative,
+and any real partial derivative,
 there is a neighborhood $V$ of $z$ such that the derivative
 is bounded on $U \cap V$, and that is only tricky at $z=0$.
 \end{exparts}
