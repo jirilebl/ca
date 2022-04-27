@@ -18018,17 +18018,19 @@ A holomorphic $f \colon W \to \C$
 continuation} to $U$
 if for every $q \in U$ and \emph{every} continuous
 $\gamma \colon [0,1] \to U$, $\gamma(0) = p$, $\gamma(1) = q$,
-$f$ can be analytically continued along $\gamma$.\footnote{The definition
-depends on $p$, but it does not matter as $W$ is connected, see
-\exerciseref{exercise:startingpointcont}.}
+$f$ can be analytically continued along $\gamma$.
 \end{defn}
+
+It may appear that the definition
+depends on $p$, but any other $p \in W$ could be used as $W$ is connected,
+see \exerciseref{exercise:startingpointcont}.
 
 The logarithm, and in general every primitive (exercise below),
 admits unrestricted
 continuation in the domain where the derivative is defined.
 We do not necessarily get a unique value.
 For instance for the logarithm,
-if $U = \C \setminus \{ 0 \}$, $\Delta_r(p) \subset U$, then we
+if $U = \C \setminus \{ 0 \}$, $W=\Delta_r(p) \subset U$, then we
 can define a branch of the logarithm in $\Delta_r(p)$, and it admits
 unrestricted continuation
 to all of $\C \setminus \{ 0 \}$, but the value of the continuation
@@ -18057,7 +18059,7 @@ and so $f$ also continues along this loop.  However, if we take the
 unit circle and go once around the origin, the square root becomes $-1$
 once we get back to $z=1$,
 and so $f$ cannot be analytically continued along this path.  That is, $f$
-does not allow unrestricted continuation in $\C \setminus \{ 0 \}$ even
+does not allow unrestricted continuation to $\C \setminus \{ 0 \}$ even
 though it allows continuation to every point of $\C \setminus \{ 0 \}$
 along some path.  Just not every path.
 \end{example}
@@ -18091,7 +18093,7 @@ The exponential $e^z$ is a covering map of $\C$ onto $\C \setminus \{ 0 \}$.
 Suppose $U,V \subset \C$ are open, $f \colon U \to V$ holomorphic, $k$-to-1,
 and onto.
 Using \exerciseref{exercise:ktoone}, $f'$ never vanishes and
-it is locally invertible.  It is not hard to
+$f$ is locally invertible.  It is not hard to
 prove (exercise below) that $f$ is a covering map.
 \end{example}
 
@@ -18112,8 +18114,9 @@ disjoint components and for each component, a branch of $f^{-1}$ can be defined 
 holomorphic map onto that component.  As $\gamma$ is compact, finitely many
 such discs $\Delta_1,\ldots,\Delta_n$ cover $\gamma$ such that $\Delta_{j-1}
 \cap \Delta_j \not= \emptyset$ and $p \in \Delta_1$.  Given any choice
-of $f^{-1}$ at $p$, we can define $f^{-1}$ in $\Delta_j$ that agrees with
-our choice of on $\Delta_{j-1}$ for all $j$.  In other words, we can continue $f^{-1}$
+of $f^{-1}$ at $p$, we can define a branch of $f^{-1}$ in $\Delta_j$ that agrees with
+our choice of on $\Delta_{j-1}$ for all $j$.  In other words, we can
+continue our branch of $f^{-1}$
 along $\gamma$.
 \end{proof}
 
@@ -18240,11 +18243,11 @@ As $U$ is simply connected, then by the
 \hyperref[thm:RMT]{Riemann mapping theorem}
 we can
 assume that $U=\D$ or $U = \C$.
-We have to show that no matter how we extend to any point $q \in U$, we
+We have to show that no matter how we continue $f$ to any point $q \in U$, we
 always get the same value, no matter what path we continue along.
 Suppose $\gamma_0 \colon [0,1] \to U$ and
 $\gamma_1 \colon [0,1] \to U$ are continuous,
-$\gamma_0(0)=\gamma_1(0) \in W$
+$\gamma_0(0)=\gamma_1(0) \in W$,
 and
 $\gamma_0(1)=\gamma_1(1)=q$.  Let
 \begin{equation*}
@@ -18366,7 +18369,7 @@ See \exerciseref{exercise:segmentcomplement}.
 \begin{exercise}
 Suppose $K \subset \C$ is compact, connected, and contains more than one
 point.  Show that there
-exists a universal cover $f \colon \D \to \C \setminus K$.
+exists a universal holomorphic cover $f \colon \D \to \C \setminus K$.
 \end{exercise}
 
 \begin{exercise}
