@@ -16616,7 +16616,7 @@ In real analysis, you may have seen the very useful
 Weierstrass approximation theorem (or the more general
 Stone--Weierstrass approximation theorem), which says that a continuous function
 on a compact interval $[a,b]$ can be uniformly approximated by polynomials
-of a real variable.  For holomorphic polynomials---polynomials in $z$---we have a
+of a real variable.  Utilizing holomorphic polynomials---polynomials in $z$---we have a
 similar theorem, but for holomorphic functions not
 continuous functions.  That makes sense.  After all, uniform limits of
 holomorphic functions are holomorphic, so we can't expect to approximate all
@@ -16630,7 +16630,7 @@ is a uniform limit of a sequence of polynomials
 $Q_n(x,y)$ (polynomials of both $x$ and $y$), but only a function that is
 holomorphic on $\D$ can be the uniform limit of polynomials
 $P_n(z)$ (polynomial of $z$).
-More explicitly the function $z \mapsto \bar{z}=x-iy$ is not only a limit of
+More explicitly, the function $z \mapsto \bar{z}=x-iy$ is not only a limit of
 polynomials in $x$ and $y$, it is a polynomial in $x$ and $y$.  However, as
 the function is not holomorphic on $\D$, it cannot be a
 uniform limit of holomorphic polynomials on $\overline{\D}$.
@@ -16642,10 +16642,11 @@ a polynomial in $z$, in other words, a holomorphic polynomial.
 
 A function holomorphic on a disc $\Delta_r(p)$ is limit of the partial sums
 of the power series $\sum_{n=0}^m c_n {(z-p)}^n$.  See also
-\exerciseref{exercise:polylimits}.  However, suppose we take a function that
-is holomorphic on an open neighborhood of the square $[-1,1] \times [-1,1]$, say
+\exerciseref{exercise:polylimits}.  On the other hand, consider a function 
+holomorphic on an open neighborhood of the square $[-1,1] \times [-1,1]$, say
 $f(z) = \frac{1}{(z-1.1)(z+1.1)}$.  If we expand $f$ around any point, the
-series will never converge on all of $[-1,1] \times [-1,1]$.  However, we can
+series will never converge on all of $[-1,1] \times [-1,1]$, as the domain
+of convergence is a disc which cannot include $\pm 1.1$.  However, we can
 (exercise below) still find a sequence of polynomials that converge to $f$
 on $[-1,1] \times [-1,1]$.
 
@@ -16659,9 +16660,9 @@ that converges uniformly to $f$ on the square $[-1,1] \times [-1,1]$.
 \end{exercise}
 \end{exbox}
 
-Sometimes, we are thwarted in polynomial approximation by topology.
-For example, there is no sequence of
-polynomials $P_n(z)$ that converge to $\nicefrac{1}{z}$ uniformly on $\partial
+We may be thwarted in polynomial approximation by topology.
+For example, no sequence of
+polynomials $P_n(z)$ converges to $\nicefrac{1}{z}$ uniformly on $\partial
 \D$.  This fact follows by \hyperref[thm:rouche]{Rouch\'e} (or
 \exerciseref{exercise:convergeboundary} and Cauchy's theorem), see the
 following exercise.
@@ -16673,13 +16674,14 @@ $\babs{P(z_0)-\frac{1}{z_0}} \geq 1$.
 \end{exercise}
 \end{exbox}
 
-The problem with the unit circle is that it goes around a hole.  We can approximate
-any function holomorphic in an open neighborhood of $\partial \D$ by rational
-functions if we allow a pole at $0$.  The function $\nicefrac{1}{z}$ is already
-a rational function with a pole at zero.
+The problem with $\nicefrac{1}{z}$ and the unit circle is that it goes around a hole.
+Any function holomorphic on a neighborhood of $\partial \D$ can be
+approximated on $\partial \D$ by rational functions
+if we allow a pole at $0$.  The function $\nicefrac{1}{z}$ is
+itself a rational function with a pole at $0$.
 
 A polynomial is really just a rational function that has a pole at infinity.
-Once we will prove Runge's theorem, we will prove that it really is the hole
+Once we will prove Runge's theorem, we will have proved that it really is the hole
 that is the problem.  We can approximate a holomorphic function
 by polynomials on any set whose complement is connected.
 
@@ -16893,7 +16895,7 @@ a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^k}$
 or $(z-z_2)^k$.  If we can uniformly approximate $\frac{1}{z-z_2}$ on $K$ by a rational
 function with a pole at $z_3$, we can approximate $R$ by a rational function
 with a pole at $z_3$, see \exerciseref{exercise:approxbyfamily}.
-And so we can approximate $\frac{1}{z-p}$ with a rational function with a pole at $z_3$.
+And so we can approximate $\frac{1}{z-p}$ by a rational function with a pole at $z_3$.
 Rinse and repeat.
 
 So without loss of generality suppose $z_1=p$ and $z_2=q$.
