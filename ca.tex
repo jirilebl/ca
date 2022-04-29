@@ -18094,8 +18094,8 @@ The exponential $e^z$ is a covering map of $\C$ onto $\C \setminus \{ 0 \}$.
 \end{example}
 
 \begin{example}
-Suppose $U,V \subset \C$ are open, $f \colon U \to V$ holomorphic, $k$-to-1,
-and onto.
+Suppose $U,V \subset \C$ are open, $f \colon U \to V$ holomorphic, $k$-to-1
+($k \in \N$), and onto.
 Using \exerciseref{exercise:ktoone}, $f'$ never vanishes and
 $f$ is locally invertible.  It is not hard to
 prove (exercise below) that $f$ is a covering map.
@@ -18266,15 +18266,16 @@ $q$ is the same whether we extend along $\gamma_0$ or $\gamma_1$.
 \end{proof}
 
 \begin{cor}
-Suppose that $U,V \subset \C$ are simply connected domains and
-$f \colon U \to V$ is a holomorphic covering map.  Then
-$f$ is a biholomorphism.
+Suppose that $U,V \subset \C$ are domains, $V$ is simply connected,
+and $f \colon U \to V$ is a holomorphic covering map.
+Then $f$ is a biholomorphism.
 \end{cor}
 
 \begin{proof}
 We have seen that any local inverse of a covering map admits unrestricted
-continuation.  By the monodromy theorem the local inverse extends to a
-global one defined on all of $V$.
+continuation.  Given a choice of $f^{-1}(p)$ for some $p \in V$,
+a local inverse extends to a global one defined on all of $V$ by the monodromy theorem.
+There can only be one local inverse as $U$ is connected, so $f$ is one-to-one.
 \end{proof}
 
 If $U$ is a simply connected, then
@@ -18371,15 +18372,16 @@ See \exerciseref{exercise:segmentcomplement}.
 \end{exercise}
 
 \begin{exercise}
-Suppose $K \subset \C$ is compact, connected, and contains more than one
-point.  Show that there
+Suppose $K \subset \C$ is compact, connected, contains more than one
+point, and $\C \setminus K$ is connected.  Show that there
 exists a universal holomorphic cover $f \colon \D \to \C \setminus K$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is a domain and $f \colon U \to U$ is a holomorphic
-covering map that is not injective.  Prove that the universal covering map
-of $U$ is infinite-to-one.
+Suppose $U \subset \C$ is a domain and there exists a
+holomorphic covering map
+$f \colon U \to U$ that is not injective.
+Prove that the universal covering map of $U$ is infinite-to-one.
 \end{exercise}
 \end{exbox}
 
