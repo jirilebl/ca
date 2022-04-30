@@ -39,6 +39,8 @@ f(z) = \sum_{n=0}^\infty \frac{1}{n!} z^n ,
 \end{equation*}
 is the unique convergent power series at the origin
 such that $f(0)=1$ and $f'=f$.
+\pause
+
 Moreover, the series converges on $\C$ and
 $f(z) = e^z$.
 \end{proposition}
@@ -46,7 +48,7 @@ $f(z) = e^z$.
 \pause
 
 \textbf{Proof:}
-Let $f$ be a convergent power series
+Consider a convergent series $f$ satisfying $f(0)=1$ and $f'=f$:
 \[
 f(z) = \sum_{n=0}^\infty c_n z^n .
 \]
@@ -56,7 +58,7 @@ $f(0)=1$ implies that $c_0 = 1$.
 \end{frame}
 
 \begin{frame}
-Suppose that $f' = f$.  \pause
+$f' = f$, so  \pause
 \[
 f'(z) =
 \sum_{n=1}^\infty n c_n z^{n-1} =
@@ -84,6 +86,7 @@ Both $f$ and the exponential are holomorphic and equal to their derivatives:
 \frac{d}{dz} \left[ \frac{f(z)}{\exp(z)} \right]
 =
 \frac{f'(z)\exp(z) - f(z) \exp'(z)}{{\bigl(\exp(z)\bigr)}^2}
+\pause
 =
 \frac{f(z)\exp(z) - f(z) \exp(z)}{{\bigl(\exp(z)\bigr)}^2}
 = 0.
