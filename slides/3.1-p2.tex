@@ -21,23 +21,23 @@ Line integrals (3.1 part 2)}
 \end{frame}
 
 \begin{frame}
-The value of an integral does not depend on the parametrization,
+The value of $~\int_\gamma f(z) \, dz~$ does not depend on the parametrization,
 \pause
 except for orientation.
 
 \medskip
 \pause
 
-Suppose $\gamma \colon [a,b] \to \C$ is $C^1$ and 
-$h \colon [c,d] \to [a,b]$ is $C^1$,
+Suppose $\gamma \colon [a,b] \to \C$ is $C^1$ \pause and
 
+$h \colon [c,d] \to [a,b]$ is $C^1$,
 $h' > 0$ (increasing),
 $h(c)=a$, and $h(d) = b$.
 
 \medskip
 \pause
 
-Then $\gamma \circ h$ is a new $C^1$ path (different parametrization of
+Then $\gamma \circ h \colon [c,d] \to \C$ is a new $C^1$ path (different parametrization of
 $\gamma$).
 
 \medskip
@@ -104,7 +104,7 @@ $
 \end{frame}
 
 \begin{frame}
-Hence, we often write down the
+We often write down the
 boundary of some open set as our path
 
 (as long as it's piecewise-$C^1$).
@@ -142,7 +142,7 @@ Let $U,V \subset \C$ be open, $\gamma \colon [a,b] \to V$
 piecewise-$C^1$ path, $g \colon V \to U$ holomorphic, and $f \colon U \to \C$
 continuous.
 \pause
-Then $g \circ \gamma$ is a piecewise-$C^1$ path in $V$
+Then $g \circ \gamma$ is a piecewise-$C^1$ path in $U$
 (possibly with vanishing derivative, however, if $g'$ is zero on $\gamma$) and
 \pause
 \begin{equation*}
@@ -244,7 +244,8 @@ M
 \end{frame}
 
 \begin{frame}
-Note that while uniform convergence of the functions, $f_n \to f$ passes under the
+\textbf{Remark:}
+Uniform convergence of the functions, $f_n \to f$, passes under the
 integral:
 \[
 \lim_{n\to\infty} \int_{\gamma} f_n(z) \, dz
@@ -257,7 +258,7 @@ integral:
 \]
 \pause
 Uniform convergence of the paths $\gamma_n \to \gamma$ does not (for either
-integral):
+integral).
 
 \pause
 \medskip
@@ -273,7 +274,7 @@ So arclength is not preserved under uniform convergence of paths.
 \medskip
 \pause
 
-For this you would also need $\gamma_n'$ to also converge.
+For this you would also need $\gamma_n'$ to also converge (uniformly).
 \end{frame}
 
 \end{document}
