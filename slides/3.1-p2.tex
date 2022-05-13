@@ -233,14 +233,14 @@ We estimate
 \abs{\int_a^b f\bigl( \gamma(t) \bigr) \gamma'(t) \, dt}
 \pause
 \leq
-\int_a^b \abs{ f\bigl( \gamma(t) \bigr) }  \sabs{ \gamma'(t) } \, dt
+\underbrace{\int_a^b \abs{ f\bigl( \gamma(t) \bigr) }  \sabs{ \gamma'(t) }
+\, dt}_{\int_\gamma \sabs{f(z)} \, \sabs{dz}}
 \pause
 \leq
-\pause
 M
 \int_a^b \sabs{ \gamma'(t) } \, dt .
-\]
 \qed
+\]
 \end{frame}
 
 \begin{frame}

@@ -4555,7 +4555,8 @@ We estimate using \propref{prop:inttriangleineq},
 =
 \abs{\int_a^b f\bigl( \gamma(t) \bigr) \gamma'(t) \, dt}
 \leq
-\int_a^b \abs{ f\bigl( \gamma(t) \bigr) }  \sabs{ \gamma'(t) } \, dt
+\underbrace{\int_a^b \abs{ f\bigl( \gamma(t) \bigr) }  \sabs{ \gamma'(t) }
+\, dt}_{\int_\gamma \sabs{f(z)} \, \sabs{dz}}
 \leq
 M
 \int_a^b \sabs{ \gamma'(t) } \, dt .
@@ -6095,8 +6096,8 @@ But we mean that \myquote{$\xi \geq 0$}
 is a shortcut to \myquote{$\xi \in \R$ and $\xi \geq 0$.}}
 that as $f(0) \geq 0$.
 
-Let $\gamma_r$ be a small circle of radius $r$ traversed counterclockwise
-centered at $0$.  As $0$ is a local maximum, suppose that $r$ is small enough
+Take a closed disc $\overline{\Delta_r(0)} \subset U$.
+As $0$ is a local maximum, suppose that $r$ is small enough
 so that
 $\sabs{f(z)} \leq \sabs{f(0)} = f(0)$ whenever $\sabs{z} \leq r$.
 Cauchy's formula says
@@ -6104,7 +6105,7 @@ Cauchy's formula says
 \begin{split}
 f(0) = \sabs{f(0)} =
 \abs{\frac{1}{2\pi i}
-\int_{\gamma_r}
+\int_{\partial \Delta_r(0)}
 \frac{f(z)}{z} \, dz
 }
 & =
@@ -6439,11 +6440,12 @@ If $P(z)$ is a nonconstant polynomial, then $P$ has a root.
 \begin{proof}
 If $P(z)$ does not have a root, then $R(z) = \frac{1}{P(z)}$ is
 an entire holomorphic function.
-As $P(z)$ is nonconstant, then
-in \exerciseref{exercise:polygoesinf} you proved that
+Suppose $P(z)$ is nonconstant.
+In \exerciseref{exercise:polygoesinf} you proved that
 $\lim_{z \to \infty} P(z) = \infty$ and so
 $\lim_{z \to \infty} R(z) = 0$.  In other words, $R(z)$ is bounded.
-Liouville says that $R(z)$ and therefore $P(z)$ must be constant.
+Liouville says that $R(z)$ and therefore $P(z)$ must be constant, a
+contradiction.
 \end{proof}
 
 \begin{exbox}

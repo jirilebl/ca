@@ -1,0 +1,199 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+The maximum modulus principle (3.3.3)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+A useful consequence of the Cauchy's integral formula is the
+\emph{maximum modulus principle}
+
+(or just \emph{maximum principle}):
+
+\pause
+
+\begin{theorem}[Maximum modulus principle]
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \C$ is holomorphic.
+If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
+\end{theorem}
+
+\pause
+
+The basic idea:
+Cauchy's integral formula says that $f(z)$ is the average of $f$ on a
+circle centered at $z$.
+The average can't be bigger than the numbers we're averaging.
+
+\pause
+\medskip
+
+\textbf{Proof:}
+Suppose $\sabs{f(z)}$ achieves a local maximum at $p \in U$.  WLOG $p=0$.
+
+\medskip
+\pause
+
+Also WLOG suppose $f(0) \geq 0$ (otherwise multiply by some $e^{i\theta}$).
+
+\medskip
+\pause
+
+Take a closed disc $\overline{\Delta_r(0)} \subset U$,
+
+where $r$ is small enough so that
+$\sabs{f(z)} \leq \sabs{f(0)} = f(0)$ whenever $\sabs{z} \leq r$.
+
+\end{frame}
+
+\begin{frame}
+Cauchy's formula says
+
+\medskip
+$\displaystyle
+\qquad
+f(0) = \sabs{f(0)} =
+\abs{\frac{1}{2\pi i}
+\int_{\partial \Delta_r(0)}
+\frac{f(z)}{z} \, dz
+}
+\pause
+ =
+\abs{
+\frac{1}{2\pi i}
+\int_0^{2\pi}
+\frac{f(re^{it})}{re^{it}} \, ri e^{it} \, dt
+}
+$
+
+\pause
+$\displaystyle
+\qquad\qquad \leq
+\frac{1}{2\pi}
+\int_0^{2\pi}
+\sabs{f(re^{it})}\, dt
+\pause
+\leq
+\frac{1}{2\pi}
+\int_0^{2\pi}
+f(0)\, dt \pause = f(0) .
+$
+
+\pause
+\medskip
+
+$\Rightarrow$ all the inequalities above are equalities.
+
+\medskip
+\pause
+
+In addition, $f(0)-\sabs{f(re^{it})} \geq 0$, and
+\[
+\int_0^{2\pi}\Bigl( f(0)-\sabs{f(re^{it})} \Bigr) \ dt = 0 ,
+\qquad \pause \Rightarrow \qquad \sabs{f(re^{it})} = f(0) \text{ for all } t.
+\]
+
+\medskip
+\pause
+
+Applying Cauchy's formula
+again:
+\begin{equation*}
+\frac{1}{2\pi}
+\int_0^{2\pi}
+\sabs{f(re^{it})}\, dt
+=
+f(0)
+=
+\frac{1}{2\pi}
+\int_0^{2\pi}
+f(re^{it})\, dt
+\end{equation*}
+\pause
+or
+\begin{equation*}
+0 =
+\Re \int_0^{2\pi}
+\Bigl(\sabs{f(re^{it})}-f(re^{it})\Bigr)\, dt
+=
+\int_0^{2\pi}
+\Bigl(\sabs{f(re^{it})}-\Re f(re^{it})\Bigr)\, dt .
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}
+$\sabs{w} - \Re w \geq 0$ holds for all $w \in \C$.
+
+\medskip
+\pause
+
+So $\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$.
+
+\medskip
+\pause
+
+$\displaystyle \int_0^{2\pi}
+\Bigl(\sabs{f(re^{it})}-\Re f(re^{it})\Bigr)\, dt = 0$
+\qquad $\Rightarrow$ \qquad
+$\sabs{f(re^{it})}=\Re f(re^{it})$ for all $t$.
+
+\medskip
+\pause
+
+$\Rightarrow$ \qquad $\Im f(re^{it}) = 0$ \pause \qquad $\Rightarrow$ \qquad
+$f(re^{it})=\sabs{f(re^{it})} = f(0)$ for all $t$.
+
+\medskip
+\pause
+The above is true for all small enough $r > 0$.
+
+\medskip
+\pause
+
+So the set where $f(z) = f(0)$ contains a disc,
+and $f$ is constant by the identity theorem.
+\qed
+
+\pause
+
+
+\begin{corollary}[Maximum modulus principle, part deux]
+Suppose $U \subset \C$ is nonempty, open, and bounded (so $\widebar{U}$ is compact).
+If $f \colon \widebar{U} \to \C$ is continuous and the restriction $f|_{U}$
+is holomorphic, then $\sabs{f(z)}$ achieves a maximum on $\partial U$.
+\pause
+In
+other words,
+\begin{equation*}
+\sup_{z \in U} \sabs{f(z)} \leq
+\sup_{z \in \partial U} \sabs{f(z)} .
+\end{equation*}
+\end{corollary}
+
+\pause
+
+Proof is an exercise.
+
+\end{frame}
+
+
+
+
+\end{document}

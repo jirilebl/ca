@@ -1,0 +1,221 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Cauchy estimates, Liouville, and\\%
+the fundamental theorem of algebra (3.3.4)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+We have the tools to make three fundamental results pop out with little
+work:
+
+\begin{enumerate}
+\pause
+\item
+The triangle inequality on the integral formula
+for the coefficients of the power series
+gives estimates on their size: \textbf{Cauchy's estimates}.
+
+\pause
+\item
+Cauchy's estimates imply \textbf{Liouville's theorem}: Bounded entire (defined on all
+of $\C$) holomorphic functions are constant.
+
+\pause
+\item
+Liouville's theorem gives \textbf{the fundamental theorem of algebra}:
+Every nonconstant polynomial has a root.
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+For a set $K$, denote the \emph{\myindex{supremum norm}} or
+\emph{\myindex{uniform norm}}:
+\begin{equation*}
+\snorm{f}_K
+\overset{\text{def}}{=}
+\sup_{z \in K} \sabs{f(z)} .
+\end{equation*}
+
+\pause
+
+\begin{theorem}[Cauchy estimates]
+Let $U \subset \C$ be open, $f \colon U \to \C$ be
+holomorphic, and $\overline{\Delta_r(p)} \subset U$
+be a closed disc.  Expand $f(z) = \sum c_n {(z-p)}^n$.
+Then for all $n$,
+\[
+\sabs{c_n} =
+\abs{\frac{f^{(n)}(p)}{n!}}
+\leq
+\frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n}} .
+\]
+\end{theorem}
+
+\pause
+
+In other words, the sequence $\bigl\{ \sabs{c_n} r^n \bigr\}$ is bounded by
+$\snorm{f}_{\partial \Delta_r(p)}$.
+
+\medskip
+\pause
+
+\textbf{Proof:}
+\[
+\sabs{c_n}  = 
+\abs{
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
+\,
+d \zeta 
+}
+\pause
+\leq
+\frac{1}{2\pi}
+\int_{\partial \Delta_r(p)}
+\frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n+1}}
+\,
+\sabs{d \zeta} 
+\pause
+=
+\frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n}} .
+\qed
+\]
+
+\end{frame}
+
+\begin{frame}
+
+A better estimate than
+\[
+\sabs{c_n} =
+\abs{\frac{f^{(n)}(p)}{n!}}
+\leq
+\frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n}}
+\]
+is not possible.
+
+\medskip
+\pause
+
+Consider \[
+f(z) = \frac{M}{r^n} {(z-p)}^n .
+\]
+
+\medskip
+\pause
+
+Then
+\[
+M = \snorm{f}_{\partial \Delta_r(p)} .
+\]
+
+\medskip
+\pause
+
+And
+\[
+\sabs{c_n} = \frac{M}{r^n} .
+\]
+
+\end{frame}
+
+\begin{frame}
+
+\begin{definition}
+A holomorphic $f \colon \C \to \C$ is called
+an \emph{\myindex{entire holomorphic function}} or perhaps
+just \emph{entire}.
+\end{definition}
+
+\pause
+
+Examples: Polynomials, $e^z$, $\sin z$, $\cos z$, but not $\frac{1}{z}$.
+
+\pause
+
+\begin{theorem}[Liouville]
+A bounded entire holomorphic function is constant.
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+Suppose $f$ is entire and $\sabs{f(z)} \leq M$ for all $z \in \C$.
+\pause
+Expand around the origin:
+\[
+f(z) = \sum_{n=0}^\infty c_n z^n .
+\]
+\pause
+$f$ is holomorphic on a disc of arbitrary radius
+\pause \qquad $\Rightarrow$ \qquad
+the Cauchy estimates say
+\[
+\sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^n} \leq
+\frac{M}{r^n}
+\qquad \text{for all } r > 0 .
+\]
+\pause
+Letting $r \to \infty$ shows that $c_n = 0$ for $n \geq 1$.
+\pause
+In other
+words, $f(z) = c_0$ for all $z$.
+\qed
+
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Fundamental theorem of algebra]
+If $P(z)$ is a nonconstant polynomial, then $P$ has a root.
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+If $P(z)$ does not have a root, then $R(z) = \frac{1}{P(z)}$ is
+an entire holomorphic function.
+
+\medskip
+\pause
+
+Suppose $P(z)$ is nonconstant.  Then (via an exercise)
+\[
+\lim_{z \to \infty} P(z) = \infty
+\pause
+\qquad \Rightarrow \qquad
+\lim_{z \to \infty} R(z) = 0.
+\]
+\pause
+So $R(z)$ is bounded.
+
+\medskip
+\pause
+
+Liouville says that $R(z)$ and hence $P(z)$ must be constant, a
+contradiction.
+\qed
+\end{frame}
+
+
+
+
+\end{document}
