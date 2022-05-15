@@ -1,0 +1,259 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Convergence of sequences of holomorphic functions (3.4.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+What is the right topology for the set of holomorphic functions?
+
+\medskip
+\pause
+
+Curiously, the right topology is the same as for continuous functions:
+
+\begin{definition}
+A sequence of functions $f_n \colon U \to \C$ converges
+\emph{uniformly on compact subsets}
+to $f \colon U \to \C$ if
+$f_n|_K$ converges uniformly to $f|_K$
+for every compact $K \subset U$.
+\end{definition}
+
+\medskip
+\pause
+
+What do we mean by the right topology?  The most natural one that preserves
+holomorphic functions.
+
+\medskip
+\pause
+
+For example, the uniform topology is the right one for continuous functions:
+The uniform limit of continuous functions is continuous.
+
+\medskip
+\pause
+
+But for real differentiable functions, it's not:
+
+\medskip
+\pause
+
+$\sabs{x}^{1+1/n}$ is $C^1$ on $\R$ and converges uniformly on compact
+subsets to $\sabs{x}$.
+\end{frame}
+
+\begin{frame}
+
+\begin{theorem}
+Suppose $U \subset \C$ is open and $f_n \colon U \to \C$ is a sequence
+of holomorphic functions converging uniformly on compact subsets to
+$f \colon U \to \C$.
+\pause
+Then $f$ is holomorphic.
+\pause
+Moreover, for all $\ell$, the $\ell$\textsuperscript{th} derivative
+$f_n^{(\ell)}$ converges uniformly on compact subsets to $f^{(\ell)}$.
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+Fix $p \in U$.
+\pause
+Consider $\overline{\Delta_r(p)} \subset U$.
+
+\medskip
+\pause
+
+For any $z \in \Delta_r(p)$,
+\[
+f_n(z) = \frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)} \frac{f_n(\zeta)}{\zeta-z} \, d\zeta .
+\]
+\pause
+$\partial \Delta_r(p)$ is compact.
+Let $\delta > 0$ be the distance of $z$ to
+$\partial \Delta_r(p)$.
+
+\medskip
+\pause
+
+For $\zeta \in \partial \Delta_r(p)$,
+\begin{equation*}
+\abs{\frac{f_n(\zeta)}{\zeta-z}
+-
+\frac{f(\zeta)}{\zeta-z}
+}
+=
+\frac{\sabs{f_n(\zeta)-f(\zeta)}}{\sabs{\zeta-z}}
+\leq
+\frac{1}{\delta}
+\sabs{f_n(\zeta)-f(\zeta)} .
+\end{equation*}
+\pause
+I.e.,
+$\zeta \mapsto \frac{f_n(\zeta)}{\zeta-z}$ converges uniformly to 
+$\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ on $\partial \Delta_r(p)$.
+
+\medskip
+\pause
+
+We can take the limit $n \to \infty$ underneath the integral.
+\end{frame}
+
+\begin{frame}
+We get
+\qquad
+$
+\displaystyle
+f(z) = \frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta
+$
+\qquad
+for all $z \in \Delta_r(p)$.
+
+\medskip
+\pause
+
+$f|_{\partial \Delta_r(p)}$ is continuous by uniform convergence.
+
+\medskip
+\pause
+
+$f|_{\Delta_r(p)} = C[f|_{\partial \Delta_r(p)}]$ (the Cauchy transform),
+which is holomorphic.
+
+\medskip
+\pause
+
+So $f$ is holomorphic.
+
+\medskip
+\pause
+
+We still need to prove the ``Moreover'' bit:
+
+That $\bigl\{ f_n^{(\ell)} \bigr\}$
+also
+converges uniformly on compact subsets.
+\end{frame}
+
+\begin{frame}
+Suppose $K \subset U$ is compact.
+
+\medskip
+\pause
+
+If $U \not= \C$, the distance $d$ of
+$K$ and $\partial U$ is positive
+(if $U=\C$, take $d > 0$ arbitrary).
+
+\medskip
+\pause
+
+Let
+$\displaystyle
+\quad
+K' = \bigcup_{z \in K} \overline{\Delta_{d/2}(z)} .
+$
+
+\medskip
+\pause
+
+$K \subset K' \subset U$.
+
+\vspace*{-0.5in}
+\hspace*{2.5in}%
+\scalebox{0.95}{
+\subimport*{../../ca/figures/}{kkprime.pdf_t}
+}
+\pause
+
+\vspace*{-0.6in}
+
+$K'$ is bounded.
+
+\pause
+
+If $p \notin K'$, $\exists q \in K$ such that
+$\sabs{p-q}$ is
+
+the distance of $K$ (compact) to $p$.
+
+\pause
+$\sabs{p-q} > \nicefrac{d}{2}$  \quad ($p\not\in K'$).
+
+\pause
+Every point in $\Delta_{\sabs{p-q}-d/2}(p)$
+is further than $\nicefrac{d}{2}$ from $K$ (so not in $K'$).  So $K'$ is closed.
+
+\pause
+
+$\Rightarrow$ $K'$ is compact.
+
+\medskip
+\pause
+
+$\{ f_n \}$ converges uniformly on $K'$:
+\pause
+Given $\epsilon > 0$, $\exists N$ such that
+$\sabs{f(z)-f_n(z)} < \epsilon$ $\forall$ $z \in K'$, $n \geq N$.
+
+\medskip
+\pause
+For any $p \in K$, by Cauchy estimates
+on $f(z)-f_n(z)$
+in $\Delta_{d/2}(p)$:
+\pause
+\begin{equation*}
+\abs{
+\,
+f_n^{(\ell)}(p)
+-
+f^{(\ell)}(p)
+}
+\pause
+\leq
+\frac{\ell! \, \snorm{f-f_n}_{\partial \Delta_{d/2}(p)}}{{(d/2)}^{\ell}}
+\pause
+\leq
+\frac{\ell!2^\ell}{d^\ell}\epsilon .
+\end{equation*}
+\pause
+$\Rightarrow$ $\bigl\{ f_n^{(\ell)} \bigr\}$ converges uniformly to $f^{(\ell)}$ on $K$.
+\qed
+\end{frame}
+
+\begin{frame}
+
+Point is: We can write all derivatives of $f$ as integrals of $f$.
+
+\medskip
+\pause
+
+Integration is a far nicer operation than differentiation, and for
+holomorphic functions, we can differentiate by integrating.
+\end{frame}
+
+
+
+
+\end{document}

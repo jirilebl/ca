@@ -1,0 +1,212 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Holomorphic functions via integrals (3.4.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{lemma}
+Suppose $U \subset \C$ is open, and
+$\psi \colon U \times [0,1] \to \C$ is a continuous function such that
+for each fixed $t \in [0,1]$, the function $z \mapsto \psi(z,t)$ is
+holomorphic.  \pause Then
+\[
+h(z) =
+\int_0^1 \psi(z,t) \, dt
+\qquad
+\text{is a holomorphic function on } U.
+\]
+\end{lemma}
+
+\pause
+
+There are two common proofs of this kind of result.
+
+\medskip
+\pause
+
+\textbf{Proof A:}
+Morera together with Fubini and Cauchy--Goursat.
+
+\medskip
+\pause
+
+Let $T \subset U$ be a triangle (solid triangle as usual).  \pause Then
+\[
+\int_{\partial T}
+h(z)
+\, dz
+\pause
+=
+\int_{\partial T}
+\int_0^1 \psi(z,t) \, dt
+\, dz
+\pause
+=
+\int_0^1
+\int_{\partial T}
+\psi(z,t)
+\, dz
+\, dt
+\pause
+= \int_0^1 0 \, dt = 0.
+\]
+\pause
+
+Fubini applies as the integrand is continuous
+if we think of each leg of $\partial
+T$ separately.
+
+\pause
+\medskip
+
+$h(z)$ is holomorphic by Morera.
+\qed
+\end{frame}
+
+\begin{frame}
+
+\textbf{Proof B:}
+Apply Wirtinger derivatives and differentiate under the integral:
+\pause
+\[
+\frac{\partial}{\partial \bar{z}}
+\bigl[
+h(z)
+\bigr]
+\pause
+=
+\frac{\partial}{\partial \bar{z}}
+\int_0^1 \psi(z,t) \, dt
+\pause
+=
+\int_0^1
+\frac{\partial}{\partial \bar{z}}
+\bigl[
+\psi(z,t)
+\bigr]
+\, dt
+\pause
+= \int_0^1 0 \, dt = 0.
+\]
+\pause
+We are really passing the partial derivatives in $x$
+and $y$ under the integral via the Leibniz integral rule (*).
+
+\medskip
+\pause
+
+There is a technicality!  Could we apply Leibniz?
+
+\medskip
+\pause
+
+We only assumed $z \mapsto \psi(z,t)$ is holomorphic for all $t$.
+
+\pause
+\medskip
+
+We did \emph{not} assume that
+$\frac{\partial \psi}{\partial x}$ and $\frac{\partial \psi}{\partial y}$
+(and hence
+$\frac{\partial \psi}{\partial \bar{z}}$)
+were continuous functions on $U \times [0,1]$.
+
+If we did, we would be done (that's what the standard Leibniz needs).
+
+\medskip
+\pause
+
+By an exercise we mentioned before using
+Cauchy's integral formula for the derivative:
+
+If
+$z \mapsto \psi(z,t)$ is holomorphic for all $t$ (and $\psi$ continuous),
+then
+$\frac{\partial \psi}{\partial x}$ and $\frac{\partial \psi}{\partial y}$
+are continuous.
+
+\medskip
+\pause
+
+OK, now we are done.
+\qed
+
+\end{frame}
+
+\begin{frame}
+\begin{corollary}
+Suppose $U \subset \C$ is open, $\Gamma$ is a 
+chain,
+and
+$\psi \colon U \times \Gamma \to \C$ is a continuous function such that
+for each fixed $w \in \Gamma$, the function $z \mapsto \psi(z,w)$ is
+holomorphic.  Then
+\[
+h(z) =
+\int_\Gamma \psi(z,w) \, dw
+\qquad \text{is a holomorphic function on } U.
+\]
+\end{corollary}
+\pause
+
+For a continuous $f \colon \partial \Delta_r(p) \to \C$, define
+the \emph{Cauchy transform} $Cf \colon \Delta_r(p) \to \C$ by
+\begin{equation*}
+Cf(z)
+\overset{\text{def}}{=}
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{\zeta-z}\, d\zeta .
+\end{equation*}
+\pause
+
+\begin{corollary}
+For a continuous $f \colon \partial \Delta_r(p) \to \C$,
+the Cauchy transform $Cf \colon \Delta_r(p) \to \C$ is holomorphic.
+\end{corollary}
+
+\pause
+
+For a random continuous $f$, $Cf$ may not tend to $f$ as we approach
+$\partial \Delta_r(p)$.
+\end{frame}
+
+\begin{frame}
+The corollary gives a converse to Cauchy's formula:
+
+\medskip
+\pause
+
+If $f \colon \overline{\Delta_r(p)} \to \C$ is continuous and
+\begin{equation*}
+f(z) =
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta
+\qquad \text{for all } z \in \Delta_r(p),
+\end{equation*}
+\pause
+then $f|_{\Delta_r(p)}$ is holomorphic.
+
+\end{frame}
+
+
+
+
+\end{document}
