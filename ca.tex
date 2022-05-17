@@ -6938,15 +6938,16 @@ where $g(z)$ is a holomorphic function of $\D$.  For
 $z \in \partial \Delta_r(0)$,
 where $r < 1$, we have
 \begin{equation*}
-\sabs{g(z)} = \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r} .
+\sabs{g(z)} = \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r}  .
 \end{equation*}
-The maximum modulus principle says that the inequality
-$r \sabs{f(z)} \leq \sabs{z}$
+The maximum modulus principle says that $\sabs{g(z)} \leq \frac{1}{r}$
 holds for all $z \in \Delta_r(0)$.
 Fix $z \in \D$ and take limit as $r \uparrow 1$. 
-You find $\sabs{f(z)} \leq \sabs{z}$ or
-$\sabs{g(z)} \leq 1$ for all $z
-\in \D$.  Then
+You find
+$\sabs{g(z)} \leq 1$,
+or
+$\sabs{f(z)} \leq \sabs{z}$,
+for all $z \in \D$.  Then
 \begin{equation*}
 \abs{f'(0)}
 =
@@ -6960,7 +6961,7 @@ As $g(0) = f'(0)$, the same conclusion, for the same reason,
 holds if $\sabs{f'(0)} = 1$.
 \end{proof}
 
-To illustrate the theorem, consider the statement for $f(z) = z^n$
+To illustrate the lemma, consider the statement for $f(z) = z^n$
 for an integer $n > 1$.  The function $f$ takes the disc to the disc
 and $f(0) = 0$.  For $z \in \D \setminus \{ 0 \}$,
 \begin{equation*}
@@ -6997,7 +6998,9 @@ Prove that if $f \colon \bH \to \bH$ holomorphic such that $f(i) = i$, then
 \end{exercise}
 
 \begin{exercise}[Tricky]
-Prove a certain generalization of Schwarz's lemma.  Suppose $U \subset \C$
+Prove a certain generalization of Schwarz's lemma
+called the \emph{\myindex{Cartan's uniqueness theorem}}:
+Suppose $U \subset \C$
 is bounded,
 $f \colon U \to U$ is holomorphic,
 $p \in U$,
