@@ -1,0 +1,207 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Schwarz's lemma (3.5.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{lemma}[Schwarz's lemma]
+Suppose $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
+then 
+\pause
+\begin{enumerate}[(i)]
+\item $\sabs{f(z)} \leq \sabs{z}$ for all $z \in \D$, and
+\pause
+\item $\sabs{f'(0)} \leq 1$.
+\end{enumerate}
+\pause
+Furthermore, if $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus
+\{ 0 \}$
+or $\sabs{f'(0)} = 1$, then
+there is a $\theta \in \R$ such that $f(z) =
+e^{i\theta} z$ for all $z \in \D$.
+\end{lemma}
+
+\pause
+
+This may sound very specialized, but
+
+\pause
+\medskip
+
+a) A disc is a basic neighborhood and any disc can be translated and rescaled
+into $\D$. \pause
+
+The lemma is telling us about local behavior of a holomorphic function.
+
+\pause
+\medskip
+
+b) We will see later that every domain ``without holes'' is biholomorphic to a
+disc,
+
+so it tells us about global behavior as well.
+
+\end{frame}
+
+\begin{frame}
+\textbf{Proof:}
+As $f(0) = 0$, we can expand is
+\[
+f(z) = \sum_{n=1}^\infty c_n z^n \pause = z \sum_{n=1}^\infty c_n z^{n-1}
+\pause = z g(z) \qquad \text{($g(z)$ a holomorphic function on $\D$.)}
+\]
+\pause
+For $z \in \partial \Delta_r(0)$, $r < 1$,
+\[
+\sabs{g(z)} = \frac{\sabs{f(z)}}{\sabs{z}} \pause \leq \frac{1}{r} .
+\]
+\pause
+By the maximum modulus principle
+$\sabs{g(z)} \leq \dfrac{1}{r}$ for all $z \in \Delta_r(0)$.
+
+\pause
+\medskip
+
+Fix any $z \in \D$ and take limit as $r \uparrow 1$ to find
+$\sabs{g(z)} \leq 1$.
+\pause
+So
+\[
+\sabs{f(z)} \leq \sabs{z} \quad \text{ for all } z \in \D,
+\pause \qquad \text{and} \qquad
+\abs{f'(0)}
+=
+\abs{\lim_{z \to 0} \frac{f(z)}{z}} = \sabs{g(0)} \leq 1 .
+\]
+\pause
+If $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus \{ 0 \}$
+\pause $\Rightarrow$
+$g$ attains a maximum in $\D$
+\pause $\Rightarrow$
+$g$ is constant
+
+\pause $\Rightarrow$ $f(z) = e^{i \theta} z$.
+
+\medskip
+\pause
+
+As $g(0) = f'(0)$, the same conclusion holds if $\sabs{f'(0)} = 1$.
+\qed
+\end{frame}
+
+\begin{frame}
+Consider the statement for $f(z) = z^n$ for $n > 1$.
+
+\pause
+\medskip
+
+$f$ takes $\D$ to $\D$ and $f(0) = 0$.
+
+\pause
+\medskip
+
+For $z \in \D \setminus \{ 0 \}$,
+\[
+\sabs{z^n} =
+\sabs{z}^n < \sabs{z} .
+\]
+\pause
+As $f'(z) = n z^{n-1}$,
+$\sabs{f'(0)} = 0 < 1$.
+
+\pause
+\medskip
+
+Notice that a bound on the derivative does not hold at other points:
+Picking the right $z$ and $n$,
+can make $\sabs{f'(z)}$ arbitrarily large.
+
+\medskip
+\pause
+
+We can make $\sabs{z^n}$ arbitrarily small for a fixed $z \in \D$ by picking
+a large enough $n$, but we cannot make it bigger than $\sabs{z}$.
+
+\medskip
+\pause
+
+Schwarz's lemma says all holomorphic functions
+behave this way, not just $z^n$.
+\end{frame}
+
+\begin{frame}
+It is a useful exercise to rewrite the lemma for
+$f \colon \Delta_r(p) \to \Delta_s(q)$ with $f(p)=q$.
+
+\medskip
+\pause
+
+Using an LFT we can find a half-plane ($\bH = \{ z \in \C : \Im z > 0 \}$)
+version:
+
+\medskip
+\pause
+
+If $f \colon \bH \to \bH$ holomorphic and $f(i) = i$, then
+\[
+\abs{\frac{f(z)-i}{\overline{f(z)}-i}} \leq
+\abs{\frac{z-i}{\bar{z}-i}} 
+\qquad
+\text{and}
+\qquad
+\abs{f'(i)} \leq 1 .
+\]
+
+\medskip
+\pause
+Another interesting (and more challenging) exercise is the following
+generalization (sometimes called Cartan's uniqueness theorem)
+
+\medskip
+\pause
+
+Suppose $U \subset \C$ is bounded, $f \colon U \to U$ is holomorphic, $p \in U$,
+and $f(p)=p$.  Then
+\begin{enumerate}[(i)]
+\item
+$\abs{f'(p)} \leq 1$.
+\item
+If $f'(p) = 1$, then $f(z) = z$ for all $z \in U$.
+\end{enumerate}
+\pause
+Hint: WLOG $p=0$,
+\pause
+then consider the power series
+expansions of
+$f^{\ell}$, the $\ell$\textsuperscript{th} composition of $f$ with itself,
+$f(f(f(\cdots f(z) \cdots)))$.
+
+\pause
+
+For a) consider the linear term of $f^{\ell}$.
+
+\pause
+
+For b) use Cauchy estimates on the first nonzero nonlinear term of
+$f^{\ell}$.
+
+\end{frame}
+
+\end{document}
