@@ -33,8 +33,13 @@ Let $a,b,c \in \C$ be noncollinear.
 \pause
 
 A \emph{triangle} $T$ is with vertices $a,b,c$
-is the convex hull of $\{ a,b,c \}$,
-that is, the set of points
+is the convex hull of $\{ a,b,c \}$, that is,
+the smallest convex set containing the points.
+
+\medskip
+\pause
+
+In other words, $T$ is the set of points
 \begin{equation*}
 t_1 a + t_2 b + t_3 c ,
 \end{equation*}
@@ -88,7 +93,7 @@ is in $U$, not just the boundary.
 \medskip
 
 \textbf{Remark:} It is a ``Goursat'' theorem not just ``Cauchy''
-because of the proof.  In the proof, we do not assume that
+because of the proof: We do not assume that
 $f'$ is continuous as we have not proved that yet.
 
 \pause
@@ -173,7 +178,7 @@ Rinse and repeat.
 \pause
 \medskip
 
-For the $k$\textsuperscript{th} triangle $T^k$,
+After $k$ iterations for the $k$\textsuperscript{th} triangle $T^k$,
 $\displaystyle
 \quad
 \abs{\int_{\partial T^k} f(z) \, dz } \geq \frac{c}{4^k}.$
@@ -182,7 +187,6 @@ $\displaystyle
 \begin{frame}
 $T^k \subset T^{k-1} \subset \cdots \subset T$
 and in each step the triangle is exactly half the size (similar triangles):
-
 \pause
 \[
 \operatorname{diam}(T^k) =
@@ -191,11 +195,11 @@ and in each step the triangle is exactly half the size (similar triangles):
 \frac{1}{2^k} \operatorname{diam}(T) .
 \]
 \pause
-The triangles are compact, so the intersection of all of them is
+The triangles are compact $\Rightarrow$ the intersection is
 nonempty.
 
 \pause
-As the diameter also goes to zero, we get a single point:
+The diameter goes to zero $\Rightarrow$ the intersection is a single point:
 \[
 \{ z_0 \} = \bigcap_{k=1}^\infty T^k .
 \]
