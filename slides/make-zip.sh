@@ -3,10 +3,16 @@ echo Building
 
 for n in *.tex ; do
 	echo =============================
-	echo $n
-	pdflatex $n
-	pdflatex $n
-	pdflatex $n
+	p=`basename $n .tex`".pdf"
+	echo $n '-->' $p
+	if test $n -nt $p ; then
+		echo Will rebuild
+		pdflatex $n
+		pdflatex $n
+		pdflatex $n
+	else
+		echo No need to rebuild
+	fi
 done
 
 echo =============================
