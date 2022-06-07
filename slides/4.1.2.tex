@@ -1,0 +1,330 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Winding numbers (4.1.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Let $\Gamma$ be
+a cycle,
+and $p \notin \Gamma$.  Define
+\begin{equation*}
+n(\Gamma;p)
+\overset{\text{def}}{=}
+\frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz .
+\end{equation*}
+\pause
+$n(\Gamma;p)$ is called the
+\emph{\myindex{winding number}} of $\Gamma$ around $p$, or
+the 
+\emph{\myindex{index}} of $\Gamma$ with respect to $p$.
+
+\medskip
+\pause
+
+It is the number of times $\Gamma$ winds around $p$ in the counterclockwise
+direction.
+
+\medskip
+\pause
+
+\textbf{Example:} $\gamma(t) = e^{it}$ for $t \in [0,2\pi]$ goes once around
+$0$ in the counterclockwise direction,
+\[
+\frac{1}{2\pi i} \int_\gamma \frac{1}{z} \, dz = 1.
+\]
+
+\pause
+\textbf{Example:} $\gamma(t) = e^{i2t}$ for $t \in [0,2\pi]$ goes twice around
+$0$,
+\[
+\frac{1}{2\pi i} \int_\gamma \frac{1}{z} \, dz = 2.
+\]
+
+\pause
+\textbf{Example:} $\gamma(t) = e^{-it}$ for $t \in [0,2\pi]$ goes once
+around in the clockwise direction,
+\[
+\frac{1}{2\pi i} \int_\gamma \frac{1}{z} \, dz = -1.
+\]
+\end{frame}
+
+\begin{frame}
+\begin{proposition}
+Suppose $\Gamma$ is a cycle and $p \notin \Gamma$.  Then
+$n(\Gamma;p)$ is an integer.
+\end{proposition}
+
+\pause
+
+Idea: Follow a branch of log, then the argument differs
+by an integer multiple of $2\pi$.
+
+
+%The proof is to take a closed path $\gamma$
+%and to follow a branch of $\log$ around $\gamma$, and
+%see by how much it changes.  See \figureref{fig:followbranch}, where we
+%go all the way around a loop.  Since we follow the argument
+%and we go some number of times around $p$ along $\gamma$, the
+%argument changes by some multiple of $2\pi$.
+
+\medskip
+\pause
+\textbf{Proof:}
+$\Gamma$ is a ``sum'' of closed paths, so WLOG consider a closed
+piecewise-$C^1$ path
+$\gamma \colon [0,1] \to \C$.
+
+\medskip
+\pause
+
+$\gamma$ can be covered by finitely many discs $D_1,\ldots,D_n$
+none of which contain $p$.
+
+\medskip
+\begin{center}
+\subimport*{../figures/}{followbranch.pdf_t}
+\end{center}
+
+\pause
+(cover the whole closed curve, of course)
+
+\end{frame}
+
+\begin{frame}
+The discs $D_1,\ldots,D_n$ cover $\gamma$.
+
+\medskip
+\pause
+
+And the discs can be chosen (exercise) so that
+there is a partition
+
+$0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$, where
+$\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$ for every $j$.
+
+\medskip
+\pause
+
+Each $D_j$ is star-like and $p \notin D_j$ \quad $\Rightarrow$ \quad there exists a branch $L_j$ 
+of $\log (z-p)$ on $D_j$, such that
+\[
+L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)
+\qquad\qquad
+\text{($L_1$ is an arbitrary branch).}
+\]
+\pause
+Call $z_0 = \gamma(0) = \gamma(1)$. \pause
+So
+
+\medskip
+$\displaystyle
+\qquad n(\gamma;p)
+=
+\frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz
+\pause
+=
+\frac{1}{2\pi i} \int_0^1 \frac{\gamma'(t)}{\gamma(t)-p} \, dt
+\pause
+=
+\frac{1}{2\pi i} \sum_{j=1}^n \int_{t_{j-1}}^{t_j} \frac{\gamma'(t)}{\gamma(t)-p} \, dt
+$
+\pause
+
+$\displaystyle
+\phantom{\qquad n(\gamma;p)}
+=
+\frac{1}{2\pi i} \sum_{j=1}^n L_j\bigl(\gamma(t_j)\bigr) -
+L_j\bigl(\gamma(t_{j-1})\bigr)
+\pause
+=
+\frac{1}{2\pi i} \bigl( L_n(z_0) - L_1(z_0) \bigr) .
+$
+
+\medskip
+\pause
+
+$L_n$ and $L_1$ are branches of $\log$,
+
+\pause
+each is $\log\sabs{z_0} + i \arg z_0$ for some value of $\arg$,
+
+\pause
+their difference is $2\pi k i$ for some $k \in \Z$.
+\qed
+\end{frame}
+
+\begin{frame}
+\begin{proposition}
+Given a cycle $\Gamma$,
+the function $z \mapsto n(\Gamma;z)$ is constant on the
+topological components of $\C \setminus \Gamma$.
+\pause
+Furthermore, $n(\Gamma;z) = 0$ for $z$ on the unbounded component
+of $\C \setminus \Gamma$.
+\end{proposition}
+
+\pause
+
+As $\Gamma$ is compact, is a unique unbounded component
+of $\C \setminus \Gamma$.
+
+\medskip
+\pause
+
+\textbf{Example:}
+
+\begin{center}
+\scalebox{0.9}{
+\subimport*{../figures/}{indexconstant.pdf_t}
+}
+\end{center}
+\end{frame}
+
+\begin{frame}
+\textbf{Proof:}
+We start by showing that
+$\displaystyle
+p \mapsto n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz
+$
+is continuous on $\C \setminus \Gamma$.
+
+\medskip
+\pause
+
+Fix $p_0 \in \C \setminus \Gamma$, and let
+$d = d(p_0,\Gamma)$ be the
+distance from 
+$p_0$ to $\Gamma$ ($d > 0$ as $\Gamma$ is compact).
+
+\medskip
+\pause
+
+If $p \in \Delta_{d/2}(p_0)$, then $\sabs{z-p} \geq \nicefrac{d}{2}$ for $z \in \Gamma$.
+
+\medskip
+\pause
+Let $\ell = \int_\Gamma \sabs{dz}$ (length of $\Gamma$). \pause Then
+
+\medskip
+$\displaystyle
+\abs{n(\Gamma;p_0)-n(\Gamma;p)}
+\pause
+=
+\abs{\frac{1}{2\pi i} \int_\Gamma \frac{p_0-p}{(z-p_0)(z-p)} \, dz}
+\pause
+\leq
+\frac{1}{2\pi} \int_\Gamma \frac{\sabs{p_0-p}}{\sabs{z-p_0}\sabs{z-p}} \, \sabs{dz}
+%$
+%
+%$\displaystyle
+\pause
+\leq 
+\frac{\ell}{\pi {d}^2} \sabs{p_0-p} .
+$
+
+\pause
+\medskip
+So, $p \mapsto n(\Gamma;p)$ is a continuous.
+
+\medskip
+\pause
+
+Being continuous and integer-valued, it is constant on every component
+of $\C \setminus \Gamma$.
+
+\medskip
+\pause
+
+For $p \in \C \setminus \Gamma$,
+\[
+\sabs{n(\Gamma;p)}
+\pause
+\leq
+\frac{1}{2\pi} \int_\Gamma \frac{1}{\sabs{z-p}} \, \sabs{dz}
+\pause
+\leq \frac{1}{2\pi} \frac{\ell}{d(p,\Gamma)} .
+\]
+\pause
+On the unbounded component,
+there are $p$ with arbitrarily large
+$d(p,\Gamma)$.
+
+\medskip
+\pause
+
+So $n(\Gamma;p)=0$ on this component.
+\qed
+\end{frame}
+
+\begin{frame}
+An exercise (direct computation) which we will often use is:
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+
+\medskip
+
+$n\bigl(\partial \Delta_r(p);z\bigr) = 0$ if $z \notin
+\overline{\Delta_r(p)}$, and
+
+\medskip
+\pause
+
+$n\bigl(\partial \Delta_r(p);z\bigr) = 1$ if $z \in \Delta_r(p)$.
+
+\medskip
+\medskip
+\pause
+
+\textbf{Exercise:}
+Compute the winding numbers in an ``annulus``:
+
+\medskip
+\pause
+
+Suppose $0 < r_1 < r_2 < \infty$ and
+$\Gamma = \partial \Delta_{r_2}(p) - \partial \Delta_{r_1} (p)$.
+
+\medskip
+\pause
+
+Then
+
+\medskip
+
+$n(\Gamma;z) = 0$ if $\sabs{z-p} < r_1$,
+
+\medskip
+\pause
+
+$n(\Gamma;z) = 1$ if $r_1 < \sabs{z-p} < r_2$,
+
+\medskip
+\pause
+
+$n(\Gamma;z) = 0$ if $r_2 < \sabs{z-p}$.
+\end{frame}
+
+
+
+
+\end{document}
