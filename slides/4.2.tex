@@ -1,0 +1,328 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Homology versions of Cauchy (4.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+Let $U \subset \C$ be open and $\Gamma$
+a cycle
+in $U$
+such that $n(\Gamma;p) = 0$ for all $p \in \C \setminus U$,
+ then we
+say $\Gamma$ is \emph{homologous to zero in $U$}.
+\end{definition}
+
+\pause
+
+``homologous to zero in $U$'' $=$ ``does not wind around any point in $\C
+\setminus U$.''
+
+\medskip
+\pause
+
+\textbf{Note:} ``homologous to zero`` does \textbf{not} mean ``equivalent to
+zero.''
+
+\medskip
+\pause
+
+\textbf{Example:}
+In $U = \C$, every $\Gamma$ is homologous to zero.
+
+\medskip
+\pause
+
+\textbf{Example:}
+The unit circle is homologous to zero in $\C$, but not homologous to
+zero in $\C \setminus \{ 0 \}$.
+
+\pause
+
+\begin{theorem}[Cauchy integral formula (homology version)]
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic, and
+$\Gamma$ is
+a cycle
+in $U$
+homologous to zero in $U$.
+Then for $z \in U \setminus \Gamma$,
+\begin{equation*}
+n(\Gamma;z)
+\,
+f(z)
+=
+\frac{1}{2\pi i}
+\int_{\Gamma}
+\frac{f(\zeta)}{\zeta-z}
+\,
+d \zeta .
+\end{equation*}
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}
+\textbf{Proof:}
+Define $g \colon U \times U \to \C$ by
+\[
+g(\zeta,z) =
+\begin{cases}
+\,
+\frac{f(\zeta)-f(z)}{\zeta-z} & \text{if } \zeta \not= z , \\
+\,
+f'(\zeta)                 & \text{if } \zeta = z .
+\end{cases}
+\]
+\pause
+
+\textbf{Exercise:}
+$g(\zeta,z)$ is continuous in $U \times U$,
+and 
+
+\pause 
+$z \mapsto g(\zeta,z)$ is holomorphic for every fixed $\zeta \in U$.
+
+\medskip
+\pause
+
+Let
+\vspace*{-5pt}
+\[
+h(z) = 
+\begin{cases}
+\int_\Gamma g(\zeta,z) \, d\zeta & \text{if } z \in U , \\
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta & \text{if } z \not \in
+\Gamma \text{ and } n(\Gamma;z) = 0 .
+\end{cases}
+\]
+\pause
+
+$h(z)$ is defined for all $z \in \C$ (as $n(\Gamma;z) = 0$ for all $z \in \C
+\setminus U$).
+
+\medskip
+\pause
+
+But, at some points we have two definitions!
+
+\medskip
+\pause
+
+%Must show that if
+%$z \in U \setminus \Gamma$ and $n(\Gamma;z) = 0$, then the two definitions agree.
+%
+%\medskip
+%\pause
+
+Suppose
+$z \in U \setminus \Gamma$ and $n(\Gamma;z) = 0$.
+\pause
+\[
+\int_\Gamma g(\zeta,z) \, d\zeta
+\pause
+=
+\int_\Gamma \frac{f(\zeta)-f(z)}{\zeta-z} \, d\zeta
+\pause
+=
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta
+-
+f(z) (2\pi i) n(\Gamma;z)
+\pause
+=
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta .
+\]
+\pause
+So $h \colon \C \to \C$ is well-defined.
+\end{frame}
+
+\begin{frame}
+WTS $h \colon \C \to \C$ is holomorphic.
+
+\medskip
+\pause
+
+Holomorphicity is a local property, so only consider an every open set.
+
+\medskip
+\pause
+
+The set of $z \notin \Gamma$ where $n(\Gamma;z) = 0$ is open, and 
+$\displaystyle z \mapsto \int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta$ is
+holomorphic there.
+
+\medskip
+\pause
+
+Similarly $U$ is open and $\displaystyle
+z \mapsto
+\int_\Gamma g(\zeta,z) \, d\zeta$ is holomorphic.
+
+\medskip
+\pause
+
+Consider $z$ in the unbounded component of
+$\C \setminus \Gamma$.
+\pause
+Then $n(\Gamma;z) = 0$, so
+$h(z) = 
+z \mapsto \int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta$.
+
+\medskip
+\pause
+
+Let $M$ be such that
+$\sabs{f(\zeta)} \leq M$ for $\zeta \in \Gamma$ and
+\pause
+$\ell$ be the length of
+$\Gamma$.
+\pause
+\[
+\sabs{h(z)}
+\pause
+=
+\abs{
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta
+}
+\pause
+\leq
+\int_\Gamma \abs{\frac{f(\zeta)}{\zeta-z}} \, \sabs{d\zeta}
+\pause
+\leq
+\frac{M \ell}{d(z,\Gamma)}
+\qquad \text{($d(z,\Gamma)$ is the distance of $z$ and $\Gamma$).}
+\]
+\pause
+$z \to \infty$ \quad $\Rightarrow$ \quad $d(z,\Gamma) \to \infty$ \quad
+$\Rightarrow$ \quad $h(z) \to 0$
+
+\medskip
+\pause
+
+So $h$ is bounded, by Liouville $h$ is constant, and the constant is zero.
+
+\medskip
+\pause
+
+Suppose $z \in U \setminus \Gamma$.  Then
+\[
+0 = h(z)
+\pause
+=
+\int_\Gamma \frac{f(\zeta)-f(z)}{\zeta-z} \, d\zeta
+\pause
+=
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta
+-
+f(z) \, (2\pi i) \, n(\Gamma;z) . \qquad \qed
+\]
+
+\end{frame}
+
+\begin{frame}
+
+\begin{theorem}[Cauchy's theorem (homology version)]
+Suppose $U \subset \C$ is open,
+$f \colon U \to \C$ is holomorphic,
+and $\Gamma$ is
+a cycle
+in $U$
+homologous to zero in $U$.
+Then
+\begin{equation*}
+\int_\Gamma f(z) \, dz = 0 .
+\end{equation*}
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+Fix $z \in U \setminus \Gamma$.
+
+\medskip
+\pause
+Apply 
+the Cauchy integral formula to $\zeta \mapsto (\zeta-z)\,f(\zeta)$ at $\zeta=z$:
+\pause
+\[
+0 = n(\Gamma;z) (z-z)f(z)
+\pause
+=
+\frac{1}{2\pi i} \int_\Gamma \frac{(\zeta-z)\,f(\zeta)}{\zeta-z} \, d\zeta
+\pause
+=
+\frac{1}{2\pi i} \int_\Gamma f(\zeta) \, d\zeta .
+\qquad
+\qed
+\]
+
+\pause
+
+\textbf{Remark:} Cauchy integral formula and Cauchy's theorem are equivalent
+logically (if you prove one the other follows).
+
+\end{frame}
+
+\begin{frame}
+
+\begin{definition}
+Cycles
+$\Gamma_0$ and $\Gamma_1$ in $U
+\subset \C$ are \emph{homologous} in $U$
+if $n(\Gamma_0;p) = n(\Gamma_1;p)$ for all $p \in \C \setminus U$.
+\end{definition}
+
+Equivalently, $\Gamma_0-\Gamma_1$ is homologous to zero in $U$.
+
+\pause
+
+\begin{corollary}
+Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
+If two cycles
+$\Gamma_0$ and $\Gamma_1$ in $U$
+are homologous in $U$, then
+\begin{equation*}
+\int_{\Gamma_0} f(z)\, dz = 
+\int_{\Gamma_1} f(z)\, dz .
+\end{equation*}
+\end{corollary}
+
+\pause
+
+That is useful for computing integrals:
+
+Given a complicated cycle, find a
+simple one that is homologous.
+
+\pause
+\medskip
+
+E.g. (exercise), any cycle in $\C \setminus \{ 0 \}$ is homologous to
+$n \partial \D$ for some $n \in \Z$.
+
+\pause
+\medskip
+
+\textbf{Remark:} Being ``homologous'' is an equivalence relation and the set of 
+equivalence classes of cycles is an abelian group (under the cycle addition,
+exercise).  This group is called the
+first \emph{homology group} of $U$.
+\end{frame}
+
+\end{document}
