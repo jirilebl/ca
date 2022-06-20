@@ -5499,7 +5499,7 @@ f(z) . \qedhere
 \begin{exercise}
 Make the construction of $c_1$ and $c_2$ and the two star-like domains
 in the proof explicit.  That is, exactly describe the \myquote{cut} that makes
-$c_1$ and $c_2$, and describe two starlike domains (you don't have to do the
+$c_1$ and $c_2$, and describe two star-like domains (you don't have to do the
 two pictured).
 \end{exercise}
 
@@ -8096,7 +8096,7 @@ $U$ is simply connected (in the homology sense).
 \item \label{thm:simplyconnected:ii}
 Every holomorphic $f \colon U \to \C$ has a primitive.
 \item \label{thm:simplyconnected:iii}
-Every nowhere zero holomorphic $f \colon U \to \C$ there exists
+For every nowhere zero holomorphic $f \colon U \to \C$ there exists
 a holomorphic $g \colon U \to \C$ such that $e^{g(z)} = f(z)$.
 \item \label{thm:simplyconnected:iv}
 $\frac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
@@ -8204,11 +8204,12 @@ therefore $\varphi$ is a continuous function on $S \setminus \{
 \infty \}$.  On the unbounded component of $\C \setminus \Gamma$ the
 function is zero, and so $\varphi$ is zero in a neighborhood of $\infty$.
 If we set $\varphi(\infty) = 0$, the function is continuous
-on $\C_\infty \setminus \Gamma$.  As $S$ is connected
+on $\C_\infty \setminus \Gamma$ and hence on $S$.  As $S$ is connected
 it is contained in
 a single component of $\C_\infty \setminus \Gamma$ so $\varphi$ is
-constant on $S$.  As $\varphi(\infty) = 0$, $\varphi|_S \equiv 0$.  In
-other words, $U$ is simply connected.
+constant on $S$.
+As $\varphi(\infty) = 0$ and $\infty \in S$, we have $\varphi|_S \equiv 0$.
+In other words, $U$ is simply connected.
 \end{proof}
 
 It is important to use $\C_\infty$ and not $\C$ in the proposition.
