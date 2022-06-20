@@ -1,0 +1,244 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Simply connected domains (4.3 part 2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+
+There is a whole list of conditions equivalent
+to being simply connected for domains in $\C$.
+
+\pause
+
+\begin{proposition}
+Let $U \subset \C$ be a domain.  The following are equivalent:
+\begin{enumerate}[(i)]
+\item \label{thm:simplyconnected:i}
+$U$ is simply connected (in the homology sense).
+\pause
+\item \label{thm:simplyconnected:ii}
+Every holomorphic $f \colon U \to \C$ has a primitive.
+\pause
+\item \label{thm:simplyconnected:iii}
+Every nowhere zero holomorphic $f \colon U \to \C$ there exists
+a holomorphic $g \colon U \to \C$ such that $e^{g(z)} = f(z)$.
+\pause
+\item \label{thm:simplyconnected:iv}
+$\dfrac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
+\pause
+\item \label{thm:simplyconnected:v}
+For every holomorphic $f \colon U \to \C$ and every
+cycle $\Gamma$ in $U$, \quad
+$\displaystyle
+\int_\Gamma f(z) \, dz = 0$.
+\pause
+\item \label{thm:simplyconnected:vi}
+For every $p \in \C \setminus U$ and every
+cycle $\Gamma$ in $U$, \quad
+$\displaystyle
+\int_\Gamma \frac{1}{z-p} \, dz = 0$.
+\end{enumerate}
+\end{proposition}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\textbf{Proof:}
+We just proved
+\eqref{thm:simplyconnected:i} (simply connected) $\Rightarrow$
+\eqref{thm:simplyconnected:ii} (existence of primitives),
+and
+
+\pause
+then we proved \eqref{thm:simplyconnected:ii} $\Rightarrow$ \eqref{thm:simplyconnected:iii}
+(existence of logs).
+
+\medskip
+\pause
+
+Suppose \eqref{thm:simplyconnected:iii}. \pause
+
+For $p \in \C \setminus U$, find a $g$ such that
+$e^{g(z)} = z-p$.\pause
+\[
+1 = 
+\frac{d}{dz} \left[
+z-p
+\right]
+\pause
+=
+\frac{d}{dz} \left[
+e^{g(z)}
+\right]
+\pause
+=
+e^{g(z)} g'(z)
+\pause
+=
+(z-p) g'(z) .
+\]
+\pause
+So \eqref{thm:simplyconnected:iv} holds ($\frac{1}{z-p}$ has a primitive).
+
+%\medskip
+\pause
+
+By Cauchy's theorem for derivatives
+\eqref{thm:simplyconnected:iv} implies
+$\displaystyle
+\int_\Gamma \frac{1}{z-p} \, dz = 0 
+\ \  \forall p \in \C \setminus U$,
+\pause \ \ so \eqref{thm:simplyconnected:vi} holds.
+
+%\medskip
+\pause
+
+As 
+$\displaystyle
+n(\Gamma;p) = 
+\frac{1}{2\pi i}
+\int_\Gamma \frac{1}{z-p} \, dz$,
+\eqref{thm:simplyconnected:vi} is a restatement of
+\eqref{thm:simplyconnected:i}.
+
+\medskip
+\pause
+
+By Cauchy's theorem for derivatives,
+\eqref{thm:simplyconnected:ii} $\Rightarrow$
+\eqref{thm:simplyconnected:v} (Cauchy in $U$).
+
+\medskip
+\pause
+
+\eqref{thm:simplyconnected:v} $\Rightarrow$ \eqref{thm:simplyconnected:vi} is immediate.
+
+\pause
+\medskip
+
+We proved
+$
+\begin{tikzcd}[cramped, row sep=small]
+& \text{\eqref{thm:simplyconnected:ii}} \arrow[d, Rightarrow] \arrow[r, Rightarrow] &
+\text{\eqref{thm:simplyconnected:iii}} \arrow[d, Rightarrow] \\
+\text{\eqref{thm:simplyconnected:i}} \arrow[ur, Rightarrow] & 
+\text{\eqref{thm:simplyconnected:v}} \arrow[d, Rightarrow] &
+\text{\eqref{thm:simplyconnected:iv}} \arrow[dl, Rightarrow] \\
+& \text{\eqref{thm:simplyconnected:vi}} \arrow[ul, Leftrightarrow] &
+\end{tikzcd}
+$
+\qed
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{Remark:} The existence of roots can also be on the list, but it will
+be easier to prove later.
+
+\medskip
+\pause
+
+Another criterion that can be put on the list is the following
+
+(although we'll only prove one direction right now).
+
+\pause
+
+\begin{proposition}
+Let $U \subset \C$ be a domain.  If
+$\C_\infty \setminus U$ is connected, then $U$ is simply connected.
+\end{proposition}
+
+\pause
+\medskip
+
+\textbf{Proof:}
+Take $S = \C_\infty \setminus U$ and let $\Gamma$ be a cycle in $U$.
+
+\medskip
+\pause
+
+$\varphi(z)= n(\Gamma;z)$ is continuous on $\C \setminus \Gamma$
+\pause
+\quad $\Rightarrow$ \quad $\varphi$ is continuous on $S \setminus \{ \infty \}$.
+
+\medskip
+\pause
+
+On the unbounded component of $\C \setminus \Gamma$ we have $\varphi=0$,
+so $\varphi=0$ in a neighborhood of $\infty$.
+
+\medskip
+\pause
+
+Set $\varphi(\infty) = 0$ to make a continuous function on $\C_\infty
+\setminus \Gamma$ (hence on $S$).
+
+\medskip
+\pause
+
+$S$ is contained in a single component of 
+$\C_\infty \setminus \Gamma$ ($S$ is connected)
+\pause \quad $\Rightarrow$ \quad so $\varphi|_S$ is
+constant.
+
+\medskip
+\pause
+
+$\varphi(\infty) = 0$, $\infty \in S$ \quad $\Rightarrow$ \quad $\varphi|_S \equiv 0$
+\pause
+\quad $\Rightarrow$ \quad
+$U$ is simply connected.
+\qed
+
+\medskip
+\pause
+
+\textbf{Remark:}
+It is important to use $\C_\infty$ and not $\C$:
+\pause
+If $U = \C \setminus \{ 0 \}$, then
+$\C \setminus U = \{ 0 \}$ is connected, but 
+$\C_\infty \setminus U = \{ 0, \infty \}$ is not connected.
+\end{frame}
+
+
+\begin{frame}
+
+\textbf{Exercise:}
+Let $U_1,U_2 \subset \C$ be two simply connected domains.
+
+\medskip
+\pause
+
+1) $U_1 \cup U_2$ is not necessarily simply connected.
+
+\medskip
+\pause
+
+2) If
+$U_1 \cap U_2$ is nonempty and connected, then $U_1 \cup U_2$ is simply connected.
+
+
+\end{frame}
+
+\end{document}

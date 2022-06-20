@@ -1,0 +1,283 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Simply connected domains (4.3 part 1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+A domain $U \subset \C$ is \emph{simply connected}
+if every cycle in $U$
+is homologous to zero in $U$.
+\end{definition}
+
+\pause
+That is, $U$ is simply connected if $n(\Gamma;p) = 0$ for every cycle $\Gamma$ in $U$ and
+every $p \in \C \setminus U$.
+
+\pause
+\medskip
+\textbf{Exercise:}
+
+a) star-like domains (e.g., $\C$, $\D$, and $\bH$) in $\C$ are simply connected.
+
+\pause
+b) $\C \setminus \{ 0 \}$ is not simply connected.
+
+\pause
+\medskip
+
+A few remarks are in order:
+
+\medskip
+\pause
+
+\textbf{Remark:}
+This is the ``wrong'' definition.  It happens to work in the setting of
+domains in $\C$.  It is wrong for two reasons:
+
+\pause
+\medskip
+
+1) It is in terms of homology and not homotopy (an optional
+section in the book).
+
+\medskip
+\pause
+
+One could say \emph{simply connected in the sense of homology} to emphasize.
+
+\medskip
+\pause
+2) We defined cycles as ``piecewise-$C^1$'' instead of ``continuous.''
+
+\medskip
+\pause
+
+\textbf{Remark:}
+Can a disconnected set be simply connected?
+We remain neutral on this.
+
+\end{frame}
+
+\begin{frame}
+Simply connected domains satisfy Cauchy's theorem.
+
+\begin{theorem}[Cauchy's theorem (simply connected version)]
+Let $U \subset \C$ be a simply connected domain and $f \colon U \to \C$
+holomorphic. \pause  If $\Gamma$ is a cycle in $U$, then
+\[
+\int_\Gamma f(z) \, dz = 0 .
+\]
+\end{theorem}
+
+\pause
+
+\textbf{Proof:} Since $U$ is simply connected, $n(\Gamma;p) = 0$ for every
+$p \in \C \setminus U$, so Cauchy applies. \qed
+
+\medskip
+\pause
+
+If we have Cauchy's theorem we expect primitives:
+
+\begin{theorem}
+Let $U \subset \C$ be a simply connected domain and
+$f \colon U \to \C$ holomorphic. \pause  Then $f$ has a
+primitive in $U$.
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+Fix $p \in U$ and note that $U$ is path connected.
+
+\pause
+For every $z \in U$, pick
+some piecewise-$C^1$ path $\gamma$ from $p$ to $z$, and
+
+\pause
+\medskip
+
+Define \qquad
+$\displaystyle
+F(z) = \int_\gamma f(\zeta) \, d\zeta .
+$
+\end{frame}
+
+\begin{frame}
+If $\alpha$ is another path from $p$ to $z$, then by Cauchy
+
+\medskip
+
+$\displaystyle \quad
+\int_\gamma f(\zeta) \, d\zeta -
+\int_\alpha f(\zeta) \, d\zeta 
+=
+\int_{\gamma-\alpha} f(\zeta) \, d\zeta  =  0
+$ 
+\pause
+\quad $\Rightarrow$ \quad
+$F(z) = \int_\gamma f(\zeta) \, d\zeta$ does not depend on $\gamma$.
+
+%Let us reduce the proof to the proof for 
+%star-like domains (propref{prop:primitiveinstarlike1} and
+%corref{cor:primitiveinstarlike}).
+
+\medskip
+\pause
+
+Consider $q \in U$, $\gamma$ a path from $p$ to $q$, and $\Delta_r(q) \subset U$.
+\pause
+For $z \in \Delta_r(q)$ %\quad (as $F$ does not depend on the path),
+
+\medskip
+
+$\displaystyle
+\quad
+F(z) =
+\int_{\gamma+[q,z]} f(\zeta) \, d\zeta
+$
+
+\vspace*{-0.4in}
+\hspace*{2.2in}\subimport*{../figures/}{anyantidef.pdf_t}
+
+\vspace*{-0.85in}
+\pause
+
+$\displaystyle
+\phantom{\quad F(z)}
+=
+\int_{\gamma} f(\zeta) \, d\zeta
++
+\int_{[q,z]} f(\zeta) \, d\zeta .
+$
+
+\medskip
+\pause
+
+The first term is a constant.
+
+\medskip
+\pause
+
+The second term is how we defined
+
+a primitive in a star-like domain ($\Delta_r(q)$).
+
+See Proposition 3.2.11.
+\qed
+
+\end{frame}
+
+\begin{frame}
+\begin{corollary}
+Let $U \subset \C$ be a simply connected domain and
+$f \colon U \to \C$ nowhere zero and holomorphic.
+
+\pause
+Then there exists a holomorphic $g \colon U \to \C$
+such that
+\[
+e^{g(z)} = f(z) .
+\]
+\end{corollary}
+
+\pause
+
+\textbf{Example:}
+If $U \subset \C \setminus \{ 0 \}$ is a simply connected domain, then
+$\exists$ a holomorphic
+$L \colon U \to \C$ such that
+$e^{L(z)} = z$ (a branch of the log).
+
+\medskip
+\pause
+
+\textbf{Proof:}
+$\dfrac{f'(z)}{f(z)}$ is holomorphic on $U$.  \pause Find a primitive $g(z)$.
+\pause
+Then
+\[
+\frac{d}{dz} \left[ \frac{e^{g(z)}}{f(z)} \right]
+\pause =
+\frac{ e^{g(z)} g'(z) f(z) - e^{g(z)} f'(z) }{{\bigl(f(z)\bigr)}^2}
+\pause =
+\frac{ e^{g(z)} f'(z) - e^{g(z)} f'(z) }{{\bigl(f(z)\bigr)}^2}
+\pause =
+0 .
+\]
+\pause
+$\Rightarrow$ \quad $\dfrac{e^{g(z)}}{f(z)}$ is constant.
+
+\medskip
+\pause
+
+$\Rightarrow$ \quad $\exists \, C \in \C$ such that
+$e^{g(z) + C} = f(z)$.
+\qed
+
+\end{frame}
+
+\begin{frame}
+
+If we have the logarithm, we can take roots.
+
+\pause
+
+\begin{corollary}
+Let $U \subset \C$ be a simply connected domain,
+$f \colon U \to \C$ nowhere zero and holomorphic,
+and $k \in \N$.
+
+\pause
+Then there exists a holomorphic $g \colon U \to \C$
+such that
+\[
+{\bigl(g(z)\bigr)}^k = f(z) .
+\]
+\end{corollary}
+
+\pause
+
+\textbf{Proof:}
+Find a $\psi \colon U \to \C$ such that $e^{\psi(z)} = f(z)$. 
+
+\medskip
+\pause
+
+Let $g(z) = e^{\frac{1}{k} \psi(z)}$.
+
+\medskip
+\pause
+
+Check:
+\qquad
+$\displaystyle
+{\bigl(g(z)\bigr)}^k
+\pause
+=
+{\left( e^{\frac{1}{k} \psi(z)} \right)}^k
+\pause
+=
+e^{\psi(z)} \pause = f(z)$. \qed
+
+\end{frame}
+
+\end{document}
