@@ -28,12 +28,12 @@ that holomorphic functions are analytic.
 \pause
 
 We already proved
-that analytic functions are holomorphic, we prove the converse.
+that analytic functions are holomorphic, let's prove the converse.
 
 \pause
 
 \begin{theorem} \label{thm:holpower}
-Let $U \subset \C$ be open, $f \colon U \to \C$ be
+Let $U \subset \C$ be open, $f \colon U \to \C$
 holomorphic, $p \in U$, and $\Delta_R(p) \subset U$.
 \pause
 Then there exists a power series $\sum c_n {(z-p)}^n$
@@ -68,27 +68,26 @@ Thus $\overline{\Delta_r(p)} \subset U$.
 \medskip
 
 Fix a $z \in \Delta_r(p)$.
-
 \pause
-\medskip
-
 For $\zeta \in \partial \Delta_r(p)$, 
-\begin{equation*}
+\[
 \abs{\frac{z-p}{\zeta-p}} =
 \frac{\sabs{z-p}}{r} < 1 .
-\end{equation*}
+\]
 
 \pause
 
 So
-\begin{equation*}
+\quad
+$\displaystyle
 \sum_{n=0}^\infty
 {\left(\frac{z-p}{\zeta-p}\right)}^n
 =
 \frac{1}{1-\frac{z-p}{\zeta-p}}
 =
 \frac{\zeta-p}{\zeta-z}
-\end{equation*}
+$
+\quad
 converges uniformly absolutely for $\zeta \in \partial \Delta_r(p)$.
 
 \pause
@@ -139,13 +138,21 @@ d \zeta
 {(z-p)}^n .
 $
 
-(we'll justify the last equality on next slide)
+The last equality held because the sum converges uniformly in 
+$\zeta \in \partial \Delta_r(p)$
+
+(we'll justify that on the next slide).
 
 \end{frame}
 
 \begin{frame}
-The last equality held because the sum converges uniformly in 
-$\zeta \in \partial \Delta_r(p)$:
+We claim
+\quad
+$\displaystyle \sum_{n=0}^\infty
+\frac{f(\zeta)}{\zeta-p}
+{\left(\frac{z-p}{\zeta-p}\right)}^n$
+\quad
+converges uniformly in $\zeta \in \partial \Delta_r(p)$.
 
 \pause
 \medskip
@@ -274,7 +281,7 @@ functions and vice versa.
 \medskip
 \pause
 
-E.g. It is easy to show 
+E.g., it is easy to show 
 that the composition of
 holomorphic functions is holomorphic via the chain rule.
 
