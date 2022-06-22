@@ -31,6 +31,7 @@ A useful consequence of the Cauchy's integral formula is the
 \begin{theorem}[Maximum modulus principle]
 Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.
+\pause
 If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
 \end{theorem}
 
@@ -38,7 +39,7 @@ If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
 
 The basic idea:
 Cauchy's integral formula says that $f(z)$ is the average of $f$ on a
-circle centered at $z$.
+small circle centered at $z$.
 The average can't be bigger than the numbers we're averaging.
 
 \pause
@@ -103,13 +104,12 @@ $\Rightarrow$ all the inequalities above are equalities.
 \medskip
 \pause
 
-In addition, $f(0)-\sabs{f(re^{it})} \geq 0$, and
+In addition, $f(0)-\sabs{f(re^{it})} \geq 0$ for all $t$, and
 \[
 \int_0^{2\pi}\Bigl( f(0)-\sabs{f(re^{it})} \Bigr) \ dt = 0 ,
 \qquad \pause \Rightarrow \qquad \sabs{f(re^{it})} = f(0) \text{ for all } t.
 \]
 
-\medskip
 \pause
 
 Applying Cauchy's formula
@@ -152,7 +152,7 @@ So $\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$.
 $\displaystyle \int_0^{2\pi}
 \Bigl(\sabs{f(re^{it})}-\Re f(re^{it})\Bigr)\, dt = 0$
 \qquad $\Rightarrow$ \qquad
-$\sabs{f(re^{it})}=\Re f(re^{it})$ for all $t$.
+$\sabs{f(re^{it})}=\Re f(re^{it})$ for all $t$
 
 \medskip
 \pause
@@ -176,6 +176,7 @@ and $f$ is constant by the identity theorem.
 
 \begin{corollary}[Maximum modulus principle, part deux]
 Suppose $U \subset \C$ is nonempty, open, and bounded (so $\widebar{U}$ is compact).
+\pause
 If $f \colon \widebar{U} \to \C$ is continuous and the restriction $f|_{U}$
 is holomorphic, then $\sabs{f(z)}$ achieves a maximum on $\partial U$.
 \pause
