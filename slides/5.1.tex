@@ -1,0 +1,282 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Zeros of holomorphic functions (5.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Recall, a \emph{zero} of a function $f$ is a point $z$ such that $f(z) = 0$.
+
+\medskip
+\pause
+
+We proved that zeros of (nonconstant) holomorphic functions are isolated.
+\pause
+
+\begin{lemma}
+Let $U \subset \C$ be open, $f \colon U \to \C$ be holomorphic, $p \in U$,
+and $f$ has an isolated zero at $p$.
+
+\pause
+Then there exists a unique $k \in \N$ and a holomorphic $g \colon U
+\to \C$ such that
+\[
+f(z) = {(z-p)}^k g(z)
+\qquad
+\text{and} \qquad
+g(p) \not= 0 .
+\]
+\pause
+Furthermore, $k$ is the smallest integer such that the $k$\textsuperscript{th}
+derivative $f^{(k)}(p) \not= 0$.
+\end{lemma}
+
+\pause
+
+Before we prove the lemma, let us give a name to this integer $k$.
+
+\begin{definition}
+%Suppose $f$ has an isolated zero at $p$.
+The $k$ from the lemma is called the \emph{order}
+of the zero at $p$.
+\pause
+
+If the order is $1$, we say $p$ is a \emph{simple zero}.
+
+\pause
+
+We also say that $k$ is the \emph{multiplicity} of the zero.
+\end{definition}
+\end{frame}
+
+\begin{frame}
+An equivalent definition of 
+\emph{order} is the largest $k$ such that
+$\frac{f(z)}{{(z-p)}^{k}}$ is bounded near $p$.
+
+\medskip
+\pause
+
+In fact (exercise), there is a disc $\Delta_r(p)$ and some
+$C_1 > 0$ and $C_2 > 0$ such that
+\[
+C_1 {\sabs{z-p}}^k
+\leq
+\sabs{f(z)}
+\leq
+C_2 {\sabs{z-p}}^k \qquad
+\forall z \in \Delta_r(p) .
+\]
+
+\pause
+
+The conclusion of the lemma still holds if $f(p)\not=0$, in which case
+order is $k=0$ (and $g=f$).
+
+\medskip
+\pause
+
+So we could say that if $f(p) \not=0$, then \emph{$f$ has a zero of order $0$.}
+
+\medskip
+\pause
+
+We'll even see negative orders in just a bit.
+
+\medskip
+\pause
+
+To avoid confusion, by ``$f$ has a zero,'' we mean an honest zero of positive order.
+
+\medskip
+\pause
+
+If $f^{(k)}(p) = 0$ for all $k$, one could say that $f$
+has a zero of infinite order.
+
+\medskip
+\pause
+
+For $f$ holomorphic, infinite order $\Rightarrow$ the power series is
+zero $\Rightarrow$ $f$ is identically zero.
+
+\medskip
+\pause
+
+So every zero of a nonconstant holomorphic function has finite order.
+
+\medskip
+\pause
+
+This is not true for just real differentiable (not holomorphic) functions (see the exercises):
+
+E.g., let $f(0)=0$ and $f(x)=e^{-1/x^2}$ for $x \in \R \setminus \{ 0\}$.
+
+$f$ is infinitely differentiable, $f^{(k)}(0)=0$ for all $k$, but
+$f$ has an isolated zero.
+\end{frame}
+
+\begin{frame}
+\textbf{Proof of the lemma:}
+On $U \setminus \{ p \}$, $g(z) = \frac{f(z)}{{(z-p)}^k}$ is
+holomorphic for any $k$.
+
+\medskip
+\pause
+
+For $z$ in some disc $\Delta_r(p)$,
+\[
+f(z)
+=
+\sum_{n=0}^\infty c_n {(z-p)}^n
+\pause
+=
+\sum_{n=k}^\infty c_n {(z-p)}^n 
+\pause
+= {(z-p)}^k
+\sum_{n=0}^\infty c_{n+k} {(z-p)}^{n} ,
+\]
+\pause
+where $k$ is the smallest $n$ such that $c_n \not= 0$ (hence the ``Furthermore'').
+
+\medskip
+\pause
+
+Clearly $k > 0$.
+
+\medskip
+\pause
+
+The series $\sum_{n=0}^\infty c_{n+k}{(z-p)}^n$
+is equal to $\frac{f(z)}{{(z-p)}^k}$ on
+$\Delta_r(p)\setminus \{ p \}$.
+
+\medskip
+\pause
+
+So this series gives $g$ near $p$, let $g(p)=c_k$, and $g \colon U \to \C$ is 
+holomorphic.
+
+\medskip
+\pause
+
+Uniqueness of $k$:
+\pause
+Suppose ${(z-p)}^{k_1} g_1(z) = {(z-p)}^{k_2} g_2(z)$, where
+$g_1(p) \not= 0$ and $g_2(p) \not= 0$.
+
+\medskip
+\pause
+
+WLOG suppose $k_1 \leq k_2$,
+\pause
+then $g_1(z) = {(z-p)}^{k_2-k_1} g_2(z)$.
+
+\medskip
+\pause
+
+Plug in $z=p$ to see $k_2 = k_1$.
+\qed
+\end{frame}
+
+\begin{frame}
+
+Near a zero of order $k$, a holomorphic function acts like
+$z^k$ acts near the origin:
+
+\pause
+
+\begin{theorem}
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+and $p \in U$ is a zero of $f$ of order $k \in \N$ (an honest zero).
+\pause
+Then there exists an open neighborhood $V$
+of $p$ and a holomorphic $g \colon V \to \C$ such that
+\[
+f(z) = {\bigl( g(z) \bigr)}^k,
+\qquad
+\text{where $g(p) = 0$ and $g'(p) \not= 0$.}
+\]
+\end{theorem}
+
+\medskip
+\pause
+
+More fancy: $g$ is a local biholomorphic change of variables near
+$p$
+that makes $p$ into the origin, and makes $f$ into $z^k$.
+
+\medskip
+\pause
+
+\textbf{Proof:}
+Let $V = \Delta_r(p)$ be such that $f(z) \not= 0$ for any $z \in
+\Delta_r(p) \setminus \{ p \}$.
+
+\medskip
+\pause
+
+Lemma says $\exists$ holomorphic
+$h \colon \Delta_r(p) \to \C$ such that
+$h(p) \not= 0$ and $f(z) = {(z-p)}^k h(z)$.
+
+\medskip
+\pause
+
+In particular,
+$h(z) \not= 0$ for any $z \in \Delta_r(p)$ ($h$ is nowhere zero).
+
+\medskip
+\pause
+
+As
+$\Delta_r(p)$ is simply connected
+$\Rightarrow$
+$\exists$ holomorphic $\varphi \colon \Delta_r(p) \to \C$ such that
+$\varphi^k = h$.
+
+\medskip
+\pause
+
+Let $g(z) = (z-p)\varphi(z)$.
+
+\medskip
+\pause
+
+As
+$g'(z) = (z-p) \varphi'(z) + \varphi(z)$, we have $g'(p) = \varphi(p) \not= 0$.
+\qed
+\end{frame}
+
+\begin{frame}
+
+Every semester, there's someone who wants to use L'H\^{o}pital without
+proof.  You can prove it now.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Prove L'H\^{o}pital's rule: If $f$ and $g$ are holomorphic near $p$,
+both with an isolated zero at $p$, and
+$\lim\limits_{z\to p} \frac{f'(z)}{g'(z)}$ exists (including possibly $\infty$), then
+$\lim\limits_{z\to p} \frac{f(z)}{g(z)}$ exists and equals the same thing.
+\end{frame}
+
+\end{document}
