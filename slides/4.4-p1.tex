@@ -1,0 +1,194 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Laurent series (4.4 part 1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Laurent series is an expansion for a holomorphic function around a
+hole (or a singularity).
+
+\pause
+\medskip
+
+Given $0 \leq r_1 < r_2 \leq \infty$ and $p \in \C$, define
+\begin{equation*}
+\ann(p;r_1,r_2)
+\overset{\text{def}}{=}
+\{ z \in \C : r_1 < \sabs{z - p} < r_2 \} .
+\end{equation*}
+
+\pause
+
+When $0 < r_1 < r_2 < \infty$ we call this set an \emph{annulus}.
+
+\medskip
+\pause
+
+With the equalities it's not really what one would call an annulus:
+
+\medskip
+\pause
+
+$\ann(p;0,r) = \Delta_r(p) \setminus \{ p \}$ is a punctured disc
+
+\medskip
+\pause
+
+$\ann(p;r,\infty) = \C \setminus \overline{\Delta_r(p)}$
+
+\medskip
+\pause
+
+$\ann(p;0,\infty) = \C \setminus \{ p \}$
+\end{frame}
+
+\begin{frame}
+Laurent series is series of the form
+\[
+\sum_{n=-\infty}^{\infty} c_n {(z-p)}^n .
+\]
+
+\pause
+
+Note that a Laurent series is a power series if $c_n=0$ for all $n < 0$.
+
+\medskip
+\pause
+
+Convergence of a double series such as
+\[
+\sum_{n=-\infty}^{\infty} a_n
+\]
+means
+\[
+\sum_{n=-\infty}^{\infty} a_n
+=
+\lim_{N\to -\infty}
+\sum_{n=N}^{-1} a_n
++
+\lim_{M\to \infty}
+\sum_{n=0}^{M} a_n .
+\]
+\pause
+For Laurent series we generally have absolute convergence and
+the limit can be taken in any way, but it is still useful to split
+the series like this.
+\end{frame}
+
+\begin{frame}
+Write a Laurent series as 
+\[
+\sum_{n=-\infty}^{\infty} c_n {(z-p)}^n
+=
+\sum_{n=0}^{\infty} c_n {(z-p)}^n
++
+\sum_{n=-\infty}^{-1} c_n {(z-p)}^n
+\pause
+=
+\sum_{n=0}^{\infty} c_n {(z-p)}^n
++
+\sum_{n=1}^{\infty} c_{-n} {\left(\frac{1}{z-p}\right)}^n .
+\]
+\pause
+So the Laurent series behaves like two power series:
+\pause
+One series in $z-p$ and one in $\frac{1}{z-p}$.
+
+\medskip
+\pause
+
+E.g., the first part converges in $\Delta_{r_2}(p)$, and the second
+in $\C \setminus \overline{\Delta_{r_1}(p)}$, so the full series converges
+(uniformly absolutely on compact subsets) in $\ann(p;r_1,r_2)$ if $r_1 < r_2$.
+
+\medskip
+\pause
+
+\textbf{Example:}
+\[
+e^{1/z}
+\pause
+=
+\sum_{n=0}^{\infty} \frac{1}{n!} {\left(\frac{1}{z}\right)}^n
+\pause
+=
+\sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n ,
+\pause
+\]
+converging uniformly absolutely on compact subsets of $\C \setminus \{ 0 \}$.
+
+\medskip
+\pause
+
+\textbf{Example:}
+\[
+\frac{1}{1-z}
+\pause
+=
+\frac{-1}{z}
+\frac{1}{1-\frac{1}{z}}
+\pause
+=
+\frac{-1}{z}
+\sum_{n=0}^\infty
+{\left(\frac{1}{z}\right)}^n
+\pause
+=
+\sum_{n=-\infty}^{-1}
+- z^{n} ,
+\]
+converging uniformly absolutely on compact subsets of  $\ann(0;1,\infty) = \C \setminus \overline{\D}$.
+\end{frame}
+
+\begin{frame}
+We will prove that the Laurent series is unique, and so
+as for power series,
+
+it does not matter how we obtain it.
+
+\medskip
+\pause
+
+We computed some examples in an ad hoc way,
+
+but those are the unique Laurent series for those functions.
+
+\medskip
+\pause
+
+We will prove that the coefficients can be computed via
+an integral.
+
+\medskip
+\pause
+
+However, computation of Laurent series is often done by other means
+than by computation of the integral (addition, multiplying
+by constants, composition and multiplication by powers of $(z-p)$, etc.).
+
+\medskip
+\pause
+
+One of the main application of complex analysis in engineering
+is to compute integrals by computing certain coefficients
+of the Laurent series by other means than integration.
+\end{frame}
+
+\end{document}

@@ -1,0 +1,452 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Laurent series (4.4 part 2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Existence of Laurent series]
+Suppose that $0 \leq r_1 < r_2 \leq \infty$ and
+$f \colon \ann(p;r_1,r_2) \to \C$ is holomorphic.
+\pause
+Then there exist unique numbers $c_n \in \C$ for $n \in \Z$ such that
+\[
+f(z) = \sum_{n=-\infty}^{\infty} c_n {(z-p)}^n ,
+\]
+converging uniformly absolutely on compact subsets of
+$\ann(p;r_1,r_2)$.
+\pause
+The numbers $c_n$ are given by
+\[
+c_n = 
+\frac{1}{2\pi i}
+\int_{\gamma}
+\frac{f(z)}{{(z-p)}^{n+1}}
+\,
+dz  ,
+\]
+where $\gamma$ is any circle of radius $s$, $r_1 < s < r_2$, centered at
+$p$ oriented counterclockwise.
+\end{theorem}
+\end{frame}
+
+\begin{frame}
+
+\textbf{Proof of the theorem:}
+Choose $s_1$ and $s_2$ such that $r_1 < s_1 < s_2 < r_2$.
+
+\medskip
+\pause
+
+Define the cycle
+\qquad $\Gamma = \partial \Delta_{s_2}(p) - \partial \Delta_{s_1}(p)$.
+
+\vspace*{-0.2in}
+\hspace*{3.7in}%
+\subimport*{../../ca/figures/}{twoannuli.pdf_t}
+
+\vspace*{-1.45in}
+
+\pause
+If $q \in \C \setminus \ann(p;r_1,r_2)$, then $n(\Gamma;q) = 0$:
+
+\medskip
+\pause
+
+If $q$ is in the hole,
+$n\bigl(\partial \Delta_{s_j}(p);q\bigr) = 1$ for $j=1,2$.
+
+
+\medskip
+\pause
+
+If $q$ is on the outside,
+$n\bigl(\partial \Delta_{s_j}(p);q\bigr) = 0$ for $j=1,2$.
+
+\medskip
+\pause
+
+So $\Gamma$ is homologous to zero in $\ann(p;r_1,r_2)$.
+
+
+\medskip
+\pause
+
+However, when $z \in \ann(p;s_1,s_2)$, then $n(\Gamma;q) = 1$.
+
+\medskip
+\pause
+
+By Cauchy's formula for $z \in \ann(p;s_1,s_2)$,
+
+\medskip
+$\displaystyle
+\quad
+f(z) = 
+\frac{1}{2\pi i}
+\int_{\Gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
+\pause
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
+-
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta  .
+$
+\medskip
+\pause
+
+We will expand the two integrals separately.
+\end{frame}
+
+\begin{frame}
+First, if $\zeta \in \partial \Delta_{s_2}$, then
+$\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} < 1$.
+
+\medskip
+\pause
+
+We follow the same reasoning as in the proof of the existence
+of power series.
+
+\medskip
+\pause
+
+$\displaystyle
+\quad
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-p}
+\frac{1}{1-\frac{z-p}{\zeta-p}} \, d\zeta
+$
+
+\medskip
+\pause
+
+$\displaystyle
+\qquad \qquad \qquad
+\qquad \qquad
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{\zeta-p}
+\sum_{n=0}^\infty
+{\left(\frac{z-p}{\zeta-p}\right)}^n \, d\zeta
+$
+
+\medskip
+\pause
+
+$\displaystyle
+\qquad \qquad \qquad
+\qquad \qquad
+=
+\sum_{n=0}^\infty
+\underbrace{
+\left(
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_2}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
+ \, d\zeta
+\right)
+}_{c_n}
+{(z-p)}^n .
+$
+
+\medskip
+\pause
+
+We can swap the series
+limit with the integral as the convergence is uniform on the circle.
+\end{frame}
+
+\begin{frame}
+Similarly, 
+if $\zeta \in \partial \Delta_{s_1}$, then
+$\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} < 1$, so
+
+\medskip
+\medskip
+\pause
+
+$\displaystyle
+\quad
+-\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{\zeta-z} \, d\zeta 
+= 
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{z-p}
+\frac{1}{1-\frac{\zeta-p}{z-p}} \, d\zeta
+$
+
+\medskip
+\pause
+
+$\displaystyle
+\qquad \qquad \qquad
+\qquad \qquad ~
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{z-p}
+\sum_{m=0}^\infty
+{\left(\frac{\zeta-p}{z-p}\right)}^m \, d\zeta
+$
+
+\medskip
+\pause
+
+$\displaystyle
+\qquad \qquad \qquad
+\qquad \qquad ~
+=
+\sum_{m=0}^\infty
+\left(
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_1}(p)} f(\zeta){(\zeta-p)}^{m}
+ \, d\zeta
+\right)
+{(z-p)}^{-m-1}
+$
+
+\medskip
+\pause
+
+$\displaystyle
+\qquad \qquad \qquad
+\qquad \qquad ~
+=
+\sum_{n=-\infty}^{-1}
+\underbrace{
+\left(
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s_1}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
+ \, d\zeta
+\right)
+}_{c_n}
+{(z-p)}^{n} .
+$
+\end{frame}
+
+\begin{frame}
+We get the series although perhaps not the formula for $c_n$ for
+circle of any radius $s$.
+
+\medskip
+\pause
+
+Let $s$ be such that
+$r_1 < s < r_2$.
+
+\medskip
+\pause
+
+The cycle
+$\partial \Delta_{s}(p) - \partial \Delta_{s_1}(p)$ is homologous to zero in
+$\ann(p;r_1,r_2)$, and 
+$z \mapsto \frac{f(z)}{{(z-p)}^{n+1}}$ is holomorphic in 
+$\ann(p;r_1,r_2)$.
+
+\medskip
+\pause
+
+Cauchy's theorem says
+\[
+0 = \int_{\partial \Delta_{s}(p) - \partial \Delta_{s_1}(p)}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}} \, d\zeta
+\pause
+=
+\int_{\partial \Delta_{s}(p)}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}} \, d\zeta
+-
+\int_{\partial \Delta_{s_1}(p)}
+\frac{f(\zeta)}{{(\zeta-p)}^{n+1}} \, d\zeta .
+\]
+\pause
+Similarly for $s_2$ and so
+\[
+c_n = \frac{1}{2\pi i}
+\int_{\partial \Delta_{s}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{n+1}}
+ \, d\zeta .
+\]
+\end{frame}
+
+\begin{frame}
+Next, convergence.
+
+\medskip
+\pause
+For any $\epsilon > 0$,
+the geometric series used for the first part converges uniformly
+absolutely when $\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} \leq
+1-\epsilon$.
+
+\medskip
+
+So the resulting series converges uniformly absolutely on compact
+subsets of $\Delta_{s_2}(p)$.
+
+
+\medskip
+\pause
+The geometric series used for the second part converges uniformly
+absolutely when $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} \leq
+1-\epsilon$.
+
+\medskip
+
+So the resulting series converges uniformly absolutely on compact
+subsets of $\C \setminus \overline{\Delta_{s_1}(p)}$.
+
+
+\medskip
+\pause
+
+Any compact subset of $\ann(p;r_1,r_2)$ is a compact
+inside both of these for some $s_1$, $s_2$.
+
+\medskip
+\pause
+
+So the full series converges uniformly absolutely on compact subsets of
+$\ann(p;r_1,r_2)$.
+\end{frame}
+
+\begin{frame}
+Finally, uniqueness.
+
+\medskip
+\pause
+Suppose
+\[
+f(z)
+=
+\sum_{n=-\infty}^{\infty} d_n {(z-p)}^{n} ,
+\]
+converging uniformly absolutely on compact subsets of $\ann(p;r_1,r_2)$.
+
+\medskip
+\pause
+
+Then
+
+\medskip
+\pause
+
+$\displaystyle
+\quad
+c_m
+= \frac{1}{2\pi i}
+\int_{\partial \Delta_{s}(p)} \frac{f(\zeta)}{{(\zeta-p)}^{m+1}}
+ \, d\zeta 
+\pause
+=
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{s}(p)}
+\left(\sum_{n=-\infty}^{\infty} d_n {(\zeta-p)}^{n} \right)
+\frac{1}{{(\zeta-p)}^{m+1}}
+ \, d\zeta 
+$
+\medskip
+\pause
+
+$\displaystyle
+\quad \quad \,\,
+=
+\frac{1}{2\pi i}
+\sum_{n=-\infty}^{\infty}
+d_n
+\int_{\partial \Delta_{s}(p)}
+{(\zeta-p)}^{n-m-1}
+ \, d\zeta 
+\pause
+=
+d_m .
+$
+
+\medskip
+\pause
+
+Note that
+$\int_{\partial \Delta_{s}(p)}
+{(\zeta-p)}^{n-m-1}
+ \, d\zeta \not= 0$ only when $n=m$.
+\qed
+\end{frame}
+
+\begin{frame}
+We differentiate/antidifferentiate formally
+(except for antidifferentiating the $c_{-1}{(z-p)}^{-1}$).
+
+\pause
+
+\begin{proposition}
+Suppose $p \in \C$, $0 \leq r_1 < r_2 \leq \infty$, and
+$f \colon \ann(p;r_1,r_2) \to \C$ is defined by
+\[
+f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
+\quad
+\text{converging uniformly on compact subsets of } \ann(p;r_1,r_2).
+\]
+\pause
+Then $f$ is holomorphic and its 
+derivative is defined by
+\[
+f'(z) = \sum_{n=-\infty}^\infty n c_n {(z-p)}^{n-1} ,
+\quad
+\text{converging uniformly on compact subsets of } \ann(p;r_1,r_2).
+\]
+\pause
+Moreover, if $c_{-1} = 0$, then $f = F'$, where
+\[
+F(z) = \sum_{n=-\infty,n\not=-1}^\infty \frac{c_n}{n+1} {(z-p)}^{n+1},
+\quad
+\text{converging uniformly on compact subsets of } \ann(p;r_1,r_2).
+\]
+\end{proposition}
+
+\pause
+
+\textbf{Proof:} Exercise.
+\end{frame}
+
+\begin{frame}
+Some more useful exercises:
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Suppose $f$ and $g$ are holomorphic functions defined on
+$\ann(p;r_1,r_2)$.  Let $a_n$ be the coefficients in the Laurent series for
+$f$ and $b_n$ be the coefficients in the Laurent series for $g$.  Suppose
+that $\alpha,\beta \in \C$.  Show that the Laurent series for the function
+$\alpha f + \beta g$ has coefficients $\alpha a_n + \beta b_n$.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Expand the function $f(z) = \frac{1}{(z-1)(z-2)}$ in the
+sets
+$\ann(0;0,1)$, $\ann(0;1,2)$, and $\ann(0;2,\infty)$.
+
+
+\end{frame}
+
+\end{document}
