@@ -1,0 +1,312 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Types of singularities and Riemann extension (5.2.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+Suppose $U \subset \C$ is open and $p \in U$.
+
+\medskip
+\pause
+A holomorphic $f \colon U \setminus \{ p \} \to \C$ has
+an \emph{isolated singularity} at $p$.
+
+\medskip
+\pause
+An isolated singularity is \emph{removable}
+if there exists a holomorphic $F \colon U \to \C$
+such that $f(z) = F(z)$ for all $z \in U \setminus \{ p \}$.
+
+\medskip
+\pause
+An isolated singularity $p$ is a \emph{pole} if 
+$\displaystyle
+\lim_{z \to p} f(z) = \infty$.
+
+\medskip
+\pause
+An isolated singularity that is neither removable nor a pole is 
+an \emph{essential singularity}.
+\end{definition}
+
+\pause
+
+\textbf{Examples:} Pole: $\nicefrac{1}{z}$, essential: $e^{1/z}$.
+
+\medskip
+\pause
+
+Interestingly, a holomorphic $f$ must blow up near a singularity for it to
+not be removable.
+
+\end{frame}
+
+\begin{frame}
+
+\begin{theorem}[Riemann extension theorem]
+Suppose $U \subset \C$ is open, $p \in U$,
+and $f \colon U \setminus \{p\} \to \C$ is holomorphic.
+
+\pause
+If $f$ is bounded (near $p$ suffices), then $p$ is a removable singularity.
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+Let $g(z) = {(z-p)}^2 f(z)$ for $z \not= p$ and $g(p) = 0$.
+
+\medskip
+\pause
+
+$g$ is holomorphic in $U \setminus \{ p \}$.
+
+\medskip
+\pause
+
+Supposing $f$ is bounded,
+\[
+\lim_{z\to p} \frac{g(z)-g(p)}{z-p} = \lim_{z\to p} (z-p) f(z) \pause = 0 .
+\]
+\pause
+So $g$ is complex differentiable at $p$ and so holomorphic on $U$.
+
+\medskip
+\pause
+
+As $g(p)=0$ and $g'(p)=0$, $g$ has a zero of order $k \geq 2$.
+
+\medskip
+\pause
+
+Write $g(z) = {(z-p)}^k h(z)$, where $h$ is holomorphic on $U$.
+
+\medskip
+\pause
+
+Then $f(z) = {(z-p)}^{k-2}h(z)$, that is, $p$ is a removable singularity.
+\qed
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{Exercise:}
+Prove that if $f \colon \D \setminus \{ 0 \} \to \D \setminus \{ 0 \}$
+is an automorphism, then $f(z) = e^{i\theta} z$ for some $\theta$.
+
+\medskip
+\pause
+
+The Riemann extension theorem is (of course) not true for functions that are
+not holomorphic.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Prove that $\frac{xy}{x^2+y^2}$ is a bounded infinitely 
+(real) differentiable function
+on $\R^2 \setminus \{ (0,0) \}$ with an isolated singularity, and this
+function does not
+extend through the singularity even continuously.
+
+\end{frame}
+
+\begin{frame}
+Poles are places where the function ``blows up'' to a finite order:
+
+\pause
+
+\begin{corollary}
+Suppose $U \subset \C$ is open, $p \in U$,
+and $f \colon U \setminus \{p\} \to \C$ holomorphic.
+\pause
+\begin{enumerate}[(i)]
+\item
+If $p$ is a pole, then there exists a $k \in \N$ such that
+$g(z) = {(z-p)}^k f(z)$
+has a removable singularity at $p$.
+\pause
+\item
+Conversely, if there exists a $k \in \N$ such that
+$g(z) = {(z-p)}^k f(z)$ is bounded near $p$ (has a removable singularity),
+then $f$ has a pole or a
+removable singularity at $p$.
+\end{enumerate}
+\end{corollary}
+
+\pause
+\textbf{Proof:}
+Suppose $f$ has a pole at $p$.
+
+\medskip
+\pause
+
+Then $f$ is not zero in some $\Delta_r(p) \setminus \{p\}$ (it goes to
+infinity).
+
+\medskip
+\pause
+
+$\nicefrac{1}{f}$ is bounded in some $\Delta_r(p) \setminus \{p\}$
+(as $f \to \infty$).
+
+\medskip
+\pause
+
+Thus, by Riemann extension, there exists an $h$ holomorphic in $\Delta_r(p)$
+such that $h(z) = \nicefrac{1}{f(z)}$ for $z \not= p$.
+
+\medskip
+\pause
+
+As $\frac{1}{f} \to 0$ as $z \to p$, we have $h(p) = 0$.
+
+\medskip
+\pause
+
+$\Rightarrow$ ~ $h(z) = {(z-p)}^k \psi(z)$ for some holomorphic $\psi$ and $k \in \N$,
+where $\psi(p) \not= 0$.
+
+\end{frame}
+
+\begin{frame}
+\hfill (keeping track: \quad $h(z) = \nicefrac{1}{f(z)}$ \quad
+$h(z) = {(z-p)}^k \psi(z)$ \quad $g(z) = {(z-p)}^k f(z)$)
+
+\medskip
+\pause
+
+As $h\not=0$ in $\Delta_r(p) \setminus \{p\}$,
+then $\psi \not= 0$ in $\Delta_r(p)$
+\quad $\Rightarrow$ \quad
+$\nicefrac{1}{\psi}$ is holomorphic in $\Delta_r(p)$.
+
+\medskip
+\pause
+
+For $z \in \Delta_r(p) \setminus \{p\}$,
+\[
+g(z) =
+{(z-p)}^k f(z)
+\pause
+=
+{(z-p)}^k \frac{1}{{(z-p)}^k \psi(z)}
+\pause
+=
+\frac{1}{\psi(z)} .
+\]
+and (i) is done.
+
+\medskip
+\pause
+
+For the converse statement suppose
+$g(z)$ has a removable singularity.
+
+\medskip
+\pause
+
+Then $g(z) = {(z-p)}^\ell \varphi(z)$ where
+$\varphi(p) \not= 0$.
+
+\medskip
+\pause
+Then
+\[
+f(z) = {(z-p)}^{\ell-k} \varphi(z) ,
+\]
+\pause
+$f(z)$ either goes to $\infty$ if $k > \ell$ ($f$ has a pole) or
+\pause
+
+is bounded near $p$ if $k \leq \ell$ ($f$ has a removable singularity).
+\qed
+\end{frame}
+
+\begin{frame}
+
+\begin{definition}
+Given a holomorphic function $f$ with a pole at $p$, the smallest $k \in \N$
+such that ${(z-p)}^k f(z)$ is bounded near $p$ is called the
+\emph{order} of the pole.
+\pause
+A pole of order $1$ is called a \emph{simple pole}.
+\end{definition}
+\pause
+
+So if $f$
+has a pole at $p$, then
+\begin{equation*}
+f(z) = \frac{g(z)}{{(z-p)}^k}
+\end{equation*}
+for holomorphic $g$ nonzero at $p$, and $k$ is the order of the pole.
+
+\medskip
+\pause
+
+Symmetry between zeros and poles:
+\medskip
+\pause
+
+If $f$ has a zero of order $k$ at $p$, then $\nicefrac{1}{f}$ has a pole of
+order $k$ at $p$.
+
+\medskip
+\pause
+
+If $f$ has a pole of order $k$ at $p$, then $\nicefrac{1}{f}$
+has a removable singularity, and the extended function has a zero of order
+$k$ at $p$.
+
+\medskip
+\pause
+
+More precisely, if $f$ has a pole or a removable singularity we can write
+$f(z) = {(z-p)}^\ell g(z)$ for some $\ell \in \Z$ and some holomorphic $g$ such
+that $g(p) \not= 0$.
+
+\medskip
+\pause
+
+$p$ is a zero of order $\ell$ if $\ell > 0$, and $p$ is a pole of order $-\ell$ if $\ell < 0$.
+
+\end{frame}
+
+\begin{frame}
+
+A useful exercise that parallels a result we proved for zeros:
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Suppose $f$ has a pole of order $k \in \N$ at $p$.
+Show that there exists a holomorphic $g$ defined near $p$
+such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
+\begin{equation*}
+f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
+\end{equation*}
+
+\end{frame}
+
+\end{document}
