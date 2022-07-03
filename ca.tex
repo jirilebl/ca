@@ -9908,8 +9908,8 @@ A holomorphic function must blow up in some way if a singularity is not
 removable.  That is a rather surprising property of holomorphic functions
 with a rather surprisingly simple proof.
 
-\begin{thm}[\emph{\myindex{Riemann extension theorem}}]
-\label{prop:riemannext}
+\begin{thm}[\myindex{Riemann extension theorem}]
+\label{thm:riemannext}
 Suppose $U \subset \C$ is open, $p \in U$,
 and $f \colon U \setminus \{p\} \to \C$ is holomorphic.
 If $f$ is bounded (near $p$ suffices), then $p$ is a removable singularity.
@@ -9921,7 +9921,7 @@ $g(z) = {(z-p)}^2 f(z)$ for $z \not= p$ and $g(p) = 0$.
 The function $g$ is clearly holomorphic for $z \not= p$.  Consider the 
 difference quotient
 $\frac{g(z)-g(p)}{z-p} = (z-p) f(z)$.
-As $f$ is bounded,
+Supposing $f$ is bounded,
 \begin{equation*}
 \lim_{z\to p} \frac{g(z)-g(p)}{z-p} = \lim_{z\to p} (z-p) f(z) = 0 .
 \end{equation*}
@@ -10034,9 +10034,10 @@ where $\psi(p) \not= 0$.
 As $h$ is not zero in $\Delta_r(p) \setminus \{p\}$,
 then $\psi$ is not zero in $\Delta_r(p)$
 and $\nicefrac{1}{\psi}$ is holomorphic in $\Delta_r(p)$.
-For $z \in \Delta_r(p) \setminus \{p\}$,
+First item follows as
+for $z \in \Delta_r(p) \setminus \{p\}$,
 \begin{equation*}
-{(z-p)}^k f(z)
+g(z) = {(z-p)}^k f(z)
 =
 {(z-p)}^k \frac{1}{{(z-p)}^k \psi(z)}
 =
@@ -10062,7 +10063,7 @@ A pole of order $1$ is called a \emph{\myindex{simple pole}}.
 \end{defn}
 
 What we've proved is that if $f$
-has a pole at $p$, a function $f$ can be written as
+has a pole at $p$, $f$ can be written as
 \begin{equation*}
 f(z) = \frac{g(z)}{{(z-p)}^k}
 \end{equation*}
@@ -10074,7 +10075,7 @@ If $f$ has a pole of order $k$ at $p$, then $\nicefrac{1}{f}$
 has a removable singularity, and the extended function has a zero of order
 $k$ at $p$.
 In other words, if $f$ has a pole or a removable singularity we can write
-$f(z) = {(z-p)}^\ell g(z)$ for some $\ell$ and some holomorphic $g$ such
+$f(z) = {(z-p)}^\ell g(z)$ for some $\ell \in \Z$ and some holomorphic $g$ such
 that $g(p) \not= 0$.
 The point $p$ is a zero of order $\ell$ if $\ell
 > 0$, and it is a pole of order $-\ell$ if $\ell < 0$.
@@ -10275,7 +10276,8 @@ But that is much harder to prove.
 The intuitive idea of the proof of Casorati--Weierstrass is that if there
 is a whole disc $\Delta_s(q)$ missing from the image, then take $q$ to
 $\infty$ by an LFT and $\Delta_s(q)$ will become the complement of a bounded
-closed disc, allowing one to use Riemann extension.
+closed disc, allowing one to use
+\hyperref[thm:riemannext]{Riemann extension}.
 
 \begin{proof}
 Suppose $f \colon U \setminus \{ p \} \to \C$ is holomorphic,
@@ -15524,7 +15526,8 @@ Furthermore, there aren't that many of them.  There are a lot of
 subharmonic functions.
 An example of the use of subharmonic functions to
 the theory of holomorphic functions is the theorem of 
-Rad\'o, which is a complementary result to the Riemann extension theorem.
+Rad\'o, which is a complementary result to the
+\hyperref[thm:riemannext]{Riemann extension theorem}.
 Here, on the one hand, the function is
 continuous and vanishes on the set you wish to extend across, but on the
 other hand, you know nothing about the size of this set.
