@@ -11012,7 +11012,7 @@ there are some immediate practical ones.
 The argument principle can be used to locate zeros of polynomials
 (or holomorphic functions more generally)
 by numerical computations.  If we numerically estimate the integral to
-within a precision of at least $0.5$ (so no need to be extremely precise),
+within a precision of at least $0.5$ (no need to be extremely precise),
 then we know the number of zeros 
 of the polynomial enclosed by the cycle.
 A related application is computing the power sums of the zeros.
@@ -11049,9 +11049,10 @@ such that $n(\Gamma;z) \not= 0$.
 \begin{exercise}
 Suppose $U \subset \C$ is open, $\Gamma$ is a cycle in $U$
 homologous to zero in $U$,
-and $f \colon U \to \C_\infty$ is meromorphic and
-has no zeros or poles on $\Gamma$.
-Show that there exists an open $U' \subset U$ such that
+and $f \colon U \to \C_\infty$ is meromorphic with
+no zeros or poles on $\Gamma$.
+Show that there exists an open $U' \subset U$
+with $\Gamma$ a cycle in $U'$ homologous to zero in $U'$, such that
 the only zeros or poles $z$ of the restriction $f|_{U'}$
 are such that $n(\Gamma;z) \not= 0$.
 \end{exercise}
@@ -11062,8 +11063,8 @@ principle.  Hint: $\frac{z^3}{2 z^2+1}=\frac{z^2}{4} \frac{4z}{2z^2+1}$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is meromorphic on an open neighborhood of $\overline{\D}$
-and has no pole or zero on $\partial \D$.  Suppose $\Re f(z) >
+Let $f$ be meromorphic on an open neighborhood of $\overline{\D}$
+with no pole or zero on $\partial \D$.  Suppose $\Re f(z) >
 0$ for all $z \in \partial \D$, and $f(0) = 0$.  Prove that $f$ has a pole
 in $\D$.
 \end{exercise}
@@ -11091,7 +11092,9 @@ be a polynomial where all the coefficients $c_k$ are continuous functions
 of $[a,b]$.
 \begin{exparts}
 \item
-Prove that the power sums of the zeros of $P_t$ are
+Prove that the power sums of the zeros of $P_t$
+(sums $z_1^k+\cdots+z_n^k$ where $z_1,\ldots,z_n$ are the zeros)
+are
 continuous functions of $t \in [a,b]$.
 \item
 Prove that if $\xi_0$ is a simple zero of $P_{t_0}$ for some $t_0 \in (a,b)$,
@@ -11346,7 +11349,7 @@ exactly one $z_0 \in \D$ such that $f(z_0) = z_0$.
 
 Let us see what happens to zeros under limits of functions.
 That is, if we know the number of zeros of functions in a sequence,
-what can one tell about the number of zeros of the limit.  Alternatively,
+what can we tell about the number of zeros of the limit.  Alternatively,
 if we have a limit function with $k$ zeros, then what can
 we say about the number of zeros of the functions in the sequence.
 Recall that if a sequence of holomorphic
@@ -11359,9 +11362,8 @@ holomorphic functions converging uniformly on compact subsets
 to a holomorphic $f \colon U \to \C$.  Suppose $\Gamma$ is
 a cycle in $U$ homologous to zero in $U$,
 such that $n(\Gamma;z)$ is $0$ or $1$ for all $z \notin \Gamma$.
-Let $V = \bigl\{ z \in U : n(\Gamma;z) = 1 \bigr\}$.
 Suppose $f$ has no zeros on $\Gamma$ and $k$ zeros (counting
-multiplicity) in $V$.
+multiplicity) in $V = \bigl\{ z \in U : n(\Gamma;z) = 1 \bigr\}$.
 Then there is an $N$ such that for all $n \geq N$,
 $f_n$ has $k$ zeros (counting multiplicity) in $V$.
 \end{thm}
@@ -11648,7 +11650,7 @@ constant.  What if $\partial \D$ is replaced by the real line?
 
 The standard local relationship between derivative and injectivity of a
 function is the inverse function theorem (\thmref{thm:inversehol}).
-It says that if $f'(z)$ is nonzero somewhere, then locally $f$ is
+It says that if $f'(z)$ is nonzero somewhere, then $f$ is locally
 injective and has an inverse $g$ such that
 \begin{equation*}
 g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
@@ -11673,7 +11675,7 @@ show that $g$ is complex differentiable at all $w_0 \in W$.
 \end{exercise}
 \end{exbox}
 
-So far, nothing really new for holomorphic functions.
+So far, nothing really new with holomorphic functions.
 It is the next
 result that is surprising: Being injective
 implies that the derivative is nonzero.
@@ -11686,7 +11688,7 @@ locally like $z^k$ for some $k$, and the only way that $z^k$ is injective
 for complex $z$ is
 if $k=1$, in which case the derivative is nonzero.
 You can make that
-argument into a proof as well, but it is a bit more complicated.
+argument into a proof, but it is a bit more complicated than what we will do.
 
 \begin{lemma} \label{lemma:dernonzero}
 If $U \subset \C$ is open and $f \colon U \to \C$ is injective, then
