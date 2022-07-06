@@ -2276,7 +2276,7 @@ differentiable.
 \begin{exercise}
 Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
 Write $f = u+iv$.  Show that whenever the second derivative test applies 
-to $u$ or $v$, you get a saddle, that is, prove that
+to $u$ or $v$, you get a saddle, that is, prove
 $\frac{\partial^2 u}{\partial x^2} \frac{\partial^2 u}{\partial y^2}
 -{\left(\frac{\partial^2 u}{\partial x \partial y}\right)}^2 \leq 0$
 and
@@ -2300,7 +2300,7 @@ the Cauchy--Riemann equations (outside the origin) on $f=u+iv$ are
 \item
 Use the computation to (locally) find the form of all solutions to 
 the Cauchy--Riemann equations where $\Re f = u$ does not depend on the
-argument $\theta$.  By locally we mean only in some neighborhood $U$ of
+argument $\theta$.  By \myquote{locally} we mean only in some neighborhood $U$ of
 every point $p \not= 0$.
 \end{exparts}
 \end{exercise}
@@ -2729,7 +2729,7 @@ does not exist.
 \begin{exbox}
 \begin{exercise}
 Justify the statement about Wirtinger operators:  Consider
-the function $z^m\bar{z}^n$ for any nonnegative integrers $m$ and $n$.
+the function $z^m\bar{z}^n$ for any nonnegative integers $m$ and $n$.
 Compute
 $\frac{\partial}{\partial z} \left[ z^m\bar{z}^n \right]$
 and
@@ -3048,7 +3048,7 @@ $\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.
 \begin{exercise}
 Consider $\Delta_1$ a closed disc of radius 1 centered at $i$ and $\Delta_2$ a closed disc of radius 1 centered $-i$.
 Find a biholomorphism of $\C \setminus (\Delta_1 \cup \Delta_2)$
-onto the unit disc.
+onto the punctured unit disc $\D \setminus \{ 0 \}$.
 Hint: Figure out what $\nicefrac{1}{z}$ does to the two circles.
 \end{exercise}
 
@@ -3067,8 +3067,8 @@ there exist two distinct holomorphic functions $f \colon \Delta \to \C$ such tha
 ${\bigl(f(z)\bigr)}^2 = z$.  In other words, $f(z) = \pm \sqrt{z}$ and the
 square root and its negative is holomorphic on $\Delta$.
 \item
-Show that there does not exist a continuous $f \colon \C \setminus \{ 0 \} =
-\C$ such that ${\bigl(f(z)\bigr)}^2 = z$.  That is, we cannot choose a
+Show that there does not exist a continuous $f \colon \C \setminus \{ 0 \}
+\to \C$ such that ${\bigl(f(z)\bigr)}^2 = z$.  That is, we cannot choose a
 continuous square root in the punctured plane.  Hint: Just consider the unit
 circle.
 \end{exparts}
@@ -16467,7 +16467,7 @@ Divide $\{ a_n \}$ into two parts:
 Let $\{ a^1_n \}$ be those $a_n$ that lie in $D$ and $\{ a^2_n \}$
 be those that do not.
 We will generate a function $f_1$ with zeros at $\{ a^1_n \}$ and
-a function $f_2$ with zeros at $a^2_n$.  Let $f = f_1 f_2$
+a function $f_2$ with zeros at $\{ a^2_n \}$.  Let $f = f_1 f_2$
 to finish the proof.
 Without loss of generality assume both sequences are infinite.
 
@@ -16475,7 +16475,7 @@ First consider $\{ a^1_n \}$.  Let $\{ p_n \}$ be a sequence of points in
 $\C \setminus U$ such
 that
 \begin{equation*}
-\sabs{a^1_n-p_n} = d(z,\C \setminus U).
+\sabs{a^1_n-p_n} = d(a^1_n,\C \setminus U).
 \end{equation*}
 See \figureref{fig:weiergeneral}.
 We claim that 
@@ -16689,10 +16689,11 @@ Any function holomorphic on a neighborhood of $\partial \D$ can be
 approximated on $\partial \D$ by rational functions
 if we allow a pole at $0$.  The function $\nicefrac{1}{z}$ is
 itself a rational function with a pole at $0$.
-
 A polynomial is really just a rational function that has a pole at infinity.
-Once we will prove Runge's theorem, we will have proved that it really is the hole
-that is the problem.  We can approximate a holomorphic function
+Once we prove Runge's theorem, we will have proved that it really is the hole
+in $\partial \D$
+that is the problem for $\nicefrac{1}{z}$.
+We can approximate a holomorphic function
 by polynomials on any set whose complement is connected.
 
 \begin{exbox}
