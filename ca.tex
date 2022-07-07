@@ -6198,21 +6198,23 @@ Prove that if $\sabs{f(z)}$ has a local minimum at $p \in U$ and $f(p) \not= 0$,
 then $f$ is constant.
 \item
 Show by example that the hypothesis
-$f(p) \not= 0$ is necessary.
+$f(p) \not= 0$ cannot be removed.
 \end{exparts}
 \end{exercise}
 
 \begin{exercise}[Maximum modulus principle, part trois]
-Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ is a holomorphic
-function, and $M > 0$ is a number such that
-$\limsup_{z \to p} \sabs{f(z)} \leq M$ for all $p \in \partial U$,
-and if $U$ is unbounded, then also 
+Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ is holomorphic,
+and $M > 0$ is such that
+$\limsup_{z \to p} \sabs{f(z)} \leq M$ for all $p \in \partial U$.
+If $U$ is unbounded, then also 
 $\limsup_{z \to \infty} \sabs{f(z)} \leq M$.  Prove that
 $\sabs{f(z)} \leq M$ for all $z \in U$.
-Note: For a real-valued $g \colon U \to \R$,
+Note: For $g \colon U \to \R$,
 by definition,
-$\limsup\limits_{z\to p} g(z) = \inf\limits_{r > 0} \sup \bigl\{ g(z) : z \in U
-\cap \Delta_r(p) \bigr\}$.
+$\limsup_{z\to p} g(z) = \inf_{r > 0} \sup \bigl\{ g(z) : z \in U
+\cap \Delta_r(p) \bigr\}$ and
+$\limsup_{z\to \infty} g(z) = \inf_{R > 0} \sup \bigl\{ g(z) :
+z \in U \text{ and } \sabs{z} > R \bigr\}$.
 \end{exercise}
 
 \begin{exercise}
@@ -6829,7 +6831,7 @@ prove that for every nonnegative integer $\ell$
 
 \begin{exercise} \label{exercise:convergeboundary}
 Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \widebar{U} \to
-\C$ continuous functions holomorphic on $U$ such that
+\C$ are continuous functions holomorphic on $U$ such that
 the restrictions $f_n|_{\partial U}$ converge uniformly.  Prove that
 $f_n$ converge uniformly on $\widebar{U}$ to a continuous
 function $f \colon \widebar{U} \to \C$ that is holomorphic in $U$.
@@ -6845,11 +6847,11 @@ uniformly to zero.
 \begin{exparts}
 \item
 Show that for no $a < b$ is there a $\delta > 0$ such that
-$f_n$ converges uniformly on the rectangle $R = \bigl\{ z \in \C : a \leq \Re z
+$f_n$ converge uniformly on the rectangle $R = \bigl\{ z \in \C : a \leq \Re z
 \leq b , -\delta \leq \Im z \leq \delta \bigr\}$.
 \item
 In every $[a,b] \subset \R$, find 
-an $x$ such that $f_n'(x)$ does not converge.
+an $x$ such that $\{ f_n'(x) \}$ does not converge.
 \end{exparts}
 \end{exercise}
 
@@ -6857,7 +6859,7 @@ an $x$ such that $f_n'(x)$ does not converge.
 \pagebreak[2]
 Weierstrass approximation theorem says that every continuous function on an
 interval $[a,b] \subset \R$ is uniformly approximated (on $[a,b]$) by
-polynomials $P(z)$.  Prove why such a theorem cannot be proved
+polynomials $P(z)$.  Prove why such a theorem cannot hold
 on a closed curve such as the unit circle $\partial \D$.  That is,
 find a continuous function $f \colon \partial \D \to \C$ that is
 not the uniform limit of a sequence polynomials $P_n(z)$ on $\partial \D$.
@@ -6882,9 +6884,10 @@ subsets of $\bH$ to $f$.
 \begin{exercise}
 \pagebreak[2]
 Suppose $f \colon [0,\infty) \to \R$ is a continuous function such that
-there is some $c > 0$ and some $M > 0$ and some $T > 0$ such that 
-$\sabs{f(t)} \leq M e^{-ct}$ for all $t \geq T$ ($f$ is of
-\emph{\myindex{exponential order}}.  Let $U = \{ z \in \C : \Re z > c \}$.  Prove that the Laplace transform
+there is some $c > 0$, some $M > 0$, and some $T > 0$ such that 
+$\sabs{f(t)} \leq M e^{-ct}$ for all $t \geq T$
+($f$ is of \emph{\myindex{exponential order}}).
+Let $U = \{ z \in \C : \Re z > c \}$.  Prove that the Laplace transform
 exists on $U$ and is holomorphic, that is, prove that
 \begin{equation*}
 F(z) = \int_0^\infty f(t) e^{-zt} \, dt = \lim_{r \to \infty} \int_0^r f(t)
