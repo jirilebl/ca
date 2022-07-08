@@ -9867,9 +9867,11 @@ Prove that $f$ is infinitely (real) differentiable, the origin is
 an isolated zero (the only zero in fact), and $f^{(k)}(0) = 0$ for
 all $k=0,1,2,\ldots$.  That is, the origin is a zero of infinite order.
 \item
-Prove that for $z \in \C \setminus \{ 0 \}$,
-if we define $f(z) = e^{-1/z^2}$, then the function (while holomorphic in
-all of $\C \setminus \{ 0 \}$) cannot be even
+Prove that
+if we define $f(z) = e^{-1/z^2}$ for
+$z \in \C \setminus \{ 0 \}$,
+then the function, while holomorphic in
+$\C \setminus \{ 0 \}$, cannot be made
 continuous at the origin, no matter how we'd try to define $f(0)$.
 \end{exparts}
 \end{exercise}
@@ -9917,7 +9919,8 @@ with a rather surprisingly simple proof.
 \label{thm:riemannext}
 Suppose $U \subset \C$ is open, $p \in U$,
 and $f \colon U \setminus \{p\} \to \C$ is holomorphic.
-If $f$ is bounded (near $p$ suffices), then $p$ is a removable singularity.
+If $f$ is bounded (near $p$ suffices), then $p$ is a removable singularity
+of $f$.
 \end{thm}
 
 \begin{proof}
@@ -9959,7 +9962,7 @@ is an automorphism, then $f(z) = z$ or $f(z) = \frac{1-2z}{2-z}$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open, and
+Suppose $U \subset \C$ is open and
 $\{ z_n \}$ is a sequence in $U$ converging to $p \in U$.
 Let $S = \{ z_n : n \in \N \} \cup \{ p \}$ and let
 $f \colon U \setminus S \to \C$ be a bounded holomorphic function.
@@ -10315,7 +10318,7 @@ Prove the converse of Casorati--Weierstrass.
 Let $U \subset \C$ be open, $p \in U$, and
 $f \colon U \setminus \{ p \} \to \C$
 holomorphic.
-Prove that if $f\bigl(\Delta_r(p)\bigr)$ is dense in $\C$
+Prove that if $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)$ is dense in $\C$
 for all $r > 0$ such that $\Delta_r(p) \subset U$,
 then $f$ has an essential singularity at $p$.
 \end{exercise}
@@ -10338,15 +10341,13 @@ but that is much harder to prove.
 \end{exercise}
 
 \begin{exercise}
-\pagebreak[2]
+Suppose $U \subset \C$ is open, $p \in U$, and $f \colon U \setminus \{ p \} \to \C$
+holomorphic with an essential singularity at $p$.
 \begin{exparts}
 \item
-Prove a \myquote{Picard for modulus} theorem.
-Suppose $f \colon U \setminus \{ p \} \to \C$ has an essential singularity
-at $p \in U$.
-Prove that
-for every 
-$\Delta_r(p) \setminus \{ p \} \subset U$, the set
+Prove a \myquote{Picard for modulus} theorem:
+For every $r > 0$ such that
+$\Delta_r(p) \subset U$, the set
 of all moduli of all the values of $f$ on $\Delta_r(p) \setminus \{ p \}$,
 that is,
 \begin{equation*}
@@ -10362,10 +10363,10 @@ Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open and $f \colon U \setminus \{ p \} \to \C$ is
-holomorphic and has
-an essential singularity at $p \in U$.  Then for every punctured disc
-$\Delta_r(p) \setminus \{ p \} \subset U$ and every segment $[a,b] \subset
+Suppose $U \subset \C$ is open, $p \in U$, and $f \colon U \setminus \{ p \} \to \C$ is
+holomorphic with
+an essential singularity at $p \in U$.  Then for every disc
+$\Delta_r(p) \subset U$ and every segment $[a,b] \subset
 \C$, we have
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) \cap [a,b] \not= \emptyset$.
 Hint: See 
@@ -10779,7 +10780,7 @@ For all integers $n \in \Z$, compute
 
 \begin{exercise}
 Compute using the residue theorem
-(hint: $\cos(3x) = \Re e^{i3x}$)
+(hint: $\cos(3x) = \Re e^{i3x}$):
 \smallskip
 \begin{expartshor}{2}
 \item
@@ -10802,7 +10803,7 @@ f(t) = \sL^{-1}\bigl[F(s)\bigr] =
 e^{st}F(s) \, ds
 \end{equation*}
 for some $c \in \R$ (usually $c \geq 0$) is the inverse.  Compute
-(using the residue theorem)
+(using the residue theorem):
 \smallskip
 \begin{expartshor}{2}
 \item
@@ -10818,7 +10819,7 @@ around all the poles.
 
 \begin{exercise}
 \pagebreak[2]
-Compute (using the residue theorem)
+Compute (using the residue theorem):
 \smallskip
 \begin{expartshor}{2}
 \item
@@ -10829,7 +10830,7 @@ $\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$.
 \end{exercise}
 
 \begin{exercise}
-Suppose that $r > 1$ and $f \colon \Delta_r(0) \setminus \{ 1 \} \to \C$ is
+Suppose that $r > 1$, $f \colon \Delta_r(0) \setminus \{ 1 \} \to \C$ is
 holomorphic, and suppose $f$ has a simple pole with $\operatorname{Res}(f;1) = 1$.
 If the power series for $f$ at 0 is $\sum_{n=0}^\infty c_n z^n$, show that
 $\lim_{n\to \infty} c_n$ exists and compute what it is.  Hint: Try
@@ -11045,8 +11046,7 @@ One particular useful consequence is that zeros of a polynomial $f$ vary continu
 \begin{exercise}
 Suppose $U \subset \C$ is open, $\Gamma$ is a cycle in $U$
 homologous to zero in $U$,
-and $f \colon U \to \C_\infty$ is meromorphic and
-has no zeros or poles on $\Gamma$.
+and $f \colon U \to \C_\infty$ is meromorphic with no zeros or poles on $\Gamma$.
 Show that there are only finitely many zeros and poles $z$ of $f$
 such that $n(\Gamma;z) \not= 0$.
 \end{exercise}
@@ -11116,8 +11116,8 @@ Prove that $U \subset \C$ is simply connected if and only if every nowhere
 zero holomorphic $f \colon U \to \C$ has a square root, that is, there is a
 holomorphic $g \colon U \to \C$ such that $g^2=f$.  Hint: One direction has
 been proved already.  For the other direction for $p \notin U$,
-find a $g$ such that $g^2 = z-p$, differentiate, and apply the argument
-principle.
+find a $g$ such that $g^2 = z-p$, differentiate, and consider
+$\Gamma$ in $U$ such that $n(\Gamma;p) = 1$.
 \end{exercise}
 \end{exbox}
 
@@ -11461,7 +11461,8 @@ In particular, $f_n$ is not injective.
 \begin{exbox}
 \begin{exercise}
 Suppose $U \subset \C$ is a domain,
-$f_n \colon U \to \C$ are holomorphic and nowhere zero
+and suppose
+$f_n \colon U \to \C$ are holomorphic, nowhere zero,
 and converge uniformly on compact subsets to $f \colon U \to \C$.
 Show that either $f$ is nowhere zero, or $f$ is identically zero.
 Give examples of both possible conclusions.
@@ -11470,7 +11471,7 @@ Give examples of both possible conclusions.
 \begin{exercise}
 \begin{exparts}
 \item
-Suppose $f_n \colon \D \to \C$ is a sequence converging
+Suppose $f_n \colon \D \to \C$ is a sequence of holomorphic functions converging
 to $f \colon \D \to \C$ uniformly on compact sets such that
 for each $0 < r < 1$ the number of zeros (up to multiplicity)
 of $f_n$ in $\Delta_r(0)$ goes to infinity as $n \to \infty$.
@@ -11672,7 +11673,7 @@ theorem (\thmref{thm:inverse}).
 \begin{exparts}
 \item Show that for some neighborhood $V$ of $p$, $f|_V$ is injective.
 Hint: $f(z)-f(p)$ has a simple zero at $p$.
-\item Show that $f(V) = W$ is open and the inverse $g \colon W \to V$ is
+\item Show that $W = f(V)$ is open and the inverse $g \colon W \to V$ is
 continuous.
 \item By looking directly at the difference quotient $\frac{g(w)-g(w_0)}{w-w_0}$
 show that $g$ is complex differentiable at all $w_0 \in W$.
@@ -11950,9 +11951,10 @@ bounded function is uniformly bounded.
 \end{exercise}
 
 \begin{exercise}
-Define a sequence of continuous functions $f_n \colon \R \to [0,1]$ that
-converges pointwise to a function that is 1 on a dense set and 0 on another
-dense set.  Hint: Do it piecewise.
+Define a sequence of continuous functions $f_n \colon \R \to [0,1]$ such
+that $\{ f_n(x) \}$ converges to $1$ on a dense set of $x$ and it converges to
+$0$ on another dense set.
+Hint: Do it piecewise.
 \end{exercise}
 
 \begin{exercise}[Requires measure theory]
@@ -12430,7 +12432,8 @@ then $\sF$ is locally bounded.
 \end{exercise}
 
 \begin{exercise}
-Prove that \myquote{locally bounded} means \myquote{bounded on compact sets,}
+For open $U \subset \C$,
+prove that \myquote{locally bounded} means \myquote{bounded on compact sets,}
 that is, $\sF$ is locally bounded if and only if
 for every compact $K \subset U$ there is an $M >0$ such that
 $\snorm{f}_K \leq M$ for all $f \in \sF$.
@@ -12468,8 +12471,10 @@ Given $c \in [0,1)$ let $\sF_c$ be the set of holomorphic
 $f \colon \D \to \D$ such that $f(0) = 0$ and $f(\nicefrac{1}{2}) = c$.
 \begin{exparts}
 \item
-Prove that $\sF_c = \emptyset$ if and only if $c \in
-(\nicefrac{1}{2},1)$.
+Prove that
+$\sF_c = \emptyset$ if $c \in (\nicefrac{1}{2},1)$
+and
+$\sF_c \not= \emptyset$ if $c \in [0,\nicefrac{1}{2}]$.
 \item
 Prove that for each $c \in [0,\nicefrac{1}{2}]$, there exists an
 $f \in \sF_c$
@@ -13136,6 +13141,7 @@ Why does this example not contradict the construction in the proof of the lemma?
 \begin{exercise}
 Suppose $\{ f_n \}$ is a sequence of holomorphic functions on an open set
 $U \subset \C$ that converges uniformly on compact subsets to
+a nonconstant
 $f \colon U \to \C$.  Let $K \subset U$ be a compact set.  Prove that
 for every open neighborhood $V$ of $K$ in $U$ (so $K \subset V \subset U$) there exists
 a smaller open neighborhood $W$ (so $K \subset W \subset V$) and an $N \in \N$
