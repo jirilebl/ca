@@ -2475,7 +2475,7 @@ computing it.
 
 \begin{exercise}
 Prove the last two items of \propref{prop:powerrule}:
-Polynonomials $P(z)$ are holomorphic on $\C$ (and compute their derivative),
+Polynomials $P(z)$ are holomorphic on $\C$ (and compute their derivative),
 and rational functions
 $\frac{P(z)}{Q(z)}$ are holomorphic on the set where $Q$ is nonzero.
 \end{exercise}
@@ -5550,7 +5550,7 @@ The circle of radius 5 centered at $i+1$ oriented clockwise.
 \end{exercise}
 
 \begin{exercise} \label{exercise:strongerCIFdisc}
-Strenghten the theorem:  Show that the conclusion holds if
+Strengthen the theorem:  Show that the conclusion holds if
 we only assume that $f \colon \overline{\Delta_r(p)} \to \C$
 is continuous and $f$ is holomorphic on $\Delta_r(p)$.
 \end{exercise}
@@ -8605,7 +8605,7 @@ it could very well be when all the $c_n$ for negative $n$ are zero.
 
 Finally, we can differentiate and antidifferentiate
 formally, in the same way as we did it for power series.  The one minor
-hickup is that we cannot antidifferentiate the $c_{-1}{(z-p)}^{-1}$ term.
+hiccup is that we cannot antidifferentiate the $c_{-1}{(z-p)}^{-1}$ term.
 The proof is left as an exercise.
 
 \begin{prop} \label{prop:diffantidifflaurent}
@@ -10850,7 +10850,7 @@ Prove that for all $r > R$,
 f(z) \, dz .
 \end{equation*}
 That is, going around a circle in reverse is going around infinity rather
-than the center (if what we are \myquote{going around} is defined to be whaterver
+than the center (if what we are \myquote{going around} is defined to be whatever
 is on our left).
 \item
 If $f$ is holomorphic on $\C$ except for finitely many isolated
@@ -14004,7 +14004,7 @@ continuous at $z_0$.
 
 We remark that in the proof we used the topology on $\overline{\D}$
 given by the polar coordinates, and we estimated the coordinates separately.
-Polar coordinates give a nice local homemorphism
+Polar coordinates give a nice local homeomorphism
 (a continuous bijective map with a continuous inverse) outside of
 the origin, which is sufficient for us as we only worried about points
 on or near the boundary of $\D$.  The reader that is still unconvinced
@@ -14708,7 +14708,7 @@ $U$, and $p \in U$ is fixed.
 \begin{exparts}
 \item
 If $f_n(p) \to +\infty$, then $\{ f_n \}$ converges to $+\infty$ uniformly on
-compact subets.
+compact subsets.
 \item
 If $f \colon U \to \R$ is harmonic, $f_n(z) \leq f(z)$ for all $z \in U$,
 and $f_n(p) \to f(p)$, then $\{ f_n \}$ converges to $f$ uniformly on
@@ -15159,7 +15159,7 @@ Prove that an upper-semicontinuous function defined on a compact set achieves a 
 
 \begin{exercise}
 Prove that if $f \colon U \to \R$ is upper-semicontinuous and $-f$ is also
-upper-semicontinuous (that is $f$ is also lower-semicontinuous), then $f$
+upper-semicontinuous (that is, $f$ is also lower-semicontinuous), then $f$
 is continuous.
 \end{exercise}
 \end{exbox}
@@ -15180,7 +15180,7 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
-Suharmonic functions are also classified by a mean-value-like property,
+Subharmonic functions are also classified by a mean-value-like property,
 although it is an inequality rather than an equality.  There is a subtle
 issue of integrability.  For an upper-semicontinuous function
 the integral in the theorem need not exist as a Riemann integral.
@@ -15349,7 +15349,10 @@ functions.
 \begin{thm}[Maximum principle]
 \index{maximum principle!subharmonic functions}
 Suppose $U \subset \C$ is a domain and $f \colon U \to \R \cup \{ -\infty \}$
-is subharmonic.  If $f$ attains a maximum in $U$, then $f$ is constant.
+is subharmonic.  If $f$ attains a maximum\footnote{%
+We do mean the global maximum; if the maximum is local, one only
+obtains constancy nearby.}
+in $U$, then $f$ is constant.
 \end{thm}
 
 \begin{proof}
@@ -15405,7 +15408,7 @@ $g$ that are harmonic a bit past the boundary of the disc.
 \begin{exercise}
 Prove the minimum principle for superharmonic functions ($f$ is
 superharmonic if $-f$ is subharmonic).  That is, if a superharmonic function
-defined on a domain $U$ achieves a local minimum inside $U$, then it is
+defined on a domain $U$ achieves a minimum inside $U$, then it is
 constant.
 \end{exercise}
 \end{exbox}
@@ -15522,7 +15525,7 @@ If $U = \D$ and $p_n = \nicefrac{1}{n}$, show that $f$ is discontinuous at $0$
 \item
 If $\{ p_n \}$ is dense in $U$, show that $f$ 
 is nowhere continuous.
-Hint: Prove $f^{-1}(-\infty)$ is a small (but dense) set.
+Hint: Prove $f^{-1}(-\infty)$ is a small but dense set.
 Hint \#2: Integrate the partial sums, and use polar coordinates.
 \end{exparts}
 \end{exercise}
@@ -15630,7 +15633,7 @@ Then one takes a supremum to obtain a harmonic function.  We will not go
 through this technique, which is called the \emph{\myindex{Perron method}}.
 Clearly, that technique would work far better than the Poisson kernel for
 more complicated domains.  For instance, the Poisson kernel can be computed
-for simply connected domains provided we know the Riemann map.  However,
+for simply connected domains with nice boundary provided we know the Riemann map.  However,
 the kernel is difficult to compute in general, and it requires a very nice
 boundary to be able to integrate.  The Perron method works much more
 generally provided you can construct enough subharmonic functions (which
@@ -16427,7 +16430,7 @@ Suppose $U \subset \C$ is a domain and
 \begin{equation*}
 F(z) = \prod_{n=1}^\infty f_n(z)
 \end{equation*}
-for holomorphic functions $f_n \colon U \to \C$ converges uniformly 
+for holomorphic functions $f_n \colon U \to \C$ converging uniformly 
 on compact subsets of $U$.  Prove that
 \begin{equation*}
 \frac{F'(z)}{F(z)} = \sum_{n=1}^\infty \frac{f_n'(z)}{f_n(z)} ,
@@ -16597,8 +16600,8 @@ points of $S$.
 
 \begin{exercise}
 Given a domain $U \subset \C$ and a sequence $\{ a_n \}$ of distinct points in $U$
-with no limit points in $U$.  Find a holomorphic function on
-$U \setminus \{ a_n \}$, that has essential
+with no limit points in $U$, find a holomorphic function on
+$U \setminus \{ a_n : n \in \N \}$ that has essential
 singularities at $\{ a_n \}$.
 \end{exercise}
 
@@ -16846,7 +16849,7 @@ we are done by summing up over all the paths in $\Gamma$.
 In some parts of the proof below, to simplify the verbiage, we will say that
 functions of a certain type (uniformly) approximate $f$ on $K$
 if for every $\epsilon > 0$ there exists a function $g$
-of a the given type such that
+of the given type such that
 $\sabs{f(z)-g(z)} < \epsilon$ on $K$.  We leave the following statement as
 a simple exercise in chasing those epsilons.
 
@@ -17144,14 +17147,14 @@ Prove that there exists an open $W \subset \C$ such that $\widebar{U}
 there is a sequence of holomorphic $f_n \colon W \to \C$ such that converge
 uniformly on compact subsets of $U$ to $f$.
 \item
-Suppose there is at least one $p \in \partial U$ such that
+Find a counterexample $U$ and $f$ to the conclusion of part a) where
+there is at least one $p \in \partial U$ such that
 $\Delta_\epsilon(p) \setminus \widebar{U}$ is empty for some $\epsilon > 0$.
-Find a counterexample $U$ and $f$ to the conclusion of part a).
 \item
-Suppose there is at least one $p \in \partial U$ such that
+Find a counterexample $U$ and $f$ to the conclusion of part a) where
+there is at least one $p \in \partial U$ such that
 $\Delta_\epsilon(p) \setminus \widebar{U}$ is nonempty but disconnected for
 every $\epsilon > 0$.
-Find a counterexample $U$ and $f$ to the conclusion of part a).
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -17326,7 +17329,7 @@ connected.
 
 \begin{exbox}
 \begin{exercise}
-Suppose that $U \subset \C$ is a polynomially convex domain such that for each
+Suppose $U \subset \C$ is a polynomially convex domain such that for each
 $p \in \C$ there exists an $M$ such that $\partial \Delta_M(p) \subset U$.
 Prove that $U = \C$.
 \end{exercise}
@@ -17343,7 +17346,7 @@ $\widehat{K}_1 \subset \widehat{K}_2$.
 
 \begin{exercise}
 Let $U \subset \C$ be a domain.  Prove that $U$
-is simply coonnected if and only if there exists a sequence $K_n$
+is simply connected if and only if there exists a sequence $K_n$
 of compact subsets of $U$ such that $K_n \subset K^\circ_{n+1}$,
 $\bigcup K_n = U$, and such that $\widehat{K_n} = K_n$.
 \end{exercise}
@@ -17537,7 +17540,7 @@ Suppose $U \subset \C$ is open, $f \colon U \to \C$ holomorphic,
 $p \in U$, and
 $P(z) = \sum_{n=1}^{k} \frac{c_n}{{(z-p)}^n}$.
 Suppose
-$K \subset U \setminus \{ p \}$ such that $p$ is in the unbounded
+$K \subset U \setminus \{ p \}$ is compact such that $p$ is in the unbounded
 component of $\C \setminus K$.  Show that for every $\epsilon > 0$,
 there exists a function $g$ holomorphic in $U \setminus \{ p \}$
 with a pole at $p$ and principal part $P$ at $p$ and such that
@@ -17553,7 +17556,7 @@ $\Delta_{\epsilon}(p) \cap U$.  Hint: The trick is constructing $S$.
 
 \begin{exercise}
 Suppose that instead of principal parts of poles, $P_p(z)$ are principal
-parts of essential singularities, which converge in $\C \setminus \{ p \}$.
+parts of essential singularities that converge in $\C \setminus \{ p \}$.
 Prove the Mittag-Leffler with this setup.
 \end{exercise}
 
@@ -17844,8 +17847,8 @@ and extends to a continuous function on the closure
 $\widebar{U}$.  (The hard part is continuity at $z=0$.)
 \item
 Show that $f$ does not extend holomorphically through the
-origin.  That is, for any open neighborhood $V$ of $0$ there
-exists no holomorphic
+origin.  That is, for no open neighborhood $V$ of $0$ does there
+exist a holomorphic
 $\varphi \colon V \to \C$ such that $\varphi = f$ on $U \cap V$.
 \item
 Show that $f$ extends as a
@@ -18149,7 +18152,7 @@ along $\gamma$.
 \begin{exbox}
 \begin{exercise}
 Let $U \subset \C$ be a domain, $W \subset U$ a connected open subset,
-$p \in W$ and $f \colon U \to \C$ holomorphic.  Prove that the restriction
+$p \in W$, and $f \colon U \to \C$ holomorphic.  Prove that the restriction
 $f|_W$ allows unrestricted continuation to $U$ with $p$ as a starting point.
 \end{exercise}
 
@@ -19547,7 +19550,7 @@ $\partial A = \widebar{A} \setminus A^\circ = \widebar{A} \cap
 \end{proof}
 
 The boundary is the set of points that are close to both the set and its
-complement.  See \figureref{fig:msboundary} for the a diagram
+complement.  See \figureref{fig:msboundary} for a diagram
 of the next proposition.
 
 \begin{prop}
