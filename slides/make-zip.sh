@@ -5,8 +5,13 @@ for n in *.tex ; do
 	echo =============================
 	p=`basename $n .tex`".pdf"
 	echo $n '-->' $p
-	if test $n -nt $p ; then
-		echo Will rebuild
+	if test '!' -e $p ; then
+		echo Missing, will rebuild
+		pdflatex $n
+		pdflatex $n
+		pdflatex $n
+	elif test $n -nt $p ; then
+		echo Old, will rebuild
 		pdflatex $n
 		pdflatex $n
 		pdflatex $n
