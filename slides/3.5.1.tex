@@ -53,8 +53,8 @@ The lemma is telling us about local behavior of a holomorphic function.
 \pause
 \medskip
 
-b) We will see later that every domain ``without holes'' is biholomorphic to a
-disc,
+b) We'll see later that every domain ``without holes'' (except $\C$)
+is biholomorphic to $\D$,
 
 so it tells us about global behavior as well.
 
@@ -62,24 +62,25 @@ so it tells us about global behavior as well.
 
 \begin{frame}
 \textbf{Proof:}
-As $f(0) = 0$, we can expand is
+As $f(0) = 0$,
 \[
 f(z) = \sum_{n=1}^\infty c_n z^n \pause = z \sum_{n=1}^\infty c_n z^{n-1}
 \pause = z g(z) \qquad \text{($g(z)$ a holomorphic function on $\D$.)}
 \]
 \pause
-For $z \in \partial \Delta_r(0)$, $r < 1$,
+Take $0 < r < 1$.
+For $z \in \partial \Delta_r(0)$,
 \[
 \sabs{g(z)} = \frac{\sabs{f(z)}}{\sabs{z}} \pause \leq \frac{1}{r} .
 \]
 \pause
-By the maximum modulus principle
+By the maximum modulus principle,
 $\sabs{g(z)} \leq \dfrac{1}{r}$ for all $z \in \Delta_r(0)$.
 
 \pause
 \medskip
 
-Fix any $z \in \D$ and take limit as $r \uparrow 1$ to find
+Fix any $z \in \D$ and take the limit as $r \uparrow 1$ to find
 $\sabs{g(z)} \leq 1$.
 \pause
 So
@@ -129,7 +130,8 @@ $\sabs{f'(0)} = 0 < 1$.
 \pause
 \medskip
 
-Notice that a bound on the derivative does not hold at other points:
+A bound on the derivative does not hold at other points:
+
 Picking the right $z$ and $n$,
 can make $\sabs{f'(z)}$ arbitrarily large.
 
@@ -137,7 +139,9 @@ can make $\sabs{f'(z)}$ arbitrarily large.
 \pause
 
 We can make $\sabs{z^n}$ arbitrarily small for a fixed $z \in \D$ by picking
-a large enough $n$, but we cannot make it bigger than $\sabs{z}$.
+a large enough $n$,
+
+but we cannot make it bigger than $\sabs{z}$.
 
 \medskip
 \pause
@@ -195,11 +199,11 @@ $f(f(f(\cdots f(z) \cdots)))$.
 
 \pause
 
-For a) consider the linear term of $f^{\ell}$.
+For (i) consider the linear term of $f^{\ell}$.
 
 \pause
 
-For b) use Cauchy estimates on the first nonzero nonlinear term of
+For (ii) use Cauchy estimates on the first nonzero nonlinear term of
 $f^{\ell}$.
 
 \end{frame}
