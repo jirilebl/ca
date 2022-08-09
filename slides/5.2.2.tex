@@ -1,0 +1,233 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Singularities and the Laurent series (5.2.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+$\dfrac{1}{z}$ has an isolated singularity at $z=0$.
+
+\medskip
+\pause
+
+It is a pole of order $1$.
+
+\medskip
+\pause
+
+The Laurent series at $z=0$ is just $\nicefrac{1}{z}$,
+
+and all
+coefficients of order less than $-1$ are zero.
+
+\end{frame}
+
+\begin{frame}
+OK, we could make this more complicated:
+
+\medskip
+
+$\displaystyle
+\frac{1}{z} + \frac{1}{1-z}
+=
+\sum_{n=-1}^\infty z^n
+$
+
+\medskip
+\pause
+
+Again, pole of order $1$ at $z=0$,
+
+and all coefficients in the series
+of order less than $-1$ are zero.
+
+\end{frame}
+
+\begin{frame}
+Or even more complicated:
+
+\medskip
+
+$\displaystyle
+\frac{1}{z^3} + \frac{1}{z^2} + \frac{1}{z} + \frac{1}{1-z}
+=
+\sum_{n=-3}^\infty z^n
+$
+
+\medskip
+\pause
+
+A pole of order $3$,
+
+and all coefficients in the series
+of order less than $-3$ are zero.
+\end{frame}
+
+\begin{frame}
+Or even more complicated:
+
+\medskip
+
+$\displaystyle
+\frac{1}{z^3} + \frac{1}{z^2} + \frac{1}{z} + \frac{1}{1-z}
+=
+\sum_{n=-3}^\infty z^n
+$
+
+\medskip
+\pause
+
+A pole of order $3$,
+
+and all coefficients in the series
+of order less than $-3$ are zero.
+\end{frame}
+
+\begin{frame}
+$\displaystyle
+e^{1/z}
+=
+\sum_{n=-\infty}^0 \frac{1}{(-n)!} z^n
+$
+
+\medskip
+
+has an essential singularity at $z=0$,
+
+and has nonzero coefficients of all negative orders.
+\end{frame}
+
+\begin{frame}
+It is not difficult to prove the general statement:
+
+\begin{proposition}
+Suppose $f \colon \Delta_r(p) \setminus \{p\} \to \C$ is holomorphic,
+and
+\begin{equation*}
+f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n
+\end{equation*}
+is the corresponding Laurent series.
+\pause
+The singularity at $p$ is
+\begin{enumerate}[(i)]
+\item
+\emph{removable} if and only if $c_n = 0$ for all $n < 0$,
+\item
+\pause
+a \emph{pole} of order $k \in \N$ if and only if $c_n = 0$ for all $n < -k$ and
+$c_{-k}
+\not= 0$,
+\item
+\pause
+\emph{essential} if and only if $c_n \not= 0$ for infinitely many negative $n$.
+\end{enumerate}
+\end{proposition}
+
+\pause
+
+The proof is left as an exercise.
+
+\pause
+Hint: Laurent series is unique, and for a removable singularity
+equals the power series.
+
+\end{frame}
+
+\begin{frame}
+
+\begin{definition}
+At an isolated singularity, the negative part of the Laurent series
+\begin{equation*}
+\sum_{n=-\infty}^{-1} c_n {(z-p)}^n 
+\end{equation*}
+is called the \emph{\myindex{principal part}}.
+\end{definition}
+
+\pause
+
+\emph{Observation:}
+If $P(z)$ is the principal part of $f(z)$ at $p$, then
+$f(z)-P(z)$ has a removable singularity at $p$.
+\end{frame}
+
+\begin{frame}
+The example $e^{1/z}$ motivates the following concept.
+
+\medskip
+\pause
+
+Given an entire $f \colon \C \to \C$, we talk about its
+\emph{singularity at infinity.}
+
+\medskip
+\pause
+
+$\C \subset \C_{\infty}$ and $\nicefrac{1}{z}$ is a self mapping of
+$\C_{\infty}$ that swaps $\infty$ and $0$.
+
+\medskip
+\pause
+
+$z \mapsto f(\nicefrac{1}{z})$ has a removable singularity
+at $0$, and that's the ``singularity of $f$ at $\infty$.''
+
+\medskip
+\pause
+
+$e^z$ has an essential singularity at infinity,
+
+because
+$e^{1/z}$ has an essential singularity at $0$.
+
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+Prove that if $f$ has a pole at the origin and $g$ has an essential
+singularity at the origin, then $f+g$ has an essential singularity at the
+origin.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+If $f$ has a pole at $p$, then $e^{f(z)}$ has an essential singularity at
+$p$.
+
+Hint: First do it for a simple pole.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Show that an entire holomorphic $f \colon \C \to \C$ has a pole at infinity
+if and only if it is a nonconstant polynomial.
+The order of the pole is the degree of the polynomial.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Show that if $f \colon \C \to \C$ is an automorphism, then
+$f(z) = az + b$ for
+some constants $a \not= 0$ and $b$.  Hint: Show that $f$ has a simple pole at
+infinity.
+\end{frame}
+
+\end{document}
