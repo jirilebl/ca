@@ -26,8 +26,8 @@ Consider the primitive of $z^n$.
 \medskip
 \pause
 
-If $n\not=-1$, then the primitive is 
-$\dfrac{z^{n+1}}{n+1}$ (not defined at the origin if $n+1 < 0$)
+If $n\not=-1$, the primitive is 
+$\dfrac{z^{n+1}}{n+1}$ (not defined at $z=0$ if $n+1 < 0$)
 
 \medskip
 \pause
@@ -53,11 +53,10 @@ $U$, including $\nicefrac{1}{z}$.
 Require this primitive to be $0$ at $z=1$ to obtain
 the \emph{principal branch} of the logarithm:
 \[
-\operatorname{Log} \colon U \to \C 
+\Log \colon U \to \C 
 \]
 \pause
-We wish to show that Log is equal to
-$\log \sabs{z} + i \Arg z$ (principal branch of the argument).
+We want to show $\Log z = \log \sabs{z} + i \Arg z$ (principal branch of the argument).
 \end{frame}
 
 \begin{frame}
@@ -82,7 +81,7 @@ $
 \pause
 \medskip
 
-So $L$ is the inverse of the exponential, so holomorphic.
+$L$ is the inverse of the exponential \quad $\Rightarrow$ \quad $L$ is holomorphic.
 
 \medskip
 \pause
@@ -227,12 +226,12 @@ $\nicefrac{1}{z}$ in $U$ that equals one value of $\log z$ at every point.
 \medskip
 \pause
 
-We say we \emph{follow a branch} along a path by taking a branch in some
-small neighborhood,
+We \emph{follow a branch} along a path by taking a branch in a
+(small enough) neighborhood,
 
 \pause
 
-then change to another branch in another small
+then change to another branch in another
 neighborhood (equal at some point). \pause Etc.
 
 \medskip
