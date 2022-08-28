@@ -5,6 +5,7 @@
 *.nav
 *.out
 *.vrb
+*.rubbercache
 *.synctex.gz
 intro.pdf
 1.1-p1.pdf
