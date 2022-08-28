@@ -7,14 +7,10 @@ for n in *.tex ; do
 	echo $n '-->' $p
 	if test '!' -e $p ; then
 		echo Missing, will rebuild
-		pdflatex $n
-		pdflatex $n
-		pdflatex $n
+		rubber -d $n
 	elif test $n -nt $p ; then
 		echo Old, will rebuild
-		pdflatex $n
-		pdflatex $n
-		pdflatex $n
+		rubber -d $n
 	else
 		echo No need to rebuild
 	fi
