@@ -1699,7 +1699,7 @@ inversion across the circle simply inverts the distance to the origin:
 \frac{1}{\sabs{z}} e^{i \arg z} = 
 \frac{\sabs{z}}{\sabs{z}^2} e^{i \arg z} = \frac{1}{\bar{z}} .
 \end{equation*}
-So to get our complex inversion $I(z)$ we also conjugate.
+To get our complex inversion $I(z)$ we also conjugate.
 Translations and dilations both take $\infty$ to $\infty$.
 The inversion swaps $\infty$ and $0$.
 
@@ -2961,9 +2961,9 @@ of $f(p)$ and the inverse on that neighborhood is continuously
 differentiable with $D(f^{-1})|_{f(p)} = (Df|_p)^{-1}$.
 
 An inverse of a $2 \times 2$ matrix that represents a complex number also
-represents a complex number (the reciprocal).  So if $f$
-satisfies the Cauchy--Riemann equations, so does the inverse.
-We instantly obtain the holomorphic inverse function theorem.
+represents a complex number (the reciprocal).  Consequently, if $f$
+satisfies the Cauchy--Riemann equations, so does its inverse.
+We obtain the holomorphic inverse function theorem.
 
 \begin{thm}[Inverse function theorem for holomorphic functions]
 \index{inverse function theorem!holomorphic functions}
@@ -11266,7 +11266,7 @@ has the same number of zeros as the constant $1$ (that is, no zeros) in
 $\Delta_{1-\epsilon}(0)$.
 
 Second, take $z^n$ instead of $1$, and make $\Gamma$ be the circle of
-radius $1+\epsilon$ around the origin.  Then on $\Gamma$,
+radius $1+\epsilon$ around the origin.  On $\Gamma$,
 \begin{equation*}
 \abs{P(z) - z^n} = 1 < \abs{z^n} .
 \end{equation*}
@@ -11754,7 +11754,7 @@ Alternatively, you could note that the formula is just applying the
 \hyperref[thm:argprinc]{argument principle} with $h(z)=z$.
 In fact, that is a way that you can guess the formula.
 
-Let us put the two lemmas together to get the main result of this section.
+Putting the two lemmas together obtains the main result of this section.
 
 \begin{thm}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
@@ -13554,15 +13554,15 @@ The procedure above, writing
 that is, a sum of derivatives as a composition of
 different derivatives,
 so that we could integrate in these two new variables, may
-sound familiar.  In this case we obtained a harmonic $f$ as a function
-of $z$ (a holomorphic function) plus a function of $\bar{z}$ (an
+sound familiar.  In this case, we found that a harmonic $f$ is a sum of a function
+of $z$ (a holomorphic function) and a function of $\bar{z}$ (an
 antiholomorphic function).
 
 The procedure is analogous to the D'Alembert solution of the one-dimensional
-wave equation you may have seen in undergraduate differential equations.
+wave equation, which you may have seen in undergraduate differential equations.
 The wave operator is
 $\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2}$ with a
-minus sign, and we use $x$ and $t$ as variables to be traditional.
+minus sign, where we use $x$ and $t$ as variables to be traditional.
 The wave operator decomposes as
 \begin{equation*}
 \frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2}
@@ -13572,7 +13572,7 @@ The wave operator decomposes as
 \left[ \frac{\partial}{\partial t}+ \frac{\partial}{\partial x}
 \right] .
 \end{equation*}
-So if we write $\mu = x+t$ and $\eta = x-t$ (the so-called characteristic
+If we write $\mu = x+t$ and $\eta = x-t$ (the so-called characteristic
 variables), then
 \begin{equation*}
 -4 \frac{\partial^2}{\partial \eta \partial \mu} = 
@@ -13611,8 +13611,9 @@ The set $Z$ is nonempty by hypothesis, so
 consider some $p \in Z$.  For any disc $\Delta_r(p) \subset U$, $f$ is
 zero on some open subset of the disc.  On $\Delta_r(p)$, the function
 $f$ has a harmonic
-conjugate $g$ and $f+i g$ is a holomorphic function that is purely imaginary on
-an open subset of $\Delta_r(p)$ and hence constant on that open subset.
+conjugate $g$.
+The holomorphic function $f+i g$ is purely imaginary on
+an open subset of $\Delta_r(p)$, and hence it is constant on that open subset.
 By the \hyperref[thm:identity]{identity theorem for holomorphic functions},
 $f+ig$ is constant 
 on $\Delta_r(p)$.
@@ -14970,8 +14971,8 @@ Suppose $z \in U$ and $\Im z < 0$.  Write $F(z) = F(x,y) = -f(x,-y)$, then
 =
 - \nabla^2|_{(x,-y)} f = 0 .
 \end{equation*}
-So suppose that $z \in L$, that is, $z \in \R$.
-Let us compute the mean value at $z$ around any
+Suppose that $z \in L$, that is, $z \in \R$.
+Compute the mean value at $z$ around any
 $\partial \Delta_r(z)$ where $\overline{\Delta_r(z)} \subset U$:
 \begin{equation*}
 \frac{1}{2\pi} \int_{-\pi}^{\pi} F(z+re^{i\theta})\, d\theta
@@ -16935,7 +16936,7 @@ Then
 \sum_{k=0}^\infty
 {\left(\frac{p-q}{z-q}\right)}^k ,
 \end{equation*}
-which converges uniformly on $K$ as if $z \in K$, then
+which converges uniformly on $K$ as for $z \in K$, we have
 \begin{equation*}
 \abs{\frac{p-q}{z-q}}
 \leq 
@@ -16969,8 +16970,7 @@ $\infty$),
 and hence $\frac{1}{z-p}$ can also be uniformly approximated on $K$ by polynomials.
 \end{proof}
 
-
-We can now prove Runge.
+We can now prove Runge on compact sets.
 
 \begin{thm}[Runge on a compact set]\index{Runge's theorem on a compact set}%
 \label{thm:rungecpt}
@@ -17398,7 +17398,7 @@ trickier, and here is where \hyperref[cor:rungeseq]{Runge's theorem} is useful: 
 a holomorphic function doesn't change the principal part, but it may make
 the terms in the sum smaller and make things converge.
 We obtain the
-Mittag-Leffler theorem.\footnote{It sucks when you have a hyphenated name:
+Mittag-Leffler theorem.\footnote{That's the downside of a hyphenated name:
 Mittag always has to share fame with that Leffler guy.}
 
 \begin{thm}[Mittag-Leffler]\index{Mittag-Leffler theorem}
