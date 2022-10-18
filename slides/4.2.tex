@@ -158,7 +158,8 @@ WTS $h \colon \C \to \C$ is holomorphic.
 \medskip
 \pause
 
-Holomorphicity is a local property, so only consider an every open set.
+Holomorphicity is a local property, so only consider $h$ on open sets
+covering $\C$.
 
 \medskip
 \pause
@@ -172,7 +173,8 @@ holomorphic there.
 
 Similarly $U$ is open and $\displaystyle
 z \mapsto
-\int_\Gamma g(\zeta,z) \, d\zeta$ is holomorphic.
+\int_\Gamma g(\zeta,z) \, d\zeta$ is holomorphic there, so $h$ is
+holomorphic.
 
 \medskip
 \pause
@@ -182,7 +184,7 @@ $\C \setminus \Gamma$.
 \pause
 Then $n(\Gamma;z) = 0$, so
 $h(z) = 
-z \mapsto \int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta$.
+\int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta$.
 
 \medskip
 \pause
@@ -258,9 +260,10 @@ Fix $z \in U \setminus \Gamma$.
 \medskip
 \pause
 Apply 
-the Cauchy integral formula to $\zeta \mapsto (\zeta-z)\,f(\zeta)$ at $\zeta=z$:
-\pause
+the Cauchy integral formula to $\zeta \mapsto (\zeta-z)\,f(\zeta)$ at
+$\zeta=z$:
 \[
+\pause
 0 = n(\Gamma;z) (z-z)f(z)
 \pause
 =
