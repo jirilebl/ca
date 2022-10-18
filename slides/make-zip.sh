@@ -5,15 +5,17 @@ for n in *.tex ; do
 	echo =============================
 	p=`basename $n .tex`".pdf"
 	echo $n '-->' $p
-	if test '!' -e $p ; then
-		echo Missing, will rebuild
-		rubber -d $n
-	elif test $n -nt $p ; then
-		echo Old, will rebuild
-		rubber -d $n
-	else
-		echo No need to rebuild
-	fi
+	# Just always rebuild rubber is smart
+	rubber -d $n
+	#if test '!' -e $p ; then
+	#	echo Missing, will rebuild
+	#	rubber -d $n
+	#elif test $n -nt $p ; then
+	#	echo Old, will rebuild
+	#	rubber -d $n
+	#else
+	#	echo No need to rebuild
+	#fi
 done
 
 echo =============================
