@@ -1,0 +1,117 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Meromorphic functions (5.2.4)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+A holomorphic function $f \colon U \setminus S \to \C$ with poles on a
+discrete set $S \subset U$ is said to be \emph{meromorphic}.
+\end{definition}
+
+\pause
+
+If $p \in S$ is a pole, set
+$f(p) = \infty$ to get a function
+\[
+f \colon U \to \C_{\infty} .
+\]
+
+\pause
+The extended $f$ is continuous.
+
+\pause
+\medskip
+
+In fact, $\nicefrac{1}{f}$ is holomorphic at a pole $p$
+\quad
+(a reasonable definition of holomorphic).
+
+\pause
+\medskip
+
+A \emph{meromorphic function} is
+``a holomorphic function $f \colon U \to \C_{\infty}$.''
+
+\pause
+\medskip
+
+\textbf{Technicality:} Should we consider the constant $\infty$
+a meromorphic function?
+
+\pause
+In this course, we do not.
+
+\pause
+\medskip
+
+To emphasize we will often say
+``Let 
+$f \colon U \to \C_\infty$ be meromorphic.''
+
+\end{frame}
+
+\begin{frame}
+
+One could define functions on $U \subset \C_\infty$ (like we did with LFTs).
+
+\pause
+\medskip
+
+If $\infty \in U$,
+\quad
+$f \colon U \to \C_\infty$ is holomorphic at $\infty$ if
+$f(\nicefrac{1}{z})$ is holomorphic at $0$.
+
+\pause
+\medskip
+
+So an LFT is a biholomorphic mapping $\C_\infty \to \C_\infty$.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Show that a holomorphic $f \colon \C_\infty \to \C_\infty$ has
+at most finitely many poles and finitely many zeros.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Show that a holomorphic $f \colon \C_\infty \to \C_\infty$ is
+either constant or onto.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Show that a holomorphic $f \colon \C_\infty \to \C_\infty$ is a
+rational function (a polynomial divided by a polynomial).
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Show that an injective holomorphic $f \colon \C_\infty \to \C_\infty$ is an
+LFT\@.
+\end{frame}
+
+\end{document}
