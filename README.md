@@ -12,6 +12,7 @@ See https://www.jirka.org/ca/
 * ca.tex is the LaTeX file
 * notations.tex is the list of notations
 * Figures are in figures/
+* Some beamer slides are in slides/
 * publish.sh compiles the file to pdf (probably overdoing it, but that doesn't hurt)
 * getstats.sh counts the numbers of sections, exercises, figures, etc.
-* resizepdftocrownquatro.sh resizes a pdf to Crown Quatro size (which is what a printed version, once there is one, will be using)
+* resizepdftocrownquatro.sh resizes a pdf to Crown Quatro size (which is what a printed version uses)
