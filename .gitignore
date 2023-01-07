@@ -7,7 +7,8 @@ ca.out
 ca.pdf
 ca.toc
 ca.ist
-ca.nlg
-ca.not
-ca.ntn
+ca.glg
+ca.glo
+ca.gls
+ca.rubbercache
 ca.synctex.gz
