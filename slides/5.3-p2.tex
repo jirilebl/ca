@@ -1,0 +1,316 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Residue theorem, applications (5.3 part 2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+The residue theorem is supposed to be useful in computing line integrals.
+But at first glance it seems ridiculous.  How does one compute $c_{-1}$?  By
+an integral.  Well how does that help then?  It helps because there are
+easier ways to compute $c_{-1}$ than by the line integral.  The first one is
+almost criminally trivial, but it may be good to emphasize all of them
+by making them propositions.
+
+\begin{proposition}
+Suppose $f$ is holomorphic in an open neighborhood of $p$ and $g$ is holomorphic
+with an isolated singularity at $p$, then
+$\operatorname{Res}(f+g;p) = \operatorname{Res}(g;p)$.
+\end{proposition}
+
+\begin{proof}
+For a small enough $\epsilon > 0$,
+\begin{equation*}
+\begin{split}
+\operatorname{Res}(f+g;p)
+& =
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{\epsilon}(p)}
+\bigl(f(z)+g(z)\bigr) \, dz
+\\
+& =
+\cancelto{0}{
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{\epsilon}(p)}
+f(z) \, dz
+}
++
+\frac{1}{2\pi i}
+\int_{\partial \Delta_{\epsilon}(p)}
+g(z) \, dz
+=
+\operatorname{Res}(g;p) . \qedhere
+\end{split}
+\end{equation*}
+\end{proof}
+
+\begin{proposition}
+Suppose $f$ has a pole at $p$.
+If $p$ is a simple pole of $f$, then
+\begin{equation*}
+\operatorname{Res}(f;p) = \lim_{z\to p} (z-p) f(z) .
+\end{equation*}
+More generally, if $p$ is a pole of $f$ of order $k$, then
+\begin{equation*}
+\operatorname{Res}(f;p) = \frac{1}{(k-1)!} \lim_{z\to p}
+\frac{d^{k-1}}{dz^{k-1}}\bigl[ (z-p)^{k} f(z) \bigr] .
+\end{equation*}
+\end{proposition}
+
+\begin{exercise}
+Prove the proposition.
+\end{exercise}
+
+\begin{proposition}
+Suppose $f(z) = \frac{h(z)}{g(z)}$ where $h$ and $g$ are holomorphic
+at $p$ and $g$ has a simple zero at $p$ (so $f$ has a simple pole at $p$).
+Then
+\begin{equation*}
+\operatorname{Res}(f;p) = \frac{h(p)}{g'(p)} .
+\end{equation*}
+\end{proposition}
+
+\textbf{Proof:} Exercise.
+
+\medskip
+
+A common application of the residue theorem is to compute certain real
+integrals that are difficult by classical calculus.  Let us compute
+a couple of examples.  They will also show you how one often computes
+residues.
+
+\begin{example}
+\begin{equation*}
+\int_{-\infty}^\infty \frac{1}{1+x^2} \, dx .
+\end{equation*}
+OK\@, this one is easy to compute by classical calculus, but let us ignore
+that fact for the sake of the simplicity of the example.
+
+Define the cycle $\Gamma_r = [-r,r] + \gamma_r$, where $\gamma_r(t) =
+re^{it}$ for $t \in [0,\pi]$, that is, $\gamma_r$ is the upper semi-circle
+of the circle of radius $r$ centered at the origin oriented counterclockwise.
+See {fig:rhalfcircle}.
+
+\subimport*{../figures/}{rhalfcircle.pdf_t}
+
+The cycle $\Gamma_r$.
+
+We ``complexify''
+$\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.
+That's just a fancy way of saying we are going to plug complex numbers
+into a real formula that happens to also work for complex numbers.
+By partial fractions
+\begin{equation*}
+\frac{1}{1+z^2} = \frac{1}{(z+i)(z-i)} =
+\frac{i}{2} \frac{1}{z+i} - 
+\frac{i}{2} \frac{1}{z-i} .
+\end{equation*}
+There are isolated singularities at $\pm i$, both simple poles.  The cycle
+$\Gamma_r$ goes around $i$ once, so $n(\Gamma_r;i) = 1$,
+but not around $-i$, that is, $n(\Gamma_r;-i) = 0$.
+So we only need to compute
+the residue around $i$.  We can use any one of the techniques:
+\begin{equation*}
+\operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
+\operatorname{Res}\left(
+\frac{-i}{2} \frac{1}{z-i};
+i\right) = \frac{-i}{2} ,
+\qquad
+\operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
+\lim_{z \to i} \frac{z-i}{1+z^2}
+=
+\frac{1}{2i} = \frac{-i}{2}.
+\end{equation*}
+
+We compute,
+\begin{equation*}
+\pi 
+=
+2 \pi i \operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
+\int_{\Gamma_r} \frac{1}{1+z^2} \, dz
+=
+\int_{-r}^r \frac{1}{1+x^2} \, dx
++
+\int_{\gamma_r} \frac{1}{1+z^2} \, dz .
+\end{equation*}
+Let us find the limit as $r \to \infty$ of the second term.
+Assume $r > 1$.
+The length of $\gamma_r$ is $r\pi$,
+and on $\gamma_r$,
+$\sabs{1+z^2} \geq r^2-1$.  So
+\begin{equation*}
+\abs{
+\int_{\gamma_r} \frac{1}{1+z^2} \, dz 
+}
+\leq
+r \pi \frac{1}{r^2-1}
+\quad\underset{\text{as } r \to \infty}{\to}\quad 0 .
+\end{equation*}
+Hence,
+\begin{equation*}
+\int_{-\infty}^\infty
+\frac{1}{1+x^2} \, dx
+=
+\lim_{r\to \infty} \int_{-r}^r 
+\frac{1}{1+x^2} \, dx
+= \pi .
+\end{equation*}
+Why taking the symmetric limit is sufficient to compute the double improper
+integral is left to the reader.  After all, usually one has to
+take two independent limits.
+\end{example}
+
+\begin{exercise}
+Rigorously prove that in the example above
+$n(\Gamma_r;i) = 1$ and
+$n(\Gamma_r;i) = 0$.
+\end{exercise}
+
+Another application to real integrals is to recognize 
+a path integral.  For example, integrals of trigonometric functions
+are often integrals over the unit circle.  On the unit
+circle, $\bar{z} = \nicefrac{1}{z}$.  So if $z=e^{i\theta}$,
+$\cos \theta = \Re z = \frac{z+1/z}{2}$ and
+$\sin \theta = \Im z = \frac{z-1/z}{2i}$.
+
+\begin{example}
+If $c > 1$, then
+\begin{equation*}
+\int_0^{2\pi} \frac{1}{c+\cos \theta} \, d\theta 
+=
+\int_{\partial \D} \frac{1}{c+\frac{z+1/z}{2}} \frac{1}{iz} \, dz
+=
+-2i
+\int_{\partial \D} \frac{1}{z^2 + 2cz + 1} \, dz
+.
+\end{equation*}
+The function $\frac{1}{z^2 + 2cz + 1}$ has two poles $-c \pm \sqrt{c^2-1}$,
+one inside and one outside the unit circle.  Thus
+\begin{equation*}
+\int_0^{2\pi} \frac{1}{c+\cos \theta} \, d\theta 
+=
+(-2i)
+(2 \pi i)
+\operatorname{Res}
+\left(\frac{1}{z^2 + 2cz + 1}; -c+\sqrt{c^2-1}\right)
+=
+\frac{2\pi}{\sqrt{c^2-1}}
+.
+\end{equation*}
+\end{example}
+
+\begin{exercise}
+For all integers $n \in \Z$, compute
+\begin{equation*}
+\int_{\partial \D} z^n e^{1/z} \, dz .
+\end{equation*}
+\end{exercise}
+
+\begin{exercise}
+Compute using the residue theorem
+(hint: $\cos(3x) = \Re e^{i3x}$):
+\smallskip
+\begin{expartshor}{2}
+\item
+$\displaystyle \int_{-\infty}^\infty \frac{1}{{(x^2+1)}^2} \, dx$,
+\item
+$\displaystyle \int_{-\infty}^\infty \frac{\cos(3x)}{x^4+1} \, dx$.
+\end{expartshor}
+\end{exercise}
+
+\begin{exercise}[Inverse Laplace transform]
+A common integral computed via the Residue theorem is
+the inverse Laplace transform via \emph{Mellin's inversion formula}. Given $F(s)$,
+\begin{equation*}
+f(t) = \sL^{-1}\bigl[F(s)\bigr] =
+\frac{1}{2 \pi i }
+\lim_{r \to \infty}
+\int_{c-ir}^{c+ir}
+e^{st}F(s) \, ds
+\end{equation*}
+for some $c \in \R$ (usually $c \geq 0$) is the inverse.  Compute
+(using the residue theorem):
+\smallskip
+\begin{expartshor}{2}
+\item
+$\sL^{-1}\left[ \frac{1}{s(s+1)} \right]$,
+\item
+$\sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$.
+\end{expartshor}
+\smallskip
+\noindent
+Hint: Pick the correct vertical line (pick a $c$) and an arc that goes
+around all the poles.
+\end{exercise}
+
+\begin{exercise}
+\pagebreak[2]
+Compute (using the residue theorem):
+\smallskip
+\begin{expartshor}{2}
+\item
+$\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$,
+\item
+$\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$.
+\end{expartshor}
+\end{exercise}
+
+\begin{exercise}
+Suppose that $r > 1$, $f \colon \Delta_r(0) \setminus \{ 1 \} \to \C$ is
+holomorphic, and suppose $f$ has a simple pole with $\operatorname{Res}(f;1) = 1$.
+If the power series for $f$ at 0 is $\sum_{n=0}^\infty c_n z^n$, show that
+$\lim_{n\to \infty} c_n$ exists and compute what it is.  Hint: Try
+subtracting the pole away.
+\end{exercise}
+
+\begin{exercise}
+Suppose $f$ is holomorphic on $U = \{ z \in \C : \sabs{z} > R \}$ for 
+some $R > 0$.
+Define the residue of $f$ at $\infty$,
+$\operatorname{Res}(f;\infty)$, to be the residue
+of $g(z) = -z^{-2} f(z^{-1})$ at $0$.
+\begin{exparts}
+\item
+Prove that for all $r > R$,
+\begin{equation*}
+\operatorname{Res}(f;\infty) = \frac{-1}{2\pi i} \int_{\partial \Delta_r(0)}
+f(z) \, dz .
+\end{equation*}
+That is, going around a circle in reverse is going around infinity rather
+than the center (if what we are ``going around'' is defined to be whatever
+is on our left).
+\item
+If $f$ is holomorphic on $\C$ except for finitely many isolated
+singularities.  Prove that the sum of all residues of $f$ including the
+residue at $\infty$ is zero.
+\end{exparts}
+\end{exercise}
+
+\begin{exercise}
+Use the function $f(z) = \frac{e^{-z^2/2}}{1+e^{-\sqrt{\pi}(1+i)z}}$ and
+the rectangular path with vertices $-r$, $r$, $r+i\sqrt{\pi}$,
+and $-r+i\sqrt{\pi}$
+to compute the integral $\int_{-\infty}^\infty e^{-x^2/2} \, dx$.\footnote{%
+This nifty solution is due to H.\ Kneser. The tricky bit with using the
+residue theorem is that $e^{-z^2/2}$ has no singularities itself,
+so one has to find a function that does.}
+\end{exercise}
+\end{frame}
+
+\end{document}
