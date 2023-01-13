@@ -29,7 +29,14 @@ f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 \]
 \pause
 ${(z-p)}^n$ has a primitive in 
-$\Delta_r(p) \setminus \{ p \}$ unless $n=-1$.
+$\Delta_r(p) \setminus \{ p \}$ for all $n$ except $n=-1$.
+
+\medskip
+\pause
+
+So $c_{-1}$ is the only thing left after integration. \pause It's the ``residue.''
+
+\pause
 
 \begin{definition}
 Let the \emph{residue} of $f$ at $p$ be
@@ -40,18 +47,19 @@ c_{-1} .
 \end{equation*}
 \end{definition}
 
-We know how to compute $c_{-1}$: For small enough $s > 0$,
-\begin{equation*}
+\pause
+
+For small enough $s > 0$,
+\[
 \operatorname{Res}(f;p) 
 =
+c_{-1}
+=
 \frac{1}{2\pi i} \int_{\partial \Delta_{s}(p)} f(z) \, dz .
-\end{equation*}
-Via Cauchy's theorem, we relate any integral around
-a cycle to the residues that lie inside the cycle.
-With that, we can state a theorem that is often used for computing
-integrals---even integrals that do not at all seem like line integrals or
-have any complex numbers in them.
-
+\]
+\pause
+By Cauchy, we can compute the integral over any cycle to the residues
+inside.  That's the Residue theorem.
 \end{frame}
 
 \begin{frame}
@@ -62,8 +70,6 @@ and $\Gamma$ is
 a cycle
 in $U \setminus S$
 homologous to zero in $U$.
-\footnote{As usual, this statement means that
-$n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.}
 Suppose $f \colon U \setminus S \to \C$ is holomorphic (isolated
 singularities on $S$).
 Then
@@ -72,62 +78,105 @@ Then
 \end{equation*}
 \end{theorem}
 
+{\small
+(Recall, ``homologous to zero in $U$'' means
+$n(\Gamma;z) = 0$ for all $z \in \C \setminus U$.}
+
+\medskip
+
 \textbf{Proof:}
-Let $w_1,\ldots,w_\ell$ denote the elements of $S$.
-Let $r_1,\ldots,r_\ell$ be positive numbers such that
-the closed discs
+Write $S = \{ w_1,\ldots,w_\ell \}$.
+
+\pause
+Let $r_1,\ldots,r_\ell$ be positive
+such that
+
 $\overline{\Delta_{r_1}(w_1)},\ldots, \overline{\Delta_{r_\ell}(w_\ell)}$
-are mutually disjoint (no pair of them intersects), and
+are mutually disjoint
+\pause
+
+and
 $\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$.
 
-\scalebox{0.9}{
+\pause
+\medskip
+
+\vspace*{-1.0in}
+\hspace*{2.6in}\scalebox{0.8}{
 \subimport*{../figures/}{residues.pdf_t}
 }
-\end{frame}
 
-\begin{frame}
-
-Proof of residue theorem by putting small discs around all
-singularities.  Note that $n(\Gamma;w_1) = 1$, $n(\Gamma;w_2)=0$, and
-$n(\Gamma;w_3) = 2$.
+\vspace*{-20pt}
 
 Define the cycle
-\begin{equation*}
+
+\medskip
+
+$
 \Lambda = \Gamma \,
 - \, n(\Gamma;w_1) \, \partial \Delta_{r_1} (w_1)
 \, -
 \cdots
-- \, n(\Gamma;w_\ell) \, \partial \Delta_{r_\ell} (w_\ell) .
-\end{equation*}
-We claim that
-\begin{equation*}
-n(\Lambda;p) = 0
-\end{equation*}
-for all $p \notin U \setminus S$.
-The winding number is defined by an integral and so
-\begin{equation*}
+- \, n(\Gamma;w_\ell) \, \partial \Delta_{r_\ell} (w_\ell)$.
+
+\pause
+\medskip
+
+In the picture \quad 
+$n(\Gamma;w_1) = 1$, $n(\Gamma;w_2)=0$, and
+$n(\Gamma;w_3) = 2$.
+
+\end{frame}
+
+\begin{frame}
+
+{\small \hfill Recall: 
+$\Lambda = \Gamma \,
+- \, n(\Gamma;w_1) \, \partial \Delta_{r_1} (w_1)
+\, -
+\cdots
+- \, n(\Gamma;w_\ell) \, \partial \Delta_{r_\ell} (w_\ell)$.}
+
+\medskip
+\pause
+
+Winding number is an integral so it is linear:
+\[
 n(\Lambda;p) = n(\Gamma;p)
 - n(\Gamma;w_1) \, n(\partial \Delta_{r_1} (w_1) ; p)
 -
 \cdots
 - n(\Gamma;w_\ell) \, n(\partial \Delta_{r_\ell} (w_\ell) ; p) .
-\end{equation*}
-If $p \notin U$, then $n(\Gamma;p) = 0$ as $\Gamma$ is homologous to zero in
-$U$,
-and as 
-$\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$, we get
-$n\bigl( \partial \Delta_{r_j}(w_j) ; p\bigr) = 0$, and the claim follows.
-If $p = w_k \in S$, then 
-$n\bigl( \partial \Delta_{r_j}(w_j) ; p\bigr) = 0$ if $j \not= k$,
+\]
+\pause
+If $p \notin U$ \wthus $n(\Gamma;p) = 0$ \quad (as $\Gamma$ is homologous to zero in
+$U$),
+
+\pause
+and for all $j$, \quad $n\bigl( \partial \Delta_{r_j}(w_j) ; p\bigr) = 0$
+\quad (as $\overline{\Delta_{r_j}(w_j)} \subset U$).
+
+\medskip
+\pause
+
+If $p = w_k \in S$ \wthus $n\bigl( \partial \Delta_{r_j}(w_j) ; p\bigr) = 0$ if $j \not= k$,
 and
 $n\bigl( \partial \Delta_{r_k}(w_k) ; p\bigr) = 1$.
-The claim again follows.
 
-By the homology version of the Cauchy theorem, we find
+\pause
+\medskip
+
+\thus \quad $n(\Lambda;p) = 0$ for all $p \notin U \setminus S$.
+
+\medskip
+\pause
+
+We can apply the Cauchy theorem in $U \setminus S$:
 \begin{equation*}
 0 = 
 \frac{1}{2 \pi i}
 \int_\Lambda f(z) \, dz
+\pause
 =
 \frac{1}{2 \pi i}
 \int_\Gamma f(z) \, dz
@@ -137,12 +186,12 @@ n(\Gamma;w_k)
 \frac{1}{2 \pi i}
 \int_{\partial \Delta_{r_k}(w_k)} f(z) \, dz .
 \end{equation*}
-We recognize the formula for the $c_{-1}$ term of the Laurent series at
-$w_k$, that is,
+\pause
+Recognize the formula for $c_{-1}$ at $w_k$:
 \begin{equation*}
 \frac{1}{2 \pi i}
 \int_{\partial \Delta_{r_k}(w_k)} f(z) \, dz
-= \operatorname{Res}(f;w_k) .  \qedhere
+= \operatorname{Res}(f;w_k) .
 \end{equation*}
 \qed
 \end{frame}
