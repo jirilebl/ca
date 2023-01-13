@@ -21,30 +21,61 @@ Residue theorem, applications (5.3 part 2)}
 \end{frame}
 
 \begin{frame}
-The residue theorem is supposed to be useful in computing line integrals.
-But at first glance it seems ridiculous.  How does one compute $c_{-1}$?  By
-an integral.  Well how does that help then?  It helps because there are
-easier ways to compute $c_{-1}$ than by the line integral.  The first one is
-almost criminally trivial, but it may be good to emphasize all of them
-by making them propositions.
+Recall that the residue theorem says that for a finite $S \subset U$,
+$\Gamma$ a cycle in $U \setminus S$ homologous to zero in $U$
+and $f \colon U \setminus S \to \C$ holomorphic, then
+\[
+\frac{1}{2\pi i} \int_{\Gamma} f(z) \, dz = \sum_{p \in S} n(\Gamma;p) \operatorname{Res}(f;p) ,
+\]
+where the residue $\operatorname{Res}(f;p)$ is the $c_{-1}$ term of the
+Laurent series at $p$.
 
+\medskip
+\pause
+
+$c_{-1}$ has a formula in terms of an integral.
+\pause
+So how is the residue theorem useful if it takes an integral and replaces
+it with integrals?
+
+\medskip
+\pause
+
+That's because we have lots of other tricks to compute $c_{-1}$.
+We'll go over a few.
+
+\end{frame}
+
+\begin{frame}
 \begin{proposition}
 Suppose $f$ is holomorphic in an open neighborhood of $p$ and $g$ is holomorphic
 with an isolated singularity at $p$, then
 $\operatorname{Res}(f+g;p) = \operatorname{Res}(g;p)$.
 \end{proposition}
 
-\begin{proof}
+\pause
+
+\textbf{Proof:}
 For a small enough $\epsilon > 0$,
-\begin{equation*}
-\begin{split}
+
+\medskip
+\quad
+$\displaystyle
 \operatorname{Res}(f+g;p)
-& =
+=
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{\epsilon}(p)}
 \bigl(f(z)+g(z)\bigr) \, dz
-\\
-& =
+$
+
+\medskip
+\pause
+
+\hfill
+\hfill
+\hfill
+$\displaystyle
+=
 \cancelto{0}{
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{\epsilon}(p)}
@@ -54,48 +85,56 @@ f(z) \, dz
 \frac{1}{2\pi i}
 \int_{\partial \Delta_{\epsilon}(p)}
 g(z) \, dz
+\pause
 =
-\operatorname{Res}(g;p) . \qedhere
-\end{split}
-\end{equation*}
-\end{proof}
+\operatorname{Res}(g;p)$.
+\qed
+\end{frame}
+
+\begin{frame}
+
 
 \begin{proposition}
 Suppose $f$ has a pole at $p$.
 If $p$ is a simple pole of $f$, then
-\begin{equation*}
-\operatorname{Res}(f;p) = \lim_{z\to p} (z-p) f(z) .
-\end{equation*}
-More generally, if $p$ is a pole of $f$ of order $k$, then
-\begin{equation*}
+\quad
+$\displaystyle
+\operatorname{Res}(f;p) = \lim_{z\to p} (z-p) f(z)$.
+
+\pause
+\medskip
+
+If $p$ is a pole of $f$ of order $k$, then
+\quad
+$\displaystyle
 \operatorname{Res}(f;p) = \frac{1}{(k-1)!} \lim_{z\to p}
-\frac{d^{k-1}}{dz^{k-1}}\bigl[ (z-p)^{k} f(z) \bigr] .
-\end{equation*}
+\frac{d^{k-1}}{dz^{k-1}}\bigl[ (z-p)^{k} f(z) \bigr]$.
 \end{proposition}
 
-\begin{exercise}
-Prove the proposition.
-\end{exercise}
+\pause
+
+\textbf{Proof:} Exercise.
+
+\pause
 
 \begin{proposition}
 Suppose $f(z) = \frac{h(z)}{g(z)}$ where $h$ and $g$ are holomorphic
-at $p$ and $g$ has a simple zero at $p$ (so $f$ has a simple pole at $p$).
+at $p$ and $g$ has a simple zero at $p$. % (so $f$ has a simple pole at $p$).
 Then
 \begin{equation*}
 \operatorname{Res}(f;p) = \frac{h(p)}{g'(p)} .
 \end{equation*}
 \end{proposition}
 
+\pause
+
 \textbf{Proof:} Exercise.
 
-\medskip
+\end{frame}
 
-A common application of the residue theorem is to compute certain real
-integrals that are difficult by classical calculus.  Let us compute
-a couple of examples.  They will also show you how one often computes
-residues.
+\begin{frame}
 
-\begin{example}
+\textbf{Example:}
 \begin{equation*}
 \int_{-\infty}^\infty \frac{1}{1+x^2} \, dx .
 \end{equation*}
@@ -107,7 +146,9 @@ re^{it}$ for $t \in [0,\pi]$, that is, $\gamma_r$ is the upper semi-circle
 of the circle of radius $r$ centered at the origin oriented counterclockwise.
 See {fig:rhalfcircle}.
 
+\scalebox{0.8}{
 \subimport*{../figures/}{rhalfcircle.pdf_t}
+}
 
 The cycle $\Gamma_r$.
 
@@ -174,13 +215,19 @@ Hence,
 Why taking the symmetric limit is sufficient to compute the double improper
 integral is left to the reader.  After all, usually one has to
 take two independent limits.
-\end{example}
 
-\begin{exercise}
+
+\medskip
+\pause
+
+\textbf{Exercise:}
 Rigorously prove that in the example above
 $n(\Gamma_r;i) = 1$ and
 $n(\Gamma_r;i) = 0$.
-\end{exercise}
+
+\end{frame}
+
+\begin{frame}
 
 Another application to real integrals is to recognize 
 a path integral.  For example, integrals of trigonometric functions
@@ -189,7 +236,7 @@ circle, $\bar{z} = \nicefrac{1}{z}$.  So if $z=e^{i\theta}$,
 $\cos \theta = \Re z = \frac{z+1/z}{2}$ and
 $\sin \theta = \Im z = \frac{z-1/z}{2i}$.
 
-\begin{example}
+\textbf{Example:}
 If $c > 1$, then
 \begin{equation*}
 \int_0^{2\pi} \frac{1}{c+\cos \theta} \, d\theta 
@@ -213,30 +260,15 @@ one inside and one outside the unit circle.  Thus
 \frac{2\pi}{\sqrt{c^2-1}}
 .
 \end{equation*}
-\end{example}
 
-\begin{exercise}
-For all integers $n \in \Z$, compute
-\begin{equation*}
-\int_{\partial \D} z^n e^{1/z} \, dz .
-\end{equation*}
-\end{exercise}
+\end{frame}
 
-\begin{exercise}
-Compute using the residue theorem
-(hint: $\cos(3x) = \Re e^{i3x}$):
-\smallskip
-\begin{expartshor}{2}
-\item
-$\displaystyle \int_{-\infty}^\infty \frac{1}{{(x^2+1)}^2} \, dx$,
-\item
-$\displaystyle \int_{-\infty}^\infty \frac{\cos(3x)}{x^4+1} \, dx$.
-\end{expartshor}
-\end{exercise}
+\begin{frame}
 
-\begin{exercise}[Inverse Laplace transform]
-A common integral computed via the Residue theorem is
-the inverse Laplace transform via \emph{Mellin's inversion formula}. Given $F(s)$,
+A very common application of the residue theorem is to compute
+inverse Laplace transforms.
+The \emph{Mellin's inversion formula} says that given a transform $F(s)$,
+the original $f(t)$ is given by
 \begin{equation*}
 f(t) = \sL^{-1}\bigl[F(s)\bigr] =
 \frac{1}{2 \pi i }
@@ -244,73 +276,23 @@ f(t) = \sL^{-1}\bigl[F(s)\bigr] =
 \int_{c-ir}^{c+ir}
 e^{st}F(s) \, ds
 \end{equation*}
-for some $c \in \R$ (usually $c \geq 0$) is the inverse.  Compute
-(using the residue theorem):
-\smallskip
-\begin{expartshor}{2}
-\item
-$\sL^{-1}\left[ \frac{1}{s(s+1)} \right]$,
-\item
-$\sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$.
-\end{expartshor}
-\smallskip
-\noindent
+for some $c \in \R$ (usually $c \geq 0$) is the inverse.
+
+\medskip
+\pause
+
+As an exercise, try your hand at computing a few.  Say
+
+\medskip
+
+\quad$\displaystyle \sL^{-1}\left[ \frac{1}{s(s+1)} \right]$,
+\qquad \text{or} \qquad
+$\displaystyle \sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$.
+
+\medskip
+\pause
 Hint: Pick the correct vertical line (pick a $c$) and an arc that goes
 around all the poles.
-\end{exercise}
-
-\begin{exercise}
-\pagebreak[2]
-Compute (using the residue theorem):
-\smallskip
-\begin{expartshor}{2}
-\item
-$\displaystyle \int_0^{2\pi} \frac{\cos \theta}{2+\cos \theta} \, d\theta$,
-\item
-$\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$.
-\end{expartshor}
-\end{exercise}
-
-\begin{exercise}
-Suppose that $r > 1$, $f \colon \Delta_r(0) \setminus \{ 1 \} \to \C$ is
-holomorphic, and suppose $f$ has a simple pole with $\operatorname{Res}(f;1) = 1$.
-If the power series for $f$ at 0 is $\sum_{n=0}^\infty c_n z^n$, show that
-$\lim_{n\to \infty} c_n$ exists and compute what it is.  Hint: Try
-subtracting the pole away.
-\end{exercise}
-
-\begin{exercise}
-Suppose $f$ is holomorphic on $U = \{ z \in \C : \sabs{z} > R \}$ for 
-some $R > 0$.
-Define the residue of $f$ at $\infty$,
-$\operatorname{Res}(f;\infty)$, to be the residue
-of $g(z) = -z^{-2} f(z^{-1})$ at $0$.
-\begin{exparts}
-\item
-Prove that for all $r > R$,
-\begin{equation*}
-\operatorname{Res}(f;\infty) = \frac{-1}{2\pi i} \int_{\partial \Delta_r(0)}
-f(z) \, dz .
-\end{equation*}
-That is, going around a circle in reverse is going around infinity rather
-than the center (if what we are ``going around'' is defined to be whatever
-is on our left).
-\item
-If $f$ is holomorphic on $\C$ except for finitely many isolated
-singularities.  Prove that the sum of all residues of $f$ including the
-residue at $\infty$ is zero.
-\end{exparts}
-\end{exercise}
-
-\begin{exercise}
-Use the function $f(z) = \frac{e^{-z^2/2}}{1+e^{-\sqrt{\pi}(1+i)z}}$ and
-the rectangular path with vertices $-r$, $r$, $r+i\sqrt{\pi}$,
-and $-r+i\sqrt{\pi}$
-to compute the integral $\int_{-\infty}^\infty e^{-x^2/2} \, dx$.\footnote{%
-This nifty solution is due to H.\ Kneser. The tricky bit with using the
-residue theorem is that $e^{-z^2/2}$ has no singularities itself,
-so one has to find a function that does.}
-\end{exercise}
 \end{frame}
 
 \end{document}
