@@ -115,6 +115,7 @@ $\displaystyle
 
 \textbf{Proof:} Exercise.
 
+\medskip
 \pause
 
 \begin{proposition}
@@ -138,136 +139,200 @@ Then
 \begin{equation*}
 \int_{-\infty}^\infty \frac{1}{1+x^2} \, dx .
 \end{equation*}
-OK\@, this one is easy to compute by classical calculus, but let us ignore
-that fact for the sake of the simplicity of the example.
+\pause
+{\small (Yes, I know you can compute this in other ways, but it's nice and
+simple.)}
 
-Define the cycle $\Gamma_r = [-r,r] + \gamma_r$, where $\gamma_r(t) =
-re^{it}$ for $t \in [0,\pi]$, that is, $\gamma_r$ is the upper semi-circle
-of the circle of radius $r$ centered at the origin oriented counterclockwise.
-See {fig:rhalfcircle}.
+\pause
+\medskip
 
+Let $\Gamma_r = [-r,r] + \gamma_r$,
+~~
+where $\gamma_r(t) =
+re^{it}$ for $t \in [0,\pi]$
+
+\vspace*{-8pt}
+\hspace*{3in}%
 \scalebox{0.8}{
 \subimport*{../figures/}{rhalfcircle.pdf_t}
 }
 
-The cycle $\Gamma_r$.
+\pause
+\vspace*{-1.2in}
 
-We ``complexify''
-$\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.
-That's just a fancy way of saying we are going to plug complex numbers
-into a real formula that happens to also work for complex numbers.
-By partial fractions
-\begin{equation*}
-\frac{1}{1+z^2} = \frac{1}{(z+i)(z-i)} =
+``complexify''
+$\dfrac{1}{1+x^2}$ to make it $\dfrac{1}{1+z^2}$.
+
+\medskip
+\pause
+
+$\displaystyle
+\frac{1}{1+z^2} = \frac{1}{(z+i)(z-i)} \pause =
 \frac{i}{2} \frac{1}{z+i} - 
-\frac{i}{2} \frac{1}{z-i} .
-\end{equation*}
-There are isolated singularities at $\pm i$, both simple poles.  The cycle
-$\Gamma_r$ goes around $i$ once, so $n(\Gamma_r;i) = 1$,
-but not around $-i$, that is, $n(\Gamma_r;-i) = 0$.
-So we only need to compute
-the residue around $i$.  We can use any one of the techniques:
-\begin{equation*}
+\frac{i}{2} \frac{1}{z-i}$
+
+\medskip
+\pause
+
+Two singularities, $\pm i$, both simple poles. 
+
+$n(\Gamma_r;i) = 1$ and $n(\Gamma_r;-i) = 0$ \quad (exercise).
+
+\medskip
+\pause
+
+Let's compute the residue at $i$ in two ways.
+
+\medskip
+\pause
+
+$\displaystyle
 \operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
 \operatorname{Res}\left(
 \frac{-i}{2} \frac{1}{z-i};
 i\right) = \frac{-i}{2} ,
 \qquad
+\pause
 \operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
 \lim_{z \to i} \frac{z-i}{1+z^2}
 =
-\frac{1}{2i} = \frac{-i}{2}.
-\end{equation*}
+\frac{1}{2i} = \frac{-i}{2}$.
 
-We compute,
-\begin{equation*}
+\medskip
+\pause
+
+Compute: \quad
+$\displaystyle
 \pi 
 =
-2 \pi i \operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
+2 \pi i \operatorname{Res}\left(\frac{1}{1+z^2};i\right)
+\pause
+=
 \int_{\Gamma_r} \frac{1}{1+z^2} \, dz
+\pause
 =
 \int_{-r}^r \frac{1}{1+x^2} \, dx
 +
-\int_{\gamma_r} \frac{1}{1+z^2} \, dz .
-\end{equation*}
-Let us find the limit as $r \to \infty$ of the second term.
-Assume $r > 1$.
-The length of $\gamma_r$ is $r\pi$,
-and on $\gamma_r$,
-$\sabs{1+z^2} \geq r^2-1$.  So
-\begin{equation*}
+\int_{\gamma_r} \frac{1}{1+z^2} \, dz$.
+
+\end{frame}
+
+\begin{frame}
+\qquad $\displaystyle \pi 
+=
+\int_{-r}^r \frac{1}{1+x^2} \, dx
++
+\int_{\gamma_r} \frac{1}{1+z^2} \, dz$.
+
+\pause
+\medskip
+
+Want to take the limit $r \to \infty$. \pause Assume $r > 1$.
+
+\medskip
+\pause
+
+Length of $\gamma_r$ is $r\pi$.  \quad \pause On $\gamma_r$, $\sabs{1+z^2} \geq r^2-1$.
+
+\medskip
+\pause
+
+\qquad $\displaystyle
 \abs{
 \int_{\gamma_r} \frac{1}{1+z^2} \, dz 
 }
 \leq
 r \pi \frac{1}{r^2-1}
+\pause
 \quad\underset{\text{as } r \to \infty}{\to}\quad 0 .
-\end{equation*}
-Hence,
-\begin{equation*}
-\int_{-\infty}^\infty
-\frac{1}{1+x^2} \, dx
-=
-\lim_{r\to \infty} \int_{-r}^r 
-\frac{1}{1+x^2} \, dx
-= \pi .
-\end{equation*}
-Why taking the symmetric limit is sufficient to compute the double improper
-integral is left to the reader.  After all, usually one has to
-take two independent limits.
-
+$
 
 \medskip
 \pause
 
-\textbf{Exercise:}
-Rigorously prove that in the example above
-$n(\Gamma_r;i) = 1$ and
-$n(\Gamma_r;i) = 0$.
+So
+
+\medskip
+\qquad
+$\displaystyle
+\int_{-\infty}^\infty
+\frac{1}{1+x^2} \, dx
+\pause
+=
+\lim_{r\to \infty} \int_{-r}^r 
+\frac{1}{1+x^2} \, dx
+\pause
+= \pi$.
+
+\bigskip
+\pause
+
+\emph{Minor technicality:} why the symmetric limit is
+sufficient?
 
 \end{frame}
 
 \begin{frame}
 
-Another application to real integrals is to recognize 
-a path integral.  For example, integrals of trigonometric functions
-are often integrals over the unit circle.  On the unit
-circle, $\bar{z} = \nicefrac{1}{z}$.  So if $z=e^{i\theta}$,
-$\cos \theta = \Re z = \frac{z+1/z}{2}$ and
+Sometimes we just recognize a path integral.
+
+\medskip
+\pause
+
+Often, integrals of trigonometric functions are integrals over the unit
+circle.
+
+On the unit circle
+$\bar{z} = \nicefrac{1}{z}$. \quad  So if $z=e^{i\theta}$, \quad
+$\cos \theta = \Re z = \frac{z+1/z}{2}$ ~and~
 $\sin \theta = \Im z = \frac{z-1/z}{2i}$.
 
+\pause
+\medskip
+
 \textbf{Example:}
-If $c > 1$, then
-\begin{equation*}
+Suppose $c > 1$.
+
+\medskip
+
+\qquad$\displaystyle
 \int_0^{2\pi} \frac{1}{c+\cos \theta} \, d\theta 
+\pause
 =
 \int_{\partial \D} \frac{1}{c+\frac{z+1/z}{2}} \frac{1}{iz} \, dz
+\pause
 =
 -2i
-\int_{\partial \D} \frac{1}{z^2 + 2cz + 1} \, dz
-.
-\end{equation*}
-The function $\frac{1}{z^2 + 2cz + 1}$ has two poles $-c \pm \sqrt{c^2-1}$,
-one inside and one outside the unit circle.  Thus
-\begin{equation*}
+\int_{\partial \D} \frac{1}{z^2 + 2cz + 1} \, dz$.
+
+\pause
+\medskip
+
+$\dfrac{1}{z^2 + 2cz + 1}$ has two poles: $-c \pm \sqrt{c^2-1}$,
+one inside and one outside the unit circle.
+
+\pause
+\medskip
+
+\qquad$\displaystyle
 \int_0^{2\pi} \frac{1}{c+\cos \theta} \, d\theta 
 =
 (-2i)
 (2 \pi i)
 \operatorname{Res}
 \left(\frac{1}{z^2 + 2cz + 1}; -c+\sqrt{c^2-1}\right)
+\pause
 =
-\frac{2\pi}{\sqrt{c^2-1}}
-.
-\end{equation*}
+\frac{2\pi}{\sqrt{c^2-1}}$.
 
 \end{frame}
 
 \begin{frame}
 
-A very common application of the residue theorem is to compute
+A common computation via the residue theorem are
 inverse Laplace transforms.
-The \emph{Mellin's inversion formula} says that given a transform $F(s)$,
+
+\emph{Mellin's inversion formula} says that given a transform $F(s)$,
 the original $f(t)$ is given by
 \begin{equation*}
 f(t) = \sL^{-1}\bigl[F(s)\bigr] =
@@ -285,7 +350,7 @@ As an exercise, try your hand at computing a few.  Say
 
 \medskip
 
-\quad$\displaystyle \sL^{-1}\left[ \frac{1}{s(s+1)} \right]$,
+\qquad$\displaystyle \sL^{-1}\left[ \frac{1}{s(s+1)} \right]$,
 \qquad \text{or} \qquad
 $\displaystyle \sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$.
 
