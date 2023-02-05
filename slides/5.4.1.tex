@@ -1,0 +1,204 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+The argument principle (5.4.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\emph{zeros/poles counted with multiplicity}:
+$f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
+
+\pause
+
+\begin{theorem}[Argument principle]\index{argument principle}\label{thm:argprinc}
+Suppose $U \subset \C$ is open and $\Gamma$ is
+a cycle in $U$
+homologous to zero in $U$.
+Suppose $f \colon U \to \C_\infty$ is a meromorphic function with no zeros
+or poles on $\Gamma$.
+Let $z_1,\ldots,z_n$ denote the 
+zeros of $f$ counted with multiplicity,
+and let $p_1,\ldots,p_\ell$ denote the poles of $f$ counted with multiplicity.
+Then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\Gamma \frac{f'(z)}{f(z)} \, dz
+=
+\sum_{k=1}^n n(\Gamma;z_k)
+\quad
+-
+\quad
+\sum_{k=1}^\ell n(\Gamma;p_k) .
+\end{equation*}
+\pause
+Furthermore, if $h \colon U \to \C$ is holomorphic, then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
+=
+\sum_{k=1}^n n(\Gamma;z_k)h(z_k) 
+\quad
+-
+\quad
+\sum_{k=1}^\ell n(\Gamma;p_k)h(p_k) .
+\end{equation*}
+\end{theorem}
+
+\pause
+
+\medskip
+
+Poles/zero normally countable, but can assume finite above.
+
+\end{frame}
+
+\begin{frame}
+
+Suppose $n(\Gamma;z) = 1$ or $0$ for all $z \in U$.
+
+\medskip
+
+The ``inside of
+$\Gamma$'' are the points where $n(\Gamma;z)=1$.
+
+\medskip
+
+If there are
+$n$ zeros and $\ell$ poles (counting multiplicity) inside $\Gamma$, then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\Gamma \frac{f'(z)}{f(z)} \, dz
+= n - \ell .
+\end{equation*}
+
+\bigskip
+\pause 
+
+The integral $\int_{\Gamma} \frac{f'(z)}{f(z)} \, dz$
+gives $i$ times the change in argument of $f$ as we traverse $\Gamma$,
+since the ``antiderivative'' of 
+$\frac{f'(z)}{f(z)}$ is $\log f(z) = \log \sabs{f(z)} + i \arg f(z)$.
+
+\bigskip
+\pause
+
+Another interpretation:
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_{\gamma} \frac{f'(z)}{f(z)} \, dz = 
+\frac{1}{2\pi i}
+\int_{f \circ \gamma} \frac{1}{\zeta} \, d\zeta 
+=
+n(f \circ \gamma ; 0 )
+.
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}
+\textbf{Proof:}
+$h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
+at the zeros and poles of $f$.
+\pause
+Let $S$ be the set of zeros and poles of $f$.
+\pause
+By residue theorem
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
+=
+\sum_{p \in S} n(\Gamma;p)\operatorname{Res}\left(h \, \frac{f'}{f};p\right) .
+\end{equation*}
+\pause
+Consider a zero of $f$ of multiplicity $m$ or pole of
+order $-m$.
+
+WLOG suppose it is the origin.
+
+\medskip
+\pause
+
+Write $f(z)  = z^m F(z)$ where $F(0) \not=0$
+and $h(z) = h(0) + z H(z)$.
+\pause
+\[
+h(z) \frac{f'(z)}{f(z)}
+=
+\bigl( h(0) + z H(z) \bigr)
+\frac{m z^{m-1} F(z) + z^m F'(z)}{z^m F(z)}
+\pause
+%=
+%\bigl( h(0) + z H(z) \bigr)
+%\frac{m F(z) + z F'(z)}{z F(z)}
+%\\
+=
+m\, h(0) 
+\frac{1}{z}
++
+h(0) 
+\frac{F'(z)}{F(z)}
++
+H(z)
+\frac{m F(z) + z F'(z)}{F(z)} .
+\]
+\pause
+Everything except $m\, h(0) \frac{1}{z}$ is holomorphic.
+So
+\[
+\operatorname{Res}\left(h \, \frac{f'}{f};0\right) = m\, h(0)
+\qed
+\]
+\end{frame}
+
+\begin{frame}
+Application:
+Locate zeros of holomorphic $f$ (e.g.\ polynomials) by computing
+
+(even numerically)
+\[
+\frac{1}{2\pi i}
+\int_\Gamma \frac{f'(z)}{f(z)} \, dz .
+\]
+
+\pause
+
+Related application:
+
+If $z_1,\ldots,z_n$ are zeros of $f$ inside $\Gamma$ (going around them once), then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\Gamma z^k \, \frac{f'(z)}{f(z)} \, dz
+=
+z_1^k + \cdots + z_n^k .
+\end{equation*}
+
+\pause
+
+If there is one simple zero $z_0$ of
+$f$ within $\Gamma$, then
+\begin{equation*}
+\frac{1}{2\pi i}
+\int_\Gamma z \, \frac{f'(z)}{f(z)} \, dz
+=
+z_0 .
+\end{equation*}
+
+\end{frame}
+
+\end{document}

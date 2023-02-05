@@ -1,0 +1,231 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Rouch\'e's theorem (5.4.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Two holomorphic functions that are close on a cycle
+have the same number of zeros inside.
+
+\pause
+\bigskip
+
+For meromorphic functions the difference of zeros and poles
+is the same.
+
+\pause
+\bigskip
+
+\textbf{Example:} $z^2$ and $(z-\epsilon)(z+\epsilon)$ are close on $\partial \D$.
+
+\pause
+\bigskip
+
+\textbf{Example:} $1$ and $\frac{z-\epsilon}{z+\epsilon}$ are close on $\partial \D$.
+
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Rouch\'e]
+Suppose $U \subset \C$ is open, $\Gamma$ is
+a cycle in $U$ homologous to zero in $U$,
+and $n(\Gamma;z)$ is either $0$ or $1$ for $z \notin \Gamma$.
+\pause
+Suppose that $f \colon U \to \C_\infty$ and $g \colon U \to \C_\infty$
+are meromorphic functions with no zeros or poles on
+$\Gamma$ such that
+\[
+\sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}
+\qquad
+\text{for all } z \in \Gamma .
+\]
+\pause
+Let $V = \{ z \in U : n(\Gamma;z) = 1 \}$.
+Let $N_f$, $N_g$ be the number of zeros in $V$
+and $P_f$, $P_g$ the number of poles in $V$ (both up to multiplicity)
+of $f$ and $g$ respectively.
+\pause
+Then
+\begin{equation*}
+N_f - P_f = 
+N_g - P_g.
+\end{equation*}
+\end{theorem}
+
+\pause
+
+\begin{corollary}[Rouch\'e]
+Let $U$, $\Gamma$ and $V$ be as in the theorem.
+Suppose $f \colon U \to \C$ and $g \colon U \to \C$
+are holomorphic such that
+$\sabs{f(z)-g(z)} < \sabs{f(z)}+\sabs{g(z)}$
+for all $z \in \Gamma$.  Then $f$ and $g$ have the same number of zeros (up
+to multiplicity) in $V$.
+\end{corollary}
+\end{frame}
+
+\begin{frame}
+Classical statement of the theorem uses the weaker inequality
+\[
+\sabs{f(z)-g(z)} < \sabs{f(z)}
+\]
+
+\pause
+
+It has a nice geometric interpretation:
+
+\begin{center}
+\scalebox{0.9}{
+\subimport*{../figures/}{dogandtree.pdf_t}
+}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\textbf{Proof:}
+\begin{equation*}
+\abs{\frac{f(z)}{g(z)} - 1} <
+\abs{\frac{f(z)}{g(z)}} + 1 .
+\end{equation*}
+So
+$\varphi(z) = \frac{f(z)}{g(z)}$ is never negative (and it is never zero) on
+$\Gamma$ (hence on a neighborhood).
+
+\pause
+\medskip
+
+Let $\Log$ be the principal branch of log on $\C \setminus (-\infty,0]$.
+
+\pause
+\medskip
+
+The function
+$\frac{\varphi'}{\varphi}$ has an antiderivative $\Log \circ \varphi$ on a neighborhood of $\Gamma$.
+
+\pause
+\medskip
+
+By Cauchy's theorem for derivatives,
+together with the argument principle:
+
+\medskip
+
+$
+\displaystyle
+\qquad
+0
+= \frac{1}{2\pi i} \int_{\Gamma} \frac{\varphi'(z)}{\varphi(z)} \, dz
+\pause
+=
+\frac{1}{2\pi i} \int_{\Gamma}
+\left( \frac{f'(z)}{f(z)} - \frac{g'(z)}{g(z)} \right) \, dz 
+$
+
+\medskip
+\pause
+
+$\displaystyle
+\qquad\qquad
+=
+\frac{1}{2\pi i} \int_{\Gamma}
+\frac{f'(z)}{f(z)} \, dz 
+-
+\frac{1}{2\pi i} \int_{\Gamma}
+\frac{g'(z)}{g(z)} \, dz 
+\pause
+=
+(N_f - P_f) - (N_g - P_g) .
+\quad
+$
+\qed
+\end{frame}
+
+\begin{frame}
+The classical hypothesis $\sabs{f(z)-g(z)} < \sabs{f(z)}$ is often
+sufficient.
+
+\medskip
+\pause
+
+\textbf{Example:}
+Consider $P(z) = z^n + 1$.
+Let us use Rouch\'e to show that all the zeros are on $\partial \D$.
+
+\medskip
+\pause
+
+On $\partial \Delta_{1-\epsilon}(0)$,
+\[
+\abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
+\]
+\pause
+By Rouch\'e ($P(z)$ is the dog and $1$ is the master)
+$P(z)$ and $1$ have the same number of zeros in 
+$\Delta_{1-\epsilon}(0)$.
+
+\medskip
+\pause
+
+On $\partial \Delta_{1+\epsilon}(0)$,
+\begin{equation*}
+\abs{P(z) - z^n} = 1 < \abs{z^n} .
+\end{equation*}
+By Rouch\'e,
+$P(z)$ and $z^n$ have the same number of zeros in 
+$\Delta_{1+\epsilon}(0)$.
+\end{frame}
+
+\begin{frame}
+\textbf{Example:}
+Consider $P(z) = z^4+12z^3+24z^2+4z+6$.
+\pause
+On $\partial \D$,
+\begin{multline*}
+\abs{P(z)-(z^4+24z^2)} =
+\abs{12z^3+4z+6} \leq
+\abs{12z^3}+\abs{4z}+\abs{6} \\
+= 22 < 23 = \abs{\sabs{24 z^2} - \sabs{z^4}}
+\leq \sabs{z^4+24z^2} .
+\end{multline*}
+\pause
+$z^4+24z^2$ has zeros at $\pm \sqrt{24} i$ (outside $\D$)
+and two zeros at the origin (inside $\D$).  So
+$P(z)$ also has two zeros in $\D$.
+
+\pause
+\medskip
+
+If $\sabs{z} = 46+\epsilon$, then
+\[
+\abs{P(z)-z^4} = \abs{12z^3+24z^2+4z+6}
+\leq 46 \sabs{z}^3 < {\sabs{z}}^4 = \abs{z^4}.
+\]
+\pause
+So all four zeros satisfy $\sabs{z} < 46+\epsilon$, that is,
+$\sabs{z} \leq 46$.
+
+\pause
+\medskip
+
+(Actually the largest zero of $P$ has modulus less than 10).
+\end{frame}
+
+\end{document}
