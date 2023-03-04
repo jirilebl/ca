@@ -23240,13 +23240,13 @@ $f(x) = x$, and show that $x = \sqrt{2}$.
 \subsection{Inverse function theorem}
 \label{subsec:svinvfuncthm}
 
-To prove the inverse function theorem, we use the contraction mapping
-principle (\thmref{thm:contr}).
 Intuitively, we again consider that if a function is continuously differentiable, then it
 locally \myquote{behaves like} the derivative (a linear function).
 The idea of the inverse function theorem is that if a function is
 continuously differentiable and the derivative is invertible, the function is
 (locally) invertible.
+%To prove the theorem, we use the contraction mapping
+%principle (\thmref{thm:contr}).
 
 \begin{thm}[Inverse function theorem]\index{inverse function theorem}
 \label{thm:inverse}
@@ -23346,7 +23346,8 @@ C(x_0,r)$, then
 So $\varphi_y$ takes $C(x_0,r)$ into $B(x_0,r) \subset C(x_0,r)$.  It is a
 contraction on $C(x_0,r)$ and $C(x_0,r)$ is complete (closed subset of $\R^n$
 is complete).
-Apply the contraction mapping principle to obtain a fixed point $x$,
+Apply the contraction mapping principle (\thmref{thm:contr})
+to obtain a fixed point $x$,
 i.e., $\varphi_y(x) = x$.  That is, $f(x) = y$, and $y \in
 f\bigl(C(x_0,r)\bigr) \subset f(V) = W$.  Therefore, $W$ is open.
 
