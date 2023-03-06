@@ -23034,9 +23034,9 @@ v =
 \end{equation*}
 Let $\epsilon > 0$ be given.  By the induction hypothesis, there
 is a $\delta > 0$ such that
-for any $r \in \R^{n-1}$ with $\snorm{r} < \delta$,
+for any $h' \in \R^{n-1}$ with $\snorm{h'} < \delta$,
 \begin{equation*}
-\frac{\snorm{f(p+r) - f(p) - A' r}}{\snorm{r}} < \epsilon .
+\frac{\snorm{f(p+h') - f(p) - A' h'}}{\snorm{h'}} < \epsilon .
 \end{equation*}
 By continuity of the partial derivatives, suppose $\delta$ is small
 enough so that
@@ -23046,39 +23046,39 @@ enough so that
 \end{equation*}
 for all $k$ and all $h \in \R^n$ with $\snorm{h} < \delta$.
 
-Suppose $h = r + t e_n$ is a vector in $\R^n$, where $r \in \R^{n-1}$, $t
-\in \R$, such that
-$\snorm{h} < \delta$.  Then $\snorm{r} \leq \snorm{h} < \delta$.
-Note that $Ah = A' r + tv$.
+Suppose $h = h' + t e_n$ is a vector in $\R^n$, where $h' \in \R^{n-1}$,
+$t \in \R$, such that
+$\snorm{h} < \delta$.  Then $\snorm{h'} \leq \snorm{h} < \delta$.
+Note that $Ah = A' h' + tv$.
 \begin{equation*}
 \begin{split}
 \snorm{f(p+h) - f(p) - Ah}
-& = \snorm{f(p+r + t e_n) - f(p+r) - tv + f(p+r) - f(p) - A' r}
+& = \snorm{f(p+h' + t e_n) - f(p+h') - tv + f(p+h') - f(p) - A' h'}
 \\
-& \leq \snorm{f(p+r + t e_n) - f(p+r) -tv} + \snorm{f(p+r) - f(p) -
-A' r}
+& \leq \snorm{f(p+h' + t e_n) - f(p+h') -tv} + \snorm{f(p+h') - f(p) -
+A' h'}
 \\
-& \leq \snorm{f(p+r + t e_n) - f(p+r) -tv} + \epsilon \snorm{r} .
+& \leq \snorm{f(p+h' + t e_n) - f(p+h') -tv} + \epsilon \snorm{h'} .
 \end{split}
 \end{equation*}
 As all the partial derivatives exist, by the mean value theorem,
 for each $k$ there is a $\theta_k$, where $\sabs{\theta_k} \leq \sabs{t}$, such that
 \begin{equation*}
-f_k(p+r + t e_n) - f_k(p+r) =
-t \frac{\partial f_k}{\partial x_n}\Big|_{(p+r+\theta_k e_n)}.
+f_k(p+h' + t e_n) - f_k(p+h') =
+t \frac{\partial f_k}{\partial x_n}\Big|_{(p+h'+\theta_k e_n)}.
 \end{equation*}
-Note that $\snorm{r+\theta_k e_n} \leq \snorm{h} < \delta$.
+Note that $\snorm{h'+\theta_k e_n} \leq \snorm{h} < \delta$.
 To finish,
 \begin{equation*}
 \begin{split}
 \snorm{f(p+h) - f(p) - Ah}
-& \leq \snorm{f(p+r + t e_n) - f(p+r) -tv} + \epsilon \snorm{r}
+& \leq \snorm{f(p+h' + t e_n) - f(p+h') -tv} + \epsilon \snorm{h'}
 \\
 & \leq \sqrt{\sum_{k=1}^m
-{\left(t\frac{\partial f_k}{\partial x_n}\Big|_{(p+r+\theta_k e_n)} -
-t \frac{\partial f_k}{\partial x_n}\Big|_{p}\right)}^2} + \epsilon \snorm{r}
+{\left(t\frac{\partial f_k}{\partial x_n}\Big|_{(p+h'+\theta_k e_n)} -
+t \frac{\partial f_k}{\partial x_n}\Big|_{p}\right)}^2} + \epsilon \snorm{h'}
 \\
-& \leq \sqrt{m}\, \epsilon \sabs{t} + \epsilon \snorm{r}
+& \leq \sqrt{m}\, \epsilon \sabs{t} + \epsilon \snorm{h'}
 \\
 & \leq (\sqrt{m}+1)\epsilon \snorm{h} . \qedhere
 \end{split}
