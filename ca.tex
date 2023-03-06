@@ -22983,7 +22983,7 @@ $f$ is differentiable.
 \end{prop}
 
 \begin{proof}
-Fix $x \in U$.  We do induction on dimension.  The case $n=1$ is left
+Fix $p \in U$.  We do induction on dimension.  The case $n=1$ is left
 as an exercise.
 Suppose the conclusion is true for $\R^{n-1}$,
 that is,
@@ -22999,86 +22999,86 @@ Let
 \begin{equation*}
 A = 
 \begin{bmatrix}
-\frac{\partial f_1}{\partial x_1}\big|_x
+\frac{\partial f_1}{\partial x_1}\big|_p
 & \ldots &
-\frac{\partial f_1}{\partial x_n}\big|_x
+\frac{\partial f_1}{\partial x_n}\big|_p
 \\
 \vdots & \ddots & \vdots
 \\
-\frac{\partial f_m}{\partial x_1}\big|_x
+\frac{\partial f_m}{\partial x_1}\big|_p
 & \ldots &
-\frac{\partial f_m}{\partial x_n}\big|_x
+\frac{\partial f_m}{\partial x_n}\big|_p
 \end{bmatrix} ,
 \qquad
 A' = 
 \begin{bmatrix}
-\frac{\partial f_1}{\partial x_1}\big|_x
+\frac{\partial f_1}{\partial x_1}\big|_p
 & \ldots &
-\frac{\partial f_1}{\partial x_{n-1}}\big|_x
+\frac{\partial f_1}{\partial x_{n-1}}\big|_p
 \\
 \vdots & \ddots & \vdots
 \\
-\frac{\partial f_m}{\partial x_1}\big|_x
+\frac{\partial f_m}{\partial x_1}\big|_p
 & \ldots &
-\frac{\partial f_m}{\partial x_{n-1}}\big|_x
+\frac{\partial f_m}{\partial x_{n-1}}\big|_p
 \end{bmatrix} ,
 \qquad
 v = 
 \begin{bmatrix}
-\frac{\partial f_1}{\partial x_n}\big|_x
+\frac{\partial f_1}{\partial x_n}\big|_p
 \\
 \vdots
 \\
-\frac{\partial f_m}{\partial x_n}\big|_x
+\frac{\partial f_m}{\partial x_n}\big|_p
 \end{bmatrix} .
 \end{equation*}
 Let $\epsilon > 0$ be given.  By the induction hypothesis, there
 is a $\delta > 0$ such that
-for any $k \in \R^{n-1}$ with $\snorm{k} < \delta$,
+for any $r \in \R^{n-1}$ with $\snorm{r} < \delta$,
 \begin{equation*}
-\frac{\snorm{f(x+k) - f(x) - A' k}}{\snorm{k}} < \epsilon .
+\frac{\snorm{f(p+r) - f(p) - A' r}}{\snorm{r}} < \epsilon .
 \end{equation*}
 By continuity of the partial derivatives, suppose $\delta$ is small
 enough so that
 \begin{equation*}
-\abs{\frac{\partial f_j}{\partial x_n}\Big|_{x+h}
-      - \frac{\partial f_j}{\partial x_n}\Big|_{x}} < \epsilon ,
+\abs{\frac{\partial f_k}{\partial x_n}\Big|_{p+h}
+      - \frac{\partial f_k}{\partial x_n}\Big|_{p}} < \epsilon ,
 \end{equation*}
-for all $j$ and all $h \in \R^n$ with $\snorm{h} < \delta$.
+for all $k$ and all $h \in \R^n$ with $\snorm{h} < \delta$.
 
-Suppose $h = k + t e_n$ is a vector in $\R^n$, where $k \in \R^{n-1}$, $t
+Suppose $h = r + t e_n$ is a vector in $\R^n$, where $r \in \R^{n-1}$, $t
 \in \R$, such that
-$\snorm{h} < \delta$.  Then $\snorm{k} \leq \snorm{h} < \delta$.
-Note that $Ah = A' k + tv$.
+$\snorm{h} < \delta$.  Then $\snorm{r} \leq \snorm{h} < \delta$.
+Note that $Ah = A' r + tv$.
 \begin{equation*}
 \begin{split}
-\snorm{f(x+h) - f(x) - Ah}
-& = \snorm{f(x+k + t e_n) - f(x+k) - tv + f(x+k) - f(x) - A' k}
+\snorm{f(p+h) - f(p) - Ah}
+& = \snorm{f(p+r + t e_n) - f(p+r) - tv + f(p+r) - f(p) - A' r}
 \\
-& \leq \snorm{f(x+k + t e_n) - f(x+k) -tv} + \snorm{f(x+k) - f(x) -
-A' k}
+& \leq \snorm{f(p+r + t e_n) - f(p+r) -tv} + \snorm{f(p+r) - f(p) -
+A' r}
 \\
-& \leq \snorm{f(x+k + t e_n) - f(x+k) -tv} + \epsilon \snorm{k} .
+& \leq \snorm{f(p+r + t e_n) - f(p+r) -tv} + \epsilon \snorm{r} .
 \end{split}
 \end{equation*}
 As all the partial derivatives exist, by the mean value theorem,
-for each $j$ there is some $\theta_j \in [0,t]$ (or $[t,0]$ if $t < 0$), such that
+for each $k$ there is a $\theta_k$, where $\sabs{\theta_k} \leq \sabs{t}$, such that
 \begin{equation*}
-f_j(x+k + t e_n) - f_j(x+k) =
-t \frac{\partial f_j}{\partial x_n}\Big|_{(x+k+\theta_j e_n)}.
+f_k(p+r + t e_n) - f_k(p+r) =
+t \frac{\partial f_k}{\partial x_n}\Big|_{(p+r+\theta_k e_n)}.
 \end{equation*}
-Note that $\snorm{k+\theta_j e_n} \leq \snorm{h} < \delta$.
+Note that $\snorm{r+\theta_k e_n} \leq \snorm{h} < \delta$.
 To finish,
 \begin{equation*}
 \begin{split}
-\snorm{f(x+h) - f(x) - Ah}
-& \leq \snorm{f(x+k + t e_n) - f(x+k) -tv} + \epsilon \snorm{k}
+\snorm{f(p+h) - f(p) - Ah}
+& \leq \snorm{f(p+r + t e_n) - f(p+r) -tv} + \epsilon \snorm{r}
 \\
-& \leq \sqrt{\sum_{j=1}^m
-{\left(t\frac{\partial f_j}{\partial x_n}\Big|_{(x+k+\theta_j e_n)} -
-t \frac{\partial f_j}{\partial x_n}\Big|_{x}\right)}^2} + \epsilon \snorm{k}
+& \leq \sqrt{\sum_{k=1}^m
+{\left(t\frac{\partial f_k}{\partial x_n}\Big|_{(p+r+\theta_k e_n)} -
+t \frac{\partial f_k}{\partial x_n}\Big|_{p}\right)}^2} + \epsilon \snorm{r}
 \\
-& \leq \sqrt{m}\, \epsilon \sabs{t} + \epsilon \snorm{k}
+& \leq \sqrt{m}\, \epsilon \sabs{t} + \epsilon \snorm{r}
 \\
 & \leq (\sqrt{m}+1)\epsilon \snorm{h} . \qedhere
 \end{split}
