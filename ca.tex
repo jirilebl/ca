@@ -11397,11 +11397,12 @@ and $z-(1+\nicefrac{1}{n})$ does not.
 
 \begin{example}
 For every integer $k > 0$, there is an $N$ such that
+for all $d \geq N$,
 the polynomial
 \begin{equation*}
 P_d(z) = \sum_{n=0}^d \frac{{(-1)}^n}{(2n)!}z^{2n}
 \end{equation*}
-has exactly $2k$ zeros in $\Delta_{\pi k}(0)$ for all $d \geq N$.
+has exactly $2k$ zeros in $\Delta_{\pi k}(0)$.
 This claim follows as $\cos(z)$ has exactly $2k$ zeros in that disc
 and the polynomials $P_d$ are the partial sums of the power series of
 cosine, which converges uniformly on compact subsets.
@@ -11445,7 +11446,7 @@ to $f \colon U \to \C$.  Then $f$ is either injective or constant.
 \begin{proof}
 Assume $f$ is nonconstant.
 Suppose there exist distinct $z_1$ and $z_2$ in $U$ such that $f(z_1) =
-f(z_2) = w$.  Consider $f-w$, which has isolated zeros at $z_1$ and $z_2$.
+f(z_2) = w$.  The function $f-w$ has isolated zeros at $z_1$ and $z_2$.
 Consider two small discs $\Delta_r(z_1)$ and $\Delta_r(z_2)$ contained in
 $U$, whose closures are disjoint,
 and such that $f-w$ is not zero on

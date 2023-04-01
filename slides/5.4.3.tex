@@ -1,0 +1,192 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Hurwitz's theorem (5.4.3)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Hurwitz]
+Let $U \subset \C$ be open and $f_n \colon U \to \C$ a sequence of
+holomorphic functions converging uniformly on compact subsets
+to a holomorphic $f \colon U \to \C$.  Suppose $\Gamma$ is
+a cycle in $U$ homologous to zero in $U$,
+such that $n(\Gamma;z)$ is $0$ or $1$ for all $z \notin \Gamma$.
+Suppose $f$ has no zeros on $\Gamma$ and $k$ zeros (counting
+multiplicity) in $V = \{ z \in U : n(\Gamma;z) = 1 \}$.
+Then there is an $N$ such that for all $n \geq N$,
+$f_n$ has $k$ zeros (counting multiplicity) in $V$.
+\end{theorem}
+
+\medskip
+\pause
+
+\textbf{Proof:}
+$\Gamma$ is compact \wthus
+there is a $\delta > 0$ such that $\delta < \sabs{f(z)}$
+for all $z \in \Gamma$.
+
+\medskip
+\pause
+
+$\{ f_n \}$
+converges uniformly to $f$ on $\Gamma$.
+
+\medskip
+\pause
+
+For $n$ large enough,
+\begin{equation*}
+\sabs{f(z)-f_n(z)} < \delta < \sabs{f(z)}
+\qquad \forall z \in \Gamma
+\end{equation*}
+\pause
+Rouch\'e's theorem
+\wthus
+$f$ and $f_n$ have the same number of zeros in $V$.  \qed
+
+\medskip
+\pause
+
+``No zeros on $\Gamma$'' is necessary:
+\quad $\Gamma = \partial \D$,
+\quad $f(z) = z-1$, \quad $f_n(z) = z+(1-\frac{1}{n})$.
+\end{frame}
+
+\begin{frame}
+\textbf{Example:}
+For every integer $k > 0$, $\exists$ $N$ such that
+$\forall$ $d \geq N$,
+\begin{equation*}
+P_d(z) = \sum_{n=0}^d \frac{{(-1)}^n}{(2n)!}z^{2n}
+\end{equation*}
+has exactly $2k$ zeros in $\Delta_{\pi k}(0)$.
+
+\medskip
+\pause
+
+Proof:
+
+$P_d$ are the partial sums of the power series of
+$\cos(z)$, which has exactly $2k$ zeros in $\Delta_{\pi k}(0)$.
+\end{frame}
+
+\begin{frame}
+The usual application is for a small disc:
+
+\medskip
+\pause
+
+Suppose $\{ f_n \}$ is a sequence of holomorphic
+functions on $U$ converging uniformly
+on compact sets to $f$.
+\pause
+Suppose $z_0$ is a zero of
+$f$ of order $k$.
+
+\medskip
+\pause
+Then for a small enough $\Delta_r(z_0)$,
+$\exists$ $N$ such that
+$\forall$ $n \geq N$,
+
+$f_n$ has $k$ zeros counting multiplicity in
+$\Delta_r(z_0)$.
+
+\bigskip
+\pause
+
+Hurwitz theorem does not work for real functions.
+
+\medskip
+\pause
+
+\textbf{Example:}
+
+$f(x) = x^2$, \quad $f_n(x) = x^2+\frac{1}{n}$.  \quad $f_n \to f$ uniformly, but
+$f_n$ never zero.
+
+\medskip
+\pause
+
+$f(z) = z^2$, \quad $f_n(z) = z^2+\frac{1}{n}$.  \quad $f_n \to f$ uniformly.
+
+\pause
+\medskip
+
+For any $\epsilon > 0$, ~$z^2+\frac{1}{n}$~ has
+two zeros in $\Delta_\epsilon(0)$, for large enough $n$:
+\quad
+$\pm i \sqrt{\frac{1}{n}}$.
+\end{frame}
+
+\begin{frame}
+Injective holomorphic
+mappings are called \emph{\myindex{univalent}}.
+
+\pause
+
+\begin{corollary}
+Suppose $U \subset \C$ is a domain and $f_n \colon U \to \C$ are
+univalent holomorphic functions that converge uniformly on compact sets
+to $f \colon U \to \C$.  Then $f$ is either univalent or constant.
+\end{corollary}
+
+\pause
+\textbf{Proof:}
+Suppose $f$ is nonconstant.
+\pause
+Suppose $\exists$ distinct $z_1$ and $z_2$ in $U$ such that $f(z_1) =
+f(z_2) = w$.
+
+\pause
+\medskip
+
+$f-w$ has isolated zeros at $z_1$ and $z_2$.
+
+\medskip
+\pause
+Consider $\Delta_r(z_1),\Delta_r(z_2) \subset U$,
+
+\pause
+$\overline{\Delta_r(z_1)} \cap \overline{\Delta_r(z_2)} = \emptyset$,
+
+\pause 
+such that $f-w$ is not zero on
+$\overline{\Delta_r(z_1)} \setminus \{ z_1 \}$ or
+$\overline{\Delta_r(z_2)} \setminus \{ z_2 \}$.
+
+\medskip
+\pause
+
+Hurwitz \wthus for large enough $n$, ~$f_n-w$ has the same number of
+zeros in $\Delta_r(z_1)$ as $f-w$. \pause Same for $\Delta_r(z_2)$.
+
+\pause
+\medskip
+\thus \quad $\exists$ $z_1' \in \Delta_r(z_1)$ and
+$z_2' \in \Delta_r(z_2)$ such that $f_n(z_1')=f_n(z_2')=w$.
+
+\pause
+\medskip
+
+\thus \quad
+$f_n$ not univalent. \qed
+\end{frame}
+
+\end{document}
