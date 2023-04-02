@@ -1,0 +1,122 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+The open mapping theorem (5.5)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+A continuous function from $\R^2$ to $\R^2$ can do all
+sorts of things to the topology.
+
+\medskip
+\pause
+
+$(x,y) \mapsto (x,xy)$,
+takes all of $\R^2$, which is both open and closed, to the
+set $\bigl\{ (x,y) : x \not= 0 \text{ or } y=0 \bigr\}$, which is neither open nor
+closed.
+
+\medskip
+\pause
+
+Holomorphic functions are always nice to your topology.
+
+\medskip
+\pause
+
+For a continuous map, $f^{-1}(V)$ is open whenever $V$ is.
+
+\medskip
+\pause
+
+For a holomorphic map, $f(V)$ is open whenever $V$ is, unless $f$ is
+constant.
+
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Open mapping]
+Let $U \subset \C$ be a domain and $f \colon U \to \C$ be
+holomorphic and nonconstant.  Then $f(V)$ is an open set for every open set
+$V \subset U$.
+\end{theorem}
+
+\medskip
+\pause
+
+\textbf{Proof:}
+Suppose $f$ is not constant.  As $U$ is connected, $f$ is not constant
+near every point.
+
+\medskip
+\pause
+
+Given $p \in V$, \quad $\exists$ 
+$\overline{\Delta_r(p)} \subset V$ and a $\delta > 0$
+such that
+$\abs{f(z)-f(p)} > \delta$ for all $z \in \partial \Delta_r(p)$.
+
+\medskip
+\pause
+
+$z \mapsto f(z)-f(p)$ has at least one zero in $\Delta_r(p)$.
+
+\medskip
+\pause
+
+Take $w \in \Delta_{\delta}\bigl(f(p)\bigr)$.  For
+all $z \in \partial \Delta_r(p)$,
+\begin{equation*}
+\abs{\bigl( f(z)-w \bigr) - \bigl( f(z)-f(p) \bigr)} = \abs{f(p)-w} <
+\delta < \abs{f(z)-f(p)} .
+\end{equation*}
+\pause
+By Rouch\'e, $z \mapsto f(z)-w$ has at least one
+zero in $\Delta_r(p)$. \pause So
+\begin{equation*}
+\Delta_{\delta}\bigl(f(p)\bigr) \subset
+f\bigl(\Delta_r(p)\bigr) . \qed
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+The open mapping theorem is a stronger version of the maximum
+principle.
+
+\medskip
+\pause
+
+$f(p)$ is in the interior of $f(V)$ for any open neighborhood $V$ of $p$.
+
+\pause
+So $\sabs{f(z)}$ cannot achieve a maximum at $p$.
+
+\medskip
+\pause
+
+The proof gives the more explicit:
+
+\medskip
+
+$\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$,
+then
+$\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
+\end{frame}
+
+\end{document}
