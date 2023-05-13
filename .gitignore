@@ -11,4 +11,6 @@ ca.glg
 ca.glo
 ca.gls
 ca.rubbercache
+ca.fdb_latexmk
+ca.fls
 ca.synctex.gz
