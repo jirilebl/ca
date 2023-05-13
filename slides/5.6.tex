@@ -1,0 +1,186 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Inverses of holomorphic functions (5.6)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Let us restate the inverse function theorem.
+
+\begin{theorem}[Inverse function theorem for holomorphic functions]
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
+$p \in U$, and $f'(p) \not= 0$.  
+Then there exist open sets $V, W \subset \C$ such that
+$p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is injective
+(one-to-one),
+and hence a $g \colon W \to V$ exists such that
+$g(w) = (f|_V)^{-1}(w)$ for all $w \in W$.
+Furthermore, $g$ is holomorphic and
+\begin{equation*}
+g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} \qquad \text{for all $w \in W$}.
+\end{equation*}
+\end{theorem}
+
+\pause
+\medskip
+
+In other words, if $f'$ is nonzero somewhere, $f$ is injective near that
+point.
+
+\pause
+\medskip
+
+Only local: $f(z) = z^2$ maps $\C \setminus \{ 0 \}$
+to itself, $f'$ does not vanish, but $f$ is $2$-to-$1$ globally.
+\end{frame}
+
+\begin{frame}
+Real functions can be injective and the derivative can vanish:
+
+$f \colon \R \to \R$, ~$f(x) = x^3$, ~is injective but $f'(0) = 0$.
+
+\medskip
+\pause
+
+Holomorphic functions locally all behave like
+$z \mapsto z^k$, and that is injective only if $k=1$.
+
+\medskip
+\pause
+
+\begin{lemma}
+If $U \subset \C$ is open and $f \colon U \to \C$ is injective, then
+$f'$ is never zero.
+\end{lemma}
+
+\pause
+
+\textbf{Proof:}
+Suppose $f$ nonconstant and $f'(p) = 0$.
+
+\pause
+Let $\overline{\Delta_r(p)} \subset U$
+be so that ~ $f' \not= 0$ on $\Delta_r(p) \setminus
+\{ p \}$, ~
+and $\sabs{f(z)-f(p)} > \delta > 0$ for $z \in \partial
+\Delta_r(p)$.
+
+\medskip
+\pause
+
+$z \mapsto f(z) - f(p)$ has a zero of multiplicity at least
+two.
+
+\pause
+\medskip
+
+Let $w \in \Delta_{\delta}\bigl(f(p)\bigr) \setminus \bigl\{ f(p) \bigr\}$
+\pause
+\wthus
+$z \mapsto f(z)-w$ has at least two zeros (Rouch\'e).
+
+\pause
+\medskip
+
+$f'\not=0$ in $\Delta_r(p) \setminus \{ p \}$
+\pause
+\wthus
+zeros of $z \mapsto f(z)-w$ are simple
+
+\pause
+\thus \quad
+$f(z)-w$ has at least two distinct zeros
+\pause
+\wthus
+$f$ is not injective.  \qed
+\end{frame}
+
+\begin{frame}
+We can actually compute the inverse:
+
+\begin{lemma}
+If $f \colon U \to \C$ is holomorphic and injective, and
+$\overline{\Delta_r(p)} \subset U$.  Then for all $w \in
+f\bigl(\Delta_r(p)\bigr)$,
+\begin{equation*}
+f^{-1}(w) = \frac{1}{2\pi i} \int_{\partial \Delta_r(p)}
+\frac{f'(z)z}{f(z)-w} \, dz .
+\end{equation*}
+\end{lemma}
+
+\pause
+
+\textbf{Proof:}
+Fix $w \in f\bigl(\Delta_r(p)\bigr)$ and $\zeta \in \Delta_r(p)$
+such that $f(\zeta) = w$.
+
+\medskip
+\pause
+
+$f'$ is never zero, so $z \mapsto f(z)-w$ has a simple
+zero at $z=\zeta$.
+
+\medskip
+\pause
+
+By the residue theorem
+\begin{equation*}
+\frac{1}{2\pi i} \int_{\partial \Delta_r(p)}
+\frac{f'(z)z}{f(z)-w} \, dz
+=
+\operatorname{Res}\left(\frac{f'(z)z}{f(z)-w};\zeta\right)
+\pause
+=
+\frac{f'(\zeta)\zeta}{f'(\zeta)} = \zeta = f^{-1}(w) .
+\qed
+\end{equation*}
+
+\pause
+\medskip
+
+Consequently, $f^{-1}$ is holomorphic without even using the inverse function
+theorem.
+\end{frame}
+
+\begin{frame}
+\begin{theorem}
+If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
+injective, then $f(U)$ is open, $f'$ is never zero on $U$, and $f^{-1}
+\colon f(U) \to U$ is holomorphic.
+\end{theorem}
+
+\medskip
+\pause
+
+\textbf{Proof:}
+$f(U)$ is open by the open mapping theorem.
+
+\medskip
+\pause
+
+By one of the lemmas, $f'$ is never zero on $U$.
+
+\medskip
+\pause
+
+By the other (or IFT), $f^{-1}$ is holomorphic.
+\qed
+\end{frame}
+
+\end{document}
