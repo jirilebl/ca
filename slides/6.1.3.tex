@@ -1,0 +1,299 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Arzel\`a--Ascoli (6.1.3)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Arzel\`a--Ascoli (on compact sets):
+
+(pointwise) bounded and equicontinuous \wthus (uniformly) convergent
+subsequence.
+
+\medskip
+\pause
+
+We will use the lemma about subsequences for functions
+on countable sets, so\ldots
+
+\pause
+
+\begin{proposition}
+A compact metric space $X$ contains a countable dense subset:
+$\exists$ countable $D \subset X$ such that $\widebar{D} = X$.
+\end{proposition}
+
+\pause
+
+\textbf{Proof:}
+Notation: $B(x,\delta) = \bigl\{ y \in X : d(x,y) < \delta \bigr\}$ ball of radius
+$\delta$.
+\pause
+\medskip
+
+$X$ compact \wthus
+$\forall$ $n \in \N$, $\exists$
+$x_{n,1},x_{n,2},\ldots,x_{n,k_n} \in X$ such that
+\begin{equation*}
+X= B(x_{n,1},\nicefrac{1}{n}) \cup
+B(x_{n,2},\nicefrac{1}{n}) \cup \cdots \cup
+B(x_{n,k_n},\nicefrac{1}{n})
+\end{equation*}
+\pause
+Let $\displaystyle D = \bigcup_{n=1}^\infty \{
+x_{n,1},x_{n,2},\ldots,x_{n,k_n} \}$
+\pause
+\quad ($D$ is countable).
+
+\medskip
+\pause
+
+$\forall \, x \in X, \epsilon > 0$, $\exists \, n \in \N$ ($\nicefrac{1}{n}
+< \epsilon$) and $x_{n,j} \in D$
+such that
+$
+x \in B(x_{n,j},\nicefrac{1}{n}) \subset B\left(x_{n,j},\epsilon\right) .
+$
+
+\medskip
+\pause
+\thus\quad $x \in \widebar{D}$. \qed
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Arzel\`a--Ascoli]
+Let $(X,d)$ be a compact metric space, and let $\{ f_n \}$
+be pointwise bounded and equicontinuous sequence
+of functions $f_n \colon X \to \C$.  Then
+$\{f_n\}$ is uniformly bounded and $\{ f_n \}$ contains a uniformly
+convergent subsequence.
+\end{theorem}
+
+\pause
+\textbf{Proof:}
+$X$ compact
+\wthus
+$\{ f_n \}$ uniformly equicontinuous
+\pause
+\wthus
+$\exists \, \delta > 0$
+such that
+\begin{equation*}
+B(x,\delta) \subset f_n^{-1}\bigl(B(f_n(x),1)\bigr) 
+\quad
+\text{for all }
+x \in X, n \in \N
+\end{equation*}
+\pause
+$\exists$ $x_1,x_2,\ldots,x_k$ such that
+$
+X = B(x_1,\delta) \cup B(x_1,\delta) \cup \cdots \cup B(x_k,\delta)$.
+
+\pause
+$\{ f_n \}$ pointwise bounded
+\wthus
+$\exists$ $M$
+such that
+~
+$\sabs{f_n(x_\ell)} \leq M$ ~ $\forall n \in \N, \ell=1,\ldots,k$.
+
+\pause
+If
+$x \in X$, $x \in B(x_\ell,\delta)$ for some $\ell$
+\pause
+\wthus
+$\forall$ $n$,
+~
+%$x \in f_n^{-1}\bigl(B(f_n(x_\ell),1)\bigr)$, or in other words
+$\sabs{f_n(x)-f_n(x_\ell)} < 1$.
+
+\pause
+\thus\quad
+$\sabs{f_n(x)} < 1+ \sabs{f_n(x_\ell)} \leq 1+M$
+
+\pause
+\thus\quad
+$\{f_n\}$ uniformly bounded.
+
+\medskip
+\pause
+
+Let $D \subset X$ be dense and countable.
+\pause
+
+$\exists$ a subsequence $\{ f_{n_j} \}$ that converges pointwise on
+$D$. \pause
+Write $g_j = f_{n_j}$.
+
+\pause
+$\{ g_n \}$ is 
+uniformly equicontinuous
+\pause
+\wthus 
+Given $\epsilon > 0$, $\exists$ $\delta > 0$
+such that
+\begin{equation*}
+B(x,\delta) \subset g_n^{-1}\bigl(B(g_n(x),\nicefrac{\epsilon}{3})\bigr)
+\quad
+\text{for all }
+x \in X, n \in \N .
+\end{equation*}
+\end{frame}
+
+\begin{frame}
+
+%Copied from above
+\begingroup
+\color{darkgray}
+Let $D \subset X$ be dense and countable.
+%\pause
+
+$\exists$ a subsequence $\{ f_{n_j} \}$ that converges pointwise on
+$D$.
+%\pause
+Write $g_j = f_{n_j}$.
+
+%\pause
+$\{ g_n \}$ is 
+uniformly equicontinuous
+%\pause
+\wthus 
+Given $\epsilon > 0$, $\exists$ $\delta > 0$
+such that
+\begin{equation*}
+B(x,\delta) \subset g_n^{-1}\bigl(B(g_n(x),\nicefrac{\epsilon}{3})\bigr)
+\quad
+\text{for all }
+x \in X, n \in \N .
+\end{equation*}
+\endgroup
+%
+\pause
+Every $x \in X$ is in $B(y,\delta)$ for some $y \in D$ \quad (density).
+
+\pause
+$\exists$ $\{ x_1,x_2,\ldots,x_k \} \subset D$ such that
+$X = B(x_1,\delta) \cup \cdots \cup B(x_k,\delta)$
+\quad
+(compactness).
+
+\pause
+$\exists$ $N$ such that for all $n,m \geq N$,
+\begin{equation*}
+\sabs{g_n(x_\ell)-g_m(x_\ell)} < \nicefrac{\epsilon}{3}
+ \qquad \text{for } \ell=1,2,\ldots,k.
+\end{equation*}
+
+\pause
+Let $x \in X$.
+\quad $\exists$ $\ell$ such that
+$x \in B(x_\ell,\delta)$
+\pause
+\wthus
+$\sabs{g_j(x)-g_j(x_\ell)} < \nicefrac{\epsilon}{3}$
+\quad for all $j \in \N$.
+
+\pause
+\thus \quad
+for $n,m \geq N$,
+\begin{equation*}
+\sabs{g_n(x)-g_m(x)} \leq
+\sabs{g_n(x)-g_n(x_\ell)} +
+\sabs{g_n(x_\ell)-g_m(x_\ell)} +
+\sabs{g_m(x_\ell)-g_m(x)} <
+\epsilon .
+\end{equation*}
+\pause
+\thus \quad
+$\{ g_n \}$ uniformly Cauchy.
+\quad
+\pause
+$\C$ is a complete
+\wthus $\{ g_n \}$ uniformly convergent. \qed
+\end{frame}
+
+\begin{frame}
+%We will need Arzel\`a--Ascoli in open subsets of the plane, so we have the
+%following version.
+
+\begin{corollary}[Arzel\`a--Ascoli]
+Let $U \subset \C$ be open and let $\{ f_n \}$
+be pointwise bounded and equicontinuous sequence
+of functions $f_n \colon U \to \C$.  Then
+$\{ f_n \}$ contains a subsequence
+that converges uniformly on compact subsets.
+\end{corollary}
+
+\pause
+\textbf{Proof:}
+$d(z,\partial U) = {}$ distance to the boundary of $U$.
+\pause
+Define
+\begin{equation*}
+K_n = \left\{
+z \in U : d(z,\partial U) \geq \nicefrac{1}{n} \text{ and } \sabs{z} \leq n
+\right\} .
+\end{equation*}
+\pause
+$K_n$ is compact (it is closed in $\C$ and bounded),
+\pause
+\quad
+$U = \bigcup K_n$,
+
+\pause
+$K^\circ_\ell = \left\{
+z \in U : d(z,\partial U) > \nicefrac{1}{\ell} \text{ and } \sabs{z} < \ell
+\right\}$ (exercise),
+\quad
+\pause
+$K_\ell \subset K^\circ_{\ell+1}$,
+\pause \quad and
+$U = \bigcup K^\circ_\ell$.
+
+\medskip
+\pause
+
+Arzel\`a--Ascoli theorem on compact sets \wthus
+
+$\exists$ subsequence $\{ f_{1,n} \}$ of $\{f_n\}$ converging uniformly
+on $K_1$.
+
+\pause
+$\exists$ subsequence $\{ f_{2,n} \}$ of $\{ f_{1,n} \}$ converging uniformly on $K_2$,
+\pause
+and so on.
+
+\medskip
+\pause
+Consider $\{ f_{n,n} \}$. \pause Any compact $K \subset U$
+is in some $K^\circ_\ell$ (open cover).
+
+\pause
+The tail $\{ f_{n,n} \}_{n=\ell}^\infty$ is a subsequence
+of $\{ f_{\ell,n} \}_{n=1}^\infty$.
+
+\pause
+\thus \quad
+$\{ f_{n,n} \}$
+uniformly convergent on
+$K_\ell$ and thus on $K$. \qed
+\end{frame}
+
+\end{document}
+

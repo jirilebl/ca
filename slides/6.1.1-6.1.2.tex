@@ -1,0 +1,253 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Convergence of subsequences (6.1.1)\\%
+Equicontinuity (6.1.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\textbf{Goal:} Classify relatively compact subsets of the space of holomorphic
+functions.
+
+\medskip
+\pause
+
+We want something like Bolzano--Weierstrass:
+
+\emph{If $\{ z_n \}$ is a
+bounded sequence, then it has a convergent subsequence.}
+
+\bigskip
+\pause
+
+\textbf{Examples:}
+
+\medskip
+
+$\sin(nx)$, \enspace $x \in \R$. \pause
+On no interval $[a,b] \subset \R$ does there exist
+a subsequence converging pointwise.  Not even almost everywhere.
+
+\medskip
+\pause
+
+$x^n$, \enspace $x \in [0,1]$. \pause
+Converges (pointwise) to a discontinuous function.
+
+\end{frame}
+
+\begin{frame}
+We start with boundedness.
+
+\pause
+
+\begin{definition}
+A sequence $f_n \colon X \to \C$
+is \emph{\myindex{pointwise bounded}} if for every $x \in X$, there is an $M_x \in \R$
+such that
+\begin{equation*}
+\sabs{f_n(x)} \leq M_x \qquad \text{for all } n \in \N .
+\end{equation*}
+\pause
+$\{ f_n \}$
+is \emph{\myindex{uniformly bounded}} if there is an $M \in \R$
+such that
+\begin{equation*}
+\sabs{f_n(x)} \leq M \qquad \text{for all } n \in \N \text{ and all } x \in X.
+\end{equation*}
+\end{definition}
+
+\medskip
+\pause
+
+\textbf{Example:}
+
+$\dfrac{n^2x}{1+n^2x^2}$ is pointwise bounded (converges pointwise)
+but not uniformly bounded.
+
+
+\end{frame}
+
+\begin{frame}
+\begin{proposition}
+Let $X$ be a countable set and $f_n \colon X \to \C$ a pointwise bounded
+sequence of functions.  Then $\{ f_n \}$ has a subsequence that converges
+pointwise.
+\end{proposition}
+
+\pause
+
+\textbf{Proof:}
+Let $\{ x_n \}_{n=1}^{\infty}$ give $X$.
+
+\pause
+\medskip
+
+$\{ f_n(x_1) \}_{n=1}^\infty$ is bounded
+\wthus
+$\exists$
+subsequence
+$\{ f_{1,k} \}_{k=1}^\infty$
+of $\{ f_n \}_{n=1}^{\infty}$
+s.t.
+$\{ f_{1,k}(x_1) \}_{k=1}^\infty$ converges.
+
+%\pause
+%Next $\{ f_{1,k}(x_2) \}_{k=1}^\infty$ is bounded $\Rightarrow$
+%$\{ f_{1,k} \}_{k=1}^\infty$ has a subsequence
+%$\{ f_{2,k} \}_{k=1}^\infty$ such that
+%$\{ f_{2,k}(x_2) \}_{k=1}^\infty$ converges. ($\{ f_{2,k}(x_1)
+%\}_{k=1}^\infty$ converges)
+
+\medskip
+\pause
+
+Define subsequences $\{ f_{m,k} \}_{k=1}^\infty$ as follows:
+
+\pause
+\medskip
+
+Given a subsequence
+$\{ f_{m,k} \}_{k=1}^\infty$ of
+$\{ f_{m-1,k} \}_{k=1}^\infty$
+that makes $\{ f_{m,k}(x_j) \}_{k=1}^\infty$ converge for all $j \leq m$,
+\pause
+
+Let $\{ f_{m+1,k} \}_{k=1}^\infty$ be a subsequence of $\{ f_{m,k} \}_{k=1}^\infty$
+such that
+$\{ f_{m+1,k}(x_{m+1}) \}_{k=1}^\infty$ converges
+
+\pause
+(and so 
+$\{ f_{m+1,k}(x_{j}) \}_{k=1}^\infty$ converges for all
+$j \leq m+1$).
+
+\pause
+\medskip
+
+If $X$ is finite \wthus done.
+
+\pause
+\medskip
+
+If $X$ is infinite,
+pick the subsequence $\{ f_{k,k} \}_{k=1}^\infty$.
+
+\pause
+\medskip
+
+For any $m$, the tail $\{ f_{k,k} \}_{k=m}^\infty$ is a subsequence of $\{ f_{m,k}
+\}_{k=1}^\infty$
+\wthus
+$\{ f_{k,k}(x_m) \}_{k=1}^\infty$ converges.
+\qed
+\end{frame}
+
+\begin{frame}
+Continuity of the limit requires some uniformity.
+\pause
+
+\begin{definition}
+Let $(X,d)$ be a metric space.
+A set $S$ of functions
+$f \colon X \to \C$ is
+\emph{\myindex{equicontinuous}} at $x \in X$
+if for every $\epsilon > 0$, there is a $\delta > 0$
+such that if $y \in X$ with $d(x,y) < \delta$,
+\begin{equation*}
+\sabs{f(x)-f(y)} < \epsilon \qquad \text{for all } f \in S .
+\end{equation*}
+$S$ is \emph{equicontinuous} if it is equicontinuous at every $x \in X$.
+
+\pause
+\medskip
+
+$S$ is 
+\emph{\myindex{uniformly equicontinuous}}
+if for every $\epsilon > 0$, there is a $\delta > 0$
+such that if $x,y \in X$ with $d(x,y) < \delta$,
+\begin{equation*}
+\sabs{f(x)-f(y)} < \epsilon \qquad \text{for all } f \in S .
+\end{equation*}
+\end{definition}
+
+\medskip
+\pause
+
+For finite sets $S$, same as continuity and uniform continuity.
+\end{frame}
+
+\begin{frame}
+
+For compact sets, equicontinuity implies uniform equicontinuity (as one
+would expect)
+\pause
+
+\begin{proposition}
+Let $(X,d)$ be a compact metric space and
+$f_n \colon X \to \C$ an equicontinuous sequence of functions.
+Then the sequence $\{ f_n \}$ is uniformly equicontinuous.
+\end{proposition}
+
+\pause
+\textbf{Proof:}
+Suppose $\{ f_n \}$ is not
+uniformly equicontinuous.
+\pause
+
+\thus~
+$\exists$
+$\epsilon > 0$
+s.t. $\forall k \in \N$,
+$\exists$
+$n_k \in \N$ \&
+$x_k,y_k \in X$ with $d(x_k,y_k) < \nicefrac{1}{k}$
+where $\sabs{f_{n_k}(x_k)-f_{n_k}(y_k)} \geq \epsilon$.
+
+\medskip
+\pause
+
+WLOG, by compactness and passing to a subseq., $\{x_k\}$ and $\{ y_k\}$ converge
+to some $x \in X$.
+
+\medskip
+\pause
+
+For any $\delta > 0$, take $k$ such that
+$d(x,x_k) < \delta$ and
+$d(x,y_k) < \delta$.
+\pause Then
+\begin{equation*}
+\epsilon \leq 
+\abs{f_{n_k}(x_k)-f_{n_k}(y_k)}
+\leq
+\abs{f_{n_k}(x_k)-f_{n_k}(x)} + \abs{f_{n_k}(x)-f_{n_k}(y_k)} .
+\end{equation*}
+\pause
+\thus \quad
+Either 
+$\abs{f_{n_k}(x_k)-f_{n_k}(x)}$ or $\abs{f_{n_k}(x)-f_{n_k}(y_k)}$ is
+$\geq \nicefrac{\epsilon}{2}$ (no matter how small $\delta$ is).
+
+\medskip
+\pause
+\thus\quad $\{ f_n \}$ is not equicontinuous at $x$. \qed
+\end{frame}
+
+\end{document}
