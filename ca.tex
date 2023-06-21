@@ -12548,7 +12548,7 @@ needing the mapping to be continuous.}
 Let $U \subset \C$ be a simply connected domain such that $U \not= \C$.
 Let $p \in U$ be given.  Then there exists a unique biholomorphic (conformal)
 map $f \colon U \to \D$ such that $f(p) = 0$ and
-$f'(p) > 0$ (real and positive) is unique.
+$f'(p) > 0$ (real and positive).
 \end{thm}
 
 See \figureref{fig:riemannmap} for the mapping that takes the
@@ -12676,7 +12676,8 @@ $\sabs{f(z)} \leq 1$ for all $z \in U$ by taking limits,
 so $f(U) \subset \overline{\D}$.
 By the \hyperref[thm:OMT]{open mapping theorem}, $f(U) \subset \D$, so $f \in
 \sF$.  If $f$ was not onto, then it would not be the one that achieves the
-supremum of $\sabs{f'(p)}$.  Thus $f(U) = \D$, and $f$ is the desired map.
+supremum of $\sabs{f'(p)}$, see the construction of $h$ above.
+Thus $f(U) = \D$, and $f$ is the desired map.
 Multiplying by $e^{i\theta}$ we can make $f'(p) > 0$.
 
 The uniqueness is left as an exercise.
@@ -12745,7 +12746,6 @@ Show that for every two points $z,w \in U$, there exists an automorphism
 $\psi \in \Aut(U)$ such that $\psi(z) = w$.
 \end{exercise}
 
-
 \begin{exercise}
 \begin{exparts}
 \item
@@ -12787,6 +12787,12 @@ to any subset of $\D$.  Hint: A countable closed contains isolated points
 since every nonempty perfect set is uncountable
 (feel free to assume this fact).
 \end{exercise}
+
+\begin{exercise}
+Prove that 
+if $f \colon \C \to \C$ is entire holomorphic and injective, then $f$ is
+onto.
+\end{exercise}
 \end{exbox}
 
 \subsection{Simply connected is simply connected \texorpdfstring{$\star$}{*}}
@@ -12798,15 +12804,14 @@ The proof of this corollary is a wonderful example of something that would
 be quite difficult without the
 \hyperref[thm:RMT]{Riemann mapping theorem}, and it is almost
 trivial with the mapping theorem.
+The key idea is that any path is trivially homotopic to the zero path in the
+disc just by scaling.  See also \exampleref{example:homotopydiscsc}.
 
 \begin{cor} \label{cor:simplyconnhard}
 A domain $U \subset \C$ is simply connected in the sense of homotopy
 if and only if
 it is simply connected in the sense of \defnref{defn:simplyconnected:homology}.
 \end{cor}
-
-The key idea is that any path is trivially homotopic to the zero path in the
-disc just by scaling.  See also \exampleref{example:homotopydiscsc}.
 
 \begin{proof}
 \propref{prop:simplyconneasy} says that if $U$ is
