@@ -1,0 +1,214 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Montel's theorem (6.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+Let $U \subset \C$ be open.
+A set $\sF$ of holomorphic functions $f \colon U \to \C$ is called a
+\emph{\myindex{normal family}} if every sequence in $\sF$ has a subsequence
+that converges uniformly on compact subsets (the limit need not be in $\sF$).
+
+\medskip
+\pause
+
+A set $\sF$ of functions on $U$ is \emph{\myindex{locally bounded}}
+if for every $p \in U$, there is a disc $\Delta_r(p) \subset U$ and $M > 0$
+such that 
+$\snorm{f}_{\Delta_r(p)} \leq M$ for all $f \in \sF$
+\pause \quad (i.e., $\sabs{f(z)} \leq M$ for all $z \in \Delta_r(p)$ and all $f \in \sF$).
+\end{definition}
+
+\pause
+
+In more modern language:
+
+\medskip
+
+$\sF$ normal family
+
+\qquad $=$
+
+$\sF$ precompact in the space
+of holomorphic functions on $U$
+with the topology of uniform convergence on compact subsets.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Prove that ``locally bounded'' means ``bounded on compact subsets.''
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Montel]
+Let $U \subset \C$ be open and let $\sF$
+be a locally bounded set of holomorphic functions on $U$.
+Then $\sF$ is a normal family \pause (every sequence has a subsequence that
+converges uniformly on compact subsets).
+\end{theorem}
+
+\pause
+We apply Arzel\`a--Ascoli,
+so we prove $\sF$
+being holomorphic means $\sF$ is equicontinuous.
+
+\medskip
+
+\pause
+\textbf{Proof:}
+Consider $p \in U$, $\overline{\Delta_r(p)} \subset U$, such that
+$\snorm{f}_{\overline{\Delta_r(p)}} \leq M$ for all $f \in \sF$.
+\pause
+If $z \in \overline{\Delta_{r/2}(p)}$ and $\zeta \in \partial \Delta_r(p)$,
+then $\sabs{\zeta-z} \geq \nicefrac{r}{2}$.
+\pause
+So for $z \in \overline{\Delta_{r/2}(p)}$,
+\pause
+\[
+\abs{f'(z)}
+=
+\abs{
+\frac{1}{2\pi i}
+\int_{\partial \Delta_r(p)}
+\frac{f(\zeta)}{{(\zeta-z)}^2} \, d\zeta
+}
+\pause \leq
+\frac{1}{2\pi}
+\int_{\partial \Delta_r(p)}
+\frac{\sabs{f(\zeta)}}{\sabs{\zeta-z}^2} \, \sabs{d\zeta}
+\pause \leq
+\frac{1}{2\pi}
+\int_{\partial \Delta_r(p)}
+\frac{M}{{(r/2)}^2} \, \sabs{d\zeta}
+\pause =
+\frac{4 M}{r}.
+\]
+\pause
+\[
+\abs{f(z)-f(p)}
+=
+\abs{
+\int_{[p,z]} f'(\zeta) \, d\zeta
+}
+\pause
+\leq
+\int_{[p,z]} \abs{f'(\zeta)} \, \sabs{d\zeta}
+\pause
+\leq
+\frac{4 M}{r} \sabs{z-p} .
+\]
+\pause
+\thus \quad $\sF$ is equicontinuous ($\frac{4M}{r}$ does not depend on $f$).
+
+\medskip
+\pause
+
+\thus \quad
+Arzel\`a--Ascoli applies
+to any sequence in $\sF$
+\pause
+\wthus
+$\sF$ is a normal family.
+\qed
+\end{frame}
+
+\begin{frame}
+Montel's theorem is good for finding extremal functions.
+\pause
+
+E.g., we will prove the Riemann mapping theorem:
+\pause
+A biholomorphism of a simply
+connected $U$ to $\D$ is a map that maximizes the derivative at a point.
+
+\pause
+Montel gives us a way of finding a maximizer.
+
+\medskip
+
+\pause
+
+Another commonly used consequence of Montel is Vitali's theorem.
+
+\begin{theorem}[Vitali]
+Suppose $U \subset \C$ is a domain, $\{ f_n \}$ is a locally bounded
+sequence of holomorphic functions
+that converges pointwise on a set $E \subset U$,
+and $E$ has a limit point in $U$.  Then $\{ f_n \}$
+converges uniformly on compact subsets in $U$.
+\end{theorem}
+
+\pause
+Proof is an exercise.
+
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+Prove the converse to Montel:
+If $\sF$ is a normal family of holomorphic functions on an open set $U \subset \C$,
+then $\sF$ is locally bounded.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Let $U \subset \C$ be open and $\sF$ a normal family of
+holomorphic functions on $U$.
+Show that $\{ f' : f \in \sF \}$ is a normal family.
+\pause
+Note: the converse is false without an extra hypothesis.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Let $U \subset \C$ be a domain, $p \in U$,
+and suppose $\exists$ a nonconstant
+bounded holomorphic function on $U$.
+
+\pause
+a)
+Prove $\exists$ a holomorphic $F \colon U \to \D$
+such that
+$F'(p) \not= 0$, and
+$\sabs{f'(p)} \leq \sabs{F'(p)}$
+for all holomorphic
+$f \colon U \to \D$.
+
+\pause
+b)
+Show
+$F(p) = 0$.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Show that if the partial sums of a power series centered at $p$
+are uniformly bounded on $\Delta_r(p)$ for some $r > 0$,
+then the power series converges in $\Delta_r(p)$.
+
+
+\end{frame}
+
+\end{document}

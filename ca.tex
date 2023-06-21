@@ -6707,7 +6707,7 @@ Results from introductory analysis
 (see \thmref{thm:uniformlimitcont} and \corref{cor:uniformkptlimitcont})
 say that a uniform limit of a continuous functions is continuous.
 By concentrating on a compact neighborhood such as $\overline{\Delta_r(p)}$
-we can see that uniform convergence on compact sets is enough.
+we can see that uniform convergence on compact subsets is enough.
 In other words, uniform convergence on compact subsets is the right topology
 for continuous functions.
 
@@ -11357,7 +11357,7 @@ what can we tell about the number of zeros of the limit.  Alternatively,
 if we have a limit function with $k$ zeros, then what can
 we say about the number of zeros of the functions in the sequence.
 Recall that if a sequence of holomorphic
-functions converges uniformly on compact sets, the limit is holomorphic
+functions converges uniformly on compact subsets, the limit is holomorphic
 (see \thmref{thm:unifoncompact}).
 
 \begin{thm}[Hurwitz]\index{Hurwitz's theorem}
@@ -11413,7 +11413,7 @@ Often the theorem is applied or stated with $\Gamma$ being
 the boundary of a small disc:
 That is, suppose $\{ f_n \}$ is a sequence of holomorphic
 functions converging uniformly
-on compact sets to $f$ on some open $U$.  Suppose $z_0$ is a zero of
+on compact subsets to $f$ on some open $U$.  Suppose $z_0$ is a zero of
 $f$ of order $k$.  Then for a small enough disc $\Delta_r(z_0)$,
 making sure $\overline{\Delta_r(z_0)} \subset U$ and
 $f$ is only zero at $z_0$ on $\overline{\Delta_r(z_0)}$,
@@ -11441,7 +11441,7 @@ functions are sometimes called \emph{\myindex{univalent}}.
 
 \begin{cor} \label{cor:univalentlimit}
 Suppose $U \subset \C$ is a domain and $f_n \colon U \to \C$ are
-injective holomorphic functions that converge uniformly on compact sets
+injective holomorphic functions that converge uniformly on compact subsets
 to $f \colon U \to \C$.  Then $f$ is either injective or constant.
 \end{cor}
 
@@ -11475,7 +11475,7 @@ Give examples of both possible conclusions.
 \begin{exparts}
 \item
 Suppose $f_n \colon \D \to \C$ is a sequence of holomorphic functions converging
-to $f \colon \D \to \C$ uniformly on compact sets such that
+to $f \colon \D \to \C$ uniformly on compact subsets such that
 for each $0 < r < 1$ the number of zeros (counting multiplicity)
 of $f_n$ in $\Delta_r(0)$ goes to infinity as $n \to \infty$.
 Prove that $f \equiv 0$.
@@ -12332,7 +12332,7 @@ jokes about how Montel had a \myquote{normal family.}}
 Let $U \subset \C$ be open.
 A set $\sF$ of holomorphic functions $f \colon U \to \C$ is a
 \emph{\myindex{normal family}} if every sequence in $\sF$ has a subsequence
-that converges uniformly on compact sets (the limit need not be in $\sF$).
+that converges uniformly on compact subsets (the limit need not be in $\sF$).
 
 A set $\sF$ of functions on $U$ is \emph{\myindex{locally bounded}}
 if for every $p \in U$, there is a disc $\Delta_r(p) \subset U$ and $M > 0$,
@@ -12349,7 +12349,7 @@ we will just use the traditional verbiage.
 Let $U \subset \C$ be open and let $\sF$
 be a locally bounded set of holomorphic functions on $U$.
 Then $\sF$ is a normal family (every sequence has a subsequence that
-converges uniformly on compact sets).
+converges uniformly on compact subsets).
 \end{thm}
 
 The theorem allows quite incredible applications.  The thing is,
@@ -12436,7 +12436,8 @@ then $\sF$ is locally bounded.
 
 \begin{exercise}
 For open $U \subset \C$,
-prove that \myquote{locally bounded} means \myquote{bounded on compact sets,}
+prove that \myquote{locally bounded} means
+\myquote{bounded on compact subsets,}
 that is, $\sF$ is locally bounded if and only if
 for every compact $K \subset U$ there is an $M >0$ such that
 $\snorm{f}_K \leq M$ for all $f \in \sF$.
@@ -12444,10 +12445,10 @@ $\snorm{f}_K \leq M$ for all $f \in \sF$.
 
 \begin{exercise}[Vitali's theorem]\index{Vitali's theorem}
 Suppose $U \subset \C$ is a domain, $\{ f_n \}$ is a locally bounded
-sequence of holomorphic functions $f_n \colon U \to \C$ that
-converges pointwise on a set $E \subset U$,
+sequence of holomorphic functions $f_n \colon U \to \C$
+converging pointwise on a set $E \subset U$,
 and $E$ has a limit point in $U$.  Prove that $\{ f_n \}$
-converges uniformly on compact sets in $U$.
+converges uniformly on compact subsets in~$U$.
 \end{exercise}
 
 \begin{exercise}
@@ -12662,7 +12663,7 @@ $\sF$ such that
 \end{equation*}
 As all functions in $\sF$ are bounded by $1$,
 Montel says that there exists a subsequence that converges uniformly on
-compact sets to some holomorphic $f$.  Assume $\{ f_n \}$ is that subsequence.
+compact subsets to some holomorphic $f$.  Assume $\{ f_n \}$ is that subsequence.
 By the corollary to Hurwitz,
 \corref{cor:univalentlimit},
 the function $f$ is injective or constant.  It cannot be constant,
@@ -14302,15 +14303,15 @@ $\Delta_s(q)$ (and thus on $U$).
 \end{proof}
 
 One immediate consequence of the mean value property is that a uniform limit
-on compact sets of harmonic functions is harmonic.  Just like for
+on compact subsets of harmonic functions is harmonic.  Just like for
 holomorphic functions, this result would be hard to prove using the definition
 of harmonic functions.  Given a sequence $\{ f_n \}$ of any old $C^2$
 functions with uniform limit $f$,
 the limit of $\nabla^2 f_n$ is not necessarily
-$\nabla^2 f$ just because the convergence is uniform.  But
+$\nabla^2 f$.  But
 uniform limits do go under the integral.  The following result is one part
-of what is called \emph{\myindex{Harnack's first theorem}} (there are several
-results named for Harnack about harmonic functions).
+of what is called \emph{\myindex{Harnack's first theorem}} (several
+results about harmonic functions are named for Harnack).
 
 \begin{thm}[Harnack's first]\label{thm:harnack1}
 Let $U \subset \C$ be open, and let $f_n \colon U \to \R$ be a sequence of
@@ -17295,7 +17296,7 @@ Suppose \ref{cor:polyhull:i} is true.
 Then $\C_\infty \setminus U$ has exactly one component.
 \hyperref[cor:rungeseq]{Runge} says that we can approximate any function
 holomorphic on $U$ by polynomials
-(rational functions with a pole at $\infty$) uniformly on compact sets.
+(rational functions with a pole at $\infty$) uniformly on compact subsets.
 Namely \ref{cor:polyhull:ii} holds.
 
 Suppose \ref{cor:polyhull:ii} is true.
