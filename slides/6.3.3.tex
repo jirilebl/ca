@@ -1,0 +1,359 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Cycles around compacts (6.3.3)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+Given a compact $K \subset U$, we want a $\Gamma$ in $U \setminus K$
+homologous to zero in $U$ that goes around $K$.
+
+\medskip
+\pause
+
+\begin{lemma}\label{lemma:patharoundK}
+Let $U \subset \C$ be open and suppose that $K \subset U$ is compact and
+nonempty.
+Then there exists a cycle
+$\Gamma$ in $U \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in K$ and
+$n(\Gamma;z) = 0$ for all $z \in \C \setminus U$
+ and such that $n(\Gamma;z)$ is $0$ or $1$ for all $z \notin
+\Gamma$.
+\end{lemma}
+
+\pause
+Lots of ideas how to do it, but
+proof always involves checking many details.
+
+\medskip
+\pause
+
+We will map to the disk, but with a twist.  We'll take $\C_\infty \setminus
+K$ 
+to the disc, and go around the ``outside'' in the opposite direction:
+
+\begin{center}
+\scalebox{0.9}{
+\subimport*{../figures/}{cyclearoundcompact.pdf_t}
+}
+\end{center}
+
+\end{frame}
+
+\begin{frame}
+\textbf{Proof:}
+$K$ could have infinitely many components.
+\pause
+For a small $r > 0$, $\exists$ closed discs such that
+\[
+K \subset K' = \overline{\Delta_r(z_1)} \cup \cdots \cup
+\overline{\Delta_r(z_m)} \subset U .
+\]
+$K'$ is compact and has only finitely many components.
+\pause
+A $\Gamma$ around $K'$ suffices as $K \subset K'$.
+
+\medskip
+\pause
+
+Let $K_1,\ldots,K_n$ be the components of $K'$.
+\quad
+\pause
+$K_1$ and
+$K_2 \cup \cdots \cup K_n$ are closed.
+\pause
+
+\medskip
+If we prove the lemma for $K_1$ and
+$U \setminus ( K_2 \cup \cdots \cup K_n )$ to find a cycle
+$\Gamma_1$, then we are done:
+
+\pause
+\medskip
+Repeat the procedure
+for each $K_j$ to find $\Gamma_j$ and let $\Gamma = \Gamma_1 + \cdots +
+\Gamma_n$.
+
+\medskip
+\pause
+$n(\Gamma_j;z) = 1$ for all $z \in K_j$
+\pause
+and
+$n(\Gamma_j;z) = 0$ for all $z \in K_\ell$ if $\ell \not= j$.
+\pause
+So $\Gamma$ works.
+
+\medskip
+\pause
+
+So without loss of generality, assume that $K$ is connected.  
+\end{frame}
+
+
+\begin{frame}
+Assume $0 \in K$. \pause
+Assume $K$ has more than one point.
+
+\medskip
+\pause
+
+Let $\varphi \colon \C_\infty \to \C_\infty$, be $\varphi(z) = \frac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
+$\varphi(0) = \infty$ and $\varphi(\infty) = 0$. \pause
+Let
+\[
+V = \varphi(\C_\infty \setminus K) .
+\]
+\pause
+$\infty \notin V$,
+\pause
+$0 \in V$,
+\pause
+$V \not= \C$,
+\pause
+and $\C_\infty \setminus V = \varphi(K)$ is connected.
+
+\pause
+So components of $V$ are simply connected (exercise).
+
+\pause
+$K$ a union of discs \wthus
+$\C_\infty \setminus K$ and thus $V$ has finitely many components $V_1,\ldots,V_m$.
+
+\medskip
+\pause
+
+By RMT, $\exists$
+a biholomorphic map from $V_j$ to $\Delta_1(q_j)$ (disjoint).
+
+\pause
+Write \[D = \Delta_1(q_1) \cup \cdots \cup \Delta_1(q_m).\]
+
+\pause
+So $\exists$ biholomorphic $\psi \colon V \to D$, \pause $q_1=0$ and
+$\psi(0)=0=q_1$.
+
+\pause
+$\C_\infty \setminus U$ is compact
+\pause 
+~\thus~
+$\varphi(\C_\infty \setminus U) \subset V$ is compact
+\pause
+~\thus~
+$S = \psi\bigl(\varphi(\C_\infty \setminus U)\bigr) \subset D$
+is compact.
+
+\pause
+$\exists$ $r < 1$ such that
+\[
+S \subset \Delta_r(q_1) \cup \cdots \cup \Delta_r(q_m)
+\]
+
+\pause
+Let $\gamma_j(t) = q_j + r e^{-it}$ for $t \in [0,2\pi]$ \quad ($\gamma_j = -\partial
+\Delta_r(q_j)$).
+
+\pause
+Let $\Gamma_j = \varphi^{-1} \circ \psi^{-1} \circ \gamma_j$, and $\Gamma = \Gamma_1 +
+\cdots + \Gamma_m$.
+\end{frame}
+
+\begin{frame}
+Suppose $p \not\in \Gamma$.
+\[
+n(\Gamma;p) = 
+\sum_{j=1}^m
+\frac{1}{2\pi i}
+\int_{\varphi^{-1} \circ \psi^{-1} \circ \gamma_j}
+\frac{1}{z-p} \, dz
+\pause
+=
+\sum_{j=1}^m
+\frac{1}{2\pi i}
+\int_{\psi^{-1} \circ \gamma_j}
+\frac{-1}{(1-\zeta p) \zeta} \, d\zeta
+\hspace*{1in}
+\]
+\pause
+\[
+\hspace*{1in}
+=
+\sum_{j=1}^m
+\frac{1}{2\pi i}
+\int_{\gamma_j}
+\frac{-1}{ \bigl( 1-\psi^{-1}(\xi)p \bigr)
+\,
+\psi^{-1}(\xi)
+\,
+\psi' \bigl(\psi^{-1}(\xi)\bigr)} \, d \xi .
+\]
+
+\pause
+Suppose $p \in \C \setminus U$.
+\pause
+\[
+h(\xi) =
+\frac{-1}{ \bigl( 1-\psi^{-1}(\xi)p \bigr)
+\,
+\psi^{-1}(\xi)
+\,
+\psi' \bigl(\psi^{-1}(\xi)\bigr)}
+\]
+has two (simple) poles: one at $\psi\bigl(\frac{1}{p}\bigr)$ and one
+at $q_1=0$.  \quad (third factor never zero)
+\pause
+\begin{equation*}
+\operatorname{Res}(h;0) = 
+\frac{-1}{ \bigl( 1-\psi^{-1}(0)p \bigr)
+\,
+\psi' \bigl(\psi^{-1}(0)\bigr)}
+\,
+\frac{1}{\frac{1}{\psi'(\psi^{-1}(0))}}
+=
+-1
+\end{equation*}
+\pause
+\begin{equation*}
+\operatorname{Res}\bigl(h;\psi(1/p)\bigr)
+=
+\frac{-1}{
+\psi^{-1}\bigl(\psi(1/p)\bigr)
+\,
+\psi' \bigl(\psi^{-1}(\psi(1/p))\bigr)
+}
+\,
+\frac{1}{
+\frac{-1}{\psi'(\psi^{-1}(\psi(1/p)))}
+\, p
+}
+=
+1 .
+\end{equation*}
+\pause
+$\gamma_1$ goes around $0$, \pause
+some $\gamma_j$ goes around 
+$\psi\bigl(\frac{1}{p}\bigr) \in S$ (as $r < 1$ is large enough)
+\pause
+\wthus
+$n(\Gamma;p) = 0$
+\end{frame}
+
+\begin{frame}
+Suppose $p \in K$.
+\pause
+\medskip
+
+$p \in K$ \wthus $\psi^{-1}(\xi) \not= \frac{1}{p}$ for all $\xi \in D$,
+
+\quad
+\pause
+
+\thus
+\quad
+$\displaystyle
+h(\xi) =
+\frac{-1}{ \bigl( 1-\psi^{-1}(\xi)p \bigr)
+\,
+\psi^{-1}(\xi)
+\,
+\psi' \bigl(\psi^{-1}(\xi)\bigr)}
+$
+\quad
+has only one pole $0$.
+
+\medskip
+
+\pause
+\begin{equation*}
+n(\Gamma;p) = 
+\sum_{j=1}^m
+\frac{1}{2\pi i}
+\int_{\gamma_j} h(\xi) \, d\xi 
+\pause
+=
+\frac{1}{2\pi i}
+\int_{\gamma_1} h(\xi) \, d\xi 
+\pause
+= - \operatorname{Res}(h;0) = 1 .  \qed
+\end{equation*}
+($\gamma_1$ traverses the circle backwards)
+\end{frame}
+
+\begin{frame}
+\begin{theorem}
+Let $U \subset \C$ be a domain.  Then
+$\C_\infty \setminus U$ is connected if and only if $U$ is simply connected.
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+Forward direction is done (we've just used it above).
+
+\medskip
+\pause
+
+Suppose $\C_\infty \setminus U$ is disconnected.
+
+\medskip
+\pause
+
+Write $S \cup K = \C_\infty \setminus U$ where
+$S$ and $K$ are nonempty, closed, and disjoint.
+
+\medskip
+\pause
+Assume $\infty \in S$.
+
+\medskip
+\pause
+$U' = U \cup K$ is open as $S$ is closed,
+\quad
+\pause
+$U' \subset \C$,
+\quad
+\pause
+$K \subset U'$ is compact.
+
+\medskip
+\pause
+
+Apply lemma to find a cycle
+$\Gamma$ in $U = U' \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in
+K$.
+
+\medskip
+\pause
+
+In other words, $\Gamma$ is not homologous to zero in $U$. \qed
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+Suppose $\{ f_n \}$ is a sequence of holomorphic functions on an open set
+$U \subset \C$ that converges uniformly on compact subsets to
+a nonconstant
+$f \colon U \to \C$.  Let $K \subset U$ be a compact set.  Prove that
+for every open neighborhood $V$ of $K$ in $U$ (so $K \subset V \subset U$) there exists
+a smaller open neighborhood $W$ (so $K \subset W \subset V$) and an $N \in \N$
+such that $f$ and $f_n$ have the same number of zeros in $W$ for all
+$n \geq N$.
+
+\end{frame}
+
+\end{document}
