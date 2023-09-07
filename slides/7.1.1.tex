@@ -1,0 +1,411 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Harmonic functions\\%
+Real and imaginary parts of holomorphic functions (7.1.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+Let $U \subset \C$ be open.
+A twice continuously differentiable $f \colon U \to \R$ is
+\emph{harmonic} if
+\begin{equation*}
+\nabla^2 f =
+\frac{\partial^2 f}{\partial x^2} +
+\frac{\partial^2 f}{\partial y^2} = 0
+\quad \text{ on $U$.}
+\end{equation*}
+\end{definition}
+
+\pause
+
+$\nabla^2$ (sometimes written $\Delta$) is the \emph{Laplacian}.
+
+\pause
+\medskip
+
+Convenient to write using Wirtinger operators:
+\begin{equation*}
+4
+\frac{\partial^2}{\partial \bar{z}\partial z} \, f =
+4
+\left[
+\frac{1}{2}
+\left(
+\frac{\partial}{\partial x} + i
+\frac{\partial}{\partial y}
+\right)
+\right]
+\left[
+\frac{1}{2}
+\left(
+\frac{\partial}{\partial x} - i
+\frac{\partial}{\partial y}
+\right)
+\right]
+f
+\pause
+=
+\left[
+\frac{\partial^2}{\partial x^2} +
+\frac{\partial^2}{\partial y^2}
+\right]
+f
+=
+\nabla^2 f .
+\end{equation*}
+
+\pause
+\medskip
+
+$f$ is harmonic \wiffif $\dfrac{\partial f}{\partial z}$ is holomorphic.
+
+\end{frame}
+
+\begin{frame}
+Suppose $f \colon U \to \R$ is harmonic.
+\quad
+\pause
+Find (locally) a primitive $g$ of the holomorphic
+$\dfrac{\partial f}{\partial z}$.
+
+\medskip
+\pause
+
+Write
+\quad $f(z) = g(z) + c(z)$, \quad
+$g$ holomorphic and $\dfrac{\partial c}{\partial z} \equiv 0$.
+
+\medskip
+\pause
+
+Let $h = \bar{c}$.
+\pause
+\wthus
+$\displaystyle
+\frac{\partial h}{\partial \bar{z}}
+=
+\frac{\partial \bar{c}}{\partial \bar{z}}
+=
+\overline{
+\frac{\partial c}{\partial z}
+}
+=
+0$
+\pause
+\wthus
+$h$ is holomorphic.
+
+\pause
+\medskip
+\thus \quad
+$f(z) = g(z) + \overline{h(z)}$,
+\quad
+$g$ and $h$ holomorphic.
+
+\medskip
+\pause
+
+Let $\varphi = g+h$.
+\pause  \quad As $f$ is real-valued,
+\[
+f(z) = \Re f(z)
+\pause
+=
+\frac{g(z) + \overline{h(z)} + \overline{g(z)}+h(z)}{2}
+=
+\frac{g(z) + h(z) + \overline{g(z)+h(z)}}{2}
+\pause
+=
+\Re \varphi(z) .
+\]
+\pause
+\textbf{Note:} This works locally, or in a simply
+connected $U$ where we can find the primitive $g$.
+
+\pause
+
+\begin{proposition}
+Let $U \subset \C$ be a simply connected domain and $f \colon U \to \R$ a
+harmonic function.  Then there exists a holomorphic $\varphi \colon
+U \to \C$ such that $f = \Re \varphi$.
+\end{proposition}
+
+\pause
+
+Similarly $f$ is the imaginary part of some holomorphic function.
+
+\medskip
+
+\end{frame}
+
+\begin{frame}
+Conversely suppose
+\qquad
+$
+f(z) = \Re \varphi(z) =
+\tfrac{1}{2}\bigl( \varphi(z) + \overline{\varphi(z)} \bigr)$
+\qquad ($\varphi$ holomorphic).
+
+\medskip
+\pause
+
+$\displaystyle
+\nabla^2 =
+4 \frac{\partial^2}{\partial \bar{z} \partial z}
+=
+4 \frac{\partial^2}{\partial z \partial \bar{z}}
+$
+\pause
+\wthus
+$\displaystyle
+\nabla^2 f =
+4 \frac{\partial^2}{\partial \bar{z} \partial z}
+\left(
+\frac{1}{2}\bigl( \varphi(z) + \overline{\varphi(z)} \bigr)
+\right)
+=
+2
+\left(
+\frac{\partial^2}{\partial z \partial \bar{z}}
+\varphi(z) +
+\frac{\partial^2}{\partial \bar{z} \partial z}
+\overline{\varphi(z)}
+\right)
+=
+0$.
+
+\medskip
+
+\pause
+We proved:
+\begin{proposition}
+Let $U \subset \C$ be open and $f \colon U \to \R$ a function.
+\begin{enumerate}[(i)]
+\item
+The function $f$ is harmonic if and only if
+for every point $p$ there exists an open neighborhood $V$ of $p$ and a
+holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
+on $V$.
+\pause
+\item
+If $f$ is harmonic, then it is infinitely (real) differentiable and
+%it
+%is so-called real-analytic
+for every $p \in U$, there exists a power series expansion
+\begin{equation*}
+f(z) =
+\sum_{n=0}^\infty c_n {(z-p)}^n + \bar{c}_n {(\overline{z-p})}^n
+\end{equation*}
+converging uniformly absolutely
+on any closed disc $\overline{\Delta_r(p)} \subset U$.
+\end{enumerate}
+\end{proposition}
+\end{frame}
+
+\begin{frame}
+A quick corollary:
+
+\begin{proposition}
+If $U \subset \C$ is open and $f \colon U \to \R$ is harmonic,
+then $f$ is infinitely (real) differentiable.
+\end{proposition}
+
+\textbf{Proof:} Holomorphic functions are infinitely differentiable.
+
+\end{frame}
+
+\begin{frame}
+\begin{definition}
+Let $U \subset \C$ be open and $f \colon U \to \R$ harmonic.
+If $g \colon U \to \R$ is harmonic and $f + i g$ is holomorphic,
+then $g$ is called the \emph{harmonic conjugate} of $f$.
+\end{definition}
+
+\pause
+
+Every harmonic $f$ on a simply connected domain has a harmonic conjugate.
+
+\medskip
+\pause
+
+On $\C \setminus \{ 0 \}$,
+$z \mapsto \log \sabs{z}$ is harmonic, but
+fails to have a harmonic conjugate.
+
+\medskip
+\pause
+
+If it did have a harmonic conjugate
+then $\log$ would have a branch in $\C \setminus \{0\}$.
+
+\pause
+Which follows from:
+
+\begin{proposition}
+If $U \subset \C$ is a domain $f \colon U \to \R$ is harmonic
+and $g_1$ and $g_2$ are two harmonic conjugates of $f$,
+then $g_1 = g_2 + C$ for some $C \in \R$.
+\end{proposition}
+
+\pause
+\textbf{Proof:}
+Trivial: 
+$\frac{(f + i g_1) - (f + i g_2)}{i} =  g_1-g_2$
+is holomorphic, real valued ~\thus~ constant.
+
+\end{frame}
+
+\begin{frame}
+The real and imaginary parts of a holomorphic function are harmonic.
+
+\pause
+\medskip
+
+The modulus $\sabs{f(z)}$ is not.
+
+\pause
+\medskip
+
+But $\log \sabs{f(z)}$ is harmonic (where $f$ is nonzero).
+
+\pause
+
+\begin{proposition}
+If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic
+and never zero, then
+\begin{equation*}
+z \mapsto \log \sabs{f(z)}
+\end{equation*}
+is harmonic.
+\end{proposition}
+
+\textbf{Proof:} Exercise.
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+Suppose $U \subset \C$ is a simply connected domain
+and $f \colon U \to \R$ harmonic.  Prove there exists
+a holomorphic $\varphi \colon U \to \C$ such that
+$f(z) = \log \sabs{\varphi(z)}$.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Let $U,V \subset \C$ be open sets and
+$f \colon U \to V$ be holomorphic. Prove:
+
+a)
+If $g \colon V \to \R$ is harmonic, then
+$g \circ f$ is harmonic.
+
+b)
+If $f$ is a biholomorphism,
+then $g \colon V \to \R$ is harmonic if and only if
+$g \circ f$ is harmonic.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Prove the Liouville theorem for
+harmonic functions:  If $f \colon \C \to \R$ is harmonic
+and nonnegative, then $f$ is constant.
+
+\bigskip
+\pause
+
+``bounded'' for holomorphic functions
+\quad $\leftrightarrow$ \quad
+``nonnegative'' for harmonic functions:
+
+\medskip
+\pause
+
+If $f$ is bounded and holomorphic,
+
+then ~$\log \sabs{f(z)+M}$~ or ~$\Re f(z) + M$~
+is nonnegative for large enough $M$.
+
+\medskip
+\pause
+
+Conversely, if ~$\log \sabs{f(z)} \geq 0$,~
+then ~$\dfrac{1}{f(z)}$~ is bounded,
+
+and if ~$\Re f(z) \geq 0$,~
+then ~$\dfrac{f(z)-1}{f(z)+1}$~ is bounded.
+%
+%(composing $f$ with an LFT taking the
+%right half-plane to the disc).
+
+
+
+\end{frame}
+
+\begin{frame}
+\textbf{Remark:}
+Writing
+$\displaystyle
+\frac{\partial^2}{\partial x^2}+ \frac{\partial^2}{\partial y^2} = 
+4 \frac{\partial^2}{\partial \bar{z} \partial z}$
+so that we can integrate twice may sound familiar.
+
+\medskip
+\pause
+
+It is like the D'Alembert solution of the one-dimensional wave equation.
+
+\medskip
+\pause
+
+The wave operator is
+(using $(x,t)$ for tradition's sake):
+\[
+\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2}
+\pause
+=
+\left[ \frac{\partial}{\partial t}- \frac{\partial}{\partial x}
+\right]
+\left[ \frac{\partial}{\partial t}+ \frac{\partial}{\partial x}
+\right].
+\]
+
+\medskip
+\pause
+
+Write $\mu = x+t$ and $\eta = x-t$ (characteristic coordinates), then
+\[
+\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2} =
+-4 \frac{\partial^2}{\partial \eta \partial \mu} .
+\]
+\pause
+A solution $f$ to the wave equation is
+\[
+f(x,t) = A(\mu) + B(\eta) = A(x+t)+B(x-t).
+\]
+\pause
+Two waves travelling in opposite directions.
+
+\end{frame}
+
+\end{document}
