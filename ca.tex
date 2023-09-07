@@ -13277,6 +13277,7 @@ f
 
 Namely, $f$ is harmonic if and only if
 $\frac{\partial f}{\partial z}$ is holomorphic.
+So suppose $f$ is harmonic.
 Locally (in some neighborhood), we find a
 primitive $g$ of $\frac{\partial f}{\partial z}$, and we write
 \begin{equation*}
@@ -13383,7 +13384,7 @@ for every $p \in U$, there exists a power series expansion
 f(z) =
 c_0
 +
-\sum_{n=1}^\infty c_n {(z-p)}^n + \bar{c}_n {\overline{(z-p)}}^n
+\sum_{n=1}^\infty c_n {(z-p)}^n + \bar{c}_n {(\overline{z-p})}^n
 \end{equation*}
 converging uniformly absolutely
 on every closed disc $\overline{\Delta_r(p)} \subset U$.
@@ -13587,11 +13588,12 @@ The wave operator decomposes as
 \left[ \frac{\partial}{\partial t}+ \frac{\partial}{\partial x}
 \right] .
 \end{equation*}
-If we write $\mu = x+t$ and $\eta = x-t$ (the so-called characteristic
-variables), then
+If we write $\mu = x+t$ and $\eta = x-t$
+(the so-called characteristic coordinates), then
 \begin{equation*}
--4 \frac{\partial^2}{\partial \eta \partial \mu} = 
-\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2} .
+\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2}
+= 
+-4 \frac{\partial^2}{\partial \eta \partial \mu} .
 \end{equation*}
 As before, a solution $f$ to the wave equation is a function
 of $\mu$ plus a function of $\eta$.  That is, $f(x,t) = A(\mu) + B(\eta) =
