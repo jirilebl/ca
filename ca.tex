@@ -15458,16 +15458,13 @@ $\nabla^2 (f-g) = \nabla^2 f \geq 0$, we can assume $g = 0$ and $f \leq 0$
 on the boundary $\partial \Delta$. 
 
 Suppose $\nabla^2 f > 0$ at all points on $\Delta$.
-Suppose $f$ attains a maximum in $\Delta$,
-call this point $p$.  
-The Laplacian $\nabla^2 f$ is the trace of the Hessian matrix, but for $f$ to have a
-maximum, the Hessian must have only nonpositive eigenvalues at the critical
-points, which is a
-contradiction as the trace is the sum of the eigenvalues.  So $f$ has no
-maximum inside, and therefore $f \leq 0$ on all of
-$\overline{\Delta}$.
+The Laplacian $\nabla^2 f$ is the trace of the Hessian matrix,
+that is, the sum of the eigenvalues.  Thus $f$ has no maximum 
+in $\Delta$, since at a maximum both eigenvalues of the Hessian matrix
+would be nonpositive.
+Therefore, $f \leq 0$ on all of $\overline{\Delta}$.
 
-Next suppose $\nabla^2 f \geq 0$.
+Next suppose only that $\nabla^2 f \geq 0$.
 Let $M$ be the maximum of $x^2+y^2$ on $\overline{\Delta}$.
 Take $f_n(x,y) = f(x,y) + \frac{1}{n}
 ( x^2+y^2 ) - \frac{1}{n}M$.  Clearly $\nabla^2 f_n > 0$ everywhere on
@@ -15590,27 +15587,38 @@ equals $u$ on $\partial \Delta$, and $Pu$ is harmonic in all of $\Delta$.
 Consider the function
 $Pu(z) - u(z)$ on $\overline{\Delta}$.  The function is zero
 on $\partial \Delta$ and it is harmonic on $\Delta'$.  By rescaling $f$,
-we can without loss of generality assume that $\abs{f(z)} < 1$ for all $z
-\in \overline{\Delta}$.  For any $t >0$, the function 
-$z \mapsto t \log \abs{f(z)}$ is subharmonic on $\Delta'$ and
-upper-semicontinuous on $\overline{\Delta'}$.  Further, it is negative
-on $\partial \Delta$.  The function $z \mapsto -t \log \abs{f(z)}$ is
-superharmonic (minus a subharmonic function) on $\Delta'$,
-lower-semicontinuous on $\overline{\Delta'}$ and positive on $\partial
-\Delta$.  On the set $\Delta \setminus \Delta'$, where $f$ is zero,
-the two functions are $-\infty$ and $+\infty$ respectively.
+we assume that $\abs{f(z)} < 1$ for all $z
+\in \overline{\Delta}$. 
+The function $z \mapsto \log \sabs{f(z)}$ is harmonic on $\Delta'$, it is
+$-\infty$ when $f(z) = 0$, and hence it is upper-semicontinuous on
+$\overline{\Delta}$.
+Applying
+the sub-mean-value property near points where $f$ vanishes,
+we find that
+$\log \sabs{f(z)}$ is subharmonic on $\Delta$.
+As $\sabs{f(z)} < 1$, we find that
+$\log \sabs{f(z)}$ is negative on $\overline{\Delta}$.
+So for every $t > 0$,
+the function
+$z \mapsto t \log \abs{f(z)}$ is subharmonic and negative
+and the function
+$z \mapsto -t \log \abs{f(z)}$ is superharmonic
+(minus a subharmonic function) and positive.
 See \figureref{fig:radosthm}.
-Therefore, for all $t > 0$ and 
+It is immediate that for all $t > 0$ and
 $z \in \partial \Delta \cup (\Delta \setminus \Delta')$,
+we have
 \begin{equation} \label{eq:radobound}
 t \log \abs{f(z)} \leq Pu(z)-u(z) \leq -t \log \abs{f(z)}  .
 \end{equation}
-Applying the maximum principle to the subharmonic functions
+The functions
 $z \mapsto t \log \abs{f(z)} - \bigl(Pu(z)-u(z)\bigr)$
 and
 $z \mapsto t \log \abs{f(z)} - \bigl(u(z)-Pu(z)\bigr)$
-shows that 
-\eqref{eq:radobound} holds for all $z \in \Delta'$ and all $t > 0$.
+are subharmonic on $\Delta'$, and so
+applying the maximum principle
+shows that
+\eqref{eq:radobound} holds also for all $z \in \Delta'$ and all $t > 0$.
 
 \begin{myfig}
 \subimport*{figures/}{radosthm.pdf_t}
@@ -15632,7 +15640,7 @@ As $\Delta$ is simply connected,
 let $\tilde{v}$ be the harmonic conjugate of $u$ that equals $v$ at
 some point of $\Delta'$.  As $f$ is holomorphic on $\Delta'$,
 the harmonic functions $\tilde{v}$ and $v$
-are equal the nonempty open subset $\Delta'$ of $\Delta$ and so
+are equal on a nonempty open subset $\Delta'$ of $\Delta$ and so
 they are equal everywhere.  Consequently, $f = u +iv$ is holomorphic on
 $\Delta$.
 \end{proof}
