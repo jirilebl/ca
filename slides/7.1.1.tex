@@ -86,17 +86,17 @@ Suppose $f \colon U \to \R$ is harmonic.
 Find (locally) a primitive $g$ of the holomorphic
 $\dfrac{\partial f}{\partial z}$.
 
+%\medskip
+\pause
+
+Let $c(z) = f(z)-g(z)$
+\wthus
+$c$ is $C^2$ ~and~ $\dfrac{\partial c}{\partial z} \equiv 0$.
+
 \medskip
 \pause
 
-Write
-\quad $f(z) = g(z) + c(z)$, \quad
-$g$ holomorphic and $\dfrac{\partial c}{\partial z} \equiv 0$.
-
-\medskip
-\pause
-
-Let $h = \bar{c}$.
+Let $h = \bar{c}$
 \pause
 \wthus
 $\displaystyle
@@ -152,8 +152,6 @@ U \to \C$ such that $f = \Re \varphi$.
 
 Similarly $f$ is the imaginary part of some holomorphic function.
 
-\medskip
-
 \end{frame}
 
 \begin{frame}
@@ -184,10 +182,14 @@ $\displaystyle
 =
 2
 \left(
-\frac{\partial^2}{\partial z \partial \bar{z}}
-\varphi(z) +
-\frac{\partial^2}{\partial \bar{z} \partial z}
-\overline{\varphi(z)}
+\frac{\partial}{\partial z}
+\left(
+\frac{\partial \varphi}{\partial \bar{z}}
+\right)+
+\frac{\partial}{\partial \bar{z}}
+\left(
+\frac{\partial \bar{\varphi}}{\partial z}
+\right)
 \right)
 =
 0$.
@@ -201,23 +203,23 @@ Let $U \subset \C$ be open and $f \colon U \to \R$ a function.
 \begin{enumerate}[(i)]
 \item
 The function $f$ is harmonic if and only if
-for every point $p$ there exists an open neighborhood $V$ of $p$ and a
+for every $p \in U$ there exists an open neighborhood $V$ of $p$ and a
 holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
 on $V$.
 \pause
 \item
-If $f$ is harmonic, then it is infinitely (real) differentiable and
-%it
-%is so-called real-analytic
+The function $f$ is harmonic if and only if
 for every $p \in U$, there exists a power series expansion
 \begin{equation*}
 f(z) =
-\sum_{n=0}^\infty c_n {(z-p)}^n + \bar{c}_n {(\overline{z-p})}^n
+c_0 +
+\sum_{n=1}^\infty c_n {(z-p)}^n + \bar{c}_n {(\overline{z-p})}^n
 \end{equation*}
 converging uniformly absolutely
-on any closed disc $\overline{\Delta_r(p)} \subset U$.
+on every closed disc $\overline{\Delta_r(p)} \subset U$.
 \end{enumerate}
 \end{proposition}
+
 \end{frame}
 
 \begin{frame}
@@ -267,8 +269,7 @@ then $g_1 = g_2 + C$ for some $C \in \R$.
 
 \pause
 \textbf{Proof:}
-Trivial: 
-$\frac{(f + i g_1) - (f + i g_2)}{i} =  g_1-g_2$
+$\dfrac{(f + i g_1) - (f + i g_2)}{i} =  g_1-g_2$
 is holomorphic, real valued ~\thus~ constant.
 
 \end{frame}
@@ -289,8 +290,8 @@ But $\log \sabs{f(z)}$ is harmonic (where $f$ is nonzero).
 \pause
 
 \begin{proposition}
-If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic
-and never zero, then
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic
+and never zero.  Then
 \begin{equation*}
 z \mapsto \log \sabs{f(z)}
 \end{equation*}

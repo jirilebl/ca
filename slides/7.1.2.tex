@@ -1,0 +1,164 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Harmonic functions\\%
+Identity and the maximum principle (7.1.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+A zero set of a harmonic $f$ can have limit points: E.g., $\Re z$.
+But no open sets.
+
+\pause
+
+\begin{theorem}[Identity]
+Let $U \subset \C$ be a domain and $f \colon U \to \R$ a harmonic function.
+Suppose $V \subset U$ is a nonempty open subset and $f = 0$ on $V$.  Then $f
+\equiv 0$.
+\end{theorem}
+
+\pause
+\textbf{Proof:}
+Let $Z_f = f^{-1}(0)$.
+\pause
+\quad
+Let $Z$ be the closure of the interior of $Z_f$ (subspace topology).
+
+\medskip
+\pause
+
+Suppose $Z$ is nonempty and $p \in Z$.
+\pause
+
+If $\Delta_r(p) \subset U$, $f$ is
+zero on some open subset of $\Delta_r(p)$.
+
+\pause
+\medskip
+
+$\exists$ a holomorphic $h \colon \Delta_r(p) \to \C$ such that $f = \Re h$
+on $\Delta_r(p)$.
+
+\pause
+\thus\quad
+$h$ is holomorphic and purely imaginary on an open subset of
+$\Delta_r(p)$.
+
+\pause
+\thus\quad
+$h$ is constant on an open subset of $\Delta_r(p)$.
+
+\pause
+\thus\quad
+$h$ is constant on $\Delta_r(p)$.
+
+\pause
+\thus\quad
+$f$ is constant on $\Delta_r(p)$.
+
+\pause
+\thus\quad
+$f$ is zero on $\Delta_r(p)$.
+
+\pause
+\thus\quad
+$Z$ is open.
+
+\pause
+\medskip
+
+$Z$ is also closed and $U$ is connected \wthus $Z=U$.
+\qed
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Maximum principle]
+Suppose $U \subset \C$ is a domain and $f \colon U \to \R$
+is harmonic.
+If $f$ attains a local maximum (or a local minimum) in $U$, then $f$ is constant.
+\end{theorem}
+
+\pause
+\textbf{Proof:}
+WLOG assume $f$ has a local maximum at $p \in U$ (otherwise consider $-f$).
+
+\medskip
+\pause
+
+It is the global maximum on some $\Delta_r(p) \subset U$.
+
+\medskip
+\pause
+
+There exists a holomorphic $h \colon \Delta_r(p) \to \C$ such that $f = \Re h$.
+
+\medskip
+\pause
+
+$h$ takes
+$\Delta_r(p)$ to $X = \bigl\{ w \in \C : \Re w \leq f(p) \bigr\}$.
+
+\medskip
+\pause
+
+$h(p)$ is on the boundary of $X$ (as $\Re h(p)= f(p)$).
+
+\medskip
+\pause
+
+$h\bigl(\Delta_r(p)\bigr)$ is not open
+\pause
+\wthus $h$ is constant (open mapping theorem).
+
+\medskip
+\pause
+
+So $f$ is constant on $\Delta_r(p)$
+\pause
+\wthus $f$ is constant on $U$ by identity.
+\qed
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+Prove that
+the maximum principle for harmonic functions implies the maximum
+modulus principle for holomorphic functions.
+Hint: Consider $\log \sabs{f(z)}$.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Prove the second version of the maximum principle: If $U \subset \C$
+is a bounded domain and
+$f \colon \widebar{U} \to \R$ is continuous and harmonic on $U$,
+then $f$ achieves both its maximum and its minimum
+on the boundary $\partial U$.
+
+\pause
+\medskip
+
+\textbf{Exercise:}
+Suppose $U \subset \C$ is a domain and
+$f \colon U \to \R$ is harmonic.
+Prove that $f(U)$ is an open interval or a single point.
+\end{frame}
+
+\end{document}
