@@ -823,7 +823,7 @@ variables.
 
 The size of $z$ is measured by the so-called \emph{\myindex{modulus}},
 which is just the \emph{\myindex{euclidean distance}}
-of $0$ and $z$:
+from the origin to $z$:
 \glsadd{not:mod}%
 \begin{equation*}
 \sabs{z} \overset{\text{def}}{=} \sqrt{z \bar{z}} = \sqrt{x^2+y^2} .
@@ -943,7 +943,7 @@ A disc centered at the origin of radius $1$ is called the
 The unit disc will come up often in this course, as it turns out that
 a lot of complex analysis can be done by looking at just the unit disc.
 
-A useful \myquote{version} of the unit disc, is the \emph{\myindex{upper half-plane}}:
+A useful \myquote{version} of the unit disc is the \emph{\myindex{upper half-plane}}:
 \glsadd{not:H}%
 \begin{equation*}
 \bH 
@@ -985,7 +985,7 @@ and $v = \Im f$ for real-valued functions $u,v \colon X \to \R$, and then
 f = u+iv .
 \end{equation*}
 
-If $X \subset \C$, then we think of $X \subset \R^2$.
+If $X \subset \C$, we think of $X \subset \R^2$.
 A derivative in $x$ or $y$ (where $z=x+iy$) is then applied to the
 components (just as if $f$ was valued in $\R^2$):
 \begin{equation*}
@@ -1004,7 +1004,8 @@ Equivalently, we treat $f$ as a function from $\R$ to $\R^2$
 and hence $f'$ is a $2 \times 1$ matrix---a column vector, or in other words
 $f'$ represents a complex number if we are identifying $\C$ and $\R^2$.
 
-Similarly when integrating.  For $f \colon [a,b] \to \C$,
+Matters are similar for integration.
+For $f \colon [a,b] \to \C$,
 we say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
 \begin{equation*}
 \int_a^b f(t) \, dt = 
@@ -1047,7 +1048,7 @@ real-linear operator\footnote{$L \colon \C \to \C$ is real-linear if
 $L(a z + b w) = aL(z)+bL(z)$ for all $a,b \in \R$ and $z,w \in \C$.}.
 A real-linear operator on $\R^2$ is given by a $2 \times 2$ real
 matrix.
-Namely, the complex number $a+ib$ can be represented by the $2 \times 2$ matrix
+Namely, the complex number $\xi = a+ib$ can be represented by the $2 \times 2$ matrix
 \begin{equation} \label{eq:complexnumbermatrix}
 \begin{bmatrix}
 a & -b \\
@@ -1416,7 +1417,7 @@ sector
 \end{equation*}
 The reason for the quotation marks is that the inequality makes no
 sense without interpreting it properly.  It means that at least one of the values
-of $\arg z$ is between $a$ and $b$.
+of $\arg w$ is between $a$ and $b$.
 In particular, the exponential $e^z$ takes the set given by
 $2k\pi < \Im z \leq 2(k+1)\pi$ in a one-to-one fashion
 (see \exerciseref{exercise:exponetoonestrip})
@@ -1905,7 +1906,8 @@ There is a certain quantity that is preserved by LFTs, the
 \frac{z_4-z_1}{z_4-z_2} ,
 \end{equation*}
 where $z_1,z_2,z_3,z_4$ are complex numbers.  The cross ratio
-was already described by the ancient Greeks\footnote{Pappus of Alexandria
+was already described by the ancient Greeks\footnote{By
+Pappus of Alexandria who
 lived in the early 4th century AD\@.  So it's not as impressively ancient as say
 Thales's theorem from about a thousand years earlier.  Also, isn't
 Alexandria in Egypt?}
