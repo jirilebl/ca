@@ -427,7 +427,7 @@ Typeset in \LaTeX.
 \bigskip
 
 \noindent
-Copyright \copyright 2019--2023 Ji{\v r}\'i Lebl
+Copyright \copyright 2019--2024 Ji{\v r}\'i Lebl
 
 %PRINT
 % not for the coil version
@@ -1231,6 +1231,7 @@ e^{i\theta}
 =
 \cos \theta + i \sin \theta .
 \end{equation*}
+In other words, $e^{i \theta}$ parametrizes the unit circle.
 The formula says that for real $\theta$,
 \begin{equation*}
 \cos \theta = \Re e^{i\theta} = \frac{e^{i\theta}+e^{-i\theta}}{2} ,
@@ -1486,12 +1487,13 @@ and so define a metric on $\C_\infty$ by
 using a metric on $S^2$, which can be the subspace
 metric coming from the euclidean metric on $\R^3$.
 Another possibility
-could be the great circle distance, \exampleref{ms:greatcircle}, both
-distances would lead to the same topology and so the same limits.
+could be the great circle distance, \exampleref{ms:greatcircle}.
+Both distances would lead to the same topology and so the same limits.
 
 \begin{myfig}
 \includegraphics{figures/riemannsphere}
-\caption{Stereographic projection of the Riemann sphere to the complex plane.\label{fig:riemannsphere}}
+\caption{Stereographic projection of the sphere $S^2$ to the complex
+plane.\label{fig:riemannsphere}}
 \end{myfig}
 
 \begin{exbox}
@@ -1610,10 +1612,10 @@ is quite different from
 the $\infty$ of the extended reals.
 For $c \not= \infty$, we could define $c+\infty = \infty$,
 but neither $\infty+\infty$ nor $\infty-\infty$ makes sense.
-For instance, if $f(z) = z$ and $g(z) = -z$,
+For instance, if $f(z) = z$ and $g(z) = c-z$,
 then $\lim_{z \to \infty} f(z) = \infty$,
 $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
-\bigl(f(z)+g(z)\bigr) = 0$, so $\infty+\infty$ does not make sense.
+\bigl(f(z)+g(z)\bigr) = c$, so $\infty+\infty$ does not make sense.
 Unlike for the extended reals,
 it is reasonable (and at times useful) to define $\nicefrac{c}{0} = \infty$ for
 $c \not= 0$, $\nicefrac{c}{\infty} = 0$ for $c \not= \infty$,
@@ -1717,7 +1719,7 @@ one only needs to prove them for $T_a$, $D_a$, and $I$.  This technique
 will come in handy in the very next exercise.
 Let us include straight lines in the set of circles.  After all, a straight
 line is just a circle through infinity: Think about the circle of radius $r$
-centered at $ir$ as $r \to \infty$.  Then an LFT takes circles to circles.
+centered at $ir$ as $r \to +\infty$.  Then an LFT takes circles to circles.
 We leave this fact as an exercise.
 
 \begin{exbox}
