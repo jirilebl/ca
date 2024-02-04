@@ -2448,8 +2448,10 @@ $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
 \begin{prop}[Power rule and its consequences] \label{prop:powerrule}
 \leavevmode
 \begin{enumerate}[(i)]
-\item For every nonzero integer $n$, the function $z \mapsto z^n$ is holomorphic
-where defined (outside the origin if $n$ negative) and $(z^n)' = n z^{n-1}$.
+\item For every integer $n$, the function $z \mapsto z^n$ is holomorphic
+where defined (outside the origin if $n$ negative) and
+$\frac{d}{dz}\bigl[ z^n \bigr] = n z^{n-1}$
+if $n\not=0$ and $\frac{d}{dz}\bigl[ z^0 \bigr] = 0$.
 \item
 A polynomial $P(z) = \sum_{n=0}^d c_n z^n$ is
 holomorphic and
@@ -2472,10 +2474,10 @@ f(z)g(z+h) - f(z)g(z)$.
 
 \begin{exercise}
 Prove the first item of \propref{prop:powerrule}, the power rule.
-Hint: First prove that $z$ is complex differentiable,
-then prove $z^n$ is differentiable for positive $n$ (use product rule and
+Hint: First prove that $z$ is holomorphic,
+then prove $z^n$ is holomorphic for positive $n$ (use product rule and
 induction), and finally prove
-that $z^n$ is differentiable for negative $n$.
+that $z^n$ is holomorphic for negative $n$.
 Note: You are proving both that the complex derivative exists and
 computing it.
 \end{exercise}
