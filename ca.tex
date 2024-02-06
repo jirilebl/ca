@@ -2957,12 +2957,12 @@ Using the Cauchy--Riemann equations, we compute the Jacobian determinant,
 \end{equation*}
 The Jacobian determinant is nonzero (positive) and $Df$ is invertible
 whenever $f'(z)$ is nonzero.
-Why is it the modulus squared? The determinant of $Df$
-measures how area changes, and if we multiply a geometric figure
-by $r e^{i\theta}$, the area gets multiplied by $r^2$.
-Among other things this computation
-implies that the determinant of
+The computation also implies
+that the determinant of
 $Df$ is always nonnegative, so a holomorphic function preserves orientation.
+Why is it the modulus of $f'$ squared? The determinant of $Df$
+measures how area changes, and if we multiply a piece of the plane
+by $r e^{i\theta}$, the area gets multiplied by $r^2$.
 
 The real inverse function theorem (\thmref{thm:inverse})
 for continuously differentiable
@@ -3187,6 +3187,7 @@ M =
 a & -c \\
 c &  a
 \end{bmatrix} .
+\avoidbreak
 \end{equation*}
 In other words, $M$ corresponds to multiplication by the complex number
 $a+ic$.
