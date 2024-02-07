@@ -3474,7 +3474,7 @@ $0 < r < R$, there exists an $M > 0$ such that
 
 It is not necessarily true that $\bigl\{ \sabs{c_n} R^n \bigr\}$
 is bounded if $R$ is the radius of convergence.
-The two series $\sum z^n$ and $\sum n z^n$ have
+The two series $\sum z^n$ and $\sum n z^n$ both have
 radius of convergence $1$, while the sequence of coefficients
 is bounded in the first case and
 not in the second.  However, $\{ n r^n \}$ is bounded for every $r < 1$.
@@ -3501,9 +3501,9 @@ the series converges (absolutely) in $\Delta_R(p)$.
 
 The proof is fairly typical for convergence results of power series.
 Convergence in $\Delta_R(p)$, means boundedness of
-$\{ \sabs{c_n} r^n \}$ in a smaller $\Delta_r(p)$, which only gets us convergence
+$\{ \sabs{c_n} r^n \}$ for a smaller $\Delta_r(p)$, which only gets us convergence
 in $\Delta_s(p)$.  See \figureref{fig:threediscs}.  But since $s$ and $r$
-are arbitrary we get convergence everywhere.
+are arbitrary we get convergence in~$\Delta_R(p)$.
 \begin{myfig}
 \subimport*{figures/}{threediscs.pdf_t}
 \caption{The three discs from the convergence proof.\label{fig:threediscs}}
@@ -3517,7 +3517,7 @@ converges, then $\abs{\sum_{n=0}^\infty c_n} \leq \sum_{n=0}^\infty
 \end{exercise}
 \end{exbox}
 
-The convergence inside the radius of convergence is even nicer than just absolute.
+The convergence within the radius of convergence is even nicer than just absolute.
 Let $K \subset \C$ be a set.
 A power series $\sum c_n {(z-p)}^n$
 \emph{\myindex{converges uniformly absolutely}}\index{uniform absolute convergence}
@@ -3754,7 +3754,8 @@ in $\Delta_s(0)$.
 \abs{c_n \sum_{k=0}^{n-1} z^k z_0^{n-1-k}}
 \leq
 \sum_{k=0}^{n-1} 
-\sabs{c_n} s^{n-1}
+\sabs{c_n}
+s^{n-1}
 =
 n
 \sabs{c_n} s^{n-1}
@@ -3763,7 +3764,8 @@ n
 \sabs{c_n} r^{n-1} {\left(\frac{s}{r}\right)}^{n-1} .
 \end{equation*}
 The expression
-$\sabs{c_n} r^{n-1}$ is bounded by some $M > 0$, because the series for $f$ converges
+$\sabs{c_n} r^{n-1}$ is bounded by some $M > 0$ for all $n$,
+because the series for $f$ converges
 in $\Delta_R(0)$ and $r < R$.
 As
 \begin{equation*}
