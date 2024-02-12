@@ -3914,10 +3914,10 @@ $f(z) = e^z$.
 
 \begin{proof}
 We now know that power series are holomorphic and we know how
-to differentiate them, we do it term-by-term, that is, \myquote{formally.}
+to differentiate them: We do it term-by-term, that is, \myquote{formally.}
 Suppose we possess a convergent power series at the origin
 \begin{equation*}
-f(z) = \sum_{n=0}^\infty c_n z^n ,
+f(z) = \sum_{n=0}^\infty c_n z^n
 \end{equation*}
 such that $f(0)=1$ and $f'=f$.
 Obviously, $f(0)=1$ implies that $c_0 = 1$.
@@ -4015,7 +4015,7 @@ we know $f$ on all of $U$.
 Suppose $f$ is not identically zero.
 The set $Z_f$ is closed (in $U$, of course) as $f$ is continuous.  We must show
 that points of $Z_f$ are isolated.
-Without loss of generality suppose $0 \in U$ and $0 \in Z_f$,
+Without loss of generality, suppose $0 \in U$ and $0 \in Z_f$,
 and suppose $0$ is not in the interior of $Z_f$.
 Near $0$, write
 \begin{equation*}
@@ -4181,7 +4181,7 @@ When we say that $\gamma$ is a path in $U \subset \C$\index{path in $U$},
 we mean that
 $\gamma \colon [a,b] \to U$ is a path.  Another common abuse of notation we
 will freely and shamelessly commit is that if we refer to $\gamma$
-as if it were a set we mean the image $\gamma\bigl([a,b]\bigr)$.
+as if it were a set, we mean the image $\gamma\bigl([a,b]\bigr)$.
 Nowhere will we really use or need that $\gamma'$ is never zero,
 but leaving that off would allow some paths that one would generally not
 wish to call piecewise-$C^1$,
@@ -4198,7 +4198,7 @@ t          & \text{if } t \in [0,1],\\
 i(4-t)     & \text{if } t \in (3,4],
 \end{cases}
 \end{equation*}
-is a piecewise-$C^1$ path traversing the sides unit square.
+is a piecewise-$C^1$ simple closed path traversing the sides unit square.
 See \figureref{fig:squarepath}.  You should check that the
 conditions are satisfied.  For example, 
 on $t \in (0,1)$, $\gamma'(t) = 1$, and so
@@ -4261,7 +4261,7 @@ For $n \in \Z$, we claim that
 \end{myfig}
 
 First, $\gamma'(t) = i r e^{it}$.
-To prove the claim we compute
+To prove the claim, we compute
 \begin{equation*}
 \int_\gamma z^n \, dz
 =
@@ -4274,14 +4274,14 @@ i r^{n+1}
 e^{i(n+1)t} \, dt .
 \end{equation*}
 The result follows as the integral on the right-hand side is zero
-(write it in terms of sines and cosines, exercise below), unless $n+1 = 0$,
+(exercise below), unless $n+1 = 0$,
 in which case, the integral 
 is $2\pi$ and $r^{n+1} = 1$.  Note in particular that the value of the
 integral does not depend on $r$.
 \end{example}
 
 \begin{exbox}
-\begin{exercise}
+\begin{exercise}[Easy]
 Prove that if $k\not= 0$, then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
 \end{exercise}
 
