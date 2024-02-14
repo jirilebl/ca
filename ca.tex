@@ -3503,7 +3503,7 @@ The proof is fairly typical for convergence results of power series.
 Convergence in $\Delta_R(p)$, means boundedness of
 $\{ \sabs{c_n} r^n \}$ for a smaller $\Delta_r(p)$, which only gets us convergence
 in $\Delta_s(p)$.  See \figureref{fig:threediscs}.  But since $s$ and $r$
-are arbitrary we get convergence in~$\Delta_R(p)$.
+are arbitrary, we get convergence in~$\Delta_R(p)$.
 \begin{myfig}
 \subimport*{figures/}{threediscs.pdf_t}
 \caption{The three discs from the convergence proof.\label{fig:threediscs}}
@@ -3656,7 +3656,7 @@ practice.
 
 Functions that possess a convergent power series are called analytic.
 From the beginnings of calculus until the 19\textsuperscript{th} century, 
-when mathematicians considered a \myquote{function} they really meant
+when mathematicians considered a \myquote{function,} they really meant
 \myquote{analytic function} (or something like it) in modern language.
 One can talk about
 both complex-analytic and real-analytic functions depending on if the
@@ -4182,7 +4182,8 @@ we mean that
 $\gamma \colon [a,b] \to U$ is a path.  Another common abuse of notation we
 will freely and shamelessly commit is that if we refer to $\gamma$
 as if it were a set, we mean the image $\gamma\bigl([a,b]\bigr)$.
-Nowhere will we really use or need that $\gamma'$ is never zero,
+Nowhere\footnote{That's not strictly true, we will need it in an optional
+section.} will we really use or need that $\gamma'$ is never zero,
 but leaving that off would allow some paths that one would generally not
 wish to call piecewise-$C^1$,
 as you will see in the exercises.
@@ -4337,9 +4338,10 @@ $\int_\gamma f(z) \, dz$.
 \end{exercise}
 \end{exbox}
 
-The value of the integral does not depend on how we parametrize the image of
-the path, except that it does depend on orientation (which direction we
-go).  It is easy to see why when
+For injective paths, the value of the integral does not depend on how
+we parametrize the image of the path,
+except that it does depend on orientation (which direction we go).
+It is easy to see why when
 $\gamma \colon [a,b] \to \C$ is continuously differentiable and we have
 a continuously differentiable $h \colon [c,d] \to [a,b]$ such
 that $h' > 0$ (increasing), $h(c)=a$, and $h(d) = b$.  Then $\gamma \circ h$ is a new
@@ -4461,7 +4463,7 @@ for piecewise-$C^1$ paths.
 We think of the path
 as the set
 $\gamma\bigl([a,b]\bigr)$,
-not the parametrization, and where the path is $C^1$
+not the parametrization, and where the path is $C^1$,
 we want it to not have \myquote{corners.}
 In practical terms, we don't often use this requirement,
 but it does make some more geometric arguments quite a bit simpler.
