@@ -4492,7 +4492,8 @@ Finally, there is the \myquote{$u$-substitution} from calculus.
 
 \begin{prop} \label{prop:usubst}
 Let $U,V \subset \C$ be open, $\gamma \colon [a,b] \to V$ 
-piecewise-$C^1$ path, $g \colon V \to U$ holomorphic, and $f \colon U \to \C$
+piecewise-$C^1$ path, $g \colon V \to U$ holomorphic (assume $g'$ is
+continuous\footnote{We will soon see that $g'$ is always continuous.}), and $f \colon U \to \C$
 continuous.  Then $g \circ \gamma$ is a piecewise-$C^1$ path in $U$
 (possibly with vanishing derivative\footnote{%
 There does exist a reparametrization with nonvanishing derivative, if we really
@@ -4589,6 +4590,8 @@ M
 Arclength is not preserved under uniform convergence of the paths.
 In other words, just because the images of two paths are very close to each
 other, does not mean that the integrals over them will be the same.
+Same caveat holds for the $dz$ integral as it does for the $\sabs{dz}$
+integral.
 So one has to be careful when saying that two paths are close to each other.
 You would need that the derivatives are close as well since $\gamma'$ appears
 under the integral.
