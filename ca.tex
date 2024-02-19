@@ -4971,6 +4971,11 @@ In particular, $T$ is the smallest convex set containing the vertices.
 Do note that we have defined a triangle as the solid triangle, including
 the inside.
 
+\begin{myfig}
+\subimport*{figures/}{triang.pdf_t}
+\caption{Positively oriented triangle.%
+\label{fig:triang}}
+\end{myfig}
 Order the vertices so that the boundary $\partial T$ has positive orientation;
 if we travel from $a$ to $b$ to $c$ the inside of the triangle 
 is on the left.  More precisely, if we translate so that $a$ is
@@ -4980,11 +4985,6 @@ of $T$ as
 \begin{equation*}
 \partial T = [a,b] + [b,c] + [c,a] .
 \end{equation*}
-\begin{myfig}
-\subimport*{figures/}{triang.pdf_t}
-\caption{Positively oriented triangle.%
-\label{fig:triang}}
-\end{myfig}
 
 \begin{thm}[Cauchy--Goursat\footnote{%
 What makes this theorem the Goursat theorem
@@ -5026,7 +5026,7 @@ $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side of $T$ in half.  See
 
 Each $T_j$ is positively oriented.
 The sides of the inner $T_4$ triangle have the opposite
-orientation as the inner sides of $T_1$, $T_2$, and $T_3$, and
+orientation from the orientation of the inner sides of $T_1$, $T_2$, and $T_3$, and
 so the line integral over these sides cancels.  Therefore,
 \begin{equation*}
 c = 
@@ -5055,8 +5055,8 @@ All in all, for the $k$\textsuperscript{th} triangle $T^k$,
 \abs{\int_{\partial T^k} f(z) \, dz } \geq \frac{c}{4^k} .
 \end{equation*}
 Furthermore, $T^k \subset T^{k-1} \subset \cdots \subset T$.
-The subtriangles are all similar triangles (same angles),
-but of exactly half the size.
+In each step, the subtriangles are all similar triangles (same angles),
+but with sides exactly halved.
 In particular,
 the largest possible distance for two points in the triangle 
 gets halved each iteration.
@@ -5075,11 +5075,10 @@ And as the diameter goes to zero, it must be a single point:
 \{ z_0 \} = \bigcap_{k=1}^\infty T^k .
 \end{equation*}
 
-Write
+For some $\alpha \in \C$, write
 \begin{equation*}
-f(z) = f(z_0) + \alpha (z-z_0) + g(z) ,
+f(z) = f(z_0) + \alpha (z-z_0) + g(z) .
 \end{equation*}
-for some continuous $g(z)$ and $\alpha \in \C$.
 Were $f$ complex differentiable at $z_0$, there would be an $\alpha$ so that
 $\frac{g(z)}{z-z_0}$ would go to zero as $z \to z_0$.
 Let us prove that it doesn't go to zero for any $\alpha$.  Fix $\alpha$
@@ -5105,8 +5104,8 @@ And so
 \end{equation*}
 Let $\ell$ be the sum of the lengths of the sides of $T$.
 The sum of the lengths of the sides of $T^k$ is
-$\frac{\ell}{2^k}$, so
-by the mean value theorem for integrals\footnote{%
+$\frac{\ell}{2^k}$.
+By the mean value theorem for integrals\footnote{%
 If $\varphi \colon [a,b] \to \R$ is continuous, then there is an $x \in [a,b]$
 such that $\varphi(x) = \frac{1}{b-a} \int_a^b \varphi(t) \, dt$.
 To apply it here, parametrize the entire triangle with unit speed.},
