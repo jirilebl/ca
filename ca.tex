@@ -5069,8 +5069,8 @@ means the maximum distance between two points in $T$.}
 =
 \frac{1}{2^k} \operatorname{diam}(T) .
 \end{equation*}
-As $T$ is compact, the nested intersection of the $T^k$ must be nonempty.
-And as the diameter goes to zero, it must be a single point:
+As $T$ is compact and each $T^k$ is closed, the nested intersection of the $T^k$ must be nonempty.
+As the diameter goes to zero, it must be a single point:
 \begin{equation*}
 \{ z_0 \} = \bigcap_{k=1}^\infty T^k .
 \end{equation*}
@@ -5081,7 +5081,7 @@ f(z) = f(z_0) + \alpha (z-z_0) + g(z) .
 \end{equation*}
 Were $f$ complex differentiable at $z_0$, there would be an $\alpha$ so that
 $\frac{g(z)}{z-z_0}$ would go to zero as $z \to z_0$.
-Let us prove that it doesn't go to zero for any $\alpha$.  Fix $\alpha$
+Let us prove that it does not go to zero for any $\alpha$.  Fix $\alpha$
 and thus $g$.  If $g(z_0) \not= 0$,
 then we are done, so assume $g(z_0) = 0$.
 \hyperref[cor:cauchyforpoly]{Cauchy's theorem for polynomials} says
@@ -5272,8 +5272,8 @@ If $\sabs{h} < r$, then
 $z+h \in \Delta_r(z)$.
 The line between $z$ and $z+h$ is in $U$, and
 as $U$ is star-like with respect to $z_0$, 
-the entire triangle with
-vertices $z_0$, $z$, and $z+h$
+the entire triangle (or the line segment if the points are collinear)
+with vertices $z_0$, $z$, and $z+h$
 is in $U$, see \figureref{fig:triangantidef}
 (and \exerciseref{exercise:triangleinstarlike}).
 \begin{myfig}
@@ -5282,8 +5282,7 @@ is in $U$, see \figureref{fig:triangantidef}
 $z_0$, $z$, and $z+h$.\label{fig:triangantidef}}
 \end{myfig}
 
-The
-hypothesis says
+The hypothesis says (trivially true if the points are collinear)
 \begin{equation*}
 \int_{[z_0,z]+[z,z+h]-[z_0,z+h]} f(\zeta) \, d\zeta = 0 .
 \end{equation*}
@@ -5400,7 +5399,8 @@ $\int_\Gamma f(z) \, d\bar{z} = 0$.
 A complex-valued function can be thought of as a vector-field on $\R^2$.
 \corref{cor:primitiveinstarlike}
 is in fact a special case of a theorem you have seen
-in vector calculus:  \emph{In a star-like domain $U \subset \R^2$, if a
+in vector calculus, a version of the \emph{\myindex{Poincar\'e lemma}}:
+\emph{In a star-like domain $U \subset \R^2$, if a
 $C^1$ vector field $(u,v) \colon U \to \R^2$
 satisfies $\frac{\partial u}{\partial y} = \frac{\partial v}{\partial x}$
 (the vector field is \emph{irrotational}\index{irrotational vector field}),
