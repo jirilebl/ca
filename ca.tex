@@ -5904,7 +5904,7 @@ d \zeta .
 \begin{proof}
 We know that $f$ is infinitely complex differentiable, and we can compute
 the derivatives using the Wirtinger operator.
-By induction, suppose the theorem holds for some $k$
+For induction, suppose the theorem holds for some $k$
 (the standard formula says it is true for $k=0$).  Fix some $z \in
 \Delta_r(p)$.
 \begin{equation*}
@@ -5955,8 +5955,8 @@ functions of $(z,\zeta) \in \Delta_r(p) \times \partial \Delta_r(p)$.
 \end{proof}
 
 We could have also used the difference quotient instead of the
-Wirtinger operator.  That requires slightly more care, you have to show
-uniform convergence of the right limit of functions, but this technique
+Wirtinger operator.  That approach requires slightly more care---you have to show
+uniform convergence of a certain limit of functions---but we
 would not have needed the result
 that holomorphic functions are analytic.  In fact,
 it could give an independent proof that holomorphic functions are infinitely
@@ -5998,7 +5998,7 @@ The previous exercise may seem trivial, but the key is that we can prove
 (using Cauchy's formula) that the partials are continuous as a function of
 $U \times (a,b)$ by using continuity of $f$ on $U \times (a,b)$.  No such
 result is true for nonholomorphic functions.  Prove that the function defined by
-$f(x,t) = t \sin(\nicefrac{x}{t})$ for $t \not= 0$ and $f(x,0) =  0$,
+$f(x,t) = t \sin(\nicefrac{x}{t})$ for $t \not= 0$ and $f(x,0) =  0$
 is continuous as a function of $\R^2$, and for each fixed $t$, the function
 $x \mapsto f(x,t)$ is differentiable (infinitely differentiable in fact),
 but $\frac{\partial f}{\partial x}$ is not continuous as a function of both
@@ -6180,9 +6180,10 @@ or
 \end{equation*}
 The inequality $\sabs{w} - \Re w \geq 0$ holds for all $w \in \C$,
 so
-$\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence
+$\sabs{f(re^{it})}-\Re f(re^{it}) \geq 0$ for all $t$ and hence,
 as the integral is zero,
-$\sabs{f(re^{it})}=\Re f(re^{it})$.  Thus $\Im f(re^{it}) = 0$
+$\sabs{f(re^{it})}=\Re f(re^{it})$ for all $t$.
+Thus $\Im f(re^{it}) = 0$
 and 
 $f(re^{it})=\sabs{f(re^{it})} = f(0)$ for all $t$.
 This reasoning works for every small enough $r$, and consequently the set where
@@ -6193,7 +6194,7 @@ $U$.
 
 We will find much use of the following version: If $f$
 is holomorphic on a bounded $U$ and continuous on $\widebar{U}$,
-then $\sabs{f}$ achieves a maximum on the boundary $\partial U$.
+then $\sabs{f}$ achieves its maximum on the boundary $\partial U$.
 
 \begin{cor}[Maximum modulus principle, part deux]
 \label{cor:maxmodprincpartdeux}
