@@ -5359,7 +5359,7 @@ in $U$.  Then
 
 \begin{proof}
 \corref{cor:primitiveinstarlike} implies that there is
-a primitive $F \colon U \to \C$, and
+a primitive $F \colon U \to \C$.
 Cauchy's theorem for derivatives (\corref{cor:cauchyforders}) then implies that the integral is zero.
 \end{proof}
 
@@ -6096,7 +6096,8 @@ which has several different versions.
 We prove one statement and leave other versions as exercises.
 The main idea is that the modulus of a holomorphic function never
 achieves a maximum.  In other words, $\sabs{f(z)}$ is bounded
-by its values near the boundary of the domain.
+by the supremum of its values near the boundary of the domain or near
+$\infty$.
 The basic idea of the proof is that Cauchy's integral formula tells us that
 $f(z)$ is an average of the values of $f$ in a circle around $z$, and the
 average can't be bigger than the numbers we're averaging.
@@ -6111,8 +6112,8 @@ If $\sabs{f(z)}$ achieves a local maximum on $U$, then $f$ is constant.
 
 \begin{proof}
 Suppose $\sabs{f(z)}$ achieves a local maximum at $p \in U$.
-Without loss of generality suppose $p = 0$.
-Also assume that $f(0)$ is nonnegative and real, otherwise multiply by 
+Without loss of generality, suppose $p = 0$.
+Also assume that $f(0)$ is nonnegative and real---otherwise multiply by 
 some $e^{i\theta}$.
 We write\footnote{%
 Perhaps you're thinking to yourself: Of course we write that $\xi$ is
@@ -6150,12 +6151,12 @@ f(0) = \sabs{f(0)} =
 f(0)\, dt = f(0) .
 \end{split}
 \end{equation*}
-So all the inequalities above are equalities.
-In addition, $f(0)-\sabs{f(re^{it})} \geq 0$ and
+Hence, all the inequalities above are equalities.
+Because $f(0)-\sabs{f(re^{it})} \geq 0$,
 \begin{equation*}
-\int_0^{2\pi}\Bigl( f(0)-\sabs{f(re^{it})} \Bigr) \ dt = 0 ,
+\int_0^{2\pi}\Bigl( f(0)-\sabs{f(re^{it})} \Bigr) \ dt = 0
 \end{equation*}
-so $\sabs{f(re^{it})} = f(0)$ for all $t$.
+means $\sabs{f(re^{it})} = f(0)$ for all $t$.
 By applying Cauchy's formula
 again, we find
 \begin{equation*}
