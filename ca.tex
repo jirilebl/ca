@@ -3636,14 +3636,21 @@ $r$ and converges to the product of the two series.
 Hint: The key is to look at a point where both series converge absolutely,
 then use the absolute convergence.
 \end{exercise}
+
+\begin{exercise}
+If $\sum_{n=0}^\infty a_n z^{n}$ and $\sum_{n=0}^\infty b_n z^{n}$
+converge and are equal in a disc $\Delta_r(0)$, then $a_n = b_n$
+for all $n$.  Hint: First suppose $b_n = 0$ for all $n$
+and find the first $n$ where $a_n \not=0$.
+\end{exercise}
 \end{exbox}
 
 \begin{remark}
-The last few exercises say that we can add and multiply power series.
+The last few exercises say we can add and multiply power series.
 Addition of power series is straightforward, and we will need it momentarily.
-However, multiplication will be much easier for
-holomorphic functions, and we will show later that power series are
-holomorphic and vice versa.  You should still try the exercise, it is good
+Multiplication will be far easier later, after
+we will show power series are
+holomorphic and vice versa, but you should still try the exercise now, it is good
 practice.
 \end{remark}
 
@@ -3660,8 +3667,8 @@ when mathematicians considered a \myquote{function,} they really meant
 \myquote{analytic function} (or something like it) in modern language.
 One can talk about
 both complex-analytic and real-analytic functions depending on if the
-variables are real or complex, and they may depend on one or several variables,
-but we are interested in complex-analytic functions of one variable. 
+variables are real or complex, and they may depend on one or several variables.
+We are interested in complex-analytic functions of one variable. 
 As there is little chance of confusion, we say just \myquote{analytic} instead of
 \myquote{complex-analytic.}
 
@@ -3834,9 +3841,10 @@ Fill in the details of the proof of the corollary.
 \end{exercise}
 \end{exbox}
 
-An important consequence of this corollary that should be
+A consequence of this corollary that should be
 emphasized is that if $f$ is given by the convergent power series in
-$\Delta_R(p)$ as above, then the power series is unique.  This conclusion
+$\Delta_R(p)$ as above, then the power series is unique.
+We have seen this conclusion in an exercise before, here it
 follows from the formula for the coefficients $c_n$.  In fact, the
 coefficients depend only on the values of $f$ in an arbitrarily small
 neighborhood of $p$.
@@ -6559,7 +6567,7 @@ h(z)
 \end{equation*}
 We used Fubini's theorem to swap the integrals:
 The integral over $\partial T$ is really a sum of integrals over an interval
-and the integrand in each is continuous, so Fubini applies.
+and the integrand is continuous (as a function of both variables), so Fubini applies.
 Morera's theorem now says that $h(z)$ is
 holomorphic.
 \end{proof}
