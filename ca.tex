@@ -6784,9 +6784,9 @@ For $\zeta \in \partial \Delta_r(p)$,
 \frac{1}{\delta}
 \sabs{f_n(\zeta)-f(\zeta)} .
 \end{equation*}
-In other words,
-$\zeta \mapsto \frac{f_n(\zeta)}{\zeta-z}$ converges uniformly to 
-$\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ on $\partial \Delta_r(p)$.
+So as $f_n \to f$ uniformly on $\partial \Delta_r(p)$,
+$\zeta \mapsto \frac{f_n(\zeta)}{\zeta-z}$ converges to 
+$\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ uniformly on $\partial \Delta_r(p)$.
 We can, therefore, take the limit as $n \to \infty$ underneath the integral
 to obtain
 \begin{equation*}
@@ -6827,18 +6827,19 @@ complement of $K'$ is open.
 
 As $\{ f_n \}$ converges uniformly on compact subsets, it converges uniformly
 on $K'$.  Given an $\epsilon > 0$, find an $N$ such that 
-$\sabs{f(z)-f_n(z)} < \epsilon$ for all $z \in K'$ and
+$\sabs{f_n(z)-f(z)} < \epsilon$ for all $z \in K'$ and
 all $n \geq N$.
 For any $p \in K$, use the Cauchy estimates in a $\nicefrac{d}{2}$ disc
-on $f(z)-f_n(z)$:
+on $f_n-f$, and note that
+$\partial \Delta_{d/2}(p) \subset K'$:
 \begin{equation*}
 \abs{
-f^{(\ell)}(p)
--
 f_n^{(\ell)}(p)
+-
+f^{(\ell)}(p)
 }
 \leq
-\frac{\ell! \, \snorm{f-f_n}_{\partial \Delta_{d/2}(p)}}{{(d/2)}^{\ell}}
+\frac{\ell! \, \snorm{f_n-f}_{\partial \Delta_{d/2}(p)}}{{(d/2)}^{\ell}}
 \leq
 \frac{\ell!2^\ell}{d^\ell}\epsilon .
 \end{equation*}

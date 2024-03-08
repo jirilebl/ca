@@ -114,7 +114,8 @@ For $\zeta \in \partial \Delta_r(p)$,
 \pause
 I.e.,
 $\zeta \mapsto \frac{f_n(\zeta)}{\zeta-z}$ converges uniformly to 
-$\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ on $\partial \Delta_r(p)$.
+$\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ on $\partial \Delta_r(p)$
+~(as $f_n \to f$ uniformly on $\partial \Delta_r(p)$).
 
 \medskip
 \pause
@@ -218,24 +219,24 @@ $\Rightarrow$ $K'$ is compact.
 $\{ f_n \}$ converges uniformly on $K'$:
 \pause
 Given $\epsilon > 0$, $\exists N$ such that
-$\sabs{f(z)-f_n(z)} < \epsilon$ $\forall$ $z \in K'$, $n \geq N$.
+$\sabs{f_n(z)-f(z)} < \epsilon$ $\forall$ $z \in K'$, $n \geq N$.
 
 \medskip
 \pause
 For any $p \in K$, by Cauchy estimates
-on $f(z)-f_n(z)$
-in $\Delta_{d/2}(p)$:
+on $f_n-f$
+in $\Delta_{d/2}(p)$ (note $\partial \Delta_{d/2}(p) \subset K'$):
 \pause
 \begin{equation*}
 \abs{
 \,
-f^{(\ell)}(p)
--
 f_n^{(\ell)}(p)
+-
+f^{(\ell)}(p)
 }
 \pause
 \leq
-\frac{\ell! \, \snorm{f-f_n}_{\partial \Delta_{d/2}(p)}}{{(d/2)}^{\ell}}
+\frac{\ell! \, \snorm{f_n-f}_{\partial \Delta_{d/2}(p)}}{{(d/2)}^{\ell}}
 \pause
 \leq
 \frac{\ell!2^\ell}{d^\ell}\epsilon .
@@ -257,8 +258,5 @@ holomorphic functions,
 
 we can differentiate by integrating.
 \end{frame}
-
-
-
 
 \end{document}
