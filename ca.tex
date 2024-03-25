@@ -7821,6 +7821,7 @@ f(z) (2\pi i) n(\Gamma;z) . \qedhere
 \end{proof}
 
 Cauchy's theorem follows immediately using the integral formula.
+In fact, the two theorems are equivalent, see the exercises.
 
 \begin{thm}[Cauchy's theorem (homology version)]
 \index{Cauchy's theorem!homology}%
@@ -7987,7 +7988,7 @@ is simply connected.
 \end{exercise}
 
 \begin{exercise}
-Prove that $U \subset \C$ is simply connected if and only if
+Prove that a domain $U \subset \C$ is simply connected if and only if
 the first homology group
 $H_1(U)$ is isomorphic to the trivial group $\{ 0 \}$.
 See \exerciseref{exercise:H1U}.
@@ -8026,8 +8027,10 @@ and define
 \begin{equation*}
 F(z) = \int_\gamma f(\zeta) \, d\zeta .
 \end{equation*}
-A priory, the function $F(z)$ depends on $\gamma$, but Cauchy's
-theorem says that if $\alpha$ is another path from $p$ to $z$, then
+A priory, the function $F(z)$ depends on $\gamma$, but
+if $\alpha$ is another path from $p$ to $z$, then
+$\gamma-\alpha$ is a cycle in $U$ and
+Cauchy's theorem says that
 \begin{equation*}
 \int_\gamma f(\zeta) \, d\zeta -
 \int_\alpha f(\zeta) \, d\zeta 
@@ -8086,7 +8089,7 @@ e^{L(z)} = z .
 
 \begin{proof}
 The function $\frac{f'(z)}{f(z)}$ is holomorphic on $U$.
-Find a primitive $g(z)$.  Compute,
+Find its primitive $g(z)$.  Compute,
 \begin{equation*}
 \frac{d}{dz} \left[ \frac{e^{g(z)}}{f(z)} \right] =
 \frac{ e^{g(z)} g'(z) f(z) - e^{g(z)} f'(z) }{{\bigl(f(z)\bigr)}^2}
@@ -8182,7 +8185,8 @@ and
 is the same as proof of \corref{cor:simplyconimpleslog}.
 Next, suppose \ref{thm:simplyconnected:iii} is true.  For
 $p \in \C \setminus U$, find a $g$ such that
-$e^{g(z)} = z-p$, and differentiate
+$e^{g(z)} = z-p$.
+Differentiate
 \begin{equation*}
 1 = 
 \frac{d}{dz} \left[
@@ -8245,14 +8249,14 @@ $\C_\infty \setminus U$ is connected, then $U$ is simply connected.
 \begin{proof}
 Take $S = \C_\infty \setminus U$ and let $\Gamma$ be a cycle in $U$.
 The function $\varphi(z)= n(\Gamma;z)$ is continuous on 
-$\C \setminus \Gamma$,
-therefore $\varphi$ is a continuous function on $S \setminus \{
-\infty \}$.  On the unbounded component of $\C \setminus \Gamma$ the
+$\C \setminus \Gamma$.
+On the unbounded component of $\C \setminus \Gamma$, the
 function is zero, and so $\varphi$ is zero in a neighborhood of $\infty$.
 If we set $\varphi(\infty) = 0$, the function is continuous
-on $\C_\infty \setminus \Gamma$ and hence on $S$.  As $S$ is connected
+on $\C_\infty \setminus \Gamma$ and hence on $S$.  As $S$ is connected,
 it is contained in
-a single component of $\C_\infty \setminus \Gamma$ so $\varphi$ is
+a single component of $\C_\infty \setminus \Gamma$.
+So $\varphi$ is
 constant on $S$.
 As $\varphi(\infty) = 0$ and $\infty \in S$, we have $\varphi|_S \equiv 0$.
 In other words, $U$ is simply connected.
@@ -8386,9 +8390,10 @@ means
 \lim_{M\to \infty}
 \sum_{n=0}^{M} a_n .
 \end{equation*}
-That is, the limits are taken independently.  For the Laurent series we
-will generally have
-absolute convergence, so the limit may be taken in any way,
+That is, the limits are taken independently.
+For the Laurent series,
+we will generally have absolute convergence,
+so the limit may be taken in any way
 and in any order.
 However, it is still useful to split the Laurent series into two
 parts like that.
