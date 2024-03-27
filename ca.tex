@@ -11159,12 +11159,13 @@ is the unique (simple) zero of $P_t$ in $\Delta_r(\xi_0)$.
 \end{exparts}
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise} \label{exercise:rootgivesscI}
 Prove that if $U \subset \C$ is a domain, $p \notin U$, and there
 exists a holomorphic $g \colon U \to \C$ such that $g^2 = z-p$, then 
 there does not exist a closed path $\gamma$ such that $n(\gamma;p)=1$.
 Hint: Use the motivation for the theorem, not the theorem itself.
-Note: Some more work can show that this means that existence of
+Note: Some more work (see \exerciseref{exercise:rootgivesscII})
+can show that this means that existence of
 square roots implies that $U$ is simply connected.
 \end{exercise}
 \end{exbox}
@@ -12766,9 +12767,9 @@ Again, we refer the reader to more advanced literature.
 \end{remark}
 
 \begin{remark}
-In the proof the only time we used that $U$ is simply connected is to 
-obtain square roots.  Hence, the implication we actually
-proved is that existence of square roots on $U$ implies that $U$ is
+In the proof we only used that $U$ was simply connected to 
+obtain square roots of nowhere zero functions.  So the result we actually
+proved is that existence of square roots on $U \not= \C$ implies that $U$ is
 biholomorphic to $\D$.  In other words, we proved that $U$ being simply
 connected is equivalent to the existence of square roots.
 \end{remark}
@@ -13224,6 +13225,20 @@ such that
 $n(\Gamma;z) = 1$ for all $z \in K$, 
 and such that for every $p \in \Gamma$ there is a $q \in K$ such that
 $\sabs{p-q} < \delta$ ($\Gamma$ is within $\delta$ of $K$).
+\end{exercise}
+
+\begin{exercise}\label{exercise:rootgivesscII}
+Let $U \subset \C$ be a domain.
+\begin{exparts}
+\item If $U$ is not simply connected, then there exists a $p \in \C
+\setminus U$ and a cycle $\Gamma$ in $U$ such that $n(\Gamma;p)=1$.
+\item
+Fix an integer $k \geq 2$.
+Suppose that for every nowhere zero holomorphic $f \colon U \to \C$,
+there exists a holomorphic $g \colon U \to \C$ such that $g^k = f$.
+Prove that $U$ is simply connected.
+Hint: See \exerciseref{exercise:rootgivesscI} for a hint.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
