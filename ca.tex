@@ -7877,6 +7877,7 @@ The proof is immediate by applying Cauchy's theorem to $\Gamma_0-\Gamma_1$.
 \begin{exbox}
 \begin{exercise}[Easy]
 Suppose that $\Gamma$ is a cycle such that
+$0 \notin \Gamma$ and
 $n(\Gamma;0) = k$.  Compute
 \begin{equation*}
 \int_{\Gamma} \frac{\cos z}{z} \, dz .
@@ -8070,7 +8071,7 @@ domain with $\Delta_r(q)$ marked.\label{fig:anyantidef}}
 
 \begin{cor} \label{cor:simplyconimpleslog}
 Let $U \subset \C$ be a simply connected domain and
-let $f \colon U \to \C$ be a nowhere zero holomorphic
+$f \colon U \to \C$ a nowhere zero holomorphic
 function.  Then there exists a holomorphic $g \colon U \to \C$
 such that
 \begin{equation*}
@@ -8111,8 +8112,8 @@ If we have the logarithm, we can take roots.
 
 \begin{cor}
 Let $U \subset \C$ be a simply connected domain,
-let $f \colon U \to \C$ be a nowhere zero holomorphic
-function, and let $k \in \N$.
+$f \colon U \to \C$ a nowhere zero holomorphic
+function, and $k \in \N$.
 Then there exists a holomorphic $g \colon U \to \C$
 such that
 \begin{equation*}
@@ -8145,7 +8146,7 @@ $U$ is simply connected (in the homology sense).
 \item \label{thm:simplyconnected:ii}
 Every holomorphic $f \colon U \to \C$ has a primitive.
 \item \label{thm:simplyconnected:iii}
-For every nowhere zero holomorphic $f \colon U \to \C$ there exists
+For every nowhere zero holomorphic $f \colon U \to \C$, there exists
 a holomorphic $g \colon U \to \C$ such that $e^{g(z)} = f(z)$.
 \item \label{thm:simplyconnected:iv}
 $\frac{1}{z-p}$ has a primitive in $U$ for every $p \in \C \setminus U$.
@@ -8227,9 +8228,9 @@ Finally, \ref{thm:simplyconnected:v} $\Rightarrow$
 \end{proof}
 
 The existence of roots, in particular the square root, can also be put on
-the list, but as the proof of that fact follows easily from the argument principle
-(\thmref{thm:argprinc} from the future),
-we will leave it as an exercise in that upcoming section.
+the list, but the proof is a little trickier.  For the square root it will follow
+for example from the proof of the Riemann mapping theorem in 
+\subsectionref{subsec:RMT}.
 
 There is a simple topological criterion for
 simply-connectedness of domains in the complex plane
@@ -8238,8 +8239,7 @@ The proposition below should actually be an \myquote{if and only if,} but the ot
 direction is more difficult and so we just prove the easy direction
 at this point.
 The harder direction will be easier to prove once we have the Riemann
-mapping theorem, see \subsectionref{subsec:patharoundK}, so we will
-prove it there.
+mapping theorem, see \subsectionref{subsec:patharoundK} for the proof.
 
 \begin{prop} \label{prop:scbycomplementeasy}
 Let $U \subset \C$ be a domain.  If
@@ -11160,12 +11160,12 @@ is the unique (simple) zero of $P_t$ in $\Delta_r(\xi_0)$.
 \end{exercise}
 
 \begin{exercise}
-Prove that $U \subset \C$ is simply connected if and only if every nowhere
-zero holomorphic $f \colon U \to \C$ has a square root, that is, there is a
-holomorphic $g \colon U \to \C$ such that $g^2=f$.  Hint: One direction has
-been proved already.  For the other direction for $p \notin U$,
-find a $g$ such that $g^2 = z-p$, differentiate, and consider
-$\Gamma$ in $U$ such that $n(\Gamma;p) = 1$.
+Prove that if $U \subset \C$ is a domain, $p \notin U$, and there
+exists a holomorphic $g \colon U \to \C$ such that $g^2 = z-p$, then 
+there does not exist a closed path $\gamma$ such that $n(\gamma;p)=1$.
+Hint: Use the motivation for the theorem, not the theorem itself.
+Note: Some more work can show that this means that existence of
+square roots implies that $U$ is simply connected.
 \end{exercise}
 \end{exbox}
 
@@ -12581,7 +12581,7 @@ then the power series converges in $\Delta_r(p)$.
 \section{Riemann mapping theorem}
 \label{sec:RMT}
 
-\subsection{The theorem}
+\subsection{The theorem}\label{subsec:RMT}
 
 The Riemann mapping theorem says that
 every simply connected domain in $\C$ (except $\C$ itself) is really
@@ -12763,6 +12763,14 @@ function), then $f$ extends smoothly to $\widebar{U}$.
 If $U$ has real-analytic boundary (locally a graph of a real-analytic
 function), then $f$ extends holomorphically a bit past the boundary.
 Again, we refer the reader to more advanced literature.
+\end{remark}
+
+\begin{remark}
+In the proof the only time we used that $U$ is simply connected is to 
+obtain square roots.  Hence, the implication we actually
+proved is that existence of square roots on $U$ implies that $U$ is
+biholomorphic to $\D$.  In other words, we proved that $U$ being simply
+connected is equivalent to the existence of square roots.
 \end{remark}
 
 \begin{exbox}
