@@ -6714,6 +6714,7 @@ $\lim_{z \to \infty} f(z) = 0$.
 \end{exbox}
 
 \subsection{Convergence of sequences of holomorphic functions}
+\label{subsec:convergence}
 
 When dealing with a class of functions, any analyst worth their
 salt\footnote{Apparently the salt thing
@@ -8661,28 +8662,34 @@ Suppose $p \in \C$, $0 \leq r_1 < r_2 \leq \infty$, and
 $f \colon \ann(p;r_1,r_2) \to \C$ is defined by
 \begin{equation*}
 f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
+\avoidbreak
 \end{equation*}
-converging uniformly on compact subsets of $\ann(p;r_1,r_2)$.
-
-Then $f$ is holomorphic and its 
+converging uniformly on compact subsets of $\ann(p;r_1,r_2)$.  Then:
+\begin{enumerate}[(i)]
+\item
+The function
+$f$ is holomorphic and its 
 derivative is defined by
 \begin{equation*}
 f'(z) = \sum_{n=-\infty}^\infty n c_n {(z-p)}^{n-1} ,
+\avoidbreak
 \end{equation*}
 converging uniformly on compact subsets of $\ann(p;r_1,r_2)$.
-
-Moreover, if $c_{-1} = 0$, then
+\item
+If $c_{-1} = 0$, then
 \begin{equation*}
 F(z) = \sum_{n=-\infty,n\not=-1}^\infty \frac{c_n}{n+1} {(z-p)}^{n+1}
+\avoidbreak
 \end{equation*}
 converges uniformly on compact subsets 
 $\ann(p;r_1,r_2)$ and $F' = f$.
+\end{enumerate}
 \end{prop}
 
 \begin{exbox}
 \begin{exercise}
-Prove \propref{prop:diffantidifflaurent}.  Hint: Consider positive and
-negative powers separately.
+Prove \propref{prop:diffantidifflaurent}.
+Hint: Remember \subsectionref{subsec:convergence}.
 \end{exercise}
 
 \begin{exercise}[Easy]
