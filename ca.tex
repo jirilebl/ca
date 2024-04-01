@@ -9806,8 +9806,9 @@ for $f$ converges.
 So it can define $g$ near $p$.  Uniqueness follows rather easily:
 Suppose ${(z-p)}^{k_1} g_1(z) = {(z-p)}^{k_2} g_2(z)$, where
 $g_1(p) \not= 0$ and $g_2(p) \not= 0$.
-Without loss of generality
-$k_1 \leq k_2$, then 
+Without loss of generality,
+$k_1 \leq k_2$.
+Then 
 $g_1(z) = {(z-p)}^{k_2-k_1} g_2(z)$.  Plug in $z=p$ to see $k_2 =
 k_1$.
 \end{proof}
@@ -10058,8 +10059,8 @@ $f(z) e^{1/z}$ is bounded in $\Delta_r(0) \setminus \{ 0 \}$.
 
 Using the Riemann extension, we will show that
 at nonessential isolated singularities
-a function blows up to a finite integral order.
-We thus obtain a criterion for poles, and classify
+a holomorphic function blows up to a finite integral order.
+We obtain a criterion for poles, and we classify
 poles according to order just like zeros.
 
 \begin{cor}
@@ -10128,7 +10129,7 @@ A pole of order $1$ is called a \emph{\myindex{simple pole}}.
 What we've proved is that if $f$
 has a pole at $p$, $f$ can be written as
 \begin{equation*}
-f(z) = \frac{g(z)}{{(z-p)}^k}
+f(z) = \frac{g(z)}{{(z-p)}^k} ,
 \end{equation*}
 for some holomorphic $g$ nonzero at $p$, and $k$ is the order of the pole.
 There is a symmetry between zeros and poles:
@@ -10137,7 +10138,7 @@ order $k$ at $p$.
 If $f$ has a pole of order $k$ at $p$, then $\nicefrac{1}{f}$
 has a removable singularity, and the extended function has a zero of order
 $k$ at $p$.
-In other words, if $f$ has a pole or a removable singularity we can write
+In other words, if $f$ has a pole or a removable singularity, we can write
 $f(z) = {(z-p)}^\ell g(z)$ for some $\ell \in \Z$ and some holomorphic $g$ such
 that $g(p) \not= 0$.
 The point $p$ is a zero of order $\ell$ if $\ell
