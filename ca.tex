@@ -9182,7 +9182,7 @@ See the next section for a perhaps more common version of the hypotheses.
 
 \begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
 Let $\Gamma$ be a cycle
-such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$ and let
 $U = \{ z \in \C : n(\Gamma;z) = 1 \}$.
 Suppose 
 $P,Q$ are continuously differentiable functions defined in a neighborhood
@@ -9224,7 +9224,7 @@ form.
 \end{exercise}
 
 \begin{exercise} \label{exercise:shortgreen}
-Show that to prove Green's it would be sufficient to prove
+Show that to prove Green's, it would be sufficient to prove
 \begin{equation*}
 \int_{\Gamma} F(z) \, dz
 =
@@ -9241,7 +9241,7 @@ Wirtinger version of the formula let $G=0$ and let $F$ be holomorphic.
 
 \begin{cor}\label{thm:cauchybygreen}
 Let $\Gamma$ be a cycle
-such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$ and let
 $U = \{ z \in \C : n(\Gamma;z) = 1 \}$.
 Suppose $f$ is a holomorphic function defined in a neighborhood of $\widebar{U}$.
 \begin{equation*}
@@ -9257,7 +9257,7 @@ This version is called the \emph{\myindex{Cauchy--Pompeiu integral formula}}.
 
 \begin{thm}[Cauchy--Pompeiu] \label{thm:generalizedcauchy}
 Let $\Gamma$ be a cycle
-such that $n(\Gamma;z) = 1$ or $0$ for all $z \in \C$ and let
+such that $n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$ and let
 $U = \{ z \in \C : n(\Gamma;z) = 1 \}$.
 Suppose $f$ is a continuously differentiable function defined in a neighborhood
 of $\widebar{U}$.
@@ -9598,7 +9598,7 @@ near $\gamma$ are only points of $U$ or the unbounded component, so it must
 be that $U' = U$ or $U'$ is the unbounded component.
 \end{proof}
 
-Using the Jordan curve theorem we can piece together boundaries.
+Using the Jordan curve theorem, we can piece together boundaries.
 
 \begin{prop}
 Suppose $U \subset \C$ is a bounded open set with piecewise-$C^1$ boundary.
