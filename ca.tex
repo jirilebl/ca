@@ -9086,7 +9086,9 @@ because that theorem makes the other direction trivial, see
 A domain $U \subset \C$ is
 \emph{\myindex{simply connected (in the sense of homotopy)}}
 if every continuous $\gamma \colon [a,b] \to U$ such that $\gamma(a) =
-\gamma(b)$ is homotopic in $U$ to a constant function.
+\gamma(b)$ is homotopic in $U$ to a constant function.\footnote{%
+This is the correct definition for any path connected topological
+space $U$.}
 \end{defn}
 
 Without further ado, here is the simple direction of the equivalence.
@@ -9107,9 +9109,9 @@ Thus $n(\gamma;p) = 0$.
 \end{proof}
 
 \begin{example}
-In lieu of a proof of the other direction, let us simply note that
+In lieu of a proof of the other direction, simply note that
 $\C$, $\D$, or the upper half-plane $\bH$ are simply connected in the 
-sense of homotopy.  For $\C$ and $\D$ we employ the homotopy of
+sense of homotopy.  For $\C$ and $\D$, we employ the homotopy of
 example \exampleref{example:homotopydiscsc}.  For the half-plane,
 we modify the homotopy of to $H(t,s) = (1-s)\gamma(t) + si$ to
 get $\gamma$ homotopic to the constant $i$.
@@ -9415,7 +9417,7 @@ $\C \setminus \widebar{U}$.
 Recall that $\gamma \colon [a,b] \to \C$ is simple closed if
 $\gamma(a)=\gamma(b)$ and $\gamma|_{(a,b]}$ is injective.
 The condition that every $p$ in the boundary is in the closure of $\C
-\setminus \widebar{U}$ means that at every point the boundary divides
+\setminus \widebar{U}$ means that at every point, the boundary divides
 the plane into what's inside $U$ and what's outside $U$.  Let us consider
 the local question of what a path does, that is,
 an injective path divides the plane into two pieces.
