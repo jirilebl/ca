@@ -9395,7 +9395,7 @@ dA
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Domains with piecewise-\texorpdfstring{$C^1$}{C1} boundary \texorpdfstring{$\star$}{*}}
+\section{Domains with piecewise-\texorpdfstring{$C^1$}{C¹} boundary \texorpdfstring{$\star$}{*}}
 
 The way Green's theorem, and hence Cauchy's theorem, is often given, and
 the way it is most often used, is for a domain with piecewise-$C^1$
@@ -10128,12 +10128,12 @@ such that ${(z-p)}^k f(z)$ is bounded near $p$ is called the
 A pole of order $1$ is called a \emph{\myindex{simple pole}}.
 \end{defn}
 
-What we've proved is that if $f$
+What we have proved is that if $f$
 has a pole at $p$, $f$ can be written as
 \begin{equation*}
 f(z) = \frac{g(z)}{{(z-p)}^k} ,
 \end{equation*}
-for some holomorphic $g$ nonzero at $p$, and $k$ is the order of the pole.
+where $g$ is holomorphic, $g(p) \not= 0$, and $k$ is the order of the pole.
 There is a symmetry between zeros and poles:
 If $f$ has a zero of order $k$ at $p$, then $\nicefrac{1}{f}$ has a pole of
 order $k$ at $p$.
@@ -10333,7 +10333,7 @@ is dense in $\C$.
 
 There is a stronger version
 of this theorem called the Picard theorem saying that in any
-punctured neighborhood $f$ achieves all values with at most one exception:
+punctured neighborhood, $f$ achieves all values with at most one exception:
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C$ or 
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) = \C \setminus \{ z_0 \}$ for
 some $z_0$.
@@ -10450,7 +10450,7 @@ In fact, a way to define
 a meromorphic function is as a
 \myquote{holomorphic function $f \colon U \to \C_{\infty}$.}
 Holomorphicity at a pole can be
-rephrased as holomorphicity of a function $\frac{1}{f(z)}$ at $p$.
+rephrased as holomorphicity of the function $\frac{1}{f(z)}$ at $p$.
 There is a small technicality: Should one consider the function
 that is constantly $\infty$ as a meromorphic function or not?
 We will take the view that it is not a meromorphic function.
@@ -10666,7 +10666,7 @@ g(z) \, dz
 \end{proof}
 
 \begin{prop}
-Suppose $f$ has a pole at $p$.
+Suppose a meromorphic $f$ has a pole at $p$.
 If $p$ is a simple pole of $f$, then
 \begin{equation*}
 \operatorname{Res}(f;p) = \lim_{z\to p} (z-p) f(z) .
@@ -10701,7 +10701,7 @@ Prove the proposition.
 
 A common application of the residue theorem is to compute certain real
 integrals that are difficult by classical calculus.  Let us work
-a couple of examples of finding the residues and using the theorem.
+a couple of examples.
 
 \begin{example}
 \begin{equation*}
@@ -10723,8 +10723,9 @@ See \figureref{fig:rhalfcircle}.
 We \myquote{complexify}\index{complexify}
 $\frac{1}{1+x^2}$ to make it $\frac{1}{1+z^2}$.
 That's just a fancy way of saying we are going to plug complex numbers
-into a real formula that happens to also work for complex numbers.
-By partial fractions
+into a real formula.
+% that happens to also work for complex numbers.
+By partial fractions,
 \begin{equation*}
 \frac{1}{1+z^2} = \frac{1}{(z+i)(z-i)} =
 \frac{i}{2} \frac{1}{z+i} - 
@@ -10734,7 +10735,7 @@ There are isolated singularities at $\pm i$, both simple poles.  The cycle
 $\Gamma_r$ goes around $i$ once, so $n(\Gamma_r;i) = 1$,
 but not around $-i$, that is, $n(\Gamma_r;-i) = 0$.
 So we only need to compute
-the residue around $i$.  We can use any one of the techniques:
+the residue around $i$.  We can use any one of the three propositions:
 \begin{equation*}
 \operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
 \operatorname{Res}\left(
@@ -10744,7 +10745,12 @@ i\right) = \frac{-i}{2} ,
 \operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
 \lim_{z \to i} \frac{z-i}{1+z^2}
 =
-\frac{1}{2i} = \frac{-i}{2}.
+\frac{1}{2i} = \frac{-i}{2},
+\end{equation*}
+\begin{equation*}
+\operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
+\frac{1}{2i} =
+\frac{-i}{2} .
 \end{equation*}
 
 We compute,
