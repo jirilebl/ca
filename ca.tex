@@ -10796,14 +10796,14 @@ take two independent limits.
 \begin{exercise}
 Rigorously prove that in the example above
 $n(\Gamma_r;i) = 1$ and
-$n(\Gamma_r;i) = 0$.
+$n(\Gamma_r;-i) = 0$.
 \end{exercise}
 \end{exbox}
 
 Another application to real integrals is to recognize 
 a path integral.  For example, integrals of trigonometric functions
 are often integrals over the unit circle.  On the unit
-circle, $\bar{z} = \nicefrac{1}{z}$.  So if $z=e^{i\theta}$,
+circle, $\bar{z} = \nicefrac{1}{z}$.  So if $z=e^{i\theta}$, then
 $\cos \theta = \Re z = \frac{z+1/z}{2}$ and
 $\sin \theta = \Im z = \frac{z-1/z}{2i}$.
 
@@ -10964,9 +10964,9 @@ Then
 \int_\Gamma \frac{f'(z)}{f(z)} \, dz
 =
 \sum_{k=1}^n n(\Gamma;z_k)
-\quad
+~
 -
-\quad
+~
 \sum_{k=1}^\ell n(\Gamma;p_k) .
 \end{equation*}
 Furthermore, if $h \colon U \to \C$ is holomorphic, then
@@ -10975,15 +10975,15 @@ Furthermore, if $h \colon U \to \C$ is holomorphic, then
 \int_\Gamma h(z) \frac{f'(z)}{f(z)} \, dz
 =
 \sum_{k=1}^n n(\Gamma;z_k)h(z_k) 
-\quad
+~
 -
-\quad
+~
 \sum_{k=1}^\ell n(\Gamma;p_k)h(p_k) .
 \end{equation*}
 \end{thm}
 
 By
-\emph{\myindex{zeros counted with multiplicity}}
+\emph{\myindex{zeros counted with multiplicity}},
 we mean that if
 a zero has multiplicity (order) $m$, we repeat it $m$ times.
 For instance, $f(z) = z^2{(z-1)}^3$ has the zeros $z_1,z_2,z_3,z_4,z_5 = 0,0,1,1,1$.
