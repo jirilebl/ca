@@ -9185,7 +9185,7 @@ See the next section for a perhaps more common version of the hypotheses.
 \begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
 Let $\Gamma$ be a cycle
 such that $n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$ and let
-$U = \{ z \in \C : n(\Gamma;z) = 1 \}$.
+$U = \{ z \in \C \setminus \Gamma : n(\Gamma;z) = 1 \}$.
 Suppose 
 $P,Q$ are continuously differentiable functions defined in a neighborhood
 of $\widebar{U}$.
@@ -9244,7 +9244,7 @@ Wirtinger version of the formula let $G=0$ and let $F$ be holomorphic.
 \begin{cor}\label{thm:cauchybygreen}
 Let $\Gamma$ be a cycle
 such that $n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$ and let
-$U = \{ z \in \C : n(\Gamma;z) = 1 \}$.
+$U = \{ z \in \C \setminus \Gamma : n(\Gamma;z) = 1 \}$.
 Suppose $f$ is a holomorphic function defined in a neighborhood of $\widebar{U}$.
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz  = 0.
@@ -9260,7 +9260,7 @@ This version is called the \emph{\myindex{Cauchy--Pompeiu integral formula}}.
 \begin{thm}[Cauchy--Pompeiu] \label{thm:generalizedcauchy}
 Let $\Gamma$ be a cycle
 such that $n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$ and let
-$U = \{ z \in \C : n(\Gamma;z) = 1 \}$.
+$U = \{ z \in \C \setminus \Gamma : n(\Gamma;z) = 1 \}$.
 Suppose $f$ is a continuously differentiable function defined in a neighborhood
 of $\widebar{U}$.
 Then for $z \in U$:
