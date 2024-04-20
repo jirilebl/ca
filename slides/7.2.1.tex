@@ -29,11 +29,11 @@ Dirichlet problem in a disc and the Poisson kernel (7.2.1)}
 $U \subset \C$ open,
 \pause
 \quad
-$u \colon \partial U \to \R$ continuous,
+$f \colon \partial U \to \R$ continuous,
 \quad
 \pause
-find a continuous $f \colon \widebar{U} \to \R$
-harmonic on $U$, such that $f|_{\partial U} = u$.
+find a continuous $g \colon \widebar{U} \to \R$
+harmonic on $U$, such that $g|_{\partial U} = f$.
 
 \medskip
 \pause
@@ -192,7 +192,7 @@ is continuous at $r=1$ and \pause
 \frac{(1+e^{i\delta})(1-e^{-i\delta})}{(1-e^{i\delta})(1-e^{-i\delta})}
 \pause
 =
-\frac{e^{i\delta}-e^{i\delta}}{\sabs{1-e^{i\delta}}^2}
+\frac{e^{i\delta}-e^{-i\delta}}{\sabs{1-e^{i\delta}}^2}
 \pause
 =
 i \frac{2\Im e^{i\delta}}{\sabs{1-e^{i\delta}}^2} . \qed
@@ -285,7 +285,7 @@ Pf(re^{i\theta})
 Let $\epsilon > 0$ be given.
 \pause
 \quad
-$M = \sup \{ f(z) : z \in \partial \D \}$.
+$M = \sup \{ \sabs{f(z)} : z \in \partial \D \}$.
 \pause
 
 $f$ uniformly continuous \pause \wthus $\exists$ $\delta > 0$
@@ -380,7 +380,7 @@ $
 \sabs{
 Pf(r e^{i\theta} ) - f(e^{i\theta})
 } \pause
-\leq \nicefrac{\epsilon}{4} + \nicefrac{\epsilon}{2} + \nicefrac{\epsilon}{4} =
+< \nicefrac{\epsilon}{4} + \nicefrac{\epsilon}{2} + \nicefrac{\epsilon}{4} =
 \epsilon.$
 
 \pause
