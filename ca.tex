@@ -10864,9 +10864,12 @@ f(t) = \sL^{-1}\bigl[F(s)\bigr] =
 \frac{1}{2 \pi i }
 \lim_{r \to \infty}
 \int_{c-ir}^{c+ir}
-e^{st}F(s) \, ds
+e^{st}F(s) \, ds,
+\qquad t \geq 0,
 \end{equation*}
-for some $c \in \R$ (usually $c \geq 0$) is the inverse.  Compute
+is the inverse as long as $c \in \R$ is
+bigger than the real part of all the singuarities of $F(s)$.
+Compute
 (using the residue theorem):
 \smallskip
 \begin{expartshor}{2}
@@ -10877,8 +10880,7 @@ $\sL^{-1}\left[ \frac{s^2}{(s+2)^2(s^2+1)} \right]$.
 \end{expartshor}
 \smallskip
 \noindent
-Hint: Pick the correct vertical line (pick a $c$) and an arc that goes
-around all the poles.
+Hint: Pick a vertical line (pick a $c$) and an arc that goes around all the poles.
 \end{exercise}
 
 \begin{exercise}
