@@ -11807,10 +11807,14 @@ f^{-1}(w) = \frac{1}{2\pi i} \int_{\partial \Delta_r(p)}
 \end{equation*}
 \end{lemma}
 
+Note that $f\bigl(\Delta_r(p)\bigr)$ is a neighborhood of $f(p)$
+by the open mapping theorem.
+
 \begin{proof}
 Fix $w \in f\bigl(\Delta_r(p)\bigr)$ and suppose $\zeta \in \Delta_r(p)$
 is such that $f(\zeta) = w$.
-The derivative of $f$ is never zero, and so $z \mapsto f(z)-w$ has a simple
+The derivative of $f$ is never zero by \lemmaref{lemma:dernonzero},
+and so $z \mapsto f(z)-w$ has a simple
 zero at $z=\zeta$.  By the \hyperref[thm:residue]{residue theorem} and
 \propref{prop:residuesimpleratio},
 \begin{equation*}
