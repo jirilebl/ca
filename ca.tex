@@ -14331,7 +14331,7 @@ particular analogue of affine linear functions to $\C$, although we ought
 not to take this analogy too far, of course.
 One property of affine linear functions is a mean-value property, that is,
 given $a < b$ then $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
-value at the center of the interval is equal to the average of values at the
+value at the center of an interval is equal to the average of values at the
 ends.  In fact, if a continuous function satisfies this equality for all
 intervals $[a,b]$, then it is
 affine linear (exercise).  This mean-value property completely classifies affine
@@ -14357,7 +14357,7 @@ $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
 \end{thm}
 
 \begin{proof}
-One direction (and the \myquote{Moreover}) is simple.
+One direction (and the \myquote{Moreover}) follows quickly.
 Suppose $f$ is harmonic.
 Take $p \in U$ and
 any $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
@@ -14386,17 +14386,10 @@ somewhere on $\Delta_s(q)$, let $\varphi$ achieve a maximum at $p \in
 The set $X \subset \Delta_s(q)$ where $\varphi(z) = \varphi(p)$ is compact.
 Assume $p$ is the point on $X$ closest to
 $\partial \Delta_s(q)$.  For some small $r < R_p$, the circle
-$\partial \Delta_r(p) \subset \Delta_s(q)$ and for a nonempty open subset
-of $\partial \Delta_r(p)$ the function $\varphi$ must be less than some fixed
-constant less than $\varphi(p)$.  See \figureref{fig:meanvalue}.
-
-\begin{myfig}
-%Note this figure is used later as well
-\subimport*{figures/}{meanvalue.pdf_t}
-\caption{The discs $\Delta_s(q)$ and $\Delta_r(p)$ and the set
-$X$.\label{fig:meanvalue}}
-\end{myfig}
-
+$\partial \Delta_r(p) \subset \Delta_s(q)$ and there is a constant
+$C$ so that $\varphi(z) \leq C < \varphi(p)$ for $z$
+on a nonempty open subset
+of $\partial \Delta_r(p)$.  See \figureref{fig:meanvalue}.
 In particular, as 
 $\varphi$ is supposed to satisfy the
 mean-value property on $\Delta_r(p)$, we get a contradiction
@@ -14405,7 +14398,14 @@ mean-value property on $\Delta_r(p)$, we get a contradiction
 \varphi(p) .
 \end{equation*}
 
-We have proved that $\varphi \leq 0$ on $\Delta_s(q)$.  By applying the same
+\begin{myfig}
+%Note this figure is used later as well
+\subimport*{figures/}{meanvalue.pdf_t}
+\caption{The discs $\Delta_s(q)$ and $\Delta_r(p)$ and the set
+$X$.\label{fig:meanvalue}}
+\end{myfig}
+
+We have proved that $\varphi \leq 0$ on $\Delta_s(q)$.  Applying the same
 logic to $-\varphi$, we find that $\varphi = 0$ on $\Delta_s(q)$.
 Namely, $f=h$ and $h$ is harmonic, so $f$ is harmonic on
 $\Delta_s(q)$ (and thus on $U$).
@@ -14431,7 +14431,7 @@ harmonic functions converging uniformly on compact subsets to $f \colon U
 \begin{proof}
 First, $f$ is continuous.
 Given any disc $\overline{\Delta_r(p)} \subset U$,
-we have that $\{ f_n \}$ converges uniformly on the boundary of the disc
+the sequence $\{ f_n \}$ converges uniformly on the boundary of the disc
 and at $p$ and hence
 \begin{equation*}
 f(p) =
@@ -14548,7 +14548,8 @@ as $\frac{R+r}{R-r}$ is increasing in $r$ and
 $\frac{R-r}{R+r}$ is decreasing in $r$.  So 
 assume $z = p+re^{i\theta}$.
 
-Let $0 < S < R$.  Using \corref{cor:dirichsol} and the uniqueness of the
+Let $S$ be such that $0 < r < S < R$.
+Using \corref{cor:dirichsol} and the uniqueness of the
 solution of the
 Dirichlet problem,
 \begin{multline*}
@@ -14621,12 +14622,12 @@ for every harmonic and nonnegative function $f$ defined on $U$.
 \end{cor}
 
 \begin{proof}
-If we prove the theorem for a larger $K$ we are done, so replace $K$
-by a larger connected compact subset of $U$.
+If we prove the theorem for a larger $K$ we are done, so we
+replace $K$ by a larger connected compact subset of $U$.
 First, make $K$ have only finitely many components by replacing it
 by finitely many closed discs
 (see the proof of \lemmaref{lemma:patharoundK}).  Then, $U$ is path
-connected and so adding in finitely many paths to $K$ we can connect
+connected and so adding finitely many paths to $K$, we can connect
 the discs.
 
 Suppose $r> 0$ is less than half the distance from $K$ to $\partial U$.
@@ -14653,7 +14654,7 @@ dashed circles are discs of radius $2r$.\label{fig:harnacksgeneral}}
 
 Let $f$ be an arbitrary nonnegative harmonic function on $U$.
 For any $j$, as $\Delta_{2r}(z_j) \subset U$, if we take any $w \in
-\Delta_r(z_j)$ we find that 
+\Delta_r(z_j)$, we find that 
 \begin{equation*}
 \frac{1}{3} f(z_j) = 
 \frac{2r-r}{2r+r} f(z_j)
@@ -14692,12 +14693,13 @@ f(\xi)
 f(\xi) .
 \end{equation*}
 The number $N$ only depends on $K$, not on $\zeta$, $\xi$, or $f$.
-As $\zeta$ and $\xi$ were arbitrary the theorem follows.
+As $\zeta$ and $\xi$ were arbitrary, the theorem follows.
 \end{proof}
 
 The constant we get in the proof is not optimal, but it is explicit.
-We can actually compute a specific $C$ by knowing the distance of $K$
-to the boundary and the number of discs needed to cover $K$.
+Assuming $K$ is connected,
+we can compute a specific $C$ by knowing the distance of $K$
+to the boundary and the number of the $r$-discs needed to cover $K$.
 
 \begin{exbox}
 \begin{exercise}[Easy]
@@ -14799,7 +14801,7 @@ C \bigl( f_m(p)-f_n(p) \bigr)
 < \epsilon .
 \end{equation*}
 In other words, $\{ f_n \}$ is uniformly Cauchy on $K$ and hence converges
-uniformly on $K$ to $f$.  Furthermore, $f$ is harmonic by
+uniformly on $K$ to $f$.  The function $f$ is harmonic by
 Harnack's first theorem, 
 \thmref{thm:harnack1}.
 \end{proof}
