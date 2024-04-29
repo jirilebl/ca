@@ -13955,7 +13955,7 @@ is harmonic in $\D$ and continuous on $\overline{\D}$.
 \end{thm}
 
 \begin{proof}
-Let $z = re^{i\theta}$.
+First, we prove $Pf$ is harmonic in $\D$.  Let $z = re^{i\theta}$.
 Then for any fixed $t$,
 \begin{equation*}
 P_r(\theta-t)
@@ -13989,9 +13989,10 @@ Pf(re^{i\theta})
 \right) 
 \, dt
 \end{equation*}
-is harmonic for $z = re^{i\theta} \in \D$.
+is harmonic (and so also continuous) at $z = re^{i\theta} \in \D$.
 
-As both $P_r$ and $f(e^{it})$ are $2 \pi$-periodic we 
+Next we prove continuity at points in $\partial \D$.
+As both $P_r$ and $f(e^{it})$ are $2 \pi$-periodic, we 
 change variables:
 \begin{equation*}
 Pf(re^{i\theta})
@@ -14090,7 +14091,7 @@ Finally, for any $z_0 = e^{i\theta_0} \in \partial \D$,
 we must show that
 $Pf(z)$ tends to $Pf(z_0)=f(z_0)$ as $z \in \overline{\D}$ tends to $z_0$.
 Let $\epsilon > 0$ be given.  As $f = Pf|_{\partial \D}$ is
-uniformly continuous, pick a $\delta > 0$ such that
+continuous, pick a $\delta > 0$ such that
 $\babs{Pf(e^{i\theta})-Pf(e^{i\theta_0})} < \nicefrac{\epsilon}{2}$
 whenever $\sabs{\theta-\theta_0} < \delta$.
 Also make $\delta$ small enough so that $\babs{Pf(re^{i
