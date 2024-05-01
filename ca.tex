@@ -13837,7 +13837,7 @@ P_r(\theta)
 \Re \left( \frac{1+re^{i\theta}}{1-re^{i\theta}}\right) ,
 \qquad \text{for $0 \leq r < 1$.}
 \end{equation*}
-As a function of $z \in \D$
+As a function of $z = re^{i \theta} \in \D$,
 the Poisson kernel is (see \figureref{fig:poissongraph})
 \begin{equation*}
 z \mapsto \frac{1}{2\pi} \Re \left(
@@ -13876,8 +13876,10 @@ $r=0.5$, $r=0.7$, and $r=0.85$.\label{fig:poisson2dgraph}}
 \end{myfig}
 
 \begin{proof}
-The first item follows because $1-r^2$ is always positive if $0 \leq r < 1$,
-and similarly
+The first item follows because
+for $0 \leq r < 1$, we find
+$1-r^2 > 0$
+and
 \begin{equation*}
 1+r^2-2r \cos\theta \geq 1+r^2-2r = {(1-r)}^2 > 0 .
 \end{equation*}
@@ -14097,7 +14099,7 @@ whenever $\sabs{\theta-\theta_0} < \delta$.
 Also make $\delta$ small enough so that $\babs{Pf(re^{i
 \theta})-Pf(e^{i\theta})} < \nicefrac{\epsilon}{2}$
 when $1 - \delta < r \leq 1$ for all $\theta$.
-Putting the two estimates together we get
+Putting the two estimates together, we get
 \begin{equation*}
 \babs{Pf(re^{i\theta})-Pf(e^{i\theta_0})}
 \leq
@@ -14152,6 +14154,7 @@ Pf(p + re^{i\theta})
 \text{if $r < R$,} \\
 f(p+Re^{i\theta}) & \text{if $r=R$,}
 \end{cases}
+\avoidbreak
 \end{equation*}
 is harmonic in $\Delta_R(p)$ and continuous on $\overline{\Delta_R(p)}$.
 \end{cor}
