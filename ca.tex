@@ -14086,8 +14086,9 @@ Pf(r e^{i\theta} ) - f(e^{i\theta})
 } < \frac{\epsilon}{4} + \frac{\epsilon}{2} + \frac{\epsilon}{4} =
 \epsilon.
 \end{equation*}
-And so $Pf(re^{i\theta}) \to f(e^{i\theta})$ uniformly in $\theta$
+So $Pf(re^{i\theta}) \to f(e^{i\theta})$ uniformly in $\theta$
 as $r \uparrow 1$.
+The uniformity is important below.
 
 Finally, for any $z_0 = e^{i\theta_0} \in \partial \D$,
 we must show that
@@ -14096,8 +14097,8 @@ Let $\epsilon > 0$ be given.  As $f = Pf|_{\partial \D}$ is
 continuous, pick a $\delta > 0$ such that
 $\babs{Pf(e^{i\theta})-Pf(e^{i\theta_0})} < \nicefrac{\epsilon}{2}$
 whenever $\sabs{\theta-\theta_0} < \delta$.
-Also make $\delta$ small enough so that $\babs{Pf(re^{i
-\theta})-Pf(e^{i\theta})} < \nicefrac{\epsilon}{2}$
+Also make $\delta$ small enough so that
+$\babs{Pf(re^{i \theta})-Pf(e^{i\theta})} < \nicefrac{\epsilon}{2}$
 when $1 - \delta < r \leq 1$ for all $\theta$.
 Putting the two estimates together, we get
 \begin{equation*}
@@ -14338,7 +14339,7 @@ given $a < b$ then $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
 value at the center of an interval is equal to the average of values at the
 ends.  In fact, if a continuous function satisfies this equality for all
 intervals $[a,b]$, then it is
-affine linear (exercise).  This mean-value property completely classifies affine
+affine linear (exercise).  This mean-value property completely characterizes affine
 linear (that is, harmonic) functions in $\R$.
 It is rather interesting that the same kind of property characterizes
 harmonic functions in $\C$ as well, although we have to replace an interval
@@ -14500,7 +14501,7 @@ is harmonic.  Hint: Fubini not Leibniz.
 \begin{exercise}
 Let $U \subset \C$ be open.
 Prove that a continuous $f \colon U \to \R$
-is harmonic if it satisfies the
+is harmonic if and only if it satisfies the
 \emph{\myindex{disc mean-value property}} for every $\overline{\Delta_r(p)}
 \subset U$:
 \begin{equation*}
