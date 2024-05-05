@@ -25,10 +25,13 @@ Harnack's inequality and principle (7.2.3--7.2.4)}
 \begin{theorem}[Harnack's inequality]
 Suppose $f \colon \Delta_R(p) \to \R$ is harmonic and nonnegative,
 and suppose $0 < r < R$.
-Then for all $z \in \overline{\Delta_r(p)}$,
-\begin{equation*}
-\frac{R-r}{R+r} \, f(p) \leq f(z) \leq \frac{R+r}{R-r} \, f(p) .
-\end{equation*}
+Then
+\vspace*{-6pt}
+\[
+\frac{R-r}{R+r} \, f(p) \leq f(z) \leq \frac{R+r}{R-r} \, f(p)
+\qquad
+\text{for all } z \in \overline{\Delta_r(p)}.
+\]
 \end{theorem}
 
 \pause
@@ -159,7 +162,7 @@ Let
 $r> 0$ be less than half the distance from $K$ to $\partial U$.
 
 \pause
-$\Delta_{r}(z_1),\ldots,\Delta_{r}(z_N)$ cover $K$
+$\exists \, \Delta_{r}(z_1),\ldots,\Delta_{r}(z_N)$ that cover $K$
 and
 $\Delta_{2r}(z_j) \subset U$ for every $j$.
 
@@ -182,7 +185,7 @@ $\Delta_{r}\bigl(z_{j}\bigr) \cap \Delta_{r}\bigl(z_{j+1}\bigr)
 for all $j=1,\ldots,n-1$ ($K$ connected).
 \pause
 
-\vspace*{-1in}
+\vspace*{-0.9in}
 \hfill
 \subimport*{../figures/}{harnacksgeneral.pdf_t}
 
@@ -244,10 +247,10 @@ $f(z_n) \leq 3 f(\xi)$.
 
 All in all, \quad
 $f(\zeta) \leq
-3^{2n+2}
+3^{2n}
 f(\xi)
 \leq
-3^{2N+2}
+3^{2N}
 f(\xi)$.
 
 \pause
@@ -356,6 +359,39 @@ converges uniformly.
 
 $f$ is harmonic by Harnack's first theorem.
 \qed
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+Prove yet another version of Harnack's principle.
+Suppose $U \subset \C$ is a domain,
+$\{ f_n \}$ is a sequence of nonnegative harmonic functions on
+$U$, and $p \in U$ is fixed.
+\begin{enumerate}[a)]
+\item
+If $f_n(p) \to +\infty$, then $\{ f_n \}$ converges to $+\infty$ uniformly on
+compact subsets.
+\item
+If $f \colon U \to \R$ is harmonic, $f_n(z) \leq f(z)$ for all $z \in U$,
+and $f_n(p) \to f(p)$, then $\{ f_n \}$ converges to $f$ uniformly on
+compact subsets.
+\end{enumerate}
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Prove a Montel-like theorem for harmonic functions.  Suppose $U \subset \C$
+is open and $\{ f_n \}$ is a sequence of nonnegative harmonic functions.
+Show that at least one (or both) of the following are true:
+\begin{enumerate}[(i)]
+\item
+$\exists$ a subsequence converging to $\infty$ uniformly on compact subsets.
+\item
+$\exists$ a subsequence converging to a harmonic function
+uniformly on compact subsets.
+\end{enumerate}
+
 \end{frame}
 
 \end{document}
