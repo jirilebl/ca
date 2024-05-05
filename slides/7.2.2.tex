@@ -1,0 +1,225 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Harmonic functions\\%
+Mean-value property (7.2.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+$f \colon \R \to \R$ is harmonic if
+\pause
+\[
+\nabla^2 f = 
+\frac{\partial^2}{\partial x^2} f = f'' = 0 .
+\]
+\pause
+So $f(x) = Ax+B$ (affine linear).
+
+\medskip
+\pause
+
+For any interval $[a,b]$, $a < b$,
+\[
+f\Bigl(\frac{a+b}{2}\Bigr) = \frac{f(a)+f(b)}{2} . \tag{*}
+\]
+
+\medskip
+\pause
+
+``Mean-value property'':
+
+\medskip
+
+\textbf{Exercise:} A continuous $f \colon \R \to \R$ is harmonic (affine linear) \wiffif (*) holds
+for all $[a,b]$.
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Mean-value property]
+Suppose $U \subset \C$ is open.
+A continuous 
+$f \colon U \to \R$
+is harmonic if and only if 
+for every $p \in U$ there is an $R_p > 0$ such that
+$\Delta_{R_p}(p) \subset U$ and
+\begin{equation*}
+f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta
+\qquad \text{for all } r < R_p .
+\end{equation*}
+Moreover, if $f$ is harmonic we may choose any $R_p > 0$ such that
+$\Delta_{R_p}(p) \subset U$.
+\end{theorem}
+
+\pause
+\textbf{Proof:}
+
+$\Rightarrow$) \pause
+Suppose $f$ is harmonic and $\overline{\Delta_r(p)} \subset U$. 
+\pause
+($R_p$ as large as wanted)
+\pause
+
+Solve the Dirichlet problem in $\Delta_r(p)$ (at $p$)
+\begin{equation*}
+\frac{1}{2\pi} \int_{-\pi}^{\pi}f(p + r e^{it}) \, dt =
+P\bigl[f|_{\partial \Delta_r(p)}\big](p) \pause = f(p) .
+\end{equation*}
+
+\end{frame}
+
+\begin{frame}
+$\Leftarrow$) \pause
+Suppose $f$ is continuous and satisfies the
+mean-value property.
+
+\medskip
+\pause
+
+Suppose $\overline{\Delta_s(q)} \subset U$.
+\qquad
+\pause
+Let $h = P\bigl[f|_{\partial \Delta_s(q)}\big]$.
+
+\medskip
+\pause
+Let $\varphi = f-h$.
+\quad
+\pause
+$\varphi$ is continuous,
+\pause
+identically zero on $\partial \Delta_s(q)$,
+\pause
+and satisfies the mean-value property on same circles as $f$.
+
+\medskip
+\pause
+Suppose (for contradiction) $\varphi$
+attains a maximum at $p \in \Delta_s(q)$ and
+$\varphi(p) > 0$.
+
+\medskip
+\pause
+$X = \bigl\{ z \in \Delta_s(q) : \varphi(z) = \varphi(p) \bigr\}$ is compact.
+
+\medskip
+\pause
+Assume $p$ is the point of $X$ closest to $\partial \Delta_s(q)$.
+
+\medskip
+\pause
+Suppose $\partial \Delta_r(p) \subset \Delta_s(q)$ (and $r < R_p$),
+
+\vspace*{-0.8in}
+\hfill
+\subimport*{../figures/}{meanvalue.pdf_t}
+
+\vspace*{-0.5in}
+
+\pause
+$\varphi \leq C < \varphi(p)$ (for some $C \in \R$) on an open subset of $\partial \Delta_r(p)$
+
+\medskip
+\pause
+So
+\quad
+$\displaystyle
+\frac{1}{2\pi} \int_{-\pi}^{\pi} \varphi(p+re^{i\theta})\, d\theta <
+\varphi(p)$.
+\pause
+\quad
+A contradiction!
+\pause
+\quad
+So $\varphi \leq 0$.
+
+\medskip
+\pause
+
+Similarly $\varphi \geq 0$.
+
+\medskip
+\pause
+
+So $f=h$ and $f$ is harmonic. \qed
+\end{frame}
+
+\begin{frame}
+For $C^2$ functions, just because $f_n \to f$ uniformly,
+doesn't mean that $\nabla^2 f_n$ goes to $\nabla^2 f$. 
+
+\medskip
+\pause
+
+But it does for harmonic functions.
+
+\pause
+\begin{theorem}[Harnack's first]
+Let $U \subset \C$ be open, and let $f_n \colon U \to \R$ be a sequence of
+harmonic functions converging uniformly on compact subsets to $f \colon U
+\to \R$.  Then $f$ is harmonic.
+\end{theorem}
+
+\pause
+\textbf{Proof:}
+\pause
+$f$ is continuous.
+
+\medskip
+\pause
+
+If $\overline{\Delta_r(p)} \subset U$,
+then $\{ f_n \}$ converges uniformly on $\partial \Delta_r(p)$.  So
+\pause
+\begin{equation*}
+f(p) =
+\lim_{n\to\infty} f_n(p)
+\pause
+=
+\lim_{n\to\infty} 
+\frac{1}{2\pi} \int_{-\pi}^{\pi} f_n(p+re^{i\theta})\, d\theta
+\pause
+=
+\frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta .
+\end{equation*}
+\pause
+Done by mean-value property. \qed
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+Prove the maximum principle for harmonic functions directly from the
+mean-value property.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Let $U \subset \C$ be open.
+Prove that a continuous $f \colon U \to \R$
+is harmonic if and only if it satisfies the
+\emph{disc mean-value property} for every $\overline{\Delta_r(p)}
+\subset U$:
+\[
+f(p) = 
+\frac{1}{\pi r^2} \int_{\overline{\Delta_r(p)}} f(z) \, dA.
+\]
+
+\end{frame}
+
+\end{document}

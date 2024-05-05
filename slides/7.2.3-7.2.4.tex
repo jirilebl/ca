@@ -1,0 +1,361 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Harmonic functions\\%
+Harnack's inequality and principle (7.2.3--7.2.4)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\begin{theorem}[Harnack's inequality]
+Suppose $f \colon \Delta_R(p) \to \R$ is harmonic and nonnegative,
+and suppose $0 < r < R$.
+Then for all $z \in \overline{\Delta_r(p)}$,
+\begin{equation*}
+\frac{R-r}{R+r} \, f(p) \leq f(z) \leq \frac{R+r}{R-r} \, f(p) .
+\end{equation*}
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+$\frac{R+r}{R-r}$ increasing in $r$ and
+$\frac{R-r}{R+r}$ decreasing in $r$
+\pause
+\wthus
+enough to prove for
+$z \in \partial \Delta_r(p)$.
+%$z=p+re^{i\theta}$.
+
+\pause
+Let $S$ be such that $0 < r < S < R$.
+\pause
+\[
+f(p + re^{i\theta})
+=
+\int_{-\pi}^\pi f(p+Se^{it}) P_{r/S}(\theta-t) \, dt
+\pause
+=
+\frac{1}{2\pi} 
+\int_{-\pi}^\pi f(p+Se^{it})
+\frac{S^2-r^2}{S^2+r^2-2Sr \cos (\theta-t)}
+\, dt .
+\]
+\pause
+\[
+\frac{S-r}{S+r}
+\pause
+=
+\frac{S^2-r^2}{S^2+r^2+2Sr}
+\pause
+\leq
+\frac{S^2-r^2}{S^2+r^2-2Sr \cos (\theta-t)}
+\pause
+\leq
+\frac{S^2-r^2}{S^2+r^2-2Sr}
+\pause
+=
+\frac{S+r}{S-r} .
+\]
+\pause
+For $z = p+re^{i\theta}$ (using $f \geq 0$),
+\[
+f(z)
+=
+\int_{-\pi}^\pi f(p+Se^{it}) P_{r/S}(\theta-t) \, dt
+\pause
+\leq
+\frac{S+r}{S-r} 
+\left(
+\frac{1}{2\pi}
+\int_{-\pi}^\pi f(p+Se^{it}) \, dt
+\right)
+\pause
+\leq
+\frac{S+r}{S-r} 
+\,
+f(p) .
+\]
+\pause
+The lower inequality follows in the same way.
+
+\pause
+As $S<R$ was arbitrary, the theorem follows by taking a limit.
+\qed
+\end{frame}
+
+\begin{frame}
+The inequalities are optimal.
+\pause
+In $\D$, the theorem says
+\begin{equation*}
+\frac{1-r}{1+r} \, f(0) \leq f(z) \leq \frac{1+r}{1-r} \, f(0) .
+\end{equation*}
+\pause
+Consider
+\[f(z) = \Re \frac{1+z}{1-z}.\]
+(the Poisson kernel except for
+$\frac{1}{2\pi}$).
+
+\pause
+\medskip
+
+So $f(z) > 0$ on $\D$.
+
+\pause
+\medskip
+
+$f(0)=1$.
+
+\medskip
+\pause
+
+$z=r$ gets equality on the right hand side.
+
+\medskip
+\pause
+
+$z=-r$ gets equality on the left hand side.
+\end{frame}
+
+
+\begin{frame}
+\begin{corollary}[Harnack's inequality]
+Suppose $U \subset \C$ is a domain and $K \subset U$ is compact.
+Then there exists a $C > 0$ such that
+\begin{equation*}
+\sup_{z \in K} f(z) \leq C \inf_{z\in K} f(z)
+\end{equation*}
+for every harmonic and nonnegative function $f$ defined on $U$.
+\end{corollary}
+
+\pause
+
+\textbf{Proof:}
+WLOG assume that $K$ is connected: \pause
+(e.g.\ cover by finitely many closed discs so that $K$ has finitely many
+components, then connect with paths as
+$U$ is path connected).
+
+\medskip
+\pause
+
+Let 
+$r> 0$ be less than half the distance from $K$ to $\partial U$.
+
+\pause
+$\Delta_{r}(z_1),\ldots,\Delta_{r}(z_N)$ cover $K$
+and
+$\Delta_{2r}(z_j) \subset U$ for every $j$.
+
+\pause
+Fix $\zeta,\xi \in K$.
+\pause
+Assume
+$\zeta \in \Delta_{r}\bigl(z_{1}\bigr)$
+
+and
+$\xi \in \Delta_{r}\bigl(z_{n}\bigr)$
+
+(for some $n \leq N$.)
+\pause
+
+Also assume
+$\Delta_{r}\bigl(z_{j}\bigr) \cap \Delta_{r}\bigl(z_{j+1}\bigr)
+\not=\emptyset$
+
+for all $j=1,\ldots,n-1$ ($K$ connected).
+\pause
+
+\vspace*{-1in}
+\hfill
+\subimport*{../figures/}{harnacksgeneral.pdf_t}
+
+\end{frame}
+
+\begin{frame}
+Suppose $f \colon U \to \R$ is harmonic and nonnegative.
+
+\medskip
+\pause
+
+$\Delta_{2r}(z_j) \subset U$ for all $j$ \pause \wthus if $w \in \Delta_r(z_j)$
+\pause
+\quad \thus
+\[
+\frac{1}{3} \, f(z_j) = 
+\frac{2r-r}{2r+r}\, f(z_j)
+\leq
+f(w)
+\leq \frac{2r+r}{2r-r}\, f(z_j)
+= 3 f(z_j) .
+\]
+\pause
+\thus\quad $f(w) \leq 3 f(z_j)$ and $f(z_j) \leq 3 f(w)$.
+
+\pause
+\medskip
+
+Follow the discs.
+
+\medskip
+\pause
+
+$\zeta \in \Delta_r(z_1)$ \wthus
+$f(\zeta) \leq 3 f(z_1)$.
+
+\pause
+\medskip
+
+Let 
+$q$ be the midpoint between $z_{j}$ and $z_{j+1}$
+\wthus
+$q \in \Delta_{r}\bigl(z_{j}\bigr) \cap \Delta_{r}\bigl(z_{j+1}\bigr)$.
+
+\pause
+\medskip
+\thus
+\quad
+$f(z_j) \leq 3 f(q) \leq 3 \bigl( 3 f(z_{j+1}) \bigr) = 3^2 f(z_{j+1})$.
+
+\pause
+\medskip
+
+$\xi \in \Delta_r(z_n)$ \wthus
+$f(z_n) \leq 3 f(\xi)$.
+
+\pause
+\medskip
+
+All in all, \quad
+$f(\zeta) \leq
+3^{2n+2}
+f(\xi)
+\leq
+3^{2N+2}
+f(\xi)$.
+
+\pause
+\medskip
+
+$N$ only depends on $K$, not on $\zeta$, $\xi$, or $f$.
+As $\zeta$ and $\xi$ were arbitrary, the theorem follows. \qed
+
+\medskip
+\pause
+
+\textbf{Remark:} We got an explicit (if not optimal) $C$.
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+Show by example that Harnack's general inequality need not hold if $U$
+is not assumed to be connected.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Find the following counterexample of Harnack's inequality
+if $f$ is not assumed to be
+nonnegative.  For every $M > 0$ find
+a harmonic function $f \colon \D \to \R$ such that $f(0) = 1$ and
+$f(\nicefrac{1}{2}) \geq M$.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Use Harnack's inequality to prove Liouville's theorem
+for harmonic functions:
+
+If $f \colon \C \to \R$ is harmonic
+and nonnegative, then $f$ is constant.
+\end{frame}
+
+\begin{frame}
+
+\begin{theorem}[Harnack's principle]
+Let $U \subset \C$ be a domain and $\{ f_n \}$ a sequence of
+harmonic functions on $U$ such that $f_1 \leq f_2 \leq f_3 \leq \cdots$.
+Then either $f_n \to +\infty$ uniformly on compact subsets, or
+$f_n \to f$ for a harmonic $f \colon U \to \R$ uniformly on compact subsets.
+\end{theorem}
+
+\pause
+
+\textbf{Proof:}
+WLOG assume $f_n \geq 0$ for all $n$.  (Otherwise apply to 
+$f_n-f_1$).
+
+\pause
+
+By the monotonicity, $\{f_n\}$ converges pointwise (possibly to $+\infty$).
+
+\pause
+
+If $\lim f_n(p) = +\infty$ for some $p$,
+\pause
+let $K \subset U$ be any compact and let $K' = K \cup \{ p \}$.
+
+\medskip
+\pause
+Harnack's inequality \wthus
+$\displaystyle f_n(p) \leq \sup_{z \in K'} f_n(z) \leq C \inf_{z\in K'} f_n(z) \leq C \inf_{z\in K} f_n(z)$.
+
+\medskip
+\pause
+\thus \quad
+$f_n(z) \to +\infty$ uniformly for $z \in K$.
+
+\medskip
+\pause
+
+Suppose $f(z) = \lim f_n(p) < +\infty$ for every $z \in U$.
+
+\pause
+Let $K \subset U$ be compact, take the $C$ from Harnack's, and take any $p \in K$.
+
+\pause
+
+Given $\epsilon > 0$, suppose $m > n$ are 
+such that $f_m(p)-f_n(p) < \nicefrac{\epsilon}{C}$,
+\pause
+then
+\[
+\sup_{z \in K} \bigl( f_m(z)- f_n(z) \bigr)
+\leq
+C \inf_{z\in K} \bigl( f_m(z)-f_n(z) \bigr)
+\pause
+\leq
+C \bigl( f_m(p)-f_n(p) \bigr)
+< \epsilon .
+\]
+\pause
+\thus \quad
+$\{ f_n \}$ is uniformly Cauchy on $K$
+\pause
+\wthus
+converges uniformly.
+\pause
+
+$f$ is harmonic by Harnack's first theorem.
+\qed
+\end{frame}
+
+\end{document}
