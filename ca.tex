@@ -15106,13 +15106,13 @@ $\partial \Delta_r(z)$ where $\overline{\Delta_r(z)} \subset U$:
 =
 0 .
 \end{equation*}
-In other words, the mean value equals $F(z) = 0$,
+That is, the mean value equals $F(z) = 0$,
 and the mean-value property is satisfied for all small enough
 $r$ at every $z \in L$.
 We proved above that $F$ is harmonic on $U \setminus L$ and
 so the mean-value property
-is satisfied for all small enough
-$r$ around any of $U \setminus L$ as well.
+is also satisfied for all small enough circles
+around any $z \in U \setminus L$.
 By the mean-value property (\thmref{thm:meanprop}), $F$ is harmonic in $U$.
 \end{proof}
 
@@ -15811,9 +15811,9 @@ I became insane, with long intervals of horrible sanity.
 \label{sec:prod}
 
 If a
-function has zeros at $0$, $1$, and $i$ we
+function has zeros at $0$, $1$, and $i$, we
 can write $f$ as
-$f(z) = g(z) z(z-1)(z-i)$.  And if those are the only zeros, then 
+$f(z) = g(z) z(z-1)(z-i)$.  If those are the only zeros, then 
 $g$ is never zero.  If there are infinitely many zeros, however,
 things become difficult.
 Can we factor out the zeros out of $\sin z$?  Can we
@@ -15825,7 +15825,7 @@ Not quite, but sort of, if
 we take care of convergence.\footnote{Beware of
 formal expressions bearing gifts.
 Especially ones with infinite sets in them.
-For example, $\prod_{n \in \Z} (z-\pi n)$ does not make sense.}
+For example, $\prod_{n \in \Z} (z-\pi n)$ does not actually make any sense.}
 Of course, we need to first
 figure out what we mean by convergence.  Once we figure that out,
 we will show that convergence happens the way we want to
@@ -15900,7 +15900,7 @@ Consider
 
 For the other direction, suppose that the sequence of partial products
 converges.  For all but finitely many $n$, $\sabs{a_n} < 1$.
-Otherwise the product would double infinitely often and go to
+Otherwise the partial products would double infinitely often and go to
 infinity.  So suppose that $\sabs{a_n} < 1$ for all $n \geq N$.
 If $\sabs{a_n} < 1$, then $\sabs{a_n} \leq 2 \log \bigl(1+\sabs{a_n}\bigr)$,
 and
@@ -15917,7 +15917,7 @@ $\sum_{n=1}^\infty \sabs{a_n}$ converges.
 
 An immediate consequence is that if 
 $\prod_{n=1}^\infty (1+a_n)$ converges absolutely, then
-$\{ a_n \}$ converges to $0$.  Actually much more than that, they have to
+$\{ a_n \}$ converges to $0$.  Not only that, they
 go to zero fast enough to be absolutely summable.
 
 As for series, we need to know that absolute convergence really is convergence.
@@ -15959,11 +15959,11 @@ Let $m > k$ be two positive integers.
 \\
 & \leq
 \sum_{n=k+1}^m 
-\left(
+\Bigl(
 \log \sabs{1+a_n}
 +
 \abs{ \Arg (1+a_n)}
-\right) .
+\Bigr) .
 \end{split}
 \end{equation}
 As before,
@@ -15975,7 +15975,8 @@ As before,
 \end{equation*}
 and the series on the right converges via \propref{prop:infprodabsconvinfsum}.
 Next, $\Arg(1+a_n)$ is between $\nicefrac{-\pi}{2}$ and
-$\nicefrac{\pi}{2}$, and $a_n$ is going to zero.  So for all $n$ large
+$\nicefrac{\pi}{2}$, and $a_n$ goes to zero.  A calculus exercise
+shows that for all $n$ large
 enough, $\babs{\Arg(1+a_n)} \leq 2\sabs{a_n}$.  As $\sum
 \sabs{a_n}$ converges, 
 $\sum \babs{\Arg (1+a_n)}$ converges.
@@ -16109,9 +16110,8 @@ way to get zero is for one of the terms to be zero.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $\sabs{1+a_n} \leq r < 1$ for all
-$n$, 
-prove that $\prod_{n=1}^\infty (1+a_n)$ converges to $0$, but that the
+Suppose $\sabs{1+a_n} \leq r < 1$ for all $n$.
+Prove that $\prod_{n=1}^\infty (1+a_n)$ converges to $0$, but that the
 convergence is not absolute.
 \end{exercise}
 
@@ -17013,7 +17013,7 @@ $\sF$, then $f$ can be uniformly approximated by functions in $\sF$.
 \end{exercise}
 \end{exbox}
 
-Let us now approximate simple poles of the form $\frac{1}{z-p}$ by rational
+We now approximate simple poles of the form $\frac{1}{z-p}$ by rational
 functions with poles in a given set.  This procedure is called
 \emph{\myindex{pole pushing}} as we are going to \myquote{push} the poles along a
 path to where we need them to be.
