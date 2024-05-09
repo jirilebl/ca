@@ -210,7 +210,7 @@ $\frac{d}{dz}\bigl[\frac{1}{g(z)}\bigr] = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
 \medskip
 \pause
 
-Proof: Exercise.  Just adapt the one real variable proof.
+\textbf{Proof:} Exercise.  Just adapt the one real variable proof.
 
 \medskip
 \pause
@@ -222,23 +222,27 @@ $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
 \begin{frame}
 \begin{proposition}[Power rule and its consequences]
 \begin{enumerate}[(i)]
-\pause
-\item For every nonzero integer $n$, the function $z \mapsto z^n$ is holomorphic
-where defined (outside the origin if $n$ negative) and $(z^n)' = n z^{n-1}$.
-\pause
 \item
+\pause
+For every integer $n$, the function $z \mapsto z^n$ is holomorphic
+where defined (outside the origin if $n$ negative) and
+$\frac{d}{dz}\bigl[ z^n \bigr] = n z^{n-1}$
+if $n\not=0$ and $\frac{d}{dz}\bigl[ z^0 \bigr] = 0$.
+\item
+\pause
 A polynomial $P(z) = \sum_{n=0}^d c_n z^n$ is
 holomorphic and
 $P'(z) = \sum_{n=0}^{d-1} (n+1) c_{n+1} z^n$.
+\item
 \pause
-\item Rational functions $\frac{P(z)}{Q(z)}$
+Rational functions $\frac{P(z)}{Q(z)}$
 are holomorphic on the set where $Q$ is not zero.
 \end{enumerate}
 \end{proposition}
 
 \pause
 
-Proof: Again exercise.
+\textbf{Proof:} Again exercise.
 \end{frame}
 
 \begin{frame}
