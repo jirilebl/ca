@@ -414,7 +414,7 @@ Typeset in \LaTeX.
 \bigskip
 
 \noindent
-Copyright \copyright 2019--2024 Ji{\v r}\'i Lebl
+Copyright \copyright 2019--2025 Ji{\v r}\'i Lebl
 
 %PRINT
 % not for the coil version
@@ -425,9 +425,17 @@ Copyright \copyright 2019--2024 Ji{\v r}\'i Lebl
 % not for lulu
 %\medskip
 %\noindent
-%Cover image: Field in South Czechia, \copyright 2008 Ji{\v r}\'i Lebl, all rights reserved.  Cover
-%image cannot be reused in derivative works.
+%Cover image: Field in South Czechia, \copyright 2008 Ji{\v r}\'i Lebl, all rights reserved.
+%
+% now not needed, kdp edition is not cc licensed
+%Cover image cannot be reused in derivative works.
 
+
+%PRINT
+% not for lulu, lulu is fine with this
+% note that I am the copyright holder, I can put out versions
+% that are under any license, so for kdp, they are non-free
+%\ignore{
 
 \bigskip
 
@@ -470,6 +478,9 @@ whichever is compatible with what you wish to do.
 Your derivative work must use at least one of the licenses.
 Derivative works must be prominently marked as such.
 
+%PRINT
+%}
+
 \bigskip
 
 \noindent
@@ -496,7 +507,7 @@ and helpful suggestions.
 %
 %\noindent
 %During the writing of this book, 
-%the author was in part supported by NSF grant DMS-1362337.
+%the author was in part supported by ??? grant ???
 
 \bigskip
 
@@ -506,6 +517,10 @@ and helpful suggestions.
 See \url{https://www.jirka.org/ca/} for more information
 (including contacts).
 
+%PRINT
+% not for lulu, lulu is fine with this
+%\ignore{
+
 \medskip
 
 \noindent
@@ -513,6 +528,8 @@ The \LaTeX\ source for the book is available
 for possible modification and customization
 at github: \url{https://github.com/jirilebl/ca}
 
+%PRINT
+%}
 
 % For large print do this
 %\large
@@ -1728,7 +1745,8 @@ One way to view an LFT is as a $2 \times 2$ complex matrix.  For this
 purpose,
 we need to view the Riemann sphere as the so-called one-dimensional
 \emph{\myindex{projective space}}.
-Define the equivalence relation $\sim$ on $\C^2 \setminus \{ 0 \}$ by
+Define the equivalence relation $\sim$ on
+$\C^2 \setminus \{ 0 \} = \C \times \C \setminus \{ (0,0) \}$ by
 $u \sim v$ if and only if $u = \lambda v$ for some $\lambda \in \C$.
 The \emph{\myindex{one-dimensional complex projective}}
 space is then defined as the quotient
@@ -2315,7 +2333,7 @@ zero.
 
 \begin{prop} \label{prop:zeroder}
 Let $U \subset \C$ be a domain (open and connected),
-and $f \colon U \to \C$ be holomorphic, and $f'(z) = 0$ for all $z \in U$.
+$f \colon U \to \C$ holomorphic, and $f'(z) = 0$ for all $z \in U$.
 Then $f$ is a constant.
 \end{prop}
 
@@ -2324,7 +2342,7 @@ Follows from the standard real result,
 see \thmref{thm:svzerodersol} in the appendix.
 \end{proof}
 
-Next, what would calculus be without chain rule.
+Next, what would calculus be without the chain rule.
 
 \begin{prop}[Chain rule] \index{chain rule!complex derivative}
 Let $U \subset \C$ and $V \subset \C$ be open, $f \colon U \to V$
