@@ -693,14 +693,14 @@ numbers obvious from nature,
 and gives us zero and negative numbers producing the integers
 \glsadd{not:Z}$\Z$, so that we can solve equations such as $n+2 = 1$.
 From \glsadd{not:Z}$\Z$, we define the rational numbers
-\glsadd{not:Z}$\Q$ to solve\footnote{%
+\glsadd{not:Q}$\Q$ to solve\footnote{%
 Do we really solve $2x=1$ by writing $x = \nicefrac{1}{2}$?  After all, 
 $\nicefrac{1}{2}$ is just a placeholder for an object that we can't describe
-in a way other than
+in any way other than
 \myquote{whatever $1$ divided by $2$ would be if it existed.}}
 equations such as $2x=1$.  We extend
-\glsadd{not:Q}$\Q$ to the real numbers \glsadd{not:R}$\R$
-to solve equations such as $x^2=2$.  Actually our definition 
+$\Q$ to the real numbers \glsadd{not:R}$\R$
+to solve equations such as $x^2=2$.  Actually, our definition 
 of the real numbers is such that we get theorems like the
 intermediate value theorem, Bolzano--Weierstrass,
 etc.  It is then not much of a stretch to do the same thing when trying
@@ -730,7 +730,7 @@ but let us review its definition anyway.
 As a set, let the \emph{\myindex{complex number field}}
 \glsadd{not:C}$\C$ be the set $\R^2 = \R \times \R$.
 The set is a plane, so we call it the \emph{\myindex{complex plane}}%
-\footnote{Although there is that odd mathematician out there that
+\footnote{Although there is that odd mathematician out there who
 thinks that the \emph{complex plane} is $\C^2 = \C \times \C$.
 If you hear someone say that, politely whack them over the head for me.}.
 To make it a field, we define addition and product:
@@ -762,7 +762,7 @@ i \overset{\text{def}}{=} (0,1) .
 \end{equation*}
 With this notation, $(x,y) = x+iy$.  From now on, $x+iy$ is the only way we
 will write
-the complex numbers in terms of the coordinates $x$ and $y$.
+complex numbers in terms of the coordinates $x$ and $y$.
 We call $x+iy$ the \emph{\myindex{cartesian form}}
 of the complex number.
 The number $i$ has the magical property that
@@ -770,7 +770,7 @@ The number $i$ has the magical property that
 i^2 = -1 .
 \end{equation*}
 For this reason we sometimes%
-\footnote{There are those that \emph{always} write $\sqrt{-1}$ instead of $i$.
+\footnote{There are those who \emph{always} write $\sqrt{-1}$ instead of $i$.
 Those people also deserve a good whack.}
 write $i = \sqrt{-1}$.
 Note that there is another square root of $-1$, that is, $-i$.
@@ -1354,7 +1354,7 @@ We define the \emph{\myindex{principal branch of $\arg$}} as
 It may seem like a good solution to the multivaluedness of $\arg$, but
 one's hopes are dashed by the cruel reality of $\Arg$ not being continuous
 on the negative real axis.  See \figureref{fig:arggraph}.
-The principal branch is somewhat less useful than one may think.
+The principal branch is somewhat less useful than one might think.
 There is also the issue that not everyone agrees
 on what \myquote{principal branch} means; some mathematicians sacrifice the
 positive real axis and let $\theta$ be in the range $[0,2\pi)$.
@@ -5404,7 +5404,7 @@ then $\int_\Gamma f(z) \, dz = 0$.
 \begin{exercise}
 Suppose $U \subset \C$ is open and star-like and
 $f \colon U \to \C$ is antiholomorphic, that is, it is the conjugate of a
-holomorphic function.  Let $d\bar{z} = dx + i \, dy$ as before.  Suppose
+holomorphic function.  Let $d\bar{z} = dx - i \, dy$ as before.  Suppose
 $\Gamma$ is a cycle in $U$.  Prove that
 $\int_\Gamma f(z) \, d\bar{z} = 0$.
 \end{exercise}
@@ -7135,10 +7135,10 @@ f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} = e^{i\theta} \varphi_a(z).
 \end{prop}
 
 \begin{proof}
-Let $a = f(0)$.
-Consider $g = \varphi_a \circ f$, which is an automorphism,
+Let $b = f(0)$.
+Consider $g = \varphi_b \circ f$, which is an automorphism,
 and $g(0) = 0$ as
-$\varphi_a(a) = 0$.
+$\varphi_b(b) = 0$.
 As in the proof of Schwarz's lemma, we find a holomorphic $h(z)$
 such that $g(z) = z h(z)$.  By
 Schwarz's lemma, if $z \in \D \setminus \{ 0 \}$, then
@@ -7161,10 +7161,10 @@ words $\babs{\frac{1}{h(z)}}$ must attain a maximum inside $\D$.  So $h(z)$
 is a constant, and $g(z) = \alpha z$ for some constant $\alpha$.
 Clearly, 
 $\sabs{\alpha} = 1$ or $\alpha = e^{i\theta}$.  Applying
-$\varphi_{-a}$ to both sides of $e^{i\theta} z = \varphi_a \circ f$
+$\varphi_{-b}$ to both sides of $e^{i\theta} z = \varphi_b \circ f$
 we obtain
-$f(z) = \varphi_{-a}(ze^{i\theta})
-= e^{i \theta} \varphi_{-ae^{-i\theta}}(z)$.
+$f(z) = \varphi_{-b}(ze^{i\theta})
+= e^{i \theta} \varphi_{-be^{-i\theta}}(z)$.
 \end{proof}
 
 \begin{exbox}
