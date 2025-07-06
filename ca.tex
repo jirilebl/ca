@@ -7292,7 +7292,7 @@ then $z^n$ is defined in the entire plane, and a primitive is
 simply $\frac{z^{n+1}}{n+1}$.  If $n < -1$, then $z^n$ is defined
 in the punctured plane $\C \setminus \{0\}$, and again
 a primitive is $\frac{z^{n+1}}{n+1}$.  What about $z^{-1} =
-\nicefrac{1}{z}$?  It has a primitive, but never defined in
+\nicefrac{1}{z}$?  It has a primitive, but never one defined in
 the entire punctured plane.
 
 We demonstrated that in any star-like domain, a holomorphic function has a
@@ -7838,9 +7838,10 @@ Suppose $U \subset \C$ is open,
 $f \colon U \to \C$ is holomorphic,
 and $\Gamma$ is
 a cycle
-in $U$
-homologous to zero in $U$.
-Then
+in $U$.
+If $\Gamma$
+homologous to zero in $U$,
+then
 \begin{equation*}
 \int_\Gamma f(z) \, dz = 0 .
 \end{equation*}
@@ -7870,10 +7871,12 @@ $n(\Gamma_0 - \Gamma_1;p) = 0$ for all $p \in \C \setminus U$,
 that is, $\Gamma_0-\Gamma_1$ is homologous to zero in $U$.
 
 \begin{cor} \label{cor:homologoussameint}
-Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic.
-If two cycles
-$\Gamma_0$ and $\Gamma_1$ in $U$
-are homologous in $U$, then
+Let $U \subset \C$ be open and $f \colon U \to \C$ holomorphic,
+and let
+$\Gamma_0$ and $\Gamma_1$ be cycles in $U$.
+If 
+$\Gamma_0$ and $\Gamma_1$ are
+homologous in $U$, then
 \begin{equation*}
 \int_{\Gamma_0} f(z)\, dz = 
 \int_{\Gamma_1} f(z)\, dz .
@@ -7924,7 +7927,7 @@ Cauchy's theorem implies the Cauchy integral formula.
 \end{exercise}
 
 \begin{exercise}
-Let $U \subset \C$ is open and $\Gamma$ is a cycle in $U$
+Let $U \subset \C$ be open and $\Gamma$ a cycle in $U$
 homologous to zero in $U$.
 Suppose that $n(\Gamma;z_1) = k_1$ and  $n(\Gamma;z_2) = k_2$ for
 some two distinct $z_1,z_2 \in U \setminus \Gamma$.
@@ -8355,7 +8358,7 @@ the punctured disc
 \end{equation*}
 When $r_2 = \infty$ on the other hand,
 $\ann(p;r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$ (if $r > 0$).  We will,
-however, avoid temptation calling $\ann(p;r,\infty)$ an \myquote{annulus.}%
+however, avoid the temptation of calling $\ann(p;r,\infty)$ an \myquote{annulus.}%
 \footnote{\myquote{Holey plane} perhaps?  A punctured disc also ought not to be
 called an \myquote{annulus,} and calling $\ann(0;0,\infty) = \C \setminus
 \{ 0 \}$ an \myquote{annulus} is right out!}
@@ -8780,7 +8783,7 @@ Slowly (continuously) deforming one path into another path
 is called \emph{\myindex{homotopy}}.  Let us
 define it for closed paths,
 where in this section by \myquote{path} we mean only
-continuous and not necessarily piecewise-\(C^1 .\)
+continuous and not necessarily piecewise-$C^1$.
 
 \begin{defn}\label{defn:homotopy}
 Let $U \subset \C$ be open.
@@ -8855,7 +8858,7 @@ Furthermore, if $\gamma$ is a piecewise-$C^1$ path, then
 \begin{equation*}
 \frac{1}{2\pi i} \int_\gamma \frac{1}{z-p} \, dz =
 \frac{\theta(b)-\theta(a)}{2\pi} 
-- i \frac{\log \sabs{\gamma(b)} - \log \sabs{\gamma(a)}}{2\pi} .
+- i \frac{\log \sabs{\gamma(b)-p} - \log \sabs{\gamma(a)-p}}{2\pi} .
 \end{equation*}
 \end{lemma}
 
@@ -8900,7 +8903,7 @@ L_j\bigl(\gamma(t_{j-1})\bigr)
 \\
 & =
 \frac{\theta(b)-\theta(a)}{2\pi}
-- i \frac{\log \sabs{\gamma(b)} - \log \sabs{\gamma(a)}}{2\pi} .
+- i \frac{\log \sabs{\gamma(b)-p} - \log \sabs{\gamma(a)-p}}{2\pi} .
 \qedhere
 \end{split}
 \end{equation*}
@@ -8961,7 +8964,7 @@ get
 $\widetilde{\gamma}\bigl([t_{j-1},t_j]\bigr) \subset D_j$.
 The $L_j$ and $L_{j-1}$ agree at one point of $D_{j-1} \cap D_j$ (at
 $\gamma(t_{j-1})$) and since they are both branches of $\log (z-p)$, they
-agree in the entire connected set $D_{j-1} \cap D_j$.  Thus they also
+agree on the entire connected set $D_{j-1} \cap D_j$.  Thus they also
 agree at $\widetilde{\gamma}(t_{j-1})$.
 So
 \begin{equation*}
@@ -9121,7 +9124,7 @@ In lieu of a proof of the other direction, simply note that
 $\C$, $\D$, or the upper half-plane $\bH$ are simply connected in the 
 sense of homotopy.  For $\C$ and $\D$, we employ the homotopy of
 example \exampleref{example:homotopydiscsc}.  For the half-plane,
-we modify the homotopy of to $H(t,s) = (1-s)\gamma(t) + si$ to
+we modify the homotopy to $H(t,s) = (1-s)\gamma(t) + si$ to
 get $\gamma$ homotopic to the constant $i$.
 \end{example}
 
@@ -9163,7 +9166,7 @@ and only if $V$ is simply connected in the sense of homotopy.
 Cauchy's theorem and Cauchy's integral formula can be obtained via 
 Green's theorem.
 We review Green's theorem first.
-Write $dz = dx + i\, dy$ and $d\bar{z} = dx + i \, dy$ as before.
+Write $dz = dx + i\, dy$ and $d\bar{z} = dx - i \, dy$ as before.
 Given a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$, we define
 \begin{align*}
 & \int_\gamma
@@ -9525,7 +9528,7 @@ the set $W \setminus \partial U$ has infinitely many components.
 The next theorem is usually stated for just continuous paths, but that makes
 it harder to prove.  For piecewise-$C^1$ paths, the proof, apart from some
 technicalities, is not hard, and we have actually already proved the
-local part of it.  The main issue with paths that are continuous only is that
+local part of it.  The main issue with paths that are only continuous is that
 locally they may not be a graph of a function.  A $C^1$ path is always
 locally a graph with respect to one of the variables, and a piecewise-$C^1$
 path, as we saw above, is almost a graph.
@@ -9547,14 +9550,15 @@ and the unbounded component of $\C \setminus \gamma$ is called the
 A ray is a set that is a straight line starting at some point $q$
 going to infinity at some angle.
 Consider
-intersections of $\gamma$ with vertical lines.  For some vertical line,
-the intersection with $\gamma$ with the largest $y$ coordinate ($z=x+iy$)
-is at a point where $\gamma'$ exists and does not point along the vertical line (otherwise
-simply move the line a little, there are only finitely many points where
-$\gamma'$ does not exist).  Then near this intersection, the set $\gamma$
-can be written as a graph $y=f(x)$ using the implicit function theorem.
-Pick a point $q$ to be some point slightly below this graph, and let $R$ be the
-ray going vertically up from $q$.  Note that $R$ intersects $\gamma$ exactly
+intersections of $\gamma$ with horizontal lines.  For some horizontal line,
+the intersection with $\gamma$ with the smallest $x$ coordinate ($z=x+iy$)
+is at a point where $\gamma'$ exists and does not point along
+the horizontal line (otherwise
+simply move the line a little---there are only finitely many points where
+$\gamma'$ does not exist).  Near this intersection, the set $\gamma$
+can be written as a graph $x=f(y)$ using the implicit function theorem.
+Pick a point $q$ to be some point to the right of this graph, and let $R$ be the
+ray going horizontally left from $q$.  Note that $R$ intersects $\gamma$ exactly
 once.
 See \figureref{fig:rayjordan}.
 \begin{myfig}
@@ -9563,17 +9567,19 @@ See \figureref{fig:rayjordan}.
 only once.\label{fig:rayjordan}}
 \end{myfig}
 
-Without loss of generality after rotation and scaling, let $q$ be the origin and
+Without loss of generality after translation, let $q$ be the origin and
 the ray $R$ be the negative real axis.  Then $\gamma$ intersects the negative
 real axis at exactly one point.
 We reparametrize so that this negative real intersection
 is the beginning and ending point of $\gamma \colon [0,1] \to \C$.  This
 point is a point where $\gamma$ is $C^1$ and hence $\gamma'(0) =
 \gamma'(1)$.  Also $\gamma'(0) = \gamma'(1)$ does not point along the ray,
-that is, either $\Im \gamma'(0) = \Im \gamma'(1) > 0$ or it is negative.
+that is, either
+$\Im \gamma'(0) = \Im \gamma'(1) > 0$ or
+$\Im \gamma'(0) = \Im \gamma'(1) < 0$.
 We then apply
 \exerciseref{exercise:rayktimes} to find that $n(\gamma;0) = 1$ or
-$n(\gamma;0) = -1$ if the derivative was negative.
+$n(\gamma;0) = -1$.
 
 In any case, $\C \setminus \gamma$ has the unbounded component
 and at least one bounded component that contains $q$,
@@ -9587,7 +9593,8 @@ If $p$ is the point on the ray (the negative real axis), then one of the
 components of $W \setminus \gamma$ is a subset of $U$ and one of them is a
 subset of the unbounded component of $\C \setminus \gamma$.
 
-As $\gamma$ is compact, then there are only finitely many such $W$ needed.
+As $\gamma$ is compact, only finitely many such $W$ are needed
+to cover it.
 Suppose $W_1$ is the neighborhood that contains the negative real point of
 the boundary.  Take a $W_2$ be one of these neighborhoods such that the
 intersection $W_1 \cap W_2 \cap \gamma$ is nonempty.  As some point of $\gamma$ is
@@ -9629,7 +9636,7 @@ Let $\gamma_1,\ldots,\gamma_k$ be the disjoint simple closed piecewise-$C^1$
 paths comprising the boundary of $U$, suppose that they are all positively
 oriented, that is, the winding number around their interiors is $1$.
 The set $\C \setminus U$
-has one unbounded component and suppose $\gamma_1$ is a subset of the
+has one unbounded component and suppose $\gamma_1$ is a subset of this
 unbounded component of $\C \setminus U$.  Let $U'$ be the interior of
 $\gamma_1$.  As $U$ is connected it must therefore be that
 $U \subset U'$.
@@ -9666,7 +9673,7 @@ $n(\Gamma;z) = 0$.
 Green's theorem and the Cauchy integral formula for open sets with
 piecewise-$C^1$ boundary follow immediately
 using $\partial U$ instead of $\Gamma$.
-For example, let us state the Green's theorem in the short version 
+For example, let us state Green's theorem in the short version 
 as in \exerciseref{exercise:shortgreen} for brevity.
 
 \begin{thm}[Green's theorem] \label{thm:greens2}
@@ -9693,6 +9700,7 @@ right-hand side to be integrable.
 
 \begin{exbox}
 \begin{exercise}
+\pagebreak[2]
 If one uses the Lebesgue integral, or a carefully defined improper integral,
 we can easily reduce the regularity of $F$ needed in Green's theorem above.
 Using the theorem, obtain the conclusion with the
@@ -9704,8 +9712,9 @@ continuously differentiable on $U$ with bounded partial derivatives on $U$.
 Suppose we drop the requirement that each point in $\partial U$ is in the
 closure of $\C \setminus \widebar{U}$ but require only that $\partial U$ is still
 composed of disjoint simple closed piecewise-$C^1$ curves (and still bounded).
-Find an explicit counterexample to
-the Green's theorem as given above.  Hint: Consider the boundary being two
+Find an explicit counterexample to the conclusion of
+Green's theorem as given above with such a $U$.
+Hint: Consider the boundary being two
 circles, and one of these circles is not in the closure of 
 $\C \setminus \widebar{U}$.
 \end{exercise}
@@ -12820,7 +12829,7 @@ The strip $U = \{ z : -1 < \Im z < 1 \}$, $p=0$.
 The quadrant $U = \{ z : \Re z > 0 \text{ and } \Im z > 0 \}$,
 $p=\frac{1+i}{\sqrt{2}}$.
 \item
-The upper half-disc $U = \{ z : \sabs{z} < 1 \text{ and } \Im z > 1 \}$, $p
+The upper half-disc $U = \{ z : \sabs{z} < 1 \text{ and } \Im z > 0 \}$, $p
 = (\sqrt{2}-1)i$.  Hint:  Start with the inverse of the Cayley map, and
 don't worry about $p$ at first.  See \figureref{fig:riemannmap}.
 \end{exparts}
