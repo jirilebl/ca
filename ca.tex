@@ -16241,7 +16241,7 @@ z^m \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right) .
 Notably, $1-E_m(z)$ has a zero of order $m+1$ at $z=0$.  Thus $f(z) =
 \frac{1-E_m(z)}{z^{m+1}}$ has a removable singularity.  From the formula for
 the derivative $-E_m'(z)$, it is clear the coefficients of the power series
-for $f$ at $0$ are be nonnegative.  By \lemmaref{lemma:maxprincpositive},
+for $f$ at $0$ are nonnegative.  By \lemmaref{lemma:maxprincpositive},
 \begin{equation*}
 \abs{\frac{1-E_m(z)}{z^{m+1}}} \leq
 \frac{1-E_m(1)}{1^{m+1}} = 1
@@ -16364,8 +16364,8 @@ converges uniformly absolutely on compact subsets of $\C$.
 
 \begin{exercise}[Easy]
 Explicitly find an infinite product for an entire holomorphic function
-with simple zeros precisely at $\Z \times \Z$ (that is points with integer
-coefficients).
+with simple zeros precisely at $\Z \times \Z$ (that is,
+all $x + iy$ where $x,y \in \Z$).
 \end{exercise}
 
 \begin{exercise}
@@ -16600,17 +16600,19 @@ converging uniformly on compact subsets of $U$.
 
 \subsection{The product theorem in any open set}
 
-The product theorem holds in any open set.  The proof is very similar too.
-What changes is that the zeros can no longer congregate on any point of
-the boundary as well as at infinity.  There are a couple of ways to handle
+The product theorem holds in any open set, with a similar proof.
+What changes is that the zeros can now congregate on points of
+the boundary as well as at infinity,
+and we must handle these differently.
+There are a couple of ways to handle
 this complication.
-One way is to move infinity first and make sure all the zeros are bounded.
-The other way is to not move anything by splitting up the sequence of zeros in a
-smart way into a sequence that goes to infinity and has no finite limit
+One way is to move infinity to ensure all the zeros are bounded.
+The other way is to not move anything and split the sequence of zeros in a
+smart way into a sequence that goes to infinity with no finite limit
 points and a sequence that has limit points on the boundary.  The tricky
-business is that the part of the series that has limit points at the
-boundary could also go to infinity, so we ensure that it at least gets
-closer and closer to the boundary as it marches off.
+business is that the part of the sequence that has limit points at the
+boundary could also go to infinity, but we can ensure that it at least gets
+closer and closer to the boundary as it marches off to infinity.
 
 \begin{thm}[Weierstrass product theorem]\index{Weierstrass product theorem}
 \label{thm:weierprod}
@@ -17540,7 +17542,7 @@ rather than polynomials, then $\widehat{K} = K$ for every compact $K$.
 
 Given a \hyperref[defn:principalpart]{principal part} of a function with a pole at $p$,
 \begin{equation*}
-P(z) = \sum_{n=1}^{k} \frac{c_n}{{(z-p)}^n} ,
+P(z) = \sum_{m=1}^{k} \frac{c_m}{{(z-p)}^m} ,
 \end{equation*}
 we ask for a meromorphic function with that pole exactly.  That
 is not hard: $P(z)$.  How about two principal parts, $P_1(z)$ and $P_2(z)$
@@ -17562,7 +17564,7 @@ Mittag always has to share fame with that Leffler guy.}
 Suppose $U \subset \C$ is open, $S \subset U$ is a countable set with no
 limit point in $U$, and for every $p \in S$ there is a principal part
 \begin{equation*}
-P_p(z) = \sum_{n=1}^{k_p} \frac{c_{p,n}}{{(z-p)}^n}
+P_p(z) = \sum_{m=1}^{k_p} \frac{c_{p,m}}{{(z-p)}^m}
 \end{equation*}
 of a pole of order $k_p$.  Then there exists a meromorphic function $f$ in $U$
 with poles precisely at points of $S$, and for each $p \in S$,
@@ -17570,11 +17572,14 @@ the principal part of $f$ at $p$ is $P_p$.
 \end{thm}
 
 \begin{proof}
-Start with applying \lemmaref{lemma:compactexhaustion2} to get an exhaustion
-of $U$ by compact sets $\{ K_n \}$.  Let $S_1 = K_1 \cap S$ and
-$S_n$ be the set $K_n \cap S \setminus K_{n-1}$, then $S$ is the disjoint
-union of $S_1,S_2,\ldots$.  Each $S_n$ is finite as $S$ has no limit point
-in $U$.
+Apply \lemmaref{lemma:compactexhaustion2} to get an exhaustion
+of $U$ by compact sets $\{ K_n \}$,
+where every component of $\C_\infty \setminus K_{n}$
+contains a point of $\C_\infty \setminus U$.
+Let $S_1 = K_1 \cap S$ and
+$S_n = K_n \cap S \setminus K_{n-1}$.
+Each $S_n$ is finite as $S$ has no limit point in $U$,
+and $S$ is the disjoint union of $S_1,S_2,\ldots$.
 Let
 \begin{equation*}
 f_n(z) = \sum_{p \in S_n} P_p(z) .
@@ -17639,13 +17644,17 @@ part, and $f_\ell$ was set up precisely so that it has a principal part
 $P_p$ at $p$.
 \end{proof}
 
-\begin{example}
-Sometimes convergence happens simply by grouping the terms correctly.
-In other words, given the right $\{ K_n \}$ one can choose $R_n = 0$.  
-Suppose we want a function with a poles at all $n \in \Z$ with
-singular parts $\frac{1}{z-n}$.  Regrettably,
+\begin{example} \label{example:mitlefsimpleZpoles}
+Sometimes, though not always,
+convergence happens simply by grouping the terms correctly.
+In other words,
+grouping the principal parts correctly
+(a choice of $\{ K_n \}$ in the proof),
+convergence happens even with $R_n=0$.
+Suppose we want a function with a poles at all $p \in \Z$ with
+singular parts $\frac{1}{z-p}$.  Regrettably,
 \begin{equation*}
-\sum_{n\in \Z} \frac{1}{z-n}
+\sum_{p\in \Z} \frac{1}{z-p}
 \end{equation*}
 does not converge, but
 \begin{equation*}
@@ -17662,29 +17671,53 @@ does not converge, but
 \frac{2z}{z^2-n^2}
 \end{equation*}
 does converge uniformly on compact subsets of $\C \setminus \Z$.
-This grouping corresponds to the choice of $K_n =
-\overline{\Delta_n(0)}$.  See the exercises.
+In terms of the proof above, this grouping corresponds to, say,
+$K_n = \overline{\Delta_n(0)}$.
+To be clear, we're not saying the proof as is goes
+through; in particular, it is not true that
+$\abs{\frac{2z}{z^2-n^2}} < 2^{-n}$ on $K_{n-1}$.
+All we are saying is
+that the series convergence to the desired function.
+See \exerciseref{exercise:mitlefsimpleZpoles}.
+\end{example}
+
+\begin{example}
+In general, the $R_n$ are necessary and grouping is not enough.
+Let $U = \C$, $S = \N$, and $P_p(z) = \frac{-p}{z-p}$ for $p \in \N$.
+No matter how we group the terms $P_p(z)$,
+the series will not converge.
+Fix a positive $z \not\in \N$.
+For $p$ large enough,
+$P_p(z)$ is close to $1$, say $P_p(z) > \nicefrac{1}{2}$.
+Suppose you group terms as $f_n(z)$ is some way.
+The terms of the series $\sum f_n(z)$
+are eventually (for large $n$)
+finite sums of only such $P_p(z)$,
+and so each such $f_n(z)$ is a multiple of $\nicefrac{1}{2}$.
+The series cannot converge.
+In \exerciseref{exercise:mitlefsimpleNpoles} you will find
+the $R_n$ that work.
 \end{example}
 
 The Mittag-Leffler theorem is a sister theorem to
 the
 \hyperref[thm:weierprod]{Weierstrass product theorem}.
-In Weierstrass's theorem
+In Weierstrass's theorem,
 we prescribe zeros rather than poles.  In fact, with just a little bit
 of trickery, one could use the Mittag-Leffler theorem to prove
 the Weierstrass theorem.  Again, see the exercises.
 
 \begin{exbox}
-\begin{exercise}
-Prove the statements in the example: 
-$\sum_{n\in \Z} \frac{1}{z-n}$
+\begin{exercise} \label{exercise:mitlefsimpleZpoles}
+Prove the statements \exampleref{example:mitlefsimpleZpoles}:
+$\sum_{p\in \Z} \frac{1}{z-p}$
 converges for no $z \in \C \setminus \Z$, but
 $\sum_{n=1}^\infty
 \frac{2z}{z^2-n^2}$
 converges uniformly on compact subsets of $\C \setminus \Z$.
 \end{exercise}
 
-\begin{exercise}
+\begin{exercise}\label{exercise:mitlefsimpleNpoles}
 Suppose $U = \C$, $S = \N$, $P_n(z) = \frac{-n}{z-n}$, $K_n =
 \overline{\Delta_n(0)}$.  Use the geometric sum $1+x+\cdots+x^n =
 \frac{1-x^{n+1}}{1-x}$ to find an explicit $R_n$ that will make the proof
@@ -17695,7 +17728,7 @@ Note that one part of the formula may be somewhat ugly, c'est la vie.
 \begin{exercise}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ holomorphic,
 $p \in U$, and
-$P(z) = \sum_{n=1}^{k} \frac{c_n}{{(z-p)}^n}$.
+$P(z) = \sum_{m=1}^{k} \frac{c_m}{{(z-p)}^m}$.
 Suppose
 $K \subset U \setminus \{ p \}$ is compact such that $p$ is in the unbounded
 component of $\C \setminus K$.  Show that for every $\epsilon > 0$,
@@ -17779,7 +17812,7 @@ Suppose $f \colon U_+ \cup L \to \C$ is a continuous function that is
 holomorphic on $U_+$ and real-valued on $L$, that is,
 $\Im f(z) = 0$ for all $z \in L$.
 
-Then there exists a holomorphic function $F \colon U \to \R$ such that
+Then there exists a holomorphic function $F \colon U \to \C$ such that
 $F|_{U_+ \cup L} = f$.
 \end{thm}
 
@@ -18345,7 +18378,7 @@ prove that a $k$-to-1 onto holomorphic mapping $f \colon U \to V$ is a covering 
 \subsection{Monodromy theorem}
 
 We can continue a function along many different paths and the continuation
-will be the same if the paths do not change much.  We therefore want to
+will be the same if the paths do not change much.  We therefore 
 introduce a topological equivalence that tells us how we navigate the domain
 around the various holes, an equivalence that doesn't care exactly what
 path we take as long as we can deform one path to the other.
@@ -18425,12 +18458,13 @@ a unique holomorphic function $F \colon U \to \C$ such that $F|_W = f$.
 \end{thm}
 
 \begin{proof}
-As $U$ is simply connected, then by the
+As $U$ is simply connected, apply the
 \hyperref[thm:RMT]{Riemann mapping theorem}
-we can
+and
 assume that $U=\D$ or $U = \C$.
-We have to show that no matter how we continue $f$ to any point $q \in U$, we
-always get the same value, no matter what path we continue along.
+We must show that if we continue $f$ to any $q \in U$, we
+always get the same value,
+no matter what path we continue along.
 Suppose $\gamma_0 \colon [0,1] \to U$ and
 $\gamma_1 \colon [0,1] \to U$ are continuous,
 $\gamma_0(0)=\gamma_1(0) \in W$,
@@ -18440,12 +18474,20 @@ $\gamma_0(1)=\gamma_1(1)=q$.  Let
 H(t,s) = (1-s)\gamma_0(t)+s\gamma_1(t) .
 \end{equation*}
 As $U$ is convex, $H(t,s) \in U$ for all $(t,s) \in
-[0,1]\times[0,1]$.  Furthermore,
+[0,1]\times[0,1]$.  Also,
 $H(0,s) = \gamma_0(0)=\gamma_1(0)$ and
 $H(1,s) = \gamma_0(1)=\gamma_1(1)$.  So $H$ is a fixed-endpoint homotopy in
-$U$, and by the proposition, the value of the extension at
-$q$ is the same whether we extend along $\gamma_0$ or $\gamma_1$.
+$U$. By the proposition, the value of the continuation at
+$q$ is the same whether we continued $f$ along $\gamma_0$ or $\gamma_1$.
+We define $F(q)$ to be this value.
 \end{proof}
+
+We remark that the proof above contains
+a proof of the useful topological fact that in a
+simply connected domain $U \subset \C$, any two 
+paths with the same endpoints are fixed-endpoint homotopic.
+Converse is also true, see
+\exerciseref{exercise:EPHimpliesSC}.
 
 \begin{cor}
 Suppose that $U,V \subset \C$ are domains, $V$ is simply connected,
@@ -18462,7 +18504,7 @@ There can only be one local inverse as $U$ is connected, so $f$ is one-to-one.
 
 If $U$ is a simply connected, then
 a covering map $f \colon U \to V$ is called a \emph{\myindex{universal
-covering map}} (or \emph{\myindex{universal cover}} for short) of $V$
+covering map}} (or \emph{\myindex{universal cover}} for short) of $V$,
 and $U$ is called the \emph{\myindex{universal covering space}} of $V$.
 We will not prove so, but every domain in
 $\C$ has a universal cover.\footnote{Actually every reasonably nice topological space
@@ -18470,10 +18512,10 @@ has a topological universal cover, where the \myquote{local biholomorphism} is
 replaced by \myquote{local homeomorphism.}}
 What we proved above is that the only universal covering of a simply
 connected domain is essentially just a biholomorphism.
-The \hyperref[thm:RMT]{Riemann mapping theorem}
-implies that every domain has a universal cover that
+By \hyperref[thm:RMT]{Riemann mapping theorem},
+every domain has a universal cover that
 is either $\C$ or $\D$.  In fact, the little Picard theorem, which we do
-not prove, says that any entire function misses at most one value.  So
+not prove, says that any nonconstant entire function misses at most one value.  So
 the only domains with $\C$ as a universal cover are $\C$ itself (the identity) and
 $\C \setminus \{ p \}$ (the exponential, $e^{z-p}$).
 Every other domain in $\C$ has $\D$ as the universal cover.
@@ -18564,6 +18606,18 @@ Suppose $U \subset \C$ is a domain and there exists a
 holomorphic covering map
 $f \colon U \to U$ that is not injective.
 Prove that the universal covering map of $U$ is infinite-to-one.
+\end{exercise}
+
+\begin{exercise} \label{exercise:EPHimpliesSC}
+Suppose $U \subset \C$ is a domain such that 
+every pair of continuous 
+$\gamma_0 \colon [0,1] \to U$ and
+$\gamma_1 \colon [0,1] \to U$
+with
+$\gamma_0(0)=\gamma_1(0)$ and
+$\gamma_0(1)=\gamma_1(1)$ are fixed-endpoint homotopic in $U$.
+Prove that every holomorphic $f \colon U \to \C$ has a primitive
+and hence $U$ is simply connected (in the homology sense).
 \end{exercise}
 \end{exbox}
 
