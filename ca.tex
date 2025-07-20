@@ -21009,20 +21009,25 @@ $\sabs{f(x)-f(y)} = \sabs{d(x,p)-d(y,p)} \leq d(x,y)$
 gives part \ref{prop:distcont:i}.
 
 For \ref{prop:distcont:ii}, $S$ being nonempty implies that $f$ is
-real-valued.  For any $\epsilon > 0$, there exists a $q$ such that
-$\inf_{p \in S} d(y,p) \geq d(y,q) + \epsilon$.  Suppose that $f(x) > f(y)$.
-Then again the reverse triangle inequality gives
+real-valued.  Take $x,y \in X$ and assume without loss of generality
+that $f(x) > f(y)$.
+For any $\epsilon > 0$, there exists a $q$ such that
+$\inf_{p \in S} d(y,p) \geq d(y,q) - \epsilon$.
+Using this inequality together with
+$\inf_{p \in S} d(x,p) \leq d(x,q)$ and
+the reverse triangle inequality gives
 \begin{equation*}
 f(x)-f(y) =
 \inf_{p \in S} d(x,p)
 -
 \inf_{p \in S} d(y,p)
 \leq
-\inf_{p \in S} d(x,p) - d(y,q) + \epsilon 
+%\inf_{p \in S} d(x,p) - d(y,q) + \epsilon 
+d(x,q) - d(y,q) + \epsilon 
 \leq d(x,y) + \epsilon.
 \avoidbreak
 \end{equation*}
-Since it holds for every $\epsilon$, $f$ is continuous.
+Since the inequality holds for every $\epsilon$, $f$ is continuous.
 \end{proof}
 
 \begin{exbox}
