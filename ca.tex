@@ -22963,15 +22963,18 @@ $DF|_p = BA$.
 
 Let us prove a \myquote{mean value theorem} for vector-valued functions.
 For a function $\varphi \colon [a,b] \to \R^n$, we think of the derivative
-$D\varphi|_{t_0}$ as a vector, and so 
-it is often just written as $\varphi'(t_0)$.
+$D\varphi|_{t_0}$ as a vector in $\R^n$, and as
+a vector we will write it as 
+$\varphi'(t_0)$.
 It is not hard to check that
-the entries of the matrix $D\varphi|_{t_0}$ are just the derivatives of the
-components of $\varphi$, and $D\varphi|_{t_0} h = \varphi'(t_0) \cdot h$,
-where $\cdot$ is the dot product.  Then
+the entries of the matrix $D\varphi|_{t_0}$
+(a linear map from $\R$ to $\R^n$)
+are just the derivatives of the
+components of $\varphi$,
+and $D\varphi|_{t_0} h = h \varphi'(t_0)$.  Then
 $\snorm{\varphi'(t_0)}$
 is the euclidean norm in $\R^n$.  In fact, in this setting it is the same
-as the operator norm.
+as the operator norm of $D\varphi|_{t_0}$.
 
 \begin{lemma}
 If $\varphi \colon [a,b] \to \R^n$ is differentiable on $(a,b)$ and
