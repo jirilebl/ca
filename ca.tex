@@ -22877,20 +22877,21 @@ DF|_p = Dg|_{f(p)} Df|_p .
 \end{thm}
 
 \begin{proof}
-Let $A = Df|_p$ and $B = Dg|_{f(p)}$.  Take a nonzero $h \in \R^n$
-and write $q = f(p)$, $k = f(p+h)-f(p)$.  Let
+Let $A = Df|_p$ and $B = Dg|_{f(p)}$.  Take a nonzero $h \in \R^n$,
+write $q = f(p)$, $k = f(p+h)-f(p)$, and let
 \begin{equation*}
 r(h) = f(p+h)-f(p) - A h .
 \end{equation*}
 Then $r(h) = k-Ah$ or $Ah = k-r(h)$, and $f(p+h) = q+k$.
+Then
 \begin{equation*}
 \begin{split}
 \frac{\snorm{F(p+h)-F(p) - BAh}}{\snorm{h}}
 & =
-\frac{\snorm{g\bigl(f(p+h)\bigr)-g\bigl(f(p)\bigr) - BAh}}{\snorm{h}}
+\frac{\bnorm{g\bigl(f(p+h)\bigr)-g\bigl(f(p)\bigr) - BAh}}{\snorm{h}}
 \\
 & =
-\frac{\snorm{g(q+k)-g(q) - B\bigl(k-r(h)\bigr)}}{\snorm{h}}
+\frac{\bnorm{g(q+k)-g(q) - B\bigl(k-r(h)\bigr)}}{\snorm{h}}
 \\
 & \leq
 \frac
@@ -22901,29 +22902,35 @@ Then $r(h) = k-Ah$ or $Ah = k-r(h)$, and $f(p+h) = q+k$.
 \frac
 {\snorm{r(h)}}
 {\snorm{h}}
-\\
-& =
+\end{split}
+\end{equation*}
+First, $\snorm{B}$ is constant and $f$ is differentiable at $p$,
+so
+$\snorm{B}\frac{\snorm{r(h)}}{\snorm{h}} \to 0$
+as $h \to 0$.
+Next,
+if $k=0$, then $\frac
+{\snorm{g(q+k)-g(q) - Bk}}
+{\snorm{h}} = 0$ and so assume $k\not=0$.  We have
+\begin{equation*}
+\frac
+{\snorm{g(q+k)-g(q) - Bk}}
+{\snorm{h}}
+=
 \frac
 {\snorm{g(q+k)-g(q) - Bk}}
 {\snorm{k}}
 \frac
 {\snorm{f(p+h)-f(p)}}
-{\snorm{h}}
-+
-\snorm{B}
-\frac
-{\snorm{r(h)}}
 {\snorm{h}} .
-\end{split}
 \end{equation*}
-First, $\snorm{B}$ is constant and $f$ is differentiable at $p$,
-so
-the term $\snorm{B}\frac{\snorm{r(h)}}{\snorm{h}}$ goes to $0$.
-Next as $f$ is continuous at $p$, we have that as 
-$h$ goes to $0$, then $k$ goes to $0$.  Therefore,
+As $f$ is continuous at $p$, we have that
+$k \to 0$ as
+$h \to 0$.
+Therefore,
 $\frac
 {\snorm{g(q+k)-g(q) - Bk}}
-{\snorm{k}}$ goes to $0$ because $g$ is differentiable at $q$.
+{\snorm{k}} \to 0$ because $g$ is differentiable at $q$.
 Finally,
 \begin{equation*}
 \frac
@@ -22937,17 +22944,21 @@ Finally,
 \snorm{A} .
 \end{equation*}
 As $f$ is differentiable at $p$,
-for small enough $h$, the quantity
-$\frac{\snorm{f(p+h)-f(p)-Ah}}{\snorm{h}}$ is bounded.
-Therefore, the term
-$
-\frac
-{\snorm{f(p+h)-f(p)}}
-{\snorm{h}}
-$
-stays bounded as $h$ goes to $0$.  Hence, 
-$\frac{\snorm{F(p+h)-F(p) - BAh}}{\snorm{h}}$ goes to zero, and
-$DF|_p = BA$, which is what was claimed.
+the right hand side stays bounded as $h \to 0$.
+%Therefore,
+%$
+%\frac
+%{\snorm{f(p+h)-f(p)}}
+%{\snorm{h}}
+%$
+%stays bounded as $h \to 0$,
+So
+$\frac
+{\snorm{g(q+k)-g(q) - Bk}}
+{\snorm{h}} \to 0$ as $h \to 0$.
+Hence, 
+$\frac{\snorm{F(p+h)-F(p) - BAh}}{\snorm{h}} \to 0$, and
+$DF|_p = BA$.
 \end{proof}
 
 Let us prove a \myquote{mean value theorem} for vector-valued functions.
