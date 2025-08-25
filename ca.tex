@@ -12328,9 +12328,10 @@ z \in U : d(z,\partial U) > \nicefrac{1}{n} \text{ and } \sabs{z} < n
 \end{exercise}
 \end{exbox}
 
-We now prove a version of Arzel\`a--Ascoli for open subsets of $\C$.
-That is, a version that doesn't just work on one compact set but gets
-us uniform convergence on compact subsets of an open set.
+We next prove a version of Arzel\`a--Ascoli for open subsets of $\C$,
+that is,
+a version that gives us uniform convergence
+on every compact subset of an open set.
 
 \begin{cor}[Arzel\`a--Ascoli]\index{Arzel\`a--Ascoli theorem}
 \label{cor:arzelaascoliplane}
@@ -12598,12 +12599,18 @@ Prove that necessarily $F(p) = 0$.
 \end{exercise}
 
 \begin{exercise}
-Show that there exists
-a holomorphic $f \colon \D \to \D$ such that
+Let $U \subset \C$ be open.
+Show that the set of holomorphic
+$f \colon U \to \C$ such that
 \begin{equation*}
-\int_{\D} \abs{f'(x+iy)}^2 \, dx \, dy
-\qquad \text{is maximal.}
+\int_{U} \abs{f(x+iy)}^2 \, dx \, dy < 1
 \end{equation*}
+is a normal family.
+Hint:
+Prove
+$\sabs{f(p)}^2 \leq
+\frac{1}{2\pi} \int_{0}^{2\pi} \sabs{f(p+re^{it})}^2 dt$
+for $p \in U$ and small $r$.
 \end{exercise}
 
 \begin{exercise}
@@ -12812,7 +12819,7 @@ Again, we refer the reader to more advanced literature.
 In the proof we only used that $U$ was simply connected to 
 obtain square roots of nowhere zero functions.  So the result we actually
 proved is that existence of square roots on $U \not= \C$ implies that $U$ is
-biholomorphic to $\D$.  In other words, we proved that $U$ being simply
+biholomorphic to $\D$.  In other words, $U$ being simply
 connected is equivalent to the existence of square roots.
 \end{remark}
 
