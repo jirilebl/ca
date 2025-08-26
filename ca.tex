@@ -2373,7 +2373,11 @@ Then
 \end{equation*}
 A differentiable function is continuous, so $k \to 0$ as $h \to 0$.
 If $k=0$, then the difference quotient for $g \circ f$ is zero, but $k=0$
-only happens for arbitrarily small $h\not=0$ if $f'(z)=0$.
+only happens for arbitrarily small $h\not=0$ if
+$f'(z)=0$.  So if $f'(z)=0$,
+the difference 
+quotient of $g \circ f$ goes to zero whether or
+not $k$ is ever $0$.
 The proof then follows by continuity of complex multiplication and taking
 the limit as $h \to 0$.
 
@@ -3184,7 +3188,7 @@ c & ra
 A similar calculation using
 $v=\left[\begin{smallmatrix}1\\1\end{smallmatrix}\right]$ and
 $w=\left[\begin{smallmatrix}1\\-1\end{smallmatrix}\right]$ results in
-$a^2+c^2 = b^2+d^2 = r^2(a^2+c^2)$.  Or in other words $r=\pm 1$.
+$a^2+c^2 = b^2+d^2 = r^2(a^2+c^2)$.  Or in other words, $r=\pm 1$.
 That $M$ preserves orientation means $\det M > 0$.
 As $\det M = r(a^2+c^2)$, we find $r=1$.
 Hence,
@@ -3196,7 +3200,7 @@ c &  a
 \end{bmatrix} .
 \avoidbreak
 \end{equation*}
-In other words, $M$ corresponds to multiplication by the complex number
+That is, $M$ corresponds to multiplication by the complex number
 $a+ic$.
 
 For the converse, assume $M$ is multiplication by the
@@ -3595,7 +3599,8 @@ it actually converges uniformly on the entire closed unit disc.
 Show that
 $\sum_{n=0}^\infty n^n z^{n^n}$ has radius of convergence $1$,
 while
-$\sum_{n=0}^\infty n^n z^{n}$ is not convergent at all.
+$\sum_{n=0}^\infty n^n z^{n}$ is not convergent 
+for any $z \not= 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -3851,7 +3856,7 @@ Fill in the details of the proof of the corollary.
 A consequence of this corollary that should be
 emphasized is that if $f$ is given by the convergent power series in
 $\Delta_R(p)$ as above, then the power series is unique.
-We have seen this conclusion in an exercise before, here it
+We have seen this conclusion in an exercise before; here it
 follows from the formula for the coefficients $c_n$.  In fact, the
 coefficients depend only on the values of $f$ in an arbitrarily small
 neighborhood of $p$.
@@ -4004,7 +4009,7 @@ a limit point.
 \begin{thm}[Identity]\index{identity theorem!holomorphic functions}%
 \label{thm:identity}
 Suppose $U \subset \C$ is a domain, 
-and $f \colon U \to \C$ analytic.
+and $f \colon U \to \C$ is analytic.
 If $Z_f = \bigl\{ z \in U : f(z) = 0 \bigr\}$
 has a limit point in $U$, then $f$ is identically zero.
 In other words, all points of $Z_f$ are isolated unless $f \equiv 0$.
@@ -4015,7 +4020,7 @@ The points in the set $Z_f$ are called the \emph{zeros}\index{zero} of $f$.
 \end{defn}
 
 The \myquote{In other words} bit is
-one consequence of this theorem that we will use very often.  More
+one consequence of this theorem that we will use often.  More
 concretely, if $f(p)=0$, but $f$ is not
 identically zero, then there is a disc $\Delta_r(p)$ such that $f(z) \not=
 0$ for all $z \in \Delta_r(p) \setminus \{ 0 \}$.
