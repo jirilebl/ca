@@ -5027,10 +5027,11 @@ would not be true.
 
 \begin{proof}
 We proceed by contrapositive.
-Suppose $f$ is at least continuous, and 
-suppose there is a triangle $T \subset U$ over whose boundary the integral is not zero,
+Suppose $f$ is continuous, and 
+suppose there is a triangle $T \subset U$ over whose boundary the integral is not zero.
+Write
 \begin{equation*}
-\abs{\int_{\partial T} f(z) \, dz} = c \not= 0 .
+\abs{\int_{\partial T} f(z) \, dz} = c > 0 .
 \end{equation*}
 We will find a point
 where $f$ is not complex differentiable.
@@ -5095,15 +5096,14 @@ As the diameter goes to zero, it must be a single point:
 \{ z_0 \} = \bigcap_{k=1}^\infty T^k .
 \end{equation*}
 
-For some $\alpha \in \C$, write
+For some $\alpha \in \C$, let $g$ be defined by
 \begin{equation*}
 f(z) = f(z_0) + \alpha (z-z_0) + g(z) .
 \end{equation*}
 Were $f$ complex differentiable at $z_0$, there would be an $\alpha$ so that
 $\frac{g(z)}{z-z_0}$ would go to zero as $z \to z_0$.
 Let us prove that it does not go to zero for any $\alpha$.  Fix $\alpha$
-and thus $g$.  If $g(z_0) \not= 0$,
-then we are done, so assume $g(z_0) = 0$.
+and thus $g$.
 \hyperref[cor:cauchyforpoly]{Cauchy's theorem for polynomials} says
 \begin{equation*}
 \int_{\partial T^k} f(z) \, dz =
@@ -5135,7 +5135,8 @@ there is a $z_k \in \partial T^k$ such that
 \frac{2^k}{\ell}
 \int_{\partial T^k} \sabs{g(z)} \, \sabs{dz} .
 \end{equation*}
-We have $z_k \not= z_0$ as $g(z_0)=0$.
+We have $z_k \not= z_0$ as $g(z_0)=0$
+and $\sabs{g(z_k)} \geq \frac{c \ell}{2^k} > 0$.
 Let $d = \operatorname{diam}(T)$.  Then
 $\sabs{z_k-z_0} \leq \frac{d}{2^k}$ and
 \begin{equation*}
@@ -6935,7 +6936,7 @@ subsets of $\bH$ to $f$.
 \pagebreak[2]
 Suppose $f \colon [0,\infty) \to \R$ is a continuous function such that
 there is some $c > 0$, some $M > 0$, and some $T > 0$ such that 
-$\sabs{f(t)} \leq M e^{-ct}$ for all $t \geq T$
+$\sabs{f(t)} \leq M e^{ct}$ for all $t \geq T$
 ($f$ is of \emph{\myindex{exponential order}}).
 Let $U = \{ z \in \C : \Re z > c \}$.  Prove that the Laplace transform
 exists on $U$ and is holomorphic, that is, prove that
@@ -6993,7 +6994,7 @@ For $z \in \partial \Delta_r(0)$,
 \begin{equation*}
 \sabs{g(z)} = \frac{\sabs{f(z)}}{\sabs{z}} \leq \frac{1}{r}  .
 \end{equation*}
-The maximum modulus principle says $\sabs{g(z)} \leq \frac{1}{r}$
+The maximum modulus principle implies $\sabs{g(z)} \leq \frac{1}{r}$
 holds for all $z \in \Delta_r(0)$.
 Fix $z \in \D$ and take the limit as $r \uparrow 1$. 
 You find
