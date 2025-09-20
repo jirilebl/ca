@@ -7340,7 +7340,7 @@ Take the derivative of both sides of $z = e^{L(z)}$,
 \begin{equation*}
 1 = L'(z) e^{L(z)} = L'(z) z .
 \end{equation*}
-Et voil\`a!\footnote{Cauchy was French, n'est pas?}
+Et voil\`a!\footnote{Cauchy was French, n'est-ce pas?}
 We have $L'(z) = \nicefrac{1}{z}$, so $L = \Log$.
 
 If we use a different branch of the argument we get another
@@ -7547,12 +7547,13 @@ so we only need to consider closed piecewise-$C^1$ paths.
 Let $\gamma \colon [0,1] \to \C$ be the path.
 The path $\gamma$ as a set is compact.  It can be covered by finitely many
 discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
-partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ such that
+partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ where
 $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
 does not contain $p$,
-so in each one there exists a branch of $\log (z-p)$, call it $L_j$,
-such that $L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)$.
-Pick $L_1$ arbitrarily, then pick $L_2,\ldots,L_n$ accordingly.
+so in each one a branch of $\log (z-p)$ exists, call it $L_j$.
+Pick $L_1$ arbitrarily, then pick $L_2,\ldots,L_n$ in sequence accordingly
+so that
+$L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)$.
 Call $z_0 = \gamma(0) = \gamma(1)$.  So
 \begin{multline*}
 n(\gamma;p)
@@ -7734,7 +7735,7 @@ d \zeta .
 \end{thm}
 
 In the proof\footnote{%
-This elegant proof is relatively recent, from 1971 due to John Dixon.},
+This elegant proof is relatively recent, from 1971, due to John Dixon.},
 rather strangely, we will take the difference of the two
 sides of the equation and extend it to an entire
 function (even though $U$ may be small) and then we will use
@@ -7957,7 +7958,7 @@ compute
 
 \section{Simply connected domains}
 
-A simply connected domain\footnote{%
+Roughly, a simply connected domain\footnote{%
 There is no agreement among various mathematicians (I've asked a few) if
 a (path-)disconnected set can be \myquote{simply connected.}
 To avoid heated arguments with topologists of various stripes,
@@ -8045,7 +8046,7 @@ and define
 \begin{equation*}
 F(z) = \int_\gamma f(\zeta) \, d\zeta .
 \end{equation*}
-A priory, the function $F(z)$ depends on $\gamma$, but
+A priori, the function $F(z)$ depends on $\gamma$, but
 if $\alpha$ is another path from $p$ to $z$, then
 $\gamma-\alpha$ is a cycle in $U$ and
 Cauchy's theorem says that
@@ -8831,7 +8832,7 @@ H(t,s) = (1-s) \gamma(t) .
 \end{equation*}
 This is clearly a homotopy in $\D$, $H(t,0) = \gamma(t)$,
 and $H(t,1) = 0$, so $\gamma$ is homotopic to the zero function.
-So every path in $\D$ is homotopic to a constant.
+So every closed path in $\D$ is homotopic to a constant.
 \end{example}
 
 What we want to do is to prove that if $\gamma_0$ and $\gamma_1$ are
@@ -8965,7 +8966,7 @@ is uniformly continuous on $\overline{D_j}$ and therefore on $D_j$.
 
 Next make $\delta > 0$ possibly even smaller so that a $\delta$-neighborhood of each
 $\gamma\bigl([t_{j-1},t_j]\bigr)$ is within $D_j$.  Then
-for $\widetilde{\gamma}$ that is uniformly within $\delta$ of $\gamma$ we
+for $\widetilde{\gamma}$ that is uniformly within $\delta$ of $\gamma$, we
 get
 $\widetilde{\gamma}\bigl([t_{j-1},t_j]\bigr) \subset D_j$.
 The $L_j$ and $L_{j-1}$ agree at one point of $D_{j-1} \cap D_j$ (at
@@ -8976,10 +8977,10 @@ So
 \begin{equation*}
 \widetilde{\theta}(t)
 =
-\Im L_j\bigl(\gamma(t)\bigr)
+\Im L_j\bigl(\widetilde{\gamma}(t)\bigr)
 \end{equation*}
 is the function from \lemmaref{lemma:existenceoftheta}, as long as we make
-$\widetilde{\theta}_0 = \Im L_1\bigl(\gamma(a)\bigr)$.
+$\widetilde{\theta}_0 = \Im L_1\bigl(\widetilde{\gamma}(a)\bigr)$.
 Hence,
 \begin{equation*}
 \babs{\theta(t) - \widetilde{\theta}(t)}
@@ -11782,7 +11783,7 @@ So far, nothing really new with holomorphic functions.
 It is the next
 result that is surprising: Being injective
 implies that the derivative is nonzero.
-A priory, this statement should make no sense at all and it is not true for real functions.
+A priori, this statement should make no sense at all and it is not true for real functions.
 A function $f \colon \R \to \R$ such as $f(x) = x^3$
 is injective, but its derivative is zero at $x=0$, and $f^{-1}(x) =
 \sqrt[3]{x}$ is not differentiable at $x=0$.
