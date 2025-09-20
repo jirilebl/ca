@@ -9447,10 +9447,10 @@ connected open neighborhood $W$ of $p$ such that $W \setminus \gamma$
 has exactly two components.
 \end{lemma}
 
-Recall that for a piecewise-$C^1$ path, $\gamma'$ is never
+For a piecewise-$C^1$ path, $\gamma'$ is never
 zero, including the one-sided limits of the derivative at the
 \myquote{corners} or
-the end points.  A $C^1$ path is thus locally a graph:
+the end points.  A $C^1$ path is locally a graph:
 If $\gamma \colon [-1,1] \to \C$ is a continuously differentiable function,
 $\gamma(0) = 0$,
 and $\Re \gamma'(0) \not= 0$, then
@@ -9458,43 +9458,65 @@ $z=x+iy = \gamma(t)$, or really the two equations
 $x = \Re \gamma(t)$ and $y = \Im \gamma(t)$,
 can be solved for $t$ and $y$ in terms of $x$ near $0$ by the implicit function
 theorem.  In other words, $\gamma$ near $0$ is a graph $y=f(x)$ for a $C^1$
-function $f$.
+function $f$.  If $\Im \gamma'(0) \not=0$, the roles of $x$ and $y$ are
+swapped.
 
 \begin{proof}
-By rotating, choosing a small neighborhood of $p$, and scaling,
-we assume that $a=-1$, $b=1$, and $p = \gamma(0)$.
-We further assume that
-$p=0$, $\Re \gamma(-1) = -1$,
-$\gamma'$ exists for all $t \not=0$ (it may or may not exist at $t=0$),
-and $\Re \gamma'(t)$ is
-never zero, including the one-sided limits at $t=0$.
+By the discussion above, a piecewise-$C^1$ path is a finite union of $C^1$
+paths that are graphs of $C^1$ functions, either $y=f(x)$
+for $x$ in some closed interval, or with $x$ and $y$ reversed.
+If $p$ is in the interior of such a path (where $\gamma'$ exists),
+then without loss of generality it is a graph $y=f(x)$ for perhaps
+$x \in [-1,1]$ and $f(0)=0$.
+For some small $\epsilon > 0$ and $\delta > 0$,
+we have that $W = (-\epsilon,\epsilon) \times (-\delta,\delta)$
+contains no paths making up the original $\gamma$ and $-\delta < f(x) <
+\delta$ for $x \in (-\epsilon,\epsilon)$.  Clearly,
+$W \setminus \gamma$ has precisely two components,
+those points where $f(x) > y$ and those where $f(x) < y$.
 
-Without loss of generality, $\Re \gamma'(t) > 0$ for all $t$ from $-1$ to $0$,
-including the left-hand one-sided limit at $0$.  Using the implicit function
-theorem the set $\gamma\bigl([-1,0]\bigr)$ is a graph of $y$ over $x$, that
-is, there is a $C^1$ function $f_1 \colon [-1,0] \to \R$ such that
-$y=f_1(x)$ gives $\gamma\bigl([-1,0]\bigr)$ (as usual $z=x+iy$).
+So suppose that $p$ is a point where two of those paths making up $\gamma$
+meet and without loss of generality assume $p$ is the origin and 
+$\gamma(0) = p$.
+As the one sided limits of $\gamma'$ are never zero, we assume after
+a rotation assume that $\Re \gamma'(0)$ is not zero for 
+$t$ near $0$.
+That is, the two
+paths meeting are graphs of the form $y=f_1(x)$ and $y=f_2(x)$.
+Also assume  that the
+left-hand one-sided limit of $\gamma'$ at $0$ has positive real part and so,
+without loss of generality, assume that
+the relevant piece of $\gamma$ is given by $y=f_1(x)$
+for $x \in [-1,0]$.
+If the right-hand one-sided limit of $\gamma'$ at $0$ has a positive real part,
+then we may assume that the second piece of $\gamma$
+meeting at $p$ is given by
+$y=f_2(x)$ for $x \in [0,1]$.
+The two pieces together are given by a graph $y=f(x)$ where $f$ is $f_1$
+for $x \leq 0$ and $f_2$ for $x\geq 0$ and the argument follows as
+before.
 
-If the right-hand one-sided limit of $\gamma'(t)$ at $t=0$ also has positive real
-part, then $\Re \gamma'(t) > 0$ for all $t > 0$ as it is never zero.
-By the same argument as
-above, $\gamma\bigl([0,1]\bigr)$ is a graph $y=f_2(x)$ for $x \in [0,1]$.
-In other words, the entire $\gamma$ is a graph, $y=f(x)$.  If $M > 0$ is such that
-$-M<f(x)<M$ for all $x$, then
-we choose $W=(-1,1) \times (-M,M)$.  It is not hard to see that a
-graph separates the rectangle $W$ into two parts.
-
-Now suppose that the right-hand side limit of $\gamma'(t)$ has negative real
-part.  In this case, we write $\gamma\bigl([0,1]\bigr)$ as a graph $y=f_2(x)$
-for $x \in [-1,0]$.  Without loss of generality suppose $f_2(x) > f_1(x)$
-for some $x < 0$, then by injectivity of $\gamma$ and intermediate value
-theorem, we have $f_2(x) > f_1(x)$ for all $x \in [-1,0)$.
-Pick $W$ in the same way ($M$ is such that $-M < f_j(x) < M$ for $x \in
-[-1,1]$), it is not hard to see that the
-set where either $x \geq 0$, or where $y > f_2(x)$ or where $y < f_1(x)$
-is connected, and it is disconnected from the set between the graphs, that
-is where $x < 0$ and $f_1(x) < y < f_2(x)$.  Again $W \setminus \gamma$ has
-two components.  See \figureref{fig:localjordan}.
+Suppose that the right-hand one-sided limit of $\gamma'$ at $0$
+has negative real part.  We assume without loss of generality
+that the second piece of
+$\gamma$ is given by $y=f_2(x)$ for $x \in [-1,0]$.
+Also without loss of generality, $f_2(x) > f_1(x)$
+for some $x < 0$.
+By injectivity of $\gamma$ and the intermediate value
+theorem, $f_2(x) > f_1(x)$ for all $x \in [-1,0)$.
+Again for some small $\epsilon > 0$ and $\delta > 0$,
+the set
+$W = (-\epsilon,\epsilon) \times (-\delta,\delta)$
+contains no other of the paths making up $\gamma$
+and
+$-\delta < f_1(x), f_2(x) < \delta$ for $x \in (-\epsilon,\epsilon)$.
+It is not hard to see that $W \setminus \gamma$
+has precisely two components:
+One component is the set
+where
+$x < 0$ and $f_1(x) < y < f_2(x)$
+and the second component is the rest.
+See \figureref{fig:localjordan}.
 \begin{myfig}
 \subimport*{figures/}{localjordan.pdf_t}
 \caption{A path divides the plane into two pieces, the first case, $\Re
@@ -9574,7 +9596,7 @@ See \figureref{fig:rayjordan}.
 only once.\label{fig:rayjordan}}
 \end{myfig}
 
-Without loss of generality after translation, let $q$ be the origin and
+Without loss of generality, let $q$ be the origin and
 the ray $R$ be the negative real axis.  Then $\gamma$ intersects the negative
 real axis at exactly one point.
 We reparametrize so that this negative real intersection
@@ -9699,8 +9721,8 @@ of $\widebar{U}$, then
 \end{equation*}
 \end{thm}
 
-In fact, the conditions on $F$ can be weakened considerably.  For example,
-a common and easy to prove statement is that $F$ needs to be continuous on
+The conditions on $F$ can be weakened considerably.
+A common and easy to prove statement is with the hypothesis that $F$ is continuous on
 $\widebar{U}$ and $C^1$ only
 inside $U$, but it needs to have bounded partial derivatives in order for the
 right-hand side to be integrable.
