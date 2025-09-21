@@ -9929,17 +9929,19 @@ is holomorphic.
 \item
 Suppose $f$ has a zero at $p$ of
 order $k$ and no other zeros.
-Then there exists a holomorphic
-$g \colon U \to \C$ with $g(p) = 0$, $g'(p) \not= 0$
-such that $f(z) = {\bigl( g(z) \bigr)}^k$.
+Show that there exists a holomorphic
+$g \colon U \to \C$ such that $g(p) = 0$, $g'(p) \not= 0$, and
+$f(z) = {\bigl( g(z) \bigr)}^k$.
 \item
 Suppose $f$ has a zero at $p$
 of order $k$,
-and it also has zeros at $z_1, z_2, \ldots, z_n$ of
+and, other than $p$, it has zeros at $z_1, z_2, \ldots, z_n$ of
 orders $k_1, k_2, \ldots, k_n$ and no other zeros.
-Then there exists a holomorphic
-$g \colon U \to \C$ with $g(p) = 0$, $g'(p) \not= 0$
-such that $f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n} {\bigl( g(z) \bigr)}^k$.
+Prove that there exists a holomorphic
+$g \colon U \to \C$ such that $g(p) = 0$, $g'(p) \not= 0$,
+and
+$f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n}
+{\bigl( g(z) \bigr)}^k$.
 \end{exparts}
 \end{exercise}
 
@@ -10733,7 +10735,8 @@ Prove the proposition.
 
 \begin{prop} \label{prop:residuesimpleratio}
 Suppose $f(z) = \frac{h(z)}{g(z)}$ where $h$ and $g$ are holomorphic
-at $p$ and $g$ has a simple zero at $p$ (so $f$ has a simple pole at $p$).
+at $p$ and $g$ has a simple zero at $p$
+($f$ has at most a simple pole at $p$).
 Then
 \begin{equation*}
 \operatorname{Res}(f;p) = \frac{h(p)}{g'(p)} .
@@ -11404,7 +11407,7 @@ It is easy to see that $z^4+24z^2$ has zeros at $\pm \sqrt{24} i$ (outside
 the unit circle), and two zeros at the origin (inside the unit circle).
 Thus, $P(z)$ also has two zeros in $\D$.
 
-On the other hand, if $\sabs{z} > 46$, then
+On the other hand, if $\sabs{z} = 46+ \epsilon$ where $\epsilon > 0$, then
 \begin{equation*}
 \abs{P(z)-z^4} = \abs{12z^3+24z^2+4z+6}
 \leq 46 \sabs{z}^3 < {\sabs{z}}^4 = \abs{z^4}.
