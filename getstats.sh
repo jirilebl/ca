@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 echo
 echo -e "Chapters (including intro):    \t"`grep '^[\]chapter\**{.*label{ch:' ca.tex | wc -l`
