@@ -13588,8 +13588,8 @@ The real and imaginary parts of a holomorphic function are harmonic;
 however, the modulus $\sabs{f(z)}$ is not.  Not to fear,
 $\log \sabs{f(z)}$ is harmonic, at least where $f$ is nonzero.
 The fact that $\log \sabs{f(z)}$ is harmonic is just as useful
-as that the real and imaginary parts of $f$ are.  The proof is left
-as an exercise.
+as the fact that the real and imaginary parts of $f$ are harmonic.
+The proof is left as an exercise.
 
 \begin{prop} \label{prop:logharm}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic
@@ -13978,7 +13978,7 @@ using the function $\frac{1+z}{1-z}$ evaluated at $0$.
 For the third item, we only need to prove the
 result for $\delta \leq \theta \leq \pi$ by symmetry ($P_r$ is even).
 On $(0,\pi)$, $P_r$ is strictly decreasing as $\cos \theta$ is strictly
-increasing.  So we only need to show that $P_r(\delta)$ goes to $0$
+decreasing.  So we only need to show that $P_r(\delta)$ goes to $0$
 as $r \to 1$ if $\delta > 0$.
 This fact follows as $r \mapsto
 \frac{1+re^{i\delta}}{1-re^{i\delta}}$
@@ -14195,7 +14195,7 @@ $\lim_{z \to z_0} Pf(z) = f(z_0) = Pf(z_0)$.
 \end{exercise}
 \end{exbox}
 
-Translation and scaling gives the more general version for
+Translation and scaling give the more general version for
 any disc.
 
 \begin{cor} \label{cor:dirichsol}
@@ -14280,16 +14280,16 @@ for the real part.
 
 \begin{exercise} \label{exercise:dirichDwithsings}
 State and prove a version of \thmref{thm:dirichsol} for a function that is
-bounded on $\partial \D$, and continuous at all but finitely many points on
+bounded on $\partial \D$ and continuous at all but finitely many points on
 $\partial \D$.  The conclusion should of course be then that $Pf(z)$ ($z \in
 \D$) tends
-to $f(z_0)$ ($z_0 \in \D$) only if $f$ is continuous at $z_0$.
+to $f(z_0)$ ($z_0 \in \partial \D$) only if $f$ is continuous at $z_0$.
 Note: More advanced students should note that one does not need boundedness,
 just $f \in L^1(\partial \D)$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:upperhalfplanedirichlet}
-Dirichlet problem on the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$
+The Dirichlet problem on the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$
 does not have a unique solution.  Hint:  Find two distinct
 harmonic functions that are zero on $\R$.
 \end{exercise}
@@ -14445,7 +14445,7 @@ on the same circles as $f$ (as long as they lie in $\Delta_s(q)$).
 Suppose for contradiction that $\varphi$ is positive
 somewhere on $\Delta_s(q)$.
 Let $\varphi$ achieve a maximum at $p \in
-\Delta_s(q)$.
+\Delta_s(q)$, so $\varphi(p) > 0$.
 The set $X \subset \Delta_s(q)$ where $\varphi(z) = \varphi(p)$ is compact.
 Assume $p$ is the point on $X$ closest to
 $\partial \Delta_s(q)$.  For some small $r < R_p$, the circle
@@ -14805,7 +14805,7 @@ and prove that the constants are optimal.
 
 \begin{exercise}
 Let $U = \D$ and $K=\overline{\Delta_r(0)}$, $r < 1$, in the general 
-Harnack's inequality.  Prove that the $C$ that from the theorem
+Harnack's inequality.  Prove that the $C$ from the theorem
 must necessarily go to infinity as $r \uparrow 1$.
 \end{exercise}
 
@@ -15050,16 +15050,23 @@ for some integer $k \leq c_{-1}$,
 \end{equation*}
 Then
 \begin{equation*}
-\sabs{z^{-k}} \leq e^{\Re \psi(z)} = \babs{e^{\psi(z)}} ,
+\sabs{z^{-k}} \leq e^{\Re \psi(z)} = \babs{e^{\psi(z)}} 
+\quad
+\text{or}
+\quad
+\sabs{z^{-k} e^{-\psi(z)}} \leq 1 .
 \end{equation*}
-or 
-$\sabs{z^{-k} e^{-\psi(z)}} \leq 1$, that is, $z^{-k} e^{-\psi(z)}$ has
-a removable singularity at the origin.  So $e^{-\psi(z)}$ has
-a pole or a removable singularity, but $e^{-\psi(z)}$ cannot have
-a pole (see \exerciseref{exercise:singofexp}), so $e^{-\psi(z)}$
+That is, 
+$z^{-k} e^{-\psi(z)}$ has
+a removable singularity at the origin.
+By \exerciseref{exercise:singofexp}, 
+$e^{-\psi(z)}$ cannot have a pole.
+So $e^{-\psi(z)}$
 and thus $\psi(z)$ has a removable singularity.
-As $\sabs{z}^{-c_{-1}} \leq \sabs{e^{-\psi(z)}}$, we also
-find that $-c_{-1} \geq 0$.  We are done, $\psi$ extends through the origin
+As $-c_{-1} \log\sabs{z} \leq \Re \psi(z)$,
+we find $-c_{-1} \log\sabs{z}$ is bounded from above
+near the origin and so $-c_{-1} \geq 0$.
+We are done, $\psi$ extends through the origin
 and
 \begin{equation*}
 f(z) = \Re \psi(z) - (-c_{-1}) \log \sabs{z} . \qedhere
@@ -15468,10 +15475,10 @@ a contradiction,
 f(p)-h(p)
 \leq
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}}
-\bigl( \varphi(p+re^{i\theta}) -
+\bigl( \varphi(p+re^{i\theta}) +
 h(p+re^{i\theta}) \bigr)
 \, d\theta
-+
+-
 \frac{1}{2\pi} \int_{-\pi}^{\pi} h(p+re^{i\theta}) \, d\theta
 \\
 \leq
@@ -15480,9 +15487,9 @@ h(p+re^{i\theta}) \bigr)
 \, d\theta
 +
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}}
-\bigl( - h(p+re^{i\theta}) \bigr)
+h(p+re^{i\theta})
 \, d\theta
-+
+-
 \frac{1}{2\pi} \int_{-\pi}^{\pi} h(p+re^{i\theta}) \, d\theta
 \\
 =
@@ -15490,7 +15497,8 @@ h(p+re^{i\theta}) \bigr)
 \varphi(p) =
 f(p)-h(p) .
 \end{multline*}
-The first inequality follows by the hypothesis for $f$ and the mean-value
+The first inequality follows by the hypothesis for
+$f=\varphi+h$ and the mean-value
 property for $h$.  The second inequality
 follows because the Darboux upper integral is
 only subadditive ($\overline{\int} (a+b) \leq \overline{\int}a +
