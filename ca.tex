@@ -12731,8 +12731,11 @@ If $g(z)=g(\zeta)$, then ${\bigl(g(z)\bigr)}^2={\bigl(g(\zeta)\bigr)}^2$ and so
 $z=\zeta$.  Thus $g$ is injective.  What's more,
 $g(z)=-g(\zeta)$ also implies $z=\zeta$.  Thus, $g(z) =
 -g(\zeta)$ never happens since $g$ is never zero.
-In other words, $g(U) \cap \bigl( - g(U) \bigr) = \emptyset$.  The set
-$- g(U)$ (the set of negatives of all points in $g(U)$) is also open, and so
+In other words, $g(U) \cap \bigl( - g(U) \bigr) = \emptyset$,
+where
+$- g(U) = \{ w : -w \in g(U) \}$.
+The set
+$- g(U)$ is also open, and so
 the complement of $g(U)$ contains an open disc $\Delta_r(\xi)$.  Hence,
 \begin{equation*}
 z \mapsto \frac{r}{g(z)-\xi}
@@ -13092,7 +13095,7 @@ and it still homologous to zero in $U$.
 
 So, without loss of generality, assume that $K$ is connected.
 Also assume that $0 \in K$.  If $K= \{0 \}$, we are done trivially, so
-assume $K$ is larger than one point.
+assume $K$ is more than one point.
 Consider $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
 LFT\@:
 $\varphi(z) = \nicefrac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
@@ -13258,7 +13261,7 @@ $\C_\infty \setminus U$ is connected if and only if $U$ is simply connected.
 \end{thm}
 
 \begin{proof}
-The forward direction is \propref{prop:scbycomplementeasy}.  Let's the do
+The forward direction is \propref{prop:scbycomplementeasy}.  Let's do
 the backwards direction by contrapositive.  Suppose $\C_\infty
 \setminus U$ is disconnected.  Then there are two nonempty disjoint closed
 sets $S$ and $K$ such that $S \cup K = \C_\infty \setminus U$. 
@@ -16868,7 +16871,7 @@ every continuous function on the closed unit disc $\overline{\D}$
 is a uniform limit of a sequence of polynomials
 $Q_n(x,y)$ (polynomials of both $x$ and $y$), but only a function that is
 holomorphic on $\D$ can be the uniform limit of polynomials
-$P_n(z)$ (polynomial of $z$).
+$P_n(z)$ (polynomials in $z$).
 More explicitly, the function $z \mapsto \bar{z}=x-iy$ is not only a limit of
 polynomials in $x$ and $y$, it is a polynomial in $x$ and $y$.  However, as
 the function is not holomorphic on $\D$, it cannot be a
@@ -16879,8 +16882,9 @@ From now on, all polynomials will again be polynomials in $z$, as they were
 up until the example above.  So when we say polynomial, it will be
 a polynomial in $z$, in other words, a holomorphic polynomial.
 
-A function holomorphic on a disc $\Delta_r(p)$ is limit of the partial sums
-of the power series $\sum_{n=0}^m c_n {(z-p)}^n$.  See also
+A function holomorphic on a disc $\Delta_r(p)$ is a limit of the partial sums
+$\sum_{n=0}^m c_n {(z-p)}^n$
+of its power series.  See also
 \exerciseref{exercise:polylimits}.  On the other hand, consider a function 
 holomorphic on an open neighborhood of the square $[-1,1] \times [-1,1]$, say
 $f(z) = \frac{1}{(z-1.1)(z+1.1)}$.  If we expand $f$ around any point, the
@@ -16913,14 +16917,15 @@ $\babs{P(z_0)-\frac{1}{z_0}} \geq 1$.
 \end{exercise}
 \end{exbox}
 
-The problem with $\nicefrac{1}{z}$ and the unit circle is that it goes around a hole.
+The problem with $\nicefrac{1}{z}$ and the unit circle is that the circle goes around a hole.
 Any function holomorphic on a neighborhood of $\partial \D$ can be
 approximated on $\partial \D$ by rational functions
 if we allow a pole at $0$.  The function $\nicefrac{1}{z}$ is
 itself a rational function with a pole at $0$.
 A polynomial is really just a rational function that has a pole at infinity.
 Once we prove Runge's theorem, we will have proved that it really is the hole
-in $\partial \D$
+enclosed by
+$\partial \D$
 that is the problem for $\nicefrac{1}{z}$.
 We can approximate a holomorphic function
 by polynomials on any set whose complement is connected.
@@ -16982,7 +16987,7 @@ The function
 \frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}
 \end{equation*}
 is uniformly continuous on the compact set $K \times [0,1]$.
-As $\gamma'$ is bounded, there is a $\delta > 0$, such that
+As $\gamma'$ is bounded, there is a $\delta > 0$ such that
 \begin{equation*}
 \abs{
 \frac{f\bigl(\gamma(t)\bigr)}{\gamma(t)-z}\gamma'(t)
@@ -17070,7 +17075,8 @@ a simple exercise in chasing those epsilons.
 
 \begin{exbox}
 \begin{exercise} \label{exercise:approxbyfamily}
-Let $K$ be a set and $\sF$ a set of functions on $K$.  Rigorously prove:
+Let $K$ be a set and $\sF$ an algebra (a vector space
+that is closed under multiplication) of functions on $K$.  Rigorously prove:
 \begin{exparts}
 \item
 If functions from $\sF$ uniformly approximate a function $f$ on $K$,
@@ -17083,8 +17089,8 @@ by functions from $\sF$.  Then for any numbers $c_1,\ldots,c_n$, the
 function $c_1 f_1 + \cdots + c_n f_n$ can be uniformly approximated on $K$
 by functions in $\sF$.
 \item
-If $\sG$ is another set of functions on $K$, and
-$f$ can be uniformly approximated by functions in $\sG$
+If $\sG$ is another set of functions on $K$,
+$f$ can be uniformly approximated by functions in $\sG$,
 and every function in $\sG$ can be uniformly approximated by functions in
 $\sF$, then $f$ can be uniformly approximated by functions in $\sF$.
 \end{exparts}
@@ -17232,7 +17238,7 @@ Runge says that there is a polynomial $P_n(z)$ such that $\sabs{P_n(z)-f(z)}
 \leq \nicefrac{1}{n}$ for $z \in K_n$.  The sequence $\{ P_n \}$ then does
 the job.  Since $K_n \subset K_{n+1}$ for all $n$ and $\bigcup K_n = \C$,
 eventually any $z$ is in some $K_n$ (and all the later sets).
-It follows that $\lim P_n(z)$ goes to $0$ or $1$ as required.
+It follows that $\lim P_n(z)$ is $0$ or $1$ as required.
 
 But be careful with what we proved.  We have a pointwise limit only.  The sequence
 does \emph{not} converge uniformly on compact subsets of $\C$.  That is easy to see,
@@ -17549,7 +17555,7 @@ Prove that $U = \C$.
 \end{exercise}
 
 \begin{exercise}
-If $W \subset \C$ is a bounded open set.  Prove that $\partial W$ has a
+If $W \subset \C$ is a nonempty bounded open set.  Prove that $\partial W$ has a
 limit point.
 \end{exercise}
 
@@ -17572,7 +17578,7 @@ Prove that $U$ is polynomially convex.
 \end{exercise}
 
 \begin{exercise}
-Instead of polynomials define
+Instead of using polynomials, define
 \begin{equation*}
 \widehat{K} = \bigl\{ z \in \C : f(z) \leq \sup_{\zeta \in K}
 f(\zeta) \text{ for every } f(x+iy) = ax+by + c, 
@@ -17580,7 +17586,7 @@ a,b,c \in \R
 \bigr\}.
 \avoidbreak
 \end{equation*}
-Prove that a set $U$ is convex if and only
+Prove that a set $U$ is convex (in the usual sense) if and only
 if for every compact $K \subset U$, we have $\widehat{K} \subset U$.
 \end{exercise}
 
@@ -17612,7 +17618,7 @@ trickier, and here is where \hyperref[cor:rungeseq]{Runge's theorem} is useful: 
 a holomorphic function doesn't change the principal part, but it may make
 the terms in the sum smaller and make things converge.
 We obtain the
-Mittag-Leffler theorem.\footnote{That's the downside of a hyphenated name:
+Mittag-Leffler theorem.\footnote{The downside of a hyphenated name:
 Mittag always has to share fame with that Leffler guy.}
 
 \begin{thm}[Mittag-Leffler]\index{Mittag-Leffler theorem}
@@ -17647,7 +17653,7 @@ $K_{n-1}$ (it has finitely many poles on $K_n \setminus K_{n-1}$).
 \hyperref[cor:rungeseq]{Runge's theorem}
 gives a rational function $R_n$ with poles in 
 $\C_\infty \setminus U$ such that $\sabs{f_n(z)-R_n(z)} < 2^{-n}$
-for all $z \in K_{n-1}$.  We only care that $R_n$ is holomorphic in $U$, we
+for all $z \in K_{n-1}$.  We only care that $R_n$ is holomorphic in $U$; we
 do not use its poles or that it is rational.
 
 We wish to define
@@ -17706,8 +17712,8 @@ In other words,
 grouping the principal parts correctly
 (a choice of $\{ K_n \}$ in the proof),
 convergence happens even with $R_n=0$.
-Suppose we want a function with a poles at all $p \in \Z$ with
-singular parts $\frac{1}{z-p}$.  Regrettably,
+Suppose we want a function with a pole at every $p \in \Z$ with
+singular part $\frac{1}{z-p}$.  Regrettably,
 \begin{equation*}
 \sum_{p\in \Z} \frac{1}{z-p}
 \end{equation*}
@@ -17732,7 +17738,7 @@ To be clear, we're not saying the proof as is goes
 through; in particular, it is not true that
 $\abs{\frac{2z}{z^2-n^2}} < 2^{-n}$ on $K_{n-1}$.
 All we are saying is
-that the series convergence to the desired function.
+that the series converges to the desired function.
 See \exerciseref{exercise:mitlefsimpleZpoles}.
 \end{example}
 
@@ -17744,13 +17750,13 @@ the series will not converge.
 Fix a positive $z \not\in \N$.
 For $p$ large enough,
 $P_p(z)$ is close to $1$, say $P_p(z) > \nicefrac{1}{2}$.
-Suppose you group terms as $f_n(z)$ is some way.
+Suppose you group terms as $f_n(z)$ in some way.
 The terms of the series $\sum f_n(z)$
 are eventually (for large $n$)
 finite sums of only such $P_p(z)$,
-and so each such $f_n(z)$ is a multiple of $\nicefrac{1}{2}$.
+and so each such $f_n(z)$ is larger than $\nicefrac{1}{2}$.
 The series cannot converge.
-In \exerciseref{exercise:mitlefsimpleNpoles} you will find
+In \exerciseref{exercise:mitlefsimpleNpoles}, you will find
 the $R_n$ that work.
 \end{example}
 
@@ -17886,7 +17892,7 @@ F(z) =
 \overline{f(\bar{z})} \quad \text{else} .
 \end{equation*}
 If $z \in U$ and $\Im z > 0$, then $F$ is holomorphic near $z$ by hypothesis.
-Suppose $z \in U$ and $\Im z < 0$.  The easiest to see that $F$
+Suppose $z \in U$ and $\Im z < 0$.  The easiest way to see that $F$
 is holomorphic is by using the Wirtinger derivative and the
 identities proved in \exerciseref{exercise:wirtingerandbar} and
 the Wirtinger chain rule \exerciseref{exercise:wirtingerchain}:
@@ -17910,12 +17916,13 @@ map is zero.
 Another way to see it is to write down the power series representation.
 
 Finally, we need to prove that $F$ is holomorphic near $L$,
-which we can do by applying Morera's theorem.  The function $F$ is clearly
-continuous.  The only
+which we can do by applying Morera's theorem.
+It is not hard to see that $F$ is continuous.
+The only
 tricky part is to check integrals over
 triangles that intersect the real line.  Such a triangle can be split into
 several triangles, each of which lies on one side of the line $L$ and
-intersects $L$ either at a vertex or side.  See \figureref{fig:splittriang}.
+intersects $L$ either at a vertex or along a side.  See \figureref{fig:splittriang}.
 
 \begin{myfig}
 \subimport*{figures/}{splittriang.pdf_t}
@@ -17923,7 +17930,7 @@ intersects $L$ either at a vertex or side.  See \figureref{fig:splittriang}.
 \end{myfig}
 
 Call such a triangle $T$, and suppose it is above the axis.
-We can translate the triangle by $\epsilon$, that is
+We can translate the triangle by $\epsilon$, that is,
 consider $T_\epsilon = \{ z \in \C : z-i\epsilon \in T \}$.
 For small $\epsilon > 0$, we have
 $T_\epsilon \subset U_+$ and so
@@ -18383,7 +18390,8 @@ identity) and admits unrestricted analytic continuation to $V$.
 \begin{proof}
 Consider a continuous $\gamma \colon [0,1] \to V$, where $\gamma(0) = p$.
 At each point $w$ of $\gamma$ using the definition of covering map,
-we can find a disc $\Delta \subset V$ centered at $w$ such that $f^{-1}(D)$ has 
+we can find a disc $\Delta \subset V$ centered at $w$ such that
+$f^{-1}(\Delta)$ has 
 disjoint components and for each component, a branch of $f^{-1}$ can be defined as a
 holomorphic map onto that component.  As $\gamma$ is compact, finitely many
 such discs $\Delta_1,\ldots,\Delta_n$ cover $\gamma$ such that $\Delta_{j-1}
@@ -18554,7 +18562,7 @@ Then $f$ is a biholomorphism.
 We have seen that any local inverse of a covering map admits unrestricted
 continuation.  Given a choice of $f^{-1}(p)$ for some $p \in V$,
 a local inverse extends to a global one defined on all of $V$ by the monodromy theorem.
-There can only be one local inverse as $U$ is connected, so $f$ is one-to-one.
+In other words, $f$ is one-to-one and hence a biholomorphism.
 \end{proof}
 
 If $U$ is a simply connected, then
@@ -18572,7 +18580,7 @@ every domain has a universal cover that
 is either $\C$ or $\D$.  In fact, the little Picard theorem, which we do
 not prove, says that any nonconstant entire function misses at most one value.  So
 the only domains with $\C$ as a universal cover are $\C$ itself (the identity) and
-$\C \setminus \{ p \}$ (the exponential, $e^{z-p}$).
+$\C \setminus \{ p \}$ (the exponential, $e^{z}+p$).
 Every other domain in $\C$ has $\D$ as the universal cover.
 
 Why is it called a universal cover?  Because it covers any cover.
