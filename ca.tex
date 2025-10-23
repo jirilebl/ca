@@ -15882,7 +15882,7 @@ can write $f$ as
 $f(z) = g(z) z(z-1)(z-i)$.  If those are the only zeros, then 
 $g$ is never zero.  If there are infinitely many zeros, however,
 things become difficult.
-Can we factor out the zeros out of $\sin z$?  Can we
+Can we factor the zeros out of $\sin z$?  Can we
 write $\sin z$ as something times
 \begin{equation*}
 \prod_{n \in \Z} (z-\pi n) \, ?
@@ -15985,13 +15985,14 @@ $\sum_{n=1}^\infty \sabs{a_n}$ converges.
 
 An immediate consequence is that if 
 $\prod_{n=1}^\infty (1+a_n)$ converges absolutely, then
-$\{ a_n \}$ converges to $0$.  Not only that, they
-go to zero fast enough to be absolutely summable.
-
+$\{ a_n \}$ converges to $0$.  Not only that, the
+sequence
+goes to zero fast enough to be absolutely summable.
 As for series, we need to know that absolute convergence really is convergence.
 
 \begin{prop} \label{prop:infproductwithlogs}
-If $\prod_{n=1}^\infty (1+a_n)$ converges absolutely, then it converges.
+Suppose $\prod_{n=1}^\infty (1+a_n)$ converges absolutely.
+Then the product converges.
 
 Moreover, if $\Re a_n > -1$ for all $n$, then 
 \begin{equation*}
@@ -16007,53 +16008,45 @@ converges to a nonzero number.
 
 \begin{proof}
 If the product converges absolutely, then $\sabs{a_n}$ goes to $0$, and we
-may assume that $\Re a_n > -1$ for all $n$.  In particular,
+may, without loss of generality, assume that $\Re a_n > -1$ for all $n$,
+ignoring the first few terms if necessary.  In particular,
 $\Log (1+a_n)$ is well-defined for the principal branch of the logarithm.
-Let $m > k$ be two positive integers.
-\begin{equation} \label{eq:infprodest1}
-\begin{split}
-\abs{
-\sum_{n=1}^m 
-\abs{\Log (1+a_n)}
--
-\sum_{n=1}^k 
-\abs{\Log (1+a_n)}
-}
-& \leq
-\sum_{n=k+1}^m 
-\abs{
-\Log (1+a_n)
-}
-\\
-& \leq
-\sum_{n=k+1}^m 
-\Bigl(
-\log \sabs{1+a_n}
-+
-\abs{ \Arg (1+a_n)}
-\Bigr) .
-\end{split}
-\end{equation}
-As before,
+The derivative of $\Log z$ at $1$ is $1$, and $a_n$ goes to zero.
+So
 \begin{equation*}
-\sum_{n=1}^\ell \log \sabs{1+a_n} \leq
-\sum_{n=1}^\ell \log \bigl(1+\sabs{a_n}\bigr)
-\leq
-\sum_{n=1}^\ell \sabs{a_n} ,
+\lim_{n \to \infty}
+\frac{
+\abs{\Log (1+a_n)}
+}{
+\sabs{a_n}
+}
+=
+\lim_{n \to \infty}
+\abs{
+\frac{
+\Log (1+a_n)-\Log 1
+}{
+a_n
+}
+}
+=1 .
 \end{equation*}
-and the series on the right converges via \propref{prop:infprodabsconvinfsum}.
-Next, $\Arg(1+a_n)$ is between $\nicefrac{-\pi}{2}$ and
-$\nicefrac{\pi}{2}$, and $a_n$ goes to zero.  A calculus exercise
-shows that for all $n$ large
-enough, $\babs{\Arg(1+a_n)} \leq 2\sabs{a_n}$.  As $\sum
-\sabs{a_n}$ converges, 
-$\sum \babs{\Arg (1+a_n)}$ converges.
+By the limit comparison test,
+$\sum_{n=1}^\infty \abs{\Log (1+a_n)}$
+converges if and only if
+$\sum_{n=1}^\infty \sabs{a_n}$ converges.
+The series
+$\sum_{n=1}^\infty \sabs{a_n}$ converges
+via \propref{prop:infprodabsconvinfsum}.
 
-In other words, the right-hand side in \eqref{eq:infprodest1} goes to zero
-as $k$ goes to infinity.  Thus, $\sum \babs{\Log(1+a_n)}$ is Cauchy and hence
-converges.  When taking an exponential, it does not matter which branch of
-the logarithm we take, and therefore the following makes sense, where we use
-$\log$ to denote any branch of logarithm whatsoever.
+It is not necessarily true that
+$\sum_{n=1}^k \Log (1+a_n) = \Log \prod_{n=1}^k (1+a_n)$.
+However,
+$\sum_{n=1}^k \Log (1+a_n) = \log \prod_{n=1}^k (1+a_n)$
+for some branch of the
+logarithm, because while the arguments might add up to something outside
+the range $(-\pi,\pi]$, the sum will be off by some multiple of $2\pi i$.
+Therefore, for this branch of the log
 \begin{equation*}
 \exp\left(
 \sum_{n=1}^k \Log(1+a_n)
@@ -16065,17 +16058,14 @@ $\log$ to denote any branch of logarithm whatsoever.
 =
 \prod_{n=1}^k (1+a_n) .
 \end{equation*}
-We thus find that the product converges.
+Now taking the limit we find
+that the product converges.
 \end{proof}
 
 It is important that the principal branch is used as otherwise the imaginary
-parts of the logs will not converge.  It is also important to emphasize
-above that it is not necessarily true that
-$\sum_{n=1}^k \Log z_n = \Log \prod_{n=1}^k z_n$.
-However,
-$\sum_{n=1}^k \Log z_n = \log \prod_{n=1}^k z_n$ for some branch of the
-logarithm because the arguments might add up to something outside the range
-$(-\pi,\pi]$, but it will be off by some multiple of $2\pi$.
+parts of the logs may not converge.  Namely, it is important
+that $\Log 1 = 0$.
+
 
 
 \begin{prop}
@@ -16091,7 +16081,8 @@ proposition.  The only way to get zero as a limit is for one of the initial
 terms to be zero, that is, if $a_n=-1$ for some $n$.
 \end{proof}
 
-Just as series, an absolutely convergent power series can be reordered.
+Just as with series,
+an absolutely convergent infinite product can be reordered.
 
 \begin{prop}
 Suppose $\prod_{n=1}^\infty (1+a_n)$ converges absolutely to $L$.
@@ -16100,7 +16091,7 @@ $\prod_{n=1}^\infty (1+a_{\varphi(n)})$ also converges absolutely to $L$.
 \end{prop}
 
 \begin{proof}
-That the reordered series converges absolutely follows from 
+That the reordered product converges absolutely follows from 
 \propref{prop:infprodabsconvinfsum} and the corresponding result for series.
 If $L=0$, then we just proved that one of the terms is zero,
 and the reordered product converges to $0$.
@@ -16126,7 +16117,7 @@ converges uniformly in $x \in X$.
 \end{defn}
 
 Uniformly absolute convergence of the product is the same as uniformly
-absolute convergence of the sum.
+absolute convergence of the corresponding series.
 
 \begin{prop}
 For $g_n \colon X \to \C$, the product
@@ -16161,6 +16152,22 @@ converges uniformly.
 Prove the proposition.
 \end{exercise}
 \end{exbox}
+
+In the sequel,
+we will simply write products in the form $\prod_{n=1}^\infty f_n(z)$
+for some functions $f_n$.
+In this case, of course, to apply the definitions one needs to think of
+the products as
+\begin{equation*}
+\prod_{n=1}^\infty \Bigl( 1 + \bigl(f_n(z)-1\bigr) \Bigr).
+\end{equation*}
+In particular, 
+$\prod_{n=1}^\infty f_n(z)$ converges (uniformly) absolutely 
+if 
+$\prod_{n=1}^\infty \bigl( 1 + \sabs{f_n(z)-1} \bigr)$
+converges (uniformly) absolutely,
+which we have seen happens if
+$\sum_{n=1}^\infty \sabs{f_n(z)-1}$ converges (uniformly) absolutely.
 
 \begin{cor}
 Suppose $U \subset \C$ is open, $f_n \colon U \to \C$ are holomorphic,
@@ -16265,6 +16272,7 @@ Thus for $z \in \overline{\D}$,
 \end{proof}
 
 \begin{lemma} \label{lemma:elemfactbound}
+\pagebreak[1]
 $\sabs{1-E_m(z)} \leq \sabs{z}^{m+1}$ for all $m = 0,1,2,\ldots$ and all 
 $z \in \overline{\D}$.
 \end{lemma}
@@ -16465,7 +16473,7 @@ absolutely.
 The $\pi$ out front can be guessed by thinking what would we get if we
 differentiate $\sin(\pi z)$ and evaluate at $0$.
 Differentiating the product (using product rule) would give you $\pi \cdot 1
-+ 0=\pi$, as any time the derivative falls on some factor other that $z$, when
++ 0=\pi$, as any time the derivative falls on some factor other than $z$, when
 you evaluate at $0$, you get $0$.  We can do this formal computation on the
 finite products as the product converges uniformly on compact subsets and
 therefore so does the derivative.  See also \exerciseref{exercise:proddiff}.
