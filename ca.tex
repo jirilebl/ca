@@ -43,7 +43,7 @@
 
 %symmetric for web
 \usepackage[inner=1.2in,outer=1.2in,top=1in,bottom=1in]{geometry}
-%PRINT asymetric for book
+%PRINT asymmetric for book
 %\usepackage[inner=1.4in,outer=1.0in,top=1in,bottom=1in]{geometry}
 
 \usepackage[margin=10pt,font=small,labelfont=bf,labelsep=colon,singlelinecheck=false]{caption}
@@ -559,7 +559,7 @@ If you cannot prove a man wrong, don't panic. You can always call him names.
 The purpose of this book is to teach a one-semester graduate course in
 complex analysis for incoming graduate students.\footnote{I wrote it
 specifically to teach Math 5283 at Oklahoma State University.}
-The first seven chapters is a natural first semester in a two semester sequence where the second
+The first seven chapters are a natural first semester in a two-semester sequence where the second
 semester could be several complex variables (e.g., \cite{scv:book})
 or perhaps harmonic analysis.
 It could perhaps be used for a more elementary two-semester sequence if the
@@ -569,7 +569,7 @@ We assume basic knowledge of undergraduate
 analysis in the real variable, called advanced calculus in some schools.
 The text assumes knowledge of metric spaces
 and differential calculus in several variables, but if the reader is not
-confident on these topics or has not yet seen them, the useful results
+confident in these topics or has not yet seen them, the useful results
 are presented (with proofs) in the appendices.
 With that, a basic prerequisite for the
 course would be at least a single semester of undergraduate analysis if the
@@ -587,7 +587,7 @@ See the aptly named
 This book takes the view that we do not need to redefine and reprove
 things that we have done in a basic undergraduate real analysis course,
 especially with
-regards to mappings of the plane.  We can quite quickly jump to
+regard to mappings of the plane.  We can quite quickly jump to
 holomorphic functions as solutions of the Cauchy--Riemann equations,
 for instance.
 The connection is to understand both the derivative of 
@@ -599,7 +599,7 @@ them to the line integrals the student has seen in calculus.
 The inverse function theorem can be introduced early as
 a consequence of the inverse function theorem in $\R^2$.
 An outline of a pure complex analysis proof is left for later as an exercise.
-These are not simply time saving measures.
+These are not simply time-saving measures.
 The point is to stress that we are not defining some totally new and
 different world.
 
@@ -708,19 +708,19 @@ to solve $z^2+1=0$.  Just as with the real numbers,
 the consequences of adding $\sqrt{-1}$ to the mix are much more
 profound than just finding roots of polynomials.
 
-Interestingly, while the step into analysis with the real numbers
-is a step into the abyss, the step into analysis with the complex numbers is a
+Curiously, while the step into analysis with real numbers
+is a step into the abyss, the step into analysis with complex numbers is a
 step into a fairytale wonderland.  A first-year real analysis course
-crushes the student's hopes and dreams.  Most reasonable statements
+crushes the student's hopes and dreams.  Reasonable statements
 are false and bizarre counterexamples abound.
-On the other hand, a complex analysis course fills the student with
+In contrast, a complex analysis course fills the student with
 unrealistic optimism.  It is replete with na\"ive and silly statements
 that only a bad calculus student could entertain.\footnote{%
 E.g.:  If you can differentiate once, you can differentiate twice.
 Every function acts sort of like a linear function.
 If all derivatives are zero at a point, the function is constant.
 Etc.}
-The two are the good-cop bad-cop, the yin-yang,
+The two are the good cop/bad cop, the yin/yang,
 of contemporary analysis.
 
 \subsection{The complex numbers as the plane}
@@ -1025,7 +1025,7 @@ if given a Riemann integrable
 real-valued function $u \colon [a,b] \to \R$,
 then $\abs{u}$ is Riemann
 integrable and $\abs{\int_a^b u(t) \, dt} \leq \int_a^b \sabs{u(t)} \, dt$.
-Similar result holds for complex-valued functions.
+A similar result holds for complex-valued functions.
 
 \begin{prop} \label{prop:inttriangleineq}
 Suppose $f \colon [a,b] \to \C$ is (Riemann) integrable.  Then $\sabs{f}$ is
@@ -2149,15 +2149,16 @@ y}\big|_{z_0} \\[5pt]
 \frac{\partial v}{\partial x}\big|_{z_0} & \frac{\partial v}{\partial y}\big|_{z_0}
 \end{bmatrix} .
 \end{equation*}
-We have seen in the last chapter that only a matrix of the form
+We have seen in the previous chapter that only a matrix of the form
 $\left[ \begin{smallmatrix}
 a & -b \\ b & a
-\end{smallmatrix} \right]$ corresponds to multiplication a complex number $a+ib$.
+\end{smallmatrix} \right]$ corresponds to multiplication
+by a complex number $a+ib$.
 Ergo, the derivative $Df|_{z_0}$ corresponds to multiplication by a
-complex number if only if it is of the form
+complex number if and only if it is of the form
 $\left[ \begin{smallmatrix}
 a & -b \\ b & a
-\end{smallmatrix} \right]$, in other words,
+\end{smallmatrix} \right]$, namely if
 \begin{equation*}
 \frac{\partial u}{\partial x}\Big|_{z_0} =
 \frac{\partial v}{\partial y}\Big|_{z_0}
@@ -2204,7 +2205,7 @@ Let $U \subset \C$ be open and $f = u+iv \colon U \to \C$ be a function.
 Then
 $f$ is complex differentiable at $z_0 \in U$
 if and only if
-$f$ (real) differentiable at $z_0 \in U$
+$f$ is (real) differentiable at $z_0 \in U$
 with
 $\frac{\partial u}{\partial x}\big|_{z_0} =
 \frac{\partial v}{\partial y}\big|_{z_0}$
@@ -2328,7 +2329,7 @@ every point $p \not= 0$.
 \subsection{Elementary calculus}
 
 Let us solve a differential equation.  A common technique in analysis
-to show an equality is to differentiate and then show that the derivative is
+to prove an equality is to differentiate and then show that the derivative is
 zero.
 
 \begin{prop} \label{prop:zeroder}
@@ -2759,7 +2760,7 @@ $\frac{\partial}{\partial \bar{z}} \left[ z^m\bar{z}^n \right]$.
 \begin{exercise}
 Let $f \colon U \subset \C \to \C$ be real differentiable at $p \in U$.
 The derivative $Df|_{p}$ can be represented by two numbers $\xi$ and
-$\zeta$: It is the real linear map $h \mapsto \xi h + \zeta \bar{h}$
+$\zeta$: It is the real-linear map $h \mapsto \xi h + \zeta \bar{h}$
 (see \exerciseref{exercise:reallinmap}).
 Show that $\frac{\partial f}{\partial z} \big|_p = \xi$ and
 $\frac{\partial f}{\partial \bar{z}} \big|_p = \zeta$.
@@ -2768,7 +2769,7 @@ $\frac{\partial f}{\partial \bar{z}} \big|_p = \zeta$.
 \begin{exercise}
 Prove that $ix^2 - 2xy -iy^2 + 3x + 3iy + i$ is a holomorphic function of
 $z = x+iy$, not by
-differentiating, but by writing as a polynomial in $z$ and not $\bar{z}$.
+differentiating, but by writing it as a polynomial in $z$ and not $\bar{z}$.
 That is, write $x$ and $y$ in terms of $z$ and $\bar{z}$, and then show
 that $\bar{z}$ cancels.
 \end{exercise}
@@ -3008,7 +3009,7 @@ g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} \qquad \text{for all $w \in W$}.
 The hypothesis that $f$ is continuously differentiable is completely
 superfluous.\footnote{Cauchy (early 1800s)
 assumed continuity of the derivative for his work.
-It was Goursat more than half a century later that showed that continuity of the
+It was Goursat more than half a century later who showed that continuity of the
 derivative came for free.}
 Every holomorphic function is continuously
 differentiable, although you will have to wait till around
@@ -3357,7 +3358,7 @@ A \emph{\myindex{power series}} around $p \in \C$ is simply the series
 \begin{equation*}
 \sum_{n=0}^\infty c_n {(z-p)}^n ,
 \end{equation*}
-where $c_n$ are some complex numbers.  Where it converges it defines a
+where $c_n$ are some complex numbers.  Where it converges, it defines a
 function of $z$.  As the series clearly converges at $z=p$, we worry about
 convergence at other points.  We say the series is
 \emph{convergent}\index{convergent power series} if it converges at
@@ -3677,8 +3678,8 @@ Functions that possess a convergent power series are called analytic.
 From the beginnings of calculus until the 19\textsuperscript{th} century, 
 when mathematicians considered a \myquote{function,} they really meant
 \myquote{analytic function} (or something like it) in modern language.
-One can talk about
-both complex-analytic and real-analytic functions depending on if the
+We talk about
+both complex-analytic and real-analytic functions depending on whether the
 variables are real or complex, and they may depend on one or several variables.
 We are interested in complex-analytic functions of one variable. 
 As there is little chance of confusion, we say just \myquote{analytic} instead of
@@ -3752,7 +3753,7 @@ z^k z_0^{n-1-k} ,
 which goes to $n z_0^{n-1}$ as $z \to z_0$, as
 the right-hand side is defined even if $z = z_0$.
 Apply the formula to $f$
-term-wise.  For $z_0,z \in \Delta_R(0)$,
+term by term.  For $z_0,z \in \Delta_R(0)$,
 \begin{equation*}
 \frac{f(z) - f(z_0)}{z-z_0}
 =
@@ -3951,7 +3952,7 @@ f'(z) =
 As the coefficients of the power series at zero are unique, we get
 $c_n = (n+1) c_{n+1}$.  By induction, $c_n = \frac{1}{n!}$.
 It is not hard to check directly (exercise)
-that the series a converges in all of $\C$.
+that the series converges in all of $\C$.
 
 Let us prove that $f$ is the exponential.  Both functions are
 holomorphic, the exponential is never zero, and both are equal to their
@@ -4133,8 +4134,8 @@ the support is $\overline{U \setminus Z_f} \cap U$.
 
 \begin{exbox}
 \begin{exercise}
-Let $U \subset \C$ be a domain and $f \colon U \to \C$ is analytic and
-is not identically zero.
+Let $U \subset \C$ be a domain and $f \colon U \to \C$ be analytic and
+not identically zero.
 Show that the support of $f$ is $U$.
 In particular, the support cannot be compact.
 \end{exercise}
@@ -4168,14 +4169,14 @@ is
 a continuous complex-valued piecewise continuously
 differentiable function $\gamma \colon [a,b] \to \C$ 
 such that $\gamma'(t)$ and all its one-sided limits are never
-$0$.\footnote{Some authors do not require the derivative to not be zero.}
+$0$.\footnote{Some authors do not require the derivative to be nonzero.}
 A path $\gamma$ is \emph{closed}\index{closed path} if $\gamma(a)=\gamma(b)$.
 A path $\gamma$ is \emph{simple closed}\index{simple closed path}
 if $\gamma(a)=\gamma(b)$ and $\gamma|_{(a,b]}$ is injective.
 \end{defn}
 
 Our paths will essentially all be piecewise-$C^1$,
-so we may forget to mention it sometime.
+so we may forget to mention it sometimes.
 By \myquote{piecewise-$C^1$,}
 we mean that there exist numbers $t_0 = a < t_1 < \cdots
 < t_k = b$ for some $k$ such that $\gamma|_{[t_{\ell-1},t_\ell]}$ is
@@ -4192,7 +4193,7 @@ and these limits are nonzero.
 Another way to say it is that $\gamma'(t)$ extends to a nonzero
 continuous function on each closed interval $[t_{\ell-1},t_{\ell}]$.
 Allowing these \myquote{corners} makes working with paths easier
-as we can define them easily piece-wise, and finitely many such corners
+as we can define them easily piecewise, and finitely many such corners
 make no difference for integrals.
 Do note also that we are saying that paths are continuous.  We will allow
 discontinuities just a little later with \myquote{chains.}
@@ -4219,7 +4220,7 @@ t          & \text{if } t \in [0,1],\\
 i(4-t)     & \text{if } t \in (3,4],
 \end{cases}
 \end{equation*}
-is a piecewise-$C^1$ simple closed path traversing the sides unit square.
+is a piecewise-$C^1$ simple closed path traversing the sides of the unit square.
 See \figureref{fig:squarepath}.  You should check that the
 conditions are satisfied.  For example, 
 on $t \in (0,1)$, $\gamma'(t) = 1$, and so
@@ -4609,7 +4610,7 @@ M
 
 Arclength is not preserved under uniform convergence of the paths.
 In other words, just because the images of two paths are very close to each
-other, does not mean that the integrals over them will be the same.
+other, it does not mean that the integrals over them will be the same.
 Same caveat holds for the $dz$ integral as it does for the $\sabs{dz}$
 integral.
 So one has to be careful when saying that two paths are close to each other.
@@ -4750,7 +4751,7 @@ Note: Closed $\gamma$ is trickier.
 Find a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$
 that is equivalent to the zero chain.  Note that our definition of
 \myquote{path}
-prevents $\gamma$ being constant.
+prevents $\gamma$ from being constant.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -5136,7 +5137,7 @@ there is a $z_k \in \partial T^k$ such that
 \int_{\partial T^k} \sabs{g(z)} \, \sabs{dz} .
 \end{equation*}
 We have $z_k \not= z_0$ as $g(z_0)=0$
-and $\sabs{g(z_k)} \geq \frac{c \ell}{2^k} > 0$.
+and $\sabs{g(z_k)} \geq \frac{c}{\ell 2^k} > 0$.
 Let $d = \operatorname{diam}(T)$.  Then
 $\sabs{z_k-z_0} \leq \frac{d}{2^k}$ and
 \begin{equation*}
@@ -5758,8 +5759,8 @@ It allows for computation of the radius of convergence (or at least a lower
 bound for it) just from knowing the 
 domain of definition of a holomorphic function.  The radius of convergence
 then gives us bounds on the derivatives, and so we know quite a bit about
-the size of the derivatives of a function just from knowing how far away from a point is
-it still holomorphic.
+the size of the derivatives of a function just from knowing how far away from a point it
+is still holomorphic.
 
 \begin{myfig}
 \subimport*{figures/}{largestr.pdf_t}
@@ -6837,7 +6838,7 @@ is the distance of $p$ to $K$.  As $p \not\in K'$,
 $\sabs{p-q} > \nicefrac{d}{2}$.
 Every point in $\Delta_{\sabs{p-q}-d/2}(p)$
 is also further than $\nicefrac{d}{2}$ from $K$, so
-complement of $K'$ is open.
+the complement of $K'$ is open.
 
 As $\{ f_n \}$ converges uniformly on compact subsets, it converges uniformly
 on $K'$.  Given an $\epsilon > 0$, find an $N$ such that 
@@ -6913,7 +6914,7 @@ interval $[a,b] \subset \R$ is uniformly approximated (on $[a,b]$) by
 polynomials $P(z)$.  Prove why such a theorem cannot hold
 on a closed curve such as the unit circle $\partial \D$.  That is,
 find a continuous function $f \colon \partial \D \to \C$ that is
-not the uniform limit of a sequence polynomials $P_n(z)$ on $\partial \D$.
+not the uniform limit of a sequence of polynomials $P_n(z)$ on $\partial \D$.
 \end{exercise}
 
 \begin{exercise}\label{exercise:polylimits}
@@ -6966,7 +6967,7 @@ mapping theorem (which we will see later).
 My advisor
 felt compelled to remind me that there do exist other theorems in complex
 analysis.}
-Any disc can be translated and rescaled to unit disc $\D$, and any
+Any disc can be translated and rescaled to the unit disc $\D$, and any
 bounded function can be rescaled to be valued in $\D$.
 
 \begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}\label{lemma:schwarz}
@@ -7042,7 +7043,7 @@ function $f \colon \Delta_r(p) \to \Delta_s(q)$ with $f(p)=q$.
 
 \begin{exercise}
 Let $\bH = \{ z \in \C : \Im z > 0 \}$ be the upper half-plane.
-Prove that if $f \colon \bH \to \bH$ holomorphic such that $f(i) = i$, then
+Prove that if $f \colon \bH \to \bH$ is holomorphic such that $f(i) = i$, then
 \begin{equation*}
 \abs{\frac{f(z)-i}{\overline{f(z)}-i}} \leq
 \abs{\frac{z-i}{\bar{z}-i}} 
@@ -7661,8 +7662,8 @@ $n\bigl(\partial \Delta_r(p);z\bigr) = 1$ if $z \in \Delta_r(p)$.
 \end{exercise}
 
 \begin{exercise}
-Let $n \in \Z$ and $\gamma \colon [0,2\pi] \to \C$, where
-$\gamma(t) = p + re^{in t}$ be a path, a path that goes $n$ times
+Let $n \in \Z$.  The path $\gamma \colon [0,2\pi] \to \C$, where
+$\gamma(t) = p + re^{in t}$, goes $n$ times
 counterclockwise around $\partial \Delta_r(p)$.
 Prove that
 $n\bigl(\gamma;z\bigr) = n$ if $z \in \Delta_r(p)$.
@@ -7672,7 +7673,7 @@ $n\bigl(\gamma;z\bigr) = n$ if $z \in \Delta_r(p)$.
 \label{exercise:windingcircles}
 Suppose $0 < r_1 < r_2 < \infty$.
 Let $\Gamma = \partial \Delta_{r_2}(p) - \partial \Delta_{r_1} (p)$
-(that is, the outside circles goes counterclockwise, the inside circle goes
+(that is, the outside circle goes counterclockwise, the inside circle goes
 clockwise).
 Prove that if $z \in \C$ is such that $\sabs{z-p} < r_1$, then
 $n(\Gamma;z) = 0$.  If $r_1 < \sabs{z-p} < r_2$, then
@@ -7700,8 +7701,8 @@ the principal branch.
 Let $U \subset \C$ be open and $\Gamma$
 a cycle
 in $U$
-such that $n(\Gamma;p) = 0$ for all $p \in \C \setminus U$,
- then we
+such that $n(\Gamma;p) = 0$ for all $p \in \C \setminus U$.
+We then
 say $\Gamma$ is \emph{\myindex{homologous to zero} in $U$}.
 \end{defn}
 
@@ -7847,7 +7848,7 @@ and $\Gamma$ is
 a cycle
 in $U$.
 If $\Gamma$
-homologous to zero in $U$,
+is homologous to zero in $U$,
 then
 \begin{equation*}
 \int_\Gamma f(z) \, dz = 0 .
@@ -8201,7 +8202,7 @@ We proved
 and
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iii}
-is the same as proof of \corref{cor:simplyconimpleslog}.
+is the same as the proof of \corref{cor:simplyconimpleslog}.
 Next, suppose \ref{thm:simplyconnected:iii} is true.  For
 $p \in \C \setminus U$, find a $g$ such that
 $e^{g(z)} = z-p$.
@@ -8699,7 +8700,7 @@ If $c_{-1} = 0$, then
 F(z) = \sum_{n=-\infty,n\not=-1}^\infty \frac{c_n}{n+1} {(z-p)}^{n+1}
 \avoidbreak
 \end{equation*}
-converges uniformly on compact subsets 
+converges uniformly on compact subsets of
 $\ann(p;r_1,r_2)$ and $F' = f$.
 \end{enumerate}
 \end{prop}
@@ -11155,7 +11156,7 @@ $f$ enclosed within $\Gamma$, then
 =
 z_0 .
 \end{equation*}
-One particular useful consequence is that zeros of a polynomial $f$ vary continuously
+One useful consequence is that zeros of a polynomial $f$ vary continuously
 (interpreted in the right way) as the coefficients of $f$ change.
 
 \begin{exbox}
@@ -11312,7 +11313,7 @@ as hypothesis.
 This weaker statement of the theorem is enough for vast majority of
 applications, and has a simpler geometric meaning.
 By the argument principle, the number of zeros (minus the number of poles) of $f$
-inside $\Gamma$ corresponds to the number times $f(z)$ winds around zero
+inside $\Gamma$ corresponds to the number of times $f(z)$ winds around zero
 as $z$ traverses $\Gamma$, that is, $n(f \circ \Gamma;0)$.
 The classical visual \myquote{proof} using this weaker
 inequality is a dog on a leash
@@ -11542,7 +11543,7 @@ $\Delta_r(z_0)$.
 
 \begin{example}
 Hurwitz's theorem does not work for real functions.  Let $f(x) =
-x^2$ a function on $\R$.  Then $f$ has a zero (actually a zero of order $2$)
+x^2$ be a function on $\R$.  Then $f$ has a zero (actually a zero of order $2$)
 at $x=0$.  The functions $f_n(x) = x^2+\nicefrac{1}{n}$ converge uniformly
 to $f$, but $f_n$ has no zero for any $x \in \R$.
 
@@ -12027,7 +12028,7 @@ the functions $x^n$ are uniformly bounded
 and converge pointwise to a function on the unit interval $[0,1]$, but the limit
 is discontinuous.  We desire continuous
 functions, ergo we must require better convergence than pointwise.  For now,
-we ignore continuity and show that we get pointwise
+we ignore continuity and show that we get a pointwise
 converging subsequence on a countable set
 if we start with pointwise bounded functions.
 The proof is a nice example of a diagonalization argument.
@@ -13088,7 +13089,7 @@ for each $K_j$ to find $\Gamma_j$ and let $\Gamma = \Gamma_1 + \cdots +
 \Gamma_n$.  As $\Gamma_j$ winds exactly once around every point of $K_j$
 and does not wind around any point of $K_\ell$ for $\ell \not= j$,
 then $\Gamma$ will wind exactly once around any point of $K'$,
-and it still homologous to zero in $U$.
+and it is still homologous to zero in $U$.
 
 So, without loss of generality, assume that $K$ is connected.
 Also assume that $0 \in K$.  If $K= \{0 \}$, we are done trivially, so
@@ -13108,7 +13109,7 @@ $\C_\infty \setminus V = \varphi(K)$ is connected.
 So each connected component of $V$ is a simply connected domain
 by \propref{prop:scbycomplementeasy} (exercise).
 As we can assume that $K$ is a finite union of closed discs,
-$\C_\infty \setminus K$ and therefore $V$ has finitely many connected components.
+$\C_\infty \setminus K$ and therefore $V$ have finitely many connected components.
 Let $V_1,\ldots,V_m$ be the connected
 components of $V$.
 By the Riemann mapping theorem, there exists
@@ -13258,7 +13259,7 @@ $\C_\infty \setminus U$ is connected if and only if $U$ is simply connected.
 \end{thm}
 
 \begin{proof}
-The forward direction is \propref{prop:scbycomplementeasy}.  Let's the do
+The forward direction is \propref{prop:scbycomplementeasy}.  Let's do
 the backwards direction by contrapositive.  Suppose $\C_\infty
 \setminus U$ is disconnected.  Then there are two nonempty disjoint closed
 sets $S$ and $K$ such that $S \cup K = \C_\infty \setminus U$. 
@@ -13551,7 +13552,7 @@ If $U \subset \C$ is open and $f \colon U \to \R$ is harmonic, then $f$ is infin
 \end{prop}
 
 Starting with a harmonic function $f$, finding the holomorphic function whose
-real part is $f$ means finding another harmonic function such that $f+ig$ is
+real part is $f$ means finding another harmonic function $g$ such that $f+ig$ is
 holomorphic.
 
 \begin{defn}
@@ -15821,7 +15822,7 @@ $\Delta$.
 
 \begin{exbox}
 \begin{exercise}
-Let $U \subset \C$ be a domain and $p \in \partial U$ is a nonisolated point
+Let $U \subset \C$ be a domain and $p \in \partial U$ be a nonisolated point
 of $\partial U$.  Suppose $f \colon \widebar{U} \to \C$ is continuous,
 holomorphic in $U$, and such that for some small disc $\Delta$ centered at
 $p$, $f$ is zero on $\Delta \cap \partial U$.  Prove that $f \equiv 0$.
