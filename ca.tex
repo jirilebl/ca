@@ -15515,7 +15515,7 @@ the reader substitutes the upper Darboux integral or the Lebesgue integral
 according to the reader's taste.
 
 An easy consequence of the sub-mean-value property is that subharmonic
-functions, while not necessarily continuous, are a bit better then just
+functions, while not necessarily continuous, are a bit better than just
 upper-semicontinuous.
 
 \begin{prop}
@@ -15832,7 +15832,7 @@ $p$, $f$ is zero on $\Delta \cap \partial U$.  Prove that $f \equiv 0$.
 \end{exercise}
 \end{exbox}
 
-Another example of the use subharmonic functions is another solution
+Another example of the use of subharmonic functions is another solution
 to the Dirichlet problem.  A solution can be had by considering all the
 subharmonic functions that are less than the function given on the boundary.
 Then one takes a supremum to obtain a harmonic function.  We will not go
@@ -15845,7 +15845,7 @@ boundary to be able to integrate.  The Perron method works much more
 generally provided you can construct enough subharmonic functions (which
 can, after all, be pieced together unlike harmonic functions).
 
-If a solution exists, it clearly must equal to the Perron solution.
+If a solution exists, it clearly must equal the Perron solution.
 
 \begin{exbox}
 \begin{exercise}[Easy]
@@ -15933,9 +15933,9 @@ Suppose that the product converges to a nonzero number.
 In particular, $a_n \not= -1$ for any $n$.  Then
 \begin{equation*}
 \frac{
-\prod_{n=1}^{k+1} (1+a_n)
-}{
 \prod_{n=1}^{k} (1+a_n)
+}{
+\prod_{n=1}^{k-1} (1+a_n)
 }
 =1+a_k .
 \end{equation*}
@@ -17525,10 +17525,11 @@ a sequence of polynomials $\{ P_n \}$ converging uniformly to $f$ on compact
 subsets.
 By \propref{prop:convergenceonKhat},
 the sequence converges uniformly on $\widehat{K}$.
-Thus it converges to a holomorphic function on
-$g$ defined on $U \cup \widehat{K}$, which is an open set by
-\thmref{thm:polyhull}, and it is connected as each component of $\C \setminus K$ we added
-has boundary in $U$, which is connected.
+Thus it converges to a holomorphic function
+$g$ defined on $U \cup \widehat{K}$,
+which is an open set by \thmref{thm:polyhull}.
+The set $U \cup \widehat{K}$ is connected as each component
+of $\C \setminus K$ we added has boundary in $U$, which is connected.
 The function $f$ is defined on $\C \setminus \{ p \}$,
 and the boundary of the component of $\C \setminus K$ that includes $p$ must
 have a limit point (exercise below).
@@ -18397,8 +18398,9 @@ disjoint components and for each component, a branch of $f^{-1}$ can be defined 
 holomorphic map onto that component.  As $\gamma$ is compact, finitely many
 such discs $\Delta_1,\ldots,\Delta_n$ cover $\gamma$ such that $\Delta_{j-1}
 \cap \Delta_j \not= \emptyset$ and $p \in \Delta_1$.  Given any choice
-of $f^{-1}$ at $p$, we can define a branch of $f^{-1}$ in $\Delta_j$ that agrees with
-our choice of on $\Delta_{j-1}$ for all $j$.  In other words, we can
+of $f^{-1}$ at $p$, we can define a branch of $f^{-1}$ in $\Delta_j$
+that agrees with
+our choice on $\Delta_{j-1}$ for each $j$.  In other words, we can
 continue our branch of $f^{-1}$
 along $\gamma$.
 \end{proof}
@@ -19686,13 +19688,13 @@ that $X$ is connected if and only if it contains exactly one element.
 Take $\Q$ with the standard metric, $d(x,y) = \sabs{x-y}$, as our metric space.
 Prove that $\Q$ is
 \emph{\myindex{totally disconnected}}, that is, show 
-that for every $x, y \in \Q$ with $x \not= y$, there exists an
+that for every $x, y \in \Q$ with $x \not= y$, there exist
 two open sets $U$ and $V$, such that $x \in U$, $y \in V$,
 $U \cap V = \emptyset$, and $U \cup V = \Q$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $\{ S_i \}$, $i \in \N$,
+Suppose $\{ S_k \}$, $k \in \N$,
 is a collection of connected subsets of a metric space $(X,d)$,
 and there exists an $x \in X$ such that $x \in S_k$ for all $k \in \N$.
 Show that $\bigcup_{k=1}^\infty S_k$ is connected.
@@ -21006,7 +21008,7 @@ a_{k\ell} \, x^ky^\ell
 =
 f(x,y) .
 \end{equation*}
-So $f$ is continuous at $(x,y)$, and as $(x,y)$ was arbitrary $f$ is
+So $f$ is continuous at $(x,y)$, and as $(x,y)$ was arbitrary, $f$ is
 continuous everywhere.  Similarly, a
 polynomial in $n$ variables is continuous.
 \end{example}
@@ -23008,7 +23010,7 @@ Finally,
 \snorm{A} .
 \end{equation*}
 As $f$ is differentiable at $p$,
-the right hand side stays bounded as $h \to 0$.
+the right-hand side stays bounded as $h \to 0$.
 %Therefore,
 %$
 %\frac
