@@ -1691,7 +1691,7 @@ f(z)
 =
 \frac{b-ad}{z+d}+a
 =
-T_a\biggr(D_{b-ad}\Bigr(I\bigl(T_d(z)\bigr)\Bigr)\biggr) .
+T_a\biggr(D_{b-ad}\Bigl(I\bigl(T_d(z)\bigr)\Bigr)\biggr) .
 \end{equation*}
 If $c=0$, then we can also assume that $d=1$ and
 so $f(z) = az + b$.  So
@@ -19595,7 +19595,7 @@ not be empty, but $U_1 \cap U_2 \cap S = \emptyset$.\label{fig:disconsubset}}
 
 
 \begin{proof}
-First suppose $S$ is disconnected: there are
+First suppose $S$ is disconnected, that is, there are
 nonempty disjoint $S_1$ and $S_2$ that are
 open in $S$ and $S = S_1 \cup S_2$.
 \propref{prop:topology:subspaceopen} says there exist $U_1$ and $U_2$
@@ -20070,13 +20070,13 @@ a $K \in \N$ such that for all $n \geq K$, we have $x_n = x_K$.
 
 \begin{exercise}
 A set $S \subset X$ is said to be \emph{dense} in $X$ if
-$X \subset \widebar{S}$ or in other words if for every $x \in X$,
+$X \subset \widebar{S}$ or, in other words, if for every $x \in X$,
 there exists a sequence $\{ x_n \}$ in $S$ that converges to $x$.  Prove
 that $\R^n$ contains a countable dense subset.
 \end{exercise}
 
 \begin{exercise} \label{exercise:extendedrealsmetric}
-Take $\R^* = \{ -\infty \} \cup \R \cup \{ \infty \}$ be the extended reals.
+Take $\R^* = \{ -\infty \} \cup \R \cup \{ \infty \}$ to be the extended reals.
 Define $d(x,y) = \babs{\frac{x}{1+\sabs{x}} - \frac{y}{1+\sabs{y}}}$
 if $x, y \in \R$,
 define $d(\infty,x) = \babs{1 - \frac{x}{1+\sabs{x}}}$,
@@ -20217,7 +20217,7 @@ we have $x_n \in U$.
 
 \begin{proof}
 Suppose $\{ x_n \}$ converges to $x$.  Let $U$ be an open neighborhood
-of $x$, then there exists an $\epsilon > 0$ such that $B(x,\epsilon) \subset
+of $x$.  There exists an $\epsilon > 0$ such that $B(x,\epsilon) \subset
 U$.  As the sequence converges, find an $M \in \N$ such that for all $n \geq
 M$, we have $d(x,x_n) < \epsilon$, or in other words $x_n \in B(x,\epsilon)
 \subset U$.
@@ -20361,7 +20361,7 @@ Fix some $k=1,2,\ldots,n$.  For $i,j \geq M$,
 = d(x_i,x_j) < \epsilon .
 \end{equation*}
 Hence the sequence $\{ x_{j,k} \}_{j=1}^\infty$ is Cauchy.  As $\R$ is
-complete the sequence converges; there exists a $y_k \in \R$ such that
+complete, the sequence converges; there exists a $y_k \in \R$ such that
 $y_k = \lim_{j\to\infty} x_{j,k}$.
 Write $y = (y_1,y_2,\ldots,y_n) \in \R^n$.
 By \propref{prop:msconveuc}, $\{ x_j \}$ converges
@@ -20381,7 +20381,7 @@ The proof is again an exercise.
 
 \begin{prop} \label{prop:closedcomplete}
 Suppose $(X,d)$ is a complete metric space and $E \subset X$
-is closed, then $E$ is a complete metric space with the subspace topology.
+is closed.  Then $E$ is a complete metric space with the subspace topology.
 \end{prop}
 
 \begin{exbox}
@@ -20494,7 +20494,7 @@ B(p,n_k)
 So $K$ is bounded.
 See left-hand side of \figureref{fig:compactbndclosed}.
 
-Next, we show a set that is not closed is not compact.  Suppose 
+Next, we show that a set that is not closed is not compact.  Suppose 
 $\widebar{K} \not= K$, that is, there is a point $x \in \widebar{K}
 \setminus K$.
 We have the open cover
@@ -20601,8 +20601,8 @@ B(x,\epsilon)$ by triangle inequality.\label{fig:lebesguedelta}}
 \end{myfig}
 
 It is important to recognize what the lemma says.  It says that
-if $K$ is sequentially compact, then given any
-cover there is a single $\delta > 0$.  The $\delta$ depends on the cover,
+if $K$ is sequentially compact, then for any given
+cover, there is a single $\delta > 0$.  The $\delta$ depends on the cover,
 but, of course, it does not depend on $x$.
 
 For example, let $K = [-10,10]$ and for $n \in \Z$ let $U_n =
@@ -20649,7 +20649,7 @@ Suppose $n_{j-1}$ is defined.
 There must exist an $\ell > n_{j-1}$
 such that $x_\ell \in B(x,\nicefrac{1}{j})$.  Define
 $n_j = \ell$.
-We now posses a subsequence $\{ x_{n_j} \}_{j=1}^\infty$.
+We now possess a subsequence $\{ x_{n_j} \}_{j=1}^\infty$.
 Since
 $d(x,x_{n_j}) < \nicefrac{1}{j}$,  \propref{prop:msconvifa} says
 $\lim\, x_{n_j} = x$.
@@ -20733,7 +20733,7 @@ and only if it is closed in $X$.
 See \propref{prop:topology:subspacesame}.
 Let $\{ x_n \}$ be a sequence in $E$.  It is also a sequence in $K$.
 Therefore, it has a convergent subsequence $\{ x_{n_j} \}$ that converges to
-some $x \in K$.  As $E$ is closed the limit of a sequence in $E$ is also in $E$
+some $x \in K$.  As $E$ is closed, the limit of a sequence in $E$ is also in $E$
 and so $x \in E$.  Thus $E$ must be compact.
 \end{proof}
 
@@ -20766,7 +20766,7 @@ Let $\bigl\{ (x_k,y_k) \bigr\}_{k=1}^\infty$ be a sequence in $B$.  That is,
 $a \leq x_k \leq b$ and
 $c \leq y_k \leq d$ for all $k$.  A bounded sequence of real numbers
 has a convergent
-subsequence so there is a subsequence $\{ x_{k_j} \}_{j=1}^\infty$
+subsequence, so there is a subsequence $\{ x_{k_j} \}_{j=1}^\infty$
 that is convergent.  The subsequence 
 $\{ y_{k_j} \}_{j=1}^\infty$ is also a bounded sequence so there exists
 a subsequence
@@ -20805,7 +20805,7 @@ $E_1 \supset E_2 \supset E_3 \supset \cdots$.  Then
 \begin{proof}
 Suppose $E_1,E_2,\ldots$ are as in the statement except we do not
 assume they are nonempty.
-Compact sets are closed so their complement is open.  Consider
+Compact sets are closed, so their complement is open.  Consider
 $U_k = X \setminus E_k$.  Suppose that the intersection is empty.
 Then $\{ U_k \}$ is an open cover of $E_1$, which is compact,
 and hence there is a finite subcover.
@@ -20960,7 +20960,7 @@ Suppose $f$ is continuous at $c$.  Let $\{ x_n \}$ be a
 sequence in $X$ converging to $c$.  Given $\epsilon > 0$,
 there is a $\delta > 0$ such that $d_X(x,c) < \delta$ implies
 $d_Y\bigl(f(x),f(c)\bigr) < \epsilon$.  So take $M$ such that
-for all $n \geq M$, we have $d_X(x_n,c) < \delta$, then
+for all $n \geq M$, we have $d_X(x_n,c) < \delta$, and then
 $d_Y\bigl(f(x_n),f(c)\bigr) < \epsilon$.  Hence $\{ f(x_n) \}$
 converges to $f(c)$.
 
@@ -21049,8 +21049,8 @@ Then $f$ is continuous at $c \in X$ if and only if its real
 and imaginary parts are continuous at $c$.  
 This fact follows because $\bigl\{ f(p_n) = u(p_n) + i v(p_n) \bigr\}_{n=1}^\infty$
 converges to $f(p) = u(p) + i v(p)$ if and only if
-$\bigl\{ u(p_n) \bigl\}$ converges to $u(p)$ and
-$\bigl\{ v(p_n) \bigl\}$ converges to $v(p)$.
+$\bigl\{ u(p_n) \bigr\}$ converges to $u(p)$ and
+$\bigl\{ v(p_n) \bigr\}$ converges to $v(p)$.
 \end{example}
 
 \begin{prop}\label{prop:distcont}
@@ -21611,7 +21611,7 @@ we assume as a prerequisite a basic knowledge of analysis on the real line.
 Let us, however, survey some basic results that the reader might not have
 seen in such a course, and that are useful in the text.  Furthermore,
 we require some of these results in metric spaces and although their proofs
-are essentially the same as on the real line it is worth it to put them down.
+are essentially the same as on the real line, it is worth it to put them down.
 The text is partly adapted from \cite{ra:book} and \cite{ra:book2}.
 See those two texts for more details.
 
@@ -21643,7 +21643,7 @@ the restrictions of $f_n$ to $T$ converge pointwise to $f$.
 As limits of sequences of numbers are unique, the limit function $f$ is unique.
 
 Pointwise convergence does not preserve much structure about $f$.
-For example a pointwise limit of continuous functions is not continuous,
+For example, a pointwise limit of continuous functions is not continuous,
 see the exercises.
 
 \begin{defn}
@@ -21801,7 +21801,7 @@ is, at each $x \in X$ there exists a sequence of neighbourhoods $U_j$ such
 that any neighbourhood $U$ of $x$ contains one of the $U_j$s, a so-called
 countable neighborhood basis.  In a metric space, $B(x,\nicefrac{1}{n})$
 does the job.  But functions on an uncountable set $S$ with pointwise
-convergence does not have a first countable topology.  We do not want to
+convergence do not have a first countable topology.  We do not want to
 wade too deep into general topology to prove this fact.
 \end{remark}
 
@@ -22017,8 +22017,8 @@ Therefore, $\bigl\{ \int_a^b f_n(x) \,dx \bigr\}$ converges to $\int_a^b f(x) \,
 \end{proof}
 
 \begin{remark}
-While we will not require the Lebesgue integral in this book, note that
-for Lebesgue integral a much stronger convergence theorem holds.  In
+While we do not require the Lebesgue integral in this book, note that
+for the Lebesgue integral, a much stronger convergence theorem holds.  In
 particular, the dominated convergence theorem implies that if
 $\{ f_n \}$ is a sequence of measurable functions on $[a,b]$,
 converging pointwise to $f \colon [a,b] \to \R$, and such that
@@ -22063,8 +22063,8 @@ converge uniformly to $0$.
 See \figureref{fig:conv1nsinxn}.
 The derivative of the limit is $0$.
 But $f_n'(x) = \cos(nx)$,
-and that sequence not converge even pointwise:
-for example, $f_n'(\pi) = {(-1)}^n$.
+and that sequence does not converge even pointwise:
+For example, $f_n'(\pi) = {(-1)}^n$.
 Furthermore, $f_n'(0) = 1$ for all $n$, which does converge, but not to $0$.
 \begin{myfig}
 \includegraphics{figures/conv1nsinxn}
@@ -22185,8 +22185,8 @@ Let $f(x,y)$ be a function of two variables and define
 \begin{equation*}
 g(y) = \int_a^b f(x,y) \,dx .
 \end{equation*}
-Question is: Is $g$ is continuous?
-We are really asking when do two limiting operations commute,
+Question is: Is $g$ continuous?
+We are really asking when do two limits commute,
 which is not always possible, so some extra hypothesis
 is necessary.  A sufficient (but not
 necessary) condition is that $f$ is continuous on a closed rectangle.
@@ -22299,8 +22299,8 @@ f\left(a+\frac{k(b-a)}{n},y\right)
 k=1,\ldots,n.
 \end{cases}
 \end{equation*}
-This $g_n$ is the \myquote{right-hand rule} step function with sub
-interval length $\frac{b-a}{n}$:
+This $g_n$ is the \myquote{right-hand rule} step function with
+subinterval length $\frac{b-a}{n}$:
 Integrating $g_n$ with respect to $x$ is the right-hand rule for integrating $f$.
 Let $n$ be large enough so that $\frac{b-a}{n} < \delta$.  Then,
 via the uniform continuity estimate, we find that $\babs{f(x,y)-g_n(x,y)} < \epsilon$
@@ -22407,8 +22407,8 @@ If $f$ is continuous on $[a,b] \times [c,d]$, then
 says that $g$ is continuous on $[c,d]$.
 Suppose $f$ is differentiable in $y$.
 Can we \myquote{differentiate under the integral?}
-Differentiation is a limit and we are again asking when do the
-two limiting operations, integration and differentiation, commute.
+Differentiation is a limit and we are again asking when do
+two limits, namely integration and differentiation, commute.
 The first
 question we face is the integrability of
 $\frac{\partial f}{\partial y}$, but the formula can fail even if
@@ -23727,8 +23727,8 @@ continuous functions, it is continuous.
 \begin{example}
 Just because $Df|_x$ is invertible everywhere does not
 mean that $f$ is
-one-to-one globally.  Consider
-the map $f \colon \R^2 \setminus \{ 0 \} \to \R^2 \setminus \{
+one-to-one globally.
+The map $f \colon \R^2 \setminus \{ 0 \} \to \R^2 \setminus \{
 0 \}$ defined
 by $f(x,y) = (x^2-y^2,2xy)$,  that is, the mapping $z \mapsto z^2$ in the
 complex plane.  It is not hard to check that
@@ -23745,7 +23745,7 @@ to $\R$ and is globally one-to-one with a continuous inverse, although the
 inverse is not differentiable at $x=0$.
 
 \begin{remark}
-As a side note, there is a related famous, and as yet unsolved problem,
+As a side note, there is a famous related, and as yet unsolved, problem
 called the \emph{\myindex{Jacobian conjecture}}.  If $F \colon \R^n \to \R^n$
 (or more famously $F \colon \C^n \to \C^n$)
 is polynomial (each component is a polynomial) and $\det DF$ is a nonzero
