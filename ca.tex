@@ -17541,9 +17541,10 @@ such $p$ exists and \ref{cor:polyhull:iii} is true.
 Suppose \ref{cor:polyhull:iii} is true.  Suppose $\C_\infty \setminus U$
 has a component $K$ that does not include $\infty$.  The set $K$ is compact.
 By \lemmaref{lemma:patharoundK}, there exists a cycle $\Gamma$ 
-in $U$ such that $n(\Gamma;z) = 1$ on $K$.  That means that $K$ is
-not in the unbounded component of $\C \setminus \Gamma$ (by
-\propref{prop:windingconstant}).  By \thmref{thm:polyhull},
+in $U$ such that $n(\Gamma;z) = 1$ on $K$.
+\propref{prop:windingconstant} says that
+$K$ is not in the unbounded component of $\C \setminus \Gamma$.
+By \thmref{thm:polyhull},
 $K \subset \widehat{\Gamma}$,
 which contradicts $U$ being polynomially convex.  Thus the only component of $\C_\infty
 \setminus U$ is the one that contains $\infty$ and so $U$ is simply
@@ -17558,7 +17559,7 @@ Prove that $U = \C$.
 \end{exercise}
 
 \begin{exercise}
-If $W \subset \C$ is a nonempty bounded open set.  Prove that $\partial W$ has a
+Prove that if $W \subset \C$ is a nonempty bounded open set, then $\partial W$ has a
 limit point.
 \end{exercise}
 
@@ -17608,9 +17609,9 @@ Given a \hyperref[defn:principalpart]{principal part} of a function with a pole 
 \begin{equation*}
 P(z) = \sum_{m=1}^{k} \frac{c_m}{{(z-p)}^m} ,
 \end{equation*}
-we ask for a meromorphic function with that pole exactly.  That
-is not hard: $P(z)$.  How about two principal parts, $P_1(z)$ and $P_2(z)$
-for two different poles.  Well, $P_1(z)+P_2(z)$ works wonderfully, no?
+we ask for a meromorphic function with such a pole.  That
+is not hard: $P(z)$.  How about two principal parts, $P_1(z)$ and $P_2(z)$,
+for two poles?  Well, $P_1(z)+P_2(z)$ works wonderfully, no?
 Given a sequence of poles and principal parts
 $P_1(z),P_2(z),\ldots$, we wish to take
 \begin{equation*}
