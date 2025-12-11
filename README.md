@@ -7,7 +7,7 @@ Oklahoma State University.  There is a bit more than a one-semester's worth of
 material in there to allow some choices.  If the metric space appendix is also
 covered first, then it is quite a bit more than one-semester's worth.
 
-See https://www.jirka.org/ca/
+See https://www.jirka.org/ca/ or https://jirilebl.github.io/ca/
 
 * ca.tex is the LaTeX file
 * notations.tex is the list of notations
