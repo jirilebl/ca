@@ -914,7 +914,7 @@ $\lim\limits_{n\to\infty} a_n b_n =
 \left(\lim\limits_{n\to\infty} b_n \right)$,
 \item
 $\lim\limits_{n\to\infty} \frac{1}{a_n} = \frac{1}{\lim\limits_{n\to\infty} a_n}$,
-as long as $\lim\limits_{n\to\infty} a_n \not= 0$,
+as long as $\lim\limits_{n\to\infty} a_n \neq 0$,
 \item
 $\lim\limits_{n\to\infty} \bar{a}_n = 
 \overline{\lim\limits_{n\to\infty} a_n}$.
@@ -1397,9 +1397,9 @@ $2k\pi < \Im w \leq 2(k+1)\pi$, then $e^z=e^w$ implies $z=w$.
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
-Use $e^{z+w} = e^z e^w$ and $e^0 = 1 \not= 0$ to show that $e^z \not=0$ for all
+Use $e^{z+w} = e^z e^w$ and $e^0 = 1 \neq 0$ to show that $e^z \neq 0$ for all
 $z \in \C$.  In other words, show that if a function $f$ satisfies $f(z+w)=f(z)f(w)$
-and $f(0) = 1$, then $f(z) \not= 0$ for all $z$.
+and $f(0) = 1$, then $f(z) \neq 0$ for all $z$.
 \end{exercise}
 \end{exbox}
 
@@ -1460,7 +1460,7 @@ Define the function $g \colon \C_\infty \to \C_\infty$ by
 \begin{equation*}
 g(z) =
 \begin{cases}
-\nicefrac{1}{z} & \text{if } z \not= 0 \text{ and } z \not= \infty, \\
+\nicefrac{1}{z} & \text{if } z \neq 0 \text{ and } z \neq \infty, \\
 \infty & \text{if } z = 0, \\
 0 & \text{if } z = \infty.
 \end{cases}
@@ -1585,7 +1585,7 @@ In fact, every nonconstant polynomial is $\infty$ at $\infty$.
 \label{exercise:polygoesinf}
 Suppose $P(z) = a_d z^d + a_{d-1} z^{d-1} + \cdots + a_1 z + a_0$ is
 a polynomial where $a_0,\ldots,a_d \in \C$.  Prove that if $d \geq 1$
-and $a_d \not=0$ ($P$ is nonconstant),
+and $a_d \neq 0$ ($P$ is nonconstant),
 then $\lim_{z \to \infty} P(z) = \infty$.
 Hint: If $a_d = 1$, then using
 $\abs{\frac{a_{d-1} z^{d-1} + \cdots + a_1 z + a_0}{z^d}}$, one finds
@@ -1619,7 +1619,7 @@ The (partial) arithmetic that one can
 reasonably define with the $\infty$ of the Riemann sphere
 is quite different from
 the $\infty$ of the extended reals.
-For $c \not= \infty$, we could define $c+\infty = \infty$,
+For $c \neq \infty$, we could define $c+\infty = \infty$,
 but neither $\infty+\infty$ nor $\infty-\infty$ makes sense.
 For instance, if $f(z) = z$ and $g(z) = c-z$,
 then $\lim_{z \to \infty} f(z) = \infty$,
@@ -1627,8 +1627,8 @@ $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
 \bigl(f(z)+g(z)\bigr) = c$, so $\infty+\infty$ does not make sense.
 Unlike for the extended reals,
 it is reasonable (and at times useful) to define $\nicefrac{c}{0} = \infty$ for
-$c \not= 0$, $\nicefrac{c}{\infty} = 0$ for $c \not= \infty$,
-and $c \cdot \infty = \infty$ for $c \not= 0$.
+$c \neq 0$, $\nicefrac{c}{\infty} = 0$ for $c \neq \infty$,
+and $c \cdot \infty = \infty$ for $c \neq 0$.
 %We could also define $\infty \cdot \infty = \infty$, $\frac{0}{\infty} = 0$,
 %and
 %$\frac{\infty}{0} = \infty$.
@@ -1646,11 +1646,11 @@ A function
 \begin{equation*}
 f(z) = \frac{a z + b}{c z + d}
 \end{equation*}
-is a linear fractional transformation if $ad \not= bc$.  The requirement on
+is a linear fractional transformation if $ad \neq bc$.  The requirement on
 $a$, $b$, $c$, $d$ guarantees that the ratio does not simplify and that the
 function is nonconstant.
 
-If $c\not=0$,
+If $c \neq 0$,
 the expression is really defined only on
 $\C \setminus \bigl\{ \nicefrac{-d}{c} \bigr\}$;
 however, as in the last section, write
@@ -1813,7 +1813,7 @@ When $z = \nicefrac{-d}{c}$, then $cz+d = 0$, and
 $\Psi\circ f(z) = \Psi(\infty) = [1:0] = [az+b : cz+d]$ as well.
 
 Let us consider $\Psi \circ f \circ \Psi^{-1}$.
-If $w \not= 0$, then $[z:w] = [ \nicefrac{z}{w}:1 ]$.  So
+If $w \neq 0$, then $[z:w] = [ \nicefrac{z}{w}:1 ]$.  So
 \begin{equation*}
 \Psi \circ f \circ \Psi^{-1} \bigl([z:w]\bigr) =
 \Psi \circ f \left(\frac{z}{w}\right) =
@@ -1827,7 +1827,7 @@ $M \left[ \begin{smallmatrix} z \\ w \end{smallmatrix} \right]
 a z + b w \\ c z + d w
 \end{smallmatrix} \right]$,
 the function $f$ corresponds to the linear map $v \mapsto Mv$ on $\C^2$.
-The requirement $ad \not= bc$ implies $\det M \not= 0$,
+The requirement $ad \neq bc$ implies $\det M \neq 0$,
 or in other words, $M$ is invertible.
 So every LFT is represented by an invertible $2 \times 2$ matrix $M$
 (not uniquely), and
@@ -2318,7 +2318,7 @@ the Cauchy--Riemann equations (outside the origin) on $f=u+iv$ are
 Use the computation to (locally) find the form of all solutions to 
 the Cauchy--Riemann equations where $\Re f = u$ does not depend on the
 argument $\theta$.  By \myquote{locally} we mean only in some neighborhood $U$ of
-every point $p \not= 0$.
+every point $p \neq 0$.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -2359,8 +2359,8 @@ We offer two proofs.  The first works only for holomorphic
 functions, and the second allows a generalization to nonholomorphic functions
 with the Wirtinger operators in the next section (an exercise).
 
-Let $h \not= 0$, and let $k = f(z+h) -f(z)$.
-Assume first that $k\not=0$.
+Let $h \neq 0$, and let $k = f(z+h) -f(z)$.
+Assume first that $k \neq 0$.
 Then
 \begin{equation*}
 \begin{split}
@@ -2376,7 +2376,7 @@ Then
 \end{equation*}
 A differentiable function is continuous, so $k \to 0$ as $h \to 0$.
 If $k=0$, then the difference quotient for $g \circ f$ is zero, but $k=0$
-only happens for arbitrarily small $h\not=0$ if
+only happens for arbitrarily small $h \neq 0$ if
 $f'(z)=0$.  So if $f'(z)=0$,
 the difference 
 quotient of $g \circ f$ goes to zero whether or
@@ -2447,7 +2447,7 @@ $f+g$ is holomorphic and $\frac{d}{dz}\bigl[ f(z)+g(z) \bigr] = f'(z) + g'(z)$.
 \item
 $fg$ is holomorphic and $\frac{d}{dz}\bigl[f(z) g(z) \bigr] = f'(z)g(z) + f(z)g'(z)$.
 \item
-$\nicefrac{1}{g}$ is holomorphic on $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ and
+$\nicefrac{1}{g}$ is holomorphic on $\bigl\{ z \in U : g(z) \neq 0 \bigr\}$ and
 $\frac{d}{dz}\bigl[\frac{1}{g(z)}\bigr] = \frac{-g'(z)}{{\bigl(g(z)\bigr)}^2}$.
 \end{enumerate}
 \end{prop}
@@ -2457,7 +2457,7 @@ to do it.  One way is almost identical to the
 proof for functions of one real variable.
 Note that
 a holomorphic function is continuous, and so the set
-$\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
+$\bigl\{ z \in U : g(z) \neq 0 \bigr\}$ is open.
 
 \begin{prop}[Power rule and its consequences] \label{prop:powerrule}
 \leavevmode
@@ -2465,7 +2465,7 @@ $\bigl\{ z \in U : g(z) \not= 0 \bigr\}$ is open.
 \item For every integer $n$, the function $z \mapsto z^n$ is holomorphic
 where defined (outside the origin if $n$ negative) and
 $\frac{d}{dz}\bigl[ z^n \bigr] = n z^{n-1}$
-if $n\not=0$ and $\frac{d}{dz}\bigl[ z^0 \bigr] = 0$.
+if $n \neq 0$ and $\frac{d}{dz}\bigl[ z^0 \bigr] = 0$.
 \item
 A polynomial $P(z) = \sum_{n=0}^d c_n z^n$ is
 holomorphic and
@@ -2522,7 +2522,7 @@ as the following exercise shows.
 %it is convenient to have the power rule and chain rule.
 \begin{exbox}
 \begin{exercise} \label{exercise:nonholCRsol}
-Let $f(0) = 0$ and $f(z) = e^{-z^{-4}}$ for $z \not=0$.  Prove that partial
+Let $f(0) = 0$ and $f(z) = e^{-z^{-4}}$ for $z \neq 0$.  Prove that partial
 derivatives exist at every point (including the origin) and $f$
 satisfies the Cauchy--Riemann equations at every point,
 but $f$ is not complex differentiable at the origin ($f$ is not
@@ -2925,12 +2925,12 @@ and there exists an inverse for every element.
 \end{exercise}
 
 \begin{exercise}
-Show that for any constants $a,b \in \C$, $a \not= 0$, the function
+Show that for any constants $a,b \in \C$, $a \neq 0$, the function
 $a z + b$ is an automorphism of $\C$.
 \end{exercise}
 \end{exbox}
 
-A biholomorphism $f$ has the property that $f'(z) \not= 0$ for all $z$.
+A biholomorphism $f$ has the property that $f'(z) \neq 0$ for all $z$.
 Indeed,
 $f$ and $f^{-1}$ are holomorphic, so differentiate the
 equality
@@ -2995,7 +2995,7 @@ We obtain the holomorphic inverse function theorem.
 \index{inverse function theorem!holomorphic functions}
 \label{thm:inversehol}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-$p \in U$, and $f'(p) \not= 0$.  Suppose further that $f$ is continuously
+$p \in U$, and $f'(p) \neq 0$.  Suppose further that $f$ is continuously
 differentiable.
 Then there exist open sets $V, W \subset \C$ such that
 $p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is injective
@@ -3061,7 +3061,7 @@ derivative is nonzero.
 \item
 Show that $z^2$ is a biholomorphism of the right half-plane
 $\{ z \in \C : \Re z > 0 \}$
-and the slit plane $\C \setminus (-\infty,0] = \{ z \in \C : \Im z \not= 0 \text{ or } \Re z > 0 \}$.
+and the slit plane $\C \setminus (-\infty,0] = \{ z \in \C : \Im z \neq 0 \text{ or } \Re z > 0 \}$.
 \end{exparts}
 \end{exercise}
 
@@ -3341,7 +3341,7 @@ If $\sabs{z}<1$, then $\lim\limits_{n\to \infty} z^n = 0$.
 \item
 If $\sabs{z}>1$, then $\lim\limits_{n\to \infty} z^n = \infty$.
 \item
-If $z \not= 1$ is such that $\sabs{z}=1$, then $z^n$ diverges as $n \to
+If $z \neq 1$ is such that $\sabs{z}=1$, then $z^n$ diverges as $n \to
 \infty$.
 \end{exparts}
 \end{exercise}
@@ -3364,7 +3364,7 @@ where $c_n$ are some complex numbers.  Where it converges, it defines a
 function of $z$.  As the series clearly converges at $z=p$, we worry about
 convergence at other points.  We say the series is
 \emph{convergent}\index{convergent power series} if it converges at
-some $z \not= p$.
+some $z \neq p$.
 
 The most important series, and in some sense the only one that we really
 know how to sum, is the \emph{\myindex{geometric series}}.
@@ -3376,7 +3376,7 @@ know how to sum, is the \emph{\myindex{geometric series}}.
 \begin{equation*}
 \frac{1}{1-z} = \sum_{n=0}^\infty z^n .
 \end{equation*}
-\item For $z \not\in \D$,
+\item For $z \notin \D$,
 \begin{equation*}
 \sum_{n=0}^\infty z^n \quad \text{diverges.}
 \end{equation*}
@@ -3399,7 +3399,7 @@ All three items follow (details left as exercise) from
 \begin{equation*}
 1+z+z^2+\cdots+z^m = \frac{1-z^{m+1}}{1-z} ,
 \end{equation*}
-for all $z \not= 1$, which follows by expanding 
+for all $z \neq 1$, which follows by expanding 
 $(1-z)(1+z+z^2+\cdots+z^m)$.
 \end{proof}
 
@@ -3603,7 +3603,7 @@ Show that
 $\sum_{n=0}^\infty n^n z^{n^n}$ has radius of convergence $1$,
 while
 $\sum_{n=0}^\infty n^n z^{n}$ is not convergent 
-for any $z \not= 0$.
+for any $z \neq 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -3656,7 +3656,7 @@ then use the absolute convergence.
 If $\sum_{n=0}^\infty a_n z^{n}$ and $\sum_{n=0}^\infty b_n z^{n}$
 converge and are equal in a disc $\Delta_r(0)$, then $a_n = b_n$
 for all $n$.  Hint: First suppose $b_n = 0$ for all $n$
-and find the first $n$ where $a_n \not=0$.
+and find the first $n$ where $a_n \neq 0$.
 \end{exercise}
 \end{exbox}
 
@@ -4025,8 +4025,8 @@ The points in the set $Z_f$ are called the \emph{zeros}\index{zero} of $f$.
 The \myquote{In other words} bit is
 one consequence of this theorem that we will use often.  More
 concretely, if $f(p)=0$, but $f$ is not
-identically zero, then there is a disc $\Delta_r(p)$ such that $f(z) \not=
-0$ for all $z \in \Delta_r(p) \setminus \{ 0 \}$.
+identically zero, then there is a disc $\Delta_r(p)$ such that
+$f(z) \neq 0$ for all $z \in \Delta_r(p) \setminus \{ 0 \}$.
 
 Another common application of the theorem is the following weaker statement:
 \myquote{If the function is zero on a nonempty open subset, then $f \equiv 0$.}
@@ -4044,14 +4044,15 @@ Near $0$, write
 \begin{equation*}
 f(z) = \sum_{n=0}^\infty c_n z^n .
 \end{equation*}
-As $f(0) = 0$, $c_0 =0$.  Let $k$ be the smallest $k$ such that $c_k \not=0$;
+As $f(0) = 0$, $c_0 =0$.  Let $k$ be the smallest $k$ such that $c_k \neq 0$;
 this $k$ exists as otherwise $f$ would be identically zero near $0$
 and we assumed $0$ is not in the interior of $Z_f$.  Then
 \begin{equation*}
 f(z) = z^k \sum_{n=k}^\infty c_n z^{n-k} = z^k g(z) .
 \end{equation*}
-The series $g(z)$ is a convergent power series and $g(0) = c_k \not=
-0$.  A power series is continuous, and hence $g(z) \not= 0$ in a whole
+The series $g(z)$ is a convergent power series and
+$g(0) = c_k \neq 0$.
+A power series is continuous, and hence $g(z) \neq 0$ in a whole
 neighborhood of $0$.
 As $z^k$ is only zero at $0$, we find that $0$ is an isolated point of $Z_f$.
 
@@ -4063,7 +4064,7 @@ have an isolated point of $Z_f$ as a limit.
 We have proved above that nonisolated
 points must be interior points of $Z_f$ (and hence of $Z_f'$).
 So $Z_f'$ is both open and closed.  As $U$ is connected and 
-that $Z_f' \not= U$, we conclude $Z_f' = \emptyset$.
+that $Z_f' \neq U$, we conclude $Z_f' = \emptyset$.
 Thus all points of $Z_f$ are isolated.
 \end{proof}
 
@@ -4074,7 +4075,7 @@ we can factor out some power of $z-a$,
 \begin{equation*}
 f(z) = {(z-a)}^k g(z) ,
 \end{equation*}
-where $g(z)$ is a power series at $a$ such that $g(a) \not= 0$.
+where $g(z)$ is a power series at $a$ such that $g(a) \neq 0$.
 
 \begin{exbox}
 \begin{exercise}
@@ -4131,7 +4132,7 @@ One of the downsides of analytic functions is that there are no compactly
 supported analytic functions on $\C$.  The \emph{\myindex{support}}
 of a function $f \colon U
 \to \C$ is the closure (in $U$) of the set
-$\bigl\{ z \in U : f(z) \not= 0 \bigr\}$, that is, 
+$\bigl\{ z \in U : f(z) \neq 0 \bigr\}$, that is, 
 the support is $\overline{U \setminus Z_f} \cap U$.
 
 \begin{exbox}
@@ -4306,7 +4307,7 @@ integral does not depend on $r$.
 
 \begin{exbox}
 \begin{exercise}[Easy]
-Prove that if $k\not= 0$, then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
+Prove that if $k \neq 0$, then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -4957,7 +4958,7 @@ and $g'(p) = 0$ such that $\int_\Gamma g(z)\, dz = \int_\Gamma f(z) \, dz$.
 \end{exercise}
 
 \begin{exercise}
-Let $n\not=-1$ be an integer and $\Gamma$ a cycle in $\C \setminus \{ 0 \}$.
+Let $n \neq -1$ be an integer and $\Gamma$ a cycle in $\C \setminus \{ 0 \}$.
 Compute
 \begin{equation*}
 \int_\Gamma z^n \, dz .
@@ -5138,7 +5139,7 @@ there is a $z_k \in \partial T^k$ such that
 \frac{2^k}{\ell}
 \int_{\partial T^k} \sabs{g(z)} \, \sabs{dz} .
 \end{equation*}
-We have $z_k \not= z_0$ as $g(z_0)=0$
+We have $z_k \neq z_0$ as $g(z_0)=0$
 and $\sabs{g(z_k)} \geq \frac{c}{\ell 2^k} > 0$.
 Let $d = \operatorname{diam}(T)$.  Then
 $\sabs{z_k-z_0} \leq \frac{d}{2^k}$ and
@@ -5260,13 +5261,13 @@ Suppose $U \subset \C$ is open and star-like.  Prove that $U$ is connected.
 \begin{exparts}
 \item
 Prove that if $U_1,\ldots,U_n \subset \C$ are convex and $U_1 \cap 
-\cdots \cap U_n \not= \emptyset$, then the union $U_1 \cup \cdots \cup U_n$
+\cdots \cap U_n \neq \emptyset$, then the union $U_1 \cup \cdots \cup U_n$
 is star-like.
 \item
 Find an example of convex $U_1,U_2,U_3 \subset \C$ where
-$U_1 \cap U_2 \not= \emptyset$,
-$U_1 \cap U_3 \not= \emptyset$, and
-$U_2 \cap U_3 \not= \emptyset$, but such that $U_1 \cup U_2 \cup U_3$
+$U_1 \cap U_2 \neq \emptyset$,
+$U_1 \cap U_3 \neq \emptyset$, and
+$U_2 \cap U_3 \neq \emptyset$, but such that $U_1 \cup U_2 \cup U_3$
 is not star-like.
 \end{exparts}
 \end{exercise}
@@ -5890,7 +5891,7 @@ Even worse, the real derivative could even be discontinuous.
 \begin{exbox}
 \begin{exercise}
 Let $f \colon \R \to \R$ be defined by $f(0) = 0$ and $f(x) = x^2
-\sin( \nicefrac{1}{x} )$ for $x \not= 0$.
+\sin( \nicefrac{1}{x} )$ for $x \neq 0$.
 \begin{exparts}
 \item
 Show that $f$ is
@@ -6022,7 +6023,7 @@ The previous exercise may seem trivial, but the key is that we can prove
 (using Cauchy's formula) that the partials are continuous as a function of
 $U \times (a,b)$ by using continuity of $f$ on $U \times (a,b)$.  No such
 result is true for nonholomorphic functions.  Prove that the function defined by
-$f(x,t) = t \sin(\nicefrac{x}{t})$ for $t \not= 0$ and $f(x,0) =  0$
+$f(x,t) = t \sin(\nicefrac{x}{t})$ for $t \neq 0$ and $f(x,0) =  0$
 is continuous as a function of $\R^2$, and for each fixed $t$, the function
 $x \mapsto f(x,t)$ is differentiable (infinitely differentiable in fact),
 but $\frac{\partial f}{\partial x}$ is not continuous as a function of both
@@ -6245,11 +6246,11 @@ Suppose $U \subset \C$ is a domain and
 $f \colon U \to \C$ is holomorphic.
 \begin{exparts}
 \item
-Prove that if $\sabs{f(z)}$ has a local minimum at $p \in U$ and $f(p) \not= 0$,
+Prove that if $\sabs{f(z)}$ has a local minimum at $p \in U$ and $f(p) \neq 0$,
 then $f$ is constant.
 \item
 Show by example that the hypothesis
-$f(p) \not= 0$ cannot be removed.
+$f(p) \neq 0$ cannot be removed.
 \end{exparts}
 \end{exercise}
 
@@ -6515,7 +6516,7 @@ polynomial $Q$ of degree $d-1$.
 \begin{exercise}[Easy]
 Prove the one-dimensional version of the \emph{\myindex{Jacobian conjecture}}:
 Suppose that $P(z)$ is a polynomial and $P'(z)$ is nonzero for all $z$,
-then $P$ is an automorphism of $\C$, that is, $P(z) = az+b$ and $a \not= 0$.
+then $P$ is an automorphism of $\C$, that is, $P(z) = az+b$ and $a \neq 0$.
 \end{exercise}
 
 \begin{exercise}[Easy]
@@ -6818,7 +6819,7 @@ $C[f|_{\partial \Delta_r(p)}]$, which is holomorphic.  In other words,
 $f$ is holomorphic.
 
 Let's attack the \myquote{Moreover.}
-Suppose $K \subset U$ is compact.  If $U \not= \C$, then the distance of
+Suppose $K \subset U$ is compact.  If $U \neq \C$, then the distance of
 $K$ and $\partial U$ is positive, say $d > 0$.
 If $U=\C$, take an arbitrary $d > 0$.  Consider 
 \begin{equation*}
@@ -6836,7 +6837,7 @@ the closed discs $\overline{\Delta_{d/2}(p)}$ is marked in dashed line.\label{fi
 The set $K'$ is also compact: It is clearly
 bounded, let us show it is closed.  Suppose that $p$ is not in $K'$.
 By compactness of $K$, there is a $q \in K$ such that $\sabs{p-q}$
-is the distance of $p$ to $K$.  As $p \not\in K'$,
+is the distance of $p$ to $K$.  As $p \notin K'$,
 $\sabs{p-q} > \nicefrac{d}{2}$.
 Every point in $\Delta_{\sabs{p-q}-d/2}(p)$
 is also further than $\nicefrac{d}{2}$ from $K$, so
@@ -7157,9 +7158,9 @@ Schwarz's lemma, if $z \in \D \setminus \{ 0 \}$, then
 Consequently, $h$ is a map of the disc to the closed disc.
 
 But $h$ can have no zeros:
-$h(z) = \frac{g(z)}{z}$ cannot be zero for $z \not= 0$ as $g$ is injective
+$h(z) = \frac{g(z)}{z}$ cannot be zero for $z \neq 0$ as $g$ is injective
 and it cannot have a zero at $z=0$
-as $h(0) = \lim_{z\to 0} \frac{g(z)}{z} = g'(0) \not= 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
+as $h(0) = \lim_{z\to 0} \frac{g(z)}{z} = g'(0) \neq 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
 continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
 In other words, $\sabs{g(z)}$ must approach $1$ as $z$
 approaches the boundary $\partial \D$.
@@ -7254,7 +7255,7 @@ If $f \colon \D \to \D$ is holomorphic, then
 \end{equation*}
 for all $z,\zeta \in \D$.
 If equality holds in one of the 
-inequalities for some $z \not= \zeta$,
+inequalities for some $z \neq \zeta$,
 then $f$ is an automorphism of $\D$.
 Conversely, if $f$ is an automorphism of $\D$,
 then equality holds in both inequalities for
@@ -7750,7 +7751,7 @@ Define $g \colon U \times U \to \C$ by
 \begin{equation*}
 g(\zeta,z) =
 \begin{cases}
-\frac{f(\zeta)-f(z)}{\zeta-z} & \text{if } \zeta \not= z , \\
+\frac{f(\zeta)-f(z)}{\zeta-z} & \text{if } \zeta \neq z , \\
 f'(\zeta)                 & \text{if } \zeta = z .
 \end{cases}
 \end{equation*}
@@ -8699,7 +8700,7 @@ converging uniformly on compact subsets of $\ann(p;r_1,r_2)$.
 \item
 If $c_{-1} = 0$, then
 \begin{equation*}
-F(z) = \sum_{n=-\infty,n\not=-1}^\infty \frac{c_n}{n+1} {(z-p)}^{n+1}
+F(z) = \sum_{n=-\infty,n \neq -1}^\infty \frac{c_n}{n+1} {(z-p)}^{n+1}
 \avoidbreak
 \end{equation*}
 converges uniformly on compact subsets of
@@ -8964,7 +8965,7 @@ Let $t_j$, $D_j$, $L_j$ be the same as in the proof of
 Let $\delta > 0$ be small enough so that if $\sabs{z-\zeta}
 < \delta$ and $z,\zeta \in D_j$, then $\sabs{L_j(z)-L_j(\zeta)} < \epsilon$.
 Such a $\delta$ exists as $D_j$ could be picked slightly smaller if needed
-to make sure that $p \not\in \overline{D_j}$ and so that each $L_j$
+to make sure that $p \notin \overline{D_j}$ and so that each $L_j$
 is uniformly continuous on $\overline{D_j}$ and therefore on $D_j$.
 
 Next make $\delta > 0$ possibly even smaller so that a $\delta$-neighborhood of each
@@ -9125,7 +9126,7 @@ Let $\gamma$ be a closed piecewise-$C^1$ path.  We need to show
 that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
 We know that $\gamma$ is homotopic to a constant $C \in U$, and it is
 trivial to see that $n(C;p) = 0$ (the $\theta$
-is a constant, also notice that $p \not= C$).
+is a constant, also notice that $p \neq C$).
 Thus $n(\gamma;p) = 0$.
 \end{proof}
 
@@ -9456,12 +9457,12 @@ zero, including the one-sided limits of the derivative at the
 the end points.  A $C^1$ path is locally a graph:
 If $\gamma \colon [-1,1] \to \C$ is a continuously differentiable function,
 $\gamma(0) = 0$,
-and $\Re \gamma'(0) \not= 0$, then
+and $\Re \gamma'(0) \neq 0$, then
 $z=x+iy = \gamma(t)$, or really the two equations
 $x = \Re \gamma(t)$ and $y = \Im \gamma(t)$,
 can be solved for $t$ and $y$ in terms of $x$ near $0$ by the implicit function
 theorem.  In other words, $\gamma$ near $0$ is a graph $y=f(x)$ for a $C^1$
-function $f$.  If $\Im \gamma'(0) \not=0$, the roles of $x$ and $y$ are
+function $f$.  If $\Im \gamma'(0) \neq 0$, the roles of $x$ and $y$ are
 swapped.
 
 \begin{proof}
@@ -9685,7 +9686,7 @@ We need to prove that the set of $z$ such that $n(\Gamma;z) = 1$ is equal to
 $U$ and $n(\Gamma;z) = 0$ for all $z$ in the complement of $\widebar{U}$.
 
 Suppose first that $z \in U$.  Then $z \in U'$ so $n(\gamma_1;z) = 1$.
-If $j\not=1$, then no point of the interior of $\gamma_j$ can be in $U$, as the
+If $j \neq 1$, then no point of the interior of $\gamma_j$ can be in $U$, as the
 exterior of $\gamma_j$ contains $\gamma_1$ and therefore points of $U$.
 So $U$ is a subset of the intersection of $U'$ and the exterior of
 $\gamma_j$.
@@ -9697,7 +9698,8 @@ is in the exterior of $\gamma_1$ and hence in the exterior of all the
 $\gamma_j$, or it is in the interior of $\gamma_1$ and also in the interior
 of some $\gamma_j$.  As $U$ is connected and contains exterior points
 of all $\gamma_2,\ldots,\gamma_k$, it is not possible for a point to be in
-the interior of two of these paths.  Thus, if $z \in U'$, there is exactly one $j\not= 1$
+the interior of two of these paths.  Thus, if $z \in U'$, there is exactly
+one $j \neq 1$
 such that $z$ is in the interior of $\gamma_j$.  In either case,
 $n(\Gamma;z) = 0$.
 \end{proof}
@@ -9791,9 +9793,9 @@ Then there exists a unique $k \in \N$ and a holomorphic $g \colon U
 \begin{equation*}
 f(z) = {(z-p)}^k g(z)
 \end{equation*}
-and $g(p) \not= 0$.
+and $g(p) \neq 0$.
 Furthermore, $k$ is the smallest integer such that the $k$\textsuperscript{th}
-derivative $f^{(k)}(p) \not= 0$.
+derivative $f^{(k)}(p) \neq 0$.
 \end{lemma}
 
 Before we prove the lemma, let us give a name to this integer $k$.
@@ -9817,10 +9819,10 @@ $k$ is the largest integer such that $\frac{f(z)}{{(z-p)}^{k}}$ is bounded
 near $p$.  That these possible definitions are equivalent
 follows from the lemma.  See \exerciseref{exercise:order} below.
 
-The conclusion of the lemma holds also when $f(p) \not= 0$,
+The conclusion of the lemma holds also when $f(p) \neq 0$,
 in which case
 $k=0$ and $g = f$.  So one can (if one is really inclined to)
-say that when $f(p) \not= 0$, then $p$ is
+say that when $f(p) \neq 0$, then $p$ is
 a zero of order $0$, which sounds somewhat idiotic, but it all fits a general
 picture, and we will see that negative orders might also make sense
 in just a little while.
@@ -9847,7 +9849,7 @@ f(z) =
 = {(z-p)}^k
 \sum_{n=0}^\infty c_{n+k} {(z-p)}^{n} ,
 \end{equation*}
-where $k$ is the smallest $n$ such that $c_n \not= 0$
+where $k$ is the smallest $n$ such that $c_n \neq 0$
 (hence the \myquote{Furthermore}).
 Clearly $k > 0$.
 The series $\sum_{n=0}^\infty c_{n+k}{(z-p)}^n$
@@ -9856,7 +9858,7 @@ the punctured disc $\Delta_r(p)\setminus \{ p \}$, where the series
 for $f$ converges.
 So it can define $g$ near $p$.  Uniqueness follows rather easily:
 Suppose ${(z-p)}^{k_1} g_1(z) = {(z-p)}^{k_2} g_2(z)$, where
-$g_1(p) \not= 0$ and $g_2(p) \not= 0$.
+$g_1(p) \neq 0$ and $g_2(p) \neq 0$.
 Without loss of generality,
 $k_1 \leq k_2$.
 Then 
@@ -9873,7 +9875,7 @@ Suppose $p \in U$ is a zero\footnote{As we said, by this we mean that
 this is an honest zero of $f$ and $k > 0$.}
 of $f$ of order $k \in \N$.  Then there exists an open neighborhood $V$
 of $p$ and a holomorphic $g \colon V \to \C$ with
-$g(p) = 0$ and $g'(p) \not= 0$,
+$g(p) = 0$ and $g'(p) \neq 0$,
 such that
 \begin{equation*}
 f(z) = {\bigl( g(z) \bigr)}^k.
@@ -9885,14 +9887,14 @@ $p$ (see \thmref{thm:inversehol})
 that makes $p$ into the origin, and makes $f$ into $z^k$.
 
 \begin{proof}
-Let $V = \Delta_r(p)$ be a disc such that $f(z) \not= 0$ for any $z \in
+Let $V = \Delta_r(p)$ be a disc such that $f(z) \neq 0$ for any $z \in
 \Delta_r(p) \setminus \{ p \}$.  Use the lemma to get a function $h$ holomorphic
-on $\Delta_r(p)$ such that $h(p) \not= 0$ and $f(z) = {(z-p)}^k h(z)$.  In particular,
-$h(z) \not= 0$ for any $z \in \Delta_r(p)$.
+on $\Delta_r(p)$ such that $h(p) \neq 0$ and $f(z) = {(z-p)}^k h(z)$.  In particular,
+$h(z) \neq 0$ for any $z \in \Delta_r(p)$.
 As $h$ is nowhere zero on $\Delta_r(p)$, which is simply connected,
 there exists a holomorphic function $\varphi$ on $\Delta_r(p)$ such that
 $\varphi^k = h$.  Let $g(z) = (z-p)\varphi(z)$.  As
-$g'(z) = (z-p) \varphi'(z) + \varphi(z)$, we have $g'(p) = \varphi(p) \not= 0$.
+$g'(z) = (z-p) \varphi'(z) + \varphi(z)$, we have $g'(p) = \varphi(p) \neq 0$.
 \end{proof}
 
 \begin{exbox}
@@ -9933,7 +9935,7 @@ is holomorphic.
 Suppose $f$ has a zero at $p$ of
 order $k$ and no other zeros.
 Show that there exists a holomorphic
-$g \colon U \to \C$ such that $g(p) = 0$, $g'(p) \not= 0$, and
+$g \colon U \to \C$ such that $g(p) = 0$, $g'(p) \neq 0$, and
 $f(z) = {\bigl( g(z) \bigr)}^k$.
 \item
 Suppose $f$ has a zero at $p$
@@ -9941,7 +9943,7 @@ of order $k$,
 and, other than $p$, it has zeros at $z_1, z_2, \ldots, z_n$ of
 orders $k_1, k_2, \ldots, k_n$ and no other zeros.
 Prove that there exists a holomorphic
-$g \colon U \to \C$ such that $g(p) = 0$, $g'(p) \not= 0$,
+$g \colon U \to \C$ such that $g(p) = 0$, $g'(p) \neq 0$,
 and
 $f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n}
 {\bigl( g(z) \bigr)}^k$.
@@ -9954,7 +9956,7 @@ Show that if $f \colon U \to \C$ has a zero of order $k \in \N$ at $p \in
 U$, then there exist $C^1$ curves
 $\gamma_j \colon (-\epsilon, \epsilon) \to \C$ for
 $j=1,\ldots,k$ with $\gamma_j(0) = p$
-and $\gamma_j'(0) \not= 0$, such that the curves only intersect
+and $\gamma_j'(0) \neq 0$, such that the curves only intersect
 one another
 at $p$, and such that $\Re f\bigl( \gamma_j(t) \bigr) = 0$ for
 all $t \in (-\epsilon,\epsilon)$.
@@ -9971,7 +9973,7 @@ saddle point at the origin.
 \begin{exercise}
 \begin{exparts}
 \item
-For $x \in \R$, let $f(x) = e^{-1/x^2}$ if $x \not=0$ and $f(0) = 0$.
+For $x \in \R$, let $f(x) = e^{-1/x^2}$ if $x \neq 0$ and $f(0) = 0$.
 Prove that $f$ is infinitely (real) differentiable, the origin is
 an isolated zero (the only zero in fact), and $f^{(k)}(0) = 0$ for
 all $k=0,1,2,\ldots$.  That is, the origin is a zero of infinite order.
@@ -10035,8 +10037,8 @@ of $f$.
 
 \begin{proof}
 Define
-$g(z) = {(z-p)}^2 f(z)$ for $z \not= p$ and $g(p) = 0$.
-The function $g$ is clearly holomorphic for $z \not= p$.  Consider the 
+$g(z) = {(z-p)}^2 f(z)$ for $z \neq p$ and $g(p) = 0$.
+The function $g$ is clearly holomorphic for $z \neq p$.  Consider the 
 difference quotient
 $\frac{g(z)-g(p)}{z-p} = (z-p) f(z)$.
 Supposing $f$ is bounded,
@@ -10146,9 +10148,9 @@ $\nicefrac{1}{f}$ goes to zero, and so it is bounded in some $\Delta_r(p)
 \setminus \{p\}$.
 Thus, $\nicefrac{1}{f}$ has a removable singularity at $p$ by Riemann extension.
 Let $h$ be holomorphic in $\Delta_r(p)$
-such that $h(z) = \nicefrac{1}{f(z)}$ for $z \not= p$.  By continuity, $h(p) =
+such that $h(z) = \nicefrac{1}{f(z)}$ for $z \neq p$.  By continuity, $h(p) =
 0$.  Hence $h(z) = {(z-p)}^k \psi(z)$ for some holomorphic $\psi$ and $k \in \N$,
-where $\psi(p) \not= 0$.
+where $\psi(p) \neq 0$.
 As $h$ is not zero in $\Delta_r(p) \setminus \{p\}$,
 then $\psi$ is not zero in $\Delta_r(p)$
 and $\nicefrac{1}{\psi}$ is holomorphic in $\Delta_r(p)$.
@@ -10164,7 +10166,7 @@ g(z) = {(z-p)}^k f(z)
 
 The converse statement follows by noting that if $g(z)$ has a removable
 singularity, then $g(z) = {(z-p)}^\ell \varphi(z)$ where
-$\varphi(p) \not= 0$ and $\ell \geq 0$ is an integer.
+$\varphi(p) \neq 0$ and $\ell \geq 0$ is an integer.
 Thus
 \begin{equation*}
 f(z) = {(z-p)}^{\ell-k} \varphi(z) ,
@@ -10185,7 +10187,7 @@ has a pole at $p$, $f$ can be written as
 \begin{equation*}
 f(z) = \frac{g(z)}{{(z-p)}^k} ,
 \end{equation*}
-where $g$ is holomorphic, $g(p) \not= 0$, and $k$ is the order of the pole.
+where $g$ is holomorphic, $g(p) \neq 0$, and $k$ is the order of the pole.
 There is a symmetry between zeros and poles:
 If $f$ has a zero of order $k$ at $p$, then $\nicefrac{1}{f}$ has a pole of
 order $k$ at $p$.
@@ -10194,7 +10196,7 @@ has a removable singularity, and the extended function has a zero of order
 $k$ at $p$.
 In other words, if $f$ has a pole or a removable singularity, we can write
 $f(z) = {(z-p)}^\ell g(z)$ for some $\ell \in \Z$ and some holomorphic $g$ such
-that $g(p) \not= 0$.
+that $g(p) \neq 0$.
 The point $p$ is a zero of order $\ell$ if $\ell
 > 0$, and it is a pole of order $-\ell$ if $\ell < 0$.
 
@@ -10202,7 +10204,7 @@ The point $p$ is a zero of order $\ell$ if $\ell
 \begin{exercise}
 Suppose $f$ has a pole of order $k \in \N$ at $p$.
 Show that there exists a holomorphic $g$ defined near $p$
-such that $g(p) = 0$ and $g'(p) \not= 0$ and such that near $p$
+such that $g(p) = 0$ and $g'(p) \neq 0$ and such that near $p$
 \begin{equation*}
 f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
 \end{equation*}
@@ -10227,7 +10229,7 @@ f(\zeta) \, d\zeta .
 \begin{exercise}
 Suppose $f$ has an isolated singularity at $p$.  Suppose that
 $\{ z_n \}$ and $\{ \zeta_n \}$ are two sequences such that
-$\lim z_n = \lim \zeta_n = p$ and $\lim f(z_n) \not= \lim f(\zeta_n)$
+$\lim z_n = \lim \zeta_n = p$ and $\lim f(z_n) \neq \lim f(\zeta_n)$
 (both limits exist).
 Show that $f$ has an essential singularity at $p$.
 \end{exercise}
@@ -10256,9 +10258,8 @@ The singularity at $p$ is
 \begin{enumerate}[(i)]
 \item \emph{removable} if and only if $c_n = 0$ for all $n < 0$,
 \item a \emph{pole} of order $k \in \N$ if and only if $c_n = 0$ for all $n < -k$ and
-$c_{-k}
-\not= 0$,
-\item \emph{essential} if and only if $c_n \not= 0$ for infinitely many negative $n$.
+$c_{-k} \neq 0$,
+\item \emph{essential} if and only if $c_n \neq 0$ for infinitely many negative $n$.
 \end{enumerate}
 \end{prop}
 
@@ -10334,7 +10335,7 @@ origin such that $f(0)=0$ and $g$ is holomorphic with
 an isolated singularity at the origin.  Write $g \circ f$ for the
 composition where it is defined.  Show that $g \circ f$ has an isolated
 singularity of the same type (removable, pole, essential) as $g$.
-Moreover, if $f'(0) \not= 0$ and $g$ has a pole of order $k$, then $g \circ f$ has a
+Moreover, if $f'(0) \neq 0$ and $g$ has a pole of order $k$, then $g \circ f$ has a
 pole of order $k$.
 \end{exercise}
 
@@ -10352,7 +10353,7 @@ The order of the pole is the degree of the polynomial.
 \begin{exercise}
 Show that if $f \colon \C \to \C$ is an automorphism, then
 $f(z) = az + b$ for
-some constants $a \not= 0$ and $b$.  Hint: Show that $f$ has a simple pole at
+some constants $a \neq 0$ and $b$.  Hint: Show that $f$ has a simple pole at
 infinity.
 \end{exercise}
 \end{exbox}
@@ -10478,7 +10479,7 @@ holomorphic with
 an essential singularity at $p \in U$.  Then for every disc
 $\Delta_r(p) \subset U$ and every segment $[a,b] \subset
 \C$, we have
-$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) \cap [a,b] \not= \emptyset$.
+$f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) \cap [a,b] \neq \emptyset$.
 Hint: See 
 \exerciseref{exercise:segmentcomplement}.
 \end{exercise}
@@ -10650,7 +10651,7 @@ and as
 $\overline{\Delta_{r_j}(w_j)} \subset U$ for all $j$, we get
 $n\bigl( \partial \Delta_{r_j}(w_j) ; p\bigr) = 0$, and the claim follows.
 If $p = w_k \in S$, then 
-$n\bigl( \partial \Delta_{r_j}(w_j) ; p\bigr) = 0$ if $j \not= k$,
+$n\bigl( \partial \Delta_{r_j}(w_j) ; p\bigr) = 0$ if $j \neq k$,
 and
 $n\bigl( \partial \Delta_{r_k}(w_k) ; p\bigr) = 1$.
 The claim again follows.
@@ -11047,7 +11048,7 @@ inside an open set is possibly countably
 infinite (unless $f$ is identically zero).
 But there are only ever finitely
 many zeros or poles for which 
-$n(\Gamma;z) \not= 0$ (see exercises below), as long as $\Gamma$ is
+$n(\Gamma;z) \neq 0$ (see exercises below), as long as $\Gamma$ is
 homologous to zero.  One can even find a slightly smaller $U$ that only
 includes finitely many zeros and poles and $\Gamma$ is still homologous to
 zero in that smaller $U$, and so a theorem for finitely many zeros and poles is
@@ -11108,7 +11109,7 @@ We simply compute the residues.
 Consider a zero of $f$ of multiplicity $m$ or a pole of order $-m$, and
 without loss of generality suppose it is the origin.
 Write $f(z)  = z^m F(z)$ where $F$ is holomorphic near $0$,
-$F(0) \not=0$,
+$F(0) \neq 0$,
 and $h(z) = h(0) + z H(z)$.
 Then $f'(z) = m z^{m-1} F(z) + z^m F'(z)$, and so
 \begin{multline*}
@@ -11167,7 +11168,7 @@ Suppose $U \subset \C$ is open, $\Gamma$ is a cycle in $U$
 homologous to zero in $U$,
 and $f \colon U \to \C_\infty$ is meromorphic with no zeros or poles on $\Gamma$.
 Show that there are only finitely many zeros and poles $z$ of $f$
-such that $n(\Gamma;z) \not= 0$.
+such that $n(\Gamma;z) \neq 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -11178,7 +11179,7 @@ no zeros or poles on $\Gamma$.
 Show that there exists an open $U' \subset U$
 with $\Gamma$ a cycle in $U'$ homologous to zero in $U'$, such that
 the only zeros or poles $z$ of the restriction $f|_{U'}$
-are such that $n(\Gamma;z) \not= 0$.
+are such that $n(\Gamma;z) \neq 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -11674,7 +11675,7 @@ Alas, the medal has already been obtained by Hironaka, and you
 have to find your own map if you want your own medal.}
 map $(x,y) \mapsto (x,xy)$
 takes all of $\R^2$, which is both an open and a closed set, to the
-set $\bigl\{ (x,y) : x \not= 0 \text{ or } y=0 \bigr\}$, which is neither open nor
+set $\bigl\{ (x,y) : x \neq 0 \text{ or } y=0 \bigr\}$, which is neither open nor
 closed.
 Holomorphic functions are always nice to your topology.
 Recall that for a continuous map, $f^{-1}(V)$ is open whenever
@@ -11696,7 +11697,7 @@ Let $V \subset U$ be open and $p \in V$.
 As $f$
 is holomorphic and nonconstant near $p$,  
 there is a closed disc $\overline{\Delta_r(p)} \subset V$ small enough such that
-$f(z) \not= f(p)$ for $z \in \partial \Delta_r(p)$.
+$f(z) \neq f(p)$ for $z \in \partial \Delta_r(p)$.
 There is a $\delta > 0$ such
 that $\abs{f(z)-f(p)} > \delta$ for all $z \in \partial \Delta_r(p)$.
 The function $z \mapsto f(z)-f(p)$ has at least one zero in $\Delta_r(p)$
@@ -11749,7 +11750,7 @@ then $f$ is constant.
 \begin{exercise}
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
 Suppose $\sabs{f''(z)} \leq M$ for all $z \in U$ for some $M > 0$.
-Suppose $p \in U$ where $f'(p) \not= 0$ and $r > 0$ is such that
+Suppose $p \in U$ where $f'(p) \neq 0$ and $r > 0$ is such that
 $\frac{M}{2}r < \sabs{f'(p)}$ and $\overline{\Delta_r(p)} \subset U$.
 Let $\delta = \sabs{f'(p)}r - \frac{M}{2} r^2
 = r\bigl(\sabs{f'(p)} - \frac{M}{2} r\bigr) > 0$.  Prove that
@@ -11834,7 +11835,7 @@ and suppose $f$ is nonconstant (near $p$).
 So $f'$ has
 an isolated zero at $p$.
 Let $\overline{\Delta_r(p)} \subset U$
-be small enough so that $f'(z) \not= 0$ for all $z \in \Delta_r(p) \setminus \{ p \}$,
+be small enough so that $f'(z) \neq 0$ for all $z \in \Delta_r(p) \setminus \{ p \}$,
 and such that $\sabs{f(z)-f(p)} > \delta > 0$ for all $z \in \partial
 \Delta_r(p)$.
 The function $z \mapsto f(z) - f(p)$ has a zero at $p$ of multiplicity at least
@@ -12606,7 +12607,7 @@ $f \colon \D \to \D$ such that $f(0) = 0$ and $f(\nicefrac{1}{2}) = c$.
 Prove that
 $\sF_c = \emptyset$ if $c \in (\nicefrac{1}{2},1)$
 and
-$\sF_c \not= \emptyset$ if $c \in [0,\nicefrac{1}{2}]$.
+$\sF_c \neq \emptyset$ if $c \in [0,\nicefrac{1}{2}]$.
 \item
 Prove that for each $c \in [0,\nicefrac{1}{2}]$, there exists an
 $f \in \sF_c$
@@ -12625,7 +12626,7 @@ bounded holomorphic function on $U$.
 \item
 Prove that there exists a holomorphic $F \colon U \to \D$
 such that
-$F'(p) \not= 0$, and if
+$F'(p) \neq 0$, and if
 $f \colon U \to \D$ is holomorphic,
 then $\sabs{f'(p)} \leq \sabs{F'(p)}$.
 \item
@@ -12679,7 +12680,7 @@ needing the mapping to be continuous.}
 
 \begin{thm}[Riemann mapping]\label{thm:RMT}
 %\pagebreak[2]
-Let $U \subset \C$ be a simply connected domain such that $U \not= \C$.
+Let $U \subset \C$ be a simply connected domain such that $U \neq \C$.
 Let $p \in U$ be given.  Then there exists a unique biholomorphic (conformal)
 map $f \colon U \to \D$ such that $f(p) = 0$ and
 $f'(p) > 0$ (real and positive).
@@ -12856,7 +12857,7 @@ Again, we refer the reader to more advanced literature.
 \begin{remark}
 In the proof we only used that $U$ was simply connected to 
 obtain square roots of nowhere zero functions.  So the result we actually
-proved is that existence of square roots on $U \not= \C$ implies that $U$ is
+proved is that existence of square roots on $U \neq \C$ implies that $U$ is
 biholomorphic to $\D$.  In other words, $U$ being simply
 connected is equivalent to the existence of square roots.
 \end{remark}
@@ -12881,7 +12882,7 @@ don't worry about $p$ at first.  See \figureref{fig:riemannmap}.
 \end{exercise}
 
 \begin{exercise}
-Suppose $V \subset \C$ is a simply connected domain, and $V \not= \C$.
+Suppose $V \subset \C$ is a simply connected domain, and $V \neq \C$.
 Show that every holomorphic $f \colon \C \to V$ is constant.
 \end{exercise}
 
@@ -12894,7 +12895,7 @@ $\psi \in \Aut(U)$ such that $\psi(z) = w$.
 \begin{exercise}
 \begin{exparts}
 \item
-Suppose $U \subset \C$ is a simply connected domain, $U \not= \C$,
+Suppose $U \subset \C$ is a simply connected domain, $U \neq \C$,
 $p,q \in U$ are distinct points, and
 $f \colon U \to U$ is holomorphic such that $f(p) = p$ and $f(q)=q$.
 Prove that $f$ is the identity, that is, $f(z)=z$ for all $z \in U$.
@@ -12976,7 +12977,7 @@ If $U = \C$, then define the homotopy $H \colon [a,b] \times [0,1] \to
 \begin{equation*}
 H(t,s) = (1-s) \gamma(t) .
 \end{equation*}
-If $U \not= \C$, define $H \colon [a,b] \times [0,1] \to U$ as
+If $U \neq \C$, define $H \colon [a,b] \times [0,1] \to U$ as
 \begin{equation*}
 H(t,s) = f^{-1} \Bigl( (1-s) f \bigl( \gamma(t) \bigr) \Bigr) .
 \end{equation*}
@@ -13092,7 +13093,7 @@ the open set $U \setminus ( K_2 \cup \cdots \cup K_n )$ to find a cycle
 $\Gamma_1$, then we claim we are done: We could repeat the procedure
 for each $K_j$ to find $\Gamma_j$ and let $\Gamma = \Gamma_1 + \cdots +
 \Gamma_n$.  As $\Gamma_j$ winds exactly once around every point of $K_j$
-and does not wind around any point of $K_\ell$ for $\ell \not= j$,
+and does not wind around any point of $K_\ell$ for $\ell \neq j$,
 then $\Gamma$ will wind exactly once around any point of $K'$,
 and it is still homologous to zero in $U$.
 
@@ -13108,7 +13109,7 @@ mapping of $\C_\infty$ to itself, where $\varphi^{-1} = \varphi$.  Let
 \begin{equation*}
 V = \varphi(\C_\infty \setminus K) .
 \end{equation*}
-Note that $\infty \notin V$, $0 \in V$, $V \not= \C$ ($K$ is more than one
+Note that $\infty \notin V$, $0 \in V$, $V \neq \C$ ($K$ is more than one
 point), and
 $\C_\infty \setminus V = \varphi(K)$ is connected.
 So each connected component of $V$ is a simply connected domain
@@ -13228,7 +13229,7 @@ $n(\Gamma;p) =
 \sum_j
 \frac{1}{2\pi i}
 \int_{\gamma_j} h(\xi) \, d\xi$.
-As $p \in K$, $\psi^{-1}(\xi) \not= \nicefrac{1}{p}$ for all $\xi \in D$,
+As $p \in K$, $\psi^{-1}(\xi) \neq \nicefrac{1}{p}$ for all $\xi \in D$,
 and so $h$ has just the pole at $0$.
 Since $\gamma_1$ traverses the circle backwards,
 \begin{equation*}
@@ -13624,9 +13625,9 @@ $y$
 \item
 $xy$
 \item
-$\arctan(y/x)$ on $x \not= 0$
+$\arctan(y/x)$ on $x \neq 0$
 \item
-$\frac{x}{x^2+y^2}$ on $z\not=0$
+$\frac{x}{x^2+y^2}$ on $z \neq 0$
 \end{expartshor}
 \end{exercise}
 
@@ -13843,7 +13844,7 @@ on the boundary $\partial U$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open such that $\R \cap U \not= \emptyset$
+Suppose $U \subset \C$ is open such that $\R \cap U \neq \emptyset$
 and $\R \cap U$ is connected.
 Suppose $f \colon U \to \R$ is harmonic
 and the zero set of the restriction $f|_{\R \cap U}$ has a limit point in
@@ -15031,7 +15032,7 @@ we find that locally near $q$,
 \Phi(z) =
 A+
 c_{-1} \log z +  
-\sum_{n=-\infty,n\not=-1}^\infty \frac{c_n}{n+1} {z}^{n+1}
+\sum_{n=-\infty,n \neq -1}^\infty \frac{c_n}{n+1} {z}^{n+1}
 =
 c_{-1} \log z +  
 \psi(z),
@@ -15674,7 +15675,7 @@ is a family of subharmonic functions.  Let
 \varphi(z) = \sup_\alpha\, f_\alpha(z) .
 \end{equation*}
 If the family is finite, then $\varphi$ is subharmonic.
-If the family is infinite, $\varphi(z) \not= +\infty$ for
+If the family is infinite, $\varphi(z) \neq +\infty$ for
 all $z$, and $\varphi$
 is upper-semicontinuous, then $\varphi$ is subharmonic.
 \end{prop}
@@ -15746,7 +15747,7 @@ other hand, you know nothing about the size of this set.
 \begin{thm}[Rad\'o]\index{Rad\'o's theorem}\label{thm:rado}
 Let $U \subset \C$ be open and $f \colon U \to \C$ a continuous
 function that is holomorphic on the set where it is nonzero, that is,
-$f$ is holomorphic on $\bigl\{ z \in U : f(z) \not= 0 \bigr\}$.
+$f$ is holomorphic on $\bigl\{ z \in U : f(z) \neq 0 \bigr\}$.
 Then $f$ is holomorphic.
 \end{thm}
 
@@ -15932,7 +15933,7 @@ $n$, then the product also goes to zero, although in this case the
 convergence will not be absolute (exercise below).
 
 Suppose that the product converges to a nonzero number.
-In particular, $a_n \not= -1$ for any $n$.  Then
+In particular, $a_n \neq -1$ for any $n$.  Then
 \begin{equation*}
 \frac{
 \prod_{n=1}^{k} (1+a_n)
@@ -16101,7 +16102,7 @@ That the reordered product converges absolutely follows from
 \propref{prop:infprodabsconvinfsum} and the corresponding result for series.
 If $L=0$, then we just proved that one of the terms is zero,
 and the reordered product converges to $0$.
-Suppose $L\not= 0$.
+Suppose $L \neq 0$.
 By ignoring finitely many terms, we assume without loss of generality
 that $\Re a_n > -1$.  Then $\sum \Log(1+a_n)$ converges absolutely and
 \begin{equation*}
@@ -16215,7 +16216,7 @@ F(z) = \prod_{n=1}^\infty f_n(z)
 converges uniformly absolutely
 on compact subsets of $U$.  Prove that
 \begin{equation*}
-F'(z) = \sum_{n=1}^\infty f_n'(z) \prod_{k=1, k\not=n}^\infty f_k(z) ,
+F'(z) = \sum_{n=1}^\infty f_n'(z) \prod_{k=1, k \neq n}^\infty f_k(z) ,
 \end{equation*}
 converging uniformly absolutely on compact subsets of $U$.
 \end{exercise}
@@ -17118,7 +17119,7 @@ there exists a rational function $R$ with pole at $q$ such that
 \end{lemma}
 
 \begin{proof}
-Suppose first that $q \not= \infty$.
+Suppose first that $q \neq \infty$.
 As the component of $\C_\infty \setminus K$ is open and connected, it is
 path connected,
 so we connect $p$ and $q$ by a path.
@@ -17752,7 +17753,7 @@ In general, the $R_n$ are necessary and grouping is not enough.
 Let $U = \C$, $S = \N$, and $P_p(z) = \frac{-p}{z-p}$ for $p \in \N$.
 No matter how we group the terms $P_p(z)$,
 the series will not converge.
-Fix a positive $z \not\in \N$.
+Fix a positive $z \notin \N$.
 For $p$ large enough,
 $P_p(z)$ is close to $1$, say $P_p(z) > \nicefrac{1}{2}$.
 Suppose you group terms as $f_n(z)$ in some way.
@@ -18233,7 +18234,7 @@ Prove the proposition.
 
 \begin{exercise}
 There's good reason to use discs in analytic continuation.  Find two domains
-$U_1, U_2 \subset \C$, $U_1 \cap U_2 \not= \emptyset$,
+$U_1, U_2 \subset \C$, $U_1 \cap U_2 \neq \emptyset$,
 $p \in U_1$, $q \in U_2$, holomorphic functions
 $f_1 \colon U_1 \to \C$ and $f_2 \colon U_2 \to \C$,
 a path $\gamma$ in $U_1 \cup U_2$ from $p$ to $q$, and two discs $\Delta_1,\Delta_2$
@@ -18400,7 +18401,7 @@ $f^{-1}(\Delta)$ has
 disjoint components and for each component, a branch of $f^{-1}$ can be defined as a
 holomorphic map onto that component.  As $\gamma$ is compact, finitely many
 such discs $\Delta_1,\ldots,\Delta_n$ cover $\gamma$ such that $\Delta_{j-1}
-\cap \Delta_j \not= \emptyset$ and $p \in \Delta_1$.  Given any choice
+\cap \Delta_j \neq \emptyset$ and $p \in \Delta_1$.  Given any choice
 of $f^{-1}$ at $p$, we can define a branch of $f^{-1}$ in $\Delta_j$
 that agrees with
 our choice on $\Delta_{j-1}$ for each $j$.  In other words, we can
@@ -19035,7 +19036,7 @@ For instance, the set of real numbers with the standard metric is not a
 bounded metric space.  
 On the other hand, the real numbers with the
 \emph{\myindex{discrete metric}},
-$d(x,y) = 1$ if $x\not=y$, and $d(x,x) = 0$,
+$d(x,y) = 1$ if $x \neq y$, and $d(x,x) = 0$,
 is a bounded metric space.  Any set with the
 discrete metric is bounded.
 
@@ -19056,8 +19057,9 @@ a nonempty set.
 
 \begin{exbox}
 \begin{exercise}
-Show that for any given set $X$, the discrete metric ($d(x,y) = 1$ if $x\not=y$ and
-$d(x,x) = 0$) does give a metric space $(X,d)$.
+Show that for any given set $X$, the discrete metric
+($d(x,y) = 1$ if $x \neq y$ and $d(x,x) = 0$)
+does give a metric space $(X,d)$.
 \end{exercise}
 
 \begin{exercise}
@@ -19118,8 +19120,8 @@ $d_H$ satisfies the metric properties
 \ref{metric:triang}, and further
 $d_H(A,A) = 0$ for all $A \in Y$. 
 \item
-Show by example that $d$ itself is not symmetric, that is, $d(A,B) \not=
-d(B,A)$.
+Show by example that $d$ itself is not symmetric, that is,
+$d(A,B) \neq d(B,A)$.
 \item
 Find a metric space $X$ and two different
 nonempty bounded subsets $A$ and $B$ such that $d_H(A,B) = 0$.
@@ -19578,8 +19580,8 @@ Let $(X,d)$ be a metric space.
 A nonempty set $S \subset X$ is disconnected if and only if
 there exist open sets $U_1$ and
 $U_2$ in $X$, such that $U_1 \cap U_2 \cap S = \emptyset$,
-$U_1 \cap S \not= \emptyset$,
-$U_2 \cap S \not= \emptyset$, and
+$U_1 \cap S \neq \emptyset$,
+$U_2 \cap S \neq \emptyset$, and
 \begin{equation*}
 S = 
 \bigl( U_1 \cap S \bigr)
@@ -19647,7 +19649,7 @@ proving that $S$ is connected.
 Suppose $x \in U_1 \cap S$
 and $y \in U_2 \cap S$.  Without loss of generality, assume $x < y$.
 As $S$ is an interval, $[x,y] \subset S$.
-Note that $U_2 \cap [x,y] \not= \emptyset$, and
+Note that $U_2 \cap [x,y] \neq \emptyset$, and
 let $z = \inf (U_2 \cap [x,y])$.
 %We wish to show that $z \in U_1$.
 If $z = x$, then $z \in U_1$.
@@ -19691,7 +19693,7 @@ that $X$ is connected if and only if it contains exactly one element.
 Take $\Q$ with the standard metric, $d(x,y) = \sabs{x-y}$, as our metric space.
 Prove that $\Q$ is
 \emph{\myindex{totally disconnected}}, that is, show 
-that for every $x, y \in \Q$ with $x \not= y$, there exist
+that for every $x, y \in \Q$ with $x \neq y$, there exist
 two open sets $U$ and $V$, such that $x \in U$, $y \in V$,
 $U \cap V = \emptyset$, and $U \cup V = \Q$.
 \end{exercise}
@@ -19757,7 +19759,7 @@ Let us justify the statement that the closure is everything that we can
 
 \begin{prop} \label{prop:msclosureappr}
 Let $(X,d)$ be a metric space and $A \subset X$.  Then $x \in \widebar{A}$
-if and only if for every $\delta > 0$, $B(x,\delta) \cap A \not=\emptyset$.
+if and only if for every $\delta > 0$, $B(x,\delta) \cap A \neq \emptyset$.
 \end{prop}
 
 \begin{proof}
@@ -20498,7 +20500,7 @@ So $K$ is bounded.
 See left-hand side of \figureref{fig:compactbndclosed}.
 
 Next, we show that a set that is not closed is not compact.  Suppose 
-$\widebar{K} \not= K$, that is, there is a point $x \in \widebar{K}
+$\widebar{K} \neq K$, that is, there is a point $x \in \widebar{K}
 \setminus K$.
 We have the open cover
 \begin{equation*}
@@ -20517,7 +20519,7 @@ finite collection of indices $n_1 < n_2 < \ldots < n_k$, then
 \end{equation*}
 As $x$ is in the closure of $K$,
 then
-$C(x,\nicefrac{1}{n_k}) \cap K \not= \emptyset$.  So there is no
+$C(x,\nicefrac{1}{n_k}) \cap K \neq \emptyset$.  So there is no
 finite subcover and $K$ is not compact.
 See right-hand side of \figureref{fig:compactbndclosed}.
 \end{proof}
@@ -20590,7 +20592,7 @@ where
 $B(y,\nicefrac{\epsilon}{2}) \subset B(x,\epsilon)$
 follows by triangle inequality.
 See \figureref{fig:lebesguedelta}.
-Thus $y \not= x_n$.
+Thus $y \neq x_n$.
 In other words, for all $n \geq M$, $x_n \notin B(x,\nicefrac{\epsilon}{2})$. 
 The sequence cannot have a subsequence converging to $x$.  As $x \in K$ was
 arbitrary we are done.
@@ -20709,7 +20711,7 @@ infinite
 sequence $\{ x_n \}$ as above.
 For contradiction, suppose that
 there is no finite subcover and we have the sequence $\{ x_n \}$.
-For all $n$ and $k$, $n \not= k$, 
+For all $n$ and $k$, $n \neq k$, 
 we have $d(x_n,x_k) \geq \delta$,
 so no subsequence of $\{ x_n \}$ can be
 Cauchy.  Hence, no subsequence of $\{ x_n \}$ can be convergent,
@@ -20801,7 +20803,7 @@ and $E_1$, $E_2$, \ldots, are
 nonempty compact subsets of $X$ such that
 $E_1 \supset E_2 \supset E_3 \supset \cdots$.  Then
 \begin{equation*}
-\bigcap_{k=1}^\infty E_k \not= \emptyset .
+\bigcap_{k=1}^\infty E_k \neq \emptyset .
 \end{equation*}
 \end{prop}
 
@@ -20819,7 +20821,7 @@ we have $E_1 \subset U_k$ for some $k$.   Thus $E_k$ is empty.
 
 \begin{example}
 Let $(X,d)$ be a metric space with the discrete metric, that is, $d(x,y) = 1$
-if $x \not= y$.  Suppose
+if $x \neq y$.  Suppose
 $X$ is an infinite set.  Then:
 \begin{enumerate}[(i)]
 \item $(X,d)$ is a complete metric space.
@@ -20865,7 +20867,7 @@ Let $C([0,1],\R)$ be the metric space of \exampleref{example:msC01}.  Let $0$
 denote the zero function.  Show that the closed ball
 $C(0,1)$ is not compact (even though it is closed and bounded).
 Hint: Construct continuous functions $f_n \colon [0,1] \to \R$ such that
-$d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \not= k$.
+$d(f_n,0) = 1$ and $d(f_n,f_k) = 1$ for all $n \neq k$.
 \end{exercise}
 
 \begin{exercise}
@@ -21024,7 +21026,7 @@ is continuous.  The function $f(x,y)$ could still be discontinuous.
 \begin{exbox}
 \begin{exercise}
 Let $f \colon \R^2 \to \R$ be defined by $f(0,0) = 0$, and
-$f(x,y) = \frac{xy}{x^2+y^2}$ if $(x,y) \not= (0,0)$.
+$f(x,y) = \frac{xy}{x^2+y^2}$ if $(x,y) \neq (0,0)$.
 See \figureref{fig:xyxsqysq}.
 \begin{exparts}
 \item
@@ -21155,7 +21157,7 @@ Define
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-\frac{2xy}{x^4+y^2} & \text{if } (x,y) \not= (0,0), \\
+\frac{2xy}{x^4+y^2} & \text{if } (x,y) \neq (0,0), \\
 0 & \text{if } (x,y) = (0,0) .
 \end{cases}
 \end{equation*}
@@ -22173,7 +22175,7 @@ Perhaps $\sqrt{x^2+{(\nicefrac{1}{n})}^2}$?
 \begin{exercise}
 Let $f_n(x) = \frac{x^n}{n}$.  Show that $\{ f_n \}$ converges uniformly to
 a differentiable function $f$ on $[0,1]$ (find $f$).  However, show that
-$f'(1) \not= \lim\limits_{n\to\infty} f_n'(1)$.
+$f'(1) \neq \lim\limits_{n\to\infty} f_n'(1)$.
 \end{exercise}
 \end{exbox}
 
@@ -22596,7 +22598,7 @@ Show that there exists an infinitely
 differentiable function $g \colon \R \to \R$ such that $f(x) = x\,g(x)$.
 \item
 Show that
-if $f'(0) \not= 0$, then $g(0) \not= 0$.
+if $f'(0) \neq 0$, then $g(0) \neq 0$.
 \end{exparts}
 Hint: First write
 $f(x) = \int_0^x f'(s) \,ds$ and then rewrite the integral to go
@@ -22630,7 +22632,7 @@ Work out the following counterexample:  Let
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-\frac{xy^3}{{(x^2+y^2)}^2} & \text{if } x\not=0 \text{ or  } y\not= 0,\\
+\frac{xy^3}{{(x^2+y^2)}^2} & \text{if } x \neq 0 \text{ or  } y \neq 0,\\
 0 & \text{if } x=0 \text{ and } y=0.
 \end{cases}
 \end{equation*}
@@ -22655,7 +22657,7 @@ Show that for all $y$
 \qquad
 \text{exists, but}
 \qquad
-g'(0) \not= \int_0^1 \frac{\partial f}{\partial y} (x,0) \, dx .
+g'(0) \neq \int_0^1 \frac{\partial f}{\partial y} (x,0) \, dx .
 \end{equation*}
 \end{exparts}
 \end{exercise}
@@ -22665,7 +22667,7 @@ Work out the following counterexample:  Let
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-x \,\sin \left(\frac{y}{x^2+y^2}\right) & \text{if } (x,y) \not= (0,0),\\
+x \,\sin \left(\frac{y}{x^2+y^2}\right) & \text{if } (x,y) \neq (0,0),\\
 0 & \text{if } (x,y)=(0,0).
 \end{cases}
 \end{equation*}
@@ -22799,7 +22801,7 @@ Then $A=B$.
 \end{prop}
 
 \begin{proof}
-Suppose $h \in \R^n$, $h \not= 0$.  Compute
+Suppose $h \in \R^n$, $h \neq 0$.  Compute
 \begin{equation*}
 \begin{split}
 \frac{\snorm{(A-B)h}}{\snorm{h}} & =
@@ -22904,7 +22906,7 @@ Df|_p .
 \end{prop}
 
 \begin{proof}
-Let $h \in \R^n$, $h \not= 0$.  The proposition follows from the following
+Let $h \in \R^n$, $h \neq 0$.  The proposition follows from the following
 estimates:
 \begin{multline*}
 \frac{\norm{f(p+h)+g(p+h)-\bigl(f(p)+g(p)\bigr) - \bigl(Df|_p + Dg|_p\bigr)h}}{\snorm{h}}
@@ -22980,7 +22982,7 @@ as $h \to 0$.
 Next,
 if $k=0$, then $\frac
 {\snorm{g(q+k)-g(q) - Bk}}
-{\snorm{h}} = 0$ and so assume $k\not=0$.  We have
+{\snorm{h}} = 0$ and so assume $k \neq 0$.  We have
 \begin{equation*}
 \frac
 {\snorm{g(q+k)-g(q) - Bk}}
@@ -23401,7 +23403,7 @@ Define a function $f \colon \R^2 \to \R$ by
 f(x,y)
 =
 \begin{cases}
-\frac{xy}{x^2+y^2} & \text{if } (x,y) \not= (0,0), \\
+\frac{xy}{x^2+y^2} & \text{if } (x,y) \neq (0,0), \\
 0 & \text{if } (x,y) = (0,0).
 \end{cases}
 \end{equation*}
@@ -23423,7 +23425,7 @@ Define $f \colon \R^2 \to \R$ as
 \begin{equation*}
 f(x,y) =
 \begin{cases}
-(x^2+y^2)\sin\bigl({(x^2+y^2)}^{-1}\bigr) & \text{if } (x,y) \not= (0,0), \\
+(x^2+y^2)\sin\bigl({(x^2+y^2)}^{-1}\bigr) & \text{if } (x,y) \neq (0,0), \\
 0 & \text{if } (x,y) = (0,0).
 \end{cases}
 \end{equation*}
@@ -23552,7 +23554,7 @@ continuously differentiable and the derivative is invertible, the function is
 \label{thm:inverse}
 Suppose $U \subset \R^n$ is open, 
 $f \colon U \to \R^n$ is continuously differentiable, $p \in U$, and $Df|_p$ is invertible
-(that is, $\det Df|_p \not=0$).
+(that is, $\det Df|_p \neq 0$).
 Then there exist open sets $V, W \subset \R^n$ such that
 $p \in V \subset U$, $f(V) = W$, the restriction $f|_V$ is injective (one-to-one),
 and hence a $g \colon W \to V$ exists such that
@@ -23653,10 +23655,10 @@ f\bigl(C(x_0,r)\bigr) \subset f(V) = W$.  Therefore, $W$ is open.
 
 Next we need to show that $g$ is continuously differentiable and compute
 its derivative.  First, let us show that it is differentiable.
-Consider $y \in W$ and $k \in \R^n$, $k\not= 0$, such that $y+k \in W$.
+Consider $y \in W$ and $k \in \R^n$, $k \neq 0$, such that $y+k \in W$.
 Because $f|_V$ is a one-to-one and onto mapping of $V$ onto $W$,
 there are unique
-$x \in V$ and $h \in \R^n$, where $h \not= 0$ and $x+h \in V$, such that
+$x \in V$ and $h \in \R^n$, where $h \neq 0$ and $x+h \in V$, such that
 $f(x) = y$ and $f(x+h) = y+k$.
 In other words, $g(y) = x$ and $g(y+k) = x+h$.  See
 \figureref{fig:inversefuncRn2}.
@@ -23737,7 +23739,7 @@ by $f(x,y) = (x^2-y^2,2xy)$,  that is, the mapping $z \mapsto z^2$ in the
 complex plane.  It is not hard to check that
 the derivative is invertible on $\R^2 \setminus \{ 0 \}$.
 On the other hand, the mapping is $2$-to-$1$ globally (except at the origin).
-For every $(a,b) \not= (0,0)$, there are exactly two
+For every $(a,b) \neq (0,0)$, there are exactly two
 solutions to $x^2-y^2=a$ and $2xy=b$.
 \end{example}
 
@@ -23791,7 +23793,7 @@ Define $f \colon \R^2 \to \R^2$
 f(x,y) =
 \begin{cases}
 \bigl(x^2 \sin (\nicefrac{1}{x}) + \nicefrac{x}{2} , y \bigr) &
-\text{if } x \not= 0, \\
+\text{if } x \neq 0, \\
 (0,y) &
 \text{if } x=0.
 \end{cases}
@@ -23820,8 +23822,8 @@ Show that $F$ is continuously differentiable (for all $(r,\theta) \in
 \item
 Compute $DF|_{(0,\theta)}$ for all $\theta$.
 \item
-Show that if $r \not= 0$, then $DF|_{(r,\theta)}$ is invertible, and so an
-inverse of $F$ exists locally as long as $r \not= 0$.
+Show that if $r \neq 0$, then $DF|_{(r,\theta)}$ is invertible, and so an
+inverse of $F$ exists locally as long as $r \neq 0$.
 \item
 Show that $F \colon \R^2 \to \R^2$ is onto, and for each point $(x,y) \in
 \R^2$, the set $F^{-1}(x,y)$ is infinite.
