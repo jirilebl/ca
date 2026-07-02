@@ -14985,19 +14985,24 @@ we are looking for.
 \end{proof}
 
 An isolated singularity of a harmonic function $g$ could be very wild, for
-example $\Re e^{1/z}$ or similar.  But if $g$ is $\log \sabs{f(z)}$
-for a holomorphic $f$ that has either a pole or a zero at the origin,
-then near the origin $f$ behaves 
-like $z^n$ for $n \in \Z$ and
+example $\Re e^{1/z}$ or similar.  If $f(z) = \log \sabs{h(z)}$
+for a holomorphic $h$ with either a pole or a zero at the origin,
+then near the origin $h(z) = \psi(z) z^n$ where $\psi(0)\not=0$ and $n \in \Z$.
+So
 \begin{equation*}
-\log \abs{z^n} = 
+f(z) =
+\log \sabs{\psi(z) z^n} = 
+\log \sabs{\psi(z)} + \log \abs{z^n} = 
+\log \sabs{\psi(z)} +
 n \log \sabs{z} .
 \end{equation*}
-In other words, the function $g$ behaves like $\log \sabs{z}$.
-The expression is positive near the origin if $n < 0$ and negative if $n > 0$.
+In other words, $f$ equals a harmonic function plus a multiple of $\log \sabs{z}$.
+Note that near the origin,
+$f$ is positive if $n < 0$ ($h$ has a pole) and
+negative if $n > 0$ ($h$ has a zero).
 \emph{B\^{o}cher's theorem}\index{Bocher's theorem@B\^{o}cher's theorem}
-is the converse of this reasoning:
-A nonnegative harmonic function at an isolated singularity
+extends the reasoning:
+A nonnegative harmonic function with an isolated singularity
 at the origin can be written as
 $g(z) - C \log \sabs{z}$, where $g$ is
 harmonic at the origin.
@@ -15044,8 +15049,9 @@ c_{-1} \log z +
 \psi(z),
 \end{equation*}
 for some branch of the $\log$, where $\psi$ is a holomorphic function
-on $\D \setminus \{ 0 \}$.
-Taking the real part we get $f$, a well-defined function on
+on $\D \setminus \{ 0 \}$,
+and we can assume $A=0$.
+Taking the real part, we get $f$, a well-defined function on
 $\D \setminus \{ 0 \}$.  Therefore,
 $c_{-1} \log z$ has real part that is well-defined in $\D \setminus \{ 0 \}$,
 meaning $c_{-1} \in \R$.
@@ -15055,8 +15061,8 @@ f(z) = \Re \Phi(z) =
 c_{-1} \log \sabs{z} +  
 \Re \psi(z).
 \end{equation*}
+Let $k$ be some integer $k \leq c_{-1}$.
 Nonnegativity of $f(z)$ says that
-for some integer $k \leq c_{-1}$,
 \begin{equation*}
 -k \log \sabs{z} \leq
 -c_{-1} \log \sabs{z} \leq  \Re \psi(z) .
@@ -15079,7 +15085,7 @@ and thus $\psi(z)$ has a removable singularity.
 As $-c_{-1} \log\sabs{z} \leq \Re \psi(z)$,
 we find $-c_{-1} \log\sabs{z}$ is bounded from above
 near the origin and so $-c_{-1} \geq 0$.
-We are done, $\psi$ extends through the origin
+We are done; $\psi$ extends through the origin
 and
 \begin{equation*}
 f(z) = \Re \psi(z) - (-c_{-1}) \log \sabs{z} . \qedhere
@@ -15089,7 +15095,7 @@ f(z) = \Re \psi(z) - (-c_{-1}) \log \sabs{z} . \qedhere
 \begin{exbox}
 \begin{exercise}
 Prove that a holomorphic $f \colon \Delta_r(p) \setminus \{ p \} \to \C$
-such that the real part of $f$ is bounded has a removable singularity at $p$.
+such that the real part of $f$ is bounded from below has a removable singularity at $p$.
 Prove it using harmonic functions.
 \end{exercise}
 

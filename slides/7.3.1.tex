@@ -1,0 +1,309 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Harmonic functions\\%
+Isolated singularities (7.3.1)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+What can we say about isolated singularities of harmonic functions?
+
+\medskip
+\pause
+
+$\log \sabs{z}$ is harmonic with an isolated singularity at $0$.
+
+\medskip
+\pause
+
+That's the ``slowest rate'' a harmonic $f$ can blow up at.
+
+\begin{theorem}
+Suppose $U \subset \C$ is open, $p \in U$, and $f \colon U \setminus \{ p \}
+\to \R$ is harmonic such that
+\begin{equation*}
+\lim_{z\to p} \frac{f(z)}{\log \sabs{z-p}} = 0 .
+\end{equation*}
+Then there exists a harmonic $F \colon U \to \R$ such that
+$f = F|_{U \setminus \{ p \}}$.
+\end{theorem}
+
+\medskip
+\pause
+
+\textbf{Proof:}
+WLOG, assume (using $f(a z + b)$) that $p = 0$ and $\overline{\D} \subset U$.
+
+\medskip
+\pause
+
+Find a continuous $u \colon \overline{\D} \to \R$,
+harmonic in $\D$, such that $u|_{\partial \D} = f|_{\partial \D}$
+(solve Dirichlet).
+
+\medskip
+\pause
+
+If we show that $u = f$ in $\D \setminus \{ 0 \}$, we are done.
+
+\end{frame}
+
+\begin{frame}
+We have
+$f$ given on $\overline{\D} \setminus \{ 0 \}$,
+$\displaystyle \lim_{z\to p} \frac{f(z)}{\log \sabs{z}} = 0$,
+$u$ on $\overline{\D}$, harmonic in $\D$, and $f = u$ on $\partial \D$.
+
+\medskip
+\pause
+
+$g = f-u$ is harmonic in $\D \setminus \{ 0 \}$, continuous
+on $\overline{\D} \setminus \{ 0 \}$, zero on $\partial \D$, and
+\[
+\lim_{z \to 0} \frac{g(z)}{-\log \sabs{z}} = 0.
+\]
+\pause
+For any $\epsilon > 0$, there is a $\delta > 0$ so that
+\[
+-\epsilon (- \log\sabs{z})
+\leq
+g(z)
+\leq
+\epsilon (- \log\sabs{z})
+\qquad
+\text{for all }
+z \in \overline{\Delta_\delta(0)} \setminus \{ 0 \}.
+\tag{$\dagger$}
+\]
+(we can assume $\delta < 1$).
+
+\medskip
+\pause
+
+The estimate ($\dagger$) holds on $\partial \D$ ($g=0$ there).
+
+\pause
+\medskip
+
+$-\log\sabs{z}$ and $g$ are harmonic (outside $0$) \wthus
+
+maximum principle
+\wthus
+($\dagger$) holds when
+$\delta < \sabs{z} < 1$ \wthus ($\dagger$) holds
+for all $z \in \D \setminus \{ 0 \}$.
+
+\medskip
+\pause
+
+($\dagger$) holds for all $\epsilon > 0$ for all $z \in \D \setminus \{0\}$
+\wthus 
+$g = 0$ and so $f=u$ on $\D \setminus \{ 0 \}$.
+\qed
+\end{frame}
+
+\begin{frame}
+
+An isolated singularity of a harmonic $f$ could be wild, e.g., $\Re
+e^{1/z}$.
+
+\medskip
+\pause
+
+If $f(z) = \log \sabs{h(z)}$ for a holomorphic $h$
+with a zero or pole at the origin,
+
+then near the origin $h(z) = \psi(z) z^n$ where $\psi(0)\not=0$ and $n \in \Z$,
+and so
+\[
+f(z) = 
+\log \sabs{\psi(z) z^n} = 
+\log \sabs{\psi(z)} + \log \abs{z^n} = 
+\log \sabs{\psi(z)} +
+n \log \sabs{z} .
+\]
+
+So $f$ is a harmonic plus a multiple of $\log \sabs{z}$.
+
+\medskip
+\pause
+
+\textit{Remark:}
+Near $0$,
+$f(z) \geq 0$ ($n < 0$) if $h$ has a pole
+and
+$f(z) \leq 0$ ($n > 0$) if $h$ has a zero.
+
+\pause
+
+\begin{theorem}[B\^{o}cher]
+Suppose $U \subset \C$ is open, $p \in U$, and
+$f \colon U \setminus \{ p \} \to \R$ is
+harmonic and nonnegative.  Then there exists a harmonic function
+$g \colon U \to \R$ and a $C \geq 0$ such that
+for all $z \in U \setminus \{ p \}$,
+\begin{equation*}
+f(z) = g(z) - C \log \sabs{z-p} .
+\end{equation*}
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{Proof:}
+WLOG, $p=0$ and $U = \D$.
+
+\medskip
+\pause
+
+$\D \setminus \{ 0 \}$ not simply connected
+\wthus
+holomorphic $\Phi$ so that $\Re \Phi = f$ not well-defined.
+
+\medskip
+\pause
+
+But harmonic conjugates differ by a constant \wthus $\Phi'$ is well-defined.
+
+\medskip
+\pause
+
+$\exists$ a holomorphic $\varphi \colon \D \setminus \{ 0 \} \to \C$ such
+that $\Phi' = \varphi$ for any such locally defined $\Phi$.
+
+\medskip
+\pause
+
+Write the Laurent series:
+\quad
+$\displaystyle
+\varphi(z) = \sum_{n=-\infty}^\infty c_n {z}^n$.
+
+\medskip
+\pause
+
+Near some point, for some branch of $\log z$, and a constant $A$ (antidifferentiate):
+\[
+\Phi(z) =
+A+
+c_{-1} \log z +  
+\sum_{n=-\infty,n \neq -1}^\infty \frac{c_n}{n+1} {z}^{n+1}
+\pause
+=
+c_{-1} \log z +  
+\psi(z),
+\]
+where $\psi$ is holomorphic
+on $\D \setminus \{ 0 \}$
+and we just assume $A=0$.
+
+
+\medskip
+\pause
+
+$f = \Re \Phi$ and so $\Re (c_{-1} \log z)$ is well-defined on $\D \setminus
+\{ 0 \}$
+\wthus $c_{-1} \in \R$.
+
+\end{frame}
+
+\begin{frame}
+So
+\[
+f(z) = \Re \Phi(z) =
+c_{-1} \log \sabs{z} +  
+\Re \psi(z).
+\]
+\pause
+$f(z) \geq 0$ \wthus
+$-c_{-1} \log \sabs{z} \leq  \Re \psi(z)$.
+\pause
+\qquad
+Take an integer $k \leq c_{-1}$, then
+\[
+-k \log \sabs{z} \leq
+-c_{-1} \log \sabs{z} \leq  \Re \psi(z) .
+\]
+\pause
+Then
+\[
+\sabs{z^{-k}} \leq e^{\Re \psi(z)} = \babs{e^{\psi(z)}} 
+\pause
+\quad
+\text{or}
+\quad
+\sabs{z^{-k} e^{-\psi(z)}} \leq 1 .
+\]
+\pause
+$z^{-k} e^{-\psi(z)}$ has
+a removable singularity at the origin.
+
+\medskip
+\pause
+
+An exercise from section 5.2.3 says that
+$e^{h(z)}$ has removable or essential singularities only.
+
+\pause
+\medskip
+
+So $e^{-\psi(z)}$, and so $\psi(z)$, has a removable singularity
+\wthus
+$\Re \psi(z)$ extends through $0$.
+
+\medskip
+\pause
+
+$-c_{-1} \log\sabs{z} \leq \Re \psi(z)$
+\wthus
+$-c_{-1} \log\sabs{z}$ is bounded from above near $0$
+\wthus
+$-c_{-1} \geq 0$.
+
+\medskip
+\pause
+
+We are done:
+\[
+f(z) = \Re \psi(z) - (-c_{-1}) \log \sabs{z} . \qed
+\]
+
+\end{frame}
+
+\begin{frame}
+
+\textbf{Exercise:}
+Prove that the Dirichlet problem is not necessarily solvable in the punctured disc $\D
+\setminus \{ 0 \}$.
+
+\medskip
+
+\textit{Remark:} $\partial (\D \setminus \{ 0 \}) = (\partial \D ) \cup \{ 0 \}$.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Prove that given $f$, the function $g$ and the constant $C$ in 
+B\^{o}cher's theorem are unique.
+
+\end{frame}
+
+\end{document}
