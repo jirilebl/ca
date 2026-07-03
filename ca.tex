@@ -15197,7 +15197,8 @@ We proved above that $F$ is harmonic on $U \setminus L$ and
 so the mean-value property
 is also satisfied for all small enough circles
 around any $z \in U \setminus L$.
-By the mean-value property (\thmref{thm:meanprop}), $F$ is harmonic in $U$.
+As $F$ is also clearly continuous on $U$,
+by the mean-value property (\thmref{thm:meanprop}), $F$ is harmonic in $U$.
 \end{proof}
 
 \begin{exbox}
@@ -15215,19 +15216,21 @@ then $f(z)=f(-z)$ for all $z \in \C$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:Hdirichuniq}
-Prove that the Dirichlet problem has a unique bounded solution in $\bH$.
-That is,
-suppose $f,g \colon \overline{\bH} \to \R$ are 
+Prove that a bounded solution to the Dirichlet problem in the
+upper-half plane $\bH$ is unique:
+Suppose $f,g \colon \overline{\bH} \to \R$ are 
 continuous and harmonic in $\bH$ such that $f-g$ is bounded and
-$f=g$ on $\partial \bH = \R$.  Prove that $f=g$ everywhere.
+$f=g$ on $\partial \bH = \R$.  Prove that $f=g$ on $\bH$.
 Compare to \exerciseref{exercise:upperhalfplanedirichlet}.
 \end{exercise}
 
 \begin{exercise}
-Prove a version of reflection across the circle:  Let $U \subset
+Reflection across the circle:  Let $U \subset
 \C$ be a domain symmetric with respect to the inversion $z \mapsto
-\nicefrac{z}{\abs{z}^2}$.  Suppose $f$ is a harmonic function defined on
-$U \cap \overline{\D}$ and zero on $U \cap \partial \D$.
+\nicefrac{z}{\abs{z}^2}$.
+Suppose $f \colon U \cap \overline{\D} \to \R$
+is continuous, harmonic on $U \cap \D$, and
+zero on $U \cap \partial \D$.
 Prove that $f$ extends to a harmonic function on $U$.
 \end{exercise}
 

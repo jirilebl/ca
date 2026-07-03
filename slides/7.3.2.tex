@@ -1,0 +1,153 @@
+\documentclass[10pt,aspectratio=169]{beamer}
+
+% All the boilerplate is in ccaslides.sty
+% Note that this also pulls in a custom vogtwidebar.sty
+\usepackage{ccaslides}
+
+\author{Ji\v{r}\'i Lebl}
+
+\institute[OSU]{%
+Departemento pri Matematiko de Oklahoma {\^S}tata Universitato}
+
+\title{Cultivating Complex Analysis:\\%
+Harmonic functions\\%
+Schwarz reflection principle (7.3.2)}
+
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}
+A harmonic function vanishing on a nice curve (e.g., $\R$) extends across.
+
+\begin{theorem}[Schwarz reflection principle for harmonic functions]%
+Suppose $U \subset \C$ is a domain symmetric across $\R$, that is,
+$z \in U$ if and only if $\bar{z} \in U$.
+
+Let $U_+ = \{ z \in U : \Im z > 0 \}$ and $L = U \cap \R$.
+
+Suppose $f \colon U_+ \cup L \to \R$ is continuous,
+harmonic on $U_+$, and $f(z) = 0$ for all $z \in L$.
+
+Then there exists a harmonic $F \colon U \to \R$ such that
+$F|_{U_+ \cup L} = f$.
+\end{theorem}
+
+\begin{center}
+\subimport*{../figures/}{schwarzreflection.pdf_t}
+\end{center}
+
+\pause
+
+\textit{Remark:} The version for holomorphic functions is perhaps better
+known.
+
+\end{frame}
+
+\begin{frame}
+
+\textit{Proof:}
+Define $F \colon U \to \R$ by
+\quad
+$\displaystyle
+F(z) =
+\begin{cases}
+f(z) & \text{if } \Im z \geq 0, \\
+-f(\bar{z}) & \text{else} .
+\end{cases}
+$
+\quad
+We must show $F$ is harmonic.
+
+\medskip
+\pause
+
+On $U_+$, $F$ is harmonic by hypothesis.
+
+\medskip
+\pause
+
+Suppose $z \in U$ and $\Im z < 0$. \pause  Then $F(z) = F(x,y) = -f(x,-y)$ and
+\[
+\nabla^2|_{(x,y)} F
+=
+\nabla^2|_{(x,y)} \bigl( -f(x,-y) \bigr)
+\pause
+=
+- \frac{\partial^2 f}{\partial x^2}\Big|_{(x,-y)}
+- \frac{\partial^2 f}{\partial y^2}\Big|_{(x,-y)}
+\pause
+=
+- \nabla^2|_{(x,-y)} f = 0 .
+\]
+\pause
+
+Finally, suppose $z \in L$ and $\overline{\Delta_r(z)} \subset U$.
+\pause
+Compute the mean value over $\partial \Delta_r(z)$:
+\[
+\frac{1}{2\pi} \int_{-\pi}^{\pi} F(z+re^{i\theta})\, d\theta
+\pause
+=
+\frac{1}{2\pi} \int_{-\pi}^{0} -f(z+re^{-i\theta})\, d\theta
++
+\frac{1}{2\pi} \int_{0}^{\pi} f(z+re^{i\theta})\, d\theta
+\pause
+=
+0 .
+\]
+\pause
+$F(z)=0$ and so the 
+mean-value property at $z$ is satisfied at for all small enough
+$r$.
+
+\medskip
+\pause
+
+$F$ is harmonic on $U \setminus L$ \wthus the
+mean-value property holds at every point in $U$.
+
+\medskip
+\pause
+
+\thus \quad $F$ is harmonic in $U$.
+\qed
+\end{frame}
+
+\begin{frame}
+\textbf{Exercise:}
+A bounded solution to
+the Dirichlet problem in the upper-half plane $\bH$ is unique:
+Suppose $f,g \colon \overline{\bH} \to \R$ are 
+continuous and harmonic in $\bH$ such that $f-g$ is bounded and
+$f=g$ on $\partial \bH = \R$.  Prove that $f=g$ on $\bH$.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Reflection across the circle:  Let $U \subset
+\C$ be a domain symmetric with respect to the inversion $z \mapsto
+\nicefrac{z}{\abs{z}^2}$.
+Suppose $f \colon U \cap \partial \D \to \R$
+is continuous, harmonic on $U \cap \D$, and
+zero on $U \cap \partial \D$.
+Prove that $f$ extends to a harmonic function on $U$.
+
+\medskip
+\pause
+
+\textbf{Exercise:}
+Suppose $f \colon \overline{\bH} \to \R$ is continuous, harmonic on $\bH$, zero on $\R = \partial \bH$,
+and positive on $\bH$  (a Martin function).
+Prove that $f(z) = c \Im z$ for some $c > 0$.
+Hint: Find an entire function whose imaginary part is $f$ and
+show that it has a pole at infinity.
+
+\end{frame}
+
+\end{document}
