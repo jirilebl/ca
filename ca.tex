@@ -15147,15 +15147,16 @@ $F|_{U_+ \cup L} = f$.
 \end{thm}
 
 See \figureref{fig:schwarzreflection} for a diagram.
+Curves other than the real line can be considered by composing with a
+biholomorphic map.
 
 \begin{myfig}
-%Note this figure is used later as well
 \subimport*{figures/}{schwarzreflection.pdf_t}
 \caption{Schwarz reflection principle.\label{fig:schwarzreflection}}
 \end{myfig}
 
 \begin{proof}
-The trick is to define what we want $F$ to be and then
+The trick is to define $F$ and then
 check that it is harmonic.
 For $z \in U$, define
 \begin{equation*}
@@ -15200,6 +15201,7 @@ around any $z \in U \setminus L$.
 As $F$ is also clearly continuous on $U$,
 by the mean-value property (\thmref{thm:meanprop}), $F$ is harmonic in $U$.
 \end{proof}
+
 
 \begin{exbox}
 \begin{exercise}
@@ -15279,7 +15281,6 @@ that $f$ is $2$-periodic: $f(z+2)=f(z)$ for all $z \in \C$.
 \end{exercise}
 \end{exbox}
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Subharmonic functions \texorpdfstring{$\star$}{*}}
@@ -15313,18 +15314,18 @@ f(z) \leq g(z) \quad \text{ for all } z \in \Delta_r(p) .
 \end{equation*}
 \end{defn}
 
-In other words, a subharmonic function is a function that is less than every
-harmonic function on every disc whenever that holds on the boundary.
+In other words, a subharmonic function is a function that on any disc
+is no bigger than any harmonic function that is no bigger on the circle.
 The best way to think about subharmonic functions is an analogy to convex
 functions in $\R$.
-We saw that harmonic functions in $\R$ are the affine linear functions:
+Harmonic functions in $\R$ are affine linear:
 A function $g(x)$ on $\R$ is harmonic if $g'' \equiv 0$, that is, $g(x) = Ax+B$.
 A function of one real variable is
 \emph{convex}\index{convex function} if 
-for every interval it is less than the affine linear function with the same
-end points.
+on every interval it is no bigger than an affine linear function 
+no bigger at the end points.
 That is,
-the function $f$ is convex if for every $\alpha < \beta$,
+$f$ is convex if for every $\alpha < \beta$,
 and every affine linear $g$ such that
 $f(\alpha) \leq g(\alpha)$
 and
@@ -15375,10 +15376,10 @@ is continuous.
 \end{exercise}
 \end{exbox}
 
-Adding or subtracting 
-harmonic functions does not kill subharmonicity.  The proof is rather simple
-as a sum or difference of harmonic functions is harmonic and we leave it as
-an exercise.
+Adding (or subtracting) 
+harmonic functions does not kill subharmonicity.  The proof is a
+straightforward exercise
+as a sum of harmonic functions is harmonic.
 
 \begin{prop} \label{prop:fplushsubharmonic}
 If $f \colon U \to \R \cup \{ - \infty \}$ is subharmonic and $h \colon U
@@ -15774,21 +15775,20 @@ on the closure $\overline{\Delta}$.  Let $\Delta' \subset \Delta$ be the set
 where $f$ is nonzero.  If $\Delta'$ is empty, then we are done, as
 $f$ is just identically zero and hence holomorphic.
 
-Let $u$ be the real part of $f$.  On $\Delta'$, $u$ is a harmonic function.
+Let $u$ be the real part of $f$.  On $\Delta'$, $u$ is harmonic.
 Write $Pu = P[u|_{\partial \Delta}]$ for the Poisson integral of $u$ on
 $\overline{\Delta}$.  Hence $Pu$
-equals $u$ on $\partial \Delta$, and $Pu$ is harmonic in all of $\Delta$.
+equals $u$ on $\partial \Delta$, and $Pu$ is harmonic on $\Delta$.
 Consider the function
-$Pu(z) - u(z)$ on $\overline{\Delta}$.  The function is zero
-on $\partial \Delta$ and it is harmonic on $\Delta'$.  By rescaling $f$,
+$Pu(z) - u(z)$ on $\overline{\Delta}$, which is zero
+on $\partial \Delta$ and harmonic on $\Delta'$.  By rescaling $f$,
 we assume that $\abs{f(z)} < 1$ for all $z
 \in \overline{\Delta}$. 
 The function $z \mapsto \log \sabs{f(z)}$ is harmonic on $\Delta'$, it is
 $-\infty$ when $f(z) = 0$, and hence it is upper-semicontinuous on
 $\overline{\Delta}$.
-Applying
-the sub-mean-value property near points where $f$ vanishes,
-we find that
+The sub-mean-value property near points where $f$ vanishes
+shows that
 $\log \sabs{f(z)}$ is subharmonic on $\Delta$.
 As $\sabs{f(z)} < 1$, we find that
 $\log \sabs{f(z)}$ is negative on $\overline{\Delta}$.
@@ -15821,20 +15821,21 @@ for all $z \in \overline{\Delta}$ and all $t > 0$.
 \caption{Proof of Rad\'o's theorem.\label{fig:radosthm}}
 \end{myfig}
 
-Taking the limit
+The limit
 $t \to 0$ shows that $Pu = u$ on $\Delta'$.
 Let $W = \Delta \setminus \overline{\Delta'}$.
-On $W$, $u=0$ and so $Pu-u$ is harmonic on $W$
-and continuous on $\widebar{W}$.  Furthermore,
-$Pu-u=0$ on $\overline{\Delta'} \cup \partial \Delta$,
+On $W$, $u=0$, and so $Pu-u$ is harmonic on $W$
+and continuous on $\widebar{W}$.
+On $\overline{\Delta'} \cup \partial \Delta$,
+we have $Pu-u=0$
 and so $Pu-u=0$ on $\partial W$.  By the maximum principle, $Pu=u$ on $W$
-and therefore on all of $\overline{\Delta}$.  All in all, $u$ is harmonic on
+and hence on all of $\overline{\Delta}$.  All in all, $u$ is harmonic on
 $\Delta$.
-Repeating the whole procedure for $v$, the imaginary part of $f$, we find
+Repeating the procedure for $v$, the imaginary part of $f$, we find
 that $v$ is harmonic as well.
 As $\Delta$ is simply connected,
-let $\tilde{v}$ be the harmonic conjugate of $u$ that equals $v$ at
-some point of $\Delta'$.  As $f$ is holomorphic on $\Delta'$,
+there is a harmonic conjugate $\tilde{v}$ of $u$ that equals $v$ at
+some point of $\Delta'$.  Because $f$ is holomorphic on $\Delta'$,
 the harmonic functions $\tilde{v}$ and $v$
 are equal on the nonempty open subset $\Delta'$ of $\Delta$ and so
 they are equal everywhere.  Consequently, $f = u +iv$ is holomorphic on

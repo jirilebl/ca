@@ -2,22 +2,15 @@
 \includegraphics{schwarzreflection.pdf}%
 \end{picture}%
 \setlength{\unitlength}{3947sp}%
-%
-\begingroup\makeatletter\ifx\SetFigFont\undefined%
-\gdef\SetFigFont#1#2#3#4#5{%
-  \reset@font\fontsize{#1}{#2pt}%
-  \fontfamily{#3}\fontseries{#4}\fontshape{#5}%
-  \selectfont}%
-\fi\endgroup%
-\begin{picture}(2724,1540)(214,-606)
-\put(2251,-37){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$L$}%
-}}}}
-\put(2776,-37){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\R$}%
-}}}}
-\put(1501,539){\makebox(0,0)[b]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$U_+$}%
-}}}}
-\put(976,389){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$z$}%
-}}}}
-\put(976,-211){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\familydefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}$\bar{z}$}%
-}}}}
+\begin{picture}(2724,1256)(214,-464)
+\put(2251,-37){\makebox(0,0)[b]{\smash{\fontsize{12}{14.4}\normalfont {\color[rgb]{0,0,0}$L$}%
+}}}
+\put(2776,-37){\makebox(0,0)[b]{\smash{\fontsize{12}{14.4}\normalfont {\color[rgb]{0,0,0}$\R$}%
+}}}
+\put(976,389){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\normalfont {\color[rgb]{0,0,0}$z$}%
+}}}
+\put(976,-211){\makebox(0,0)[lb]{\smash{\fontsize{12}{14.4}\normalfont {\color[rgb]{0,0,0}$\bar{z}$}%
+}}}
+\put(1501,464){\makebox(0,0)[b]{\smash{\fontsize{12}{14.4}\normalfont {\color[rgb]{0,0,0}$U_+$}%
+}}}
 \end{picture}%
