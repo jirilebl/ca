@@ -15420,7 +15420,7 @@ $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
 
 As $\partial \Delta_r(p)$ is compact and $f$ is upper-semicontinuous, then
 $f$ is bounded from above and hence the upper Darboux integral is defined
-and finite.
+and less than $\infty$.
 The upper Darboux integral of a function $f$ on $[a,b]$ bounded above is normally defined as
 \begin{equation*}
 \overline{\int_a^b} f(t) \,dt
@@ -15429,13 +15429,11 @@ The upper Darboux integral of a function $f$ on $[a,b]$ bounded above is normall
 \text{ is a step function and } f(t) \leq s(t) \text{ for } t \in
 [a,b] \right\} .
 \end{equation*}
-A step function is a finite sum of characteristic functions of intervals and
-hence Riemann integrable.
-Since continuous functions are Riemann integrable, we can approximate from
-above by continuous functions $g$ such that
-$\int_a^b g(t)\,dt$
-approximates
-$\int_a^b s(t)\,dt$.  In other words, in the definition we could replace
+A step function is a function that is constant except for a finite
+number of jump discontinuouties and such functions
+can be approximated from above by continuous functions
+so that their integrals are arbitrarily close.
+In other words, in the definition above we may replace
 step functions with continuous functions, and that is what we will do in
 the proof.
 
@@ -15450,6 +15448,8 @@ and such that
 \frac{1}{2\pi} \int_{-\pi}^{\pi} g(p+re^{i\theta})\, d\theta <
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} f(p+re^{i\theta})\, d\theta + \epsilon .
 \end{equation*}
+If the $f$-integral equals $-\infty$, simply make the $g$-integral
+arbitrarily small.
 Solve the Dirichlet problem in the disc $\Delta_r(p)$ for $g$ and
 with a slight abuse of notation call the solution on $\overline{\Delta_r(p)}$
 also $g$.  As $g$ is harmonic and bigger than $f$, we have by
@@ -15459,7 +15459,9 @@ functions
 f(p) \leq g(p) =
 \frac{1}{2\pi} \int_{-\pi}^{\pi} g(p+re^{i\theta})\, d\theta <
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} f(p+re^{i\theta})\, d\theta + \epsilon .
+\avoidbreak
 \end{equation*}
+If the $f$-integral was $-\infty$, we get $f(p) = -\infty$.
 
 For the converse,
 suppose that $f$ is upper-semicontinuous and
@@ -15832,13 +15834,13 @@ and so $Pu-u=0$ on $\partial W$.  By the maximum principle, $Pu=u$ on $W$
 and hence on all of $\overline{\Delta}$.  All in all, $u$ is harmonic on
 $\Delta$.
 Repeating the procedure for $v$, the imaginary part of $f$, we find
-that $v$ is harmonic as well.
+that $v$ too is harmonic.
 As $\Delta$ is simply connected,
-there is a harmonic conjugate $\tilde{v}$ of $u$ that equals $v$ at
+there is a harmonic conjugate $\tilde{v}$ of $u$ on $\Delta$ that equals $v$ at
 some point of $\Delta'$.  Because $f$ is holomorphic on $\Delta'$,
 the harmonic functions $\tilde{v}$ and $v$
-are equal on the nonempty open subset $\Delta'$ of $\Delta$ and so
-they are equal everywhere.  Consequently, $f = u +iv$ is holomorphic on
+are equal on one component of the nonempty open subset $\Delta'$ of $\Delta$ and so
+they are equal on $\Delta$.  Consequently, $f = u +iv = u+i\tilde{v}$ is holomorphic on
 $\Delta$.
 \end{proof}
 
