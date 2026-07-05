@@ -7549,7 +7549,7 @@ and to follow a branch of $\log$ around $\gamma$, and
 see by how much it changes.  See \figureref{fig:followbranch}, where we
 go all the way around a loop.  Since we follow the argument
 and we go some number of times around $p$ along $\gamma$, the
-argument changes by some multiple of $2\pi$.
+argument changes by some integer multiple of $2\pi$.
 
 \begin{proof}
 A cycle is (equivalent to) a linear combination (over the integers) of closed paths,
@@ -8947,7 +8947,7 @@ n(\gamma;p)
 \end{defn}
 
 For a closed $\gamma$, as two different arguments of a complex number differ by
-a multiple of $2 \pi$, we see that $n(\gamma;p)$ is always an integer.
+an integer multiple of $2 \pi$, we see that $n(\gamma;p)$ is always an integer.
 Let us see how the $\theta$, and therefore $n(\gamma;p)$, changes 
 as $\gamma$ changes (for instance in a homotopy).
 
@@ -15420,8 +15420,9 @@ $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
 
 As $\partial \Delta_r(p)$ is compact and $f$ is upper-semicontinuous, then
 $f$ is bounded from above and hence the upper Darboux integral is defined
-and less than $\infty$.
-The upper Darboux integral of a function $f$ on $[a,b]$ bounded above is normally defined as
+and valued in $[-\infty,\infty)$.
+Recall the definition of the upper Darboux integral of a bounded-above
+function $f$ on $[a,b]$:
 \begin{equation*}
 \overline{\int_a^b} f(t) \,dt
 \overset{\text{def}}{=}
@@ -15449,7 +15450,7 @@ and such that
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} f(p+re^{i\theta})\, d\theta + \epsilon .
 \end{equation*}
 If the $f$-integral equals $-\infty$, simply make the $g$-integral
-arbitrarily small.
+arbitrarily negative.
 Solve the Dirichlet problem in the disc $\Delta_r(p)$ for $g$ and
 with a slight abuse of notation call the solution on $\overline{\Delta_r(p)}$
 also $g$.  As $g$ is harmonic and bigger than $f$, we have by
@@ -15902,7 +15903,8 @@ I became insane, with long intervals of horrible sanity.
 \label{sec:prod}
 
 If a
-function has zeros at $0$, $1$, and $i$, we
+holomorphic $f$
+has zeros at $0$, $1$, and $i$, we
 can write $f$ as
 $f(z) = g(z) z(z-1)(z-i)$.  If those are the only zeros, then 
 $g$ is never zero.  If there are infinitely many zeros, however,
@@ -15914,8 +15916,8 @@ write $\sin z$ as something times
 \end{equation*}
 Not quite, but sort of, if
 we take care of convergence.\footnote{Beware of
-formal expressions bearing gifts.
-Especially ones with infinite sets in them.
+formal expressions bearing gifts,
+especially ones with infinite sets in them.
 For example, $\prod_{n \in \Z} (z-\pi n)$ does not actually make any sense.}
 Of course, we need to first
 figure out what we mean by convergence.  Once we figure that out,
@@ -15923,7 +15925,7 @@ we will show that convergence happens the way we want to
 if we use slightly more complicated factors.
 
 \begin{defn}
-The product
+We will say the product
 \glsadd{not:infprod}%
 \begin{equation*}
 \prod_{n=1}^\infty (1+a_n)
@@ -15945,10 +15947,18 @@ converges.
 
 A product could converge in two different ways.  It either goes to $0$ or it
 does not.
-One way to go to zero is if $1+a_n=0$ for some $n$, but there
-are other possibilities.  For instance, if $\sabs{1+a_n} \leq r < 1$ for all
+We note that some authors do not use the word \myquote{converges} for a product whose
+limit is $0$, and instead use
+\myquote{diverges to $0$}\index{diverges to $0$!infinite
+product}.\footnote{%
+Some other authors allow zero as limit to \myquote{converge}, but only if
+some
+\myquote{tail} of the product converges to something nonzero.}
+One way to go to zero is if $1+a_n=0$ for some $n$, but it could
+go to zero in other ways.  For instance, if $\sabs{1+a_n} \leq r < 1$ for all
 $n$, then the product also goes to zero, although in this case the
-convergence will not be absolute (exercise below).
+convergence is not absolute (exercise below),
+and we only really want to consider absolute convergence.
 
 Suppose that the product converges to a nonzero number.
 In particular, $a_n \neq -1$ for any $n$.  Then
@@ -15965,7 +15975,8 @@ and so $a_k$ must go to $0$.
 
 A key idea about products is to relate infinite products to sums using the
 logarithm, which is something we can easily do if dealing with positive
-numbers.  This way, absolutely convergent products can be understood
+numbers.
+This way, absolutely convergent products can be understood
 if we understand absolutely convergent sums, which we do.
 
 \begin{prop} \label{prop:infprodabsconvinfsum}
@@ -16036,6 +16047,7 @@ If the product converges absolutely, then $\sabs{a_n}$ goes to $0$, and we
 may, without loss of generality, assume that $\Re a_n > -1$ for all $n$,
 ignoring the first few terms if necessary.  In particular,
 $\Log (1+a_n)$ is well-defined for the principal branch of the logarithm.
+By discarding trivial factors, we can also assume that $a_n\neq 0$ for all $n$.
 The derivative of $\Log z$ at $1$ is $1$, and $a_n$ goes to zero.
 So
 \begin{equation*}
@@ -16066,19 +16078,12 @@ via \propref{prop:infprodabsconvinfsum}.
 
 It is not necessarily true that
 $\sum_{n=1}^k \Log (1+a_n) = \Log \prod_{n=1}^k (1+a_n)$.
-However,
-$\sum_{n=1}^k \Log (1+a_n) = \log \prod_{n=1}^k (1+a_n)$
-for some branch of the
-logarithm, because while the arguments might add up to something outside
-the range $(-\pi,\pi]$, the sum will be off by some multiple of $2\pi i$.
-Therefore, for this branch of the log
+The arguments might add up to something outside
+the range $(-\pi,\pi]$.  However, the sum will be off by some integer multiple of $2\pi i$.
+Therefore,
 \begin{equation*}
 \exp\left(
 \sum_{n=1}^k \Log(1+a_n)
-\right)
-=
-\exp\left(
-\log \prod_{n=1}^k (1+a_n)
 \right)
 =
 \prod_{n=1}^k (1+a_n) .
@@ -16090,12 +16095,15 @@ that the product converges.
 It is important that the principal branch is used as otherwise the imaginary
 parts of the logs may not converge.  Namely, it is important
 that $\Log 1 = 0$.
-
-
+When we say that a product converges absolutely to $L$, we mean that
+the product converges absolutely and also converges to $L$.
+A consequence of the above result is that the only way
+for a product to absolutely converge to $0$ is for one of the
+factors to be zero:
 
 \begin{prop}
 If $\prod_{n=1}^\infty (1+a_n)$ converges absolutely to $0$, then there
-exists a $n$ such that $a_n=-1$.
+exists an $n$ such that $a_n=-1$.
 \end{prop}
 
 \begin{proof}
@@ -16141,23 +16149,48 @@ $\prod_{n=1}^{\infty} \bigl(1+\sabs{g_n(x)}\bigr)$
 converges uniformly in $x \in X$.
 \end{defn}
 
-Uniformly absolute convergence of the product is the same as uniformly
-absolute convergence of the corresponding series.
+Uniform absolute convergence of the product is the same as uniform
+absolute convergence of the corresponding series, assuming
+the series is uniformly bounded.
 
 \begin{prop}
-For $g_n \colon X \to \C$, the product
+Consider a sequence $g_n \colon X \to \C$.
+If
 $\prod_{n=1}^{\infty} \bigl(1+\sabs{g_n(x)}\bigr)$ 
-converges uniformly if and only if
+converges uniformly, then
 $\sum_{n=1}^{\infty} \sabs{g_n(x)}$ converges uniformly.
+Conversely, if
+$\sum_{n=1}^{\infty} \sabs{g_n(x)}$ converges uniformly
+and is uniformly bounded, then
+$\prod_{n=1}^{\infty} \bigl(1+\sabs{g_n(x)}\bigr)$ 
+converges uniformly.
 \end{prop}
+
+When we apply this proposition, the $X$ will be compact
+and the $g_n$ will be continuous.
+In that case, 
+$\sum_{n=1}^{\infty} \sabs{g_n(x)}$ is continuous and hence
+uniformly bounded.
 
 \begin{exbox}
 \begin{exercise}
-Prove the proposition.  Hint:
-Use log to convert the partial products to partial sums.
-Then apply the estimates in \propref{prop:infprodabsconvinfsum} to
-show that one sequence of partial sums is uniformly Cauchy if and only if
-the other one is.
+Prove the proposition with the following outline:
+\begin{exparts}
+\item Show that uniform convergence of
+$\prod_{n=1}^{\infty} \bigl(1+\sabs{g_n(x)}\bigr)$
+implies
+uniform convergence of
+$\sum_{n=1}^{\infty} \sabs{g_n(x)}$.
+Hint:
+Consider the estimates in \propref{prop:infprodabsconvinfsum}.
+\item Show that
+the partial products 
+$\prod_{n=1}^{N} \bigl(1+\sabs{g_n(x)}\bigr)$
+are uniformly bounded (uniform in both $N$ and $x$)
+if $\sum_{n=1}^{\infty} \sabs{g_n(x)}$ is uniformly bounded.
+\item Finish the proof.  Hint: Given a difference of 
+two partial products, a partial product factors out.
+\end{exparts}
 \end{exercise}
 \end{exbox}
 
@@ -16179,14 +16212,14 @@ Prove the proposition.
 \end{exbox}
 
 In the sequel,
-we will simply write products in the form $\prod_{n=1}^\infty f_n(z)$
+we will write products in the form $\prod_{n=1}^\infty f_n(z)$
 for some functions $f_n$.
-In this case, of course, to apply the definitions one needs to think of
+In this case, of course, to apply the definitions, one needs to think of
 the products as
 \begin{equation*}
 \prod_{n=1}^\infty \Bigl( 1 + \bigl(f_n(z)-1\bigr) \Bigr).
 \end{equation*}
-In particular, 
+In particular, for holomorphic functions on a compact set,
 $\prod_{n=1}^\infty f_n(z)$ converges (uniformly) absolutely 
 if 
 $\prod_{n=1}^\infty \bigl( 1 + \sabs{f_n(z)-1} \bigr)$
@@ -16374,7 +16407,7 @@ If $\ell_n = n-1$, a tail of the series is bounded
 by the geometric series $\sum {(\nicefrac{1}{2})}^n$.
 
 Consider a compact set $K$ in the plane.  It is contained in some closed disc
-$\overline{\Delta_r(0)}$.  We want to get uniformly absolute convergence
+$\overline{\Delta_r(0)}$.  We want to get uniform absolute convergence
 of the product, and so we need
 \begin{equation*}
 \sum_{n=1}^\infty \abs{ E_{\ell_n}\left(\frac{z}{a_n}\right)-1}
