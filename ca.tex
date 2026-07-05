@@ -16095,9 +16095,10 @@ that the product converges.
 It is important that the principal branch is used as otherwise the imaginary
 parts of the logs may not converge.  Namely, it is important
 that $\Log 1 = 0$.
+
 When we say that a product converges absolutely to $L$, we mean that
 the product converges absolutely and also converges to $L$.
-A consequence of the above result is that the only way
+A consequence of the result above is that the only way
 for a product to absolutely converge to $0$ is for one of the
 factors to be zero:
 
@@ -16317,7 +16318,7 @@ Then $f(1)$ is real and for $z \in \overline{\D}$,
 
 \begin{proof}
 Expand $f(z) = \sum c_n z^n$.  As $f^{(n)}(0) \geq 0$,
-then $c_n \geq 0$.
+we have $c_n \geq 0$.
 Thus for $z \in \overline{\D}$,
 \begin{equation*}
 \babs{f(z)} =
@@ -16353,7 +16354,7 @@ z^m \exp\left( z +\frac{z^2}{2} + \cdots + \frac{z^m}{m} \right) .
 \end{multline*}
 Notably, $1-E_m(z)$ has a zero of order $m+1$ at $z=0$.  Thus $f(z) =
 \frac{1-E_m(z)}{z^{m+1}}$ has a removable singularity.  From the formula for
-the derivative $-E_m'(z)$, it is clear the coefficients of the power series
+the derivative $-E_m'(z)$, it is clear that the coefficients of the power series
 for $f$ at $0$ are nonnegative.  By \lemmaref{lemma:maxprincpositive},
 \begin{equation*}
 \abs{\frac{1-E_m(z)}{z^{m+1}}} \leq
@@ -16366,9 +16367,13 @@ The Weierstrass product theorem says that
 we can prescribe the zeros of an entire function arbitrarily.
 The only requirement is the obvious one from the identity theorem:
 The zeros have no limit point in $\C$.
+In the following, we assume all the sequences are infinite, however,
+the results hold trivially for finite sequences if we replace infinite
+products with finite products.
 
 \begin{thm}[Weierstrass product theorem in $\C$]
 \index{Weierstrass product theorem in $\C$}
+\pagebreak[3]
 Suppose $\{ c_k \}$ is a sequence of distinct points in $\C$
 with no limit points in $\C$ and $\{ m_k \}$ is a sequence of
 natural numbers.
@@ -16398,10 +16403,10 @@ Ignore the zero at the origin, and just consider the nonzero
 zeros $\{ a_n \}$.  We claim that at least one sequence $\{ \ell_n \}$
 such that \eqref{eq:pnconvergence} converges for all $r > 0$ exists.
 Indeed, choosing $\ell_n = n-1$ would suffice:
-As $\{ a_n \}$ has no limit points in $\C$ it must
+As $\{ a_n \}$ has no limit points in $\C$, it must
 \myquote{escape to infinity.}
 For any $r > 0$, we get $\sabs{a_n} \geq 2r$ or
-$\nicefrac{r}{\abs{a_n}} < \nicefrac{1}{2}$
+$\nicefrac{r}{\abs{a_n}} \leq \nicefrac{1}{2}$
 for all large enough $n$.
 If $\ell_n = n-1$, a tail of the series is bounded
 by the geometric series $\sum {(\nicefrac{1}{2})}^n$.
@@ -16489,7 +16494,7 @@ with zeros (counting multiplicity) at $a_n$.
 
 \begin{exercise}
 Suppose $\{ a_k \}$, $\{ b_k \}$ are
-sequences of distinct points in $\C$
+disjoint sequences of distinct points in $\C$
 with no limit points, and $\{ n_k \}$, $\{ m_k \}$ are sequences of
 natural numbers.
 Prove that
@@ -16530,7 +16535,7 @@ We write the product in no particular order as the product converges
 absolutely.
 The $\pi$ out front can be guessed by thinking what would we get if we
 differentiate $\sin(\pi z)$ and evaluate at $0$.
-Differentiating the product (using product rule) would give you $\pi \cdot 1
+Differentiating the product (using the product rule) would give you $\pi \cdot 1
 + 0=\pi$, as any time the derivative falls on some factor other than $z$, when
 you evaluate at $0$, you get $0$.  We can do this formal computation on the
 finite products as the product converges uniformly on compact subsets and
@@ -16562,8 +16567,11 @@ e^{g(z)}
 \prod_{n=1}^\infty 
 \left(1-\frac{z^2}{n^2}\right) ,
 \end{equation*}
-for some entire function $g$.  We need to show that $g \equiv 0$.  By the
-computation of the derivative above, $g(0) = 0$.
+for some entire function $g$.
+By the
+computation of the derivative above,
+$e^{g(0)}=1$, so we can choose $g$ so that $g(0) = 0$.
+We need to show that $g \equiv 0$.
 
 We wish to convert the product to a series using the
 logarithm, as series are simpler to handle\footnote{Any calculus student
@@ -16629,10 +16637,10 @@ g'(z)
 \sum_{n=1}^\infty 
 \frac{2z}{z^2-n^2} .
 \end{multline*}
-The penultimate equality would not be true without the derivative as what's
+The penultimate equality would not be true without the derivative, as what's
 inside the square brackets may differ by a constant.
 Since the far left-hand side and the far right-hand side do not have any
-logarithms in them they are clearly well-defined.
+logarithms in them, they are clearly well-defined.
 The equality holds with $g'=0$, which is 
 a nice exercise in applying the residue theorem, and we
 leave it to the reader.
@@ -16767,13 +16775,13 @@ that
 See \figureref{fig:weiergeneral}.
 We claim that 
 $\sabs{a^1_n-p_n}$ goes to zero as $n$ goes to infinity.
-Indeed, suppose not, then there is an $\epsilon > 0$ and
+Indeed, suppose not.  Then there is an $\epsilon > 0$ and
 a subsequence such that 
 $\abs{a^1_{n_k}-p_{n_k}} > \epsilon$ for all $k$.  As these are the
 distances to the boundary and $a^1_{n_k} \in D$,
 we must have that $\sabs{a^1_{n_k}} < \nicefrac{1}{\epsilon}-1$ for all $k$.
-In particular, these $\{ a^1_{n_k} \}$ must have a limit point and since they
-are all at least $\epsilon$ away from the boundary this limit point would be
+In particular, these $\{ a^1_{n_k} \}$ must have a limit point, and since they
+are all at least $\epsilon$ away from the boundary, this limit point would be
 in $U$.  That is a contradiction.  Hence
 $\sabs{a^1_n-p_n}$ goes to $0$.
 
@@ -16785,7 +16793,7 @@ pick the $\{ p_n \}$, which will lie at the closest place on the boundary of
 $U$ (the thick dotted line).\label{fig:weiergeneral}}
 \end{myfig}
 
-Let $K \subset U$ be compact, then for $z \in K$
+Let $K \subset U$ be compact.  Then for $z \in K$
 \begin{equation*}
 \abs{\frac{a^1_n-p_n}{z-p_n}}
 \leq
