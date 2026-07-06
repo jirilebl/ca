@@ -741,7 +741,7 @@ The set is a plane, so we call it the \emph{\myindex{complex plane}}%
 \footnote{Although there is that odd mathematician out there who
 thinks that the \emph{complex plane} is $\C^2 = \C \times \C$.
 If you hear someone say that, politely whack them over the head for me.}.
-To make it a field, we define addition and product:
+To make it a field, we define addition and multiplication:
 \begin{align*}
 (a,b) + (c,d) & \overset{\text{def}}{=} (a+c,b+d) , \\
 (a,b) (c,d) & \overset{\text{def}}{=} (ac-bd,bc+da) .
@@ -1002,7 +1002,7 @@ f = u+iv .
 
 If $X \subset \C$, we think of $X \subset \R^2$.
 A derivative in $x$ or $y$ (where $z=x+iy$) is then applied to the
-components (just as if $f$ was valued in $\R^2$):
+components (just as if $f$ were valued in $\R^2$):
 \begin{equation*}
 \frac{\partial f}{\partial x} = 
 \frac{\partial u}{\partial x} + i
@@ -1170,7 +1170,7 @@ For us, the main application will be to understand the derivative of a
 complex-valued function of a complex variable $f \colon \C \to \C$.
 Thinking of the function as a mapping $f \colon \R^2 \to \R^2$,
 the real derivative of $f$ is a $2 \times 2$ matrix.  The
-object of study of complex analysis, the holomorphic (or analytic)
+objects of study of complex analysis, the holomorphic (or analytic)
 functions, are those functions whose real derivative matrix corresponds to a
 multiplication by a complex number.
 
@@ -1926,8 +1926,9 @@ There is a certain quantity that is preserved by LFTs, the
 \end{equation*}
 where $z_1,z_2,z_3,z_4$ are complex numbers.  The cross ratio
 was already described by the ancient Greeks\footnote{By
-Pappus of Alexandria who
-lived in the early 4th century AD\@.  So it's not as impressively ancient as say
+Pappus of Alexandria, who
+lived in the early 4th century AD\@.  So it's not as impressively ancient
+as, say,
 Thales's theorem from about a thousand years earlier.  Also, isn't
 Alexandria in Egypt?}
 and plays a key role in projective geometry.
@@ -1961,7 +1962,7 @@ Consequently,
 By \myquote{preserved by LFTs} we mean:
 
 \begin{prop} \label{prop:crossratioinvariant}
-Suppose that $f$ is an LFT\@, then
+Suppose that $f$ is an LFT\@.  Then
 \begin{equation*}
 (z_1,z_2;z_3,z_4) =
 \bigl(f(z_1),f(z_2);f(z_3),f(z_4)\bigr) .
@@ -1974,8 +1975,8 @@ Prove \propref{prop:crossratioinvariant}.
 \end{exercise}
 
 \begin{exercise}
-Prove that four distinct points are on a line or a circle if and only if the cross
-ratio is real.
+Prove that four distinct points are on a line or a circle if and only if
+their cross ratio is real.
 Hint: See also \exerciseref{exercise:anycircletorealline}.
 \end{exercise}
 \end{exbox}
@@ -1994,8 +1995,8 @@ $(z,z_2;z_3,z_4) =
 
 \begin{exbox}
 \begin{exercise}
-Given two sets of distinct points $z_1,z_2,z_3 \in \C_\infty$
-and $w_1,w_2,w_3 \in \C_\infty$, explicitly find an LFT $f$,
+Given two triples of distinct points $z_1,z_2,z_3 \in \C_\infty$
+and $w_1,w_2,w_3 \in \C_\infty$, explicitly find an LFT $f$
 such that
 $f(z_1) = w_1$,
 $f(z_2) = w_2$, and
@@ -3132,7 +3133,7 @@ Both of these are taken in the infinitesimal sense, that is, they are
 statements about what the linear mapping $Df$ does to vectors.
 Consider two continuously differentiable curves
 $\gamma \colon (-\epsilon,\epsilon) \to \R^2$ and
-$\alpha \colon (-\epsilon,\epsilon) \to \R^2$, such that
+$\alpha \colon (-\epsilon,\epsilon) \to \R^2$ such that
 $\gamma(0)=\alpha(0) = p \in \R^2$.  By preserving angles, we
 mean that the curves $f \circ \gamma$ and $f \circ \alpha$ meet at the same
 angle at $f(p)$, see \figureref{fig:conform}.  In other words,
@@ -4792,7 +4793,7 @@ segments and arcs anyhow.
 Suppose $U \subset \C$ is open, $\gamma \colon [a,b] \to U$ is a
 piecewise-$C^1$ path, and $f \colon U \to \C$ is continuous.  Then for every $\epsilon
 > 0$, there exists a polygonal path (or chain) $\alpha$ in $U$ with the same
-beginning and end point, such that
+beginning and end point such that
 \begin{equation*}
 \abs{\int_\alpha f(z)\, dz - \int_{\gamma} f(z) \, dz} < \epsilon .
 \avoidbreak
@@ -8772,7 +8773,7 @@ $f = g$ on $\ann(p;r_1,r_2)$.
 
 \begin{exercise}
 Suppose $f$ is a holomorphic function defined in a domain that contains
-the unit circle $\partial \D$, such that
+the unit circle $\partial \D$ such that
 \begin{equation*}
 \int_{\partial \D} f(z)\bar{z}^n
  \, dz = 0
@@ -9962,7 +9963,7 @@ Show that if $f \colon U \to \C$ has a zero of order $k \in \N$ at $p \in
 U$, then there exist $C^1$ curves
 $\gamma_j \colon (-\epsilon, \epsilon) \to \C$ for
 $j=1,\ldots,k$ with $\gamma_j(0) = p$
-and $\gamma_j'(0) \neq 0$, such that the curves only intersect
+and $\gamma_j'(0) \neq 0$ such that the curves only intersect
 one another
 at $p$, and such that $\Re f\bigl( \gamma_j(t) \bigr) = 0$ for
 all $t \in (-\epsilon,\epsilon)$.
@@ -10326,7 +10327,7 @@ origin.
 
 \begin{exercise}
 Find holomorphic functions $f$ and $g$ (different pairs for each part) with
-essential singularities at $p$, such that
+essential singularities at $p$ such that
 \begin{exparts}
 \item
 $f+g$ has a removable singularity at $p$,
@@ -11149,8 +11150,8 @@ then we know the number of zeros
 of the polynomial enclosed by the cycle.
 A related application is computing the power sums of the zeros.
 Given a cycle $\Gamma$ going at most
-once around a certain region, such that $z_1,\ldots,z_n$ are the zeros of $f$
-inside $\Gamma$, then
+once around a certain region such that $z_1,\ldots,z_n$ are the zeros of $f$
+inside $\Gamma$, we have
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_\Gamma z^k \frac{f'(z)}{f(z)} \, dz
@@ -11183,9 +11184,9 @@ homologous to zero in $U$,
 and $f \colon U \to \C_\infty$ is meromorphic with
 no zeros or poles on $\Gamma$.
 Show that there exists an open $U' \subset U$
-with $\Gamma$ a cycle in $U'$ homologous to zero in $U'$, such that
+with $\Gamma$ a cycle in $U'$ homologous to zero in $U'$ such that
 the only zeros or poles $z$ of the restriction $f|_{U'}$
-are such that $n(\Gamma;z) \neq 0$.
+satisfy $n(\Gamma;z) \neq 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -16868,8 +16869,8 @@ divisors, and a field of fractions is only defined for integral domains.
 \begin{exercise}
 Given a domain $U \subset \C$ and $f,g \colon U \to \C$ holomorphic, neither of
 which is identically zero.  Prove that there exist functions $h$, $F$,
-and $G$ holomorphic on $U$, such that $F$ and $G$ have no common zeros and
-$f=hF$ and $g=hG$.
+and $G$, holomorphic on $U$, such that $F$ and $G$ have no common zeros,
+$f=hF$, and $g=hG$.
 \end{exercise}
 
 \begin{exercise}
@@ -18228,7 +18229,7 @@ can be
 along $\gamma$
 if for every $t \in [0,1]$ there exists
 a disc $D_t$ centered at $\gamma(t)$ and a holomorphic function
-$f_t \colon D_t \to \C$, such that:
+$f_t \colon D_t \to \C$ such that:
 \begin{enumerate}[(i)]
 \item
 $D_0 \subset U$ and $f_0 = f|_{D_0}$.
@@ -19215,9 +19216,9 @@ $\operatorname{diam}(S) = \sup \{ d(x,y) : x,y \in S \} < \infty$.
 \begin{exercise}
 \begin{exparts}
 \item
-Find a metric $d$ on $\N$, such that $\N$ is an unbounded set in $(\N,d)$.
+Find a metric $d$ on $\N$ such that $\N$ is an unbounded set in $(\N,d)$.
 \item
-Find a metric $d$ on $\N$, such that $\N$ is a bounded set in $(\N,d)$.
+Find a metric $d$ on $\N$ such that $\N$ is a bounded set in $(\N,d)$.
 \item
 Find a metric $d$ on $\N$ such that for every $n \in \N$ and
 every $\epsilon > 0$,
@@ -19499,7 +19500,7 @@ Prove \propref{prop:topology:intervals:openclosed}.
 \begin{prop} \label{prop:topology:subspaceopen}
 Suppose $(X,d)$ is a metric space, and $Y \subset X$.  Then $U \subset Y$
 is open in $Y$ (in the subspace topology) if and only if
-there exists an open set $V \subset X$ (so open in $X$), such that
+there exists an open set $V \subset X$ (so open in $X$) such that
 $V \cap Y = U$.
 \end{prop}
 
@@ -19556,7 +19557,7 @@ and leave
 \ref{prop:topology:subspacesame:ii} to an exercise.
 
 If $U \subset V$ is open in the subspace topology, by
-\propref{prop:topology:subspaceopen}, there exists a set $W \subset X$
+\propref{prop:topology:subspaceopen}, there exists a set $W \subset X$,
 open in $X$, such that $U = W \cap V$.  Intersection of two open sets
 is open so $U$ is open in $X$.
 For the other direction,
@@ -19650,7 +19651,7 @@ We state this idea as a proposition for subsets.
 Let $(X,d)$ be a metric space.
 A nonempty set $S \subset X$ is disconnected if and only if
 there exist open sets $U_1$ and
-$U_2$ in $X$, such that $U_1 \cap U_2 \cap S = \emptyset$,
+$U_2$ in $X$ such that $U_1 \cap U_2 \cap S = \emptyset$,
 $U_1 \cap S \neq \emptyset$,
 $U_2 \cap S \neq \emptyset$, and
 \begin{equation*}
@@ -19709,8 +19710,8 @@ So $S$ is an interval.
 
 If $S$ is a single point, it is connected.
 Therefore, suppose $S$ is an interval.
-Consider open subsets $U_1$ and $U_2$ of $\R$, such that
-$U_1 \cap S$ and $U_2 \cap S$ are nonempty, and
+Consider open subsets $U_1$ and $U_2$ of $\R$ such that
+$U_1 \cap S$ and $U_2 \cap S$ are nonempty and
 $S = 
 \bigl( U_1 \cap S \bigr)
 \cup
@@ -19765,7 +19766,7 @@ Take $\Q$ with the standard metric, $d(x,y) = \sabs{x-y}$, as our metric space.
 Prove that $\Q$ is
 \emph{\myindex{totally disconnected}}, that is, show 
 that for every $x, y \in \Q$ with $x \neq y$, there exist
-two open sets $U$ and $V$, such that $x \in U$, $y \in V$,
+two open sets $U$ and $V$ such that $x \in U$, $y \in V$,
 $U \cap V = \emptyset$, and $U \cup V = \Q$.
 \end{exercise}
 
@@ -20210,7 +20211,7 @@ Suppose
 the sequence
 $\{ x_j \}_{j=1}^\infty$ converges to
 $y = (y_1,y_2,\ldots,y_n) \in \R^n$.
-Given $\epsilon > 0$, there exists an $M$, such that for all
+Given $\epsilon > 0$, there exists an $M$ such that for all
 $j \geq M$,
 \begin{equation*}
 d(y,x_j) < \epsilon.
@@ -20228,7 +20229,7 @@ Hence the sequence $\{ x_{j,k} \}_{j=1}^\infty$ converges to $y_k$.
 
 For the other direction, suppose 
 $\{ x_{j,k} \}_{j=1}^\infty$ converges to $y_k$ for every $k=1,2,\ldots,n$.
-Given $\epsilon > 0$, pick an $M$, such that if $j \geq M$, then 
+Given $\epsilon > 0$, pick an $M$ such that if $j \geq M$, then 
 $\bigl\lvert y_k-x_{j,k} \bigr\rvert < \nicefrac{\epsilon}{\sqrt{n}}$ for all
 $k=1,2,\ldots,n$.  Then
 \begin{equation*}
