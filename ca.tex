@@ -16922,7 +16922,7 @@ Weierstrass approximation theorem (or the more general
 Stone--Weierstrass approximation theorem), which says that a continuous function
 on a compact interval $[a,b]$ can be uniformly approximated by polynomials
 of a real variable.  Utilizing holomorphic polynomials---polynomials in $z$---we have a
-similar theorem, but for holomorphic functions not
+similar theorem, but for holomorphic functions, not
 continuous functions.  That makes sense.  After all, uniform limits of
 holomorphic functions are holomorphic, so we can't expect to approximate all
 continuous functions.
@@ -16953,7 +16953,7 @@ holomorphic on an open neighborhood of the square $[-1,1] \times [-1,1]$, say
 $f(z) = \frac{1}{(z-1.1)(z+1.1)}$.  If we expand $f$ around any point, the
 series will never converge on all of $[-1,1] \times [-1,1]$, as the domain
 of convergence is a disc which cannot include $\pm 1.1$.  However, we can
-(exercise below) still find a sequence of polynomials that converge to $f$
+(exercise below) still find a sequence of polynomials that converges to $f$
 on $[-1,1] \times [-1,1]$.
 
 \begin{exbox}
@@ -16970,7 +16970,8 @@ We may be thwarted in polynomial approximation by topology.
 For example, no sequence of
 polynomials $P_n(z)$ converges to $\nicefrac{1}{z}$ uniformly on $\partial
 \D$.  This fact follows by \hyperref[thm:rouche]{Rouch\'e} (or
-\exerciseref{exercise:convergeboundary} and Cauchy's theorem), see the
+\exerciseref{exercise:convergeboundary} and Cauchy's theorem).
+See the
 following exercise.
 
 \begin{exbox}
@@ -16985,12 +16986,12 @@ Any function holomorphic on a neighborhood of $\partial \D$ can be
 approximated on $\partial \D$ by rational functions
 if we allow a pole at $0$.  The function $\nicefrac{1}{z}$ is
 itself a rational function with a pole at $0$.
-A polynomial is really just a rational function that has a pole at infinity.
+A (nonconstant) polynomial is really just a rational function that has a pole at infinity.
 Once we prove Runge's theorem, we will have proved that it really is the hole
 enclosed by
 $\partial \D$
 that is the problem for $\nicefrac{1}{z}$.
-We can approximate a holomorphic function
+We can approximate (uniformly on compact subsets) a holomorphic function
 by polynomials on any set whose complement is connected.
 
 \begin{exbox}
@@ -17126,7 +17127,8 @@ Summing these bits together and using the triangle inequality, we find
 \leq \sum_{j=1}^k \epsilon (t_j-t_{j-1}) = \epsilon .
 \end{equation*}
 Thus the integral over $\gamma$ converges uniformly for $z \in K$, and
-we are done by summing up over all the paths in $\Gamma$.
+we are done by summing up over all the paths in $\Gamma$
+and dividing by $2\pi i$.
 \end{proof}
 
 In some parts of the proof below, to simplify the verbiage, we will say that
@@ -17139,7 +17141,7 @@ a simple exercise in chasing those epsilons.
 \begin{exbox}
 \begin{exercise} \label{exercise:approxbyfamily}
 Let $K$ be a set and $\sF$ an algebra (a vector space
-that is closed under multiplication) of functions on $K$.  Rigorously prove:
+that is closed under multiplication) of bounded functions on $K$.  Rigorously prove:
 \begin{exparts}
 \item
 If functions from $\sF$ uniformly approximate a function $f$ on $K$,
@@ -17182,7 +17184,7 @@ Suppose first that $q \neq \infty$.
 As the component of $\C_\infty \setminus K$ is open and connected, it is
 path connected,
 so we connect $p$ and $q$ by a path.
-And as a path is compact,
+Since a path is compact,
 we cover the path by finitely many discs as follows: 
 There exist points $p=z_1,z_2,\ldots,z_n=q$ and
 finitely many discs $\Delta_{r}(z_1),\ldots,\Delta_{r}(z_n)$
@@ -17207,7 +17209,7 @@ with a pole at $z_3$, see \exerciseref{exercise:approxbyfamily}.
 And so we can approximate $\frac{1}{z-p}$ by a rational function with a pole at $z_3$.
 Rinse and repeat.
 
-So without loss of generality suppose $z_1=p$ and $z_2=q$.
+So, without loss of generality, suppose $z_1=p$ and $z_2=q$.
 Then
 \begin{equation*}
 \frac{1}{z-p}
@@ -17219,7 +17221,7 @@ Then
 \sum_{k=0}^\infty
 {\left(\frac{p-q}{z-q}\right)}^k ,
 \end{equation*}
-which converges uniformly on $K$ as for $z \in K$, we have
+which converges uniformly on $K$, since for all $z \in K$,
 \begin{equation*}
 \abs{\frac{p-q}{z-q}}
 \leq 
@@ -17269,13 +17271,13 @@ there exists a rational function $R$ with poles in $S$ such that
 
 \begin{proof}
 \lemmaref{lemma:patharoundK} gives a cycle $\Gamma$
-around $K$ homotopic
+around $K$ homologous
 to zero in $U$.  Use \lemmaref{lemma:ratapproxriemann} to approximate
 $f$ uniformly on $K$ by a rational function with poles on $\Gamma$.
 That rational function is a linear combination of
 terms such as $\frac{1}{z-p_j}$ for $p_j \in \Gamma$.
 Using \lemmaref{lemma:polepushing}, approximate each of these terms
-by a rational function with poles in $S$.
+by a rational function with poles in~$S$.
 \end{proof}
 
 \begin{example}
@@ -17379,11 +17381,11 @@ and $f \colon U \to \C$ is holomorphic.
 \begin{exparts}
 \item
 If $S$ is open,
-prove that $f$ can be uniformly approximated on $K$ by a rational function
+prove that $f$ can be uniformly approximated on $K$ by rational functions
 with only simple poles in $S$.
 \item
 Find an example $U$, $K$, $S$, and $f$, where $S$ is not open and
-$f$ cannot be approximated by a rational functions with only simple poles
+$f$ cannot be approximated by rational functions with only simple poles
 in $S$.
 \end{exparts}
 \end{exercise}
@@ -17427,7 +17429,7 @@ $\Delta_\epsilon(p)$ such that $\Delta_\epsilon(p) \setminus \widebar{U}$
 is nonempty and connected.
 Prove that there exists an open $W \subset \C$ such that $\widebar{U}
 \subset W$ such that for every holomorphic $f \colon U \to \C$
-there is a sequence of holomorphic $f_n \colon W \to \C$ such that converge
+there is a sequence of holomorphic $f_n \colon W \to \C$ that converge
 uniformly on compact subsets of $U$ to $f$.
 \item
 Find a counterexample $U$ and $f$ to the conclusion of part a) where
@@ -17462,7 +17464,7 @@ A set $U \subset \C$ is \emph{\myindex{polynomially convex}} if for
 every compact $K \subset U$, we get $\widehat{K} \subset U$.
 \end{defn}
 
-Hulls can (and often are) defined for other classes of functions than
+Hulls can be (and often are) defined for other classes of functions than
 polynomials, and they are a generalization of the idea of convexity.  Classical
 convexity is convexity with respect to affine linear functions (see the
 exercises).
@@ -17533,9 +17535,9 @@ $\abs{P(z)} < \nicefrac{1}{2}$.  Thus, $p \notin \widehat{K}$.
 
 Conversely, suppose $p \notin X$.
 If $p \in K$, then $p \in \widehat{K}$, so suppose $p \notin K$.
-Then $p \in B$ where $B$
-is one of the bounded components of $\C \setminus K$.  The boundary
-$\partial B \subset K$, and so the second version of the maximum
+Then $p \in B$, where $B$
+is one of the bounded components of $\C \setminus K$.  Since
+$\partial B \subset K$, the second version of the maximum
 principle says that 
 \begin{equation*}
 \sabs{P(p)} \leq
@@ -17576,7 +17578,7 @@ Then $\C_\infty \setminus U$ has exactly one component.
 \hyperref[cor:rungeseq]{Runge} says that we can approximate any function
 holomorphic on $U$ by polynomials
 (rational functions with a pole at $\infty$) uniformly on compact subsets.
-Namely \ref{cor:polyhull:ii} holds.
+Namely, \ref{cor:polyhull:ii} holds.
 
 Suppose \ref{cor:polyhull:ii} is true.
 Consider any $K \subset U$.  Suppose $p \in \widehat{K} \setminus U$ exists
@@ -17589,9 +17591,11 @@ By \propref{prop:convergenceonKhat},
 the sequence converges uniformly on $\widehat{K}$.
 Thus it converges to a holomorphic function
 $g$ defined on $U \cup \widehat{K}$,
-which is an open set by \thmref{thm:polyhull}.
-The set $U \cup \widehat{K}$ is connected as each component
-of $\C \setminus K$ we added has boundary in $U$, which is connected.
+which is an open set by \thmref{thm:polyhull}
+($\partial X \subset U$ so $U \cup \widehat{K} = U \cup (\C \setminus
+\widebar{X})$, a union of open sets).
+The set $U \cup \widehat{K}$ is connected, as each component
+of $\C \setminus K$ we added has its boundary in $U$, which is connected.
 The function $f$ is defined on $\C \setminus \{ p \}$,
 and the boundary of the component of $\C \setminus K$ that includes $p$ must
 have a limit point (exercise below).
@@ -17720,7 +17724,6 @@ gives a rational function $R_n$ with poles in
 $\C_\infty \setminus U$ such that $\sabs{f_n(z)-R_n(z)} < 2^{-n}$
 for all $z \in K_{n-1}$.  We only care that $R_n$ is holomorphic in $U$; we
 do not use its poles or that it is rational.
-
 We wish to define
 \begin{equation*}
 f(z) = \sum_{n=1}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
@@ -17759,12 +17762,14 @@ f(z) =
 +
 \bigl( f_\ell(z) - R_\ell(z) \bigr)
 +
-\sum_{n=\ell+1}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
+\bigl( f_{\ell+1}(z) - R_{\ell+1}(z) \bigr)
++
+\sum_{n=\ell+2}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
 \end{equation*}
-The first sum and the last sum are holomorphic on a neighborhood of $p$:
-The first sum has all its poles in $K_{\ell-1}$ and
-the last sum has no singularities on $K_\ell$.
-The function $R_\ell$ is holomorphic in all of $U$.
+Everything except $f_\ell$ is holomorphic in a neighborhood of $p$:
+The last sum converges on $K_{\ell+1}$ (and $p \in K_{\ell+1}^{\circ}$)
+and none of the other functions have
+a pole at $p$.
 So $f$ has the same singularity at $p$ as $f_\ell$ and the same principal
 part, and $f_\ell$ was set up precisely so that it has a principal part
 $P_p$ at $p$.
@@ -17845,8 +17850,8 @@ converges uniformly on compact subsets of $\C \setminus \Z$.
 
 \begin{exercise}\label{exercise:mitlefsimpleNpoles}
 Suppose $U = \C$, $S = \N$, $P_n(z) = \frac{-n}{z-n}$, $K_n =
-\overline{\Delta_n(0)}$.  Use the geometric sum $1+x+\cdots+x^n =
-\frac{1-x^{n+1}}{1-x}$ to find an explicit $R_n$ that will make the proof
+\overline{\Delta_n(0)}$.  Use the geometric sum $1+x+\cdots+x^m =
+\frac{1-x^{m+1}}{1-x}$ to find an explicit $R_n$ that will make the proof
 of the theorem work.
 Note that one part of the formula may be somewhat ugly, c'est la vie.
 \end{exercise}
@@ -17877,12 +17882,19 @@ Prove the Mittag-Leffler with this setup.
 \end{exercise}
 
 \begin{exercise}
+Suppose for simplicity that $U \subset \C$ is simply connected, let
+the sequences
+$\{c_k\}$ and $\{m_k\}$ be as in the
+\hyperref[thm:weierprod]{Weierstrass product theorem}, and write
+$S = \{ c_1,c_2,\ldots \}$.
 \begin{exparts}
 \item
-Prove that in the Mittag-Leffler theorem, the function $f$ can be chosen
-so that $f$ has no zeros in $U \setminus S$.
+Using Mittag-Leffler,
+find a meromorphic $g$ whose principal part at $c_k$ is $\frac{m_k}{z-c_k}$.
+For any closed path $\gamma$ in $U \setminus S$, show that
+$\int_\gamma g(z)\, dz = 2\pi i m$ for some $m \in \Z$.
 \item
-Use part a) to prove the Weierstrass product theorem.
+By integrating, find an $f$ so that $\nicefrac{f'}{f} = g$ and show that this $f$ proves the theorem.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -19262,14 +19274,14 @@ around $x$ is
 \begin{equation*}
 B(x,\delta) \overset{\text{def}}{=} \{ y \in X : d(x,y) < \delta \} .
 \end{equation*}
-Similarly the \emph{\myindex{closed ball}} is
+The \emph{\myindex{closed ball}} is
 \glsadd{not:closedball}
 \begin{equation*}
 C(x,\delta) \overset{\text{def}}{=} \{ y \in X : d(x,y) \leq \delta \} .
 \end{equation*}
 \end{defn}
 
-When we are dealing with different metric spaces, we may
+When dealing with different metric spaces, we may
 emphasize which metric space the ball is in by
 writing $B_X(x,\delta) = B(x,\delta)$ or $C_X(x,\delta) = C(x,\delta)$.
 
@@ -19311,7 +19323,7 @@ If $x \in V$ and $V$ is open, then
 $V$ is an \emph{\myindex{open neighborhood}} of $x$ (or
 simply \emph{\myindex{neighborhood}}).
 More generally a \emph{neighborhood} of $x$ is a set that contains an open
-neighborhood of $x$, but unless otherwise specified we usually mean
+neighborhood of $x$, but unless otherwise specified, we usually mean
 open neighborhood.
 \end{defn}
 
@@ -19320,7 +19332,7 @@ open neighborhood.
 \caption{Open set in a metric space.  Note that $\delta$ depends on $x$.\label{fig:msopenset}}
 \end{myfig}
 
-Intuitively, an open set $V$ is a set that does not include its
+Intuitively, a set $V$ is open if it does not include its
 \myquote{boundary.}
 Wherever we are in $V$,
 we are allowed to \myquote{wiggle} a little bit and
@@ -19547,8 +19559,8 @@ If $U \subset V$ is open in the subspace topology, by
 \propref{prop:topology:subspaceopen}, there exists a set $W \subset X$
 open in $X$, such that $U = W \cap V$.  Intersection of two open sets
 is open so $U$ is open in $X$.
-
-Now suppose $U$ is open in $X$, then $U = U \cap V$. So
+For the other direction,
+suppose $U$ is open in $X$.  Then $U = U \cap V$. So
 $U$ is open in $V$ again by \propref{prop:topology:subspaceopen}.
 \end{proof}
 
@@ -22256,7 +22268,7 @@ is necessary.  A sufficient (but not
 necessary) condition is that $f$ is continuous on a closed rectangle.
 
 \begin{prop} \label{prop:integralcontcont}
-If $f \colon [a,b] \times [c,d] \to \R$ is a continuous function,
+If $f \colon [a,b] \times [c,d] \to \R$ is continuous,
 then $g \colon [c,d] \to \R$ defined by
 \begin{equation*}
 g(y) = \int_a^b f(x,y) \,dx  \qquad \text{is continuous}.
@@ -22680,6 +22692,7 @@ F(y_1,y_2,\ldots,y_n) =
 \int_0^1
 f(x,y_1,y_2,\ldots,y_n)
 \, dx
+\avoidbreak
 \end{equation*}
 is continuously differentiable (the partial derivatives exist and are
 continuous).
@@ -23637,6 +23650,7 @@ $V$ around $p$ such that
 \begin{equation*}
 \snorm{A-Df|_x} < \frac{1}{2\snorm{A^{-1}}}
 \qquad \text{for all } x \in V.
+\avoidbreak
 \end{equation*}
 The inequality implies that $Df|_x$ is invertible for all $x \in V$
 (see exercise below).
@@ -23816,6 +23830,7 @@ is polynomial (each component is a polynomial) and $\det DF$ is a nonzero
 constant, does $F$ have a polynomial inverse?
 The inverse function theorem gives a local $C^1$ inverse, but can one always
 find a global polynomial inverse is the question.
+Note that the answer is trivially true if $n=1$.
 \end{remark}
 
 \begin{exbox}
@@ -23873,6 +23888,7 @@ Show that $f$ is not continuously differentiable.
 \begin{exercise}[Polar coordinates]%[\neededexmark, Polar coordinates]
 \label{mv:exercise:polarcoordinates}
 \index{polar coordinates}
+\pagebreak[3]
 Define a mapping $F(r,\theta) = \bigl(r \cos(\theta), r \sin(\theta) \bigr)$.
 \begin{exparts}
 \item
