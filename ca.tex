@@ -1102,7 +1102,7 @@ i \quad ``{}={}'' \quad
 1 & 0
 \end{bmatrix} 
 \end{equation*}
-are the identity and the rotation counterclockwise by $90$ degrees
+are the identity and the rotation counterclockwise by $90$ degrees,
 respectively---precisely what we expect multiplication by $1$ and $i$
 to do.
 
@@ -1190,8 +1190,8 @@ for complex numbers (see
 e^{z} = 
 e^{x+iy}
 \overset{\text{def}}{=}
-e^x e^{iy}
-=
+%e^x e^{iy}
+%=
 e^x\cos y + i e^x \sin y .
 \end{equation*}
 \begin{myfig}
@@ -1273,10 +1273,10 @@ We write $z$ in \emph{\myindex{polar form}} as
 z = x+iy = r e^{i \theta} .
 \end{equation*}
 Here, $r = \sabs{z} = \sqrt{x^2+y^2}$ is the modulus, and 
-$\theta$ is the angle that $x+iy$ makes with the real axis (the $x$-axis).
+$\theta$ is the angle that $x+iy$ makes with the positive real axis (the $x$-axis).
 The $\theta$ is called the \emph{\myindex{argument}}.  See
 \figureref{fig:polarcoords}.
-The reason for the notation is the
+The reason for the notation is
 Euler's formula, so
 \begin{equation*}
 z = r e^{i\theta} = r\cos \theta + i r\sin \theta  = x+iy .
@@ -1311,8 +1311,9 @@ You win some, you lose some.
 \begin{exbox}
 \begin{exercise}
 Let $z,w$ be two nonzero complex numbers and let
-$\ell_z$ and $\ell_w$ be the lines through the origin and
-$z$ and $w$ respectively.  Write $\theta$ for the angle between $\ell_z$ and
+$\ell_z$ and $\ell_w$ be the rays starting at the origin and
+through
+$z$ and $w$, respectively.  Write $\theta$ for the angle between $\ell_z$ and
 $\ell_w$.  Then prove that
 $\Re z\bar{w} = \sabs{z} \sabs{w} \cos \theta$.
 Note that $\Re z\bar{w}$ is the standard real dot product in $\R^2$, and so
@@ -1387,7 +1388,7 @@ is never zero (exercise).
 From the known properties of polar coordinates
 and the real exponential, it follows that the complex exponential is
 onto $\C \setminus \{ 0 \}$.
-The complex exponential is not one-to-one, it is 
+The complex exponential is not one-to-one---it is 
 infinitely-many-to-one.  For any integer $k$,
 \begin{equation} \label{eq:exponentialidentities}
 e^{z+ik2\pi} = 
@@ -1409,11 +1410,11 @@ and $f(0) = 1$, then $f(z) \neq 0$ for all $z$.
 \end{exercise}
 \end{exbox}
 
-Consider a vertical line given by $x=c$.  As
+Consider a vertical line given by $x=c$.  Because
 \begin{equation*}
 e^{z} = 
 e^{x+iy} =
-e^x e^{iy} ,
+e^x e^{iy}
 \end{equation*}
 and $\sabs{e^{iy}} =1$, the exponential takes the vertical line $x=c$ to a
 circle of radius $e^c$.  See \figureref{fig:expplotlines}.
@@ -1473,10 +1474,10 @@ g(z) =
 \end{equation*}
 The function $g$ is bijective (one-to-one and onto).
 Any neighborhood of the origin in $\C$ is taken to a set that
-includes infinity and we call those the neighborhoods of
+includes infinity and we call such sets the neighborhoods of
 $\infty$.  When talking about a neighborhood of
-infinity in $\C_{\infty}$, then we really want to think of this map,
-and think of the corresponding neighborhood of the origin.
+infinity in $\C_{\infty}$, we really want to think of this map
+and the corresponding neighborhood of the origin.
 
 More concretely, we can give $\C_{\infty}$ a metric space structure.
 Let $S^2$ be the unit sphere in $\R^3$,
@@ -1520,7 +1521,7 @@ Show that $\Phi$ is bijective.
 Suppose $(\phi,\theta)$
 are spherical coordinates on $S^2$, where $0 \leq \phi \leq \pi$ is the zenith (angle made
 with the $z$-axis) and $-\pi < \theta \leq \pi$ the azimuth, and we write
-points in $\C$ using polar coordinates $re^{\theta}$.  Then prove that
+points in $\C$ using polar coordinates $re^{i\theta}$.  Then prove that
 $\Phi$ takes
 $(\phi,\theta)$ to $\cot (\nicefrac{\phi}{2})\,e^{i\theta}$.
 \end{exercise}
@@ -1559,14 +1560,14 @@ metric on $\C$).
 Suppose $L \in \C$.
 Show that $\lim_{z\to \infty} f(z) = L$ in the sense of the Riemann sphere
 if and only if for every $\epsilon > 0$ there exists an $M$ such that
-$\sabs{f(z)-L} < \epsilon$ whenever $\sabs{z} > M$.
+$\sabs{f(z)-L} < \epsilon$ whenever $z \in \C$ and $\sabs{z} > M$.
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
 Suppose $z_0 \in \C$.
 Show that $\lim_{z\to z_0} f(z) = \infty$ in the sense of the Riemann sphere
 if and only if for every $M > 0$ there exists a $\delta > 0$ such that
-$\sabs{f(z)} > M$ whenever $\sabs{z-z_0} < \delta$.
+$\sabs{f(z)} > M$ whenever $0 < \sabs{z-z_0} < \delta$.
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
@@ -1601,9 +1602,9 @@ $\abs{P(z)} \geq \frac{1}{2} \sabs{z}^d$ for large $z$.
 
 In calculus and in basic real analysis, you likely encountered
 infinite limits in the sense of the extended reals.
-Despite that the two types of infinite limits, either in the sense of the
+Although the two types of infinite limits, either in the sense of the
 extended reals or in the sense of the Riemann sphere,
-look similar, and despite using essentially the same notation,
+look similar and use essentially the same notation,
 they are different.
 For example,
 \begin{equation*}
@@ -1645,9 +1646,11 @@ $\nicefrac{\infty}{\infty}$ had better be left undefined.
 
 \section{Linear fractional transformations}
 
-A convenient set of transformations of the complex plane or the Riemann
-sphere are the \emph{\myindex{linear fractional transformations}} (LFT)\index{LFT}
-(sometimes called the \emph{\myindex{M\"obius transformations}}).
+\emph{Linear fractional transformations}\index{linear fractional transformations}
+(LFT)\index{LFT}
+(sometimes called the \emph{\myindex{M\"obius transformations}})
+are a convenient set of transformations of the complex plane or the Riemann
+sphere.
 A function
 \begin{equation*}
 f(z) = \frac{a z + b}{c z + d}
@@ -1659,7 +1662,7 @@ function is nonconstant.
 If $c \neq 0$,
 the expression is really defined only on
 $\C \setminus \bigl\{ \nicefrac{-d}{c} \bigr\}$;
-however, as in the last section, write
+however, as in the last section, we write
 \begin{equation*}
 f\left(\frac{-d}{c}\right) = \infty, \qquad \text{and} \qquad
 f(\infty) = \frac{a}{c} .
@@ -1707,19 +1710,20 @@ so $f(z) = az + b$.  So
 f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
 \end{equation*}
 
-Translations are easy to understand, they move everything in $\C$ in one
-direction.  Complex
+Translations are easy to understand.
+They move everything in $\C$ in one direction.
+Complex
 dilation $D_a$ is the traditional euclidean plane geometry dilation by $\sabs{a}$
 and rotation by $\arg a$.
 The inversion is the euclidean plane geometry inversion
 across the unit circle
-and complex conjugation, see \figureref{fig:inversion}.  The euclidean
+and complex conjugation.  See \figureref{fig:inversion}.  The euclidean
 inversion across the circle simply inverts the distance to the origin:
 \begin{equation*}
 \frac{1}{\sabs{z}} e^{i \arg z} = 
 \frac{\sabs{z}}{\sabs{z}^2} e^{i \arg z} = \frac{1}{\bar{z}} .
 \end{equation*}
-To get our complex inversion $I(z)$ we also conjugate.
+To get our complex inversion $I(z)$, we also conjugate.
 Translations and dilations both take $\infty$ to $\infty$.
 The inversion swaps $\infty$ and $0$.
 
@@ -1752,12 +1756,13 @@ that takes that circle or line to the real line.
 One way to view an LFT is as a $2 \times 2$ complex matrix.  For this
 purpose,
 we need to view the Riemann sphere as the so-called one-dimensional
-\emph{\myindex{projective space}}.
+(complex) \emph{\myindex{projective space}}\index{complex projective space}.
 Define the equivalence relation $\sim$ on
 $\C^2 \setminus \{ 0 \} = \C \times \C \setminus \{ (0,0) \}$ by
-$u \sim v$ if and only if $u = \lambda v$ for some $\lambda \in \C$.
-The \emph{\myindex{one-dimensional complex projective}}
-space is then defined as the quotient
+$u \sim v$ if and only if $u = \lambda v$ for some $\lambda \in \C \setminus
+\{ 0 \}$.
+The one-dimensional complex projective space
+is then defined as the quotient
 \glsadd{not:CP1}%
 \begin{equation*}
 \C \bP^1
@@ -1907,7 +1912,7 @@ In the exercises, you have essentially just shown (or at least finished
 showing) that LFTs form a group under composition,
 called the \emph{\myindex{M\"obius group}}.
 This group is generated by the elements
-$T_a$, $D_a$, and $I$ for $a\in \C$.
+$T_a$, $D_b$, and $I$ for $a\in \C$, $b \in \C \setminus \{ 0 \}$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -2399,7 +2404,8 @@ Let $w = f(z) \in V$.  Then
 D(g \circ f)|_z = Dg|_w Df|_z .
 \end{equation*}
 The $2 \times 2$ matrices $Dg|_w$ and $Df|_z$ correspond to complex
-numbers $g'(w)$ and $f'(z)$ as $g$ and $f$ are complex differentiable at $w$ and $z$
+numbers $g'(w)$ and $f'(z)$ as $g$ and $f$ are complex differentiable at $w$
+and $z$,
 respectively.
 A product $Dg|_w Df|_z$
 of two such matrices again corresponds to a complex number, the product of
@@ -8901,7 +8907,7 @@ On each $[t_{j-1},t_j]$ define
 \end{equation*}
 On $[t_{j-1},t_j]$ the function $\theta$ is continuous as $L_j$ is continuous on 
 $\gamma\bigl([t_{j-1},t_j]\bigr)$.  The definitions match up at $t_{j-1}$
-and $t_{j}$ with $L_{j-1}$ and $L_{j+1}$ respectively.  Thus
+and $t_{j}$ with $L_{j-1}$ and $L_{j+1}$, respectively.  Thus
 $\theta$ is a continuous function on $[a,b]$.
 The formula $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ follows as
 $L_j$ is a branch of the log.
@@ -11281,7 +11287,7 @@ for all $z \in \Gamma$.
 Let $V = \bigl\{ z \in U \setminus \Gamma : n(\Gamma;z) = 1 \bigr\}$.
 Let $N_f$, $N_g$ be the number of zeros in $V$
 and $P_f$, $P_g$ the number of poles in $V$ (both counting multiplicity)
-of $f$ and $g$ respectively.
+of $f$ and $g$, respectively.
 Then
 \begin{equation*}
 N_f - P_f = 
@@ -21770,10 +21776,10 @@ the sequence of restrictions $\{ f_n|_A \}$ converges uniformly to $f|_A$.
 \begin{exercise}
 \begin{exparts}
 \item
-Suppose $\{ f_n \}$ and $\{ g_n \}$ defined on some set $A$ converge to
-$f$ and $g$ respectively pointwise, and let $a,b \in \R$.
-Show that $\{ a f_n+ b g_n \}$ converges
-pointwise to $a f+ b g$.
+Suppose $\{ f_n \}$ and $\{ g_n \}$ defined on some set $A$ converge
+pointwise to $f$ and $g$, respectively.
+For $a,b \in \R$,
+show that $\{ a f_n+ b g_n \}$ converges pointwise to $a f+ b g$.
 \item
 Show the same for uniform convergence.
 \end{exparts}
