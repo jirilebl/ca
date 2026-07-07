@@ -4323,7 +4323,7 @@ integral does not depend on $r$.
 
 \begin{exbox}
 \begin{exercise}[Easy]
-Prove that if $k \neq 0$, then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
+Prove that if $k$ is a nonzero integer, then $\int_0^{2\pi} e^{ik t} \, dt = 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -4752,7 +4752,7 @@ for all $f$ continuous on the image of $\gamma$, we have
 
 \begin{exercise}
 Let $\partial \D$ denote the counterclockwise path around the unit disc.
-Show that for every integer $n$, the chain $n \partial \D$ is equivalent to
+Show that for every nonzero integer $n$, the chain $n \partial \D$ is equivalent to
 the path $\gamma \colon [0,2\pi] \to \C$ given by $\gamma(t) = e^{int}$,
 the path that goes $n$ times around the unit disc counterclockwise.
 \end{exercise}
@@ -5148,7 +5148,7 @@ $\frac{\ell}{2^k}$.
 By the mean value theorem for integrals\footnote{%
 If $\varphi \colon [a,b] \to \R$ is continuous, then there is an $x \in [a,b]$
 such that $\varphi(x) = \frac{1}{b-a} \int_a^b \varphi(t) \, dt$.
-To apply it here, parametrize the entire triangle with unit speed.},
+To apply it here, parametrize the triangle boundary $\partial T^k$ with unit speed.},
 there is a $z_k \in \partial T^k$ such that
 \begin{equation*}
 \sabs{g(z_k)} = 
@@ -5594,7 +5594,7 @@ That is, show
 f(p) = \frac{1}{\pi r^2} \int_{\Delta_r(p)} f(z) \, dA ,
 \end{equation*}
 \glsadd{not:dA}%
-where $dA = dx \, dy = r \, dr \, d\theta$ is the area measure.
+where $dA = dx \, dy = \rho \, d\rho \, d\theta$ is the area measure.
 \end{exercise}
 
 \begin{exercise}
@@ -6294,7 +6294,8 @@ for some $z \in U$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic.
+Suppose $U \subset \C$ is a domain and $f \colon U \to \C$ is holomorphic
+and nonconstant.
 Let $M > 0$ be fixed and
 define $X = \bigl\{ z \in U : \sabs{f(z)} < M \bigr\}$.
 Prove that $X$ is open and the closure of $X$ (in $U$, so $\widebar{X} \cap U$) is the set
@@ -6541,7 +6542,7 @@ onto.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is entire and is never zero.  For $M > 0$, let
+Suppose $f$ is entire, nonconstant, and is never zero.  For $M > 0$, let
 $X_M = \bigl\{ z \in \C : \sabs{f(z)} = M \bigr\}$ (note that $X_M$
 is closed).
 \begin{exparts}
