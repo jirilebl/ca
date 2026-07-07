@@ -6581,7 +6581,7 @@ and as they are both useful in other places, let us do both of them.
 
 \begin{proof}[Proof A]
 One proof is to use Morera's theorem (\thmref{thm:Morera})
-together with Fubini \thmref{thm:fubini}), and Cauchy--Goursat
+together with Fubini (\thmref{thm:fubini}), and Cauchy--Goursat
 (\thmref{thm:cauchygoursat}).
 The function $h$ is continuous on $U$ (see \propref{prop:integralcontcont}).
 Let $T \subset U$ be a triangle.  Then
@@ -6612,7 +6612,7 @@ holomorphic.
 The second proof\footnote{%
 For no good rational reason, this proof is the one I have seen more often,
 possibly because complex analysts are often PDE
-people and they rather differentiate than integrate.}
+people and they would rather differentiate than integrate.}
 is to apply Wirtinger derivatives and differentiate under the integral:
 \begin{equation*}
 \frac{\partial}{\partial \bar{z}}
@@ -6635,7 +6635,7 @@ As once before, we are really passing the partial derivatives in $x$
 and $y$ under the integral via the Leibniz integral rule,
 \thmref{thm:Leibnizrule} (or again really
 \exerciseref{exercise:severalvariableLeibniz}).
-Leibniz rule applies because 
+The Leibniz rule applies because 
 \exerciseref{exercise:partialderscont} says that the partial
 derivatives are continuous as functions of both variables.
 Leibniz also implies that $h$ is continuously (real) differentiable,
@@ -6727,7 +6727,8 @@ Hint: See \exerciseref{exercise:strongerCIFdisc}.
 
 \begin{exercise}[Easy]
 Suppose $g \colon U \times [a,b] \to \C$ is continuous, 
-for each fixed $t \in [a,b]$, $z\mapsto g(z,t)$ is holomorphic,
+$z\mapsto g(z,t)$ is holomorphic
+for each fixed $t \in [a,b]$,
 and $\sabs{g(z,t)} \leq M$ for all $(z,t) \in U \times
 [a,b]$.  Prove that
 \begin{equation*}
@@ -6786,7 +6787,7 @@ for continuous functions.
 
 It is rather surprising that this topology is the right one for holomorphic
 functions.  For real
-differentiable functions it is not the right one: $\sabs{x}^{1+1/n}$
+differentiable functions, it is not the right one: $\sabs{x}^{1+1/n}$
 is $C^1$ on $\R$ and converges uniformly on compact subsets to $\sabs{x}$,
 which is not differentiable.
 
@@ -6859,7 +6860,7 @@ By compactness of $K$, there is a $q \in K$ such that $\sabs{p-q}$
 is the distance of $p$ to $K$.  As $p \notin K'$,
 $\sabs{p-q} > \nicefrac{d}{2}$.
 Every point in $\Delta_{\sabs{p-q}-d/2}(p)$
-is also further than $\nicefrac{d}{2}$ from $K$, so
+is also farther than $\nicefrac{d}{2}$ from $K$, so
 the complement of $K'$ is open.
 
 As $\{ f_n \}$ converges uniformly on compact subsets, it converges uniformly
@@ -6931,7 +6932,7 @@ an $x$ such that $\{ f_n'(x) \}$ does not converge.
 
 \begin{exercise}
 \pagebreak[2]
-Weierstrass approximation theorem says that every continuous function on an
+The Weierstrass approximation theorem says that every continuous function on an
 interval $[a,b] \subset \R$ is uniformly approximated (on $[a,b]$) by
 polynomials $P(z)$.  Prove why such a theorem cannot hold
 on a closed curve such as the unit circle $\partial \D$.  That is,
@@ -6993,7 +6994,7 @@ Any disc can be translated and rescaled to the unit disc $\D$, and any
 bounded function can be rescaled to be valued in $\D$.
 
 \begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}\label{lemma:schwarz}
-Suppose $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
+If $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
 then 
 \begin{enumerate}[(i)]
 \item $\sabs{f(z)} \leq \sabs{z}$ for all $z \in \D$, and
@@ -7078,7 +7079,7 @@ Prove that if $f \colon \bH \to \bH$ is holomorphic such that $f(i) = i$, then
 
 \begin{exercise}[Tricky]
 Prove a certain generalization of Schwarz's lemma
-called the \emph{\myindex{Cartan's uniqueness theorem}}:
+called \emph{\myindex{Cartan's uniqueness theorem}}:
 Suppose $U \subset \C$
 is a bounded domain,
 $f \colon U \to U$ is holomorphic,
@@ -7105,12 +7106,12 @@ of the one for $f$.  Then apply Cauchy estimates.
 
 \subsection{Automorphisms of the disc}
 
-Let us compute the automorphism\footnote{Recall an automorphism of $U$ is a
+Let us compute the automorphism\footnote{Recall that an automorphism of $U$ is a
 biholomorphism of $U$ to itself.}
 group of the disc using Schwarz's lemma.
 We start with certain specific automorphisms.
 For $a \in \D$, define\footnote{%
-Careful when reading literature, some authors use $\frac{a-z}{1-\bar{a}z}$ as the definition.}
+Careful when reading the literature---some authors use $\frac{a-z}{1-\bar{a}z}$ as the definition.}
 \glsadd{not:varphia}%
 \begin{equation*}
 \varphi_a(z) \overset{\text{def}}{=} \frac{z-a}{1-\bar{a}z}.
@@ -7182,14 +7183,14 @@ and it cannot have a zero at $z=0$
 as $h(0) = \lim_{z\to 0} \frac{g(z)}{z} = g'(0) \neq 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
 continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
 In other words, $\sabs{g(z)}$ must approach $1$ as $z$
-approaches the boundary $\partial \D$.
+approaches the boundary $\partial \D$ (exercise below).
 Then so must $\sabs{h(z)}$.
 The function
 $\sabs{h(z)}$ must, therefore, attain a minimum inside $\D$, or in other
 words $\babs{\frac{1}{h(z)}}$ must attain a maximum inside $\D$.  So $h(z)$
 is a constant, and $g(z) = \alpha z$ for some constant $\alpha$.
 Clearly, 
-$\sabs{\alpha} = 1$ or $\alpha = e^{i\theta}$.  Applying
+$\sabs{\alpha} = 1$, and so $\alpha = e^{i\theta}$.  Applying
 $\varphi_{-b}$ to both sides of $e^{i\theta} z = \varphi_b \circ f$
 we obtain
 $f(z) = \varphi_{-b}(ze^{i\theta})
@@ -7198,9 +7199,9 @@ $f(z) = \varphi_{-b}(ze^{i\theta})
 
 \begin{exbox}
 \begin{exercise}
-Justify the claim in the proof.  If a continuous
-$g \colon \D \to \D$ is such that $g^{-1}(K)$ is compact
-for every compact $K \subset \D$, then if $\{ z_n \}$ is a sequence
+Justify the claim in the proof.  Suppose
+$g \colon \D \to \D$ is continuous and $g^{-1}(K)$ is compact
+for every compact $K \subset \D$.  Prove that if $\{ z_n \}$ is a sequence
 in $\D$ such that $\sabs{z_n} \to 1$, then
 $\sabs{g(z_n)} \to 1$.
 \end{exercise}
@@ -11570,7 +11571,7 @@ x^2$ be a function on $\R$.  Then $f$ has a zero (actually a zero of order $2$)
 at $x=0$.  The functions $f_n(x) = x^2+\nicefrac{1}{n}$ converge uniformly
 to $f$, but $f_n$ has no zero for any $x \in \R$.
 
-On the other hand, consider $f(z) = z^2$ as a function of $\C$, and let
+On the other hand, consider $f(z) = z^2$ as a function on $\C$, and let
 $f_n(z) = z^2+\nicefrac{1}{n}$.  Again $f_n$ goes to $f$ uniformly.  Now for
 any $\epsilon > 0$, $z^2+\nicefrac{1}{n}$ has
 two zeros in $\Delta_\epsilon(0)$ for large enough $n$.  In this case we can even compute
@@ -22629,7 +22630,7 @@ See \figureref{fig:diffunderexample}.
 \end{myfig}
 
 Therefore,
-$g$ is a continuous function of on $[0,1]$, and $g(0) = 0$.
+$g$ is a continuous function on $[0,1]$, and $g(0) = 0$.
 For $0 < \epsilon < 1$, the $y$ derivative of the integrand, $x^y$,
 is continuous on $[0,1] \times [\epsilon,1]$.  Therefore,
 for $y >0$ we may differentiate under the integral sign
@@ -22655,7 +22656,7 @@ Prove the two statements that were asserted in
 \exampleref{example:counterexamplediffunder}:
 \begin{exparts}
 \item
-Prove $\frac{x-1}{\ln(x)}$ extends to a continuous function of
+Prove $\frac{x-1}{\ln(x)}$ extends to a continuous function on
 $[0,1]$.  That is, there exists a continuous function on $[0,1]$
 that equals $\frac{x-1}{\ln(x)}$ on $(0,1)$.
 \item
