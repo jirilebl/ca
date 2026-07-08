@@ -1882,8 +1882,8 @@ unit disc $\D$.  Let us see why.  The map takes $z \in \C$ to the unit disc if
 =
 \frac{\sabs{z - i}}{\sabs{z + i}} .
 \end{equation*}
-In other words, $\sabs{z+i} > \sabs{z - i}$: The distance of $z$
-to $-i$ is larger than the distance of $z$ to $i$.  It is straightforward
+In other words, $\sabs{z+i} > \sabs{z - i}$: The distance from $z$
+to $-i$ is larger than the distance from $z$ to $i$.  It is straightforward
 plane geometry to see that $z \in \bH$.  See
 \figureref{fig:cayleydisc}.
 \begin{myfig}
@@ -4243,7 +4243,7 @@ is a piecewise-$C^1$ simple closed path traversing the sides of the unit square.
 See \figureref{fig:squarepath}.  You should check that the
 conditions are satisfied.  For example, 
 on $t \in (0,1)$, $\gamma'(t) = 1$, and so
-$\lim_{t \uparrow 1} \gamma'(t) = 1$.  Similarly
+$\lim_{t \uparrow 1} \gamma'(t) = 1$.  Similarly,
 $\lim_{t \downarrow 1} \gamma'(t) = i$, and so on.
 \begin{myfig}
 \includegraphics{figures/squarepath}
@@ -6165,7 +6165,8 @@ is a shortcut to \myquote{$\xi \in \R$ and $\xi \geq 0$.}}
 that as $f(0) \geq 0$.
 
 Take a closed disc $\overline{\Delta_r(0)} \subset U$.
-As $0$ is a local maximum, suppose that $r$ is small enough
+As we have a local maximum at $0$,
+there is an $r > 0$ small enough
 so that
 $\sabs{f(z)} \leq \sabs{f(0)} = f(0)$ whenever $\sabs{z} \leq r$.
 Cauchy's formula says
@@ -6808,7 +6809,7 @@ f_n(z) = \frac{1}{2\pi i}
 \int_{\partial \Delta_r(p)} \frac{f_n(\zeta)}{\zeta-z} \, d\zeta .
 \end{equation*}
 The set $\partial \Delta_r(p)$ is compact.
-Let $\delta > 0$ be the distance of $z$ to
+Let $\delta > 0$ be the distance from $z$ to
 $\partial \Delta_r(p)$.
 For $\zeta \in \partial \Delta_r(p)$,
 \begin{equation*}
@@ -6857,7 +6858,7 @@ the closed discs $\overline{\Delta_{d/2}(p)}$ is marked in dashed line.\label{fi
 The set $K'$ is also compact: It is clearly
 bounded, let us show it is closed.  Suppose that $p$ is not in $K'$.
 By compactness of $K$, there is a $q \in K$ such that $\sabs{p-q}$
-is the distance of $p$ to $K$.  As $p \notin K'$,
+is the distance from $p$ to $K$.  As $p \notin K'$,
 $\sabs{p-q} > \nicefrac{d}{2}$.
 Every point in $\Delta_{\sabs{p-q}-d/2}(p)$
 is also farther than $\nicefrac{d}{2}$ from $K$, so
@@ -7349,7 +7350,7 @@ the principal branch of the argument, $\Arg$.  Let us show that
 \end{equation*}
 where $\log \sabs{z}$ is just the standard real logarithm of $\sabs{z}$.
 Set $L(z) = \log \sabs{z} + i \Arg z$, and let us show that $L = \Log$.
-We have $L(1) = 0 = \Log(1)$, so far so good.
+We have $L(1) = 0 = \Log(1)$.  So far so good.
 Observe
 \begin{equation*}
 e^{L(z)}
@@ -7368,7 +7369,7 @@ Take the derivative of both sides of $z = e^{L(z)}$,
 Et voil\`a!\footnote{Cauchy was French, n'est-ce pas?}
 We have $L'(z) = \nicefrac{1}{z}$, so $L = \Log$.
 
-If we use a different branch of the argument we get another
+If we use a different branch of the argument, we get another
 antiderivative of $\nicefrac{1}{z}$.  We 
 make the definition
 \glsadd{not:log}%
@@ -7396,7 +7397,7 @@ what sort of things are being plugged into it.
 \includegraphics{figures/arggraph2}
 \caption{\myquote{Graphs} of the real part (left) and imaginary part (right)
 of the complex logarithm $\log z = \log \sabs{z} + i \arg z$.  The imaginary
-part is an infinite spiral, only two turns are pictured.  A path on the
+part is an infinite spiral, but only two turns are pictured.  A path on the
 graph around the unit circle is marked.\label{fig:loggraph}}
 \end{myfig}
 
@@ -7410,7 +7411,7 @@ need; it is not as useful as one would think.
 And beware that computers like to give back the principal branch even 
 when it doesn't make any sense.
 
-So how do we use $\log$?  Well it comes up in line integrals, which are used
+So how do we use $\log$?  Well, it comes up in line integrals, which are used
 to count and classify zeros (roots) and/or singularities of functions, or vice
 versa---zeros and singularities are used to compute line integrals.
 Let us compute the integral of $\nicefrac{1}{z}$ around the unit
@@ -7439,7 +7440,7 @@ no?\footnote{Non! Je veux aussi devenir plombier maintenant!}
 The equalities are only true morally.
 Interpreted correctly, it is exactly what is happening.  You really do subtract
 one of the values of $\log 1$ from another value of $\log 1$.  To figure
-out which from which, start with say $\log 1 = 0$, and follow the
+out which from which, start with, say, $\log 1 = 0$, and follow the
 function along the circle slowly and notice that $i \arg z$ grows from $0$ to
 $2\pi i$.  So the $\log 1$ at the end is $2 \pi i$.  See the path
 marked on \figureref{fig:loggraph}, the jump in the imaginary part between
@@ -7449,7 +7450,7 @@ To make working with $\log$ easier, we usually talk about a
 \emph{\myindex{branch of the logarithm}}.  So $L \colon U \to \C$ is a branch
 of the logarithm if $L$ is holomorphic, $L'(z) = \nicefrac{1}{z}$, and $L(z)$ is equal
 to some value of $\log z$ for every $z \in U$.  It is not possible to define
-a branch of the logarithm in every $U$, but for example we can do it in every
+a branch of the logarithm in every $U$, but, for example, we can do it in every
 star-like $U$ where $0 \notin U$.  In general, one can define a branch of
 the logarithm in every simply connected domain, that is, a domain without holes,
 that does not contain zero.
@@ -7570,7 +7571,7 @@ discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
 partition $0 = t_0 < t_1 < t_2 < \cdots < t_n = 1$ where
 $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
 does not contain $p$,
-so in each one a branch of $\log (z-p)$ exists, call it $L_j$.
+so in each one a branch of $\log (z-p)$ exists.  Call it $L_j$.
 Pick $L_1$ arbitrarily, then pick $L_2,\ldots,L_n$ in sequence accordingly
 so that
 $L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)$.
@@ -7602,7 +7603,7 @@ $\arg$.
 \begin{exbox}
 \begin{exercise}
 Fill in the details in the existence of the partition.  That is, once you
-cover $\gamma$ by finitely many discs that do not contain $p$ show that
+cover $\gamma$ by finitely many discs that do not contain $p$, show that
 the partition $t_0,\ldots,t_n$ exists.  Hint: Some of the discs may
 \myquote{repeat,} but make sure that you do not get \myquote{stuck}
 before reaching $1$.
@@ -7761,7 +7762,7 @@ In the proof\footnote{%
 This elegant proof is relatively recent, from 1971, due to John Dixon.},
 rather strangely, we will take the difference of the two
 sides of the equation and extend it to an entire
-function (even though $U$ may be small) and then we will use
+function (even though $U$ may be small).  Then we will use
 Liouville's theorem (\thmref{thm:Liouville}) to show that this difference is
 zero.
 
@@ -7795,7 +7796,7 @@ h(z) =
 \end{cases}
 \end{equation}
 As $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$
-($\Gamma$ is homologous to zero)
+($\Gamma$ is homologous to zero),
 the function $h(z)$ is defined for every $z \in \C$.
 Unfortunately, at some points
 we have two definitions.
@@ -7832,7 +7833,7 @@ The unbounded component of $\C \setminus \Gamma$ is contained in the
 set where $n(\Gamma;z) = 0$, so on this component, $h$ is defined by the
 second expression.  Consider a $z$ in this component.
 Suppose $\sabs{f(\zeta)} \leq M$ for $\zeta \in \Gamma$, let $\ell$ be the length of
-$\Gamma$, and let $d(z,\Gamma)$ be the distance of $z$ to $\Gamma$.  Then
+$\Gamma$, and let $d(z,\Gamma)$ be the distance from $z$ to $\Gamma$.  Then
 \begin{equation*}
 \sabs{h(z)}
 =
@@ -8007,7 +8008,7 @@ is homologous to zero in $U$.
 In other words, $U$ is simply connected
 if $n(\Gamma;p) = 0$ for every cycle $\Gamma$ in $U$ and
 every $p \in \C \setminus U$.
-So in a simply connected domain, no cycle in $U$ can wind around any point
+So, in a simply connected domain, no cycle in $U$ can wind around any point
 of $\C \setminus U$.  Examples of simply connected domains are $\C$, $\D$, or
 $\bH$.  An example of a domain that is not simply connected is
 $\C \setminus \{ 0 \}$.
@@ -8087,7 +8088,7 @@ star-like domains (\propref{prop:primitiveinstarlike1} and
 Let $q \in U$ be a point and consider a disc $\Delta_r(q) \subset U$
 (which is star-like with respect to $q$ in particular).
 We take $\gamma$ to be the path from $p$ to $q$.
-As $F$ does not depend on the path taken, then for $z \in \Delta_r(q)$,
+As $F$ does not depend on the path taken, we have that for $z \in \Delta_r(q)$,
 \begin{equation*}
 F(z) =
 \int_{\gamma+[q,z]} f(\zeta) \, d\zeta
@@ -8174,8 +8175,8 @@ e^{\psi(z)} = f(z) . \qedhere
 \end{equation*}
 \end{proof}
 
-On the other hand, the existence of primitives, or
-Cauchy's theorem without restriction on $\Gamma$, or existence of logs guarantees
+On the other hand, the existence of primitives,
+Cauchy's theorem without restriction on $\Gamma$, or the existence of logs guarantees
 simply-connectedness.  In particular, we have the following set of equivalent
 versions of simply-connectedness for domains.
 
@@ -8269,8 +8270,8 @@ Finally, \ref{thm:simplyconnected:v} $\Rightarrow$
 \end{proof}
 
 The existence of roots, in particular the square root, can also be put on
-the list, but the proof is a little trickier.  For the square root it will follow
-for example from the proof of the Riemann mapping theorem in 
+the list, but the proof is a little trickier.  For the square root, it will
+follow from the proof of the Riemann mapping theorem in 
 \subsectionref{subsec:RMT}.
 
 There is a simple topological criterion for
@@ -11344,7 +11345,7 @@ at the origin, and the dog is at $g(z)$, so the length of the leash is
 $\sabs{f(z)-g(z)}$ and the distance of the master from the tree is
 $\sabs{f(z)}$.  So the \myquote{proof} of the theorem is to observe that if the
 master walks around a tree $k$ times, and the dog is never further from the
-master than the distance of the master to the tree, then the dog also walked
+master than the distance from the master to the tree, then the dog also walked
 around the tree $k$ times.  See \figureref{fig:dogandtree}.
 
 \begin{myfig}
@@ -12828,7 +12829,7 @@ as $f_n'(p)$ converges to $f'(p)$, which
 cannot be zero as  
 $0 < \sabs{f_n'(p)} \leq \sabs{f'(p)}$ for any $n$.
 We must have $f(p) = 0$ by taking the limit.
-Similarly 
+Similarly,
 $\sabs{f(z)} \leq 1$ for all $z \in U$ by taking limits,
 so $f(U) \subset \overline{\D}$.
 By the \hyperref[thm:OMT]{open mapping theorem}, $f(U) \subset \D$, so $f \in
@@ -13372,7 +13373,7 @@ Hitherto, we examined holomorphic functions as complex-valued functions.
 However, to do analysis one needs inequalities, and complex numbers are not
 ordered.  Let us consider the real and imaginary parts of holomorphic
 functions, the so-called harmonic functions.  Interestingly, harmonic
-functions come up often in applied mathematics, for example as steady state
+functions come up often in applied mathematics, for example as steady-state
 heat or the distribution of electrostatic potential in a region without
 charge.  Harmonic functions are used to study
 holomorphic functions and vice versa, holomorphic functions are used to
@@ -13389,8 +13390,8 @@ Nevertheless, the results for harmonic functions are not
 always a simple application of what has already been proved for holomorphic
 functions, and even the
 statements or proofs of the analogous results may be quite different.
-Harmonic functions are somewhat more general than real and
-imaginary parts of holomorphic functions.  They are real and imaginary parts
+Harmonic functions are somewhat more general than the real and
+imaginary parts of holomorphic functions.  They are the real and imaginary parts
 of holomorphic functions only locally, but perhaps not globally.
 
 
@@ -13487,7 +13488,7 @@ f(z) = \Re f(z) =
 \Re \varphi(z) .
 \end{equation*}
 So any harmonic function $f$ is locally the real part of a holomorphic
-function.  Similarly $f$ is locally the imaginary part of a holomorphic
+function.  Similarly, $f$ is locally the imaginary part of a holomorphic
 function.
 This all works only in some neighborhood.  We cannot necessarily find a single
 $\varphi$ (the $g$ and $h$ above) in the entire
@@ -13505,7 +13506,7 @@ U \to \C$ such that $f = \Re \varphi$.
 \end{prop}
 
 Conversely,
-suppose that $f$ is the real-part of a holomorphic function $\varphi$:
+suppose that $f$ is the real part of a holomorphic function $\varphi$:
 \begin{equation*}
 f(z) = \Re \varphi(z) =
 \frac{1}{2}\bigl( \varphi(z) + \overline{\varphi(z)} \bigr) .
@@ -13549,7 +13550,7 @@ Let $U \subset \C$ be open and $f \colon U \to \R$ a function.
 \begin{enumerate}[(i)]
 \item
 The function $f$ is harmonic if and only if
-for every point $p \in U$ there exists an open neighborhood $V$ of $p$ and a
+for every point $p \in U$, there exists an open neighborhood $V$ of $p$ and a
 holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
 on $V$.
 \item
@@ -13576,7 +13577,7 @@ and so they are what is called real-analytic.
 If $U \subset \C$ is open and $f \colon U \to \R$ is harmonic, then $f$ is infinitely (real) differentiable.
 \end{prop}
 
-Starting with a harmonic function $f$, finding the holomorphic function whose
+Starting with a harmonic function $f$, finding a holomorphic function whose
 real part is $f$ means finding another harmonic function $g$ such that $f+ig$ is
 holomorphic.
 
@@ -13592,7 +13593,7 @@ domain has a harmonic conjugate.  On the other hand, on the punctured plane
 $\C \setminus \{ 0 \}$, the harmonic function $\log \sabs{z}$ 
 fails to have a harmonic conjugate.  If it did have a harmonic conjugate,
 then $\log$ would have a branch in $\C \setminus \{0\}$, which it does not.
-See \figureref{fig:loggraph}, the graph of the real part on the left is
+See \figureref{fig:loggraph}, where the graph of the real part on the left is
 continuous, but the corresponding imaginary part is not a function.
 That we cannot find a different conjugate for $\log \sabs{z}$
 follows from the following proposition.
@@ -13774,9 +13775,9 @@ If we write $\mu = x+t$ and $\eta = x-t$
 As before, a solution $f$ to the wave equation is a function
 of $\mu$ plus a function of $\eta$.  That is, $f(x,t) = A(\mu) + B(\eta) =
 A(x+t)+B(x-t)$, two waves travelling in opposite directions.  The
-functions $A$ and $B$ need not be nice at all, any twice real differentiable
+functions $A$ and $B$ need not be nice at all, just twice real differentiable
 functions.
-It is interesting that one puny minus sign makes such a huge difference.
+It is interesting how one puny minus sign makes such a huge difference.
 \end{remark}
 
 \subsection{Identity and the maximum principle}
@@ -13820,7 +13821,7 @@ The maximum principle is really a theorem about harmonic functions rather
 than holomorphic functions.  We will prove it using holomorphic functions
 and the open mapping theorem (\thmref{thm:OMT})\footnote{%
 The open mapping theorem is, after all,
-a stronger version of the maximum modulus principle.}
+a stronger version of the maximum modulus principle.},
 although there is a more natural proof using the mean value property,
 which we will see later.
 
@@ -13834,12 +13835,14 @@ is harmonic.  If $f$ attains a local maximum (or a local minimum) in $U$, then $
 Suppose that $f$ attains a local maximum at $p \in U$.
 The statement for a minimum follows by considering $-f$.
 Let $\Delta_r(p) \subset U$
-be a disc such that $p$ is the maximum of $f$ on $\Delta_r(p)$.
+be a disc such that
+on $\Delta_r(p)$,
+$f$ attains its maximum at $p$.
 There exists a holomorphic $h \colon \Delta_r(p) \to \C$
 such that $f = \Re h$.
 Then $h$ takes
 $\Delta_r(p)$ to a subset of $X = \bigl\{ w \in \C : \Re w \leq f(p) \bigr\}$.
-The point $h(p)$ is on the boundary of $X$ as $\Re h(p)= f(p)$.  Hence,
+The point $h(p)$ is on the boundary of $X$, as $\Re h(p)= f(p)$.  Hence,
 $h\bigl(\Delta_r(p)\bigr)$ is not open, which can only happen if $h$ is
 constant by the open mapping theorem.  As $f$ is constant on $\Delta_r(p)$, it is constant on $U$ by the
 identity theorem.
@@ -13857,7 +13860,8 @@ Hint: Consider $\log \sabs{f(z)}$.
 \label{exercise:maxprincsecondharmonic}
 Prove the second version of the maximum principle: If $U \subset \C$
 is a bounded domain and
-$f \colon \widebar{U} \to \R$ is continuous and harmonic on $U$,
+$f \colon \widebar{U} \to \R$ is a continuous function
+harmonic on $U$,
 then $f$ achieves both its maximum and its minimum
 on the boundary $\partial U$.
 \end{exercise}
@@ -14787,7 +14791,7 @@ As $\zeta$ and $\xi$ were arbitrary, the theorem follows.
 
 The constant we get in the proof is not optimal, but it is explicit.
 Assuming $K$ is connected,
-we can compute a specific $C$ by knowing the distance of $K$
+we can compute a specific $C$ by knowing the distance from $K$
 to the boundary and the number of the $r$-discs needed to cover $K$.
 
 \begin{exbox}
@@ -15233,8 +15237,8 @@ then $f(z)=f(-z)$ for all $z \in \C$.
 \begin{exercise} \label{exercise:Hdirichuniq}
 Prove that a bounded solution to the Dirichlet problem in the
 upper-half plane $\bH$ is unique:
-Suppose $f,g \colon \overline{\bH} \to \R$ are 
-continuous and harmonic in $\bH$ such that $f-g$ is bounded and
+Let $f,g \colon \overline{\bH} \to \R$ be 
+continuous functions harmonic on $\bH$ such that $f-g$ is bounded and
 $f=g$ on $\partial \bH = \R$.  Prove that $f=g$ on $\bH$.
 Compare to \exerciseref{exercise:upperhalfplanedirichlet}.
 \end{exercise}
@@ -15274,7 +15278,7 @@ show that it has a pole at infinity.
 Allow singularities in \exerciseref{exercise:Hdirichuniq}.
 Suppose $S \subset \R$ is finite, and
 $f,g \colon \overline{\bH} \setminus S \to \R$ are 
-continuous and harmonic in $\bH$ such that $f-g$ is bounded and
+continuous functions harmonic on $\bH$ such that $f-g$ is bounded and
 $f=g$ on $\R \setminus S$.  Prove that $f=g$ everywhere.
 \item
 Show uniqueness of the bounded Dirichlet problem in $\D$ with
@@ -18038,7 +18042,7 @@ Morera then implies that $F$ is holomorphic.
 \end{proof}
 
 The theorem is often applied by first mapping some curve to the real line.
-This curve must be nice enough, that is, real-analytic.  Similarly the fact
+This curve must be nice enough, that is, real-analytic.  Similarly, the fact
 that $f$ is real-valued can be replaced by being valued in some
 real-analytic curve.
 We will define a real-analytic curve as the image of
@@ -19833,7 +19837,7 @@ Thus, $\overline{(0,1)} = [0,1]$.
 Always notice what ambient metric space you are working with.
 If $X = (0,\infty)$, then
 the closure of $(0,1)$ in $(0,\infty)$ is $(0,1]$.  Proof:  Similarly as
-above $(0,1]$ is closed in $(0,\infty)$ (why?).  Any closed set $E$
+above, $(0,1]$ is closed in $(0,\infty)$ (why?).  Any closed set $E$
 that contains $(0,1)$ must contain $1$ (why?).  Therefore, $(0,1] \subset E$,
 and hence $\overline{(0,1)} = (0,1]$ when working in $(0,\infty)$.
 \end{example}
