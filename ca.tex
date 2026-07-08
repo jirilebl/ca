@@ -7552,11 +7552,6 @@ The first thing to observe is that the winding number is an integer.
 \begin{prop} \label{prop:indexinteger}
 Suppose $\Gamma$ is a cycle and $p \notin \Gamma$.  Then
 $n(\Gamma;p)$ is an integer.
-%\begin{equation*}
-%n(\Gamma;p) = \frac{1}{2\pi i} \int_\Gamma \frac{1}{z-p} \, dz
-%\avoidbreak
-%\end{equation*}
-%is an integer.
 \end{prop}
 
 The proof is to take a closed path $\gamma$
@@ -7590,8 +7585,11 @@ n(\gamma;p)
 \frac{1}{2\pi i} \sum_{j=1}^n \int_{t_{j-1}}^{t_j} \frac{\gamma'(t)}{\gamma(t)-p} \, dt
 \\
 =
-\frac{1}{2\pi i} \sum_{j=1}^n L_j\bigl(\gamma(t_j)\bigr) -
+\frac{1}{2\pi i} \sum_{j=1}^n
+\Bigl(
+L_j\bigl(\gamma(t_j)\bigr) -
 L_j\bigl(\gamma(t_{j-1})\bigr)
+\Bigr)
 =
 \frac{1}{2\pi i} \bigl( L_n(z_0) - L_1(z_0) \bigr) .
 \end{multline*}
@@ -8142,7 +8140,7 @@ Find its primitive $g(z)$.  Compute,
 =
 0 .
 \end{equation*}
-Thus, $\frac{e^{g(z)}}{f(z)}$ is constant
+Thus, $\frac{e^{g(z)}}{f(z)}$ is a (nonzero) constant
 (\propref{prop:zeroder}).  It follows that
 there is a $C \in \C$ such that
 \begin{equation*}
