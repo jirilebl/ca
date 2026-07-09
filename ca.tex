@@ -10059,6 +10059,7 @@ of $f$.
 \end{thm}
 
 \begin{proof}
+Assume $f$ is not simply constant near $p$.
 Define
 $g(z) = {(z-p)}^2 f(z)$ for $z \neq p$ and $g(p) = 0$.
 The function $g$ is clearly holomorphic for $z \neq p$.  Consider the 
@@ -10187,8 +10188,12 @@ g(z) = {(z-p)}^k f(z)
 \frac{1}{\psi(z)} .
 \end{equation*}
 
-The converse statement follows by noting that if $g(z)$ has a removable
-singularity, then $g(z) = {(z-p)}^\ell \varphi(z)$ where
+For the second item,
+assume $f$ is not constant near $p$
+and
+$g(z)$ has a removable
+singularity.
+Then $g(z) = {(z-p)}^\ell \varphi(z)$ where
 $\varphi(p) \neq 0$ and $\ell \geq 0$ is an integer.
 Thus
 \begin{equation*}
@@ -10217,7 +10222,8 @@ order $k$ at $p$.
 If $f$ has a pole of order $k$ at $p$, then $\nicefrac{1}{f}$
 has a removable singularity, and the extended function has a zero of order
 $k$ at $p$.
-In other words, if $f$ has a pole or a removable singularity, we can write
+In other words, if $f$ has a pole or a removable singularity (but is not
+identically zero near $p$), we can write
 $f(z) = {(z-p)}^\ell g(z)$ for some $\ell \in \Z$ and some holomorphic $g$ such
 that $g(p) \neq 0$.
 The point $p$ is a zero of order $\ell$ if $\ell
@@ -10539,11 +10545,12 @@ we will write $f \colon U \to \C_\infty$.  That is, even though we
 could just say \myquote{$f \colon U \to \C_\infty$ is holomorphic,} we will, for emphasis,
 usually say \myquote{$f \colon U \to \C_\infty$ is meromorphic.}
 
-Similarly, we can define a function on subsets of $\C_\infty$, just as
+For functions on subsets of $\C_\infty$, we proceed similarly as
 we did with LFTs.
 We define holomorphicity at $\infty$ when $U \subset
 \C_\infty$ by saying that $f$ is \emph{\myindex{holomorphic at $\infty$}}
-if $f(\nicefrac{1}{z})$ is holomorphic at $0$.
+if $f(\nicefrac{1}{z})$ (or $\frac{1}{f(1/z)}$ if it is a pole)
+is holomorphic at $0$.
 With this terminology, an LFT is a biholomorphic mapping $f \colon
 \C_\infty \to \C_\infty$.  It is left as an exercise that
 these are the only biholomorphisms of the Riemann sphere and so
@@ -10830,6 +10837,7 @@ i\right) = \frac{-i}{2} ,
 \frac{-i}{2} .
 \end{equation*}
 
+Assume $r > 1$.
 The Residue theorem says
 \begin{equation*}
 \pi 
@@ -10842,7 +10850,6 @@ The Residue theorem says
 \int_{\gamma_r} \frac{1}{1+z^2} \, dz .
 \end{equation*}
 Let us find the limit as $r \to \infty$ of the second term.
-Assume $r > 1$.
 The length of $\gamma_r$ is $r\pi$,
 and on $\gamma_r$,
 $\sabs{1+z^2} \geq r^2-1$.  So
@@ -10944,7 +10951,7 @@ e^{st}F(s) \, ds,
 \qquad t \geq 0,
 \end{equation*}
 is the inverse as long as $c \in \R$ is
-bigger than the real part of all the singuarities of $F(s)$.
+bigger than the real part of all the singularities of $F(s)$.
 Compute
 (using the residue theorem):
 \smallskip
@@ -11007,8 +11014,8 @@ residue at $\infty$ is zero.
 % (most likely) on the right page.
 \begin{exercise}
 Use the function $f(z) = \frac{e^{-z^2/2}}{1+e^{-\sqrt{\pi}(1+i)z}}$ and
-the rectangular path with vertices $-r$, $r$, $r+i\sqrt{\pi}$,
-and $-r+i\sqrt{\pi}$
+the parallelogram path with vertices $-r$, $r$, $r+(1+i)\sqrt{\pi}$,
+and $-r+(1+i)\sqrt{\pi}$
 to compute the integral $\int_{-\infty}^\infty e^{-x^2/2} \, dx$.\footnote{%
 This nifty solution is due to H.\ Kneser. The tricky bit with using the
 residue theorem is that $e^{-z^2/2}$ has no singularities itself,
@@ -11090,7 +11097,7 @@ inside $\Gamma$, then
 = n - \ell .
 \end{equation*}
 
-The name \myquote{argument principle} comes from the fact that for a path
+The name \myquote{argument principle} comes from the fact that for a closed path
 $\gamma$,
 the integral
 $\int_{\gamma} \frac{f'(z)}{f(z)} \, dz$
@@ -11099,8 +11106,10 @@ The antiderivative of
 $\frac{f'(z)}{f(z)}$
 is $\log f(z)$.
 We take some value of $\log f(z) = \log \sabs{f(z)} + i \arg f(z)$
-at the beginning of $\gamma$, we follow it
-around $\gamma$, and subtract the value of $\log f(z)$ at the end.
+at the beginning of $\gamma$ and we follow it
+around $\gamma$.
+We then subtract the initial value of $\log f(z)$ from its ending value.
+This difference is the change in the argument.
 Another way to look at the integral is to write
 \begin{equation*}
 \frac{1}{2\pi i}
@@ -11117,8 +11126,8 @@ argument principle counts the number of times
 $f \circ \gamma$ winds around zero.
 
 \begin{proof}[Proof of the argument principle]
-We prove the \myquote{Furthermore} as that proves the first part by
-considering $h \equiv 1$.
+We prove the \myquote{Furthermore} as that proves the first part
+with $h \equiv 1$.
 The function $h(z) \frac{f'(z)}{f(z)}$ has isolated singularities
 at the zeros and poles of $f$.  Let $S$ be the set of zeros and poles of $f$,
 and apply the residue theorem:
@@ -11158,7 +11167,7 @@ The theorem follows.
 
 Besides the theoretical implications we will see,
 there are some immediate practical ones.
-The argument principle can be used to locate zeros of polynomials
+The argument principle can locate zeros of polynomials
 (or holomorphic functions more generally)
 by numerical computations.  If we numerically estimate the integral to
 within a precision of at least $0.5$ (no need to be extremely precise),
@@ -11255,6 +11264,7 @@ is the unique (simple) zero of $P_t$ in $\Delta_r(\xi_0)$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:rootgivesscI}
+\pagebreak[3]
 Prove that if $U \subset \C$ is a domain, $p \notin U$, and there
 exists a holomorphic $g \colon U \to \C$ such that $g^2 = z-p$, then 
 there does not exist a closed path $\gamma$ such that $n(\gamma;p)=1$.
