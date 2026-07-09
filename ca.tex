@@ -9440,10 +9440,10 @@ dA
 
 \section{Domains with piecewise-\texorpdfstring{$C^1$}{C¹} boundary \texorpdfstring{$\star$}{*}}
 
-The way Green's theorem, and hence Cauchy's theorem, is often given, and
-the way it is most often used, is for a domain with piecewise-$C^1$
+The way Green's theorem, and hence Cauchy's theorem, is very often given and used,
+is for a domain with piecewise-$C^1$
 boundary.  To treat open sets with piecewise-$C^1$ boundary, we must
-prove the so-called Jordan curve theorem that is the rather obvious (but
+prove the so-called Jordan curve theorem, which is the rather obvious (but
 surprisingly nontrivial to prove) statement that a simple closed path
 divides the plane into two components, the interior and the exterior.
 
@@ -9462,8 +9462,8 @@ $\gamma(a)=\gamma(b)$ and $\gamma|_{(a,b]}$ is injective.
 The condition that every $p$ in the boundary is in the closure of $\C
 \setminus \widebar{U}$ means that at every point, the boundary divides
 the plane into what's inside $U$ and what's outside $U$.  Let us consider
-the local question of what a path does, that is,
-an injective path divides the plane into two pieces.
+the local question of what a path does.
+What we find is that an injective path locally divides the plane into two pieces.
 
 \begin{lemma}
 Let $\gamma \colon [a,b] \to \C$ be an injective piecewise-$C^1$ path.
@@ -9490,12 +9490,12 @@ swapped.
 By the discussion above, a piecewise-$C^1$ path is a finite union of $C^1$
 paths that are graphs of $C^1$ functions, either $y=f(x)$
 for $x$ in some closed interval, or with $x$ and $y$ reversed.
-If $p$ is in the interior of such a path (where $\gamma'$ exists),
+If $p$ is strictly between the endpoints of such a path (where $\gamma'$ exists),
 then without loss of generality it is a graph $y=f(x)$ for perhaps
-$x \in [-1,1]$ and $f(0)=0$.
+$x \in [-1,1]$, $p=0$, and $f(0)=0$.
 For some small $\epsilon > 0$ and $\delta > 0$,
-we have that $W = (-\epsilon,\epsilon) \times (-\delta,\delta)$
-contains no paths making up the original $\gamma$ and $-\delta < f(x) <
+the set $W = (-\epsilon,\epsilon) \times (-\delta,\delta)$
+contains no other paths making up the original $\gamma$ and $-\delta < f(x) <
 \delta$ for $x \in (-\epsilon,\epsilon)$.  Clearly,
 $W \setminus \gamma$ has precisely two components,
 those points where $f(x) > y$ and those where $f(x) < y$.
@@ -9503,7 +9503,7 @@ those points where $f(x) > y$ and those where $f(x) < y$.
 So suppose that $p$ is a point where two of those paths making up $\gamma$
 meet and without loss of generality assume $p$ is the origin and 
 $\gamma(0) = p$.
-As the one sided limits of $\gamma'$ are never zero, we assume after
+As the one-sided limits of $\gamma'$ are never zero, we assume after
 a rotation that $\Re \gamma'(0)$ is not zero for 
 $t$ near $0$.
 That is, the two
@@ -9553,7 +9553,7 @@ $\Re \gamma'(t) < 0$ for $t > 0$, is on the right.
 
 \begin{exbox}
 \begin{exercise}
-Show that $W$ can be also chosen to be a disc.
+Show that $W$ can also be chosen to be a disc.
 It is not as trivial as it may seem.
 Think about $\gamma$ oscillating wildly and going in and out of the disc.
 \end{exercise}
@@ -9605,13 +9605,13 @@ A ray is a set that is a straight line starting at some point $q$
 going to infinity at some angle.
 Consider
 intersections of $\gamma$ with horizontal lines.  For some horizontal line,
-the intersection with $\gamma$ with the smallest $x$ coordinate ($z=x+iy$)
+the intersection with $\gamma$ with the smallest $x$-coordinate ($z=x+iy$)
 is at a point where $\gamma'$ exists and does not point along
 the horizontal line (otherwise
 simply move the line a little---there are only finitely many points where
 $\gamma'$ does not exist).  Near this intersection, the set $\gamma$
 can be written as a graph $x=f(y)$ using the implicit function theorem.
-Pick a point $q$ to be some point to the right of this graph, and let $R$ be the
+Pick some point $q$ to the right of this graph, and let $R$ be the
 ray going horizontally left from $q$.  Note that $R$ intersects $\gamma$ exactly
 once.
 See \figureref{fig:rayjordan}.
@@ -9626,7 +9626,7 @@ the ray $R$ be the negative real axis.  Then $\gamma$ intersects the negative
 real axis at exactly one point.
 We reparametrize so that this negative real intersection
 is the beginning and ending point of $\gamma \colon [0,1] \to \C$.  This
-point is a point where $\gamma$ is $C^1$ and hence $\gamma'(0) =
+is a point where $\gamma$ is $C^1$ and hence $\gamma'(0) =
 \gamma'(1)$.  Also $\gamma'(0) = \gamma'(1)$ does not point along the ray,
 that is, either
 $\Im \gamma'(0) = \Im \gamma'(1) > 0$ or
@@ -9652,7 +9652,7 @@ to cover it.
 Suppose $W_1$ is the neighborhood that contains the negative real point of
 the boundary.  Let $W_2$ be one of these neighborhoods such that the
 intersection $W_1 \cap W_2 \cap \gamma$ is nonempty.  As some point of $\gamma$ is
-in both $W_1$ and $W_2$, then each component of $W_2 \setminus \gamma$
+in both $W_1$ and $W_2$, each component of $W_2 \setminus \gamma$
 must intersect one of the components of $W_1 \setminus \gamma$.  In
 particular,
 one of the components of $W_2 \setminus \gamma$ must be a subset of $U$,
@@ -9687,7 +9687,7 @@ is \emph{\myindex{positively oriented}}.
 Without loss of generality, we assume that $U$ is connected by taking
 one component.
 Let $\gamma_1,\ldots,\gamma_k$ be the disjoint simple closed piecewise-$C^1$
-paths comprising the boundary of $U$, suppose that they are all positively
+paths comprising the boundary of $U$.  Suppose that they are all positively
 oriented, that is, the winding number around their interiors is $1$.
 The set $\C \setminus U$
 has one unbounded component and suppose $\gamma_1$ is a subset of this
@@ -9748,16 +9748,16 @@ of $\widebar{U}$, then
 \end{thm}
 
 The conditions on $F$ can be weakened considerably.
-A common and easy to prove statement is with the hypothesis that $F$ is continuous on
-$\widebar{U}$ and $C^1$ only
-inside $U$, but it needs to have bounded partial derivatives in order for the
+A common and easy-to-prove statement is with the hypothesis that $F$ is continuous on
+$\widebar{U}$, $C^1$ only
+inside $U$, but assumes that the $x$ and $y$ partial derivatives of $F$ are bounded in order for the
 right-hand side to be integrable.
 
 \begin{exbox}
 \begin{exercise}
 \pagebreak[2]
 If one uses the Lebesgue integral, or a carefully defined improper integral,
-we can easily reduce the regularity of $F$ needed in Green's theorem above.
+one can easily reduce the regularity of $F$ needed in Green's theorem above.
 Using the theorem, obtain the conclusion with the
 assumption on $F$ being that $F$ is continuous on $\widebar{U}$,
 continuously differentiable on $U$ with bounded partial derivatives on $U$.
@@ -10173,9 +10173,9 @@ such that $h(z) = \nicefrac{1}{f(z)}$ for $z \neq p$.  By continuity, $h(p) =
 0$.  Hence $h(z) = {(z-p)}^k \psi(z)$ for some holomorphic $\psi$ and $k \in \N$,
 where $\psi(p) \neq 0$.
 As $h$ is not zero in $\Delta_r(p) \setminus \{p\}$,
-then $\psi$ is not zero in $\Delta_r(p)$
+we have that $\psi$ is not zero in $\Delta_r(p)$
 and $\nicefrac{1}{\psi}$ is holomorphic in $\Delta_r(p)$.
-First item follows as
+The first item follows as
 for $z \in \Delta_r(p) \setminus \{p\}$,
 \begin{equation*}
 g(z) = {(z-p)}^k f(z)
@@ -12801,7 +12801,7 @@ $\varphi_a'(0) = 1-\sabs{a}^2$:
 = 2 g(p) \varphi_{-g(p)}'\bigl(h(p)\bigr) h'(p)
 = 2 g(p) \bigl(1-\sabs{g(p)}^2\bigr) h'(p) .
 \end{multline*}
-As ${\bigl(g(p)\bigr)}^2 = -q$, then
+As ${\bigl(g(p)\bigr)}^2 = -q$,
 \begin{equation*}
 \sabs{f'(p)} =
 \frac{2 \sabs{g(p)} \bigl(1-\sabs{g(p)}^2\bigr)}{1-\sabs{q}^2} \sabs{h'(p)}
@@ -14266,10 +14266,10 @@ In particular, for $z = p+re^{i\theta} \in \Delta_R(p)$,
 f(z) = \int_{-\pi}^\pi f(p+Re^{it}) P_{r/R}(\theta-t) \, dt .
 \end{equation*}
 A difference with the Cauchy integral formula is that the Poisson kernel
-changes based on the domain.  The Poisson kernel exists for other
-domains than the disc (as long as the boundary is nice enough), although
+changes based on the domain.  The Poisson kernel exists for
+domains other than the disc (as long as the boundary is nice enough), although
 in general we do not have an explicit formula.  In
-the Cauchy integral formula the kernel is $\frac{1}{\zeta-z}$
+the Cauchy integral formula, the kernel is $\frac{1}{\zeta-z}$
 no matter the path that we were integrating around, that is, no matter
 what domain we were solving in.
 
@@ -14315,7 +14315,7 @@ bounded on $\partial \D$ and continuous at all but finitely many points on
 $\partial \D$.  The conclusion should of course be then that $Pf(z)$ ($z \in
 \D$) tends
 to $f(z_0)$ ($z_0 \in \partial \D$) only if $f$ is continuous at $z_0$.
-Note: More advanced students should note that one does not need boundedness,
+Remark: More advanced students should note that one does not need boundedness,
 just $f \in L^1(\partial \D)$.
 \end{exercise}
 
@@ -14420,7 +14420,7 @@ We can define harmonic functions in one real variable
 by saying $f$ is harmonic if
 $\nabla^2 f = \frac{\partial^2}{\partial x^2} f = f'' = 0$, that is, $f(x) = Ax+B$, an affine
 linear function.  It is quite useful to think of harmonic functions on $\C$ as one
-particular analogue of affine linear functions to $\C$, although we ought
+particular analogue of such affine linear functions, although we ought
 not to take this analogy too far, of course.
 One property of affine linear functions is a mean-value property, that is,
 given $a < b$ then $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
@@ -14505,8 +14505,8 @@ Namely, $f=h$ and $h$ is harmonic, so $f$ is harmonic on
 $\Delta_s(q)$ (and thus on $U$).
 \end{proof}
 
-One immediate consequence of the mean value property is that a uniform limit
-on compact subsets of harmonic functions is harmonic.  Just like for
+One immediate consequence of the mean value property is that a limit
+of harmonic functions uniform on compact subsets is harmonic.  Just like for
 holomorphic functions, this result would be hard to prove using the definition
 of harmonic functions.  Given a sequence $\{ f_n \}$ of any old $C^2$
 functions with uniform limit $f$,
@@ -14619,7 +14619,7 @@ disc cannot just do whatever they want inside the disc.  Their behavior is
 somewhat controlled by the size of the disc:  The further
 \myquote{inside} their domain of definition the disc is, the more control we have.
 The basic statement of this control is
-the \emph{Harnack's inequality}\index{Harnack's inequality!disc} in the disc.
+\emph{Harnack's inequality}\index{Harnack's inequality!disc} in the disc.
 For holomorphic functions, an analogous result is
 \hyperref[lemma:schwarz]{Schwarz's lemma}, where we
 require that the functions are bounded (they are valued in a disc).  For harmonic
@@ -14697,7 +14697,7 @@ The inequalities are optimal.  In the unit disc $\D$, the theorem says
 \frac{1-r}{1+r} f(0) \leq f(z) \leq \frac{1+r}{1-r} f(0) .
 \end{equation*}
 Consider the function $f(z) = \Re \frac{1+z}{1-z}$.  Except for the
-$\frac{1}{2\pi}$ it is the Poisson kernel and so 
+$\frac{1}{2\pi}$, it is the Poisson kernel and so 
 $f(z) > 0$ on $\D$.  Note that $f(0)=1$.  Plugging in $z=r$, we get
 equality in the right-hand inequality above, and plugging in $z=-r$
 we get equality in the left-hand inequality above.  In other words,
@@ -14802,7 +14802,7 @@ is not assumed to be connected.
 \end{exercise}
 
 \begin{exercise}[Easy]
-Find the following counterexample of Harnack's inequality
+Find the following counterexample to Harnack's inequality
 if $f$ is not assumed to be
 nonnegative.  For every $M > 0$ find
 a harmonic function $f \colon \D \to \R$ such that $f(0) = 1$ and
@@ -15436,7 +15436,7 @@ Moreover, if $f$ is subharmonic, then we may choose any
 $R_p > 0$ such that $\Delta_{R_p}(p) \subset U$.
 \end{thm}
 
-As $\partial \Delta_r(p)$ is compact and $f$ is upper-semicontinuous, then
+As $\partial \Delta_r(p)$ is compact and $f$ is upper-semicontinuous,
 $f$ is bounded from above and hence the upper Darboux integral is defined
 and valued in $[-\infty,\infty)$.
 Recall the definition of the upper Darboux integral of a bounded-above
@@ -19917,7 +19917,7 @@ there is an $\epsilon > 0$ such that $B(z,\epsilon) \subset B(x,\delta)
 \subset A$.  So $z \in A^\circ$.  Therefore, $B(x,\delta) \subset
 A^\circ$, and $A^\circ$ is open.
 
-As $A^\circ$ is open, then
+As $A^\circ$ is open,
 $\partial A = \widebar{A} \setminus A^\circ = \widebar{A} \cap
 {(A^\circ)}^c$ is closed.
 \end{proof}
@@ -20607,7 +20607,7 @@ finite collection of indices $n_1 < n_2 < \ldots < n_k$, then
 {C(x,\nicefrac{1}{n_k})}^c 
 \end{equation*}
 As $x$ is in the closure of $K$,
-then
+we have
 $C(x,\nicefrac{1}{n_k}) \cap K \neq \emptyset$.  So there is no
 finite subcover and $K$ is not compact.
 See right-hand side of \figureref{fig:compactbndclosed}.
@@ -22184,7 +22184,6 @@ a continuously differentiable function $f \colon I \to \R$, and $f' = g$.
 \begin{proof}
 Define $f(c) = \lim_{n\to \infty} f_n(c)$.
 As $f_n'$ are continuous and hence Riemann integrable,
-then
 via the fundamental theorem of calculus, we find that for $x \in I$,
 \begin{equation*}
 f_n(x) = f_n(c) + \int_c^x f_n' (t)\, dt.
@@ -23240,7 +23239,7 @@ The two sets
 U' = f^{-1}(c), \qquad U'' = f^{-1}\bigl(\R^m\setminus\{c\}\bigr)
 \end{equation*}
 are open and disjoint, and further $U = U' \cup U''$.  As $U'$ is nonempty
-and $U$ is connected, then $U'' = \emptyset$.  So $f(x) = c$ for all $x \in U$.
+and $U$ is connected, $U'' = \emptyset$.  So $f(x) = c$ for all $x \in U$.
 \end{proof}
 
 \begin{exbox}
@@ -23776,7 +23775,7 @@ Hence,
 \end{equation*}
 In particular, as $k$ goes to $0$, so does $h$.
 
-As $x \in V$, then $Df|_x$ is invertible.
+As $x \in V$, we find that $Df|_x$ is invertible.
 Let $B = \bigl(Df|_x\bigr)^{-1}$, which is what we think the derivative of
 $g$ at $y$ is.  Then
 \begin{equation*}
