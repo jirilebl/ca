@@ -8376,7 +8376,7 @@ Given $0 \leq r_1 < r_2 \leq \infty$ and $p \in \C$, define
 \overset{\text{def}}{=}
 \{ z \in \C : r_1 < \sabs{z - p} < r_2 \} .
 \end{equation*}
-When $0 < r_1 < r_2 < \infty$ we call this set an
+When $0 < r_1 < r_2 < \infty$, we call this set an
 \emph{\myindex{annulus}}\footnote{%
 Q\@: What do you call a banana with a hole?
 A\@: A banannulus.}.
@@ -8387,7 +8387,7 @@ the punctured disc
 \begin{equation*}
 \ann(p;0,r) = \Delta_r(p) \setminus \{ p \} .
 \end{equation*}
-When $r_2 = \infty$ on the other hand,
+When $r_2 = \infty$, on the other hand,
 $\ann(p;r,\infty) = \C \setminus \overline{\Delta_{r}(p)}$ (if $r > 0$).  We will,
 however, avoid the temptation of calling $\ann(p;r,\infty)$ an \myquote{annulus.}%
 \footnote{\myquote{Holey plane} perhaps?  A punctured disc also ought not to be
@@ -8416,7 +8416,7 @@ c_n =
 dz  ,
 \end{equation*}
 where $\gamma$ is any circle of radius $s$, $r_1 < s < r_2$, centered at
-$p$ oriented counterclockwise.
+$p$, oriented counterclockwise.
 \end{thm}
 
 Recall that convergence of a double series such as
@@ -8690,7 +8690,7 @@ expansion in $\ann(0;1,\infty) = \C \setminus \overline{\D}$:
 \end{equation*}
 
 While in general a Laurent series is not a power series,
-it could very well be when all the $c_n$ for negative $n$ are zero.
+it could very well be one when all the $c_n$ for negative $n$ are zero.
 
 \medskip
 
@@ -8711,7 +8711,7 @@ converging uniformly on compact subsets of $\ann(p;r_1,r_2)$.  Then:
 \item
 The function
 $f$ is holomorphic and its 
-derivative is defined by
+derivative is given by
 \begin{equation*}
 f'(z) = \sum_{n=-\infty}^\infty n c_n {(z-p)}^{n-1} ,
 \avoidbreak
@@ -8849,7 +8849,7 @@ $\gamma \colon [a,b] \to \C$ with $\gamma(a)=\gamma(b)$.
 \end{exbox}
 
 \begin{example} \label{example:homotopydiscsc}
-Let $\gamma \colon [a,b] \to \D$ be continuous and $\gamma(a)=\gamma(b)$.  Define
+Let $\gamma \colon [a,b] \to \D$ be continuous with $\gamma(a)=\gamma(b)$.  Define
 $H \colon [a,b] \times [0,1] \to \D$ by
 \begin{equation*}
 H(t,s) = (1-s) \gamma(t) .
@@ -8865,7 +8865,7 @@ $\int_{\gamma_0} f(z)\,dz = \int_{\gamma_1} f(z)\, dz$.
 Consider the intermediate paths $\gamma_s(t) = H(t,s)$.
 The path $\gamma_s$ is very close to
 $\gamma_{s+\epsilon}$ and so it should not be hard to prove that their
-winding number around various points is the same.
+winding numbers around various points are the same.
 Everything is going swimmingly until we realize that $\int_{\gamma_s} f(z)
 \, dz$ makes no sense whatsoever.  The problem is that $\gamma_s$ is only
 continuous and not a piecewise-$C^1$ path.  We can't
@@ -8877,8 +8877,8 @@ any continuous closed path.
 Suppose $\gamma \colon [a,b] \to \C$ is continuous and $p \notin
 \gamma$.  Given any $\theta_0 \in \R$ such that
 $\gamma(a)-p = \sabs{\gamma(a)-p} e^{i\theta_0}$, that is,
-$\theta_0$ is an argument of $\gamma(a)-p$.
-Then there exists a continuous
+$\theta_0$ is an argument of $\gamma(a)-p$,
+there exists a continuous
 $\theta \colon [a,b] \to \R$ with $\theta(a) = \theta_0$ such that
 \begin{equation*}
 \gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}
@@ -8900,7 +8900,7 @@ how much it changes.  The proof follows the same logic as in
 \begin{proof}
 The image $\gamma\bigl([a,b]\bigr)$ is compact, so it can be covered by finitely many
 discs $D_1,\ldots,D_n$, none of which contain $p$, and such that there is a
-partition $a = t_0 < t_1 < t_2 < \cdots < t_n = b$ such that
+partition $a = t_0 < t_1 < t_2 < \cdots < t_n = b$ where
 $\gamma\bigl([t_{j-1},t_j]\bigr) \subset D_j$.  Each $D_j$ is star-like and
 does not contain $p$,
 so in each one there exists a branch of $\log (z-p)$, call it $L_j$,
@@ -9071,7 +9071,7 @@ is then just a special case of the corollary above.
 \label{thm:cauchyhomotopy}%
 \index{Cauchy's theorem!homotopy}%
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic,
-and $\gamma$ is a piecewise-$C^1$ path in $U$ that is homotopic in $U$ to a
+and $\gamma$ is a closed piecewise-$C^1$ path in $U$ that is homotopic in $U$ to a
 constant.  Then
 \begin{equation*}
 \int_{\gamma} f(z) \, dz = 0 .
@@ -9080,7 +9080,7 @@ constant.  Then
 
 \begin{exbox}
 \begin{exercise}
-Let $U \subset \C$ be open and let $\gamma \colon [a,b] \to U$ is continuous
+Let $U \subset \C$ be open and let $\gamma \colon [a,b] \to U$ be continuous
 and $\gamma(a)=\gamma(b)$.  Prove that $\gamma$ is homotopic in $U$
 to a closed piecewise-$C^1$ path $\alpha$ in $U$.
 Hint: Make $\alpha$ a polygonal path.
@@ -9091,7 +9091,7 @@ We could take a different approach to solving our issues with the regularity
 of the homotopy.  Let
 $U \subset \C$ be open and let $\gamma_0$ and $\gamma_1$ be closed
 piecewise-$C^1$ paths in $U$ that are homotopic in $U$.
-Show that there exists a homotopy (possibly different one) such that
+Show that there exists a homotopy (possibly a different one) such that
 each $\gamma_s(t) = H(t,s)$ is a closed piecewise-$C^1$ path.
 Hint: See previous exercise.
 \end{exercise}
@@ -9106,7 +9106,7 @@ a piecewise-$C^1$ path whose image is in $\partial \D$.
 The tricky bit is to make sure that the derivative is never zero.
 \item
 Using part a),
-show that $\gamma$ is in fact homotopic to a path
+show that (after rescaling the domain interval) $\gamma$ is in fact homotopic to
 $\alpha \colon [0,2\pi] \to \C$ given by $\alpha(t) = e^{int}$ for some
 $n \in \Z$.
 \end{exparts}
@@ -9152,7 +9152,7 @@ Thus $n(\gamma;p) = 0$.
 
 \begin{example}
 In lieu of a proof of the other direction, simply note that
-$\C$, $\D$, or the upper half-plane $\bH$ are simply connected in the 
+$\C$, $\D$, and the upper half-plane $\bH$ are simply connected in the 
 sense of homotopy.  For $\C$ and $\D$, we employ the homotopy of
 example \exampleref{example:homotopydiscsc}.  For the half-plane,
 we modify the homotopy to $H(t,s) = (1-s)\gamma(t) + si$ to
@@ -9168,7 +9168,7 @@ completeness, here is the theorem again in the context of this section.
 \index{Cauchy's theorem!simply connected}%
 Suppose $U \subset \C$ is a simply connected domain (in the sense of
 homotopy), $f \colon U \to \C$ is holomorphic,
-and $\gamma$ is a piecewise-$C^1$ path in $U$.  Then
+and $\gamma$ is a closed piecewise-$C^1$ path in $U$.  Then
 \begin{equation*}
 \int_{\gamma} f(z) \, dz = 0 .
 \end{equation*}
@@ -9180,7 +9180,7 @@ Prove that a star-like domain is simply connected in the sense of homotopy.
 \end{exercise}
 
 \begin{exercise}
-Let $U,V \subset \C$ be domains such 
+Let $U,V \subset \C$ be domains such that
 there exists a homeomorphism
 $f \colon U \to V$, that is, $f$ is bijective, and $f$ and $f^{-1}$ are
 continuous.  Prove that $U$ is simply connected in the sense of homotopy if
@@ -9218,7 +9218,7 @@ Actually, we only need to define one and then get the other via a simple
 computation, see \exerciseref{exercise:realpathintegral}.
 
 Let us state a version of Green's theorem without proof.
-The hypotheses on the domain $U$ and the $f$ are given variously in the literature,
+The hypotheses on the domain $U$ and the functions are given variously in the literature,
 so if the reader is working off of a different version of Green's, then the
 hypotheses of its corollaries in this section must be modified to suit.
 We're using a version that is the simplest to state in our context.
@@ -9229,8 +9229,8 @@ Let $\Gamma$ be a cycle
 such that $n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$ and let
 $U = \{ z \in \C \setminus \Gamma : n(\Gamma;z) = 1 \}$.
 Suppose 
-$P,Q$ are continuously differentiable functions defined in a neighborhood
-of $\widebar{U}$.
+$P$ and $Q$ are continuously differentiable functions defined in a neighborhood
+of $U \cup \Gamma$.
 Then
 \begin{equation*}
 \int_{\Gamma} P(z) \, dx + Q(z) \, dy
@@ -9244,7 +9244,7 @@ Then
 \, dA .
 \end{equation*}
 Suppose $F,G$ are continuously differentiable functions defined in a neighborhood
-of $\widebar{U}$.
+of $U \cup \Gamma$.
 In terms of the Wirtinger derivatives, $dz$, and $d \bar{z}$,
 \begin{equation*}
 \int_{\Gamma} F(z) \, dz + G(z) \, d\bar{z}
@@ -9281,13 +9281,14 @@ Show that to prove Green's, it would be sufficient to prove
 \end{exbox}
 
 Cauchy's theorem is an immediate corollary of Green's theorem: In the
-Wirtinger version of the formula let $G=0$ and let $F$ be holomorphic.
+Wirtinger version of the formula, let $G=0$ and let $F$ be holomorphic.
 
 \begin{cor}\label{thm:cauchybygreen}
 Let $\Gamma$ be a cycle
 such that $n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$ and let
 $U = \{ z \in \C \setminus \Gamma : n(\Gamma;z) = 1 \}$.
-Suppose $f$ is a holomorphic function defined in a neighborhood of $\widebar{U}$.
+Suppose $f$ is a holomorphic function defined in a neighborhood of
+$U \cup \Gamma$.  Then
 \begin{equation*}
 \int_{\Gamma} f(z) \, dz  = 0.
 \end{equation*}
@@ -9304,8 +9305,8 @@ Let $\Gamma$ be a cycle
 such that $n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$ and let
 $U = \{ z \in \C \setminus \Gamma : n(\Gamma;z) = 1 \}$.
 Suppose $f$ is a continuously differentiable function defined in a neighborhood
-of $\widebar{U}$.
-Then for $z \in U$:
+of $U \cup \Gamma$.
+Then for $z \in U$,
 \begin{equation*}
 f(z) =
 \frac{1}{2\pi i}
@@ -9503,7 +9504,7 @@ So suppose that $p$ is a point where two of those paths making up $\gamma$
 meet and without loss of generality assume $p$ is the origin and 
 $\gamma(0) = p$.
 As the one sided limits of $\gamma'$ are never zero, we assume after
-a rotation assume that $\Re \gamma'(0)$ is not zero for 
+a rotation that $\Re \gamma'(0)$ is not zero for 
 $t$ near $0$.
 That is, the two
 paths meeting are graphs of the form $y=f_1(x)$ and $y=f_2(x)$.
@@ -9572,7 +9573,7 @@ the lemma fails.
 \begin{exercise}
 Find an example of a bounded open set $U$ whose boundary is a union of
 infinitely many disjoint simple closed curves such that there is some point
-on $p \in \partial U$ such that for every neighborhood $W$ of $p$,
+$p \in \partial U$ such that for every neighborhood $W$ of $p$,
 the set $W \setminus \partial U$ has infinitely many components.
 (In particular, $U$ is not an open set with piecewise-$C^1$ boundary.)
 \end{exercise}
@@ -9591,7 +9592,7 @@ path, as we saw above, is almost a graph.
 Suppose $\gamma$ is a simple closed piecewise-$C^1$ path.
 Then $\C \setminus \gamma$ has two components,
 and $n(\gamma;z) = 1$ or 
-$n(\gamma;z) = -1$ for $z$ on the bounded component.
+$n(\gamma;z) = -1$ for $z$ in the bounded component.
 \end{thm}
 
 The bounded component of $\C \setminus \gamma$ is called the
@@ -9649,7 +9650,7 @@ subset of the unbounded component of $\C \setminus \gamma$.
 As $\gamma$ is compact, only finitely many such $W$ are needed
 to cover it.
 Suppose $W_1$ is the neighborhood that contains the negative real point of
-the boundary.  Take a $W_2$ be one of these neighborhoods such that the
+the boundary.  Let $W_2$ be one of these neighborhoods such that the
 intersection $W_1 \cap W_2 \cap \gamma$ is nonempty.  As some point of $\gamma$ is
 in both $W_1$ and $W_2$, then each component of $W_2 \setminus \gamma$
 must intersect one of the components of $W_1 \setminus \gamma$.  In
@@ -14090,7 +14091,7 @@ Pf(re^{i\theta})
 =
 \int_{-\pi}^\pi f\bigl(e^{i(\theta-t)}\bigr) P_r(t) \, dt .
 \end{equation*}
-Let $M$ be the supremum of
+Let $M > 0$ be an upper bound of
 $\sabs{f}$ on $\partial \D$.  Suppose $\epsilon > 0$ is given.
 As $f$ is uniformly continuous on $\partial \D$, consider $\delta > 0$
 small enough so that $\babs{f(e^{i(\theta-t)})-f(e^{i\theta})} <
