@@ -12498,7 +12498,7 @@ A set $\sF$ of holomorphic functions $f \colon U \to \C$ is a
 that converges uniformly on compact subsets (the limit need not be in $\sF$).
 
 A set $\sF$ of functions on $U$ is \emph{\myindex{locally bounded}}
-if for every $p \in U$, there is a disc $\Delta_r(p) \subset U$ and $M > 0$,
+if for every $p \in U$, there is a disc $\Delta_r(p) \subset U$ and $M > 0$
 such that 
 $\snorm{f}_{\Delta_r(p)} \leq M$ for all $f \in \sF$.
 \end{defn}
@@ -12582,8 +12582,8 @@ to find a convergent subsequence and hence $\sF$ is a normal family.
 Montel's theorem is very useful for solving extremal problems: 
 finding a holomorphic function that satisfies a certain extremal condition
 such as maximizing the derivative.  There are several examples of this
-usage in the exercises below, and in fact our main application will be to
-prove the Riemann mapping theorem, which is proved by solving an extremal
+usage in the exercises below.  In fact, our main application will be to
+prove the Riemann mapping theorem, which we do by solving an extremal
 problem using Montel's theorem.
 
 Another common application of Montel is to use it via Vitali's theorem, which is
@@ -12612,7 +12612,7 @@ Suppose $U \subset \C$ is a domain, $\{ f_n \}$ is a locally bounded
 sequence of holomorphic functions $f_n \colon U \to \C$
 converging pointwise on a set $E \subset U$,
 and $E$ has a limit point in $U$.  Prove that $\{ f_n \}$
-converges uniformly on compact subsets in~$U$.
+converges uniformly on compact subsets of~$U$.
 \end{exercise}
 
 \begin{exercise}
@@ -12635,7 +12635,7 @@ that would make it a normal family.
 \end{exercise}
 
 \begin{exercise}
-Given $c \in [0,1)$ let $\sF_c$ be the set of holomorphic
+Given $c \in [0,1)$, let $\sF_c$ be the set of holomorphic
 $f \colon \D \to \D$ such that $f(0) = 0$ and $f(\nicefrac{1}{2}) = c$.
 \begin{exparts}
 \item
@@ -12680,7 +12680,7 @@ is a normal family.
 Hint:
 Prove
 $\sabs{f(p)}^2 \leq
-\frac{1}{2\pi} \int_{0}^{2\pi} \sabs{f(p+re^{it})}^2 dt$
+\frac{1}{2\pi} \int_{0}^{2\pi} \sabs{f(p+re^{it})}^2 \, dt$
 for $p \in U$ and small $r$.
 \end{exercise}
 
@@ -12848,7 +12848,7 @@ Similarly,
 $\sabs{f(z)} \leq 1$ for all $z \in U$ by taking limits,
 so $f(U) \subset \overline{\D}$.
 By the \hyperref[thm:OMT]{open mapping theorem}, $f(U) \subset \D$, so $f \in
-\sF$.  If $f$ was not onto, then it would not be the one that achieves the
+\sF$.  If $f$ were not onto, then it would not be the one that achieves the
 supremum of $\sabs{f'(p)}$, see the construction of $h$ above.
 Thus $f(U) = \D$, and $f$ is the desired map.
 Multiplying by $e^{i\theta}$ we can make $f'(p) > 0$.
@@ -12871,15 +12871,15 @@ itself doesn't tell you how to construct it.
 There are entire books
 written on the subject, collecting the techniques for constructing
 these maps for various types of domains.
-For instance, there is an explicit formula for the map given any polygon
-called the Schwarz--Christoffel mapping.
-Let us not worry about these constructions here.
+For instance, there is an explicit formula, called the Schwarz--Christoffel
+mapping, for the map given any polygon.
+We will not worry about these constructions here.
 \end{remark}
 
 
 \begin{remark}
 Another interesting question we will not address
-is the boundary regularity of the map.  That is, does the map extend to
+is the boundary regularity of the map.  That is, whether the map extends to
 the closure $\widebar{U}$, and how \myquote{nice} it is.  If $U$ is
 bounded by a Jordan curve, it is known that $f$ extends to be continuous on
 $\widebar{U}$.  If $U$ has smooth boundary (locally a graph of a smooth
@@ -12964,7 +12964,7 @@ Hint: What if the component contained $\infty$?
 \begin{exercise}
 Let $S \subset \C$ be a countable closed subset.
 Prove that $U = \C \setminus S$ is not biholomorphic
-to any subset of $\D$.  Hint: A countable closed contains isolated points
+to any subset of $\D$.  Hint: A countable closed set contains isolated points
 since every nonempty perfect set is uncountable
 (feel free to assume this fact).
 \end{exercise}
@@ -12979,7 +12979,7 @@ onto.
 \subsection{Simply connected is simply connected \texorpdfstring{$\star$}{*}}
 
 Let us finally prove that simply connected (in the sense of homology,
-\defnref{defn:simplyconnected:homology} that we have been using all this
+\defnref{defn:simplyconnected:homology}, that we have been using all this
 time), is equivalent to simply connected in the sense of homotopy.
 The proof of this corollary is a wonderful example of something that would
 be quite difficult without the
@@ -13058,7 +13058,7 @@ constructive (but no less technical) ways of proving the lemma below,\footnote{%
 The typical proof will put a fine enough square grid on $\C$ and then
 show that if we add up all these small cycles whose squares happen to intersect
 the compact set and remove the doubled sides, we get the cycle we want.}
-but I have an irrational affinity to using the mapping theorem, and this is
+but I have an irrational affinity for using the mapping theorem, and this is
 my book after all.
 
 This lemma will allow us to finish the proof that simply
@@ -13135,7 +13135,7 @@ and it is still homologous to zero in $U$.
 So, without loss of generality, assume that $K$ is connected.
 Also assume that $0 \in K$.  If $K= \{0 \}$, we are done trivially, so
 assume $K$ is more than one point.
-Consider $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
+Let $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
 LFT\@:
 $\varphi(z) = \nicefrac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
 $\varphi(0) = \infty$, and $\varphi(\infty) = 0$.
@@ -17948,7 +17948,7 @@ May the forces of evil become confused on the way to your house.
 \section{Schwarz reflection principle}
 
 One of the consequences of the identity theorem is that once we know a
-function in a neighborhood we know it in the whole domain.
+function in a neighborhood, we know it in the whole domain.
 If a holomorphic function $f$ is defined in a
 domain $U$ and $U \subset W$ for some other domain $W$,
 then we may want to find a holomorphic function in $W$ that agrees with
@@ -18004,7 +18004,7 @@ If $z \in U$ and $\Im z > 0$, then $F$ is holomorphic near $z$ by hypothesis.
 Suppose $z \in U$ and $\Im z < 0$.  The easiest way to see that $F$
 is holomorphic is by using the Wirtinger derivative and the
 identities proved in \exerciseref{exercise:wirtingerandbar} and
-the Wirtinger chain rule \exerciseref{exercise:wirtingerchain}:
+the Wirtinger chain rule (\exerciseref{exercise:wirtingerchain}):
 \begin{equation*}
 \frac{\partial}{\partial \bar{z}}
 F(z)
@@ -18050,8 +18050,8 @@ as
 0 = \int_{\partial T_\epsilon} F(z) \, dz =
 \int_{\partial T} F(z+i\epsilon) \, dz .
 \end{equation*}
-The function $F$ is uniformly continuous on some neighborhood of $T$,
-thus $F(z+i\epsilon)$ converges uniformly to $F(z)$ as $\epsilon \to 0$.
+The function $F$ is uniformly continuous on some neighborhood of $T$.
+Thus $F(z+i\epsilon)$ converges uniformly to $F(z)$ as $\epsilon \to 0$.
 Consequently, $\int_{\partial T} F(z) \, dz = 0$.
 Morera then implies that $F$ is holomorphic.
 \end{proof}
@@ -18062,8 +18062,9 @@ that $f$ is real-valued can be replaced by being valued in some
 real-analytic curve.
 We will define a real-analytic curve as the image of
 an interval under a
-real-analytic map $\gamma \colon (a,b) \to \C$.
-By $\gamma$ being real-analytic we mean that at each point it has a power
+real-analytic map $\gamma \colon (a,b) \to \C$
+with nonvanishing derivative.
+By $\gamma$ being real-analytic, we mean that at each point it has a power
 series expansion.  Equivalently, a real-analytic function is a
 restriction of a holomorphic function to the real line by just plugging
 complex numbers into the power series.  Therefore, the actual definition we
@@ -18085,7 +18086,7 @@ are the two \myquote{sides} of $C$.
 \index{Schwarz reflection principle!holomorphic functions, general version}
 Let $U \subset \C$ be open,
 $C \subset \partial U$ a real-analytic curve with one side
-not in $U$ and one side in $U$, that is, there is domain $V$,
+not in $U$ and one side in $U$, that is, there is a domain $V$,
 $V \cap \R = (a,b)$ and an injective holomorphic $\varphi \colon V \to \C$
 such that $\varphi\bigl( (a,b) \bigr) = C \subset \partial U$,
 and such that $\varphi(V_+) \subset U$ and $\varphi(V_-) \cap U =
@@ -18102,7 +18103,7 @@ First start with $D$.  As it is defined by some invertible holomorphic
 function,
 there must be a neighborhood $H$ of $D$, and an injective
 holomorphic $\psi \colon H \to \C$ such that $\psi(D) \subset \R$.
-We can pick $V$ small enough so that it is symmetric across the real-axis
+We can pick $V$ small enough so that it is symmetric across the real axis
 and such that $f\bigl(\varphi(V_+)\bigr) \subset H$.
 Write $L = (a,b) = V \cap \R$ as before.
 Consider the composition $\psi \circ f \circ \varphi$, which is
@@ -18235,7 +18236,7 @@ boundary but still not extend past the boundary holomorphically.
 \subsection{Definition}
 
 More generally than a reflection, we define a continuation along a path.
-We have seen such continuation with
+We have seen such a continuation with
 the logarithm.  We define a function locally and \myquote{continue} it
 uniquely to another point of the domain along some path.
 We have also seen some problems with this approach:
@@ -18252,7 +18253,7 @@ consider all paths to have the parameter in $[0,1]$ in this section.
 
 \begin{defn} \label{defn:analcont}
 Suppose $\gamma \colon [0,1] \to \C$ is continuous with $\gamma(0) = p$,
-and $U \subset \C$ an open connected neighborhood of $p$.
+and $U \subset \C$ is an open connected neighborhood of $p$.
 A holomorphic 
 $f \colon U \to \C$
 can be
@@ -18270,7 +18271,7 @@ $\epsilon > 0$ such that if $\sabs{t-s} < \epsilon$, then
 $f_t = f_s$ in $D_t \cap D_s$.
 \end{enumerate}
 We refer to the continuation as $f_t$ or perhaps $(f_t,D_t)$.
-The function together with the domain such as $(f,U)$ or $(f_t,D_t)$
+The function together with its domain, such as $(f,U)$ or $(f_t,D_t)$,
 is called a \emph{\myindex{function element}}.
 \end{defn}
 
@@ -18280,7 +18281,7 @@ the continuation at $\gamma(t)$, and what we would really want
 \myquote{$f\bigl(\gamma(t)\bigr)$} to be.
 Though of course, $f\bigl(\gamma(t)\bigr)$ is not defined for $\gamma(t)$ outside of
 $U$.
-The identity theorem implies that the definition of
+The identity theorem implies that the value of
 $f_t\bigl(\gamma(t)\bigr)$ is unique.
 
 \begin{prop}
@@ -18374,8 +18375,8 @@ use the same $\varphi_j$ and $\Delta_j$ to get a continuation using
 \propref{prop:finitedisccont} again.
 \end{proof}
 
-We defined continuation for continuous $\gamma$, but we could have used
-piecewise-$C^1$ paths since we can approximate $\gamma$ by a piecewise-$C^1$
+We defined continuation for a continuous $\gamma$, but we could have used
+a piecewise-$C^1$ path, since we can approximate $\gamma$ by a piecewise-$C^1$
 path, or even a polygonal path.  See the following exercise.
 
 \begin{exbox}
@@ -18383,7 +18384,7 @@ path, or even a polygonal path.  See the following exercise.
 Suppose $U$ is open, $p \in U$, and a holomorphic $f \colon U \to \C$
 continues analytically along a
 continuous $\gamma \colon [0,1] \to \C$ with $\gamma(0) = p$,
-$\gamma(1)=q$, then for
+$\gamma(1)=q$. Prove that for
 every $\epsilon > 0$, there
 exists a polygonal path $\sigma \colon [0,1] \to \C$ such 
 that $\sabs{\sigma(t)-\gamma(t)} < \epsilon$ for all $t$,
@@ -18498,7 +18499,7 @@ identity) and admits unrestricted analytic continuation to $V$.
 
 \begin{proof}
 Consider a continuous $\gamma \colon [0,1] \to V$, where $\gamma(0) = p$.
-At each point $w$ of $\gamma$ using the definition of covering map,
+At each point $w$ of $\gamma$, using the definition of a covering map,
 we can find a disc $\Delta \subset V$ centered at $w$ such that
 $f^{-1}(\Delta)$ has 
 disjoint components and for each component, a branch of $f^{-1}$ can be defined as a
@@ -18659,7 +18660,7 @@ We remark that the proof above contains
 a proof of the useful topological fact that in a
 simply connected domain $U \subset \C$, any two 
 paths with the same endpoints are fixed-endpoint homotopic.
-Converse is also true, see
+The converse is also true, see
 \exerciseref{exercise:EPHimpliesSC}.
 
 \begin{cor}
@@ -18675,7 +18676,7 @@ a local inverse extends to a global one defined on all of $V$ by the monodromy t
 In other words, $f$ is one-to-one and hence a biholomorphism.
 \end{proof}
 
-If $U$ is a simply connected, then
+If $U$ is simply connected, then
 a covering map $f \colon U \to V$ is called a \emph{\myindex{universal
 covering map}} (or \emph{\myindex{universal cover}} for short) of $V$,
 and $U$ is called the \emph{\myindex{universal covering space}} of $V$.
@@ -18864,7 +18865,7 @@ we may write simply $X$ instead of $(X,d)$.
 The geometric idea is that $d$ is the distance between two points. 
 Items \ref{metric:pos}--\ref{metric:com} have obvious geometric
 interpretation: Distance is always nonnegative, the only point that is
-distance $0$ away from $x$ is $x$ itself, and that the distance from
+distance $0$ away from $x$ is $x$ itself, and the distance from
 $x$ to $y$ is the same as the distance from $y$ to $x$.  The triangle
 inequality \ref{metric:triang} has the interpretation given in
 \figureref{fig:mstriang}.
@@ -19097,9 +19098,9 @@ The law of cosines from vector calculus says
 $d(x,y) = \arccos(x_1y_1+x_2y_2+x_3y_3)$.
 It is relatively easy to see that this function satisfies the first three
 properties of a metric.
-Triangle inequality is harder to prove, and requires a bit more
-trigonometry and linear algebra than we wish to indulge in right now, so let
-us leave it without proof.
+The triangle inequality is harder to prove.  It requires a bit more
+trigonometry and linear algebra than we wish to indulge in right now,
+so we leave it without proof.
 \begin{myfig}
 \subimport*{figures/}{spheremetric.pdf_t}
 \caption{The great circle distance on the unit sphere.\label{fig:spheremetric}}
@@ -19663,7 +19664,7 @@ has exactly one.  We will not dwell on this technicality.}
 metric space $(X,d)$ is \emph{\myindex{connected}} if the
 only subsets of $X$ that are both open and closed (so-called
 \emph{\myindex{clopen}} subsets) are $\emptyset$ and $X$ itself.
-If a nonempty $(X,d)$ is not connected we say it is
+If a nonempty $(X,d)$ is not connected, we say it is
 \emph{\myindex{disconnected}}.
 
 When we apply the term \emph{connected} to a nonempty subset $A \subset X$, we 
@@ -19735,7 +19736,7 @@ an interval or a single point.
 \begin{proof}
 Suppose $S$ is connected.  If $S$ is a single point,
 then we are done.  So suppose $x < y$ and $x,y \in S$.  If $z \in \R$ is such
-that $x < z < y$, then by same logic as in
+that $x < z < y$, then by the same logic as in
 \exampleref{example:disconnectedsetinR}, $z \in S$.
 So $S$ is an interval.
 
@@ -19813,7 +19814,7 @@ Show that $\bigcup_{k=1}^\infty S_k$ is connected.
 
 Sometimes we wish to take a set and throw in everything that we can approach
 from within the set.  This concept is called the closure.
-More precisely the closure of $A$ is the intersection of all closed sets that contain $A$.
+More precisely, the closure of $A$ is the intersection of all closed sets that contain $A$.
 
 \begin{defn}
 Let $(X,d)$ be a metric space and $A \subset X$.
@@ -20352,7 +20353,7 @@ an $M$ such that for all $n \geq M$,
 $x_n \in E^c$.  So $\{ x_n \}$  is not a sequence in $E$.
 \end{proof}
 
-To take a closure of a set $A$, we take $A$, and we throw in 
+To take the closure of a set $A$, we take $A$, and we throw in 
 points that are limits of sequences in $A$.
 
 \begin{prop} \label{prop:msclosureapprseq}
@@ -20648,7 +20649,7 @@ enough to give compactness: $C([a,b],\R)$ is a complete metric
 space, but the closed unit ball $C(0,1)$ is not compact, see
 \exerciseref{exercise:msclbounnotcompt}.  However, see also
 \exerciseref{exercise:mstotbound}.  As this issue is such a common mistake, let me
-repeat it in italic: \emph{Closed and bounded is not the same as compact.}
+repeat it in italics: \emph{Closed and bounded is not the same as compact.}
 
 A useful property of compact sets in a metric space is that every
 sequence in the set has a convergent subsequence converging
@@ -21905,8 +21906,8 @@ It is perhaps surprising that on the set of functions $f \colon S \to
 You could even require $f$ to be bounded and/or continuous, and there is
 still no metric.
 A metric space $(X,d)$ is so-called \emph{\myindex{first countable}}, that
-is, at each $x \in X$ there exists a sequence of neighbourhoods $U_j$ such
-that any neighbourhood $U$ of $x$ contains one of the $U_j$s, a so-called
+is, at each $x \in X$ there exists a sequence of neighborhoods $U_j$ such
+that any neighborhood $U$ of $x$ contains one of the $U_j$s, a so-called
 countable neighborhood basis.  In a metric space, $B(x,\nicefrac{1}{n})$
 does the job.  But functions on an uncountable set $S$ with pointwise
 convergence do not have a first countable topology.  We do not want to
@@ -22292,8 +22293,8 @@ Let $f(x,y)$ be a function of two variables and define
 \begin{equation*}
 g(y) = \int_a^b f(x,y) \,dx .
 \end{equation*}
-Question is: Is $g$ continuous?
-We are really asking when do two limits commute,
+The question is: Is $g$ continuous?
+We are really asking when two limits commute,
 which is not always possible, so some extra hypothesis
 is necessary.  A sufficient (but not
 necessary) condition is that $f$ is continuous on a closed rectangle.
@@ -22325,10 +22326,10 @@ g(y)
 =
 \bbabs{
 \int_a^b 
-f(x,\widetilde{y}) ~dx 
+f(x,\widetilde{y}) \,dx 
 -
 \int_a^b 
-f(x,y) ~dx 
+f(x,y) \,dx 
 }
 \\
 =
@@ -22337,7 +22338,7 @@ f(x,y) ~dx
 \bigl(
 f(x,\widetilde{y}) - f(x,y)
 \bigr)
-~dx 
+\,dx 
 }
 \leq
 (b-a)
@@ -22515,7 +22516,7 @@ If $f$ is continuous on $[a,b] \times [c,d]$, then
 says that $g$ is continuous on $[c,d]$.
 Suppose $f$ is differentiable in $y$.
 Can we \myquote{differentiate under the integral?}
-Differentiation is a limit and we are again asking when do
+Differentiation is a limit and we are again asking when
 two limits, namely integration and differentiation, commute.
 The first
 question we face is the integrability of
@@ -22885,15 +22886,15 @@ in the $x_1x_2$-plane based at $(x_1,x_2)$, and the vector
 $Ah \in \R^1$ is shown along the $y$ direction.\label{fig:svder}}
 \end{myfig}
 
-Intuitively, $f$ is differentiable at $x$ if $f$ \myquote{infinitesimally close}
+Intuitively, $f$ is differentiable at $x$ if $f$ is \myquote{infinitesimally close}
 to a linear map near $x$.
 We cheated a bit and said that $A$
-is \emph{the} derivative, let us prove that we were justified.
+is \emph{the} derivative, let us prove we were justified.
 
 \begin{prop}
-Let $U \subset \R^n$ be open, $f \colon U \to \R^m$ a function,
-$x \in U$, and 
-$A,B \colon \R^n \to \R^m$ are linear such that
+Let $U \subset \R^n$ be open, $f \colon U \to \R^m$ a function, and
+$x \in U$.
+Suppose $A,B \colon \R^n \to \R^m$ are linear such that
 \begin{equation*}
 \lim_{h \to 0}
 \frac{\snorm{f(x+h)-f(x) - Ah}}{\snorm{h}} = 0
@@ -23245,7 +23246,7 @@ and $Df|_x = 0$ for all $x \in U$, then $f$ is constant.
 \begin{proof}
 For any $x \in U$, there is an open ball $B(x,\delta) \subset U$.  The ball
 $B(x,\delta)$ is convex.  Since
-$\snorm{Df|_y} \leq 0$ for all $y \in B(x,\delta)$, then
+$\snorm{Df|_y} \leq 0$ for all $y \in B(x,\delta)$, we have
 $\snorm{f(x)-f(y)} \leq 0 \snorm{x-y} = 0$.
 Thus $f^{-1}(c)$ is open for any $c \in \R^m$.  Suppose
 $f^{-1}(c)$ is nonempty.  
@@ -23513,7 +23514,7 @@ f(x,y)
 \end{equation*}
 \begin{exparts}
 \item
-Show that partial derivatives 
+Show that the partial derivatives 
 $\frac{\partial f}{\partial x}$ and
 $\frac{\partial f}{\partial y}$ exist at all points (including the origin).
 \item
@@ -23611,7 +23612,7 @@ proved.
 \end{proof}
 
 The proof is constructive.  Not only do we know 
-a unique fixed point exists.  We also know how to find it.  Start with
+a unique fixed point exists, we also know how to find it.  Start with
 any $x_0 \in X$ and iterate $f(x_0)$,
 $f(f(x_0))$,
 $f(f(f(x_0)))$, etc.
@@ -23692,7 +23693,7 @@ Given $y \in \R^n$, define $\varphi_y \colon C \to \R^n$ by
 \varphi_y (x) = x + A^{-1}\bigl(y-f(x)\bigr) .
 \end{equation*}
 As $A^{-1}$ is one-to-one,
-$\varphi_y(x) = x$ ($x$ is a fixed point) if only if
+$\varphi_y(x) = x$ ($x$ is a fixed point) if and only if
 $y-f(x) = 0$, or in other words $f(x)=y$.  Using the chain rule we obtain
 \begin{equation*}
 D\varphi_y|_x = I - A^{-1} Df|_x = A^{-1} \bigl( A-Df|_x \bigr) .
@@ -23838,8 +23839,7 @@ continuous functions, it is continuous.
 Just because $Df|_x$ is invertible everywhere does not
 mean that $f$ is
 one-to-one globally.
-The map $f \colon \R^2 \setminus \{ 0 \} \to \R^2 \setminus \{
-0 \}$ defined
+Consider $f \colon \R^2 \setminus \{ 0 \} \to \R^2 \setminus \{ 0 \}$ defined
 by $f(x,y) = (x^2-y^2,2xy)$,  that is, the mapping $z \mapsto z^2$ in the
 complex plane.  It is not hard to check that
 the derivative is invertible on $\R^2 \setminus \{ 0 \}$.
