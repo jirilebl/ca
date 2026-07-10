@@ -9809,9 +9809,9 @@ holomorphic function behaves near a zero.
 We expand upon an idea we used several times before.
 
 \begin{lemma}
-Let $U \subset \C$ be open, $f \colon U \to \C$ be holomorphic, $p \in U$,
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic, $p \in U$,
 and $f$ has an isolated zero at $p$.
-Then there exists a unique $k \in \N$ and a holomorphic $g \colon U
+Then there exist a unique $k \in \N$ and a holomorphic $g \colon U
 \to \C$ such that
 \begin{equation*}
 f(z) = {(z-p)}^k g(z)
@@ -9837,7 +9837,7 @@ of the zero at $p$.
 
 Another way\footnote{Which is really the standard way of defining order of a
 zero for nonholomorphic functions.}
-of saying that a zero of $f$ has order $k$ at $p$ is to say that
+of saying that a zero of $f$ at $p$ has order $k$ is to say that
 $k$ is the largest integer such that $\frac{f(z)}{{(z-p)}^{k}}$ is bounded
 near $p$.  That these possible definitions are equivalent
 follows from the lemma.  See \exerciseref{exercise:order} below.
@@ -9861,7 +9861,7 @@ In yet other words, \emph{only the zero function has a zero of infinite order}.
 No such thing is true for real differentiable functions (see the exercises).
 
 \begin{proof}[Proof of the lemma]
-On $U \setminus \{ p \}$ the function $g(z) = \frac{f(z)}{{(z-p)}^k}$ is
+On $U \setminus \{ p \}$, the function $g(z) = \frac{f(z)}{{(z-p)}^k}$ is
 holomorphic for any $k$, so the trick is only near $p$.  We expand $f$ at
 $p$,
 that is, for $z$ in some disc $\Delta_r(p)$,
@@ -9979,9 +9979,9 @@ Show that if $f \colon U \to \C$ has a zero of order $k \in \N$ at $p \in
 U$, then there exist $C^1$ curves
 $\gamma_j \colon (-\epsilon, \epsilon) \to \C$ for
 $j=1,\ldots,k$ with $\gamma_j(0) = p$
-and $\gamma_j'(0) \neq 0$ such that the curves only intersect
+and $\gamma_j'(0) \neq 0$ such that the curves intersect
 one another
-at $p$, and such that $\Re f\bigl( \gamma_j(t) \bigr) = 0$ for
+only at $p$, and such that $\Re f\bigl( \gamma_j(t) \bigr) = 0$ for
 all $t \in (-\epsilon,\epsilon)$.
 \end{exercise}
 
@@ -10146,7 +10146,7 @@ poles according to order just like zeros.
 \begin{cor}
 \pagebreak[2]
 Suppose $U \subset \C$ is open, $p \in U$,
-and $f \colon U \setminus \{p\} \to \C$ holomorphic.
+and $f \colon U \setminus \{p\} \to \C$ is holomorphic.
 \begin{enumerate}[(i)]
 \item
 If $p$ is a pole, then there exists a $k \in \N$ such that
@@ -10178,7 +10178,7 @@ where $\psi(p) \neq 0$.
 As $h$ is not zero in $\Delta_r(p) \setminus \{p\}$,
 we have that $\psi$ is not zero in $\Delta_r(p)$
 and $\nicefrac{1}{\psi}$ is holomorphic in $\Delta_r(p)$.
-The first item follows as
+The first item follows, as
 for $z \in \Delta_r(p) \setminus \{p\}$,
 \begin{equation*}
 g(z) = {(z-p)}^k f(z)
@@ -10211,7 +10211,7 @@ A pole of order $1$ is called a \emph{\myindex{simple pole}}.
 \end{defn}
 
 What we have proved is that if $f$
-has a pole at $p$, $f$ can be written as
+has a pole at $p$, then $f$ can be written as
 \begin{equation*}
 f(z) = \frac{g(z)}{{(z-p)}^k} ,
 \end{equation*}
@@ -10233,7 +10233,7 @@ The point $p$ is a zero of order $\ell$ if $\ell
 \begin{exercise}
 Suppose $f$ has a pole of order $k \in \N$ at $p$.
 Show that there exists a holomorphic $g$ defined near $p$
-such that $g(p) = 0$ and $g'(p) \neq 0$ and such that near $p$
+with $g(p) = 0$ and $g'(p) \neq 0$ and such that near $p$
 \begin{equation*}
 f(z) = \frac{1}{{\bigl(g(z)\bigr)}^k} .
 \end{equation*}
@@ -10395,9 +10395,10 @@ getting wilder and wilder) as it gets close to an essential singularity.
 
 \begin{thm}[Casorati--Weierstrass\footnote{%
 Some people say it should be called Casorati--Sochocki(--Weierstrass) theorem as
-Casorati and Sochocki both published it in 1868, (Casorati in Italian
-and Sochocki, who was Polish, in Russian) while Weierstrass published it in 1876 (in
-German).  But really it first appeared in a book by Briot and Bouquet in
+Casorati and Sochocki both published it in 1868 (Casorati in Italian
+and Sochocki, who was Polish, in Russian),
+while Weierstrass published it in 1876 (in
+German).  But it first appeared in a book by Briot and Bouquet in
 1859 (in French), so really it should be called the Briot--Bouquet theorem,
 no?  If we all still published in Latin, we wouldn't be in this
 mess.}]\index{Casorati--Weierstrass theorem}\label{thm:casoratiweierstrass}
@@ -10457,7 +10458,7 @@ $f$ does not have an essential singularity at $p$.
 Prove the converse of Casorati--Weierstrass.
 Let $U \subset \C$ be open, $p \in U$, and
 $f \colon U \setminus \{ p \} \to \C$
-holomorphic.
+be holomorphic.
 Prove that if $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr)$ is dense in $\C$
 for all $r > 0$ such that $\Delta_r(p) \subset U$,
 then $f$ has an essential singularity at $p$.
@@ -10711,13 +10712,13 @@ $w_k$, that is,
 
 The residue theorem is supposed to be useful in computing line integrals.
 But at first glance it seems ridiculous.  How does one compute $c_{-1}$?  By
-an integral.  Well how does that help then?  It helps because there are
+an integral.  Well, how does that help then?  It helps because there are
 easier ways to compute $c_{-1}$ than by the line integral.  The first one is
 almost criminally trivial, but it may be good to emphasize all of them
 by making them propositions.
 
 \begin{prop}
-Suppose $f$ is holomorphic in an open neighborhood of $p$ and $g$ is holomorphic
+If $f$ is holomorphic in an open neighborhood of $p$ and $g$ is holomorphic
 with an isolated singularity at $p$, then
 $\operatorname{Res}(f+g;p) = \operatorname{Res}(g;p)$.
 \end{prop}
@@ -10768,7 +10769,7 @@ Prove the proposition.
 \end{exbox}
 
 \begin{prop} \label{prop:residuesimpleratio}
-Suppose $f(z) = \frac{h(z)}{g(z)}$ where $h$ and $g$ are holomorphic
+Suppose $f(z) = \frac{h(z)}{g(z)}$, where $h$ and $g$ are holomorphic
 at $p$ and $g$ has a simple zero at $p$
 ($f$ has at most a simple pole at $p$).
 Then
@@ -10819,7 +10820,7 @@ There are isolated singularities at $\pm i$, both simple poles.  The cycle
 $\Gamma_r$ goes around $i$ once, so $n(\Gamma_r;i) = 1$,
 but not around $-i$, that is, $n(\Gamma_r;-i) = 0$.
 So we only need to compute
-the residue around $i$.  We can use any one of the three propositions:
+the residue at $i$.  We can use any one of the three propositions:
 \begin{equation*}
 \operatorname{Res}\left(\frac{1}{1+z^2};i\right) =
 \operatorname{Res}\left(
@@ -10901,7 +10902,7 @@ If $c > 1$, then
 \int_{\partial \D} \frac{1}{z^2 + 2cz + 1} \, dz
 .
 \end{equation*}
-The function $\frac{1}{z^2 + 2cz + 1}$ has two simple poles $-c \pm \sqrt{c^2-1}$,
+The function $\frac{1}{z^2 + 2cz + 1}$ has two simple poles at $-c \pm \sqrt{c^2-1}$,
 one inside and one outside the unit circle.  Thus
 \begin{equation*}
 \int_0^{2\pi} \frac{1}{c+\cos \theta} \, d\theta 
@@ -11085,7 +11086,7 @@ zero in that smaller $U$, and so a theorem for finitely many zeros and poles is
 sufficient.
 
 Why do we say that the theorem counts the number of zeros and poles?
-Suppose $\Gamma$ only goes around every point in $z \in U$ at most once
+Suppose $\Gamma$ only goes around every point in $U$ at most once
 in the positive direction or not at all.  That is,
 $n(\Gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the
 \myquote{inside of $\Gamma$} as the points where $n(\Gamma;z)=1$.
@@ -11246,7 +11247,7 @@ Find $f$.  You may assume $f$ has no zeros on those $3$ circles
 \begin{exercise}
 Let $P_t(z) = z^n + c_{n-1}(t) z^{n-1} + \cdots + c_1(t) z + c_0(t)$
 be a polynomial where all the coefficients $c_k$ are continuous functions
-of $[a,b]$.
+on $[a,b]$.
 \begin{exparts}
 \item
 Prove that the power sums of the zeros of $P_t$
@@ -11286,7 +11287,7 @@ For instance, the functions $z^2$ and $(z-\epsilon)(z+\epsilon)$
 are close on $\partial \D$, and they have the same number of
 zeros in the disc.
 A nonzero point might \myquote{split} into a zero and a
-pole, that is, $\frac{z-\epsilon}{z+\epsilon}$ is very close to the function
+pole. For example, $\frac{z-\epsilon}{z+\epsilon}$ is very close to the function
 $1$ on $\partial \D$.  So poles are allowed to \myquote{cancel} zeros, but this
 balance is always maintained.  If we do not allow any poles
 whatsoever, then the theorem says that the number of zeros does not change.
@@ -11452,7 +11453,7 @@ On the other hand, if $\sabs{z} = 46+ \epsilon$ where $\epsilon > 0$, then
 So $P$ has all four zeros in a disc $\Delta_{46+\epsilon}(0)$ for any
 $\epsilon > 0$,
 in other words, all zeros of $P$ satisfy $\sabs{z} \leq 46$.
-These are not the ideal estimates (largest zero of $P$ has modulus less than
+These are not the ideal estimates (the largest zero of $P$ has modulus less than
 10), but they are explicit and they were easy to come by.
 \end{example}
 
@@ -11499,8 +11500,9 @@ Prove that $\D \subset f(\D)$.
 
 \begin{exercise}
 Suppose $U \subset \C$ is open, $\overline{\D} \subset U$,
-and $f \colon U \to \C$ is a holomorphic function such
-that $f\bigl(\overline{\D}\bigr) \subset \D$, then there exists
+and $f \colon U \to \C$ is holomorphic such
+that $f\bigl(\overline{\D}\bigr) \subset \D$.
+Prove that there exists
 exactly one $z_0 \in \D$ such that $f(z_0) = z_0$.
 \end{exercise}
 \end{exbox}
@@ -11509,9 +11511,9 @@ exactly one $z_0 \in \D$ such that $f(z_0) = z_0$.
 
 Let us see what happens to zeros under limits of functions.
 That is, if we know the number of zeros of functions in a sequence,
-what can we tell about the number of zeros of the limit.  Alternatively,
+what can we tell about the number of zeros of the limit?  Alternatively,
 if we have a limit function with $k$ zeros, then what can
-we say about the number of zeros of the functions in the sequence.
+we say about the number of zeros of the functions in the sequence?
 Recall that if a sequence of holomorphic
 functions converges uniformly on compact subsets, the limit is holomorphic
 (see \thmref{thm:unifoncompact}).
@@ -11564,9 +11566,9 @@ cosine, which converges uniformly on compact subsets.
 \end{example}
   
 The $\Gamma$ in the theorem is there for defining the region
-$V$, a compact set with interior and nice boundary.
+$V$, a bounded open set with interior and nice boundary.
 Often the theorem is applied or stated with $\Gamma$ being
-the boundary of a small disc:
+the boundary of a small disc.
 That is, suppose $\{ f_n \}$ is a sequence of holomorphic
 functions converging uniformly
 on compact subsets to $f$ on some open $U$.  Suppose $z_0$ is a zero of
@@ -11712,7 +11714,7 @@ set $\bigl\{ (x,y) : x \neq 0 \text{ or } y=0 \bigr\}$, which is neither open no
 closed.
 Holomorphic functions are always nice to your topology.
 Recall that for a continuous map, $f^{-1}(V)$ is open whenever
-$V$ is open.  Nonconstant holomorphic functions have this property also in
+$V$ is open.  Nonconstant holomorphic functions also have this property in
 reverse.  So while not every holomorphic function is invertible, at least it
 behaves as if it were as far as the topology is concerned.
 
@@ -11751,7 +11753,7 @@ f\bigl(\Delta_r(p)\bigr) \subset f(V) .  \qedhere
 
 The open mapping theorem is really a stronger version of
 the maximum modulus principle:
-If for any $p \in U$,
+If for every $p \in U$,
 $f(p)$ is always in the interior of $f(V)$ for any neighborhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
 Notice also that the proof says something stronger than the theorem statement.  It
@@ -11762,7 +11764,7 @@ $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
 
 \begin{exbox}
 \begin{exercise}[Easy]
-Suppose $U,V \subset \C$ are open and $f \colon U \to \C$ is holomorphic
+Suppose $U,V \subset \C$ are open and $f \colon U \to V$ is holomorphic
 and bijective.  Prove that $f^{-1} \colon V \to U$ is continuous.
 \end{exercise}
 
@@ -11813,7 +11815,7 @@ constant.  What if $\partial \D$ is replaced by the real line?
 
 \section{Inverses of holomorphic functions} \label{sec:inverses}
 
-The standard local relationship between derivative and injectivity of a
+The standard local relationship between the derivative and injectivity of a
 function is the inverse function theorem (\thmref{thm:inversehol}).
 It says that if $f'(z)$ is nonzero somewhere, then in some
 neighborhood of that point, $f$ is injective and has an inverse $g$ such that
@@ -11822,7 +11824,7 @@ g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
 \end{equation*}
 You now have enough machinery to give a simple proof
 of the inverse function theorem for holomorphic functions
-without needing the real inverse function.
+without needing the real inverse function theorem.
 
 \begin{exbox}
 \begin{exercise}
@@ -11930,8 +11932,8 @@ injective, then $f(U)$ is open, $f'$ is never zero on $U$, and $f^{-1}
 If $f$ is injective, then it is not constant anywhere, and so $f(U)$ is open by
 the \hyperref[thm:OMT]{open mapping theorem}.
 By \lemmaref{lemma:dernonzero}, $f'$ is never zero
-on $U$, by \lemmaref{lemma:inverseasintegral} the inverse is locally defined
-by an integral, and by
+on $U$; by \lemmaref{lemma:inverseasintegral} the inverse is locally defined
+by an integral; and by
 \lemmaref{lemma:holfuncbyintegral},
 $f^{-1}$ is holomorphic.
 \end{proof}
@@ -12890,7 +12892,7 @@ Again, we refer the reader to more advanced literature.
 \begin{remark}
 In the proof we only used that $U$ was simply connected to 
 obtain square roots of nowhere zero functions.  So the result we actually
-proved is that existence of square roots on $U \neq \C$ implies that $U$ is
+proved is that the existence of square roots on $U \neq \C$ implies that $U$ is
 biholomorphic to $\D$.  In other words, $U$ being simply
 connected is equivalent to the existence of square roots.
 \end{remark}
