@@ -12017,8 +12017,8 @@ have time to modify his shape.
 The point of Montel's theorem is to find a simple criterion
 for
 relatively compact subsets of the set of holomorphic functions.  That is,
-we will try to figure out when does a sequence of holomorphic functions
-contain a convergent subsequence.  We would really like something like the
+we will try to figure out when a sequence of holomorphic functions
+contains a convergent subsequence.  We would really like something like
 Bolzano--Weierstrass for sequences of numbers:  \emph{If $\{ z_n \}$ is a
 bounded sequence in $\C$, then it has a convergent subsequence.}
 Interestingly, Montel provides just that kind of theorem for holomorphic
@@ -12112,8 +12112,7 @@ fact it converges pointwise).
 \end{exercise}
 
 \begin{exercise}
-Prove that a uniformly convergent sequence of bounded functions converging to a
-bounded function is uniformly bounded.
+Prove that a uniformly convergent sequence of bounded functions is uniformly bounded.
 \end{exercise}
 
 \begin{exercise}
@@ -12127,7 +12126,7 @@ Hint: Do it piecewise.
 Prove that on no interval $[a,b] \subset \R$ does $\sin(nx)$
 have a pointwise convergent subsequence.
 First, if $f$ is the pointwise limit of a subsequence on $[a,b]$,
-use Riemann--Lebesgue lemma to show that $f=0$ almost everywhere.
+use the Riemann--Lebesgue lemma to show that $f=0$ almost everywhere.
 Second, consider $\int_{[a,b]} f^2\, dx$ and the dominated convergence theorem to find 
 a contradiction.
 \end{exercise}
@@ -12161,7 +12160,7 @@ such that if $x,y \in X$ with $d(x,y) < \delta$, then
 \end{defn}
 
 For finite sets $S$, equicontinuity and uniform equicontinuity
-is the same as continuity and uniform continuity.
+are the same as continuity and uniform continuity.
 The notion is interesting for infinite sets.
 
 \begin{exbox}
@@ -12532,11 +12531,12 @@ Clearly $\sF$ is pointwise bounded as it is bounded on discs around
 every point.
 We need to show that it is equicontinuous at every point.
 
-Consider $p \in U$ and suppose $\overline{\Delta_r(p)} \subset U$.
+Consider $p \in U$.
 The family
-$\sF$ is bounded on this disc,
-say $\snorm{f}_{\overline{\Delta_r(p)}} \leq M$ for all $f \in \sF$.
-For $z \in \overline{\Delta_{r/2}(p)}$,
+$\sF$ is bounded on some disc $\overline{\Delta_r(p)} \subset U$,
+so for some $M$, we have
+$\snorm{f}_{\overline{\Delta_r(p)}} \leq M$ for all $f \in \sF$.
+For $z \in \overline{\Delta_{r/2}(p)}$ and any $f \in \sF$,
 \begin{equation*}
 \begin{split}
 \abs{f'(z)}
@@ -12626,7 +12626,7 @@ Let $U \subset \C$ be open and $\sF$ a set of holomorphic
 functions such that $\{ f' : f \in \sF \}$ is a normal family.
 \begin{exparts}
 \item
-Show that $\sF$ need not be normal family.
+Show that $\sF$ need not be a normal family.
 \item
 Add a simple
 hypothesis (one that is weaker than \myquote{$\sF$ is locally bounded})
@@ -18149,7 +18149,7 @@ Let $U_{\text{in}} = U \cap \D$ and $U_{\text{out}} = U \setminus \overline{\D}$
 If $f \colon U \cap \overline{\D} \to \C$ is continuous,
 holomorphic on $U_{\text{in}}$,
 and $f(U \cap \partial \D) \subset \partial \D$,
-then there exists a holomorphic $F \colon U \to \C$ such that
+then there exists a meromorphic $F \colon U \to \C_\infty$ such that
 $F|_{U \cap \overline{\D}} = f$.
 \end{cor}
 
@@ -22228,7 +22228,7 @@ for all $x \in I$.  Then,
 \begin{equation*}
 \begin{split}
 \abs{f(x) - f_n(x)} & =
-\abs{f(c) + \int_c^x g - f_n(c) - \int_c^x f_n'(t)\,dt}
+\abs{f(c) + \int_c^x g(t) \, dt - f_n(c) - \int_c^x f_n'(t)\,dt}
 \\
 & \leq
 \abs{f(c) - f_n(c)} + \abs{\int_c^x g(t)\,dt - \int_c^x f_n'(t)\,dt}
@@ -22429,6 +22429,7 @@ f(x,y)
 -
 g_n(x,y)
 }
+\, dx
 \leq (b-a)\epsilon .
 \end{equation*}
 So $\int_a^b g_n(x,y) \, dx$ converges uniformly as a function of $y$ to
