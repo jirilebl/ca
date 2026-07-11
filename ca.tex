@@ -1965,7 +1965,7 @@ Consequently,
 \frac{z_3-z_1}{z_3-z_2} .
 \end{align*}
 
-By \myquote{preserved by LFTs} we mean:
+By \myquote{preserved by LFTs,} we mean:
 
 \begin{prop} \label{prop:crossratioinvariant}
 Suppose that $f$ is an LFT\@.  Then
@@ -3427,7 +3427,9 @@ about the boundary of the disc.
 \end{exercise}
 \end{exbox}
 
-A power series \emph{\myindex{converges absolutely}}\index{absolute convergence}
+A power series \emph{converges absolutely}%
+\index{converges absolutely!power series}%
+\index{absolute convergence!power series}
 if the following series converges:
 \begin{equation*}
 \sum_{n=0}^\infty \sabs{c_n} \sabs{z-p}^n .
@@ -3551,7 +3553,9 @@ converges, then $\abs{\sum_{n=0}^\infty c_n} \leq \sum_{n=0}^\infty
 The convergence within the radius of convergence is even nicer than just absolute.
 Let $K \subset \C$ be a set.
 A power series $\sum c_n {(z-p)}^n$
-\emph{\myindex{converges uniformly absolutely}}\index{uniform absolute convergence}
+\emph{converges uniformly absolutely}%
+\index{converges uniformly absolutely!power series}%
+\index{uniform absolute convergence!power series}
 for $z \in K$ when $\sum \sabs{c_n} \sabs{z-p}^n$
 converges uniformly for $z \in K$.
 Suppose a series converges uniformly absolutely on $K$.  It converges absolutely,
@@ -4916,6 +4920,7 @@ The fundamental theorem has the following
 immediate corollary.
 
 \begin{cor}[Cauchy's theorem for derivatives] \label{cor:cauchyforders}
+\index{Cauchy's theorem!for derivatives}%
 Suppose $U \subset \C$ is open and $f \colon U \to \C$
 is continuous with a primitive
 $F \colon U \to \C$.
@@ -4944,6 +4949,7 @@ subsumed into the more general version of Cauchy we will prove later,
 but right now it is rather appealing.
 
 \begin{cor}[Cauchy's theorem for polynomials] \label{cor:cauchyforpoly}
+\index{Cauchy's theorem!for polynomials}%
 Suppose $P(z)$ is a polynomial and $\Gamma$ is
 a cycle (in $\C$).
 Then
@@ -6770,7 +6776,7 @@ used for power series.
 \begin{defn}
 A sequence of functions $f_n \colon U \to \C$ converges
 \emph{\myindex{uniformly on compact subsets}}%
-\index{convergence!uniformly on compact subsets}
+\index{converges!uniformly on compact subsets}
 to $f \colon U \to \C$ if
 $f_n|_K$ converges uniformly to $f|_K$
 for every compact $K \subset U$.
@@ -8002,7 +8008,8 @@ We may sometimes say
 to emphasize that we are using this particular definition.
 
 \begin{defn} \label{defn:simplyconnected:homology}
-A domain $U \subset \C$ is \emph{\myindex{simply connected}}
+A domain $U \subset \C$ is \emph{simply connected}%
+\index{simply connected!in the sense of homology}
 if every cycle in $U$
 is homologous to zero in $U$.
 \end{defn}
@@ -8398,7 +8405,7 @@ called an \myquote{annulus,} and calling $\ann(0;0,\infty) = \C \setminus
 
 \begin{thm}[Existence of Laurent series]
 \index{existence of Laurent series}%
-\index{Laurent series!existence}%
+\index{Laurent series}%
 \label{thm:laurent}%
 Suppose that $0 \leq r_1 < r_2 \leq \infty$ and
 $f \colon \ann(p;r_1,r_2) \to \C$ is holomorphic.
@@ -9128,7 +9135,8 @@ because that theorem makes the other direction trivial, see
 
 \begin{defn}
 A domain $U \subset \C$ is
-\emph{\myindex{simply connected (in the sense of homotopy)}}
+\emph{simply connected (in the sense of homotopy)}%
+\index{simply connected!in the sense of homotopy}
 if every continuous $\gamma \colon [a,b] \to U$ such that $\gamma(a) =
 \gamma(b)$ is homotopic in $U$ to a constant function.\footnote{%
 This definition is the correct one (i.e., unlikely to anger a topologist)
@@ -15972,7 +15980,9 @@ sequence of \emph{\myindex{partial products}}
 \end{equation*}
 exists.
 The product
-\emph{converges absolutely}\index{converges absolutely!infinite product}
+\emph{converges absolutely}%
+\index{converges absolutely!infinite product}%
+\index{absolute convergence!infinite product}
 if $\prod_{n=1}^\infty \bigl(1+\sabs{a_n}\bigr)$
 converges.
 \end{defn}
@@ -18852,7 +18862,7 @@ be a function such that for all $x,y,z \in X$,
 %
 \item \label{metric:triang}
 \makebox[2.8in][l]{$d(x,z) \leq d(x,y)+ d(y,z)$}
-(\emph{\myindex{triangle inequality}}).
+(\emph{triangle inequality}\index{triangle inequality!in a metric space}).
 \end{enumerate}
 \glsadd{not:metricspace}%
 The pair $(X,d)$ is called a \emph{\myindex{metric space}}.  The
@@ -19271,7 +19281,7 @@ where $\snorm{f}_{X} = \sup_{x\in X} \sabs{f(x)}$ is the uniform norm.  Prove th
 \begin{exercise}
 The set of sequences $\{ x_n \}$
 of real numbers
-such that $\sum_{n=1}^\infty x_n^2 < \infty$ is called $\ell^2$.
+such that $\sum_{n=1}^\infty x_n^2 < \infty$ is called~$\ell^2$.
 \begin{exparts}
 \item
 Prove the \myindex{Cauchy--Schwarz inequality} for two sequences
@@ -20060,7 +20070,7 @@ before we prove that the limit is unique.
 
 \begin{defn}
 A sequence $\{ x_n \}$ in a metric space $(X,d)$ is said
-to \emph{converge} to a point
+to \emph{converge}\index{converges!sequence in a metric space} to a point
 $p \in X$ if for every $\epsilon > 0$, there exists an $M \in \N$ such
 that $d(x_n,p) < \epsilon$ for all $n \geq M$.  The point $p$
 is said to be the \emph{limit}\index{limit!of a sequence in a metric space}
@@ -20069,10 +20079,9 @@ of $\{ x_n \}$.  We write\glsadd{not:limseq}
 \lim_{n\to \infty} x_n \overset{\text{def}}{=} p .
 \end{equation*}
 A sequence
-that converges is \emph{convergent}\index{convergent!sequence in a metric
-space}.
-Otherwise, the sequence is 
-\emph{divergent}\index{divergent!sequence in a metric space}.
+that converges is \emph{convergent}.
+Otherwise, the sequence 
+\emph{diverges}\index{diverges!sequence in a metric space}.
 See \figureref{fig:sequence-convergence-metric} for an idea of
 the definition.
 \begin{myfig}
@@ -20320,7 +20329,7 @@ sequences converge.
 \begin{prop} \label{prop:msconvtopo}
 Let $(X,d)$ be a metric space and $\{x_n\}$ a sequence in $X$.  Then
 $\{ x_n \}$ converges to $x \in X$ if and only if for every open neighborhood
-$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$
+$U$ of $x$, there exists an $M \in \N$ such that for all $n \geq M$,
 we have $x_n \in U$.
 \end{prop}
 
@@ -21051,8 +21060,7 @@ there is a $\delta > 0$ such that whenever $x \in X$ and $d_X(x,c) <
 $d_Y\bigl(f(x),f(c)\bigr) < \epsilon$.
 
 If $f \colon X \to Y$ is continuous at all $c \in X$, then we say
-that $f$ is a \emph{continuous function}\index{continuous function!in a
-metric space}\index{function!continuous}.
+that $f$ is a \emph{continuous function}\index{continuous function}\index{function!continuous}.
 \end{defn}
 
 \begin{prop} \label{prop:contiscont}
@@ -21504,7 +21512,7 @@ one $\delta$ for all points.
 \begin{defn}
 Let $(X,d_X)$ and $(Y,d_Y)$ be metric spaces.
 Then $f \colon X \to Y$ is
-\emph{uniformly continuous}\index{uniformly continuous!in a metric space}
+\emph{uniformly continuous}\index{uniformly continuous}
 if for every $\epsilon > 0$
 there is a $\delta > 0$ such that whenever $p,q \in X$ and $d_X(p,q) <
 \delta$, then
@@ -21551,7 +21559,7 @@ d_Y\bigl(f(c),f(q)\bigr)
 \begin{example}
 Useful examples of uniformly continuous functions are the so-called
 \emph{Lipschitz continuous}%
-\index{Lipschitz continuous!in a metric space}%
+\index{Lipschitz continuous}%
 \index{function!Lipschitz}
 functions.  That is, if
 $(X,d_X)$ and $(Y,d_Y)$ are metric spaces, then $f \colon X \to Y$
@@ -21613,7 +21621,7 @@ continuous.
 \begin{defn}
 Let $(X,d)$ be a metric space and
 $S \subset X$. A point $p \in X$ is called
-a \emph{cluster point}\index{cluster point!in a metric space} of $S$
+a \emph{cluster point}\index{cluster point} of $S$
 if for every $\epsilon > 0$, the set $B(p,\epsilon) \cap S
 \setminus \{ p \}$ is not empty.
 \end{defn}
@@ -23655,7 +23663,7 @@ continuously differentiable and the derivative is invertible, the function is
 %To prove the theorem, we use the contraction mapping
 %principle (\thmref{thm:contr}).
 
-\begin{thm}[Inverse function theorem]\index{inverse function theorem}
+\begin{thm}[Inverse function theorem]\index{inverse function theorem!real version}
 \label{thm:inverse}
 Suppose $U \subset \R^n$ is open, 
 $f \colon U \to \R^n$ is continuously differentiable, $p \in U$, and $Df|_p$ is invertible
