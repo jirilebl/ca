@@ -1931,12 +1931,14 @@ There is a certain quantity that is preserved by LFTs, the
 \frac{z_3-z_1}{z_3-z_2} : 
 \frac{z_4-z_1}{z_4-z_2} ,
 \end{equation*}
-where $z_1,z_2,z_3,z_4$ are complex numbers.  The cross ratio
+where $z_1,z_2,z_3,z_4$ are complex numbers.
+The definition makes sense when no 3 of the points coincide.
+The cross ratio
 was already described by the ancient Greeks\footnote{By
 Pappus of Alexandria, who
 lived in the early 4th century AD\@.  So it's not as impressively ancient
 as, say,
-Thales's theorem from about a thousand years earlier.  Also, isn't
+Thales's theorem from almost a thousand years earlier.  Also, isn't
 Alexandria in Egypt?}
 and plays a key role in projective geometry.
 The definition is extended to when one of the numbers is $\infty$ by simply
@@ -1966,10 +1968,16 @@ Consequently,
 \frac{z_3-z_1}{z_3-z_2} .
 \end{align*}
 
+Extend the definition for two $\infty$ points by replacing
+both by $z$ and letting $z \to \infty$ as above.
+It is not difficult to see 
+that the cross ratio will be $0$, $1$, or $\infty$
+exactly when 2 of the points coincide.
 By \myquote{preserved by LFTs,} we mean:
 
 \begin{prop} \label{prop:crossratioinvariant}
-Suppose that $f$ is an LFT\@.  Then
+Suppose that $f$ is an LFT and $z_1,z_2,z_3,z_4$ are points in
+$\C_\infty$ such that no 3 coincide.  Then
 \begin{equation*}
 (z_1,z_2;z_3,z_4) =
 \bigl(f(z_1),f(z_2);f(z_3),f(z_4)\bigr) .
