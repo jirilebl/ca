@@ -1696,7 +1696,8 @@ I(z) = \frac{1}{z}.
 \end{equation*}
 Consider an LFT $f(z) = \frac{az+b}{cz+d}$.
 Without loss of generality, assume that either $c=1$ or $c=0$.
-Suppose $c=1$ first,
+Suppose $c=1$ first.  Note that $b-ad \neq 0$ as
+$f$ is an LFT, and
 \begin{equation*}
 f(z)
 =
@@ -1704,10 +1705,10 @@ f(z)
 =
 \frac{b-ad}{z+d}+a
 =
-T_a\biggr(D_{b-ad}\Bigl(I\bigl(T_d(z)\bigr)\Bigr)\biggr) .
+T_a\biggl(D_{b-ad}\Bigl(I\bigl(T_d(z)\bigr)\Bigr)\biggr) .
 \end{equation*}
 If $c=0$, then we can also assume that $d=1$ and
-so $f(z) = az + b$.  So
+so $f(z) = az + b$ where $a \neq 0$.  So
 \begin{equation*}
 f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
 \end{equation*}
@@ -1878,7 +1879,8 @@ C(z)
 \end{equation*}
 The map is clearly an LFT\@, and it
 takes the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$ to the
-unit disc $\D$.  Let us see why.  The map takes $z \in \C$ to the unit disc if
+unit disc $\D$.  Let us see why.  The map takes $z \in \C$ to the unit disc
+precisely when
 \begin{equation*}
 1 > \abs{\frac{z - i}{z + i} }
 =
