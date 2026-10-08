@@ -738,10 +738,10 @@ You have surely seen the complex number field,
 but let us review its definition anyway.
 As a set, let the \emph{\myindex{complex number field}}
 \glsadd{not:C}$\C$ be the set $\R^2 = \R \times \R$.
-The set is a plane, so we call it the \emph{\myindex{complex plane}}%
+The set is a plane, so we call it the \emph{\myindex{complex plane}}.%
 \footnote{Although there is that odd mathematician out there who
 thinks that the \emph{complex plane} is $\C^2 = \C \times \C$.
-If you hear someone say that, politely whack them over the head for me.}.
+If you hear someone say that, politely whack them over the head for me.}
 To make it a field, we define addition and multiplication:
 \begin{align*}
 (a,b) + (c,d) & \overset{\text{def}}{=} (a+c,b+d) , \\
@@ -784,7 +784,7 @@ Those people also deserve a good whack.}
 write $i = \sqrt{-1}$.
 Note that there is another square root of $-1$, that is, $-i$.
 The numbers $i$ and $-i$ are the solutions to $z^2+1=0$.
-We will prove later that every polynomial has roots over the complex numbers.
+We will prove later that every nonconstant polynomial has roots over the complex numbers.
 
 Given a complex number $z=x+iy$, its \myquote{evil twin} is 
 the \emph{\myindex{complex conjugate}} of $z$:
@@ -829,7 +829,7 @@ z^2 - i \bar{z}^2 + z \bar{z}
 (x+iy)(x-iy) .
 \end{equation*}
 It may seem that an expression in terms of $z$ and $\bar{z}$ is more
-complicated.  Namely, $z$ and $\bar{z}$ are not
+complicated.  After all, $z$ and $\bar{z}$ are not
 \myquote{independent variables.}  However, it is particularly powerful to
 think in terms of $z$ and $\bar{z}$ instead of $x$ and $y$, and to pretend
 in many contexts as if $z$ and $\bar{z}$ were actually independent
@@ -852,13 +852,13 @@ if and only if $z=0$.
 If $z,w \in \C$, then
 \begin{enumerate}[(i)]
 \item
-$\sabs{\Re z\bar{w}} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz inequality\footnote{%
+$\sabs{\Re z\bar{w}} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz inequality,\footnote{%
 The name is wrong.
 Some (wrongly) say it should be Cauchy--Bunyakovsky--Schwarz.
 Bunyakovsky and Schwarz proved the infinite-dimensional version.
 This version ought to be called
-Cauchy inequality, but lamentably that name could refer to a different
-inequality, the Cauchy estimates.}, note: $\Re z
+the Cauchy inequality, but lamentably that name could refer to a different
+inequality, the Cauchy estimates.} note: $\Re z
 \bar{w}$ is the $\R^2$ dot product),\index{Cauchy--Schwarz}
 \item
 $\sabs{z+w} \leq \sabs{z} + \sabs{w}$ \quad (Triangle inequality).%
@@ -990,7 +990,7 @@ even if $X$ is not a domain in the sense of topology.}
 It is possible that the analysis you have seen so far in your mathematical
 career has been for real-valued functions $f \colon X \to \R$.  In this
 book, we are concerned with complex-valued functions $f \colon X \to \C$.
-The results for real-valued functions are then applied by thinking of
+The results for real-valued functions are then applied either by thinking of
 either the components of $f$ separately or by thinking of $\C$ as the
 real vector space $\R^2$.
 
@@ -1027,13 +1027,14 @@ we say $f$ is (Riemann) integrable if $u$ and $v$ are, and then
 \int_a^b f(t) \, dt = 
 \int_a^b u(t) \, dt + i \int_a^b v(t) \, dt .
 \end{equation*}
-Indeed, that is the way one integrates vector-valued functions
-for any vector space, and $\C = \R^2$ is a vector space.
+Indeed, that is how one integrates vector-valued functions
+for any finite-dimensional vector space, and $\C = \R^2$ is such a vector space.
 Basic analysis tells us that
-if given a Riemann integrable
-real-valued function $u \colon [a,b] \to \R$,
+if a
+real-valued function $u \colon [a,b] \to \R$
+is Riemann integrable,
 then $\abs{u}$ is Riemann
-integrable and $\abs{\int_a^b u(t) \, dt} \leq \int_a^b \sabs{u(t)} \, dt$.
+integrable too and $\abs{\int_a^b u(t) \, dt} \leq \int_a^b \sabs{u(t)} \, dt$.
 A similar result holds for complex-valued functions.
 
 \begin{prop} \label{prop:inttriangleineq}
@@ -1060,8 +1061,8 @@ complex multiplication.  The standard basis is $1$ and $i$.
 To put multiplication back into the picture, we think of linear operators
 on $\R^2$.
 Given a complex number $\xi$, the map $z \mapsto  \xi z$ is a
-real-linear operator\footnote{$L \colon \C \to \C$ is real-linear if
-$L(a z + b w) = aL(z)+bL(z)$ for all $a,b \in \R$ and $z,w \in \C$.}.
+real-linear operator.\footnote{$L \colon \C \to \C$ is real-linear if
+$L(a z + b w) = aL(z)+bL(w)$ for all $a,b \in \R$ and $z,w \in \C$.}
 A real-linear operator on $\R^2$ is given by a $2 \times 2$ real
 matrix.
 Namely, the complex number $\xi = a+ib$ can be represented by the $2 \times 2$ matrix
@@ -1135,7 +1136,8 @@ determinant appearing in the denominator for the multiplicative inverse.
 
 \begin{exercise}
 Prove that if the $2 \times 2$ matrix $M$ represents a complex number
-$a+ib$, then $M$ has two eigenvalues: $a \pm i b$ with the corresponding
+$a+ib$, then $M$ has eigenvalues: $a \pm i b$ (a repeated one if $b=0$)
+with corresponding
 eigenvectors $\left[ \begin{smallmatrix} 1 \\ \mp i \end{smallmatrix}
 \right]$.
 \end{exercise}
@@ -1182,7 +1184,7 @@ multiplication by a complex number.
 \subsection{The exponential} \label{subsection:firstdefexp}
 
 The exponential is the most fundamental and useful function in complex
-analysis.  Assume we know $e^x$ for real numbers.  Define $e^z$
+analysis.  Assume we know $e^x$, $\sin(x)$, and $\cos(x)$ for real numbers.  Define $e^z$
 for complex numbers (see
 \figureref{fig:complexexpgraphs}):
 \glsadd{not:exp}%
@@ -1289,7 +1291,7 @@ z = r e^{i\theta} = r\cos \theta + i r\sin \theta  = x+iy .
 \end{myfig}
 
 Polar form is particularly nice for multiplication and for powers.
-Suppose $z = r e^{i\theta}$ and $w = s e^{i \psi}$, then
+If $z = r e^{i\theta}$ and $w = s e^{i \psi}$, then
 \begin{equation*}
 zw =
 r e^{i \theta} s e^{i \psi} = 
@@ -1304,7 +1306,7 @@ z^n =
 r^n e^{i n\theta} .
 \end{equation*}
 Multiplication rotates by the argument and scales by the modulus.
-Namely, we see again that multiplication by $i = e^{i \pi / 2}$ is
+In particular, we see again that multiplication by $i = e^{i \pi / 2}$ is
 rotation counterclockwise by $90$ degrees.
 The downside is that the polar form is particularly terrible for addition.
 You win some, you lose some.
@@ -1332,13 +1334,13 @@ We attempt to define the argument of $z = re^{i\theta}$ as
 \theta ,
 \end{equation*}
 but we run up against the problem that if $\theta$ is an argument of $z$,
-then so is $\theta+2\pi$, $\theta-2\pi$, or $\theta + k 2\pi$ for any
+then so are $\theta+2\pi$, $\theta-2\pi$, and $\theta + k 2\pi$ for any
 integer $k$.  In other words,
 $\arg z$ is not a function in the classical sense, but a
-\emph{\myindex{multivalued function}}%
+\emph{\myindex{multivalued function}}.%
 \footnote{Non-complex analysts will sometimes claim that a multivalued
-function is nonsense, but you can safely ignore those troublemakers.}.  The correct
-definition is
+function is nonsense, but you can safely ignore those troublemakers.}
+The correct definition is
 \glsadd{not:arg}%
 \begin{equation*}
 \arg z
@@ -1401,6 +1403,7 @@ e^z .
 \begin{exbox}
 \begin{exercise} \label{exercise:exponetoonestrip}
 Prove that \eqref{eq:exponentialidentities} are the only such identities by
+first
 showing that if $2k\pi < \Im z \leq 2(k+1)\pi$ and
 $2k\pi < \Im w \leq 2(k+1)\pi$, then $e^z=e^w$ implies $z=w$.
 \end{exercise}
@@ -2261,11 +2264,11 @@ f'(z) =
 \end{cor}
 
 The equations \eqref{eq:CReqreal} are called the
-\emph{\myindex{Cauchy--Riemann equations}}\footnote{Interestingly,
+\emph{\myindex{Cauchy--Riemann equations}}.\footnote{Interestingly,
 the equations first appeared in the work of d'Alembert, and
 it was Euler who first connected them to analytic functions.
 Perhaps they had better be called the French-guy--German-guy equations,
-except that Euler was really Swiss---he only lived in Germany for a long time.}.
+except that Euler was really Swiss---he only lived in Germany for a long time.}
 Complex analysis, then, is the study of their solutions.
 
 Hence, continuously differentiable functions satisfying
@@ -2899,12 +2902,12 @@ is called a
 If there exists a biholomorphism $f \colon U \to V$, we say that
 $U$ and $V$ are \emph{\myindex{biholomorphic}}.
 If $U = V$, then a biholomorphism $f$ is called an
-\emph{\myindex{automorphism}}\footnote{%
+\emph{\myindex{automorphism}}.\footnote{%
 The word automorphism is used in other contexts as well.
 It always means that it maps the set to itself and
 is the right sort of equivalence in the context you are in.
 In topology it means a homeomorphism, in differential geometry a
-diffeomorphism, in group theory an isomorphism.}.
+diffeomorphism, in group theory an isomorphism.}
 Let $\Aut(U)$ denote the set of all automorphisms of $U$.
 Traditionally,
 a biholomorphism
@@ -4542,9 +4545,9 @@ Let $U,V \subset \C$ be open, $\gamma \colon [a,b] \to V$
 piecewise-$C^1$ path, $g \colon V \to U$ holomorphic (assume $g'$ is
 continuous\footnote{We will soon see that $g'$ is always continuous.}), and $f \colon U \to \C$
 continuous.  Then $g \circ \gamma$ is a piecewise-$C^1$ path in $U$
-(possibly with vanishing derivative\footnote{%
+(possibly with vanishing derivative,\footnote{%
 There does exist a reparametrization with nonvanishing derivative, if we really
-really wanted one.},
+really wanted one.}
 however, if $g'$ is zero on $\gamma$) and
 \begin{equation*}
 \int_{\gamma} f\bigl(g(z)\bigr) g'(z) \, dz
@@ -5154,10 +5157,10 @@ And so
 Let $\ell$ be the sum of the lengths of the sides of $T$.
 The sum of the lengths of the sides of $T^k$ is
 $\frac{\ell}{2^k}$.
-By the mean value theorem for integrals\footnote{%
+By the mean value theorem for integrals,\footnote{%
 If $\varphi \colon [a,b] \to \R$ is continuous, then there is an $x \in [a,b]$
 such that $\varphi(x) = \frac{1}{b-a} \int_a^b \varphi(t) \, dt$.
-To apply it here, parametrize the triangle boundary $\partial T^k$ with unit speed.},
+To apply it here, parametrize the triangle boundary $\partial T^k$ with unit speed.}
 there is a $z_k \in \partial T^k$ such that
 \begin{equation*}
 \sabs{g(z_k)} = 
@@ -7767,8 +7770,8 @@ d \zeta .
 \end{equation*}
 \end{thm}
 
-In the proof\footnote{%
-This elegant proof is relatively recent, from 1971, due to John Dixon.},
+In the proof,\footnote{%
+This elegant proof is relatively recent, from 1971, due to John Dixon.}
 rather strangely, we will take the difference of the two
 sides of the equation and extend it to an entire
 function (even though $U$ may be small).  Then we will use
@@ -8387,9 +8390,9 @@ Given $0 \leq r_1 < r_2 \leq \infty$ and $p \in \C$, define
 \{ z \in \C : r_1 < \sabs{z - p} < r_2 \} .
 \end{equation*}
 When $0 < r_1 < r_2 < \infty$, we call this set an
-\emph{\myindex{annulus}}\footnote{%
+\emph{\myindex{annulus}}.\footnote{%
 Q\@: What do you call a banana with a hole?
-A\@: A banannulus.}.
+A\@: A banannulus.}
 \end{defn}
 
 A common case is when $r_1 = 0$, that is,
@@ -13843,9 +13846,9 @@ As $Z$ is also closed and $U$ is connected, $Z=U$.
 
 The maximum principle is really a theorem about harmonic functions rather
 than holomorphic functions.  We will prove it using holomorphic functions
-and the open mapping theorem (\thmref{thm:OMT})\footnote{%
+and the open mapping theorem (\thmref{thm:OMT}),\footnote{%
 The open mapping theorem is, after all,
-a stronger version of the maximum modulus principle.},
+a stronger version of the maximum modulus principle.}
 although there is a more natural proof using the mean value property,
 which we will see later.
 
@@ -16617,9 +16620,9 @@ $e^{g(0)}=1$, so we can choose $g$ so that $g(0) = 0$.
 We need to show that $g \equiv 0$.
 
 We wish to convert the product to a series using the
-logarithm, as series are simpler to handle\footnote{Any calculus student
+logarithm, as series are simpler to handle.\footnote{Any calculus student
 will tell you so when they try to differentiate a product with many
-factors.}.  Unfortunately, if $\varphi(z) =
+factors.}  Unfortunately, if $\varphi(z) =
 \sin(\pi z)$, the function
 $\log \varphi(z)$ is not well-defined.
 But as we saw a couple of times before, while $\log \varphi(z)$ is not
@@ -17969,9 +17972,9 @@ always exist.  If $f(z) =
 of extending it to $W = \C$.
 
 One type of continuation is reflection, namely the Schwarz reflection
-principle\footnote{Sometimes it is called
+principle,\footnote{Sometimes it is called
 \emph{\myindex{Riemann--Schwarz principle}} as Riemann saw it first, but he 
-didn't properly justify it, so Schwarz has dibs on it.},
+didn't properly justify it, so Schwarz has dibs on it.}
 which 
 says that we can, under some conditions, reflect values across some boundary.
 We have seen the harmonic version (see \thmref{thm:schwarzreflectionharm})
