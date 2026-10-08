@@ -1478,7 +1478,7 @@ g(z) =
 \end{cases}
 \end{equation*}
 The function $g$ is bijective (one-to-one and onto).
-Any neighborhood of the origin in $\C$ is taken to a set that
+Any neighborhood of the origin in $\C$ is taken by $g$ to a set that
 includes infinity and we call such sets the neighborhoods of
 $\infty$.  When talking about a neighborhood of
 infinity in $\C_{\infty}$, we really want to think of this map
@@ -1491,7 +1491,7 @@ coordinates.\footnote{This paragraph is possibly the only instance in this book 
 $z$ is a real number.}  The plane $\R^2$ with coordinates $(x,y)$ can be
 identified with $\C$ with coordinate $\xi$ by taking $x+iy = \xi$.
 Given any point $p \in S^2$ that is not the north pole $(0,0,1) \in S^2$,
-there is a unique line in $\R^3$ through the point $(0,0,1)$ and $p$.
+there is a unique line in $\R^3$ through the points $(0,0,1)$ and $p$.
 It is not difficult to prove that this line is never parallel to the
 $xy$-plane, that is, to $\C$, and hence it must intersect $\C$ in a unique
 point $\xi \in \C$ (a plane and a line intersect at a unique point unless
@@ -1504,7 +1504,7 @@ $\Phi \colon S^2 \to \C_\infty$.  This map is called the
 \emph{\myindex{stereographic projection}}.  See
 \figureref{fig:riemannsphere}.
 The map is bijective (exercise below),
-and so define a metric on $\C_\infty$ by
+and so we define a metric on $\C_\infty$ by
 using a metric on $S^2$, which can be the subspace
 metric coming from the euclidean metric on $\R^3$.
 Another possibility
@@ -1524,7 +1524,8 @@ Show that $\Phi$ is bijective.
 
 \begin{exercise}
 Suppose $(\phi,\theta)$
-are spherical coordinates on $S^2$, where $0 \leq \phi \leq \pi$ is the zenith (angle made
+are spherical coordinates on $S^2$, where $0 \leq \phi \leq \pi$ is the
+zenith angle (angle made
 with the $z$-axis) and $-\pi < \theta \leq \pi$ the azimuth, and we write
 points in $\C$ using polar coordinates $re^{i\theta}$.  Then prove that
 $\Phi$ takes
@@ -1549,7 +1550,7 @@ function $f \colon U \subset \C_\infty \to \C_\infty$, we define
 as the limit using the topology on the Riemann sphere, 
 including
 the cases when $z_0 = \infty$, $L = \infty$, or both.
-Conveniently the Riemann sphere is compact.
+Conveniently, the Riemann sphere is compact.
 Indeed, topologically, it is the same as the
 \myquote{one-point compactification} of $\C$.
 
@@ -1565,14 +1566,14 @@ metric on $\C$).
 Suppose $L \in \C$.
 Show that $\lim_{z\to \infty} f(z) = L$ in the sense of the Riemann sphere
 if and only if for every $\epsilon > 0$ there exists an $M$ such that
-$\sabs{f(z)-L} < \epsilon$ whenever $z \in \C$ and $\sabs{z} > M$.
+$\sabs{f(z)-L} < \epsilon$ whenever $z \in U \cap \C$ and $\sabs{z} > M$.
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
 Suppose $z_0 \in \C$.
 Show that $\lim_{z\to z_0} f(z) = \infty$ in the sense of the Riemann sphere
 if and only if for every $M > 0$ there exists a $\delta > 0$ such that
-$\sabs{f(z)} > M$ whenever $0 < \sabs{z-z_0} < \delta$.
+$\sabs{f(z)} > M$ whenever $0 < \sabs{z-z_0} < \delta$ and $z \in U$.
 \end{exercise}
 
 \begin{exercise}%[\neededexmark]
@@ -1601,7 +1602,7 @@ and $a_d \neq 0$ ($P$ is nonconstant),
 then $\lim_{z \to \infty} P(z) = \infty$.
 Hint: If $a_d = 1$, then using
 $\abs{\frac{a_{d-1} z^{d-1} + \cdots + a_1 z + a_0}{z^d}}$, one finds
-$\abs{P(z)} \geq \frac{1}{2} \sabs{z}^d$ for large $z$.
+$\abs{P(z)} \geq \frac{1}{2} \sabs{z}^d$ for large $\sabs{z}$.
 \end{exercise}
 \end{exbox}
 
@@ -1637,9 +1638,10 @@ For instance, if $f(z) = z$ and $g(z) = c-z$,
 then $\lim_{z \to \infty} f(z) = \infty$,
 $\lim_{z \to \infty} g(z) = \infty$, but $\lim_{z \to \infty}
 \bigl(f(z)+g(z)\bigr) = c$, so $\infty+\infty$ does not make sense.
-Unlike for the extended reals,
+We can define $\nicefrac{c}{\infty} = 0$ for $c \neq \infty$,
+and unlike for the extended reals,
 it is reasonable (and at times useful) to define $\nicefrac{c}{0} = \infty$ for
-$c \neq 0$, $\nicefrac{c}{\infty} = 0$ for $c \neq \infty$,
+$c \neq 0$,
 and $c \cdot \infty = \infty$ for $c \neq 0$.
 %We could also define $\infty \cdot \infty = \infty$, $\frac{0}{\infty} = 0$,
 %and
@@ -1699,7 +1701,8 @@ I(z) = \frac{1}{z}.
 \end{equation*}
 Consider an LFT $f(z) = \frac{az+b}{cz+d}$.
 Without loss of generality, assume that either $c=1$ or $c=0$.
-Suppose $c=1$ first,
+Suppose $c=1$ first.  Note that $b-ad \neq 0$ as
+$f$ is an LFT, and
 \begin{equation*}
 f(z)
 =
@@ -1707,10 +1710,10 @@ f(z)
 =
 \frac{b-ad}{z+d}+a
 =
-T_a\biggr(D_{b-ad}\Bigl(I\bigl(T_d(z)\bigr)\Bigr)\biggr) .
+T_a\biggl(D_{b-ad}\Bigl(I\bigl(T_d(z)\bigr)\Bigr)\biggr) .
 \end{equation*}
 If $c=0$, then we can also assume that $d=1$ and
-so $f(z) = az + b$.  So
+so $f(z) = az + b$ where $a \neq 0$.  So
 \begin{equation*}
 f(z) = az+b = T_b\bigl(D_a(z)\bigr) .
 \end{equation*}
@@ -1881,7 +1884,8 @@ C(z)
 \end{equation*}
 The map is clearly an LFT\@, and it
 takes the upper half-plane $\bH = \{ z \in \C : \Im z > 0 \}$ to the
-unit disc $\D$.  Let us see why.  The map takes $z \in \C$ to the unit disc if
+unit disc $\D$.  Let us see why.  The map takes $z \in \C$ to the unit disc
+precisely when
 \begin{equation*}
 1 > \abs{\frac{z - i}{z + i} }
 =
@@ -1934,12 +1938,14 @@ There is a certain quantity that is preserved by LFTs, the
 \frac{z_3-z_1}{z_3-z_2} : 
 \frac{z_4-z_1}{z_4-z_2} ,
 \end{equation*}
-where $z_1,z_2,z_3,z_4$ are complex numbers.  The cross ratio
+where $z_1,z_2,z_3,z_4$ are complex numbers.
+The definition makes sense when no 3 of the points coincide.
+The cross ratio
 was already described by the ancient Greeks\footnote{By
 Pappus of Alexandria, who
 lived in the early 4th century AD\@.  So it's not as impressively ancient
 as, say,
-Thales's theorem from about a thousand years earlier.  Also, isn't
+Thales's theorem from almost a thousand years earlier.  Also, isn't
 Alexandria in Egypt?}
 and plays a key role in projective geometry.
 The definition is extended to when one of the numbers is $\infty$ by simply
@@ -1969,10 +1975,16 @@ Consequently,
 \frac{z_3-z_1}{z_3-z_2} .
 \end{align*}
 
+Extend the definition for two $\infty$ points by replacing
+both by $z$ and letting $z \to \infty$ as above.
+It is not difficult to see 
+that the cross ratio will be $0$, $1$, or $\infty$
+exactly when 2 of the points coincide.
 By \myquote{preserved by LFTs,} we mean:
 
 \begin{prop} \label{prop:crossratioinvariant}
-Suppose that $f$ is an LFT\@.  Then
+Suppose that $f$ is an LFT and $z_1,z_2,z_3,z_4$ are points in
+$\C_\infty$ such that no 3 coincide.  Then
 \begin{equation*}
 (z_1,z_2;z_3,z_4) =
 \bigl(f(z_1),f(z_2);f(z_3),f(z_4)\bigr) .
