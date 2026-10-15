@@ -4252,7 +4252,7 @@ and these limits are nonzero.
 Another way to say it is that $\gamma'(t)$ extends to a nonzero
 continuous function on each closed interval $[t_{\ell-1},t_{\ell}]$.
 Allowing these \myquote{corners} makes working with paths easier
-as we can define them easily piecewise, and finitely many such corners
+as we can define them piecewise, and finitely many such corners
 make no difference for integrals.
 Do note also that we are saying that paths are continuous.  We will allow
 discontinuities just a little later with \myquote{chains.}
@@ -4426,7 +4426,7 @@ $\gamma \colon [a,b] \to \C$ is continuously differentiable and we have
 a continuously differentiable $h \colon [c,d] \to [a,b]$ such
 that $h' > 0$ (increasing), $h(c)=a$, and $h(d) = b$.  Then $\gamma \circ h$ is a new
 $C^1$ path that is a different parametrization of $\gamma$.
-Change of variable $t=h(s)$ from calculus says
+The change of variables $t=h(s)$ from calculus says
 \begin{equation*}
 \begin{split}
 \int_{\gamma} f(z) \, dz
@@ -4446,7 +4446,7 @@ sign flips in the change of variables:
 - \int_{\gamma \circ h} f(z) \, dz.
 \end{equation*}
 
-The general version of this result, a version of which we state below,
+The general result, a version of which we state below,
 is a bit more difficult to prove.
 As this result, while
 morally important, is actually more of a technicality so that we only have
@@ -4501,7 +4501,7 @@ Hint: the fundamental theorem of calculus.
 Prove the proposition for continuous $f$.
 Hint: Cut the path into small pieces where
 you can approximate $f$ by a constant and apply the
-last part.
+previous part.
 \end{exparts}
 \end{exercise}
 
@@ -4515,8 +4515,9 @@ $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$.
 \begin{exercise}
 A piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$
 can be reparametrized to a $C^1$ \myquote{path} if the derivative
-is allowed to vanish.
-That is, there exists a strictly increasing
+is allowed to vanish:
+Prove that
+there exists a strictly increasing
 continuous $h \colon [a,b] \to [a,b]$ such that
 $\gamma \circ h$ is $C^1$.
 Hint: Make the derivative zero at the \myquote{corners.}
@@ -4527,10 +4528,12 @@ Consider infinitely many nested circles all touching at one point
 and let that point be the origin: Suppose $r_n$ is the radius of the
 $n$\textsuperscript{th}
 circle and the $n$\textsuperscript{th} circle is given by $r_n e^{i(-1)^n\theta} - r_n$, for $0 \leq
-\theta \leq 2\pi$ (they are traversed in alternating directions).
-If $\sum r_n < \infty$, then you can find a continuous
+\theta \leq 2\pi$ (they are traversed in alternating directions),
+and $r_n \to 0$.
+If $\sum r_n < \infty$, prove that you can find a
 $C^1$ function $\gamma \colon
-[0,1] \to \C$ that traverses all the circles.  If $\sum r_n = \infty$, then
+[0,1] \to \C$ that traverses all the circles.  If $\sum r_n = \infty$,
+prove that
 you can find a continuous $\gamma \colon [0,1] \to \C$ that is $C^1$ on
 $(0,1]$, but necessarily $\lim_{t \to 0} \gamma'(t)$ does not exist.
 \end{exercise}
@@ -4565,20 +4568,21 @@ re^{it}$, and then we write
 \int_{\gamma} f(z) \, dz .
 \avoidbreak
 \end{equation*}
-This equality can be simply taken as a definition of integration over
+This equality can simply be taken as a definition of integration over
 $\partial \Delta_r(p)$.
 
 Finally, there is the \myquote{$u$-substitution} from calculus.
 
 \begin{prop} \label{prop:usubst}
 Let $U,V \subset \C$ be open, $\gamma \colon [a,b] \to V$ 
-piecewise-$C^1$ path, $g \colon V \to U$ holomorphic (assume $g'$ is
+a piecewise-$C^1$ path, $g \colon V \to U$ holomorphic (assume $g'$ is
 continuous\footnote{We will soon see that $g'$ is always continuous.}), and $f \colon U \to \C$
 continuous.  Then $g \circ \gamma$ is a piecewise-$C^1$ path in $U$
 (possibly with vanishing derivative,\footnote{%
-There does exist a reparametrization with nonvanishing derivative, if we really
-really wanted one.}
-however, if $g'$ is zero on $\gamma$) and
+There does exist a reparametrization with nonvanishing derivative
+(unless $g \circ \gamma$ is constant), if we really,
+really want one.}
+if $g'$ is ever zero on $\gamma$) and
 \begin{equation*}
 \int_{\gamma} f\bigl(g(z)\bigr) g'(z) \, dz
 =
@@ -4669,11 +4673,11 @@ M
 
 Arclength is not preserved under uniform convergence of the paths.
 In other words, just because the images of two paths are very close to each
-other, it does not mean that the integrals over them will be the same.
+other, it does not mean that the integrals over them will be close.
 The same caveat holds for the $dz$ integral as it does for the $\sabs{dz}$
 integral.
 So one has to be careful when saying that two paths are close to each other.
-One would need that the derivatives are close as well, since $\gamma'$ appears
+One would need the derivatives to be close as well, since $\gamma'$ appears
 under the integral.
 
 \begin{exbox}
@@ -4681,12 +4685,13 @@ under the integral.
 \begin{exparts}
 \item
 Find a sequence of piecewise-$C^1$ paths $\gamma_n \colon [0,1] \to \C$
-that uniformly converge to a constant function (one could say a path of
+that converges uniformly to a constant function (one could say a path of
 length zero), but such that $\int_{\gamma_n} \sabs{dz} \geq n$.
 \item
 Suppose a sequence of $C^1$ paths $\gamma_n \colon [0,1] \to \C$
 converges uniformly to a $C^1$ path $\gamma \colon [0,1] \to \C$
-such that $\gamma_n'$ converges uniformly to $\gamma'$, then
+such that $\gamma_n'$ converges uniformly to $\gamma'$.
+Prove that
 $\int_{\gamma_n} \sabs{dz} \to
 \int_{\gamma} \sabs{dz}$.
 \end{exparts}
@@ -4780,10 +4785,10 @@ See also \exerciseref{exercise:nonconstantnonzerochain}.
 \begin{exercise}%[\neededexmark]
 \label{exercise:pathsum}
 Let $\gamma_1 \colon [a,b] \to \C$ and $\gamma_2 \colon [b,c] \to \C$
-be two piecewise-$C^1$ paths and $\gamma_1(b)=\gamma_2(b)$.
+be two piecewise-$C^1$ paths with $\gamma_1(b)=\gamma_2(b)$.
 Prove that the function $\gamma \colon [a,c] \to
 \C$ defined by $\gamma(t) = \gamma_1(t)$ if $t \in [a,b]$ and $\gamma(t)
-= \gamma_2(t)$ if $t \in [b,c]$ is a piecewise-$C^1$ path, and
+= \gamma_2(t)$ if $t \in [b,c]$ is a piecewise-$C^1$ path, and that
 for all $f$ continuous on the image of $\gamma$, we have
 \begin{equation*}
 \int_{\gamma} f(z)\,dz = \int_{\gamma_1 + \gamma_2} f(z) \, dz .
@@ -4803,8 +4808,9 @@ the path that goes $n$ times around the unit disc counterclockwise.
 Suppose $U \subset \C$ is open and
 $\gamma \colon [a,b] \to U$
 is a piecewise-$C^1$
-path and $\gamma|_{[a,b)}$ is injective, but possibly a closed path,
-so possibly $\gamma(a)=\gamma(b)$.  Show that as chains, $\gamma$ is not equivalent to the zero chain.
+path and $\gamma|_{[a,b)}$ is injective.
+We allow a closed path,
+so possibly $\gamma(a)=\gamma(b)$.  Show that as a chain, $\gamma$ is not equivalent to the zero chain.
 Note: Closed $\gamma$ is trickier.
 \item
 Find a piecewise-$C^1$ path $\gamma \colon [a,b] \to \C$
@@ -4817,13 +4823,14 @@ prevents $\gamma$ from being constant.
 
 Using \exerciseref{exercise:pathsum},
 any chain that is put together
-from connecting paths can be converted and integrated as a single path,
+from connecting paths can be combined into
+a single path and integrated that way,
 and so in the sequel we may do this procedure implicitly.
 
 \begin{defn}
 \pagebreak[2]
 \glsadd{not:segment}%
-Given two points $z,w \in \C$, the \emph{\myindex{segment}} $[z,w]$ is the path
+Given two distinct points $z,w \in \C$, the \emph{\myindex{segment}} $[z,w]$ is the path
 $\gamma \colon [0,1] \to \C$ given by $\gamma(t) = (1-t)z + tw$.
 For the purposes of chain arithmetic, $-[z,w] = [w,z]$.
 A path is \emph{\myindex{polygonal}} if it can be written as
@@ -4840,8 +4847,9 @@ segments and arcs anyhow.
 \begin{exbox}
 \begin{exercise}[Tricky]
 Suppose $U \subset \C$ is open, $\gamma \colon [a,b] \to U$ is a
-piecewise-$C^1$ path, and $f \colon U \to \C$ is continuous.  Then for every $\epsilon
-> 0$, there exists a polygonal path (or chain) $\alpha$ in $U$ with the same
+piecewise-$C^1$ path, and $f \colon U \to \C$ is continuous.
+Show that for every $\epsilon > 0$,
+there exists a polygonal path (or chain) $\alpha$ in $U$ with the same
 beginning and end point such that
 \begin{equation*}
 \abs{\int_\alpha f(z)\, dz - \int_{\gamma} f(z) \, dz} < \epsilon .
@@ -4930,7 +4938,7 @@ A real derivative may only be integrable
 by the so-called gauge or Henstock--Kurzweil integral---Riemann or
 even Lebesgue are not enough---so integrability is not an idle concern.
 If the reader is willing to hunt ants with a sledgehammer, then
-the statement and proof of the proposition are perfectly fine at this stage
+the statement and proof of the theorem are perfectly fine at this stage
 if one uses the gauge integral even without any hypothesis on $f$.}
 \end{remark}
 
@@ -5034,7 +5042,7 @@ not have a primitive in $\C \setminus \{ 0 \}$.
 \begin{defn}
 A set $X$ is \emph{\myindex{convex}} if the segment $[a,b] \subset X$ for all $a,b \in
 X$.
-Let $a,b,c \in \C$ be distinct points in $\C$ that do not lie on a
+Let $a,b,c \in \C$ be distinct points that do not lie on a
 straight line.
 A \emph{\myindex{triangle}} $T$
 with vertices $a,b,c$ is the convex hull
@@ -5129,9 +5137,9 @@ that triangle $T^1 = T_j$:
 \begin{equation*}
 \abs{\int_{\partial T^1} f(z) \, dz } \geq \frac{c}{4} .
 \end{equation*}
-Now cut $T^1$ into subtriangles
+Cut $T^1$ into subtriangles
 $T_1^1$, $T_2^1$, $T_3^1$, $T_4^1$ as above and repeat the procedure.  There
-is one of these four whose integral is at least $\frac{c}{4^2}$, label it
+is one of these four whose integral has modulus at least $\frac{c}{4^2}$, label it
 $T^2$.  Rinse and repeat.
 All in all, for the $k$\textsuperscript{th} triangle $T^k$,
 \begin{equation*}
@@ -5139,7 +5147,7 @@ All in all, for the $k$\textsuperscript{th} triangle $T^k$,
 \end{equation*}
 Furthermore, $T^k \subset T^{k-1} \subset \cdots \subset T$.
 In each step, the subtriangles are all similar triangles (same angles),
-but with sides exactly halved.
+with sides exactly halved.
 In particular,
 the largest possible distance for two points in the triangle 
 gets halved each iteration.
@@ -5287,7 +5295,7 @@ prove that the union $\bigcup_n X_n$ is convex.
 \end{exercise}
 \end{exbox}
 
-\subsection{Cauchy for star-like sets}
+\subsection{Cauchy for star-like domains}
 
 \begin{defn}
 A set $U \subset \C$ is called \emph{\myindex{star-like}} (or more precisely
@@ -5301,7 +5309,7 @@ $z \in U$.  See \figureref{fig:starshaped}.
 \caption{A domain that is star-like with respect to $z_0$.\label{fig:starshaped}}
 \end{myfig}
 
-A convex set is star-like, but not vice versa.
+A nonempty convex set is star-like, but not vice versa.
 
 \begin{exbox}
 \begin{exercise}%[\neededexmark]
@@ -5431,6 +5439,7 @@ a theorem as it is one of the fundamental results.
 
 \begin{thm}[Cauchy's theorem for star-like domains]
 \index{Cauchy's theorem!star-like domains}%
+\label{thm:cauchystarlike}%
 Suppose $U \subset \C$ is open and star-like, $f \colon U \to \C$ is holomorphic,
 and $\Gamma$ is
 a cycle
@@ -5479,7 +5488,7 @@ $\int_\Gamma f(z) \, d\bar{z} = 0$.
 \end{exbox}
 
 \begin{remark}\label{remark:irrotvfield}
-A complex-valued function can be thought of as a vector-field on $\R^2$.
+A complex-valued function can be thought of as a vector field on $\R^2$.
 \corref{cor:primitiveinstarlike}
 is in fact a special case of a theorem you have seen
 in vector calculus, a version of the \emph{\myindex{Poincar\'e lemma}}:
@@ -5487,7 +5496,7 @@ in vector calculus, a version of the \emph{\myindex{Poincar\'e lemma}}:
 $C^1$ vector field $(u,v) \colon U \to \R^2$
 satisfies $\frac{\partial u}{\partial y} = \frac{\partial v}{\partial x}$
 (the vector field is \emph{irrotational}\index{irrotational vector field}),
-then there exists a real-valued $f \colon \R^2 \to \R$ such that
+then there exists a real-valued $f \colon U \to \R$ such that
 $\nabla f = (u,v)$ (the vector field is conservative, a gradient).}
 More concisely, \emph{an irrotational vector field
 in a star-like domain is conservative.}
@@ -5509,7 +5518,7 @@ Assume you know that holomorphic functions are $C^1$.
 \subsection{Cauchy's formula in a disc}
 
 Perhaps the most fundamental theorem in complex analysis in one variable,
-and the root cause of all the amazing properties of holomorphic functions
+and the root cause of all the amazing properties of holomorphic functions,
 is the Cauchy integral formula.  Let us state it for a disc, and leave
 more general statements for later.
 
@@ -5554,7 +5563,7 @@ As chains, $c_1+c_2 = \gamma - \alpha$.  Each
 $c_j$ lies in a star-like domain (some possibilities marked by dashed lines in the figure),
 where $\frac{f(\zeta)}{\zeta-z}$ is holomorphic
 as a function of $\zeta$ (since $z$ is outside each of these domains).
-By Cauchy's theorem for star-like sets,
+By Cauchy's theorem for star-like domains (\thmref{thm:cauchystarlike}),
 \begin{equation*}
 \int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta -
 \int_{\alpha} \frac{f(\zeta)}{\zeta-z} \, d\zeta =
@@ -5789,7 +5798,7 @@ $\sum
 We found a power series converging to $f(z)$ for all $z \in \Delta_r(p)$.
 By uniqueness of the power series (see \corref{cor:convpowserinfdif}),
 the $c_n$ we compute are the same for every $r < R$.  Hence,
-we get the same series for every $r$ and it converges in $\Delta_R(p)$.
+we get the same series for every $r$, and it converges in $\Delta_R(p)$.
 \end{proof}
 
 The key point in the proof is writing the \emph{\myindex{Cauchy kernel}}
@@ -5821,11 +5830,11 @@ bound for it) just from knowing the
 domain of definition of a holomorphic function.  The radius of convergence
 then gives us bounds on the derivatives, and so we know quite a bit about
 the size of the derivatives of a function just from knowing how far away from a point it
-is still holomorphic.
+remains holomorphic.
 
 \begin{myfig}
 \subimport*{figures/}{largestr.pdf_t}
-\caption{Largest disc around $p$ that fits in $U$
+\caption{The largest disc around $p$ that fits in $U$
 is where the series at $p$
 for a holomorphic $f \colon U \to \C$ converges.%
 \label{fig:largestr}}
@@ -5843,7 +5852,7 @@ for analytic functions are true for holomorphic functions.  And it goes the
 other way too.  For example, it is easy to show that the composition of
 holomorphic functions is holomorphic (the chain rule), and
 so it is true for analytic functions.
-It is much harder to prove directly that composition of power series
+It is much harder to prove directly that a composition of power series
 is again a power series.
 Similarly for a product of power series.
 And we have just proved what we postponed in a remark: A convergent power
@@ -5945,7 +5954,7 @@ Any continuous $g \colon (a,b) \to \R$ is the derivative
 of a real differentiable function (e.g., $f(x) = \int_c^x g(t)\,dt$ for $c
 \in (a,b)$),
 and continuous functions need not be differentiable anywhere.
-Even worse, the real derivative could even be discontinuous.
+Even worse, the real derivative could be discontinuous.
 
 \begin{exbox}
 \begin{exercise}
@@ -5965,9 +5974,9 @@ even bounded.
 The derivatives of a holomorphic function can be computed by
 integration\footnote{Complex analysis allows you to integrate to find the
 derivative and to differentiate to find an integral.  Now tell that to your
-calculus students.} via the Cauchy integral formula as well.  Yeah that does sound
-weird.  It is definitely not something that you should expect for any old
-functions.
+calculus students.} via the Cauchy integral formula as well.
+Yeah, that does sound weird.
+It is definitely not something that you should expect for any old function.
 
 \begin{thm}[Cauchy integral formula for derivatives]
 \index{Cauchy integral formula!derivatives}
@@ -6038,10 +6047,10 @@ $\frac{f(\zeta)}{(\zeta-z)^{k+1}}$ are continuous
 functions of $(z,\zeta) \in \Delta_r(p) \times \partial \Delta_r(p)$.
 \end{proof}
 
-We could have also used the difference quotient instead of the
+In the proof, one can use the difference quotient instead of the
 Wirtinger operator.  That approach requires slightly more care---you have to show
 uniform convergence of a certain limit of functions---but we
-would not have needed the result
+would not need the result
 that holomorphic functions are analytic.  In fact,
 it could give an independent proof that holomorphic functions are infinitely
 complex differentiable.
@@ -6058,7 +6067,8 @@ Compute
 
 \begin{exercise}
 Give a different proof of the Cauchy formula for derivatives by using the difference
-quotient.  First show the formula for $f'$, then again using the difference
+quotient.  First, show the formula for $f'$.
+Then, again using the difference
 quotient and the fact that the kernel (the function inside) is holomorphic
 in $z$, show the formula for $f''$, etc.  For this procedure to work it is
 not necessary to assume that $f'$ is holomorphic, it will follow from your
@@ -6070,7 +6080,7 @@ work.
 Suppose $f(z,t)$ is a continuous function of $(z,t) \in U \times (a,b)$,
 where $U \subset \C$ is open, and for every fixed $t \in (a,b)$, the function
 $z \mapsto f(z,t)$ is holomorphic.  Prove that
-$\frac{\partial f}{\partial z}$ is a continuous function of $U \times
+$\frac{\partial f}{\partial z}$ is a continuous function on $U \times
 (a,b)$.  As a consequence, show that
 $\frac{\partial f}{\partial x}$
 and
@@ -6079,7 +6089,7 @@ $\frac{\partial f}{\partial y}$ are continuous (where $z=x+iy$).
 
 \begin{exercise}
 The previous exercise may seem trivial, but the key is that we can prove
-(using Cauchy's formula) that the partials are continuous as a function of
+(using Cauchy's formula) that the partials are continuous as a function on
 $U \times (a,b)$ by using continuity of $f$ on $U \times (a,b)$.  No such
 result is true for nonholomorphic functions.  Prove that the function defined by
 $f(x,t) = t \sin(\nicefrac{x}{t})$ for $t \neq 0$ and $f(x,0) =  0$
@@ -6105,7 +6115,7 @@ Suppose that
 \int_{\partial T} f(z) \, dz = 0
 \avoidbreak
 \end{equation*}
-for every triangle such that $T \subset U$.  Then $f$ is holomorphic.
+for every triangle $T \subset U$.  Then $f$ is holomorphic.
 \end{thm}
 
 \begin{proof}
@@ -6127,7 +6137,8 @@ more of its (nonexistent) primitive, the logarithm, shortly.
 
 \begin{exbox}
 \begin{exercise}
-Show that if $f \colon \C \to \C$ is continuous and holomorphic on $\C
+Show that if $f \colon \C \to \C$ is continuous on $\C$
+and holomorphic on $\C
 \setminus \R$, then $f$ is holomorphic everywhere.
 \end{exercise}
 
@@ -6164,10 +6175,11 @@ and
 \int_{\partial R} f(z) \, dz = 0
 \end{equation*}
 for every rectangle $R \subset U$ of the form
-$a < \Re z < b$, $c < \Im z < d$.  Prove that $f$ is holomorphic.
+$a \leq \Re z \leq b$, $c \leq \Im z \leq d$.
+Prove that $f$ is holomorphic.
 Hint:  You may need to prove an analogue of
-\propref{prop:primitiveinstarlike1} for rectangles, which is trickier with
-rectangles.
+\propref{prop:primitiveinstarlike1} for rectangles, which is trickier than
+for triangles.
 \end{exercise}
 \end{exbox}
 
@@ -6178,12 +6190,12 @@ so-called \emph{maximum modulus principle}
 (sometimes just \emph{maximum principle}),
 which has several different versions.
 We prove one statement and leave other versions as exercises.
-The main idea is that the modulus of a holomorphic function never
+The main idea is that the modulus of a nonconstant holomorphic function never
 achieves a maximum.  In other words, $\sabs{f(z)}$ is bounded
 by the supremum of its values near the boundary of the domain or near
 $\infty$.
 The basic idea of the proof is that Cauchy's integral formula tells us that
-$f(z)$ is an average of the values of $f$ in a circle around $z$, and the
+$f(z)$ is an average of the values of $f$ on a circle around $z$, and the
 average can't be bigger than the numbers we're averaging.
 
 \begin{thm}[Maximum modulus principle]
@@ -6206,10 +6218,11 @@ But we mean that \myquote{$\xi \geq 0$}
 is a shortcut to \myquote{$\xi \in \R$ and $\xi \geq 0$.}}
 that as $f(0) \geq 0$.
 
-Take a closed disc $\overline{\Delta_r(0)} \subset U$.
 As we have a local maximum at $0$,
 there is an $r > 0$ small enough
 so that
+$\overline{\Delta_r(0)} \subset U$
+and
 $\sabs{f(z)} \leq \sabs{f(0)} = f(0)$ whenever $\sabs{z} \leq r$.
 Cauchy's formula says
 \begin{equation*}
@@ -6318,7 +6331,7 @@ $f(p) \neq 0$ cannot be removed.
 Suppose $U \subset \C$ is a domain, $f \colon U \to \C$ is holomorphic,
 and $M > 0$ is such that
 $\limsup_{z \to p} \sabs{f(z)} \leq M$ for all $p \in \partial U$.
-If $U$ is unbounded, then also 
+If $U$ is unbounded, then also suppose
 $\limsup_{z \to \infty} \sabs{f(z)} \leq M$.  Prove that
 $\sabs{f(z)} \leq M$ for all $z \in U$.
 Note: For $g \colon U \to \R$,
@@ -6333,7 +6346,7 @@ z \in U \text{ and } \sabs{z} > R \bigr\}$.
 Suppose $U \subset \C$ is a bounded domain,
 $f \colon \widebar{U} \to \C$ is continuous and the restriction $f|_{U}$
 is holomorphic, and there is a constant $M$ such that $\sabs{f(z)} = M$
-for all $z \in \partial U$.  Prove that $f$ is either constant or $f(z) = 0$
+for all $z \in \partial U$.  Prove that either $f$ is constant or $f(z) = 0$
 for some $z \in U$.
 \end{exercise}
 
@@ -6355,8 +6368,8 @@ exercises first.
 
 \begin{exercise}
 Let $f \colon \Delta_R(p) \to \C$ be holomorphic and nonconstant.
-Prove that $M(r) = \sup \bigl\{ \sabs{f(z)} : z \in \partial \Delta_r(p)
-\bigr\}$ is a strictly increasing function of $r \in [0,R)$.
+Prove that $M(r) = \sup \bigl\{ \sabs{f(z)} : \sabs{z-p}=r \bigr\}$
+is a strictly increasing function of $r \in [0,R)$.
 \end{exercise}
 \end{exbox}
 
@@ -6367,7 +6380,7 @@ algebra}
 It may seem we are cramming quite a bit into one subsection, but
 we have the tools to make three fundamental results just pop out
 with little work.  The triangle inequality on
-the integral formula for the coefficients of the power series obtains an
+the integral formula for the coefficients of the power series yields an
 estimate on their size.  These estimates immediately give
 Liouville's theorem on entire holomorphic functions, which at once gives the
 fundamental theorem of algebra.
@@ -6379,7 +6392,7 @@ It is a theorem in
 complex analysis.\footnote{There! It's ours now and you can't have it back.}
 
 For a set $K$, denote the \emph{\myindex{supremum norm}} or
-\emph{\myindex{uniform norm}}:
+\emph{\myindex{uniform norm}} by
 \glsadd{not:uniformnorm}%
 \begin{equation*}
 \snorm{f}_K
@@ -6404,7 +6417,7 @@ In other words, the sequence $\bigl\{ \sabs{c_n} r^n \bigr\}$ is bounded by
 $\snorm{f}_{\partial \Delta_r(p)}$.  Compare to \propref{prop:cnrnbounded}.
 
 \begin{proof}
-The proof is a brute force estimation:
+The proof is a brute-force estimation:
 \begin{equation*}
 \sabs{c_n}  = 
 \abs{
@@ -6428,7 +6441,7 @@ d \zeta
 
 A better estimate is not possible given only the information
 $M = \snorm{f}_{\partial \Delta_r(p)}$.
-Cauchy estimates say that
+The Cauchy estimates say that
 $\sabs{c_n} \leq \frac{M}{r^n}$.
 But if $f(z) = \frac{M}{r^n} {(z-p)}^n$, then
 $\snorm{f}_{\partial \Delta_r(p)} = M$ and
@@ -6470,7 +6483,7 @@ Suppose $U \subset \C$ is a domain,
 $\overline{\Delta_r(0)} \subset U$, and
 $f \colon U \to \C$ is holomorphic such that
 $\snorm{f}_{\partial \Delta_r(0)} = M$.
-Cauchy estimates say that for every $n$,
+The Cauchy estimates say that for every $n$,
 $\sabs{f^{(n)}(0)} \leq \frac{n! M}{r^n}$.  Prove that if for some $n$, 
 $\sabs{f^{(n)}(0)} = \frac{n! M}{r^n}$, then $f(z) = c z^n$ for some $c \in
 \C$.  Hint: The inequalities are equalities in the proof (there are
@@ -6484,10 +6497,10 @@ an \emph{\myindex{entire holomorphic function}} or perhaps
 just \emph{entire} for short.
 \end{defn}
 
-Polynomials are one type of entire functions and we saw that 
+Polynomials are the mild mannered entire functions, and we saw that 
 nonconstant polynomials are unbounded.  While in general the behavior of
 entire functions such as $\exp z$ as we approach infinity is wilder than that of the
-polynomials, they are unbounded.
+polynomials, they are also unbounded unless constant.
 
 \begin{thm}[Liouville\footnote{%
 Liouville proved a different (though similar) theorem.  This particular one
@@ -6508,7 +6521,7 @@ which converges for all $z$.
 As $f$ is holomorphic on a disc of arbitrary radius, the Cauchy estimates
 say
 \begin{equation*}
-\sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^n} \leq
+\sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(0)}}{r^n} \leq
 \frac{M}{r^n}
 \qquad \text{for all } r > 0 .
 \end{equation*}
@@ -6558,7 +6571,7 @@ an entire holomorphic function.
 Suppose $P(z)$ is nonconstant.
 In \exerciseref{exercise:polygoesinf} you proved that
 $\lim_{z \to \infty} P(z) = \infty$, and so
-$\lim_{z \to \infty} R(z) = 0$.  In other words, $R(z)$ is bounded.
+$\lim_{z \to \infty} R(z) = 0$.  It follows that $R(z)$ is bounded.
 Liouville says that $R(z)$ and therefore $P(z)$ must be constant, a
 contradiction.
 \end{proof}
@@ -6576,7 +6589,7 @@ polynomial $Q$ of degree $d-1$.
 
 \begin{exercise}[Easy]
 Prove the one-dimensional version of the \emph{\myindex{Jacobian conjecture}}:
-Suppose that $P(z)$ is a polynomial and $P'(z)$ is nonzero for all $z$,
+If $P(z)$ is a polynomial and $P'(z)$ is nonzero for all $z$,
 then $P$ is an automorphism of $\C$, that is, $P(z) = az+b$ and $a \neq 0$.
 \end{exercise}
 
@@ -6586,7 +6599,7 @@ onto.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is entire, nonconstant, and is never zero.  For $M > 0$, let
+Suppose $f$ is entire, nonconstant, and never zero.  For $M > 0$, let
 $X_M = \bigl\{ z \in \C : \sabs{f(z)} = M \bigr\}$ (note that $X_M$
 is closed).
 \begin{exparts}
@@ -6624,7 +6637,7 @@ and as they are both useful in other places, let us do both of them.
 
 \begin{proof}[Proof A]
 One proof is to use Morera's theorem (\thmref{thm:Morera})
-together with Fubini (\thmref{thm:fubini}), and Cauchy--Goursat
+together with Fubini (\thmref{thm:fubini}) and Cauchy--Goursat
 (\thmref{thm:cauchygoursat}).
 The function $h$ is continuous on $U$ (see \propref{prop:integralcontcont}).
 Let $T \subset U$ be a triangle.  Then
@@ -6645,9 +6658,9 @@ h(z)
 = \int_0^1 0 \, dt = 0.
 \end{equation*}
 We used Fubini's theorem to swap the integrals:
-The integral over $\partial T$ is really a sum of integrals over an interval
+The integral over $\partial T$ is really a sum of three integrals over an interval
 and the integrand is continuous (as a function of both variables), so Fubini applies.
-Morera's theorem now says that $h(z)$ is
+Morera's theorem now says that $h$ is
 holomorphic.
 \end{proof}
 
@@ -6676,23 +6689,23 @@ h(z)
 \end{equation*}
 As once before, we are really passing the partial derivatives in $x$
 and $y$ under the integral via the Leibniz integral rule,
-\thmref{thm:Leibnizrule} (or again really
+\thmref{thm:Leibnizrule} (or, again, really
 \exerciseref{exercise:severalvariableLeibniz}).
 The Leibniz rule applies because 
 \exerciseref{exercise:partialderscont} says that the partial
 derivatives are continuous as functions of both variables.
-Leibniz also implies that $h$ is continuously (real) differentiable,
-and thus
-the Cauchy--Riemann equations
+Leibniz also implies that $h$ is continuously (real) differentiable.
+The Cauchy--Riemann equations
 (\propref{prop:WirtCR}) now
-say that $h(z)$ is holomorphic.
+say that $h$ is holomorphic.
 \end{proof}
 
 In either case, the idea is to swap some limits (something that must always
 be justified),
 and the two techniques above are two kinds of swaps that come up
-often (Fubini, and differentiating under the integral).  By writing each
-path in a chain as an integral of one real variable, we obtain the following
+often (Fubini and differentiating under the integral).  By writing the
+integral over each
+$C^1$ path in a chain as an integral of one real variable, we obtain the following
 corollary.
 
 \begin{cor} \label{cor:holfuncbyintegral}
@@ -6751,14 +6764,15 @@ given by $f(z) = \bar{z}$.  Then note that $Cf$ does not tend to $f$
 as $z$ goes to $\partial \D$.
 Hint: $\bar{\zeta} = \frac{1}{\zeta}$ for
 $\zeta \in \partial \D$
-and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$.
+and $\frac{1/\zeta}{\zeta-z} = \frac{1}{z(\zeta-z)} - \frac{1}{z \zeta}$
+if $z \neq 0$.
 \end{exercise}
 
 \begin{exercise}
 Suppose $g \colon \partial \Delta_r(p) \to \C$ and
 there exists a continuous
 $f \colon \overline{\Delta_r(p)} \to \C$ that is
-holomorphic in $\Delta_r(p)$, where $g = f|_{\partial \Delta_r(p)}$.
+holomorphic in $\Delta_r(p)$, such that $g = f|_{\partial \Delta_r(p)}$.
 Prove that $Cg$ extends to a
 continuous function on $\overline{\Delta_r(p)}$ such that
 $Cg(z) = g(z)$ for $z \in \partial \Delta_r(p)$.
@@ -6769,7 +6783,7 @@ Hint: See \exerciseref{exercise:strongerCIFdisc}.
 \end{exercise}
 
 \begin{exercise}[Easy]
-Suppose $g \colon U \times [a,b] \to \C$ is continuous, 
+Suppose $U \subset \C$ is open, $g \colon U \times [a,b] \to \C$ is continuous, 
 $z\mapsto g(z,t)$ is holomorphic
 for each fixed $t \in [a,b]$,
 and $\sabs{g(z,t)} \leq M$ for all $(z,t) \in U \times
@@ -6798,10 +6812,10 @@ $\lim_{z \to \infty} f(z) = 0$.
 
 When dealing with a class of functions, any analyst worth their
 salt\footnote{Apparently the salt thing
-comes from Roman times, soldiers were
+comes from Roman times.  Soldiers were
 paid partly with salt to preserve their meats.  So if you didn't ask,
-you will have to eat only vegetables.} will ask about the right topology for this class of
-functions.
+you will have to eat only vegetables.} will ask about the right topology for
+that class.
 Another consequence of Cauchy's formula is that the right topology for
 holomorphic functions is the same as that for continuous functions: uniform
 convergence on compact subsets.  In fact, that's the convergence that we
@@ -6824,7 +6838,7 @@ Results from introductory analysis
 (see \thmref{thm:uniformlimitcont} and \corref{cor:uniformkptlimitcont})
 say that a uniform limit of continuous functions is continuous.
 By concentrating on a compact neighborhood such as $\overline{\Delta_r(p)}$,
-we can see that uniform convergence on compact subsets is enough.
+we can see that uniform convergence on compact subsets is good enough.
 In other words, uniform convergence on compact subsets is the right topology
 for continuous functions.
 
@@ -6865,7 +6879,7 @@ For $\zeta \in \partial \Delta_r(p)$,
 \frac{1}{\delta}
 \sabs{f_n(\zeta)-f(\zeta)} .
 \end{equation*}
-So as $f_n \to f$ uniformly on $\partial \Delta_r(p)$,
+Since $f_n \to f$ uniformly on $\partial \Delta_r(p)$,
 $\zeta \mapsto \frac{f_n(\zeta)}{\zeta-z}$ converges to 
 $\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ uniformly on $\partial \Delta_r(p)$.
 We can, therefore, take the limit as $n \to \infty$ underneath the integral
@@ -6878,12 +6892,13 @@ This formula holds for all $z \in \Delta_r(p)$.
 The function $f|_{\partial \Delta_r(p)}$ is continuous by uniform
 convergence, and $f$ on $\Delta_r(p)$ is equal to
 the Cauchy transform
-$C[f|_{\partial \Delta_r(p)}]$, which is holomorphic.  In other words,
-$f$ is holomorphic.
+$C[f|_{\partial \Delta_r(p)}]$, which is holomorphic.  Consequently,
+as $p \in U$ was arbitrary,
+$f$ is holomorphic on $U$.
 
 Let's attack the \myquote{Moreover.}
-Suppose $K \subset U$ is compact.  If $U \neq \C$, then the distance of
-$K$ and $\partial U$ is positive, say $d > 0$.
+Suppose $K \subset U$ is compact.  If $U \neq \C$,
+the distance between $K$ and $\partial U$ is positive, say $d > 0$.
 If $U=\C$, take an arbitrary $d > 0$.  Consider 
 \begin{equation*}
 K' = \bigcup_{z \in K} \overline{\Delta_{d/2}(z)} .
@@ -6953,10 +6968,10 @@ Suppose $U \subset \C$ is a bounded domain, and $f_n \colon \widebar{U} \to
 the restrictions $f_n|_{\partial U}$ converge uniformly.  Prove that
 $f_n$ converge uniformly on $\widebar{U}$ to a continuous
 function $f \colon \widebar{U} \to \C$ that is holomorphic in $U$.
-Hint: Maximum modulus principle gives that the sequence
+Hint: The maximum modulus principle gives that the sequence
 $\{ f_n \}$
 is Cauchy at each point (actually uniformly Cauchy).  Feel free to use the
-fact that uniform limit of continuous functions is continuous.
+fact that a uniform limit of continuous functions is continuous.
 \end{exercise}
 
 \begin{exercise}
@@ -7001,12 +7016,12 @@ subsets of $\bH$ to $f$.
 
 \begin{exercise}
 \pagebreak[2]
-Suppose $f \colon [0,\infty) \to \R$ is a continuous function such that
-there is some $c > 0$, some $M > 0$, and some $T > 0$ such that 
+Suppose $f \colon [0,\infty) \to \R$ is a continuous function and
+there is some $c \in \R$, some $M > 0$, and some $T > 0$ such that 
 $\sabs{f(t)} \leq M e^{ct}$ for all $t \geq T$
 ($f$ is of \emph{\myindex{exponential order}}).
 Let $U = \{ z \in \C : \Re z > c \}$.  Prove that the Laplace transform
-exists on $U$ and is holomorphic, that is, prove that
+exists on $U$ and is holomorphic.  That is, prove that
 \begin{equation*}
 F(z) = \int_0^\infty f(t) e^{-zt} \, dt = \lim_{r \to \infty} \int_0^r f(t)
 e^{-zt} \, dt
@@ -7076,7 +7091,7 @@ for all $z \in \D$.  Then
 \end{equation*}
 
 If $\sabs{f(z_0)} = \sabs{z_0}$ for some $z_0 \in \D \setminus \{ 0 \}$,
-then $g$ attains a maximum inside $\D$ and hence is constant.
+then $\sabs{g(z)}$ attains a maximum inside $\D$ and hence is constant.
 It must be that $f(z) = e^{i \theta} z$.
 As $g(0) = f'(0)$, the same conclusion, for the same reason,
 holds if $\sabs{f'(0)} = 1$.
@@ -7092,13 +7107,15 @@ and $f(0) = 0$.  For $z \in \D \setminus \{ 0 \}$,
 As $f'(z) = n z^{n-1}$, we get
 $\sabs{f'(0)} = 0 < 1$, but notice that a bound on the derivative
 does not hold at other points:
-By picking the right $z$ and $n$,
-we can make $\sabs{f'(z)}$ as large as we want.
-For a bound at other points, see the Schwarz--Pick lemma in
-\exerciseref{exercise:schwarzpick}.
+Picking the right $z$ and $n$
+can make $\sabs{f'(z)}$ as large as we want.
+The Schwarz--Pick lemma
+(see \exerciseref{exercise:schwarzpick}) gives
+a bound at other points.
 We can make $\sabs{z^n}$ arbitrarily small for a fixed $z \in \D$ by picking
 a large enough $n$, though we cannot make it bigger than $\sabs{z}$.  What is
-interesting is that Schwarz's lemma says that all holomorphic functions
+interesting is that Schwarz's lemma says that all holomorphic $f \colon \D
+\to \D$ with $f(0)=0$
 behave this way, not just~$z^n$.
 
 \begin{exbox}
@@ -7109,7 +7126,7 @@ function $f \colon \Delta_r(p) \to \Delta_s(q)$ with $f(p)=q$.
 
 \begin{exercise}
 Let $\bH = \{ z \in \C : \Im z > 0 \}$ be the upper half-plane.
-Prove that if $f \colon \bH \to \bH$ is holomorphic such that $f(i) = i$, then
+Prove that if $f \colon \bH \to \bH$ is holomorphic and $f(i) = i$, then
 \begin{equation*}
 \abs{\frac{f(z)-i}{\overline{f(z)}-i}} \leq
 \abs{\frac{z-i}{\bar{z}-i}} 
@@ -7141,8 +7158,8 @@ expansions of
 $f^{\ell}$, the $\ell$\textsuperscript{th} composition of $f$ with itself,
 $f(f(f(\cdots f(z) \cdots)))$.
 For a), consider the linear term of $f^{\ell}$ when $\abs{f'(p)}
-> 1$.  For b), consider the first term other
-than the linear term that is nonzero, and compute it for $f^{\ell}$ in terms
+> 1$.  For b), consider the first nonzero term other
+than the linear term, and compute it for $f^{\ell}$ in terms
 of the one for $f$.  Then apply Cauchy estimates.
 \end{exercise}
 \end{exbox}
@@ -7200,7 +7217,7 @@ $\varphi_a$.
 \end{myfig}
 
 \begin{prop}
-If $f \in \Aut(\D)$, then there exists an $a \in \D$
+If $f \in \Aut(\D)$, then there exist $a \in \D$
 and $\theta \in \R$ such that
 \begin{equation*}
 f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} = e^{i\theta} \varphi_a(z).
@@ -7209,10 +7226,10 @@ f(z) = e^{i\theta} \frac{z-a}{1-\bar{a}z} = e^{i\theta} \varphi_a(z).
 
 \begin{proof}
 Let $b = f(0)$.
-Consider $g = \varphi_b \circ f$, which is an automorphism,
-and $g(0) = 0$ as
+Consider $g = \varphi_b \circ f$, which is an automorphism
+such that $g(0) = 0$ as
 $\varphi_b(b) = 0$.
-As in the proof of Schwarz's lemma, we find a holomorphic $h(z)$
+As in the proof of Schwarz's lemma, we find a holomorphic $h$
 such that $g(z) = z h(z)$.  By
 Schwarz's lemma, if $z \in \D \setminus \{ 0 \}$, then
 \begin{equation*}
@@ -7221,20 +7238,20 @@ Schwarz's lemma, if $z \in \D \setminus \{ 0 \}$, then
 Consequently, $h$ is a map of the disc to the closed disc.
 
 But $h$ can have no zeros:
-$h(z) = \frac{g(z)}{z}$ cannot be zero for $z \neq 0$ as $g$ is injective
-and it cannot have a zero at $z=0$
-as $h(0) = \lim_{z\to 0} \frac{g(z)}{z} = g'(0) \neq 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
+$h(z) = \frac{g(z)}{z}$ cannot be zero for $z \neq 0$ as $g$ is injective,
+and $h(0) = \lim_{z\to 0} \frac{g(z)}{z} = g'(0) \neq 0$.  As $g$ is a biholomorphism, $g^{-1}$ is
 continuous. So $g^{-1}(K)$ is compact for any compact $K \subset \D$.
-In other words, $\sabs{g(z)}$ must approach $1$ as $z$
+It follows that $\sabs{g(z)}$ must approach $1$ as $z$
 approaches the boundary $\partial \D$ (exercise below).
 Then so must $\sabs{h(z)}$.
 The function
 $\sabs{h(z)}$ must, therefore, attain a minimum inside $\D$, or in other
-words $\babs{\frac{1}{h(z)}}$ must attain a maximum inside $\D$.  So $h(z)$
-is a constant, and $g(z) = \alpha z$ for some constant $\alpha$.
+words $\babs{\frac{1}{h(z)}}$ must attain a maximum inside $\D$.
+So $h$ is constant, and $g(z) = \alpha z$ for some constant $\alpha$.
 Clearly, 
 $\sabs{\alpha} = 1$, and so $\alpha = e^{i\theta}$.  Applying
-$\varphi_{-b}$ to both sides of $e^{i\theta} z = \varphi_b \circ f$
+$\varphi_{-b}$ to both sides of $e^{i\theta} z = \varphi_b \bigl( f(z)
+\bigr)$,
 we obtain
 $f(z) = \varphi_{-b}(ze^{i\theta})
 = e^{i \theta} \varphi_{-be^{-i\theta}}(z)$.
@@ -7262,7 +7279,7 @@ and $f \colon \bH \to \bH$ is an automorphism of $\bH$, then
 f(z) = \frac{a z +b}{c z + d}
 \avoidbreak
 \end{equation*}
-for real numbers $a,b,c,d$ such that $ad-bc > 0$.
+for some real numbers $a,b,c,d$ such that $ad-bc > 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -7279,7 +7296,7 @@ for at most finitely many $z \in \D$.
 Suppose that $f$ has no zeros in $\D$.  Prove that $f$ is constant
 (and what sort of constant).
 \item
-If $f(a) = 0$, then prove that
+Suppose $f(a) = 0$.  Prove that
 $z \mapsto \frac{f(z)}{\varphi_a(z)}$ is still holomorphic in $U$
 (i.e., can be defined at $a$ to be holomorphic in $U$)
 and still takes the circle to the circle.
@@ -7318,8 +7335,10 @@ If $f \colon \D \to \D$ is holomorphic, then
 \frac{1}{1-\abs{z}^2}
 \end{equation*}
 for all $z,\zeta \in \D$.
-If equality holds in one of the 
-inequalities for some $z \neq \zeta$,
+If equality holds 
+for some $z \in \D$ where $z \neq \zeta$
+in the first inequality
+or for any $z \in \D$ in the second inequality,
 then $f$ is an automorphism of $\D$.
 Conversely, if $f$ is an automorphism of $\D$,
 then equality holds in both inequalities for
@@ -7328,9 +7347,9 @@ all $z,\zeta \in \D$.
 \end{exbox}
 
 \pagebreak[0]
-In particular, the Schwarz--Pick lemma (\exerciseref{exercise:schwarzpick}) gives a bound on the derivative
+The Schwarz--Pick lemma (\exerciseref{exercise:schwarzpick}) gives a bound on the derivative
 at all points.  If
-$f \colon \D \to \D$ is holomorphic, nonconstant, and $f(a) = b$,
+$f \colon \D \to \D$ is holomorphic and $f(a) = b$,
 then
 \begin{equation*}
 \sabs{f'(a)} \leq
@@ -14427,7 +14446,8 @@ on $\sabs{z}=R$.
 Derive the \emph{\myindex{Schwarz integral formula}}, which recovers
 a holomorphic function out of the real parts of the boundary values
 and the value of the imaginary part at one point.
-If $f \colon \overline{\D} \to \C$ is continuous and holomorphic on
+If $f \colon \overline{\D} \to \C$ is continuous on $\overline{\D}$
+and holomorphic on
 $\D$, then for all $z \in \D$,
 \begin{equation*}
 f(z) =
@@ -23625,7 +23645,7 @@ d(x_{n+1},x_n) = d\bigl(f(x_n),f(x_{n-1})\bigr)
 \leq \cdots
 \leq k^n d(x_1,x_0) .
 \end{equation*}
-Suppose $m > n$, then
+Suppose $m > n$.  Then
 \begin{multline*}
 d(x_m,x_n)
 \leq \sum_{\ell=n}^{m-1} d(x_{\ell+1},x_\ell)
