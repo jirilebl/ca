@@ -3494,7 +3494,7 @@ We proved:
 
 \begin{prop}[Cauchy--Hadamard theorem\footnote{%
 Cauchy published this result in 1821, and Hadamard, despite also being
-French, didn't know about it and published it in his thesis in 1888.}]
+French, didn't know about it and published it when he was still a student in 1888.}]
 \index{Cauchy--Hadamard theorem}
 A power series $\sum c_n {(z-p)}^n$ converges absolutely if
 $\sabs{z-p} < R$ and diverges if
@@ -3609,9 +3609,9 @@ Less formally, a power series converges uniformly (absolutely) on
 compact subsets of its domain of convergence.
 
 \begin{proof}
-Without loss of generality, suppose $R < \infty$.
+Let $U = \Delta_R(p)$ if $R < \infty$ and $U=\C$ if $R=\infty$.
 Suppose $0 < r < R$.  As $\sum c_n {(z-p)}^n$ converges absolutely
-on $\Delta_R(p)$, the series
+on $U$, the series
 $\sum \sabs{c_n} r^n$ converges (and in particular any tail of
 that series converges).  Thus for $z \in \overline{\Delta_r(p)}$,
 \begin{equation*}
@@ -3628,7 +3628,7 @@ goes to zero as $m \to \infty$, and hence
 the series $\sum \sabs{c_n} \sabs{z-p}^n$ converges uniformly
 on $\overline{\Delta_r(p)}$.
 
-If $K \subset \Delta_{R}(p)$ is compact, then there exists some $r <
+If $K \subset U$ is compact, then there exists some $r <
 R$ such that $K \subset \Delta_r(p)$ (consider an open cover of
 $K$ by discs $\Delta_r(p)$ for all $r < R$).  The result follows.
 \end{proof}
@@ -3643,9 +3643,9 @@ it actually converges uniformly on the entire closed unit disc.
 
 \begin{exercise}
 Show that
-$\sum_{n=0}^\infty n^n z^{n^n}$ has radius of convergence $1$,
+$\sum_{n=1}^\infty n^n z^{n^n}$ has radius of convergence $1$,
 while
-$\sum_{n=0}^\infty n^n z^{n}$ is not convergent 
+$\sum_{n=1}^\infty n^n z^{n}$ is not convergent 
 for any $z \neq 0$.
 \end{exercise}
 
@@ -4048,10 +4048,10 @@ for negative $z$ and behave like an exponential for positive $z$.
 
 \subsection{The identity theorem}
 
-One of the main properties of analytic functions is that once you know them
+A key property of analytic functions is that once you know them
 in a neighborhood, you know them everywhere.  In fact, a much more general
 statement is true; you only need to know an analytic function on a set with
-a limit point.
+a limit point in the domain.
 
 \begin{thm}[Identity]\index{identity theorem!holomorphic functions}%
 \label{thm:identity}
@@ -4070,13 +4070,24 @@ The \myquote{In other words} bit is
 one consequence of this theorem that we will use often.  More
 concretely, if $f(p)=0$, but $f$ is not
 identically zero, then there is a disc $\Delta_r(p)$ such that
-$f(z) \neq 0$ for all $z \in \Delta_r(p) \setminus \{ 0 \}$.
+$f(z) \neq 0$ for all $z \in \Delta_r(p) \setminus \{ p \}$.
 
 Another common application of the theorem is the following weaker statement:
 \myquote{If the function is zero on a nonempty open subset, then $f \equiv 0$.}
 Think of the implications:  If $f \colon U \to \C$ is analytic, and we know
 $f$ in a tiny disc $\Delta_r(p)$ for an arbitrarily small $r$, then
 we know $f$ on all of $U$.
+
+An important point to emphasize is that the limit point of $Z_f$
+must be in the domain $U$.
+The function $\sin(\nicefrac{\pi}{z})$ is analytic
+in $\C \setminus \{ 0 \}$
+(that will become easier to see once we know holomorphic functions 
+are analytic)
+and its zero set
+$\{ \nicefrac{1}{n} : n \in \Z, n \neq 0 \}$
+has a limit point at the origin,
+which is not in the domain of the function.
 
 \begin{proof}
 Suppose $f$ is not identically zero.
@@ -4121,6 +4132,7 @@ f(z) = {(z-a)}^k g(z) ,
 \end{equation*}
 where $g(z)$ is a power series at $a$ such that $g(a) \neq 0$.
 
+
 \begin{exbox}
 \begin{exercise}
 Suppose $U \subset \C$ is a domain,
@@ -4137,7 +4149,7 @@ Suppose $U \subset \C$ is a domain,
 $f \colon U \to \C$ and $g \colon U \to \C$ are analytic,
 and $f(z)g(z) = 0$ for all $z \in U$.
 Prove that either $f$ or $g$ is identically zero.
-(In other words, the ring of holomorphic functions on $U$ is an integral
+(In other words, the ring of analytic functions on $U$ is an integral
 domain.)
 \item
 Find an open but disconnected $U$ and holomorphic $f$ and $g$,
@@ -4172,8 +4184,8 @@ determined.  Just show uniqueness, no need to show existence.
 \end{exercise}
 \end{exbox}
 
-One of the downsides of analytic functions is that there are no compactly
-supported analytic functions on $\C$.  The \emph{\myindex{support}}
+One of the downsides of analytic functions is that there are no nonzero
+compactly supported analytic functions on $\C$.  The \emph{\myindex{support}}
 of a function $f \colon U
 \to \C$ is the closure (in $U$) of the set
 $\bigl\{ z \in U : f(z) \neq 0 \bigr\}$, that is, 
