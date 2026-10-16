@@ -7851,11 +7851,12 @@ We then
 say $\Gamma$ is \emph{\myindex{homologous to zero} in $U$}.
 \end{defn}
 
-What homologous to zero means is that $\Gamma$ does not wind around any
+What \myquote{homologous to zero} means is that $\Gamma$ does not wind around any
 point in the complement of $U$.
 Do note that \myquote{homologous to zero} does not mean
 \myquote{equivalent to zero.}
-For instance, if $U = \C$, then every $\Gamma$ is homologous to zero trivially.
+For instance, if $U = \C$, then every $\Gamma$ is homologous to zero
+trivially, but most $\Gamma$s are not equivalent to zero.
 Also note the dependence on $U$.  The unit circle is homologous to zero in
 $U = \C$, but it is not homologous to zero in $U = \C \setminus \{ 0 \}$.
 
@@ -7900,11 +7901,10 @@ f'(\zeta)                 & \text{if } \zeta = z .
 
 \begin{exbox}
 \begin{exercise}
-Prove that $g(\zeta,z)$ is continuous in $U \times U$, and that
+Prove that $g(\zeta,z)$ is continuous on $U \times U$, and that
 the function $z \mapsto g(\zeta,z)$ is holomorphic for every fixed $\zeta \in U$.
-Hint: The only nontrivial piece of this proof is showing that $z \mapsto
-g(\zeta,z)$ is
-holomorphic at $z=\zeta$.
+Hint: Near the points of the \myquote{diagonal} $z=\zeta$
+show that you can write $g(\zeta,z) = \int_0^1 f'\bigl(z+t(\zeta-z)\bigr)\, dt$.
 \end{exercise}
 \end{exbox}
 
@@ -7919,13 +7919,13 @@ h(z) =
 \end{equation}
 As $n(\Gamma;z) = 0$ for all $z \in \C \setminus U$
 ($\Gamma$ is homologous to zero),
-the function $h(z)$ is defined for every $z \in \C$.
+the function $h$ is defined for every $z \in \C$.
 Unfortunately, at some points
 we have two definitions.
 To show that $h(z)$ is well-defined, we must show that if
 $z \in U \setminus \Gamma$ and
 $n(\Gamma;z) = 0$, then the two definitions agree.
-Consider such a $z$ (in particular, $z \notin \Gamma$).  Then,
+Consider such a $z$ (in particular, $z \notin \Gamma$).  Indeed,
 \begin{equation*}
 \int_\Gamma g(\zeta,z) \, d\zeta
 =
@@ -7937,7 +7937,7 @@ f(z) (2\pi i) n(\Gamma;z)
 =
 \int_\Gamma \frac{f(\zeta)}{\zeta-z} \, d\zeta .
 \end{equation*}
-So $h \colon \C \to \C$ is well-defined.
+%So $h \colon \C \to \C$ is well-defined.
 
 Next we show that $h$ is
 holomorphic.
@@ -7946,10 +7946,9 @@ in a neighborhood of every point.
 The set where $n(\Gamma;z) = 0$ is open as it is a
 union of some connected components of $\C \setminus \Gamma$.
 So each point in $\C$ has a neighborhood where $h$ is defined
-entirely by one or the other expression in \eqref{eq:CIFdefofh}.
-Given any point in $\C$,
-take a neighborhood where one of the expressions defines
-$h$ and apply \corref{cor:holfuncbyintegral}.
+entirely by one or the other expression in \eqref{eq:CIFdefofh},
+and so on such a neighborhood $h$ is holomorphic by
+\corref{cor:holfuncbyintegral}.
 
 The unbounded component of $\C \setminus \Gamma$ is contained in the
 set where $n(\Gamma;z) = 0$, so on this component, $h$ is defined by the
@@ -7967,7 +7966,8 @@ $\Gamma$, and let $d(z,\Gamma)$ be the distance from $z$ to $\Gamma$.  Then
 \leq
 \frac{M \ell}{d(z,\Gamma)} .
 \end{equation*}
-As $z \to \infty$, so does $d(z,\Gamma) \to \infty$, and so $h(z) \to 0$.
+\pagebreak[3]%
+As $z \to \infty$, so does $d(z,\Gamma)$, and hence $h(z) \to 0$.
 In particular, $h$ is an entire bounded function and
 Liouville says that $h$ is constant. Moreover, that constant must be zero.
 So suppose $z \in U \setminus \Gamma$.  Then
@@ -7981,7 +7981,7 @@ f(z) (2\pi i) n(\Gamma;z) . \qedhere
 \end{equation*}
 \end{proof}
 
-Cauchy's theorem follows immediately using the integral formula.
+Cauchy's theorem follows immediately from the integral formula.
 In fact, the two theorems are equivalent, see the exercises.
 
 \begin{thm}[Cauchy's theorem (homology version)]
@@ -8002,7 +8002,7 @@ then
 
 \begin{proof}
 Fix $z \in U \setminus \Gamma$.  Apply 
-the Cauchy integral formula for the function $\zeta \mapsto
+the Cauchy integral formula to the function $\zeta \mapsto
 (\zeta-z)f(\zeta)$ at $\zeta=z$:
 \begin{equation*}
 0 = n(\Gamma;z) (z-z)f(z) =
@@ -8073,8 +8073,8 @@ find what group it is isomorphic to).
 \begin{exercise}
 Prove that the two theorems
 (the homology versions of Cauchy's theorem and the Cauchy integral formula)
-are equivalent logically, that is, one follows
-from the other.  We have already proved that the Cauchy integral formula
+are logically equivalent, that is, one follows
+from the other and vice versa.  We have already proved that the Cauchy integral formula
 implies Cauchy's theorem.  So prove that
 Cauchy's theorem implies the Cauchy integral formula.
 \end{exercise}
@@ -8087,10 +8087,10 @@ some two distinct $z_1,z_2 \in U \setminus \Gamma$.
 Let $f \colon U \setminus \{z_1,z_2\} \to \C$ be
 holomorphic.
 Suppose $0< \epsilon < \sabs{z_1-z_2}$ is small enough that
-$\overline{\Delta_\epsilon(z_j)} \subset U$ for $j=1,2$,
-and that
-$\int_{\partial \Delta_\epsilon(z_1)} f(z) \, dz = A$ and 
-$\int_{\partial \Delta_\epsilon(z_2)} f(z) \, dz = B$.
+$\overline{\Delta_\epsilon(z_j)} \subset U$ for $j=1,2$.
+Let
+$A = \int_{\partial \Delta_\epsilon(z_1)} f(z) \, dz$ and 
+$B = \int_{\partial \Delta_\epsilon(z_2)} f(z) \, dz$.
 In terms of $k_1$, $k_2$, $A$, and $B$,
 compute
 \begin{equation*}
