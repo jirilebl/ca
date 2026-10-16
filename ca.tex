@@ -4640,7 +4640,8 @@ we define
 %With this definition we can do some estimates on line integrals.
 
 \begin{prop}[Triangle inequality for line integrals]%
-\index{triangle inequality!line integrals}
+\index{triangle inequality!line integrals}%
+\label{prop:mlineq}%
 Suppose $\gamma \colon [a,b] \to \C$ is 
 a piecewise-$C^1$ path and $f$ is a continuous function on
 $\gamma$.  Then
@@ -4654,6 +4655,9 @@ In particular, if $\sabs{f(z)} \leq M$ on $\gamma$ and $\ell = \int_\gamma ds
 \abs{\int_\gamma f(z) \, dz} \leq M \ell .
 \end{equation*}
 \end{prop} 
+
+The \myquote{In particular} is sometimes called the
+\emph{\myindex{ML-estimate}}.
 
 \begin{proof}
 We estimate using \propref{prop:inttriangleineq},
@@ -4672,12 +4676,12 @@ M
 \end{proof}
 
 Arclength is not preserved under uniform convergence of the paths.
-In other words, just because the images of two paths are very close to each
+Just because the images of two paths are very close to each
 other, it does not mean that the integrals over them will be close.
 The same caveat holds for the $dz$ integral as it does for the $\sabs{dz}$
 integral.
 So one has to be careful when saying that two paths are close to each other.
-One would need the derivatives to be close as well, since $\gamma'$ appears
+One needs the derivatives to be close as well, as $\gamma'$ appears
 under the integral.
 
 \begin{exbox}
@@ -4860,6 +4864,46 @@ smaller $U$.
 \end{exercise}
 \end{exbox}
 
+Integrating chains against $\sabs{dz}$ requires a little more care.
+
+\begin{defn} \label{defn:absdzchainint}
+Let $\Gamma = a_1 \gamma_1 + \cdots + a_n \gamma_n$ be a chain.  Define
+\begin{equation*}
+\int_\Gamma f(z) \, \sabs{dz}
+\overset{\text{def}}{=}
+\sabs{a_1}
+\int_{\gamma_1} f(z) \, \sabs{dz}
++
+\cdots
++
+\sabs{a_n}
+\int_{\gamma_n} f(z) \, \sabs{dz} .
+\end{equation*}
+\end{defn}
+
+With this convention, we get, as expected, that length does not depend
+on the orientation: $\int_{-\gamma} \sabs{dz} = \int_{\gamma} \sabs{dz}$.
+We also easily get the triangle inequality.
+
+\begin{prop}[Triangle inequality for chains]%
+\index{triangle inequality!chains}%
+\label{prop:mlchainineq}%
+Suppose $\Gamma$ is a chain and $f$ is a continuous function on
+$\Gamma$.  Then
+\begin{equation*}
+\abs{\int_\Gamma f(z) \, dz} \leq \int_\Gamma \sabs{f(z)} \, \sabs{dz} .
+\avoidbreak
+\end{equation*}
+In particular, if $\sabs{f(z)} \leq M$ on $\Gamma$ and $\ell = \int_{\Gamma}
+\sabs{dz}$, then
+$\abs{\int_\Gamma f(z) \, dz} \leq M \ell$.
+\end{prop} 
+
+For simplicity, one can represent any chain as a so-called
+\emph{\myindex{positive chain}} by reversing the orientations
+of the relevant paths to make sure all the coefficients $a_j$
+are positive.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Starter versions of Cauchy}
@@ -4884,7 +4928,7 @@ to a constant.
 \begin{prop} \label{prop:primunique}
 Suppose $U \subset \C$ is a domain, and
 $F \colon U \to \C$ and
-$G \colon U \to \C$ are holomorphic functions such that $F' = G'$.  Then
+$G \colon U \to \C$ are holomorphic such that $F' = G'$.  Then
 there is a constant $C$ such that
 $F(z) = G(z) + C$.
 \end{prop}
@@ -5017,7 +5061,7 @@ $\Gamma$ be a cycle in $\Delta_R(p)$.  Prove that
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open, $f \colon U \to \C$ holomorphic, and
+Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic, and
 $\Gamma$ is a cycle in $U$.  
 Given a $p \in U$, find a holomorphic $g \colon U \to \C$ with $g(p) = 0$
 and $g'(p) = 0$ such that $\int_\Gamma g(z)\, dz = \int_\Gamma f(z) \, dz$.
@@ -5109,12 +5153,6 @@ where $f$ is not complex differentiable.
 Cut $T$ into four subtriangles
 $T_1$, $T_2$, $T_3$, $T_4$ by cutting each side of $T$ in half.  See
 \figureref{fig:trianggoursat}.
-\begin{myfig}
-\subimport*{figures/}{trianggoursat.pdf_t}
-\caption{Cutting a triangle into four triangles of half the size.%
-\label{fig:trianggoursat}}
-\end{myfig}
-
 Each $T_j$ is positively oriented.
 The sides of the inner $T_4$ triangle have orientation opposite
 to the orientation of the inner sides of $T_1$, $T_2$, and $T_3$, and
@@ -5131,6 +5169,13 @@ c =
 +
 \int_{\partial T_4} f(z) \, dz } .
 \end{equation*}
+
+\begin{myfig}
+\subimport*{figures/}{trianggoursat.pdf_t}
+\caption{Cutting a triangle into four triangles of half the size.%
+\label{fig:trianggoursat}}
+\end{myfig}
+
 One of the four integrals, say that over $\partial T_j$,
 must have modulus at least $\nicefrac{c}{4}$.  Label
 that triangle $T^1 = T_j$:
@@ -5383,18 +5428,18 @@ So
 \frac{F(z+h)-F(z)}{h} &=
 \frac{1}{h}
 \int_{[z_0,z+h]-[z_0,z]} f(\zeta) \, d\zeta
-\\
-& =
+=
 \frac{1}{h}
 \int_{[z,z+h]} f(\zeta) \, d\zeta
-=
+\\
+& =
 \frac{1}{h}
 \int_0^1 f(z+th) h \, dt
 =
 \int_0^1 f(z+th) \, dt .
 \end{split}
 \end{equation*}
-In other words,
+We estimate
 \begin{equation*}
 \begin{split}
 \abs{
@@ -5488,10 +5533,10 @@ $\int_\Gamma f(z) \, d\bar{z} = 0$.
 \end{exbox}
 
 \begin{remark}\label{remark:irrotvfield}
-A complex-valued function can be thought of as a vector field on $\R^2$.
+A complex-valued function can represent a vector field on $\R^2$.
 \corref{cor:primitiveinstarlike}
-is in fact a special case of a theorem you have seen
-in vector calculus, a version of the \emph{\myindex{Poincar\'e lemma}}:
+is in fact a special case of a result from
+vector calculus, a version of the \emph{\myindex{Poincar\'e lemma}}:
 \emph{In a star-like domain $U \subset \R^2$, if a
 $C^1$ vector field $(u,v) \colon U \to \R^2$
 satisfies $\frac{\partial u}{\partial y} = \frac{\partial v}{\partial x}$
@@ -5501,7 +5546,7 @@ $\nabla f = (u,v)$ (the vector field is conservative, a gradient).}
 More concisely, \emph{an irrotational vector field
 in a star-like domain is conservative.}
 See the \myquote{conservative vector fields} section
-of your favorite calculus textbook.  You can gain a lot of
+of your favorite calculus textbook.  You can gain much
 intuition on the current material on holomorphic functions by reviewing the
 vector calculus analogues.
 \end{remark}
@@ -5561,8 +5606,8 @@ orientations marked in the figure.
 
 As chains, $c_1+c_2 = \gamma - \alpha$.  Each
 $c_j$ lies in a star-like domain (some possibilities marked by dashed lines in the figure),
-where $\frac{f(\zeta)}{\zeta-z}$ is holomorphic
-as a function of $\zeta$ (since $z$ is outside each of these domains).
+where $\zeta \mapsto \frac{f(\zeta)}{\zeta-z}$ is holomorphic
+(as $z$ is outside each of these domains).
 By Cauchy's theorem for star-like domains (\thmref{thm:cauchystarlike}),
 \begin{equation*}
 \int_{\gamma} \frac{f(\zeta)}{\zeta-z} \, d\zeta -
@@ -5643,12 +5688,14 @@ Show that $f$ at $p$ is the average of the values on $\Delta_r(p)$.
 That is, show
 \begin{equation*}
 f(p) = \frac{1}{\pi r^2} \int_{\Delta_r(p)} f(z) \, dA ,
+\avoidbreak
 \end{equation*}
 \glsadd{not:dA}%
 where $dA = dx \, dy = \rho \, d\rho \, d\theta$ is the area measure.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[3]
 Compute 
 \begin{equation*}
 \int_\gamma \frac{\cos ( z^2 ) +z}{z(z-\sqrt{\pi})} \, dz
@@ -5840,6 +5887,7 @@ for a holomorphic $f \colon U \to \C$ converges.%
 \label{fig:largestr}}
 \end{myfig}
 
+\pagebreak[2]
 Let us state the main conclusion of this subsection once more.
 
 \begin{cor}
@@ -5890,6 +5938,7 @@ the holomorphic function $\frac{1}{1+z^2}$.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[3]
 Suppose that $f \colon \D \to \C$ is holomorphic and suppose that
 $f$ is expanded in a power series around some $p \in \D$.
 \begin{exparts}
@@ -5903,6 +5952,7 @@ given by the formula you found above.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[3]
 Suppose $f \colon \D \to \C$ is holomorphic such that
 $f(z) = f(iz)$ for all $z \in \D$.  Show that there
 exists a holomorphic $g \colon \D \to \C$ such that
@@ -5919,6 +5969,7 @@ for all $n \in \N$.  Prove that $f$ is identically zero.
 \end{exercise}
 
 \begin{exercise}
+\pagebreak[3]
 Suppose that $g \colon \D \to \C$ is such that
 \begin{equation*}
 \lim_{h \to 0}
@@ -6407,7 +6458,7 @@ be a closed disc.  Expand $f(z) = \sum c_n {(z-p)}^n$.
 Then for all $n$,
 \begin{equation*}
 \sabs{c_n} =
-\abs{\frac{f^{(n)}(p)}{n!}}
+\bbabs{\frac{f^{(n)}(p)}{n!}}
 \leq
 \frac{\snorm{f}_{\partial \Delta_r(p)}}{r^{n}} .
 \end{equation*}
@@ -6453,7 +6504,7 @@ multiplication by $e^{i\theta}$, this example is the only one.
 Suppose $f \colon \D \to \C$ is holomorphic and for each $M > 0$, there
 exists an $n \in \N$ such that
 \begin{equation*}
-\abs{\frac{f^{(n)}(0)}{n!}} \geq M .
+\bbabs{\frac{f^{(n)}(0)}{n!}} \geq M .
 \end{equation*}
 Prove that $f$ is unbounded.
 \end{exercise}
@@ -6524,6 +6575,7 @@ say
 \sabs{c_n} \leq \frac{\snorm{f}_{\partial \Delta_r(0)}}{r^n} \leq
 \frac{M}{r^n}
 \qquad \text{for all } r > 0 .
+\avoidbreak
 \end{equation*}
 Letting $r \to \infty$ shows that $c_n = 0$ for $n \geq 1$.  In other
 words, $f(z) = c_0$ for all $z$.
@@ -6604,7 +6656,7 @@ $X_M = \bigl\{ z \in \C : \sabs{f(z)} = M \bigr\}$ (note that $X_M$
 is closed).
 \begin{exparts}
 \item Show that $X_M$ is nonempty for all $M > 0$.
-\item Show that for every $M$, the set $X_M$ has no bounded topological components.
+\item Show that for every $M$, the set $X_M$ has no bounded connected components.
 \end{exparts}
 Hint: See the exercises for the maximum modulus principle.
 \end{exercise}
@@ -6687,13 +6739,14 @@ h(z)
 \, dt
 = \int_0^1 0 \, dt = 0.
 \end{equation*}
-As once before, we are really passing the partial derivatives in $x$
+As before, we are really passing the partial derivatives in $x$
 and $y$ under the integral via the Leibniz integral rule,
-\thmref{thm:Leibnizrule} (or, again, really
+\thmref{thm:Leibnizrule} (again, really
 \exerciseref{exercise:severalvariableLeibniz}).
 The Leibniz rule applies because 
-\exerciseref{exercise:partialderscont} says that the partial
-derivatives are continuous as functions of both variables.
+the partial
+derivatives are continuous as functions of both variables
+by \exerciseref{exercise:partialderscont}.
 Leibniz also implies that $h$ is continuously (real) differentiable.
 The Cauchy--Riemann equations
 (\propref{prop:WirtCR}) now
@@ -6902,6 +6955,7 @@ the distance between $K$ and $\partial U$ is positive, say $d > 0$.
 If $U=\C$, take an arbitrary $d > 0$.  Consider 
 \begin{equation*}
 K' = \bigcup_{z \in K} \overline{\Delta_{d/2}(z)} .
+\avoidbreak
 \end{equation*}
 Clearly $K \subset K' \subset U$.
 See \figureref{fig:kkprime}.
@@ -6938,6 +6992,7 @@ f^{(\ell)}(p)
 \frac{\ell! \, \snorm{f_n-f}_{\partial \Delta_{d/2}(p)}}{{(d/2)}^{\ell}}
 \leq
 \frac{\ell!2^\ell}{d^\ell}\epsilon .
+\avoidbreak
 \end{equation*}
 Thus the sequence $\bigl\{ f_n^{(\ell)} \bigr\}$ converges uniformly to $f^{(\ell)}$ on $K$.
 \end{proof}
@@ -7138,6 +7193,7 @@ Prove that if $f \colon \bH \to \bH$ is holomorphic and $f(i) = i$, then
 \end{exercise}
 
 \begin{exercise}[Tricky]
+\pagebreak[3]
 Prove a certain generalization of Schwarz's lemma
 called \emph{\myindex{Cartan's uniqueness theorem}}:
 Suppose $U \subset \C$
@@ -7393,7 +7449,7 @@ primitive.  Consider the so-called \emph{\myindex{slit plane}}
 \begin{equation*}
 U = \C \setminus (-\infty,0] = \C \setminus \bigl\{ z \in \C : \Re z \leq 0 , \Im z = 0 \bigr\}.
 \end{equation*}
-It is a star-like domain and
+It is a star-like domain, and
 so there exists a
 primitive for $\nicefrac{1}{z}$ in $U$.
 If we
@@ -7411,7 +7467,7 @@ the principal branch of the argument, $\Arg$.  Let us show that
 \end{equation*}
 where $\log \sabs{z}$ is just the standard real logarithm of $\sabs{z}$.
 Set $L(z) = \log \sabs{z} + i \Arg z$, and let us show that $L = \Log$.
-We have $L(1) = 0 = \Log(1)$.  So far so good.
+We have $L(1) = 0 = \Log(1)$.  So far, so good.
 Observe
 \begin{equation*}
 e^{L(z)}
@@ -7421,9 +7477,11 @@ e^{\log \sabs{z}} e^{i \Arg z}
 \sabs{z} e^{i \Arg z} = z .
 \end{equation*}
 So $L$ is the inverse of the exponential, at least for $z \in U$.
-In particular, $L$ is holomorphic by the inverse function
+As $\log \sabs{z}$ and $\Arg z$ are continuous on $U$,
+so is $L$.
+Then $L$ is holomorphic by the inverse function
 theorem.
-Take the derivative of both sides of $z = e^{L(z)}$,
+Differentiate $z = e^{L(z)}$,
 \begin{equation*}
 1 = L'(z) e^{L(z)} = L'(z) z .
 \end{equation*}
@@ -7437,7 +7495,7 @@ make the definition
 \begin{equation*}
 \log z \overset{\text{def}}{=} \log \sabs{z} + i \arg z .
 \end{equation*}
-This definition is totally bonkers at first glance.  First, the $\log$ on the
+This definition is totally bonkers at first glance.  The $\log$ on the
 left is a different $\log$ than the $\log$ on the right.  On the right, it is the
 standard real $\log$, that is, $\log \colon (0,\infty) \to \R$,
 where $\log 1 = 0$.
@@ -7447,8 +7505,8 @@ since the $\arg$ on the right-hand side has infinitely many values.
 The value of $\log (-1)$ is $\pi i$, but also $-\pi i$, $3\pi i$,
 or $(\pi + 2\pi k)i$ for any $k \in \Z$.  So $\log$ is a function just as much
 as $\arg$ is a function.  See \figureref{fig:loggraph}.
-The double duty of \myquote{$\log$} is almost never a
-problem and it is generally clear which $\log$ one is talking about based on
+The double duty of \myquote{$\log$} is almost never a problem,
+and it is generally clear which $\log$ one is talking about based on
 what sort of things are being plugged into it.
 
 
@@ -7459,15 +7517,15 @@ what sort of things are being plugged into it.
 \caption{\myquote{Graphs} of the real part (left) and imaginary part (right)
 of the complex logarithm $\log z = \log \sabs{z} + i \arg z$.  The imaginary
 part is an infinite spiral, but only two turns are pictured.  A path on the
-graph around the unit circle is marked.\label{fig:loggraph}}
+graph over the unit circle is marked.\label{fig:loggraph}}
 \end{myfig}
 
 While $\log$ is not really a function---it is a multivalued
 function\footnote{%
-Cauchy: Quel Malheur!  Je d{\'e}teste le logarithme! Je veux devenir plombier.}---it is
+Cauchy: Quel malheur!  Je d{\'e}teste le logarithme! Je veux devenir plombier.}---it is
 the definition that we want.
 The principal branch,
-useful when one wants to get some actual numbers, is often not what we
+practical when one wants to get some actual numbers, is often not what we
 need; it is not as useful as one would think.
 And beware that computers like to give back the principal branch even 
 when it doesn't make any sense.
@@ -7498,11 +7556,12 @@ with quotation marks:
 \end{equation*}
 That's a lot better,
 no?\footnote{Non! Je veux aussi devenir plombier maintenant!}
-The equalities are only true morally.
-Interpreted correctly, it is exactly what is happening.  You really do subtract
+The equalities are only true morally,
+but interpreted correctly, this is exactly what is happening.
+You really do subtract
 one of the values of $\log 1$ from another value of $\log 1$.  To figure
 out which from which, start with, say, $\log 1 = 0$, and follow the
-function along the circle slowly and notice that $i \arg z$ grows from $0$ to
+function along the circle slowly and notice that $i \arg z$ moves from $0$ to
 $2\pi i$.  So the $\log 1$ at the end is $2 \pi i$.  See the path
 marked on \figureref{fig:loggraph}, the jump in the imaginary part between
 the beginning and the end is precisely that $2\pi i$.
@@ -7513,14 +7572,15 @@ of the logarithm if $L$ is holomorphic, $L'(z) = \nicefrac{1}{z}$, and $L(z)$ is
 to some value of $\log z$ for every $z \in U$.  It is not possible to define
 a branch of the logarithm in every $U$, but, for example, we can do it in every
 star-like $U$ where $0 \notin U$.  In general, one can define a branch of
-the logarithm in every simply connected domain, that is, a domain without holes,
+the logarithm in every simply connected domain
+(roughly, a domain without holes)
 that does not contain zero.
 More on that later.  Similarly, we define branches of $\log (z-p)$,
 a primitive of $\frac{1}{z-p}$, in which case the domain
 should not contain $p$.
 
-We may also talk about branches more loosely, and talk
-about following them along a path.  We don't define
+We may also talk about branches more loosely and say
+we follow them along a path.  We don't define
 a single branch---we define a branch in some small open set,
 follow its values for a while, then switch to another branch that 
 happens to agree with the first branch at the point where we
@@ -7535,7 +7595,7 @@ off.  We will see this procedure used more formally in just a moment.
 \caption{Following a branch.
 The branches are defined in the discs
 (they do not have to be discs).
-Points where the branches are supposed to equal
+Points where the branches are supposed to agree
 are marked.\label{fig:followbranch}}
 \end{myfig}
 
@@ -7558,7 +7618,8 @@ into pieces and using branches of the $\log$.
 Suppose
 $U \subset \C$ is open with
 $\partial \D \subset U$,
-$f \colon U \to \C$ is holomorphic,
+and
+$f \colon U \to \C$ is holomorphic
 such that
 $f(z)$ is never negative real or zero.
 Compute
@@ -7574,8 +7635,8 @@ $\log$, prove that
 \int_\gamma \frac{1}{z} \, dz = -2\pi i, 0, \text{ or } 2\pi i.
 \avoidbreak
 \end{equation*}
-Explicitly
-find three $\gamma$s that achieve each of these three possibilities.
+For each of these three possibilities,
+find an explicit $\gamma$ that achieves it.
 \end{exercise}
 \end{exbox}
 
@@ -7601,7 +7662,7 @@ the
 
 Intuitively, the winding number is the number of times that $\Gamma$ winds
 around $p$, counterclockwise.  This intuition is confirmed by integrating
-$\nicefrac{1}{z}$ for the path $e^{it}$ for $t \in [0,2\pi]$ to get
+$\nicefrac{1}{z}$ on the path $e^{it}$ for $t \in [0,2\pi]$ to get
 a winding number $1$ around $p=0$,
 as it goes once counterclockwise around zero.  If we do
 the integral with $e^{2it}$, we go around zero twice 
@@ -7618,7 +7679,7 @@ $n(\Gamma;p)$ is an integer.
 
 The proof is to take a closed path $\gamma$
 and to follow a branch of $\log$ around $\gamma$, and
-see by how much it changes.  See \figureref{fig:followbranch}, where we
+to see by how much it changes.  See \figureref{fig:followbranch}, where we
 go all the way around a loop.  Since we follow the argument
 and we go some number of times around $p$ along $\gamma$, the
 argument changes by some integer multiple of $2\pi$.
@@ -7636,7 +7697,7 @@ so in each one a branch of $\log (z-p)$ exists.  Call it $L_j$.
 Pick $L_1$ arbitrarily, then pick $L_2,\ldots,L_n$ in sequence accordingly
 so that
 $L_j\bigl(\gamma(t_j)\bigr) = L_{j+1}\bigl(\gamma(t_j)\bigr)$.
-Call $z_0 = \gamma(0) = \gamma(1)$.  So
+Let $z_0 = \gamma(0) = \gamma(1)$.  So
 \begin{multline*}
 n(\gamma;p)
 =
@@ -7655,7 +7716,7 @@ L_j\bigl(\gamma(t_{j-1})\bigr)
 =
 \frac{1}{2\pi i} \bigl( L_n(z_0) - L_1(z_0) \bigr) .
 \end{multline*}
-As $L_n$ and $L_1$ are both branches of $\log(z-p)$, their difference is
+Since $L_n$ and $L_1$ are both branches of $\log(z-p)$, their difference is
 $2\pi k i$ for some $k \in \Z$, as each is
 $\log\sabs{z_0-p} + i \arg (z_0-p)$ for some value of
 $\arg$.
@@ -7677,7 +7738,7 @@ do not cross $\Gamma$.
 \begin{prop} \label{prop:windingconstant}
 Given a cycle $\Gamma$,
 the function $z \mapsto n(\Gamma;z)$ is constant on the
-topological components of $\C \setminus \Gamma$.
+connected components of $\C \setminus \Gamma$.
 Furthermore, $n(\Gamma;z) = 0$ for $z$ on the unbounded component
 of $\C \setminus \Gamma$.
 \end{prop}
@@ -7722,7 +7783,7 @@ $\Gamma$, that is, $\ell = \int_\Gamma \sabs{dz}$.  Then
 \frac{\ell}{\pi {d}^2} \sabs{p_0-p} .
 \end{split}
 \end{equation*}
-So, $n(\Gamma;p)$ is a continuous function of $p$.
+So $n(\Gamma;p)$ is a continuous function of $p$.
 As it is continuous
 and integer-valued, it is constant on every connected component of
 $\C \setminus \Gamma$ (the set where it is defined).
@@ -7767,11 +7828,11 @@ $n(\Gamma;z) = 0$.
 
 \begin{exercise}%[\optneededexmark]
 \label{exercise:rayktimes}
-Suppose $\gamma \colon [a,b] \to \C$ is a closed $C^1$ path such that
-$\gamma(a) = \gamma(b)$ is some real negative number.  Suppose
-that $\gamma(t)$ is real and negative for only $k$ distinct $t$ (that
+Suppose $\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ is a closed $C^1$ path such that
+$\gamma(a) = \gamma(b)$ is some negative real number.  Suppose
+that $\gamma(t)$ is real and negative for exactly $k$ distinct~$t$ (that
 includes $t=a$ and $t=b$, so $k \geq 2$), and whenever $\gamma(t)$ is real and negative,
-then $\Im \gamma'(t) < 0$.  Prove that $n(\gamma;0) = k-1$.  Hint: Use
+$\Im \gamma'(t) < 0$.  Prove that $n(\gamma;0) = k-1$.  Hint: Use
 the principal branch.
 \end{exercise}
 \end{exbox}
@@ -7883,7 +7944,7 @@ holomorphic.
 Holomorphicity is a local property, so we only need to prove it 
 in a neighborhood of every point.
 The set where $n(\Gamma;z) = 0$ is open as it is a
-union of some topological components of $\C \setminus \Gamma$.
+union of some connected components of $\C \setminus \Gamma$.
 So each point in $\C$ has a neighborhood where $h$ is defined
 entirely by one or the other expression in \eqref{eq:CIFdefofh}.
 Given any point in $\C$,
@@ -13167,7 +13228,7 @@ morally one could think of it that way (hence the quotes).\label{fig:cyclearound
 
 \begin{proof}
 We first enlarge $K$ so that it
-has only finitely many components.  For a small enough $r > 0$, we cover
+has only finitely many connected components.  For a small enough $r > 0$, we cover
 $K$ by finitely many discs $\Delta_r(z)$ such that $\overline{\Delta_r(z)}
 \subset U$.  In particular, for some $z_1,\ldots,z_m$,
 \begin{equation*}
@@ -13178,7 +13239,7 @@ K' =
 \end{equation*}
 is a compact subset of $U$ and $K \subset K'$.
 As $K'$ is a union of finitely many closed discs, it has
-finitely many topological components.
+finitely many connected components.
 If we find a $\Gamma$ in $U$ around $K'$, then we are done as $K \subset K'$.
 
 Let $K_1,\ldots,K_n$ be the components of $K'$.
@@ -17586,7 +17647,7 @@ Let $K = \partial \D$.  By the maximum principle,
 $\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$ for any $z \in \D$
 and any polynomial $P$.
 Furthermore, as above, $\sabs{z} \leq 1$ for all $z \in \widehat{K}$.
-So, $\widehat{K} = \overline{\D}$.
+So $\widehat{K} = \overline{\D}$.
 \end{example}
 
 \begin{prop} \label{prop:convergenceonKhat}
