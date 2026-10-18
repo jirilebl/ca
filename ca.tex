@@ -9594,7 +9594,8 @@ dA
 
 \section{Domains with piecewise-\texorpdfstring{$C^1$}{C¹} boundary \texorpdfstring{$\star$}{*}}
 
-The way Green's theorem, and hence Cauchy's theorem, is very often given and used,
+The way Green's theorem, and hence Cauchy's theorem,
+is very often given and used
 is for a domain with piecewise-$C^1$
 boundary.  To treat open sets with piecewise-$C^1$ boundary, we must
 prove the so-called Jordan curve theorem, which is the rather obvious (but
@@ -9602,7 +9603,7 @@ surprisingly nontrivial to prove) statement that a simple closed path
 divides the plane into two components, the interior and the exterior.
 
 \begin{defn}
-A bounded\footnote{It is trickier to handle the unbounded case, see the exercises.}
+A bounded\footnote{It is trickier to handle the unbounded case.}
 open set $U \subset \C$ has
 \emph{\myindex{piecewise-$C^1$ boundary}} if $\partial U$
 is a disjoint union of finitely many
@@ -9621,9 +9622,12 @@ What we find is that an injective path locally divides the plane into two pieces
 
 \begin{lemma}
 Let $\gamma \colon [a,b] \to \C$ be an injective piecewise-$C^1$ path.
-Then for every $p \in \gamma \bigl((a,b)\bigr)$, there is a
-connected open neighborhood $W$ of $p$ such that $W \setminus \gamma$
-has exactly two components.
+Then for every $p \in \gamma \bigl((a,b)\bigr)$ and every
+open neighborhood $V$ of $p$, there is a
+connected open neighborhood $W \subset V$ of $p$ such that
+$W \setminus \gamma$
+has exactly two components and $\gamma \cap W$ is contained in the
+closer of each component.
 \end{lemma}
 
 For a piecewise-$C^1$ path, $\gamma'$ is never
@@ -9653,6 +9657,8 @@ intersects no other paths making up the original $\gamma$ and $-\delta < f(x) <
 \delta$ for $x \in (-\epsilon,\epsilon)$.  Clearly,
 $W \setminus \gamma$ has precisely two components,
 those points where $f(x) > y$ and those where $f(x) < y$.
+Clearly $\gamma \cap W$ is in the closure of both and we could
+have made $W$ arbitrarily small.
 
 So suppose that $p$ is a point where two of those paths making up $\gamma$
 meet and without loss of generality assume $p$ is the origin and 
@@ -9688,7 +9694,7 @@ the set
 $W = (-\epsilon,\epsilon) \times (-\delta,\delta)$
 intersects no other of the paths making up $\gamma$
 and
-$-\delta < f_1(x), f_2(x) < \delta$ for $x \in (-\epsilon,\epsilon)$.
+$-\delta < f_1(x), f_2(x) < \delta$ for $x \in (-\epsilon,0]$.
 It is not hard to see that $W \setminus \gamma$
 has precisely two components:
 One component is the set
@@ -9696,10 +9702,14 @@ where
 $x < 0$ and $f_1(x) < y < f_2(x)$
 and the second component is the rest.
 See \figureref{fig:localjordan}.
+Again in either case,
+$\gamma \cap W$ is in the closure of both components and we could
+have made $W$ arbitrarily small.
 \begin{myfig}
 \subimport*{figures/}{localjordan.pdf_t}
-\caption{A path divides the plane into two pieces, the first case, $\Re
-\gamma'(t) > 0$ for all $t$, is on the left, and the second case,
+\caption{A path locally divides the plane into two pieces.
+The first case, $\Re \gamma'(t) > 0$ for all $t$, is on the left,
+and the second case,
 $\Re \gamma'(t) < 0$ for $t > 0$, is on the right.
 \label{fig:localjordan}}
 \end{myfig}
@@ -9713,14 +9723,14 @@ Think about $\gamma$ oscillating wildly and going in and out of the disc.
 \end{exercise}
 
 \begin{exercise}
-Find an example injective piecewise-$C^1$ path that is not a graph of a
+Find an example of an injective piecewise-$C^1$ path that is not a graph of a
 function near some point even after an arbitrary rotation,
 that is, an example where the second case of the
 proof is really necessary.
 \end{exercise}
 
 \begin{exercise}
-Find an example piecewise-$C^1$ path that is not injective and such that
+Find an example of a piecewise-$C^1$ path that is not injective and such that
 the lemma fails.
 \end{exercise}
 
@@ -9744,7 +9754,7 @@ path, as we saw above, is almost a graph.
 \begin{thm}[Jordan curve theorem for piecewise-$C^1$ paths]%
 \index{Jordan curve theorem}
 Suppose $\gamma$ is a simple closed piecewise-$C^1$ path.
-Then $\C \setminus \gamma$ has two components,
+Then $\C \setminus \gamma$ has exactly two components,
 and $n(\gamma;z) = 1$ or 
 $n(\gamma;z) = -1$ for $z$ in the bounded component.
 \end{thm}
@@ -9834,22 +9844,47 @@ $n(\Gamma;z) = 0$ for all $z \notin \widebar{U}$.
 
 By a slight abuse of notation we write $\partial U$ for $\Gamma$ and we use
 the boundary as a cycle.
-Because the winding number is $1$ around the interior, we say that the boundary
+Because the winding number is $1$ around any point of the interior,
+we say that the boundary
 is \emph{\myindex{positively oriented}}.
 
 \begin{proof}
-Without loss of generality, we assume that $U$ is connected by taking
-one component.
-Let $\gamma_1,\ldots,\gamma_k$ be the disjoint simple closed piecewise-$C^1$
-paths comprising the boundary of $U$.  Suppose that they are all positively
+The boundary is a finite disjoint union of simple closed
+piecewise-$C^1$ paths $\gamma_1,\ldots,\gamma_k$.
+A small neighborhood of each point $p \in \partial U$
+is cut by some $\gamma_j$ into two connected pieces
+and exactly one of them can be in $U$ as $p$
+must be in the closure of $\C \setminus \widebar{U}$.
+Following along $\gamma_j$, covering it by neighborhoods
+from the lemma as before, we find that $\gamma_j$
+must border exactly one component of $U$.
+In particular, $U$ has finitely many components and
+each component is a bounded open set with piecewise-$C^1$ boundary.
+We can therefore, without loss of generality, assume that $U$
+is connected.
+
+Suppose that the boundary paths $\gamma_1,\ldots,\gamma_k$
+are all positively
 oriented, that is, the winding number around their interiors is $1$.
-The set $\C \setminus U$
-has one unbounded component and suppose $\gamma_1$ is a subset of this
-unbounded component of $\C \setminus U$.  Let $U'$ be the interior of
-$\gamma_1$.  As $U$ is connected it must therefore be that
-$U \subset U'$.
+The set $\C \setminus \widebar{U}$
+has one unbounded component $V$ and suppose some $p \in \gamma_1$ is in the
+closure of $V$.
+Let $U'$ be the interior of $\gamma_1$.
+By connectedness and the fact that $V$ is unbounded,
+it must be that $V$ is in the exterior of $\gamma_1$.
+The path $\gamma_1$, locally near $p$, divides the plane into two pieces,
+one in the exterior and one in the interior.
+As $p$ is in the closure of $V$, the exterior side near $p$
+is a subset of $V$ and thus the interior side must be a subset of $U$.
+As $U$ is connected, $U \subset U'$.
 In particular, no other $\gamma_j$ is in the exterior of $\gamma_1$ and so 
 $\gamma_2,\ldots,\gamma_k \subset U'$.
+Take any $j \geq 2$.
+By connectedness, $V$ is in the exterior of $\gamma_j$.
+The point $p$ is not on $\gamma_j$ so $p$ is also in the
+exterior of $\gamma_j$.  There exist points of $U$ arbitrarily
+close to $p$, and hence by connectedness $U$ is in the exterior of
+$\gamma_j$.
 See \figureref{fig:gammas}.
 \begin{myfig}
 \subimport*{figures/}{gammas.pdf_t}
@@ -9870,8 +9905,12 @@ $n(\Gamma;z) = 1$.
 
 On the other hand, if $z$ is in the complement of $\widebar{U}$, then either it
 is in the exterior of $\gamma_1$ and hence in the exterior of all the
-$\gamma_j$, or it is in the interior of $\gamma_1$ and also in the interior
-of some $\gamma_j$.  As $U$ is connected and contains exterior points
+$\gamma_j$, or it is in the interior of $\gamma_1$ (and thus not in $V$).
+The bounded component of $\C \setminus \widebar{U}$ that contains $z$
+has a boundary point $q$ in some $\gamma_j$ for $j \geq 2$.
+But the non-$U$ side of $\gamma_j$ is the interior.  Hence $z$ is
+in the interior of $\gamma_j$.
+As $U$ is connected and lies in the exteriors
 of all $\gamma_2,\ldots,\gamma_k$, it is not possible for a point to be in
 the interior of two of these paths.  Thus, if $z \in U'$, there is exactly
 one $j \neq 1$
@@ -9932,7 +9971,7 @@ $\C \setminus \widebar{U}$.
 Prove that the following definition of piecewise-$C^1$ boundary is
 equivalent to the one we gave for bounded open sets:  An open $U \subset
 \C$ has piecewise-$C^1$ boundary if for every $p \in \partial U$
-there exists an open neighborhood $W$ of $p$ and an injective piecewise-$C^1$ path $\gamma
+there exist an open neighborhood $W$ of $p$ and an injective piecewise-$C^1$ path $\gamma
 \colon [a,b] \to \C$ such that $W \cap \partial U =
 \gamma\bigl((a,b)\bigr)$, and every $p \in \partial U$ is in the closure
 of $\C \setminus \widebar{U}$.
@@ -9958,7 +9997,7 @@ If you can count your money, you don't have a billion dollars.
 Per the identity theorem, zeros of a holomorphic function are
 isolated (or the function is identically zero).  Let us investigate how a
 holomorphic function behaves near a zero.
-We expand upon an idea we used several times before.
+We expand upon an idea we have used several times before.
 
 \begin{lemma}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is holomorphic, $p \in U$,
@@ -9987,14 +10026,14 @@ and $p$ is a zero of $f$ of multiplicity $k$.  Potayto, potahto.}
 of the zero at $p$.
 \end{defn}
 
-Another way\footnote{Which is really the standard way of defining order of a
+Another way\footnote{Which is really the standard way of defining the order of a
 zero for nonholomorphic functions.}
 of saying that a zero of $f$ at $p$ has order $k$ is to say that
 $k$ is the largest integer such that $\frac{f(z)}{{(z-p)}^{k}}$ is bounded
 near $p$.  That these possible definitions are equivalent
-follows from the lemma.  See \exerciseref{exercise:order} below.
+follows from the lemma.  See also the related \exerciseref{exercise:order} below.
 
-The conclusion of the lemma holds also when $f(p) \neq 0$,
+The conclusion of the lemma also holds when $f(p) \neq 0$,
 in which case
 $k=0$ and $g = f$.  So one can (if one is really inclined to)
 say that when $f(p) \neq 0$, then $p$ is
@@ -10048,7 +10087,7 @@ function $z^k$ acts near the origin.
 Suppose $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic.
 Suppose $p \in U$ is a zero\footnote{As we said, by this we mean that
 this is an honest zero of $f$ and $k > 0$.}
-of $f$ of order $k \in \N$.  Then there exists an open neighborhood $V$
+of $f$ of order $k \in \N$.  Then there exist an open neighborhood $V$
 of $p$ and a holomorphic $g \colon V \to \C$ with
 $g(p) = 0$ and $g'(p) \neq 0$,
 such that
@@ -10076,7 +10115,7 @@ $g'(z) = (z-p) \varphi'(z) + \varphi(z)$, we have $g'(p) = \varphi(p) \neq 0$.
 \begin{exercise}%[\neededexmark]
 \label{exercise:order}
 Suppose $U \subset \C$ is open and
-$f \colon U \to \C$ holomorphic.
+$f \colon U \to \C$ is holomorphic.
 Show that $f$ has a zero of order $k$ at $p \in U$
 if and only if
 there is a disc $\Delta_r(p) \subset U$ and some $C_1 > 0$ and $C_2 > 0$
@@ -10092,10 +10131,10 @@ C_2 {\sabs{z-p}}^k .
 \end{exercise}
 
 \begin{exercise}[Easy]
-Suppose $U \subset \C$ is a domain and $f$ 
+Suppose $U \subset \C$ is a domain and a holomorphic $f \colon U \to \C$ 
 has zeros at $z_1, z_2, \ldots, z_n$ of
 orders $k_1, k_2, \ldots, k_n$ and no other zeros.
-Then there exists a holomorphic
+Show that there exists a holomorphic
 $g \colon U \to \C$ that is never zero
 such that $f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n} g(z).$
 \end{exercise}
@@ -10126,8 +10165,9 @@ $f(z) = {(z-z_1)}^{k_1}{(z-z_2)}^{k_2}\cdots{(z-z_n)}^{k_n}
 \end{exercise}
 
 \begin{exercise}
-The zero set of $\Re f$ looks like $\Re z^k$:
-Show that if $f \colon U \to \C$ has a zero of order $k \in \N$ at $p \in
+The zero set of $\Re f$ looks like that of $\Re z^k$:
+Show that if a holomorphic $f \colon U \to \C$
+has a zero of order $k \in \N$ at $p \in
 U$, then there exist $C^1$ curves
 $\gamma_j \colon (-\epsilon, \epsilon) \to \C$ for
 $j=1,\ldots,k$ with $\gamma_j(0) = p$
@@ -10138,7 +10178,7 @@ all $t \in (-\epsilon,\epsilon)$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $f$ is holomorphic in an open neighborhood of a point $p$
+Suppose $f$ is holomorphic and nonconstant in an open neighborhood of a point $p$
 and suppose $\Re f$ has a critical point at $p$ (derivative is zero).
 Prove that $p$ is a saddle point of $\Re f$ (neither a local minimum nor a local maximum).
 Hint: Apply the theorem and show that $k \geq 2$.  Note that $\Re z^k$ has a
@@ -10165,7 +10205,7 @@ continuous at the origin, no matter how we'd try to define $f(0)$.
 \begin{exercise}
 Prove L'H\^{o}pital's rule: If $f$ and $g$ are holomorphic near $p$,
 both with an isolated zero at $p$,
-then $\lim_{z\to p} \frac{f(z)}{g(z)}$ exists (including possibly $\infty$)
+then $\lim_{z\to p} \frac{f(z)}{g(z)}$ exists (possibly $\infty$)
 and equals 
 $\lim_{z\to p} \frac{f'(z)}{g'(z)}$.
 \end{exercise}
@@ -13720,7 +13760,7 @@ Let $U \subset \C$ be open and $f \colon U \to \R$ a function.
 \begin{enumerate}[(i)]
 \item
 The function $f$ is harmonic if and only if
-for every point $p \in U$, there exists an open neighborhood $V$ of $p$ and a
+for every point $p \in U$, there exist an open neighborhood $V$ of $p$ and a
 holomorphic $\varphi \colon V \to \C$ such that $f = \Re \varphi$
 on $V$.
 \item
@@ -18258,7 +18298,7 @@ and such that $\varphi(V_+) \subset U$ and $\varphi(V_-) \cap U =
 function, holomorphic on $U$, such that $f(C) \subset D$ for some
 other real-analytic curve $D$.
 
-Then there exists a neighborhood $W$ of $C$ and a holomorphic
+Then there exist a neighborhood $W$ of $C$ and a holomorphic
 function $F \colon U \cup W \to \C$ such that $F|_{U \cup C} = f$.
 \end{cor}
 
