@@ -3318,7 +3318,7 @@ holomorphic and its derivative never vanishes.
 \subsection{The function \texorpdfstring{$z^n$}{z to the n}}
 
 To understand holomorphic functions locally, 
-it is sufficient to understand $z \mapsto z^n$.  We will prove that
+it suffices to understand $z \mapsto z^n$.  We will prove that
 holomorphic functions are just power series and so we can always factor
 a $z^n$ for some $n$ out of a power series that vanishes at the origin,
 which is, after all, just a sum of such terms.  Consequently, every holomorphic
@@ -8105,7 +8105,7 @@ compute
 \section{Simply connected domains}
 
 Roughly, a simply connected domain\footnote{%
-There is no agreement among various mathematicians (I've asked a few) if
+There is no agreement among mathematicians (I've asked a few) whether
 a (path-)disconnected set can be \myquote{simply connected.}
 To avoid heated arguments with topologists of various stripes,
 it's best to just not define the term for disconnected sets.
@@ -8115,8 +8115,8 @@ perhaps not the standard definition, but for domains in $\C$
 (connected open sets)
 it is equivalent to the correct one.
 We will define the term properly once we get 
-to homotopy.\footnote{Homotopy is in an optional section, which is the
-reason why we make this \myquote{wrong} definition.}
+to homotopy.\footnote{Homotopy is in an optional section, which is
+why we make this \myquote{wrong} definition.}
 We may sometimes say
 \myquote{simply connected in the sense of homology}
 to emphasize that we are using this particular definition.
@@ -8132,8 +8132,9 @@ In other words, $U$ is simply connected
 if $n(\Gamma;p) = 0$ for every cycle $\Gamma$ in $U$ and
 every $p \in \C \setminus U$.
 So, in a simply connected domain, no cycle in $U$ can wind around any point
-of $\C \setminus U$.  Examples of simply connected domains are $\C$, $\D$, or
-$\bH$.  An example of a domain that is not simply connected is
+of $\C \setminus U$.
+Examples of simply connected domains are $\C$, $\D$, and $\bH$.
+An example of a domain that is not simply connected is
 $\C \setminus \{ 0 \}$.
 See the exercises below.
 
@@ -8142,7 +8143,8 @@ See the exercises below.
 \begin{exercise}
 \begin{exparts}
 \item
-Prove that every star-like domain (e.g., $\C$, $\D$, and $\bH$) in $\C$ is simply connected.
+Prove that every star-like domain in $\C$
+(e.g., $\C$, $\D$, and $\bH$) is simply connected.
 \item
 Prove that $\C \setminus \{ 0 \}$ is not simply connected.
 \end{exparts}
@@ -8175,7 +8177,7 @@ holomorphic.  If $\Gamma$ is a cycle in $U$, then
 
 The proof follows at once from \thmref{thm:CThomology},
 since if $U$ is simply connected, then
-every $\Gamma$ in $U$ is homologous to zero in $U$.
+every cycle in $U$ is homologous to zero in $U$.
 In simply connected domains,
 as Cauchy's theorem holds for all cycles,
 we have primitives (antiderivatives).
@@ -8188,20 +8190,20 @@ primitive in $U$.
 
 \begin{proof}
 Fix some $p \in U$. As $U$ is path connected, for every $z \in U$, pick
-some piecewise-$C^1$ path $\gamma$ from $p$ to $z$
+some piecewise-$C^1$ path $\alpha$ from $p$ to $z$
 and define
 \begin{equation*}
-F(z) = \int_\gamma f(\zeta) \, d\zeta .
+F(z) = \int_\alpha f(\zeta) \, d\zeta .
 \end{equation*}
-A priori, the function $F(z)$ depends on $\gamma$, but
-if $\alpha$ is another path from $p$ to $z$, then
-$\gamma-\alpha$ is a cycle in $U$ and
+A priori, the function $F(z)$ depends on $\alpha$, but
+if $\beta$ is another path from $p$ to $z$, then
+$\alpha-\beta$ is a cycle in $U$ and
 Cauchy's theorem says that
 \begin{equation*}
-\int_\gamma f(\zeta) \, d\zeta -
-\int_\alpha f(\zeta) \, d\zeta 
+\int_\alpha f(\zeta) \, d\zeta -
+\int_\beta f(\zeta) \, d\zeta 
 =
-\int_{\gamma-\alpha} f(\zeta) \, d\zeta  =  0 .
+\int_{\alpha-\beta} f(\zeta) \, d\zeta  =  0 .
 \end{equation*}
 So $F$ is well-defined without specifying the path.
 
@@ -8210,7 +8212,7 @@ star-like domains (\propref{prop:primitiveinstarlike1} and
 \corref{cor:primitiveinstarlike}).
 Let $q \in U$ be a point and consider a disc $\Delta_r(q) \subset U$
 (which is star-like with respect to $q$ in particular).
-We take $\gamma$ to be the path from $p$ to $q$.
+We take $\gamma$ to be a path from $p$ to $q$.
 As $F$ does not depend on the path taken, we have that for $z \in \Delta_r(q)$,
 \begin{equation*}
 F(z) =
@@ -8230,11 +8232,11 @@ See \figureref{fig:anyantidef}.
 
 \begin{myfig}
 \subimport*{figures/}{anyantidef.pdf_t}
-\caption{Existence of primitive in a simply connected
+\caption{Existence of a primitive in a simply connected
 domain with $\Delta_r(q)$ marked.\label{fig:anyantidef}}
 \end{myfig}
 
-\begin{cor} \label{cor:simplyconimpleslog}
+\begin{cor} \label{cor:simplyconimplieslog}
 Let $U \subset \C$ be a simply connected domain and
 $f \colon U \to \C$ a nowhere zero holomorphic
 function.  Then there exists a holomorphic $g \colon U \to \C$
@@ -8298,9 +8300,9 @@ e^{\psi(z)} = f(z) . \qedhere
 \end{equation*}
 \end{proof}
 
-On the other hand, the existence of primitives,
+Conversely, the existence of primitives,
 Cauchy's theorem without restriction on $\Gamma$, or the existence of logs guarantees
-simply-connectedness.  In particular, we have the following set of equivalent
+simply-connectedness.  We have the following set of equivalent
 versions of simply-connectedness for domains.
 
 \begin{prop}
@@ -8348,7 +8350,7 @@ We proved
 and
 \ref{thm:simplyconnected:ii} $\Rightarrow$
 \ref{thm:simplyconnected:iii}
-is the same as the proof of \corref{cor:simplyconimpleslog}.
+is the same as the proof of \corref{cor:simplyconimplieslog}.
 Next, suppose \ref{thm:simplyconnected:iii} is true.  For
 $p \in \C \setminus U$, find a $g$ such that
 $e^{g(z)} = z-p$.
@@ -8456,13 +8458,14 @@ Prove that $U = U_1 \cup U_2$ is a simply connected domain.
 Let $U_1,U_2 \subset \C$ be two simply connected domains such that $U_1 \cap
 U_2$ is nonempty and connected.
 Prove that $U = U_1 \cap U_2$ is a simply connected domain.
-Note: This result is true in the plane, but it is no longer true in the Riemann
+Note: This result is true in the plane, but it is no longer true on the Riemann
 sphere.
 \end{exercise}
 
 \begin{exercise}
 Find two nonempty simply connected domains
 $U_1,U_2 \subset \C$ such that $U_1 \cap U_2$ is nonempty and both
+of the following conditions hold:
 \begin{exnumparts}
 \item
 $U_1 \cup U_2$ is not a simply connected domain.
@@ -8542,7 +8545,7 @@ where $\gamma$ is any circle of radius $s$, $r_1 < s < r_2$, centered at
 $p$, oriented counterclockwise.
 \end{thm}
 
-Recall that convergence of a double series such as
+Recall that convergence of a two-sided series such as
 \begin{equation*}
 \sum_{n=-\infty}^{\infty} a_n
 \end{equation*}
@@ -8627,8 +8630,8 @@ f(z) =
 \end{equation*}
 
 We expand the two bits separately.  First,
-if $\zeta \in \partial \Delta_{s_2}$, then
-$\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} < 1$ and so
+if $\zeta \in \partial \Delta_{s_2}(p)$, then
+$\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} < 1$, and so
 we follow the logic of \thmref{thm:holpower}.  The reason that we can
 swap the integral and the series limit is the same as in that theorem.
 \begin{equation*}
@@ -8660,7 +8663,7 @@ swap the integral and the series limit is the same as in that theorem.
 \end{equation*}
 
 Similarly, 
-if $\zeta \in \partial \Delta_{s_1}$, then
+if $\zeta \in \partial \Delta_{s_1}(p)$, then
 $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} < 1$, and so
 \begin{equation*}
 \begin{split}
@@ -8698,7 +8701,7 @@ $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} < 1$, and so
 {(z-p)}^{n} .
 \end{split}
 \end{equation*}
-Adding these together we have the right thing, except that the formula for $c_n$
+Adding these together, we have the series, except that the formula for $c_n$
 is not quite right.  Given any $s$ such that
 $r_1 < s < r_2$,
 the cycle
@@ -8725,18 +8728,21 @@ c_n = \frac{1}{2\pi i}
 So we get the same $c_n$ no matter which $s$ we pick.
 
 Next, convergence.
-For any $\epsilon > 0$,
-the geometric series used for the first part converges uniformly
-absolutely when $\babs{\frac{z-p}{\zeta-p}} = \frac{\sabs{z-p}}{s_2} \leq
-1-\epsilon$.  In other words, the series converges uniformly absolutely
-on compact subsets of $\Delta_{s_2}(p)$ (when $\sabs{z-p} < s_2$).
-%
-The geometric series used for the second part converges uniformly
-absolutely when $\babs{\frac{\zeta-p}{z-p}} = \frac{s_1}{\sabs{z-p}} \leq
-1-\epsilon$.  In other words, the series converges uniformly absolutely
-on compact subsets of $\C \setminus \overline{\Delta_{s_1}(p)}$
-(when $\sabs{z-p} > s_1$).
-Hence both parts (and so the entire series) 
+The computation of the first (positive) part of the series
+only used that $\sabs{z-p} < s_2$.
+Hence, that part of the series converges
+for all such $z$,
+and, being a power series in $z-p$,
+it converges uniformly absolutely on compact subsets of
+$\Delta_{s_2}(p)$.
+The computation of the second (negative) part of the series
+only used that $\sabs{z-p} > s_1$.
+Hence, that part of the series converges
+for all such $z$,
+and, being a power series in $\frac{1}{z-p}$,
+it converges uniformly absolutely on compact subsets of
+$\C \setminus \overline{\Delta_{s_1}(p)}$.
+Thus, both parts (and so the entire series) 
 converge uniformly absolutely on compact
 subsets of $\ann(p;s_1,s_2)$.  As $s_1$ and $s_2$ were arbitrary such that
 $r_1 < s_1 < s_2 < r_2$, we get that the series
@@ -8780,9 +8786,11 @@ $\int_{\partial \Delta_{s}(p)}
 {(\zeta-p)}^{n-m-1}
  \, d\zeta$ is nonzero is when $n=m$, that is, when we are integrating
 ${(\zeta-p)}^{-1}$, in which case we get $2 \pi i$.
+The reason we could have swapped the limits is that the series
+converges uniformly on the circle $\partial \Delta_s(p)$.
 \end{proof}
 
-Similarly to the power series, due to the uniqueness of the Laurent series,
+Similarly to power series, due to the uniqueness of the Laurent series,
 it does not matter how we obtain it.  For example, the function $e^{1/z}$
 has the Laurent series
 \begin{equation*}
@@ -8813,7 +8821,7 @@ expansion in $\ann(0;1,\infty) = \C \setminus \overline{\D}$:
 \end{equation*}
 
 While in general a Laurent series is not a power series,
-it could very well be one when all the $c_n$ for negative $n$ are zero.
+it very much is one when all the $c_n$ for negative $n$ are zero.
 
 \medskip
 
@@ -8860,7 +8868,8 @@ Hint: Remember \subsectionref{subsec:convergence}.
 \begin{exercise}[Easy]
 Suppose $f \colon \Delta_r(p) \to \C$ is holomorphic, and suppose you expand
 $f$ in a Laurent series in $\ann(p;r_1,r_2)$ for $0 \leq r_1 < r_2 \leq r$.
-Prove that $c_n = 0$ for all negative $n$ and that $c_n$ for nonnegative $n$
+Prove that $c_n = 0$ for all negative $n$
+and that the $c_n$ for nonnegative $n$
 are the coefficients of the power series of $f$ at $p$.
 \end{exercise}
 
@@ -8874,9 +8883,10 @@ $\alpha f + \beta g$ has coefficients $\alpha a_n + \beta b_n$.
 
 \begin{exercise}[Easy]
 Suppose $\sum_{n=-\infty}^m c_n {(z-p)}^n$ is a Laurent series with only
-finitely many positive terms.  Show that either the series converges
-nowhere in $\C \setminus \{ p \}$, or there exists a number $r \geq 0$ such that the series
-converges uniformly and absolutely on compact subsets of
+finitely many terms with positive powers.
+Show that either the series converges
+nowhere in $\C \setminus \{ p \}$ or there exists a number $r \geq 0$ such that the series
+converges uniformly absolutely on compact subsets of
 $\ann(p;r,\infty)$.
 \end{exercise}
 
@@ -8909,7 +8919,7 @@ $f = g$ on $\ann(p;r_1,r_2)$.
 
 \begin{exercise}
 Suppose $f$ is a holomorphic function defined in a domain that contains
-the unit circle $\partial \D$ such that
+the unit circle $\partial \D$, and
 \begin{equation*}
 \int_{\partial \D} f(z)\bar{z}^n
  \, dz = 0
@@ -8917,9 +8927,9 @@ the unit circle $\partial \D$ such that
 for all integers $n \in \Z$.  Prove that $f \equiv 0$.
 \end{exercise}
 
-\begin{exercise}
-Show that for a Laurent series it is again enough to show convergence
-somewhere.  Suppose $\sum_{n=-\infty}^\infty c_n {(z-p)}^n$ is a Laurent
+\begin{exercise}[Easy]
+Show that for a Laurent series it is enough to show convergence
+at two points.  Suppose $\sum_{n=-\infty}^\infty c_n {(z-p)}^n$ is a Laurent
 series that converges at two points, $z_1$ and $z_2$, where
 $0 < \sabs{z_1-p} < \sabs{z_2-p} < \infty$.
 Prove that the series converges uniformly absolutely on compact subsets
@@ -8937,7 +8947,7 @@ Slowly (continuously) deforming one path into another path
 is called \emph{\myindex{homotopy}}.  Let us
 define it for closed paths,
 where in this section by \myquote{path} we mean only
-continuous and not necessarily piecewise-$C^1$.
+continuous and not necessarily piecewise-$C^1$ functions.
 
 \begin{defn}\label{defn:homotopy}
 Let $U \subset \C$ be open.
@@ -8946,7 +8956,7 @@ $\gamma_0 \colon [a,b] \to U$ and
 $\gamma_1 \colon [a,b] \to U$
 where $\gamma_j(a)=\gamma_j(b)$ (two closed paths)
 are \emph{\myindex{homotopic}} in $U$
-(or relative to $U$) if there exists a continuous function
+if there exists a continuous function
 $H \colon [a,b] \times [0,1] \to U$ such that
 for all $t \in [a,b]$ and $s \in [0,1]$,
 \begin{equation*}
@@ -8983,6 +8993,7 @@ So every closed path in $\D$ is homotopic to a constant.
 \end{example}
 
 What we want to do is to prove that if $\gamma_0$ and $\gamma_1$ are
+closed
 piecewise-$C^1$ paths homotopic in $U$ and $f \colon U \to \C$ is holomorphic, then
 $\int_{\gamma_0} f(z)\,dz = \int_{\gamma_1} f(z)\, dz$.
 Consider the intermediate paths $\gamma_s(t) = H(t,s)$.
@@ -8991,7 +9002,7 @@ $\gamma_{s+\epsilon}$ and so it should not be hard to prove that their
 winding numbers around various points are the same.
 Everything is going swimmingly until we realize that $\int_{\gamma_s} f(z)
 \, dz$ makes no sense whatsoever.  The problem is that $\gamma_s$ is only
-continuous and not a piecewise-$C^1$ path.  We can't
+continuous and not piecewise-$C^1$.  We can't
 even define $n(\gamma_s;z)$ using our prior definition.
 OK\@, so first we need to define $n(\gamma_s;z)$ in a way that makes sense for
 any continuous closed path.
@@ -9001,7 +9012,7 @@ Suppose $\gamma \colon [a,b] \to \C$ is continuous and $p \notin
 \gamma$.  Given any $\theta_0 \in \R$ such that
 $\gamma(a)-p = \sabs{\gamma(a)-p} e^{i\theta_0}$, that is,
 $\theta_0$ is an argument of $\gamma(a)-p$,
-there exists a continuous
+there exists a unique continuous
 $\theta \colon [a,b] \to \R$ with $\theta(a) = \theta_0$ such that
 \begin{equation*}
 \gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}
@@ -9041,6 +9052,11 @@ and $t_{j}$ with $L_{j-1}$ and $L_{j+1}$, respectively.  Thus
 $\theta$ is a continuous function on $[a,b]$.
 The formula $\gamma(t)-p = \sabs{\gamma(t)-p} e^{i\theta(t)}$ follows as
 $L_j$ is a branch of the log.
+To show uniqueness, suppose $\widetilde{\theta}$ is another solution.
+Then 
+$\frac{\theta(t)-\widetilde{\theta}(t)}{2\pi}$ is a continuous
+integer-valued function that is $0$ at $t=a$ and hence
+identically zero.
 
 The \myquote{Furthermore} bit follows as before:
 \begin{equation*}
@@ -9064,7 +9080,10 @@ L_j\bigl(\gamma(t_{j-1})\bigr)
 \end{proof}
 
 The lemma allows us to define the winding number for continuous closed paths
-by using the function $\theta$.  The \myquote{Furthermore} part of the
+by using the function $\theta$.
+It is not hard to see that $\frac{\theta(b)-\theta(a)}{2\pi}$
+is well-defined by the uniqueness of $\theta$.
+The \myquote{Furthermore} part of the
 lemma makes sure that the following definition agrees with our previous
 definition (\defnref{defn:windingnumber}).
 
@@ -9096,7 +9115,8 @@ For every $\epsilon > 0$ there is a $\delta > 0$ such that
 if $\widetilde{\gamma} \colon [a,b] \to \C$ is continuous,
 $p \notin \widetilde{\gamma}$, and
 $\sabs{\gamma(t)-\widetilde{\gamma}(t)} < \delta$ for all $t \in [a,b]$,
-there exists a $\widetilde{\theta} \colon [a,b] \to \R$ such that
+then
+there exists a continuous $\widetilde{\theta} \colon [a,b] \to \R$ such that
 $\sabs{\theta(t)-\widetilde{\theta}(t)} < \epsilon$ for all $t \in [a,b]$
 and $\widetilde{\gamma}(t)-p = \sabs{\widetilde{\gamma}(t)-p}
 e^{i\widetilde{\theta}(t)}$.
@@ -9116,19 +9136,24 @@ $\gamma\bigl([t_{j-1},t_j]\bigr)$ is within $D_j$.  Then
 for $\widetilde{\gamma}$ that is uniformly within $\delta$ of $\gamma$, we
 get
 $\widetilde{\gamma}\bigl([t_{j-1},t_j]\bigr) \subset D_j$.
-The $L_j$ and $L_{j-1}$ agree at one point of $D_{j-1} \cap D_j$ (at
+The $L_j$ and $L_{j-1}$ agree at a point of $D_{j-1} \cap D_j$ (at
 $\gamma(t_{j-1})$) and since they are both branches of $\log (z-p)$, they
 agree on the entire connected set $D_{j-1} \cap D_j$.  Thus they also
 agree at $\widetilde{\gamma}(t_{j-1})$.
-So
+Defining $\widetilde{\theta} \colon [a,b] \to \R$ by
 \begin{equation*}
 \widetilde{\theta}(t)
 =
 \Im L_j\bigl(\widetilde{\gamma}(t)\bigr)
+\qquad
+\text{for } t \in [t_{j-1},t_j] ,
 \end{equation*}
-is the function from \lemmaref{lemma:existenceoftheta}, as long as we make
+we get the function from \lemmaref{lemma:existenceoftheta},
+as long as we make the initial value
 $\widetilde{\theta}_0 = \Im L_1\bigl(\widetilde{\gamma}(a)\bigr)$.
-Hence,
+Uniqueness from the lemma also gives
+$\theta(t) = \Im L_j\bigl(\gamma(t)\bigr)$
+for $t \in [t_{j-1},t_j]$, and so
 \begin{equation*}
 \babs{\theta(t) - \widetilde{\theta}(t)}
 \leq
@@ -9141,7 +9166,7 @@ L_j\bigl(\widetilde{\gamma}(t)\bigr)
 \end{equation*}
 \end{proof}
 
-We can now check how $n(\gamma;p)$ changes, or not, by a homotopy.
+We can now check how $n(\gamma;p)$ changes, or not, under a homotopy.
 
 \begin{prop} \label{prop:homotopicmeanshomologous}
 Suppose $U \subset \C$ is open and suppose $\gamma_0$ and $\gamma_1$ are closed
@@ -9153,15 +9178,18 @@ n(\gamma_0;p) = n(\gamma_1;p) \qquad \text{for all } p \in \C \setminus U .
 
 \begin{proof}
 Let $\gamma_s(t) = H(t,s)$ be the maps from the homotopy.
-\lemmaref{lemma:changeintheta} says that $s \mapsto n(\gamma_s;p)$ is a
-continuous function.  As $s \mapsto n(\gamma_s;p)$ is integer-valued it must
+As $H$ is uniformly continuous, $\gamma_{s_1}$
+is uniformly close to $\gamma_{s_2}$ if $s_1$ and $s_2$ are close.
+\lemmaref{lemma:changeintheta} then says that $s \mapsto n(\gamma_s;p)$ is a
+continuous function.  As $s \mapsto n(\gamma_s;p)$ is integer-valued, it must
 be constant.
 \end{proof}
 
-In particular, we've proved that $\gamma_0$ and $\gamma_1$ are homologous if
+In particular, we've proved that closed piecewise-$C^1$ paths
+$\gamma_0$ and $\gamma_1$ are homologous if
 they are homotopic.  The converse is not true.  Let us just mention that 
 the path in \figureref{fig:homologousnothomotopic} 
-is not homotopic to a constant but it is homologous to the zero chain.
+is not homotopic to a constant but is homologous to the zero chain.
 
 \begin{myfig}
 \subimport*{figures/}{homologousnothomotopic.pdf_t}
@@ -9185,7 +9213,7 @@ piecewise-$C^1$ paths in $U$ that are homotopic in $U$.  Then
 
 A corollary of the corollary is the homotopy version of Cauchy's theorem.
 While a constant is not technically a path in the way that we defined
-\myquote{path,} the integral can easily be defined on it (it is zero),
+\myquote{path,} the integral can easily be defined on it,
 and the integral of any function over it is zero.
 The following version of Cauchy
 is then just a special case of the corollary above.
@@ -9216,7 +9244,7 @@ $U \subset \C$ be open and let $\gamma_0$ and $\gamma_1$ be closed
 piecewise-$C^1$ paths in $U$ that are homotopic in $U$.
 Show that there exists a homotopy (possibly a different one) such that
 each $\gamma_s(t) = H(t,s)$ is a closed piecewise-$C^1$ path.
-Hint: See previous exercise.
+Hint: See the previous exercise.
 \end{exercise}
 
 \begin{exercise}
@@ -9242,7 +9270,7 @@ Let us give the real definition of simply connected.
 For domains in $\C$ it
 turns out that both definitions we give are equivalent.
 We will prove one direction of this equivalence in this section,
-and we will wait with the other direction until we prove the Riemann
+and we will postpone the other direction until we prove the Riemann
 mapping theorem in \sectionref{sec:RMT},
 because that theorem makes the other direction trivial, see
 \corref{cor:simplyconnhard}.
@@ -9254,7 +9282,7 @@ A domain $U \subset \C$ is
 if every continuous $\gamma \colon [a,b] \to U$ such that $\gamma(a) =
 \gamma(b)$ is homotopic in $U$ to a constant function.\footnote{%
 This definition is the correct one (i.e., unlikely to anger a topologist)
-for any path connected topological space $U$.}
+for any path-connected topological space $U$.}
 \end{defn}
 
 Without further ado, here is the simple direction of the equivalence.
@@ -9266,11 +9294,11 @@ of \defnref{defn:simplyconnected:homology}.
 \end{prop}
 
 \begin{proof}
-Let $\gamma$ be a closed piecewise-$C^1$ path.  We need to show
+Let $\gamma$ be a closed piecewise-$C^1$ path in $U$.  We need to show
 that $n(\gamma;p) = 0$ for all $p \in \C \setminus U$.
-We know that $\gamma$ is homotopic to a constant $C \in U$, and it is
-trivial to see that $n(C;p) = 0$ (the $\theta$
-is a constant, also notice that $p \neq C$).
+We know that $\gamma$ is homotopic to a constant $c \in U$, and it is
+trivial to see that $n(c;p) = 0$ (the $\theta$
+is a constant, also notice that $p \neq c$).
 Thus $n(\gamma;p) = 0$.
 \end{proof}
 
@@ -9278,7 +9306,7 @@ Thus $n(\gamma;p) = 0$.
 In lieu of a proof of the other direction, simply note that
 $\C$, $\D$, and the upper half-plane $\bH$ are simply connected in the 
 sense of homotopy.  For $\C$ and $\D$, we employ the homotopy of
-example \exampleref{example:homotopydiscsc}.  For the half-plane,
+\exampleref{example:homotopydiscsc}.  For the half-plane,
 we modify the homotopy to $H(t,s) = (1-s)\gamma(t) + si$ to
 get $\gamma$ homotopic to the constant $i$.
 \end{example}
@@ -9345,7 +9373,7 @@ Let us state a version of Green's theorem without proof.
 The hypotheses on the domain $U$ and the functions are given variously in the literature,
 so if the reader is working off of a different version of Green's, then the
 hypotheses of its corollaries in this section must be modified to suit.
-We're using a version that is the simplest to state in our context.
+We're using the version that is the simplest to state in our context.
 See the next section for a perhaps more common version of the hypotheses.
 
 \begin{thm}[Green's theorem]\index{Green's theorem} \label{thm:greens}
@@ -9392,7 +9420,7 @@ form.
 \end{exercise}
 
 \begin{exercise} \label{exercise:shortgreen}
-Show that to prove Green's, it would be sufficient to prove
+Show that to prove Green's, it would suffice to prove
 \begin{equation*}
 \int_{\Gamma} F(z) \, dz
 =
@@ -9420,8 +9448,9 @@ $U \cup \Gamma$.  Then
 
 \subsection{Generalized Cauchy integral formula}
 
-Let us prove a more general version of Cauchy's formula for all functions,
-not just holomorphic functions.
+Let us prove a more general version of Cauchy's formula for all
+continuously differentiable functions,
+not just holomorphic ones.
 This version is called the \emph{\myindex{Cauchy--Pompeiu integral formula}}.
 
 \begin{thm}[Cauchy--Pompeiu] \label{thm:generalizedcauchy}
@@ -9450,8 +9479,8 @@ dA .
 If $f$ is holomorphic, then the second term is zero, and we
 obtain the standard Cauchy integral formula.
 Note that we cheated a little bit in the statement.  The
-integral on the right-hand side is not an integral of a continuous function.
-There is a singularity, but it turns out that it is still integrable.  That
+second integral on the right-hand side is not an integral of a continuous function.
+There is a singularity, but it turns out that the function is still integrable.  That
 is, we write the improper integral
 \begin{equation*}
 \int_{U}
@@ -9477,7 +9506,7 @@ sense (the function is integrable).  Hint: Use polar coordinates.
 \begin{exercise}
 The reader may be tempted to
 differentiate in $\bar{z}$ under the second integral in the 
-Cauchy--Pompeiu formula.  Why is that not possible?
+Cauchy--Pompeiu formula.  Why is that not allowed?
 Notice that it would lead to an impossible result.
 \end{exercise}
 \end{exbox}
@@ -9486,8 +9515,9 @@ Notice that it would lead to an impossible result.
 Fix $z \in U$.  We wish to apply Green's theorem,
 but the integrand is not even continuous at $z$.
 Let $\Delta_r(z)$ be a small disc such that
-$\overline{\Delta_r(z)} \subset U$.  Green's now applies on $U \setminus \Delta_r(z)$.  See
-\figureref{fig:cauchypompeiu}.
+$\overline{\Delta_r(z)} \subset U$.  Green's now applies
+for the cycle $\Gamma - \partial \Delta_r(z)$.
+See \figureref{fig:cauchypompeiu}.
 \begin{myfig}
 \subimport*{figures/}{cauchy-pompeiu.pdf_t}
 \caption{Proof of Cauchy--Pompeiu.\label{fig:cauchypompeiu}}
@@ -9541,8 +9571,8 @@ The theorem follows.
 
 \begin{exbox}
 \begin{exercise}
-Let $U \subset \C$, $\Gamma$, and $f$ be as in the theorem, but let $z \notin
-\widebar{U}$.  Show that
+Let $U$, $\Gamma$, and $f$ be as in the theorem, but let
+$z \notin U \cup \Gamma$.  Show that
 \begin{equation*}
 \frac{1}{2\pi i}
 \int_{\Gamma}
@@ -9599,7 +9629,7 @@ has exactly two components.
 For a piecewise-$C^1$ path, $\gamma'$ is never
 zero, including the one-sided limits of the derivative at the
 \myquote{corners} or
-the end points.  A $C^1$ path is locally a graph:
+the endpoints.  A $C^1$ path is locally a graph:
 If $\gamma \colon [-1,1] \to \C$ is a continuously differentiable function,
 $\gamma(0) = 0$,
 and $\Re \gamma'(0) \neq 0$, then
@@ -9619,7 +9649,7 @@ then without loss of generality it is a graph $y=f(x)$ for perhaps
 $x \in [-1,1]$, $p=0$, and $f(0)=0$.
 For some small $\epsilon > 0$ and $\delta > 0$,
 the set $W = (-\epsilon,\epsilon) \times (-\delta,\delta)$
-contains no other paths making up the original $\gamma$ and $-\delta < f(x) <
+intersects no other paths making up the original $\gamma$ and $-\delta < f(x) <
 \delta$ for $x \in (-\epsilon,\epsilon)$.  Clearly,
 $W \setminus \gamma$ has precisely two components,
 those points where $f(x) > y$ and those where $f(x) < y$.
@@ -9628,7 +9658,7 @@ So suppose that $p$ is a point where two of those paths making up $\gamma$
 meet and without loss of generality assume $p$ is the origin and 
 $\gamma(0) = p$.
 As the one-sided limits of $\gamma'$ are never zero, we assume after
-a rotation that $\Re \gamma'(0)$ is not zero for 
+a rotation that $\Re \gamma'(t)$ is not zero for 
 $t$ near $0$.
 That is, the two
 paths meeting are graphs of the form $y=f_1(x)$ and $y=f_2(x)$.
@@ -9656,7 +9686,7 @@ theorem, $f_2(x) > f_1(x)$ for all $x \in [-1,0)$.
 Again for some small $\epsilon > 0$ and $\delta > 0$,
 the set
 $W = (-\epsilon,\epsilon) \times (-\delta,\delta)$
-contains no other of the paths making up $\gamma$
+intersects no other of the paths making up $\gamma$
 and
 $-\delta < f_1(x), f_2(x) < \delta$ for $x \in (-\epsilon,\epsilon)$.
 It is not hard to see that $W \setminus \gamma$
@@ -9733,9 +9763,9 @@ the intersection with $\gamma$ with the smallest $x$-coordinate ($z=x+iy$)
 is at a point where $\gamma'$ exists and does not point along
 the horizontal line (otherwise
 simply move the line a little---there are only finitely many points where
-$\gamma'$ does not exist).  Near this intersection, the set $\gamma$
+$\gamma'$ does not exist and horizontal tangents are also easy to deal with).  Near this intersection, the set $\gamma$
 can be written as a graph $x=f(y)$ using the implicit function theorem.
-Pick some point $q$ to the right of this graph, and let $R$ be the
+Pick some point $q$ just to the right of this graph, and let $R$ be the
 ray going horizontally left from $q$.  Note that $R$ intersects $\gamma$ exactly
 once.
 See \figureref{fig:rayjordan}.
@@ -9773,7 +9803,7 @@ subset of the unbounded component of $\C \setminus \gamma$.
 
 As $\gamma$ is compact, only finitely many such $W$ are needed
 to cover it.
-Suppose $W_1$ is the neighborhood that contains the negative real point of
+Suppose $W_1$ is the neighborhood chosen above for the negative real point of
 the boundary.  Let $W_2$ be one of these neighborhoods such that the
 intersection $W_1 \cap W_2 \cap \gamma$ is nonempty.  As some point of $\gamma$ is
 in both $W_1$ and $W_2$, each component of $W_2 \setminus \gamma$
@@ -10572,7 +10602,7 @@ f(z) = \frac{1}{g(z)} + q .
 \end{equation*}
 If $g$ has a zero at $p$, then $f$ has a pole at $p$.  If $g$ does not
 have a zero at $p$, then $f$ has a removable singularity.  In either case,
-$f$ does not have an essential singularity at $p$.
+$f$ does not have an essential singularity at~$p$.
 \end{proof}
 
 \begin{exbox}
@@ -10642,7 +10672,10 @@ Hint: See
 
 \begin{defn}
 A holomorphic function $f \colon U \setminus S \to \C$ with poles on a
-discrete set $S \subset U$ is said to be \emph{\myindex{meromorphic}}.
+closed\footnote{%
+Closed in the subspace topology, we allow $S$ to accumulate
+on the boundary of $U$.}
+discrete subset $S \subset U$ is said to be \emph{\myindex{meromorphic}}.
 \end{defn}
 
 A meromorphic function can be extended to a function
@@ -10993,7 +11026,7 @@ Hence,
 \frac{1}{1+x^2} \, dx
 = \pi .
 \end{equation*}
-Why taking the symmetric limit is sufficient to compute the double improper
+Why taking the symmetric limit suffices to compute the double improper
 integral is left to the reader.  After all, usually one has to
 take two independent limits.
 \end{example}
@@ -15472,13 +15505,13 @@ f(z) \leq g(z) \quad \text{ for all } z \in \Delta_r(p) .
 In other words, a subharmonic function is a function that on any disc
 is no bigger than any harmonic function that is no bigger on the circle.
 The best way to think about subharmonic functions is an analogy to convex
-functions in $\R$.
-Harmonic functions in $\R$ are affine linear:
-A function $g(x)$ on $\R$ is harmonic if $g'' \equiv 0$, that is, $g(x) = Ax+B$.
-A function of one real variable is
+functions on $\R$.
+Harmonic functions on $\R$ are affine linear:
+A function $g$ on $\R$ is harmonic if $g'' \equiv 0$, that is, $g(x) = Ax+B$.
+A function of a real variable is
 \emph{convex}\index{convex function} if 
 on every interval it is no bigger than an affine linear function 
-no bigger at the end points.
+no bigger at the endpoints.
 That is,
 $f$ is convex if for every $\alpha < \beta$,
 and every affine linear $g$ such that
@@ -15489,10 +15522,10 @@ we have
 $f(x) \leq g(x)$ for all $x \in [\alpha,\beta]$.
 %We can take the $g$ that is equal to $f$ at the endpoints.
 See \figureref{fig:convexfunc}.
-In $\R$, an interval $[\alpha,\beta]$ plays the role of a closed disc.
-So in $\R$, \emph{convex} is the same as \emph{subharmonic}.
-Graphs of real-valued functions of one real variable
-are also much easier to draw than functions on $\C$.
+In $\R$, an interval $[\alpha,\beta]$ plays the role of a closed disc
+and \emph{convex} is the same as \emph{subharmonic}.
+Graphs of real-valued functions of a real variable
+are also much easier to draw than graphs of functions on $\C$.
 
 \begin{myfig}
 \subimport*{figures/}{convexfunc.pdf_t}
@@ -15547,7 +15580,7 @@ Prove the proposition.
 \end{exercise}
 \end{exbox}
 
-Subharmonic functions are also classified by a mean-value-like property,
+Subharmonic functions are also characterized by a mean-value-like property,
 although it is an inequality rather than an equality.  There is a subtle
 issue of integrability.  For an upper-semicontinuous function
 the integral in the theorem need not exist as a Riemann integral.
@@ -15586,7 +15619,7 @@ function $f$ on $[a,b]$:
 [a,b] \right\} .
 \end{equation*}
 A step function is a function that is constant except for a finite
-number of jump discontinuouties and such functions
+number of jump discontinuities, and such functions
 can be approximated from above by continuous functions
 so that their integrals are arbitrarily close.
 In other words, in the definition above we may replace
@@ -15606,9 +15639,10 @@ and such that
 \end{equation*}
 If the $f$-integral equals $-\infty$, simply make the $g$-integral
 arbitrarily negative.
-Solve the Dirichlet problem in the disc $\Delta_r(p)$ for $g$ and
-with a slight abuse of notation call the solution on $\overline{\Delta_r(p)}$
-also $g$.  As $g$ is harmonic and bigger than $f$, we have by
+Solve the Dirichlet problem in the disc $\Delta_r(p)$ for $g$ and,
+with a slight abuse of notation,
+call the solution on $\overline{\Delta_r(p)}$
+also $g$.  As $g$ is harmonic and no smaller than $f$, we have by
 definition of subharmonicity and the mean-value property of harmonic
 functions
 \begin{equation*}
@@ -15630,7 +15664,7 @@ such that $f(z) \leq h(z)$ on $\partial \Delta_s(q)$ and
 $f(p) > h(p)$ at some point $p \in \Delta_s(q)$.
 Consider $\varphi = f-h$, which is upper-semicontinuous
 on $\overline{\Delta_s(q)}$.
-Let $p$ be the point where $\varphi$ attains the maximum 
+Let $p$ be a point where $\varphi$ attains the maximum 
 (see \exerciseref{exercise:uppersemicontmax}).
 Then $p \in \Delta_s(q)$,
 $\varphi(p) > 0$, and $\varphi(z) \leq 0$
@@ -15638,14 +15672,15 @@ for all $z \in \partial \Delta_s(q)$.  The set
 $X \subset \Delta_s(q)$ where $\varphi(z) = \varphi(p)$ is compact
 (as a subset of $\overline{\Delta_s(q)}$ it is closed via
 \exerciseref{exercise:uppersemicontclosedopen}).
-Assume $p$ is the point of $X$ closest to
+Assume $p$ is a point of $X$ closest to
 $\partial \Delta_s(q)$.
-For some small $r < R_p$, the circle
-$\partial \Delta_r(p) \subset \Delta_s(q)$ and for a nonempty open subset
-of $\partial \Delta_r(p)$ the function $\varphi$ must be less than some fixed
-constant less than $\varphi(p)$.  This fact again follows via 
+For small enough $r < R_p$, the circle
+$\partial \Delta_r(p) \subset \Delta_s(q)$ and on a nonempty open subset
+of $\partial \Delta_r(p)$, the function $\varphi$ is bounded above by
+a fixed constant strictly less than $\varphi(p)$.
+This fact again follows via 
 \exerciseref{exercise:uppersemicontclosedopen}.
-The setup is the same as in \figureref{fig:meanvalue}.
+The setup is the same as in \figureref{fig:meanvalue}.  Hence,
 \begin{equation*}
 \frac{1}{2\pi} \overline{\int_{-\pi}^{\pi}} \varphi(p+re^{i\theta})\, d\theta <
 \varphi(p) .
@@ -15681,9 +15716,9 @@ f(p)-h(p) .
 The first inequality follows by the hypothesis for
 $f=\varphi+h$ and the mean-value
 property for $h$.  The second inequality
-follows because the Darboux upper integral is
+follows because the upper Darboux integral is
 only subadditive ($\overline{\int} (a+b) \leq \overline{\int}a +
-\overline{\int} b$).  Then that $h$ is Riemann integrable gives the next
+\overline{\int} b$).  Riemann integrability of $h$ gives the next
 equality, and the final inequality is the inequality we just proved above.
 \end{proof}
 
@@ -15734,11 +15769,13 @@ $\overline{\Delta_r(p)} \subset U$, then
 f(p) \leq \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta \leq f(p)
 .
 \end{equation*}
-Hence, on every subinterval of $\theta$, $f(p+re^{i\theta}) = f(p)$
-somewhere (using either the Darboux or Lebesgue integral).
-By upper-semicontinuity for any $\theta_0$,
-$f(p+re^{i\theta_0}) = \limsup_{\theta \to \theta_0} f(p+re^{i\theta}) =
-f(p)$.  So $f = f(p)$ everywhere on $\partial \Delta_r(p)$.
+On every subinterval $I \subset [-\pi,\pi]$, $f(p+re^{i\theta}) = f(p)$
+for some $\theta \in I$ (using either the Darboux or Lebesgue integral).
+By upper-semicontinuity, for any $\theta_0$,
+$f(p+re^{i\theta_0}) \geq
+\limsup_{\theta \to \theta_0} f(p+re^{i\theta}) = f(p)$.
+As $f(p)$ is the maximum,
+$f = f(p)$ everywhere on $\partial \Delta_r(p)$.
 This equality holds for all $r$
 with $\overline{\Delta_r(p)} \subset U$, so $f=f(p)$ on $\Delta_r(p)$,
 and the set where $f=f(p)$ is open.  The set where an upper-semicontinuous
@@ -15855,6 +15892,8 @@ is upper-semicontinuous, then $\varphi$ is subharmonic.
 \end{prop}
 
 \begin{proof}
+For a finite family, the supremum is automatically
+upper-semicontinuous and not identically $+\infty$.
 Suppose $\overline{\Delta_r(p)} \subset U$.  For any $\alpha$,
 \begin{equation*}
 \frac{1}{2\pi} \int_{-\pi}^{\pi} \varphi (p+re^{i\theta})\, d\theta 
@@ -15862,7 +15901,7 @@ Suppose $\overline{\Delta_r(p)} \subset U$.  For any $\alpha$,
 \frac{1}{2\pi} \int_{-\pi}^{\pi} f_\alpha (p+re^{i\theta})\, d\theta 
 \geq f_\alpha(p) .
 \end{equation*}
-Taking the supremum on the right over $\alpha$ obtains the result.
+Taking the supremum on the right over $\alpha$ yields the result.
 \end{proof}
 
 \begin{exbox}
@@ -15890,8 +15929,8 @@ value $-\infty$.
 \item
 Show that $f$ is a subharmonic function in $U$.
 \item
-If $U = \D$ and $p_n = \nicefrac{1}{n}$, show that $f$ is discontinuous at $0$
-(the natural topology on $\R \cup \{ -\infty \}$).
+If $U = \D$ and $p_n = \frac{1}{n+1}$, show that $f$ is discontinuous at $0$
+(with the natural topology on $\R \cup \{ -\infty \}$).
 \item
 If $\{ p_n \}$ is dense in $U$, show that $f$ 
 is nowhere continuous.
@@ -15905,12 +15944,12 @@ Hint \#2: Integrate the partial sums, and use polar coordinates.
 
 In complex analysis,
 we are really interested in proving results for harmonic functions,
-as we are interested in proving results for holomorphic functions.
-However, harmonic functions are rigid, they cannot be
+because we are interested in proving results for holomorphic functions.
+However, harmonic functions are rigid; they cannot be
 \myquote{put together} easily.
 Furthermore, there aren't that many of them.  There are a lot of
 subharmonic functions.
-An example of the use of subharmonic functions to
+An example application of subharmonic functions to
 the theory of holomorphic functions is the theorem of 
 Rad\'o, which is a complementary result to the
 \hyperref[thm:riemannext]{Riemann extension theorem}.
@@ -15935,7 +15974,7 @@ $f$ is just identically zero and hence holomorphic.
 
 Let $u$ be the real part of $f$.  On $\Delta'$, $u$ is harmonic.
 Write $Pu = P[u|_{\partial \Delta}]$ for the Poisson integral of $u$ on
-$\overline{\Delta}$.  Hence $Pu$
+$\overline{\Delta}$.  Then $Pu$
 equals $u$ on $\partial \Delta$, and $Pu$ is harmonic on $\Delta$.
 Consider the function
 $Pu(z) - u(z)$ on $\overline{\Delta}$, which is zero
@@ -15952,7 +15991,7 @@ As $\sabs{f(z)} < 1$, we find that
 $\log \sabs{f(z)}$ is negative on $\overline{\Delta}$.
 So for every $t > 0$,
 the function
-$z \mapsto t \log \abs{f(z)}$ is subharmonic and negative
+$z \mapsto t \log \abs{f(z)}$ is subharmonic and negative,
 and the function
 $z \mapsto -t \log \abs{f(z)}$ is superharmonic
 (minus a subharmonic function) and positive.
@@ -16009,7 +16048,7 @@ $p$, $f$ is zero on $\Delta \cap \partial U$.  Prove that $f \equiv 0$.
 \end{exercise}
 \end{exbox}
 
-Another example of the use of subharmonic functions is another solution
+Another example application of subharmonic functions is different solution
 to the Dirichlet problem.  A solution can be had by considering all the
 subharmonic functions that are less than the function given on the boundary.
 Then one takes a supremum to obtain a harmonic function.  We will not go
@@ -16020,14 +16059,14 @@ for simply connected domains with nice boundary provided we know the Riemann map
 the kernel is difficult to compute in general, and it requires a very nice
 boundary to be able to integrate.  The Perron method works much more
 generally provided you can construct enough subharmonic functions (which
-can, after all, be pieced together unlike harmonic functions).
+can, after all, be pieced together, unlike harmonic functions).
 
 If a solution exists, it clearly must equal the Perron solution.
 
 \begin{exbox}
 \begin{exercise}[Easy]
 \pagebreak[2]
-Suppose $U \subset \C$ is a domain and
+Suppose $U \subset \C$ is a bounded domain and
 $u \colon \widebar{U} \to \R$ is continuous and
 harmonic on $U$.  Prove that for all $p \in U$,
 \begin{equation*}
@@ -16148,7 +16187,7 @@ The sequence of partial products is increasing:
 \prod_{n=1}^k \bigl(1+\sabs{a_n}\bigr) \leq
 \prod_{n=1}^{k+1} \bigl(1+\sabs{a_n}\bigr) .
 \end{equation*}
-Thus it is sufficient to show that it is bounded.
+Thus it suffices to show that this sequence is bounded.
 Consider
 \begin{equation*}
 \log \prod_{n=1}^k \bigl(1+\sabs{a_n}\bigr)
@@ -23582,7 +23621,8 @@ $\snorm{h} < \delta$.  Then $\snorm{h'} \leq \snorm{h} < \delta$.
 Note that $Ah = A' h' + tv$.
 \begin{equation*}
 \begin{split}
-\snorm{f(p+h) - f(p) - Ah}
+\lVert f(p+h) &- f(p) - Ah \rVert
+\\
 & = \snorm{f(p+h' + t e_n) - f(p+h') - tv + f(p+h') - f(p) - A' h'}
 \\
 & \leq \snorm{f(p+h' + t e_n) - f(p+h') -tv} + \snorm{f(p+h') - f(p) -
