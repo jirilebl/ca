@@ -10251,13 +10251,13 @@ of $f$.
 \end{thm}
 
 \begin{proof}
-Assume $f$ is not simply constant near $p$.
+Assume $f$ is not identically zero near $p$.
 Define
 $g(z) = {(z-p)}^2 f(z)$ for $z \neq p$ and $g(p) = 0$.
 The function $g$ is clearly holomorphic for $z \neq p$.  Consider the 
 difference quotient
 $\frac{g(z)-g(p)}{z-p} = (z-p) f(z)$.
-Supposing $f$ is bounded,
+Since $f$ is bounded,
 \begin{equation*}
 \lim_{z\to p} \frac{g(z)-g(p)}{z-p} = \lim_{z\to p} (z-p) f(z) = 0 .
 \end{equation*}
@@ -10302,7 +10302,7 @@ $F \colon U \to \C$ such that $F|_{U \setminus S} = f$.
 The Riemann extension theorem is (of course) not true for functions that are
 not holomorphic.  Prove that $\frac{xy}{x^2+y^2}$ is a bounded infinitely 
 (real) differentiable function
-on $\R^2 \setminus \{ (0,0) \}$ with an isolated singularity, and this
+on $\R^2 \setminus \{ (0,0) \}$ with an isolated singularity, and that this
 function does not
 extend through the singularity even continuously.
 \end{exercise}
@@ -10329,7 +10329,7 @@ $f(z) e^{1/z}$ is bounded in $\Delta_r(0) \setminus \{ 0 \}$.
 \end{exercise}
 \end{exbox}
 
-Using the Riemann extension, we will show that
+Using Riemann extension, we will show that
 at nonessential isolated singularities
 a holomorphic function blows up to a finite integral order.
 We obtain a criterion for poles, and we classify
@@ -10381,9 +10381,9 @@ g(z) = {(z-p)}^k f(z)
 \end{equation*}
 
 For the second item,
-assume $f$ is not constant near $p$
+assume $f$ is not identically zero near $p$
 and
-$g(z)$ has a removable
+$g$ has a removable
 singularity.
 Then $g(z) = {(z-p)}^\ell \varphi(z)$ where
 $\varphi(p) \neq 0$ and $\ell \geq 0$ is an integer.
@@ -10505,7 +10505,7 @@ is called the \emph{\myindex{principal part}}.
 
 A singularity is
 removable if the principal part is zero, it is a pole if the principal part
-is finite, and it is essential if the principal part is infinite.
+is nonzero but finite, and it is essential if the principal part is infinite.
 Consider
 \begin{equation*}
 e^{1/z}
@@ -10540,7 +10540,7 @@ origin.
 \end{exercise}
 
 \begin{exercise}
-Find holomorphic functions $f$ and $g$ (different pairs for each part) with
+Find holomorphic functions $f$ and $g$ (a different pair for each part) with
 essential singularities at $p$ such that
 \begin{exparts}
 \item
@@ -10552,7 +10552,7 @@ $fg$ has a removable singularity at $p$.
 
 \begin{exercise}
 Suppose $f$ is a nonconstant holomorphic function defined in an open neighborhood of the
-origin such that $f(0)=0$ and $g$ is holomorphic with
+origin such that $f(0)=0$, and suppose $g$ is holomorphic with
 an isolated singularity at the origin.  Write $g \circ f$ for the
 composition where it is defined.  Show that $g \circ f$ has an isolated
 singularity of the same type (removable, pole, essential) as $g$.
@@ -10561,8 +10561,9 @@ pole of order $k$.
 \end{exercise}
 
 \begin{exercise} \label{exercise:expofpole}
-If $f$ has a pole at $p$, then $e^{f(z)}$ has an essential singularity at
-$p$.  Hint: First do it for a simple pole.
+Prove that if $f$ has a pole at $p$,
+then $e^{f(z)}$ has an essential singularity at $p$.
+Hint: First do it for a simple pole.
 \end{exercise}
 
 \begin{exercise}
@@ -10586,7 +10587,7 @@ arbitrarily close to the singularity.  The function is very wild (and
 getting wilder and wilder) as it gets close to an essential singularity.
 
 \begin{thm}[Casorati--Weierstrass\footnote{%
-Some people say it should be called Casorati--Sochocki(--Weierstrass) theorem as
+Some people say it should be called the Casorati--Sochocki(--Weierstrass) theorem as
 Casorati and Sochocki both published it in 1868 (Casorati in Italian
 and Sochocki, who was Polish, in Russian),
 while Weierstrass published it in 1876 (in
@@ -10659,8 +10660,8 @@ then $f$ has an essential singularity at $p$.
 \begin{exercise}%[\optneededexmark]
 \label{exercise:singofexp}
 Suppose that $g \colon \Delta_r(p) \setminus \{ p \} \to \C$
-has an isolated singularity.  Prove that $f(z) = e^{g(z)}$
-has either a removable singularity, in which case $g$
+has an isolated singularity.  Prove that either
+$f(z) = e^{g(z)}$ has a removable singularity, in which case $g$
 has a removable singularity, or $f$ has an essential singularity.
 Remark: See also \exerciseref{exercise:expofpole}.
 \end{exercise}
@@ -10674,7 +10675,8 @@ but that is much harder to prove.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is open, $p \in U$, and $f \colon U \setminus \{ p \} \to \C$
+Suppose $U \subset \C$ is open, $p \in U$,
+and $f \colon U \setminus \{ p \} \to \C$ is
 holomorphic with an essential singularity at $p$.
 \begin{exparts}
 \item
@@ -10698,7 +10700,7 @@ Show by example that both $(0,\infty)$ and $[0,\infty)$ are possible.
 \begin{exercise}
 Suppose $U \subset \C$ is open, $p \in U$, and $f \colon U \setminus \{ p \} \to \C$ is
 holomorphic with
-an essential singularity at $p \in U$.  Then for every disc
+an essential singularity at $p$.  Prove that for every disc
 $\Delta_r(p) \subset U$ and every segment $[a,b] \subset
 \C$, we have
 $f\bigl(\Delta_r(p) \setminus \{ p \} \bigr) \cap [a,b] \neq \emptyset$.
@@ -10741,7 +10743,7 @@ we will write $f \colon U \to \C_\infty$.  That is, even though we
 could just say \myquote{$f \colon U \to \C_\infty$ is holomorphic,} we will, for emphasis,
 usually say \myquote{$f \colon U \to \C_\infty$ is meromorphic.}
 
-For functions on subsets of $\C_\infty$, we proceed similarly as
+For functions on subsets of $\C_\infty$, we proceed as
 we did with LFTs.
 We define holomorphicity at $\infty$ when $U \subset
 \C_\infty$ by saying that $f$ is \emph{\myindex{holomorphic at $\infty$}}
@@ -10749,7 +10751,7 @@ if $f(\nicefrac{1}{z})$ (or $\frac{1}{f(1/z)}$ if it is a pole)
 is holomorphic at $0$.
 With this terminology, an LFT is a biholomorphic mapping $f \colon
 \C_\infty \to \C_\infty$.  It is left as an exercise that
-these are the only biholomorphisms of the Riemann sphere and so
+these are the only biholomorphisms of the Riemann sphere, and so
 $\Aut(\C_\infty)$ consists of all the LFTs.
 
 \begin{exbox}
@@ -10787,7 +10789,7 @@ f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n .
 The only power ${(z-p)}^n$ that does not have a primitive in
 $\Delta_r(p) \setminus \{ p \}$ is ${(z-p)}^{-1}$.  It is the only power
 a line integral of $f$ around $p$ \myquote{sees,} that is, it is
-what's left, or the \myquote{residue}\footnote{%
+what's left, or the \myquote{residue,}\footnote{%
 Q\@: Why did the mathematician name their dog Cauchy?
 A\@: Because it left a residue at every pole.}
 of integrating $f(z)$ around a closed path.
@@ -10813,7 +10815,7 @@ We know how to compute $c_{-1}$: For small enough $s > 0$,
 \frac{1}{2\pi i} \int_{\partial \Delta_{s}(p)} f(z) \, dz .
 \end{equation*}
 Via Cauchy's theorem, we relate any integral around
-a cycle to the residues that lie inside the cycle.
+a cycle to the residues of the singularities that lie inside the cycle.
 With that, we can state a theorem that is often used for computing
 integrals---even integrals that do not at all seem like line integrals or
 have any complex numbers in them.
@@ -10845,7 +10847,7 @@ See \figureref{fig:residues}.
 
 \begin{myfig}
 \subimport*{figures/}{residues.pdf_t}
-\caption{Proof of residue theorem by putting small discs around all
+\caption{Proof of the residue theorem by putting small discs around all
 singularities.  Note that $n(\Gamma;w_1) = 1$, $n(\Gamma;w_2)=0$, and
 $n(\Gamma;w_3) = 2$.\label{fig:residues}}
 \end{myfig}
@@ -10980,7 +10982,7 @@ Prove the proposition.
 \end{exbox}
 
 A common application of the residue theorem is to compute certain real
-integrals that are difficult by classical calculus.  Let us work
+integrals that are difficult to compute by classical calculus.  Let us work
 a couple of examples.
 
 \begin{example}
@@ -10991,8 +10993,9 @@ OK\@, this one is easy to compute by classical calculus, but let us ignore
 that fact for the sake of the simplicity of the example.
 
 Define the cycle $\Gamma_r = [-r,r] + \gamma_r$, where $\gamma_r(t) =
-re^{it}$ for $t \in [0,\pi]$, that is, $\gamma_r$ is the upper semi-circle
-of the circle of radius $r$ centered at the origin oriented counterclockwise.
+re^{it}$ for $t \in [0,\pi]$, that is, $\gamma_r$ is the upper semicircle
+of radius $r$ centered at the origin, oriented counterclockwise.
+Assume $r > 1$.
 See \figureref{fig:rhalfcircle}.
 
 \begin{myfig}
@@ -11033,8 +11036,7 @@ i\right) = \frac{-i}{2} ,
 \frac{-i}{2} .
 \end{equation*}
 
-Assume $r > 1$.
-The Residue theorem says
+The residue theorem says
 \begin{equation*}
 \pi 
 =
@@ -11066,7 +11068,7 @@ Hence,
 \frac{1}{1+x^2} \, dx
 = \pi .
 \end{equation*}
-Why taking the symmetric limit suffices to compute the double improper
+Why taking the symmetric limit suffices to compute the doubly improper
 integral is left to the reader.  After all, usually one has to
 take two independent limits.
 \end{example}
@@ -11080,7 +11082,7 @@ $n(\Gamma_r;-i) = 0$.
 \end{exbox}
 
 Another application to real integrals is to recognize 
-a path integral.  For example, integrals of trigonometric functions
+a line integral.  For example, integrals of trigonometric functions
 are often integrals over the unit circle.  On the unit
 circle, $\bar{z} = \nicefrac{1}{z}$.  So if $z=e^{i\theta}$, then
 $\cos \theta = \Re z = \frac{z+1/z}{2}$ and
@@ -11135,7 +11137,7 @@ $\displaystyle \int_{-\infty}^\infty \frac{\cos(3x)}{x^4+1} \, dx$.
 
 \begin{exercise}[Inverse Laplace transform]
 \index{inverse Laplace transform}
-A common integral computed via the Residue theorem is
+A common integral computed by the residue theorem is
 the inverse Laplace transform via \emph{\myindex{Mellin's inversion
 formula}}. Given $F(s)$,
 \begin{equation*}
@@ -11147,7 +11149,7 @@ e^{st}F(s) \, ds,
 \qquad t \geq 0,
 \end{equation*}
 is the inverse as long as $c \in \R$ is
-bigger than the real part of all the singularities of $F(s)$.
+bigger than the real parts of all the singularities of $F(s)$.
 Compute
 (using the residue theorem):
 \smallskip
@@ -11176,7 +11178,7 @@ $\displaystyle \int_0^{\pi} \frac{\sin^2 \theta}{2+\cos \theta} \, d\theta$.
 
 \begin{exercise}
 Suppose that $r > 1$, $f \colon \Delta_r(0) \setminus \{ 1 \} \to \C$ is
-holomorphic, and suppose $f$ has a simple pole with $\operatorname{Res}(f;1) = 1$.
+holomorphic, and $f$ has a simple pole at $1$ with $\operatorname{Res}(f;1) = 1$.
 If the power series for $f$ at $0$ is $\sum_{n=0}^\infty c_n z^n$, show that
 $\lim_{n\to \infty} c_n$ exists and compute what it is.  Hint: Try
 subtracting the pole away.
@@ -11200,8 +11202,8 @@ than the center (if what we are \myquote{going around} is defined to be whatever
 is on our left).
 \item
 Suppose $f$ is holomorphic on $\C$ except for finitely many isolated
-singularities.  Prove that the sum of all residues of $f$ including the
-residue at $\infty$ is zero.
+singularities.  Prove that the sum of all residues of $f$, including the
+residue at $\infty$, is zero.
 \end{exparts}
 \end{exercise}
 
@@ -11213,7 +11215,7 @@ Use the function $f(z) = \frac{e^{-z^2/2}}{1+e^{-\sqrt{\pi}(1+i)z}}$ and
 the parallelogram path with vertices $-r$, $r$, $r+(1+i)\sqrt{\pi}$,
 and $-r+(1+i)\sqrt{\pi}$
 to compute the integral $\int_{-\infty}^\infty e^{-x^2/2} \, dx$.\footnote{%
-This nifty solution is due to H.\ Kneser. The tricky bit with using the
+This nifty solution is due to H.\ Kneser. The tricky bit in using the
 residue theorem is that $e^{-z^2/2}$ has no singularities itself,
 so one has to find a function that does.}
 \end{exercise}
