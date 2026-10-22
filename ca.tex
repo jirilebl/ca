@@ -11283,9 +11283,10 @@ zero in that smaller $U$, and so a theorem for finitely many zeros and poles is
 sufficient.
 
 Why do we say that the theorem counts the number of zeros and poles?
-Suppose $\Gamma$ only goes around every point in $U$ at most once
+Suppose $\Gamma$ only goes around every point in $U$ once
 in the positive direction or not at all.  That is,
-$n(\Gamma;z) = 1$ or $0$ for all $z \in U$.  We think of the
+$n(\Gamma;z) = 1$ or $0$ for all $z \notin \Gamma$.
+We think of the
 \myquote{inside of $\Gamma$} as the points where $n(\Gamma;z)=1$.
 If $f$ has $n$ zeros and $\ell$ poles (counting multiplicity)
 inside $\Gamma$, then
@@ -11300,14 +11301,14 @@ $\gamma$,
 the integral
 $\int_{\gamma} \frac{f'(z)}{f(z)} \, dz$
 computes $i$ times the change in the argument of $f$ as we traverse $\gamma$:
-The antiderivative of
+An antiderivative of
 $\frac{f'(z)}{f(z)}$
 is $\log f(z)$.
 We take some value of $\log f(z) = \log \sabs{f(z)} + i \arg f(z)$
 at the beginning of $\gamma$ and we follow it
 around $\gamma$.
 We then subtract the initial value of $\log f(z)$ from its ending value.
-This difference is the change in the argument.
+This difference is the change in the argument (times $i$).
 Another way to look at the integral is to write
 \begin{equation*}
 \frac{1}{2\pi i}
@@ -11367,8 +11368,8 @@ Besides the theoretical implications we will see,
 there are some immediate practical ones.
 The argument principle can locate zeros of polynomials
 (or holomorphic functions more generally)
-by numerical computations.  If we numerically estimate the integral to
-within a precision of at least $0.5$ (no need to be extremely precise),
+by numerical computations.  If we numerically estimate the integral with
+an error of less than $0.5$ (no need to be extremely precise),
 then we know the number of zeros 
 of the polynomial enclosed by the cycle.
 A related application is computing the power sums of the zeros.
@@ -11408,8 +11409,8 @@ and $f \colon U \to \C_\infty$ is meromorphic with
 no zeros or poles on $\Gamma$.
 Show that there exists an open $U' \subset U$
 with $\Gamma$ a cycle in $U'$ homologous to zero in $U'$ such that
-the only zeros or poles $z$ of the restriction $f|_{U'}$
-satisfy $n(\Gamma;z) \neq 0$.
+every zeros or pole $z$ of the restriction $f|_{U'}$
+satisfies $n(\Gamma;z) \neq 0$.
 \end{exercise}
 
 \begin{exercise}
@@ -11437,7 +11438,7 @@ Suppose $f(z)$ is a degree $3$ polynomial, $f(0)=1$, and
 \frac{1}{2\pi i}
 \int_{\partial \Delta_1(5)} z \frac{f'(z)}{f(z)} \, dz = 5 .
 \end{equation*}
-Find $f$.  You may assume $f$ has no zeros on those $3$ circles
+Find $f$.  You may assume $f$ has no zeros on those three circles
 (the integrals exist after all).
 \end{exercise}
 
@@ -11455,7 +11456,7 @@ continuous functions of $t \in [a,b]$.
 Prove that if $\xi_0$ is a simple zero of $P_{t_0}$ for some $t_0 \in (a,b)$,
 and is the unique zero in
 $\Delta_{2r}(\xi_0)$, then
-there exists an $\epsilon > 0$ and a continuous function $\xi \colon
+there exist an $\epsilon > 0$ and a continuous function $\xi \colon
 (t_0-\epsilon,t_0+\epsilon) \to \Delta_r(\xi_0)$ such that $\xi(t)$
 is the unique (simple) zero of $P_t$ in $\Delta_r(\xi_0)$.
 \end{exparts}
@@ -11465,7 +11466,7 @@ is the unique (simple) zero of $P_t$ in $\Delta_r(\xi_0)$.
 \pagebreak[3]
 Prove that if $U \subset \C$ is a domain, $p \notin U$, and there
 exists a holomorphic $g \colon U \to \C$ such that $g^2 = z-p$, then 
-there does not exist a closed path $\gamma$ such that $n(\gamma;p)=1$.
+there does not exist a closed path $\gamma$ in $U$ such that $n(\gamma;p)=1$.
 Hint: Use the motivation for the theorem, not the theorem itself.
 Note: Some more work (see \exerciseref{exercise:rootgivesscII})
 can show that this means that existence of
@@ -11475,15 +11476,15 @@ square roots implies that $U$ is simply connected.
 
 \subsection{Rouch\'e's theorem}
 
-The next theorem allows us to count zeros (or poles) of a function that is
-close to another function.  In rough terms,
+We can count zeros and poles by counting them for a nearby function.
+Roughly,
 \emph{the number of zeros minus the
 number of poles (counting multiplicity) inside a curve does not change
 if the function does not change much on the curve}.
 For instance, the functions $z^2$ and $(z-\epsilon)(z+\epsilon)$
 are close on $\partial \D$, and they have the same number of
 zeros in the disc.
-A nonzero point might \myquote{split} into a zero and a
+A point that is neither zero nor a pole might \myquote{split} into a zero and a
 pole. For example, $\frac{z-\epsilon}{z+\epsilon}$ is very close to the function
 $1$ on $\partial \D$.  So poles are allowed to \myquote{cancel} zeros, but this
 balance is always maintained.  If we do not allow any poles
@@ -11503,8 +11504,8 @@ $\Gamma$ such that
 \end{equation*}
 for all $z \in \Gamma$.
 Let $V = \bigl\{ z \in U \setminus \Gamma : n(\Gamma;z) = 1 \bigr\}$.
-Let $N_f$, $N_g$ be the number of zeros in $V$
-and $P_f$, $P_g$ the number of poles in $V$ (both counting multiplicity)
+Let $N_f$, $N_g$ be the numbers of zeros in $V$
+and $P_f$, $P_g$ the numbers of poles in $V$ (both counting multiplicity)
 of $f$ and $g$, respectively.
 Then
 \begin{equation*}
@@ -11517,10 +11518,10 @@ The condition on $\Gamma$ means that the
 cycle is simple in the sense
 that it only goes around any particular point either once or not at all.
 We then count the number of zeros and poles inside $\Gamma$.
-The strictness of the inequality is the key point,
-the nonstrict inequality is always true for any $f$ and $g$ by the triangle
+The strictness of the inequality is the key point.
+The nonstrict inequality is always true for any $f$ and $g$ by the triangle
 inequality.
-Often the theorem is only applied for holomorphic functions, that is,
+The theorem is often applied to holomorphic functions, that is,
 functions without poles.
 
 \begin{cor}[Rouch\'e]\label{thm:rouche2}
@@ -11541,22 +11542,22 @@ applications as it avoids having to show some technicalities.
 The classical statement of the theorem uses the
 inequality
 \begin{equation*}
-\sabs{f(z)-g(z)} < \sabs{f(z)}
+\sabs{f(z)-g(z)} < \sabs{f(z)} .
 \end{equation*}
-as hypothesis.
-This weaker statement of the theorem is enough for vast majority of
+This weaker statement of the theorem is enough for the vast majority of
 applications, and has a simpler geometric meaning.
 By the argument principle, the number of zeros (minus the number of poles) of $f$
 inside $\Gamma$ corresponds to the number of times $f(z)$ winds around zero
 as $z$ traverses $\Gamma$, that is, $n(f \circ \Gamma;0)$.
 The classical visual \myquote{proof} using this weaker
-inequality is a dog on a leash
+inequality involves a dog on a leash
 with the master going around a tree.  The master is at $f(z)$, the tree is
 at the origin, and the dog is at $g(z)$, so the length of the leash is
 $\sabs{f(z)-g(z)}$ and the distance of the master from the tree is
 $\sabs{f(z)}$.  So the \myquote{proof} of the theorem is to observe that if the
-master walks around a tree $k$ times, and the dog is never further from the
-master than the distance from the master to the tree, then the dog also walked
+master walks around the tree $k$ times, and the dog is always closer to the
+master than the distance from the master to the tree, then the dog also
+walks
 around the tree $k$ times.  See \figureref{fig:dogandtree}.
 
 \begin{myfig}
@@ -11574,9 +11575,9 @@ Write the inequality as
 \abs{\frac{f(z)}{g(z)}} + 1 .
 \end{equation*}
 Let $\varphi(z) = \frac{f(z)}{g(z)}$.
-The inequality precludes $\varphi(z)$ ever being negative real on
-$\Gamma$ (it is also never zero there),
-and hence it is so in a neighborhood of $\Gamma$.
+The inequality ensures $\varphi$ avoids the closed set $(-\infty,0]$ on
+$\Gamma$,
+and hence $\varphi$ avoids $(-\infty,0]$ in a neighborhood of $\Gamma$.
 The function
 $\frac{\varphi'}{\varphi}$ has a well-defined antiderivative
 $\Log \circ \varphi$ on a neighborhood of $\Gamma$, where $\Log$ is
@@ -11604,12 +11605,12 @@ together with the argument principle finishes the proof:
 
 \begin{example}
 A typical application of Rouch\'e is to approximately locate zeros of
-polynomials.  Consider $P(z) = z^n + 1$.  We can explicitly find the roots,
+polynomials.  Consider $P(z) = z^n + 1$.  We can find the zeros explicitly,
 but let us forget we can do so,
 and show using Rouch\'e that they are all on the unit circle.
 
-First
-consider $\Gamma$ to be the circle of radius $1-\epsilon$ ($\epsilon > 0$)
+First,
+let $\Gamma$ be the circle of radius $1-\epsilon$ ($0 < \epsilon < 1$)
 around the origin.  On $\Gamma$,
 \begin{equation*}
 \abs{P(z) - 1} = \abs{z}^n < 1 = \sabs{1}.
@@ -11648,8 +11649,8 @@ On the other hand, if $\sabs{z} = 46+ \epsilon$ where $\epsilon > 0$, then
 \leq 46 \sabs{z}^3 < {\sabs{z}}^4 = \abs{z^4}.
 \end{equation*}
 So $P$ has all four zeros in a disc $\Delta_{46+\epsilon}(0)$ for any
-$\epsilon > 0$,
-in other words, all zeros of $P$ satisfy $\sabs{z} \leq 46$.
+$\epsilon > 0$.
+In other words, all zeros of $P$ satisfy $\sabs{z} \leq 46$.
 These are not the ideal estimates (the largest zero of $P$ has modulus less than
 10), but they are explicit and they were easy to come by.
 \end{example}
@@ -11682,7 +11683,7 @@ algebra.
 
 \begin{exercise}
 Suppose $U \subset \C$ is open, $\overline{\D} \subset U$,
-and $f \colon U \to \C$ is a holomorphic function with no zeros on
+and $f \colon U \to \C$ is a holomorphic function with no zeros in
 $\D$.  Prove that there exists a $z \in \partial \D$
 such that $\sabs{f(z)-z} \geq 1$.
 \end{exercise}
@@ -11708,7 +11709,7 @@ exactly one $z_0 \in \D$ such that $f(z_0) = z_0$.
 
 Let us see what happens to zeros under limits of functions.
 That is, if we know the number of zeros of functions in a sequence,
-what can we tell about the number of zeros of the limit?  Alternatively,
+what can we tell about the number of zeros of the limit?  Conversely,
 if we have a limit function with $k$ zeros, then what can
 we say about the number of zeros of the functions in the sequence?
 Recall that if a sequence of holomorphic
@@ -11763,7 +11764,7 @@ cosine, which converges uniformly on compact subsets.
 \end{example}
   
 The $\Gamma$ in the theorem is there for defining the region
-$V$, a bounded open set with interior and nice boundary.
+$V$, a bounded open set with a nice boundary.
 Often the theorem is applied or stated with $\Gamma$ being
 the boundary of a small disc.
 That is, suppose $\{ f_n \}$ is a sequence of holomorphic
@@ -11771,7 +11772,7 @@ functions converging uniformly
 on compact subsets to $f$ on some open $U$.  Suppose $z_0$ is a zero of
 $f$ of order $k$.  Then for a small enough disc $\Delta_r(z_0)$,
 making sure $\overline{\Delta_r(z_0)} \subset U$ and
-$f$ is only zero at $z_0$ on $\overline{\Delta_r(z_0)}$,
+$f$ is zero only at $z_0$ on $\overline{\Delta_r(z_0)}$,
 there exists an $N$ such that
 for all $n \geq N$, $f_n$ has $k$ zeros counting multiplicity in
 $\Delta_r(z_0)$.
@@ -11852,7 +11853,7 @@ Prove that all the zeros of $f$ are real.
 
 \begin{exercise}
 Suppose $U \subset \C$ is a domain,
-$f_n \colon U \to \C$ are holomorphic
+$f_n \colon U \to \C$ are holomorphic functions
 converging uniformly on compact subsets to a nonconstant $f \colon U \to \C$,
 and $f(z_0) = w_0$ for some $z_0, w_0$.  
 Prove that there exists a sequence $\{ z_n \}$ in $U$ such that
@@ -11861,8 +11862,10 @@ $\lim z_n = z_0$ and $f_n(z_n) = w_0$ for all large enough $n$.
 
 \begin{exercise}
 Suppose $P_t(z) = z^n + \sum_{k=0}^{n-1} a_k(t) z^k$ is a polynomial
-with continuous coefficients $a_k \colon [0,1] \to \C$.  Suppose $P_t$ has
-no zeros on $\partial \D$ for all $t \in [0,1]$.  Then the number of zeros
+with continuous coefficients $a_k \colon [0,1] \to \C$.  Suppose that
+for all $t \in [0,1]$, $P_t$ has
+no zeros on $\partial \D$.
+Prove that the number of zeros
 of $P_t$ (counting multiplicity) in $\D$ is constant as a function of $t$.
 \end{exercise}
 
@@ -11923,7 +11926,7 @@ $V \subset U$.
 \end{thm}
 
 \begin{proof}
-Suppose $f$ is nonconstant.  As $U$ is connected, $f$ is nonconstant
+As $U$ is connected, $f$ is nonconstant
 near every point.
 Let $V \subset U$ be open and $p \in V$.
 As $f$
@@ -11931,13 +11934,13 @@ is holomorphic and nonconstant near $p$,
 there is a closed disc $\overline{\Delta_r(p)} \subset V$ small enough such that
 $f(z) \neq f(p)$ for $z \in \partial \Delta_r(p)$.
 There is a $\delta > 0$ such
-that $\abs{f(z)-f(p)} > \delta$ for all $z \in \partial \Delta_r(p)$.
+that $\abs{f(z)-f(p)} \geq \delta$ for all $z \in \partial \Delta_r(p)$.
 The function $z \mapsto f(z)-f(p)$ has at least one zero in $\Delta_r(p)$
 (at $p$).  Take any $w \in \Delta_{\delta}\bigl(f(p)\bigr)$.  Then for
 all $z \in \partial \Delta_r(p)$,
 \begin{equation*}
 \abs{\bigl( f(z)-w \bigr) - \bigl( f(z)-f(p) \bigr)} = \abs{f(p)-w} <
-\delta < \abs{f(z)-f(p)} .
+\delta \leq \abs{f(z)-f(p)} .
 \end{equation*}
 By \hyperref[thm:rouche2]{Rouch\'e}, $z \mapsto f(z)-w$ has at least one
 zero in $\Delta_r(p)$.
@@ -11950,12 +11953,11 @@ f\bigl(\Delta_r(p)\bigr) \subset f(V) .  \qedhere
 
 The open mapping theorem is really a stronger version of
 the maximum modulus principle:
-If for every $p \in U$,
-$f(p)$ is always in the interior of $f(V)$ for any neighborhood $V$ of
+If $f(p)$ is in the interior of $f(V)$ for any neighborhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
 Notice also that the proof says something stronger than the theorem statement.  It
 gives an explicit bound.  It says that if 
-$\abs{f(z)-f(p)} > \delta$ for $z \in \partial \Delta_r(p)$,
+$\abs{f(z)-f(p)} \leq \delta$ for $z \in \partial \Delta_r(p)$,
 then
 $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
 
@@ -11967,7 +11969,7 @@ and bijective.  Prove that $f^{-1} \colon V \to U$ is continuous.
 
 \begin{exercise}[Easy]
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic
-and let $f(U) \subset V$ for some closed set $V$.
+and let $f(U) \subset V$ for some set $V$.
 Suppose $f(z) \in \partial V$
 for some $z \in U$.  Prove $f$ is constant.
 \end{exercise}
@@ -11982,7 +11984,7 @@ then $f$ is constant.
 \begin{exercise}
 Let $U \subset \C$ be a domain and let $f \colon U \to \C$ be holomorphic.
 Suppose $\sabs{f''(z)} \leq M$ for all $z \in U$ for some $M > 0$.
-Suppose $p \in U$ where $f'(p) \neq 0$ and $r > 0$ is such that
+Suppose $p \in U$ and $r > 0$ are such that
 $\frac{M}{2}r < \sabs{f'(p)}$ and $\overline{\Delta_r(p)} \subset U$.
 Let $\delta = \sabs{f'(p)}r - \frac{M}{2} r^2
 = r\bigl(\sabs{f'(p)} - \frac{M}{2} r\bigr) > 0$.  Prove that
@@ -12828,6 +12830,7 @@ Show that $\sF$ need not be a normal family.
 Add a simple
 hypothesis (one that is weaker than \myquote{$\sF$ is locally bounded})
 that would make it a normal family.
+Be sure to handle a disconnected $U$.
 \end{exparts}
 \end{exercise}
 
@@ -13491,7 +13494,7 @@ Hint: Prove that the complement of each one of these components is connected.
 We can now prove the simplest
 topological characterization of simply connected domains in $\C$.
 
-\begin{thm} \label{cor:scbycomplementhard}
+\begin{thm} \label{thm:scbycomplementhard}
 Let $U \subset \C$ be a domain.  Then
 $\C_\infty \setminus U$ is connected if and only if $U$ is simply connected.
 \end{thm}
@@ -13581,21 +13584,21 @@ dance.
 \section{Harmonic functions}
 \label{sec:harmonic}
 
-Hitherto, we examined holomorphic functions as complex-valued functions.
+Hitherto, we have examined holomorphic functions as complex-valued functions.
 However, to do analysis one needs inequalities, and complex numbers are not
 ordered.  Let us consider the real and imaginary parts of holomorphic
 functions, the so-called harmonic functions.  Interestingly, harmonic
 functions come up often in applied mathematics, for example as steady-state
-heat or the distribution of electrostatic potential in a region without
+temperature or the distribution of electrostatic potential in a region without
 charge.  Harmonic functions are used to study
-holomorphic functions and vice versa, holomorphic functions are used to
+holomorphic functions and conversely, holomorphic functions are used to
 study harmonic functions.
 
 Most of the results
 we will prove for harmonic functions are analogues of the results 
 for holomorphic functions.  The reader is
 encouraged to look for these connections.
-Just as it is best to study animals in their natural habitat,
+Just as animals are best studied in their natural habitat,
 many results we proved for holomorphic functions are
 better understood as results for harmonic functions.
 Nevertheless, the results for harmonic functions are not
@@ -13663,7 +13666,7 @@ f
 \nabla^2 f .
 \end{equation*}
 
-Namely, $f$ is harmonic if and only if
+Consequently, $f$ is harmonic if and only if
 $\frac{\partial f}{\partial z}$ is holomorphic.
 So suppose $f$ is harmonic.
 Locally (in some neighborhood), we find a
@@ -13684,7 +13687,7 @@ Let $h = \bar{c}$ be the complex conjugate of $c$.  Then
 =
 0 ,
 \end{equation*}
-so $h$ is holomorphic.  Thus, locally, we found holomorphic $g$ and $h$ so
+so $h$ is holomorphic.  Thus, locally, we have found holomorphic $g$ and $h$ so
 that
 \begin{equation*}
 f(z) = g(z) + \overline{h(z)} .
@@ -13779,9 +13782,10 @@ on every closed disc $\overline{\Delta_r(p)} \subset U$.
 \end{enumerate}
 \end{prop}
 
+Note that above, $c_0 \in \R$ automatically.
 As holomorphic functions are
 infinitely differentiable, harmonic functions are as well.
-Actually, we see above that harmonic functions have a real power series
+Actually, we saw above that harmonic functions have a real power series
 (a power series in $x$ and $y$, or equivalently in $z$ and $\bar{z}$)
 and so they are what is called real-analytic.
 
@@ -13796,7 +13800,7 @@ holomorphic.
 \begin{defn}
 Let $U \subset \C$ be open and $f \colon U \to \R$ harmonic.
 If $g \colon U \to \R$ is harmonic and $f + i g$ is holomorphic,
-then $g$ is called the \emph{\myindex{harmonic conjugate}} of $f$.
+then $g$ is called a \emph{\myindex{harmonic conjugate}} of $f$.
 \end{defn}
 
 \propref{prop:harmconj}
@@ -13805,10 +13809,10 @@ domain has a harmonic conjugate.  On the other hand, on the punctured plane
 $\C \setminus \{ 0 \}$, the harmonic function $\log \sabs{z}$ 
 fails to have a harmonic conjugate.  If it did have a harmonic conjugate,
 then $\log$ would have a branch in $\C \setminus \{0\}$, which it does not.
-See \figureref{fig:loggraph}, where the graph of the real part on the left is
+See \figureref{fig:loggraph}, where the real part on the left is
 continuous, but the corresponding imaginary part is not a function.
-That we cannot find a different conjugate for $\log \sabs{z}$
-follows from the following proposition.
+That we cannot find a conjugate for $\log \sabs{z}$
+follows from the next proposition.
 
 \begin{prop} \label{prop:harmonicconjdifferbyconst}
 Suppose
@@ -13824,7 +13828,7 @@ The proof is trivial: The hypothesis implies that
 is holomorphic and it is real-valued on $U$, and thus constant.
 
 The real and imaginary parts of a holomorphic function are harmonic;
-however, the modulus $\sabs{f(z)}$ is not.  Not to fear,
+however, the modulus $\sabs{f(z)}$ is not, unless $f$ is constant.  Not to fear,
 $\log \sabs{f(z)}$ is harmonic, at least where $f$ is nonzero.
 The fact that $\log \sabs{f(z)}$ is harmonic is just as useful
 as the fact that the real and imaginary parts of $f$ are harmonic.
@@ -13849,7 +13853,7 @@ Prove \propref{prop:logharm}.
 Show that the following functions of $x$ and $y$ (where
 $z = x+iy$) are
 harmonic (either on $\C$ or on the set given)
-and find their harmonic conjugate.
+and find their harmonic conjugates.
 \smallskip
 \begin{expartshor}{5}
 \item
@@ -13924,7 +13928,7 @@ of an integral around $\partial \D$.
 \pagebreak[2]
 Prove the Liouville\footnote{%
 See
-Nelson, Edward
+Nelson, Edward,
 \emph{A proof of Liouville's theorem.}
 Proc.\ Amer.\ Math.\ Soc.\ {\textbf{12}} (1961), 995
 (one of the shortest published papers) for
@@ -13963,11 +13967,11 @@ sound familiar.  In this case, we found that a harmonic $f$ is a sum of a functi
 of $z$ (a holomorphic function) and a function of $\bar{z}$ (an
 antiholomorphic function).
 
-The procedure is analogous to the D'Alembert solution of the one-dimensional
+The procedure is analogous to the d'Alembert solution of the one-dimensional
 wave equation, which you may have seen in undergraduate differential equations.
-The wave operator is
-$\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2}$ with a
-minus sign, where we use $x$ and $t$ as variables to be traditional.
+The wave operator is similar to $\nabla^2$ but has a minus sign:
+$\frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2}$.
+We use $x$ and $t$ as variables to be traditional.
 The wave operator decomposes as
 \begin{equation*}
 \frac{\partial^2}{\partial t^2}- \frac{\partial^2}{\partial x^2}
@@ -13986,7 +13990,7 @@ If we write $\mu = x+t$ and $\eta = x-t$
 \end{equation*}
 As before, a solution $f$ to the wave equation is a function
 of $\mu$ plus a function of $\eta$.  That is, $f(x,t) = A(\mu) + B(\eta) =
-A(x+t)+B(x-t)$, two waves travelling in opposite directions.  The
+A(x+t)+B(x-t)$, two waves traveling in opposite directions.  The
 functions $A$ and $B$ need not be nice at all, just twice real differentiable
 functions.
 It is interesting how one puny minus sign makes such a huge difference.
@@ -14014,12 +14018,12 @@ Suppose $V \subset U$ is a nonempty open subset and $f = 0$ on $V$.  Then $f
 Let $Z_f$ be the zero set of $f$ and let $Z$ be the closure of the interior
 of $Z_f$ in the subspace topology of $U$.
 The set $Z$ is nonempty by hypothesis, so
-consider some $p \in Z$.  Consider $\Delta_r(p) \subset U$.
+take some $p \in Z$.  Consider $\Delta_r(p) \subset U$.
 There exists a holomorphic $h \colon \Delta_r(p) \to \C$
 such that $f = \Re h$ on $\Delta_r(p)$.
 On some open subset of the disc, $f$ is zero.
 So the holomorphic function $h$ is purely imaginary on
-an open subset of $\Delta_r(p)$, and hence it is constant on that open subset.
+an open subset of $\Delta_r(p)$, and hence it is constant on an open subset.
 By the \hyperref[thm:identity]{identity theorem for holomorphic functions},
 $h$, and hence $f$, is constant 
 on $\Delta_r(p)$.
