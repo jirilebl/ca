@@ -11730,13 +11730,13 @@ $f_n$ has $k$ zeros (counting multiplicity) in $V$.
 
 \begin{proof}
 As a set, $\Gamma$ is compact, and so
-there is a $\delta > 0$ such that $\delta < \sabs{f(z)}$
+there is a $\delta > 0$ such that $\delta \leq \sabs{f(z)}$
 for all $z \in \Gamma$.
 The functions $f_n$
 converge uniformly to $f$ on $\Gamma$.
 So for all $n$ large enough,
 \begin{equation*}
-\sabs{f(z)-f_n(z)} < \delta < \sabs{f(z)}
+\sabs{f(z)-f_n(z)} < \delta \leq \sabs{f(z)}
 \end{equation*}
 for all $z \in \Gamma$.  By \hyperref[thm:rouche2]{Rouch\'e's theorem},
 $f$ and $f_n$ have the same number of zeros in $V$.
@@ -12014,10 +12014,10 @@ constant.  What if $\partial \D$ is replaced by the real line?
 
 \section{Inverses of holomorphic functions} \label{sec:inverses}
 
-The standard local relationship between the derivative and injectivity of a
+The standard local relationship between the derivative and the injectivity of a
 function is the inverse function theorem (\thmref{thm:inversehol}).
-It says that if $f'(z)$ is nonzero somewhere, then in some
-neighborhood of that point, $f$ is injective and has an inverse $g$ such that
+It says that if $f'(p)$ is nonzero somewhere, then in some
+neighborhood of $p$, $f$ is injective and has an inverse $g$ such that
 \begin{equation*}
 g'(w) = \frac{1}{f'\bigl(g(w)\bigr)} .
 \end{equation*}
@@ -12046,7 +12046,7 @@ So far, nothing really new with holomorphic functions.
 It is the next
 result that is surprising: Being injective
 implies that the derivative is nonzero.
-A priori, this statement should make no sense at all and it is not true for real functions.
+A priori, this statement should make no sense at all, and it is not true for real functions.
 A function $f \colon \R \to \R$ such as $f(x) = x^3$
 is injective, but its derivative is zero at $x=0$, and $f^{-1}(x) =
 \sqrt[3]{x}$ is not differentiable at $x=0$.
@@ -12070,7 +12070,7 @@ So $f'$ has
 an isolated zero at $p$.
 Let $\overline{\Delta_r(p)} \subset U$
 be small enough so that $f'(z) \neq 0$ for all $z \in \Delta_r(p) \setminus \{ p \}$,
-and such that $\sabs{f(z)-f(p)} > \delta > 0$ for all $z \in \partial
+and that $\sabs{f(z)-f(p)} \geq \delta > 0$ for all $z \in \partial
 \Delta_r(p)$.
 The function $z \mapsto f(z) - f(p)$ has a zero at $p$ of multiplicity at least
 two.
@@ -12080,7 +12080,7 @@ $z \mapsto f(z)-w$ has at least two zeros in $\Delta_r(p)$ counting multiplicity
 \hyperref[thm:rouche2]{Rouch\'e} as
 before.  As the derivative of $f(z)$, hence also of $f(z)-w$, is nonzero in
 the punctured disc, all these zeros are of multiplicity one.  Ergo, $f(z)-w$
-has more than one distinct zero, and consequently, $f$ is not injective.
+has at least two distinct zeros, and consequently, $f$ is not injective.
 \end{proof}
 
 \begin{lemma} \label{lemma:inverseasintegral}
@@ -12098,8 +12098,9 @@ Note that $f\bigl(\Delta_r(p)\bigr)$ is a neighborhood of $f(p)$
 by the open mapping theorem.
 
 \begin{proof}
-Fix $w \in f\bigl(\Delta_r(p)\bigr)$ and suppose $\zeta \in \Delta_r(p)$
-is such that $f(\zeta) = w$.
+Fix $w \in f\bigl(\Delta_r(p)\bigr)$ and let $\zeta \in \Delta_r(p)$
+be the unique point
+such that $f(\zeta) = w$.
 The derivative of $f$ is never zero by \lemmaref{lemma:dernonzero},
 and so $z \mapsto f(z)-w$ has a simple
 zero at $z=\zeta$.  By the \hyperref[thm:residue]{residue theorem} and
@@ -12119,7 +12120,7 @@ Alternatively, you could note that the formula is just applying the
 \hyperref[thm:argprinc]{argument principle} with $h(z)=z$.
 In fact, that is a way that you can guess the formula.
 
-Putting the two lemmas together obtains the main result of this section.
+Putting the two lemmas together yields the main result of this section.
 
 \begin{thm}
 If $U \subset \C$ is open and $f \colon U \to \C$ is holomorphic and
@@ -12137,15 +12138,16 @@ by an integral; and by
 $f^{-1}$ is holomorphic.
 \end{proof}
 
-The inverse function theorem could be used to prove that $f^{-1}$ is
-holomorphic instead of \lemmaref{lemma:holfuncbyintegral}, although the
+Instead of \lemmaref{lemma:holfuncbyintegral},
+the inverse function theorem could be used to prove that $f^{-1}$ is
+holomorphic, although the
 fact that there is an integral formula for $f^{-1}$ is quite interesting on
 its own.
 
 \begin{exbox}
 \begin{exercise}
 Suppose $f$ is holomorphic in an open neighborhood of the closed unit disc
-$\overline{\D}$ such that for every $z_0 \in \D$,
+$\overline{\D}$, and for every $z_0 \in \D$,
 \begin{equation*}
 \int_{\partial \D}
 \frac{f'(z)}{f(z)-f(z_0)}
@@ -12172,7 +12174,7 @@ points.  Prove that $f'$ is never zero on $U$.
 
 \begin{exercise}
 Suppose $U \subset \C$ is open, $f \colon U \to \C$ is
-holomorphic, $V = f(U)$, such that $z \mapsto f(z)-w$
+holomorphic, $V = f(U)$, and that $z \mapsto f(z)-w$
 has two zeros counting multiplicity for every $w \in V$.
 Call the zeros
 $z_1(w)$ and $z_2(w)$ (given in some unspecified order).
