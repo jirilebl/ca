@@ -16151,8 +16151,8 @@ I became insane, with long intervals of horrible sanity.
 
 If a
 holomorphic $f$
-has zeros at $0$, $1$, and $i$, we
-can write $f$ as
+has simple zeros at $0$, $1$, and $i$, we
+can write
 $f(z) = g(z) z(z-1)(z-i)$.  If those are the only zeros, then 
 $g$ is never zero.  If there are infinitely many zeros, however,
 things become difficult.
@@ -16553,7 +16553,7 @@ As we are relating the absolute convergence of $\prod (1+a_n)$ to $\sum
 Before we do so, we prove a useful estimate for holomorphic functions
 on the disc.
 By the maximum modulus principle, the maximum is attained at the boundary.
-If the derivatives at the origin are all positive, then it is attained
+If the derivatives at the origin are all nonnegative, then it is attained
 at a very specific point.
 
 \begin{lemma} \label{lemma:maxprincpositive}
@@ -16736,7 +16736,9 @@ all $x + iy$ where $x,y \in \Z$).
 \end{exercise}
 
 \begin{exercise}
-Suppose that $\{ a_n \}$ is a sequence converging to $0$.  Show that there
+Suppose that $\{ a_n \}$ is a sequence of
+nonzero numbers converging to $0$.
+Show that there
 exists a holomorphic function $f \colon \C \setminus \{ 0 \} \to \C$
 with zeros (counting multiplicity) at $a_n$.
 \end{exercise}
@@ -16954,11 +16956,14 @@ Find a factorization for $\sinh(z) = \frac{e^z-e^{-z}}{2}$.
 \end{exercise}
 
 \begin{exercise}
-Suppose $U \subset \C$ is a domain and
+Suppose $U \subset \C$ is a domain,
+$f_n \colon U \to \C$ are holomorphic and have no zeros,
+and
 \begin{equation*}
 F(z) = \prod_{n=1}^\infty f_n(z)
 \end{equation*}
-for holomorphic functions $f_n \colon U \to \C$ converging uniformly 
+converges
+uniformly absolutely
 on compact subsets of $U$.  Prove that
 \begin{equation*}
 \frac{F'(z)}{F(z)} = \sum_{n=1}^\infty \frac{f_n'(z)}{f_n(z)} ,
@@ -17067,8 +17072,8 @@ E_n\left(
 \frac{a^1_n-p_n}{z-p_n}
 \right)
 \end{equation*}
-converges uniformly on $K$.  As $K$ is arbitrary, $f_1$ converges
-uniformly on compact subsets of $U$.  We are thus done with $f_1$.
+converges uniformly absolutely on $K$.  As $K$ is arbitrary, $f_1$ converges
+uniformly absolutely on compact subsets of $U$.  We are thus done with $f_1$.
 
 For $f_2$, note that $\{a^2_n\}$ must go to infinity and has no finite limit
 points.  Indeed, if $\sabs{a^2_n} \leq r$, then $d(a^2_n,\C\setminus U)
@@ -17078,7 +17083,8 @@ We can, therefore, construct an entire function with
 these zeros.
 \end{proof}
 
-If $f = \nicefrac{g}{h}$ for two holomorphic functions $g$ and $h$, then $f$
+If $f = \nicefrac{g}{h}$ for two holomorphic functions $g$ and $h$ with no
+common zeros, then $f$
 is meromorphic with poles at the zeros of $h$.  Conversely,
 if $f$ has a pole of order $m$ at $p$, then $f(z) = \frac{g(z)}{{(z-p)}^m}$
 for some holomorphic $g$, so $f$ is a quotient of holomorphic functions
@@ -17143,7 +17149,7 @@ Consider a sequence of points in $\D$ whose limit set is the circle.
 
 \begin{exercise}
 Suppose $U \subset \C$ is a simply connected domain and $f \colon U \to \C$
-a nonconstant function.  Show that there exists a holomorphic $g \colon U
+a nonconstant holomorphic function.  Show that there exists a holomorphic $g \colon U
 \to \C$ such that $g^2 = f$ if and only if every zero of $f$ has even order.
 \end{exercise}
 \end{exbox}
