@@ -14040,7 +14040,7 @@ than holomorphic functions.  We will prove it using holomorphic functions
 and the open mapping theorem (\thmref{thm:OMT}),\footnote{%
 The open mapping theorem is, after all,
 a stronger version of the maximum modulus principle.}
-although there is a more natural proof using the mean value property,
+although there is a more natural proof using the mean-value property,
 which we will see later.
 
 \begin{thm}[Maximum principle]
@@ -14189,7 +14189,8 @@ and
 1+r^2-2r \cos\theta \geq 1+r^2-2r = {(1-r)}^2 > 0 .
 \end{equation*}
 
-For the second item,
+For the second item, note that $r=0$ is trivial, so assume $r > 0$.
+Compute
 \begin{equation*}
 \begin{split}
 \int_{-\pi}^{\pi}
@@ -14226,7 +14227,7 @@ using the function $\frac{1+z}{1-z}$ evaluated at $0$.
 For the third item, we only need to prove the
 result for $\delta \leq \theta \leq \pi$ by symmetry ($P_r$ is even).
 On $(0,\pi)$, $P_r$ is strictly decreasing as $\cos \theta$ is strictly
-decreasing.  So we only need to show that $P_r(\delta)$ goes to $0$
+decreasing (for $r > 0$).  So we only need to show that $P_r(\delta)$ goes to $0$
 as $r \to 1$ if $\delta > 0$.
 This fact follows as $r \mapsto
 \frac{1+re^{i\delta}}{1-re^{i\delta}}$
@@ -14492,11 +14493,14 @@ what domain we were solving in.
 
 The Poisson kernel is also a reproducing kernel for
 holomorphic functions, as holomorphic functions are harmonic
-(their real and imaginary parts are).  If $f$ gives the boundary
+(their real and imaginary parts are),
+where we extend the definition of $P$
+to complex-valued functions.
+If $f$ gives the boundary
 values for a holomorphic function, then $Pf$ is holomorphic and it equals
 the Cauchy transform $Cf$ inside the disc.  Unlike the
 Cauchy transform, however, $Pf$ is always continuous up to the boundary given
-continuous data on the disc.  Thus, if $f$ is not the boundary value of
+continuous data on the circle.  Thus, if $f$ is not the boundary value of
 a holomorphic function, $Cf$ and $Pf$ are different in the disc.
 For example, if $f=z+\bar{z}$ on the circle, then $Pf = z+\bar{z}$ in $\D$
 but $Cf = z$ in $\D$.
@@ -14531,7 +14535,7 @@ State and prove a version of \thmref{thm:dirichsol} for a function that is
 bounded on $\partial \D$ and continuous at all but finitely many points on
 $\partial \D$.  The conclusion should of course be then that $Pf(z)$ ($z \in
 \D$) tends
-to $f(z_0)$ ($z_0 \in \partial \D$) only if $f$ is continuous at $z_0$.
+to $f(z_0)$ ($z_0 \in \partial \D$) if $f$ is continuous at $z_0$.
 Remark: More advanced students should note that one does not need boundedness,
 just $f \in L^1(\partial \D)$.
 \end{exercise}
@@ -14678,14 +14682,14 @@ given the boundary values
 $f|_{\partial \Delta_r(p)}$.  Using \eqref{eq:averageofPf} and the
 uniqueness of the solution of the Dirichlet problem, we find
 \begin{equation*}
-f(p) = P\bigl[f|_{\partial \Delta_r(p)}\big](p) =
+f(p) = P\bigl[f|_{\partial \Delta_r(p)}\bigr](p) =
 \frac{1}{2\pi} \int_{-\pi}^{\pi}f(p + r e^{it}) \, dt .
 \end{equation*}
 
 Conversely, suppose $f$ is continuous and satisfies the
 mean-value property for all $p$ and all $r < R_p$.
 Let $\overline{\Delta_s(q)} \subset U$ be an
-arbitrary closed disc.  Let $h = P\bigl[f|_{\partial \Delta_s(q)}\big]$
+arbitrary closed disc.  Let $h = P\bigl[f|_{\partial \Delta_s(q)}\bigr]$
 be the solution of the Dirichlet problem in $\Delta_s(q)$ with boundary
 values given by $f$.  Consider $\varphi = f-h$,
 which is continuous, identically zero
@@ -14723,7 +14727,7 @@ Namely, $f=h$ and $h$ is harmonic, so $f$ is harmonic on
 $\Delta_s(q)$ (and thus on $U$).
 \end{proof}
 
-One immediate consequence of the mean value property is that a limit
+One immediate consequence of the mean-value property is that a limit
 of harmonic functions uniform on compact subsets is harmonic.  Just like for
 holomorphic functions, this result would be hard to prove using the definition
 of harmonic functions.  Given a sequence $\{ f_n \}$ of any old $C^2$
@@ -14821,7 +14825,7 @@ f(p) =
 With a little care,
 it is not necessary to assume the mean-value property for all small enough discs.
 Suppose $f \colon \overline{\D} \to \R$ is
-continuous and such that for every $p \in \D$, there exists an $r$ such that
+continuous and such that for every $p \in \D$, there exists an $r > 0$ such that
 $\overline{\Delta_r(p)} \subset \D$ and 
 \begin{equation*}
 f(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(p+re^{i\theta})\, d\theta .
@@ -15069,7 +15073,8 @@ and nonnegative, then $f$ is constant.
 \subsection{Harnack's principle}
 
 Harnack's inequality yields that increasing 
-sequences of harmonic functions converge to harmonic functions.
+sequences of harmonic functions converge to harmonic functions
+or $+\infty$.
 This theorem is variously called
 Harnack's principle or Harnack's second theorem.
 
@@ -15119,7 +15124,7 @@ Harnack's first theorem,
 \end{proof}
 
 Another way of stating Harnack's principle is to make it about
-a sequence of nonnegative functions less
+a sequence of nonnegative harmonic functions less
 than some fixed harmonic function $f$.  If the sequence converges to $f$ at
 one point, it converges uniformly on compact subsets.  Moreover, as
 nonnegative harmonic functions are the harmonic analogues of bounded holomorphic
