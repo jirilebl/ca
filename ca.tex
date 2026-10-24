@@ -12561,7 +12561,7 @@ It is sometimes called an \emph{\myindex{exhaustion by compact sets}}.
 \begin{lemma}\label{lemma:compactexhaustion}
 Let $U \subset \C$ be open.  Then there exists a sequence $K_n$
 of compact subsets of $U$ such that $K_n \subset K^\circ_{n+1}$ (each set
-is contained in the interior of the next), $\bigcup_{n=1}^\infty K_n = U$, and
+is contained in the interior of the next); $\bigcup_{n=1}^\infty K_n = U$; and
 for every compact $K \subset U$, there is an $n$ such that $K \subset K_n$.
 \end{lemma}
 
@@ -12682,10 +12682,10 @@ $\{ e^{in} \}_{n=1}^\infty$ is dense in the unit circle.
 \section{Montel's theorem}
 \label{sec:montel}
 
-For holomorphic functions, a bound on the function means a
+For holomorphic functions, a bound on the function gives a
 bound on the derivative using the Cauchy integral formula.  A uniform
-bound on the derivative gives equicontinuity, and
-so it comes as no
+bound on the derivative yields equicontinuity.
+So it comes as no
 surprise that a uniformly bounded set of holomorphic functions
 is equicontinuous.
 Let us use some of the traditional language.\footnote{%
@@ -12699,7 +12699,7 @@ A set $\sF$ of holomorphic functions $f \colon U \to \C$ is a
 that converges uniformly on compact subsets (the limit need not be in $\sF$).
 
 A set $\sF$ of functions on $U$ is \emph{\myindex{locally bounded}}
-if for every $p \in U$, there is a disc $\Delta_r(p) \subset U$ and $M > 0$
+if for every $p \in U$, there exist a disc $\Delta_r(p) \subset U$ and $M > 0$
 such that 
 $\snorm{f}_{\Delta_r(p)} \leq M$ for all $f \in \sF$.
 \end{defn}
@@ -12716,7 +12716,7 @@ Then $\sF$ is a normal family (every sequence has a subsequence that
 converges uniformly on compact subsets).
 \end{thm}
 
-The theorem allows quite incredible applications.  The thing is,
+The theorem allows for quite incredible applications.  The thing is,
 using just the definitions, it is often easy to show that a sequence is bounded,
 but it is hard to show that it converges (or has a subsequence that does).
 One can generate \myquote{approximate} solutions to a problem without worrying
@@ -12773,19 +12773,20 @@ And so
 \frac{4 M}{r} \sabs{z-p} .
 \end{equation*}
 As $M$ does not depend on the particular $f$, we get that $\sF$ is
-equicontinuous at $p$ (it is in fact Lipschitz at $p$ with the same
-Lipschitz constant for every $f \in \sF$).
+equicontinuous at $p$ (every $f \in \sF$ is in fact Lipschitz at $p$ with the same
+Lipschitz constant).
 Therefore, we may apply Arzel\`a--Ascoli, 
 \corref{cor:arzelaascoliplane}, to any sequence in $\sF$
-to find a convergent subsequence and hence $\sF$ is a normal family.
+to find a convergent subsequence, and hence $\sF$ is a normal family.
 \end{proof}
 
 Montel's theorem is very useful for solving extremal problems: 
-finding a holomorphic function that satisfies a certain extremal condition
+finding a holomorphic function that satisfies a certain extremal condition,
 such as maximizing the derivative.  There are several examples of this
 usage in the exercises below.  In fact, our main application will be to
-prove the Riemann mapping theorem, which we do by solving an extremal
-problem using Montel's theorem.
+prove the Riemann mapping theorem,
+which we will do by solving an extremal
+problem using Montel's theorem in the next section.
 
 Another common application of Montel is to use it via Vitali's theorem, which is
 an exercise below.  Given a locally bounded sequence of holomorphic
@@ -12802,8 +12803,8 @@ then $\sF$ is locally bounded.
 \begin{exercise}
 For open $U \subset \C$,
 prove that \myquote{locally bounded} means
-\myquote{bounded on compact subsets,}
-that is, $\sF$ is locally bounded if and only if
+\myquote{bounded on compact subsets.}
+That is, prove that a family of functions $\sF$ is locally bounded if and only if
 for every compact $K \subset U$ there is an $M >0$ such that
 $\snorm{f}_K \leq M$ for all $f \in \sF$.
 \end{exercise}
@@ -12848,9 +12849,9 @@ $\sF_c \neq \emptyset$ if $c \in [0,\nicefrac{1}{2}]$.
 \item
 Prove that for each $c \in [0,\nicefrac{1}{2}]$, there exists an
 $f \in \sF_c$
-such that $\sabs{f'(0)}$ is minimal (among the functions in $\sF_c$),
-and let $m_c = \inf \bigl\{ \sabs{f'(0)} : f \in \sF_c \bigr\}$.
+such that $\sabs{f'(0)}$ is minimal (among the functions in $\sF_c$).
 \item
+Let $m_c = \inf \bigl\{ \sabs{f'(0)} : f \in \sF_c \bigr\}$.
 Prove that $m_c > 0$ if $c > \nicefrac{1}{4}$ and $m_c = 0$ if $c \leq \nicefrac{1}{4}$.
 \end{exparts}
 \end{exercise}
@@ -12863,7 +12864,7 @@ bounded holomorphic function on $U$.
 \item
 Prove that there exists a holomorphic $F \colon U \to \D$
 such that
-$F'(p) \neq 0$, and if
+$F'(p) \neq 0$ and such that if
 $f \colon U \to \D$ is holomorphic,
 then $\sabs{f'(p)} \leq \sabs{F'(p)}$.
 \item
@@ -12889,7 +12890,7 @@ for $p \in U$ and small $r$.
 \begin{exercise}
 Find the largest domain $U \subset \C$ such that the family
 of functions defined by $z \mapsto e^{cz}$, $c \geq 0$, is a
-normal family and, of course, prove your assertion.
+normal family.  Of course, prove your assertion.
 \end{exercise}
 
 \begin{exercise}
@@ -17246,7 +17247,7 @@ enclosed by
 $\partial \D$
 that is the problem for $\nicefrac{1}{z}$.
 We can approximate (uniformly on compact subsets) a holomorphic function
-by polynomials on any set whose complement is connected.
+by polynomials on any set whose complement in $\C_\infty$ is connected.
 
 \begin{exbox}
 \begin{exercise}
@@ -17380,7 +17381,7 @@ Summing these bits together and using the triangle inequality, we find
 }
 \leq \sum_{j=1}^k \epsilon (t_j-t_{j-1}) = \epsilon .
 \end{equation*}
-Thus the integral over $\gamma$ converges uniformly for $z \in K$, and
+Thus the Riemann sums converge to the integral over $\gamma$ uniformly for $z \in K$, and
 we are done by summing up over all the paths in $\Gamma$
 and dividing by $2\pi i$.
 \end{proof}
@@ -17437,7 +17438,7 @@ there exists a rational function $R$ with pole at $q$ such that
 Suppose first that $q \neq \infty$.
 As the component of $\C_\infty \setminus K$ is open and connected, it is
 path connected,
-so we connect $p$ and $q$ by a path.
+so we connect $p$ and $q$ by a path avoiding $\infty$.
 Since a path is compact,
 we cover the path by finitely many discs as follows: 
 There exist points $p=z_1,z_2,\ldots,z_n=q$ and
@@ -17456,8 +17457,8 @@ As there are finitely many discs, if we show that we can approximate
 $\frac{1}{z-p}$ on $K$ by a rational function with a pole at $z_2 \in
 \Delta_r(p)$, then we claim we are done.  A rational function $R$ with a pole
 at $z_2$ may be written as
-a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^k}$
-or $(z-z_2)^k$.  If we can uniformly approximate $\frac{1}{z-z_2}$ on $K$ by a rational
+a finite linear combination of terms of the form $\frac{1}{{(z-z_2)}^k}$.
+If we can uniformly approximate $\frac{1}{z-z_2}$ on $K$ by a rational
 function with a pole at $z_3$, we can approximate $R$ by a rational function
 with a pole at $z_3$, see \exerciseref{exercise:approxbyfamily}.
 And so we can approximate $\frac{1}{z-p}$ by a rational function with a pole at $z_3$.
@@ -17503,10 +17504,10 @@ Next
 {\left(\frac{z}{q_1}\right)}^k ,
 \end{equation*}
 which converges uniformly on $\overline{\Delta_M(0)}$ as  $\sabs{q_1} > M$.
-Taking partial sums, $\frac{1}{z-q_1}$ can be approximated
+Taking partial sums, we can approximate $\frac{1}{z-q_1}$
 uniformly on $K$ by polynomials (rational functions with a pole at
 $\infty$),
-and hence $\frac{1}{z-p}$ can also be uniformly approximated on $K$ by polynomials.
+and hence we can also approximate $\frac{1}{z-p}$ uniformly on $K$ by polynomials.
 \end{proof}
 
 We can now prove Runge on compact sets.
@@ -17550,9 +17551,9 @@ Proof: Let $K_n = \bigl\{ z \in \C : \sabs{z} \leq n, \Im z \in
 $K_n$ is compact and has three components.  There is a function $f$
 that is holomorphic on a neighborhood of $K_n$, and it equals $0$ on $K_n \setminus \R$
 and $1$ on $K_n \cap \R$.
-Indeed, pick three disconnected neighborhoods of the three components of
+Indeed, pick three pairwise disjoint neighborhoods of the three components of
 $K_n$, and set the function to be identically $0$ or $1$ on the corresponding
-component.  Constants are holomorphic.
+neighorhood.  Constants are holomorphic.
 Runge says that there is a polynomial $P_n(z)$ such that $\sabs{P_n(z)-f(z)}
 \leq \nicefrac{1}{n}$ for $z \in K_n$.  The sequence $\{ P_n \}$ then does
 the job.  Since $K_n \subset K_{n+1}$ for all $n$ and $\bigcup K_n = \C$,
@@ -17571,9 +17572,9 @@ an extra property about the complements.
 
 \begin{lemma}\label{lemma:compactexhaustion2}
 Let $U \subset \C$ be open.  Then there exists a sequence $K_n$
-of compact subsets of $U$ such that $K_n \subset K^\circ_{n+1}$,
-$\bigcup K_n = U$,
-for any compact $K \subset U$, there is an $n$ such that $K \subset K_n$,
+of compact subsets of $U$ such that $K_n \subset K^\circ_{n+1}$;
+$\bigcup K_n = U$;
+for any compact $K \subset U$, there is an $n$ such that $K \subset K_n$;
 and each component of $\C_\infty \setminus K_n$ contains a point of
 $\C_\infty \setminus U$.
 \end{lemma}
@@ -17581,13 +17582,16 @@ $\C_\infty \setminus U$.
 \begin{proof}
 Let $\{ K'_n \}$ be the sequence of sets from
 \lemmaref{lemma:compactexhaustion}.
-For each $n$, let $K_n$ be the set $K'_n$ together with any 
-component of $\C_\infty \setminus K'_n$ that is completely contained in $U$.
-In particular, we added only bounded components.
+For each $n$, let $K_n$ be the set $K'_n$ together with all 
+the components of $\C_\infty \setminus K'_n$ that are completely contained in $U$.
+We added only bounded components.
 The set $K_n$ is still closed (in $\C$) and bounded and hence compact.
 If $X$ is a component of $\C_\infty \setminus K'_n$ that we added into
 $K_n$, then $X \subset K_{m}$ for all $m > n$, and as $X$ is open,
-$X$ is in the interior of $K_{m}$.  So all the conditions are 
+$X$ is in the interior of $K_{m}$.
+The components of $\C_\infty \setminus K_n$ are those
+we did not add, so they contain a point of $U$.
+So all the conditions are 
 satisfied.
 \end{proof}
 
@@ -17611,12 +17615,12 @@ Let $R_n$ be a rational function such that
 \end{equation*}
 For a compact $K \subset U$, find an $N$ such that $K \subset K_n$ for
 all $n \geq N$.  Then $\abs{f(z)-R_n(z)} < \nicefrac{1}{n}$ for all
-$n \geq N$. So $\{ R_n \}$ converges to $f$ uniformly on compact subsets.
+$n \geq N$ and $z \in K$. So $\{ R_n \}$ converges to $f$ uniformly on compact subsets.
 \end{proof}
 
 \begin{exbox}
 \begin{exercise}
-Prove a version of \corref{cor:rungeseq}, where we only require that the
+Prove a version of \corref{cor:rungeseq} in which we only require that the
 closure $\bar{S}$ intersects every component of $\C_\infty \setminus U$.
 \end{exercise}
 
@@ -17675,7 +17679,7 @@ $x$.
 \end{exercise}
 
 \begin{exercise}
-Let $U \subset \C$ be a domain and $f \colon U \to \C$ be holomorphic.
+Let $U \subset \C$ be a domain.
 \begin{exparts}
 \item
 Suppose that for every $p \in \partial U$ there exists a disc
@@ -17718,7 +17722,7 @@ A set $U \subset \C$ is \emph{\myindex{polynomially convex}} if for
 every compact $K \subset U$, we get $\widehat{K} \subset U$.
 \end{defn}
 
-Hulls can be (and often are) defined for other classes of functions than
+Hulls can be (and often are) defined for classes of functions other than
 polynomials, and they are a generalization of the idea of convexity.  Classical
 convexity is convexity with respect to affine linear functions (see the
 exercises).
@@ -17734,7 +17738,7 @@ Clearly $K \subset \widehat{K}$.  As $\widehat{K}$
 is the intersection of closed sets, that is, sets where
 $\babs{P(z)} \leq \sup_{\zeta \in K} \babs{P(\zeta)}$ for some specific $P$, it is closed.
 It must be
-bounded since $K$ is bounded:  If $\sabs{z} \leq M$ for some $M$ on $K$,
+bounded since $K$ is bounded:  If $\sabs{z} \leq M$ on $K$ for some $M$,
 then all points of $\widehat{K}$ also satisfy $\sabs{z} \leq M$ (use $P(z)=z$).
 Thus $\widehat{K}$ is compact.
 \end{proof}
@@ -17832,10 +17836,10 @@ Then $\C_\infty \setminus U$ has exactly one component.
 \hyperref[cor:rungeseq]{Runge} says that we can approximate any function
 holomorphic on $U$ by polynomials
 (rational functions with a pole at $\infty$) uniformly on compact subsets.
-Namely, \ref{cor:polyhull:ii} holds.
+That is, \ref{cor:polyhull:ii} holds.
 
 Suppose \ref{cor:polyhull:ii} is true.
-Consider any $K \subset U$.  Suppose $p \in \widehat{K} \setminus U$ exists
+Consider any compact $K \subset U$.  Suppose $p \in \widehat{K} \setminus U$ exists
 (for contradiction).
 Then $p$ is not in $K$ and so $p$ is in one of the bounded components of $\C \setminus K$.
 Consider $f(z) = \frac{1}{z-p}$, which is holomorphic on $U$, so find
@@ -17849,7 +17853,7 @@ which is an open set by \thmref{thm:polyhull}
 ($\partial X \subset U$ so $U \cup \widehat{K} = U \cup (\C \setminus
 \widebar{X})$, a union of open sets).
 The set $U \cup \widehat{K}$ is connected, as each component
-of $\C \setminus K$ we added has its boundary in $U$, which is connected.
+of $\C \setminus K$ we added has its boundary in $U$, and $U$ is connected.
 The function $f$ is defined on $\C \setminus \{ p \}$,
 and the boundary of the component of $\C \setminus K$ that includes $p$ must
 have a limit point (exercise below).
@@ -17858,16 +17862,17 @@ impossible as $g$ is bounded near $p$ while $f$ has a pole there.  So no
 such $p$ exists and \ref{cor:polyhull:iii} is true.
 
 Suppose \ref{cor:polyhull:iii} is true.  Suppose $\C_\infty \setminus U$
-has a component $K$ that does not include $\infty$.  The set $K$ is compact.
+is disconnected.  Write $\C_\infty \setminus U = K \cup S$
+for disjoint closed sets where $\infty \in S$.
+The set $K$ is compact.
 By \lemmaref{lemma:patharoundK}, there exists a cycle $\Gamma$ 
 in $U$ such that $n(\Gamma;z) = 1$ on $K$.
 \propref{prop:windingconstant} says that
 $K$ is not in the unbounded component of $\C \setminus \Gamma$.
 By \thmref{thm:polyhull},
 $K \subset \widehat{\Gamma}$,
-which contradicts $U$ being polynomially convex.  Thus the only component of $\C_\infty
-\setminus U$ is the one that contains $\infty$ and so $U$ is simply
-connected.
+which contradicts $U$ being polynomially convex.  Thus
+$\C_\infty \setminus U$ is connected, and so $U$ is simply connected.
 \end{proof}
 
 \begin{exbox}
@@ -17891,7 +17896,7 @@ $\widehat{K}_1 \subset \widehat{K}_2$.
 Let $U \subset \C$ be a domain.  Prove that $U$
 is simply connected if and only if there exists a sequence $K_n$
 of compact subsets of $U$ such that $K_n \subset K^\circ_{n+1}$,
-$\bigcup K_n = U$, and such that $\widehat{K_n} = K_n$.
+$\bigcup K_n = U$, and such that $\widehat{K}_n = K_n$.
 \end{exercise}
 
 \begin{exercise}
@@ -17922,7 +17927,7 @@ rather than polynomials, then $\widehat{K} = K$ for every compact $K$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Mittag-Leffler}
-\label{sec:mittaglefler}
+\label{sec:mittagleffler}
 
 Given a \hyperref[defn:principalpart]{principal part} of a function with a pole at $p$,
 \begin{equation*}
@@ -17937,7 +17942,7 @@ $P_1(z),P_2(z),\ldots$, we wish to take
 \sum_{\ell=1}^\infty P_\ell(z) .
 \end{equation*}
 But can we?  The sum may not converge.  We must be a tad
-trickier, and here is where \hyperref[cor:rungeseq]{Runge's theorem} is useful:  Adding
+trickier, and here is where \hyperref[thm:rungecpt]{Runge's theorem} is useful:  Adding
 a holomorphic function doesn't change the principal part, but it may make
 the terms in the sum smaller and make things converge.
 We obtain the
@@ -17951,7 +17956,7 @@ limit point in $U$, and for every $p \in S$ there is a principal part
 P_p(z) = \sum_{m=1}^{k_p} \frac{c_{p,m}}{{(z-p)}^m}
 \end{equation*}
 of a pole of order $k_p$.  Then there exists a meromorphic function $f$ in $U$
-with poles precisely at points of $S$, and for each $p \in S$,
+with poles precisely at the points of $S$, and for each $p \in S$,
 the principal part of $f$ at $p$ is $P_p$.
 \end{thm}
 
@@ -17973,7 +17978,8 @@ Let $R_1=0$.  Suppose $n \geq 2$.
 Every component of $\C_\infty \setminus K_{n-1}$ contains a point of
 $\C_\infty \setminus U$, and $f_n$ is holomorphic on a neighborhood of
 $K_{n-1}$ (it has finitely many poles on $K_n \setminus K_{n-1}$).
-\hyperref[cor:rungeseq]{Runge's theorem}
+Runge's theorem
+(\thmref{thm:rungecpt})
 gives a rational function $R_n$ with poles in 
 $\C_\infty \setminus U$ such that $\sabs{f_n(z)-R_n(z)} < 2^{-n}$
 for all $z \in K_{n-1}$.  We only care that $R_n$ is holomorphic in $U$; we
@@ -17996,7 +18002,7 @@ K_\ell$ for some $\ell$.  Write
 \sum_{n=\ell+1}^\infty \bigl( f_n(z) - R_n(z) \bigr) .
 \end{equation*}
 The first term has poles on $K_\ell$ (but not on $K$),
-but the second term does not.  Furthermore, for all $z \in K_\ell$, and
+while the second term does not.  Furthermore, for all $z \in K_\ell$, and
 hence in $K$, we have
 \begin{equation*}
 \sum_{n=\ell+1}^\infty \abs{ f_n(z) - R_n(z) }
@@ -18025,19 +18031,17 @@ The last sum converges on $K_{\ell+1}$ (and $p \in K_{\ell+1}^{\circ}$)
 and none of the other functions have
 a pole at $p$.
 So $f$ has the same singularity at $p$ as $f_\ell$ and the same principal
-part, and $f_\ell$ was set up precisely so that it has a principal part
+part, and $f_\ell$ was set up precisely so that it has principal part
 $P_p$ at $p$.
 \end{proof}
 
 \begin{example} \label{example:mitlefsimpleZpoles}
 Sometimes, though not always,
-convergence happens simply by grouping the terms correctly.
-In other words,
 grouping the principal parts correctly
-(a choice of $\{ K_n \}$ in the proof),
-convergence happens even with $R_n=0$.
+(a choice of $\{ K_n \}$ in the proof)
+gives convergence even with $R_n=0$.
 Suppose we want a function with a pole at every $p \in \Z$ with
-singular part $\frac{1}{z-p}$.  Regrettably,
+principal part $\frac{1}{z-p}$.  Regrettably,
 \begin{equation*}
 \sum_{p\in \Z} \frac{1}{z-p}
 \end{equation*}
@@ -18074,7 +18078,7 @@ the series will not converge.
 Fix a positive $z \notin \N$.
 For $p$ large enough,
 $P_p(z)$ is close to $1$, say $P_p(z) > \nicefrac{1}{2}$.
-Suppose you group terms as $f_n(z)$ in some way.
+Suppose we group terms as $f_n(z)$ in some way.
 The terms of the series $\sum f_n(z)$
 are eventually (for large $n$)
 finite sums of only such $P_p(z)$,
@@ -18094,7 +18098,7 @@ the Weierstrass theorem.  Again, see the exercises.
 
 \begin{exbox}
 \begin{exercise} \label{exercise:mitlefsimpleZpoles}
-Prove the statements \exampleref{example:mitlefsimpleZpoles}:
+Prove the statements in \exampleref{example:mitlefsimpleZpoles}:
 $\sum_{p\in \Z} \frac{1}{z-p}$
 converges for no $z \in \C \setminus \Z$, but
 $\sum_{n=1}^\infty
@@ -18132,7 +18136,7 @@ $\Delta_{\epsilon}(p) \cap U$.  Hint: The trick is constructing $S$.
 \begin{exercise}
 Suppose that instead of principal parts of poles, $P_p(z)$ are principal
 parts of essential singularities that converge in $\C \setminus \{ p \}$.
-Prove the Mittag-Leffler with this setup.
+Prove Mittag-Leffler with this setup.
 \end{exercise}
 
 \begin{exercise}
@@ -18146,9 +18150,9 @@ $S = \{ c_1,c_2,\ldots \}$.
 Using Mittag-Leffler,
 find a meromorphic $g$ whose principal part at $c_k$ is $\frac{m_k}{z-c_k}$.
 For any closed path $\gamma$ in $U \setminus S$, show that
-$\int_\gamma g(z)\, dz = 2\pi i m$ for some $m \in \Z$.
+$\int_\gamma g(z)\, dz = 2\pi i n$ for some $n \in \Z$.
 \item
-By integrating, find an $f$ so that $\nicefrac{f'}{f} = g$ and show that this $f$ proves the theorem.
+By integrating, find an $f$ such that $\nicefrac{f'}{f} = g$ and show that this $f$ proves the theorem.
 \end{exparts}
 \end{exercise}
 \end{exbox}
