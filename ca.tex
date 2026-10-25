@@ -12215,7 +12215,7 @@ have time to modify his shape.
 
 \subsection{Convergence of subsequences}
 
-The point of Montel's theorem is to find a simple criterion
+The point of Montel's theorem is to give a simple criterion
 for
 relatively compact subsets of the set of holomorphic functions.  That is,
 we will try to figure out when a sequence of holomorphic functions
@@ -12227,7 +12227,7 @@ functions.
 However, before we get to Montel, we must seek a weaker result
 of this kind for continuous functions, the Arzel\`a--Ascoli theorem.
 For continuous functions, we need something more than just boundedness
-to get the convergent subsequence,
+to get a convergent subsequence,
 we need some sort of uniformity in the continuity.
 But let us start with boundedness.
 
@@ -12255,21 +12255,21 @@ for $x \in \R$
 is not uniformly bounded, but it is pointwise bounded as it converges
 pointwise (exercise).
 On the other hand,
-a uniformly bounded sequence of functions may
+a uniformly bounded sequence of functions need
 not contain any subsequence that converges even pointwise.
-For instance, $\sin(nx)$ on the real line is one such example.\footnote{%
+The sequence $\sin(nx)$ on the real line is one such example.\footnote{%
 A proof of this fact requires some measure theory, see the exercises.}
 Below we show that for such a sequence there must always exist
 a subsequence converging at countably
-many points, but $\C$ (or any open subset) is uncountable.
+many points, but a domain in $\R$ or $\C$ is uncountable.
 Moreover,
 the functions $x^n$ are uniformly bounded
 and converge pointwise to a function on the unit interval $[0,1]$, but the limit
 is discontinuous.  We desire continuous
 functions, ergo we must require better convergence than pointwise.  For now,
 we ignore continuity and show that we get a pointwise
-converging subsequence on a countable set
-if we start with pointwise bounded functions.
+convergent subsequence on a countable set
+if we start with pointwise bounded sequence of functions.
 The proof is a nice example of a diagonalization argument.
 
 \begin{prop} \label{prop:subsequenceoncountableX}
@@ -12285,7 +12285,7 @@ there exists a subsequence of $\{ f_n \}_{n=1}^{\infty}$, which we denote by
 $\{ f_{1,k} \}_{k=1}^\infty$,
 such that
 $\{ f_{1,k}(x_1) \}_{k=1}^\infty$ converges.
-Suppose we already defined $\{ f_{m,k} \}_{k=1}^\infty$,
+Suppose we have already defined $\{ f_{m,k} \}_{k=1}^\infty$,
 a subsequence of $\{ f_{m-1,k} \}_{k=1}^\infty$,
 such that
 $\{ f_{m,k}(x_j) \}_{k=1}^\infty$ converges for $j=1,2,\ldots,m$.
@@ -12335,7 +12335,7 @@ a contradiction.
 
 \subsection{Equicontinuity}
 
-For larger than countable sets,
+For uncountable sets,
 in order to find convergent subsequences of continuous functions
 we need some uniformity of continuity across the sequence.
 
@@ -12362,12 +12362,12 @@ such that if $x,y \in X$ with $d(x,y) < \delta$, then
 
 For finite sets $S$, equicontinuity and uniform equicontinuity
 are the same as continuity and uniform continuity.
-The notion is interesting for infinite sets.
+These notions are interesting for infinite sets.
 
 \begin{exbox}
 \begin{exercise}
 Prove that a finite set of functions continuous at $x$ is
-equicontinuous at $x$, and
+equicontinuous at $x$, and that
 a finite set of uniformly continuous functions is uniformly equicontinuous.
 \end{exercise}
 \end{exbox}
@@ -12408,7 +12408,7 @@ $\{ f_n \}$ is not equicontinuous at $x$.
 
 \begin{exbox}
 \begin{exercise}
-Suppose $(X,d)$ is a compact metric space,
+Suppose $(X,d)$ is a compact metric space
 and a sequence of continuous functions $f_n \colon X \to \C$
 converges uniformly. Prove that $\{ f_n \}$ is uniformly equicontinuous.
 \end{exercise}
@@ -12425,9 +12425,9 @@ Prove that $S$ is uniformly equicontinuous.
 For continuous functions, our analogue of Bolzano--Weierstrass is
 the Arzel\`a--Ascoli theorem.
 Unlike Bolzano--Weierstrass, Arzel\`a--Ascoli requires equicontinuity
-in addition to boundedness.  We will start with the theorem on compact
+in addition to boundedness.  We first prove the theorem on compact
 metric spaces, and then move to open sets.
-We start with a lemma showing that a countable
+We start by showing that a countable
 dense set exists in any compact metric space.  We will then be able to apply our
 result about countable sets.
 
@@ -12471,15 +12471,15 @@ convergent subsequence.
 \end{thm}
 
 \begin{proof}
-First, we show that the sequence is uniformly bounded.
-As $X$ is compact, the sequence $\{ f_n \}$ is uniformly
+First, we show that $\{ f_n \}$ is uniformly bounded.
+As $X$ is compact, $\{ f_n \}$ is uniformly
 equicontinuous.
-Hence,
+So,
 there is a $\delta > 0$
 such that
 for all $x \in X$ and all $n \in \N$,
 \begin{equation*}
-B(x,\delta) \subset f_n^{-1}\bigl(B(f_n(x),1)\bigr) .
+B(x,\delta) \subset f_n^{-1}\bigl(\Delta_1(f_n(x))\bigr) .
 \end{equation*}
 By compactness,
 there exist $x_1,\ldots,x_k$ such that
@@ -12497,25 +12497,25 @@ such that for $\ell=1,\ldots,k$,
 Given any
 $x \in X$, $x \in B(x_\ell,\delta)$ for some $\ell$, and
 hence
-$x \in f_n^{-1}\bigl(B(f_n(x_\ell),1)\bigr)$
+$x \in f_n^{-1}\bigl(\Delta_1(f_n(x_\ell))\bigr)$
 for all $n$.
 In other words,
-$\sabs{f_n(x)-f_n(x_\ell)} < 1$.  So $\{ f_n \}$ is uniformly bounded as
-for all $n$,
+$\sabs{f_n(x)-f_n(x_\ell)} < 1$.  So $\{ f_n \}$ is uniformly bounded,
+since for all $n$,
 \begin{equation*}
 \sabs{f_n(x)} < 1+ \sabs{f_n(x_\ell)} \leq 1+M .
 \end{equation*}
 
 Next, pick a countable dense subset $D \subset X$.
 By \propref{prop:subsequenceoncountableX}, find
-a subsequence $\{ f_{n_j} \}$ that converges pointwise on $D$.
+a subsequence $\{ f_{n_j} \}$ converging pointwise on $D$.
 Write $g_j = f_{n_j}$ for simplicity.
 The sequence $\{ g_n \}$ is 
 uniformly equicontinuous.
-Let $\epsilon > 0$ be given.  There exists a $\delta > 0$
+Let $\epsilon > 0$ be given.  There is a $\delta > 0$
 such that for all $x \in X$ and all $n \in \N$,
 \begin{equation*}
-B(x,\delta) \subset g_n^{-1}\bigl(B(g_n(x),\nicefrac{\epsilon}{3})\bigr).
+B(x,\delta) \subset g_n^{-1}\bigl(\Delta_{\epsilon/3}(g_n(x))\bigr).
 \end{equation*}
 By density of $D$, every $x \in X$ is in $B(y,\delta)$
 for some $y \in D$.  By compactness of $X$,
@@ -12550,7 +12550,6 @@ So for $n,m \geq N$,
 \end{equation*}
 Hence, the sequence is uniformly Cauchy.  By completeness of $\C$,
 it is uniformly convergent.
-%FIXME: reference?
 \end{proof}
 
 Before we prove 
@@ -12566,6 +12565,7 @@ for every compact $K \subset U$, there is an $n$ such that $K \subset K_n$.
 \end{lemma}
 
 \begin{proof}
+If $U=\C$, take $K_n = \overline{\Delta_n(0)}$.  Next, suppose $U \neq \C$.
 Let $d(z,\partial U)$ denote the distance to the boundary of $U$.  Define
 \begin{equation*}
 K_n = \bigl\{
@@ -12591,7 +12591,7 @@ is contained in some $K^\circ_n$, and hence in $K_n$.
 
 \begin{exbox}
 \begin{exercise}
-Prove the formula of $K^\circ_n$.  That is, prove that the interior
+Prove the formula for $K^\circ_n$.  That is, prove that the interior
 of $K_n$ is
 $K^\circ_n = \bigl\{
 z \in U : d(z,\partial U) > \nicefrac{1}{n} \text{ and } \sabs{z} < n
@@ -12629,8 +12629,10 @@ $K_\ell$ and thus on $K$.
 
 \begin{exbox}
 \begin{exercise}
-Suppose that $f_n \colon [0,1] \to \C$ are functions that are pointwise
-bounded, (real) differentiable, and for some $M> 0$, we have
+Suppose we have a pointwise bounded sequence of 
+(real) differentiable functions
+$f_n \colon [0,1] \to \C$,
+and that for some $M> 0$, we have
 $\sabs{f_n'(t)} \leq M$ for all $t \in [0,1]$ and all $n$.  Prove that there
 exists a subsequence that converges uniformly on $[0,1]$.
 \end{exercise}
@@ -12665,7 +12667,7 @@ pointwise, show that it converges uniformly.
 Define $f_n \colon [0,1] \to \C$ by $f_n(t) = e^{i(2\pi t + n)}$.
 \begin{exparts}
 \item
-Prove that $\{ f_n \}$ is a uniformly equicontinuous
+Prove that $\{ f_n \}$ is a uniformly equicontinuous,
 uniformly bounded sequence.
 \item
 Let $\delta \in \R$ be given, and define $g(t) = e^{i(2\pi t + \delta)}$.
