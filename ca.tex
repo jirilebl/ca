@@ -3100,7 +3100,7 @@ and the slit plane $\C \setminus (-\infty,0] = \{ z \in \C : \Im z \neq 0 \text{
 
 \begin{exercise} \label{exercise:segmentcomplement}
 Consider $f(z) = z+ \nicefrac{1}{z}$.  Show that $f$ takes $\C \setminus
-\overline{\D}$ biholomorphically to $\C \setminus [-2,2]$, and it also takes
+\widebar{\D}$ biholomorphically to $\C \setminus [-2,2]$, and it also takes
 $\D \setminus \{ 0 \}$ biholomorphically to $\C \setminus [-2,2]$.
 \end{exercise}
 
@@ -18184,18 +18184,19 @@ always exist.  If $f(z) =
 of extending it to $W = \C$.
 
 One type of continuation is reflection, namely the Schwarz reflection
-principle,\footnote{Sometimes it is called
+principle,\footnote{Sometimes it is called the
 \emph{\myindex{Riemann--Schwarz principle}} as Riemann saw it first, but he 
 didn't properly justify it, so Schwarz has dibs on it.}
 which 
-says that we can, under some conditions, reflect values across some boundary.
-We have seen the harmonic version (see \thmref{thm:schwarzreflectionharm})
-of this theorem.
+says that we can, under some conditions, reflect values across a boundary.
+We have seen the harmonic version
+of this theorem (see \thmref{thm:schwarzreflectionharm}).
 The proof of the principle works the same for both
 harmonic and holomorphic functions.
 We simply write down the candidate function by using
 the right reflection and then show that the reflection is harmonic or
-holomorphic.  Then over the line where they meet, we use either the
+holomorphic.  Then over the line where the reflection meets the function,
+we use either the
 mean-value property or Morera's theorem.
 
 \begin{thm}[Schwarz reflection principle]
@@ -18245,7 +18246,7 @@ f(\bar{z})
 =
 0 .
 \end{equation*}
-The chain rule came up because we are taking the $z$ derivative of $f$
+The chain rule comes up because we are taking the $z$ derivative of $f$
 composed with a conjugation map.  The $z$ derivative of the conjugation
 map is zero and the $\bar{z}$ derivative of $f$ is zero.
 Another way to see it is to write down the power series representation.
@@ -18265,7 +18266,7 @@ intersects $L$ either at a vertex or along a side.  See \figureref{fig:splittria
 \end{myfig}
 
 Call such a triangle $T$, and suppose it is above the axis.
-We can translate the triangle by $\epsilon$, that is,
+We can translate the triangle up by $\epsilon$, that is,
 consider $T_\epsilon = \{ z \in \C : z-i\epsilon \in T \}$.
 For small $\epsilon > 0$, we have
 $T_\epsilon \subset U_+$ and so
@@ -18277,28 +18278,28 @@ as
 \int_{\partial T} F(z+i\epsilon) \, dz .
 \end{equation*}
 The function $F$ is uniformly continuous on some neighborhood of $T$.
-Thus $F(z+i\epsilon)$ converges uniformly to $F(z)$ as $\epsilon \to 0$.
+Thus $F(z+i\epsilon)$ converges uniformly on $\partial T$ to $F(z)$ as $\epsilon \to 0$.
 Consequently, $\int_{\partial T} F(z) \, dz = 0$.
 Morera then implies that $F$ is holomorphic.
 \end{proof}
 
 The theorem is often applied by first mapping some curve to the real line.
-This curve must be nice enough, that is, real-analytic.  Similarly, the fact
-that $f$ is real-valued can be replaced by being valued in some
+This curve must be nice enough, that is, real-analytic.  Similarly,
+$f$ being real-valued can be replaced by being valued in some
 real-analytic curve.
 We will define a real-analytic curve as the image of
 an interval under an injective
 real-analytic map $\gamma \colon (a,b) \to \C$
 with nonvanishing derivative.
 By $\gamma$ being real-analytic, we mean that at each point it has a power
-series expansion.  Equivalently, a real-analytic function is a
-restriction of a holomorphic function to the real line by just plugging
+series expansion.  Equivalently, a real-analytic function is the
+restriction of a holomorphic function to the real line obtained by just plugging
 complex numbers into the power series.  So the actual definition we
 will use is the following.
 
 \begin{defn}
 A set $C \subset \C$ is a \emph{real-analytic curve}
-if there exist a domain $V \subset \C$ such that
+if there exist a domain $V \subset \C$ with
 $V \cap \R = (a,b)$ and an injective holomorphic $\varphi \colon V \to \C$
 such that $\varphi\bigl( (a,b) \bigr) = C$.
 \end{defn}
@@ -18312,10 +18313,10 @@ are the two \myquote{sides} of $C$.
 \index{Schwarz reflection principle!holomorphic functions, general version}
 Let $U \subset \C$ be open,
 $C \subset \partial U$ a real-analytic curve with one side
-not in $U$ and one side in $U$, that is, there is a domain $V$,
+in $U$ and one side not in $U$, that is, there exist a domain $V$ with
 $V \cap \R = (a,b)$ and an injective holomorphic $\varphi \colon V \to \C$
 such that $\varphi\bigl( (a,b) \bigr) = C \subset \partial U$,
-and such that $\varphi(V_+) \subset U$ and $\varphi(V_-) \cap U =
+$\varphi(V_+) \subset U$, and $\varphi(V_-) \cap U =
 \emptyset$.  Suppose that $f \colon U \cup C \to \C$ is a continuous
 function, holomorphic on $U$, such that $f(C) \subset D$ for some
 other real-analytic curve $D$.
@@ -18325,16 +18326,16 @@ function $F \colon U \cup W \to \C$ such that $F|_{U \cup C} = f$.
 \end{cor}
 
 \begin{proof}
-First start with $D$.  As it is defined by some invertible holomorphic
+Start with $D$.  As $D$ is defined by some invertible holomorphic
 function,
-there must be a neighborhood $H$ of $D$, and an injective
+there must be a neighborhood $H$ of $D$ and an injective
 holomorphic $\psi \colon H \to \C$ such that $\psi(D) \subset \R$.
 We can pick $V$ small enough so that it is symmetric across the real axis
-and such that $f\bigl(\varphi(V_+)\bigr) \subset H$.
+and $f\bigl(\varphi(V_+)\bigr) \subset H$.
 Write $L = (a,b) = V \cap \R$ as before.
 Consider the composition $\psi \circ f \circ \varphi$, which is
 holomorphic in $V_+$, continuous on $V_+ \cup L$, and
-real-valued on $L$.  So the Schwarz reflection principle holds,
+real-valued on $L$.  So the Schwarz reflection principle applies,
 and we get a holomorphic $G \colon V \to \C$ extending
 $\psi \circ f \circ \varphi$.
 
@@ -18345,8 +18346,8 @@ we write $F = \psi^{-1} \circ G \circ \varphi^{-1}$.  This definition
 agrees with $f$ on $W \cap U = \varphi(V_+)$, and so we can define $F$ on $U$ as $f$.
 \end{proof}
 
-The corollary says that we can extend holomorphic functions across
-real-analytic boundaries as long as the function is continuous and valued in
+The corollary says that we can extend a holomorphic function across
+a real-analytic boundary as long as the function is continuous and valued in
 a real-analytic curve on the boundary.  However, the downside of this more
 general statement is that it
 does not say how to figure out exactly the size of the neighborhood $W$.
@@ -18355,8 +18356,8 @@ and then follow \myquote{reductions of $V$} in the proof to work out how far
 the extension goes, but that does require understanding how far the
 functions defining the curves extend as invertible functions.
 
-In practice, the extension is often applied to rather special curves such as
-a straight line or a circle and so we can
+In practice, the principle is often applied to rather special curves such as
+a straight line or a circle, and so we can
 find the extension and where it is defined explicitly.
 The original version is for a
 straight line.  Let us give the circle version.
@@ -18403,7 +18404,7 @@ Suppose $U \subset \bH$ is a domain in the upper half-plane
 and $\Delta$ is a disc centered at some real number
 with $\Delta \cap \partial U = \Delta \cap \R = (a,b)$.
 Suppose $f \colon U \cup (a,b) \to \C$ is continuous, holomorphic on $U$,
-and $f$ is zero on $(a,b)$.  Prove that $f$ is identically zero.
+and zero on $(a,b)$.  Prove that $f$ is identically zero.
 \end{exercise}
 
 \begin{exercise}
@@ -18443,7 +18444,7 @@ Show that $f$ extends as a
 $C^\infty$ (infinitely real differentiable) function on $\widebar{U}$.
 Hint: It is enough to show that
 all real partial derivatives of $f$ of all orders on $U$
-are locally bounded on $\widebar{U}$: In particular, for any $z \in \partial U$ 
+are locally bounded on $\widebar{U}$: For any $z \in \partial U$ 
 and any real partial derivative,
 there is a neighborhood $V$ of $z$ such that the derivative
 is bounded on $U \cap V$, and that is only tricky at $z=0$.
@@ -18485,7 +18486,7 @@ $f \colon U \to \C$
 can be
 \emph{analytically continued}\index{analytic continuation}
 along $\gamma$
-if for every $t \in [0,1]$ there exists
+if for every $t \in [0,1]$ there exist
 a disc $D_t$ centered at $\gamma(t)$ and a holomorphic function
 $f_t \colon D_t \to \C$ such that:
 \begin{enumerate}[(i)]
@@ -18530,7 +18531,7 @@ get the same values of $f_t\bigl(\gamma(t)\bigr)$.
 \end{exercise}
 \end{exbox}
 
-Since $\gamma$ (as a set) is compact, we can use only finitely many
+Since $\gamma$ (as a set) is compact, we only need finitely many
 discs.  See \figureref{fig:followbranch2}.
 We were continuing the logarithm in this way back in
 \chapterref{ch:log}.
@@ -18572,7 +18573,7 @@ a path $\gamma$ in $U_1 \cup U_2$ from $p$ to $q$, and two discs $\Delta_1,\Delt
 as in the proposition such that $\Delta_1 \subset U_1$ and $\Delta_2 \subset
 U_2$, such that $\gamma \subset \Delta_1 \cup \Delta_2$, and these are the
 discs giving the analytic continuation of $f_1$ from $p$ to $q$, and $f_1 =
-f_2$ on $\Delta_1 \cap \Delta_2$, but such that $f_1$ is not equal to $f_2$
+f_2$ on $\Delta_1 \cap \Delta_2$, but such that $f_1 \neq f_2$ somewhere
 on $U_1 \cap U_2$.
 \end{exercise}
 \end{exbox}
@@ -18582,8 +18583,7 @@ Let $f$ and $\gamma$ be as in \defnref{defn:analcont}.
 Suppose $f$ continues analytically along $\gamma$, and let
 $f_t$ be the continuation.
 Then there exists an $\epsilon > 0$ such that if
-a continuous
-$\sigma \colon [0,1] \to \C$ is such that $p=\sigma(0)=\gamma(0)$,
+$\sigma \colon [0,1] \to \C$ is continuous with $p=\sigma(0)=\gamma(0)$,
 $q=\sigma(1)=\gamma(1)$, and
 $\sabs{\sigma(t)-\gamma(t)} < \epsilon$ for all $t$,
 then
@@ -18598,7 +18598,7 @@ in $\Delta_j$ and so it is a positive distance away from the boundary $\partial
 \Delta_j$.  Let $\epsilon > 0$ be smaller than this distance for all
 $j=1,\ldots,n$.  Suppose $\sigma$ is as in the statement.
 Then $\sigma \bigl([t_{j-1},t_j]\bigr)$ is still in $\Delta_j$.  We can thus
-use the same $\varphi_j$ and $\Delta_j$ to get a continuation using
+use the same $\varphi_j$ and $\Delta_j$ to get a continuation by
 \propref{prop:finitedisccont} again.
 \end{proof}
 
@@ -18661,7 +18661,7 @@ not every function allows unrestricted continuation even if it allows
 continuation along some path to every point.
 
 \begin{example}
-Consider a branch of the square root $\sqrt{z}$ such that $\sqrt{1}=1$
+Consider a branch of $\sqrt{z}$ with $\sqrt{1}=1$,
 defined in some neighborhood of $1$.  The logarithm allows
 unrestricted continuation in $\C \setminus \{ 0 \}$, and so does the square root.
 If we continue from $z=1$ along a closed path that does not go around the origin and comes
@@ -18675,20 +18675,20 @@ continue $f$.  If we take a closed path starting at $z=1$ making, say, a small l
 near $1$, then we obtain the square root being $1$
 and so $f$ also continues along this loop.  However, if we take the
 unit circle and go once around the origin, the square root becomes $-1$
-once we get back to $z=1$,
+when we get back to $z=1$,
 and so $f$ cannot be analytically continued along this path.  That is, $f$
 does not allow unrestricted continuation to $\C \setminus \{ 0 \}$ even
 though it allows continuation to every point of $\C \setminus \{ 0 \}$
 along some path.  Just not every path.
 \end{example}
 
-Inverses can often be continued for some paths but may not
+Inverses can often be continued along paths but may not
 admit unrestricted continuation, as we saw in the
 example above where
 we tried to continue the inverse of
 $w \mapsto {(\nicefrac{1}{w}-1)}^2$.
 However, if the mapping is a so-called covering
-map (for example, a $k$-to-1 onto holomorphic map), then its inverse does
+map (for example, a $k$-to-1 onto holomorphic map), then its local inverse does
 admit such continuation.
 
 \begin{defn}
@@ -18711,7 +18711,7 @@ The exponential $e^z$ is a covering map of $\C$ onto $\C \setminus \{ 0 \}$.
 \begin{example}
 Suppose $U,V \subset \C$ are open, $f \colon U \to V$ holomorphic, $k$-to-1
 ($k \in \N$), and onto.
-Using \exerciseref{exercise:ktoone}, $f'$ never vanishes and
+By \exerciseref{exercise:ktoone}, $f'$ never vanishes and
 $f$ is locally invertible.  It is not hard to
 prove (exercise below) that $f$ is a covering map.
 \end{example}
@@ -18726,11 +18726,11 @@ identity) and admits unrestricted analytic continuation to $V$.
 \end{prop}
 
 \begin{proof}
-Consider a continuous $\gamma \colon [0,1] \to V$, where $\gamma(0) = p$.
+Consider a continuous $\gamma \colon [0,1] \to V$ with $\gamma(0) = p$.
 At each point $w$ of $\gamma$, using the definition of a covering map,
 we find a disc $\Delta \subset V$ centered at $w$ such that
-$f^{-1}(\Delta)$ has 
-disjoint components and for each component, a branch of $f^{-1}$ can be defined as a
+for each component of 
+$f^{-1}(\Delta)$, a branch of $f^{-1}$ can be defined as a
 holomorphic map onto that component.  As $\gamma$ is compact, we
 find a partition $0 = t_0 < \cdots < t_n = 1$ and
 such discs $\Delta_1,\ldots,\Delta_n$ so that
@@ -18788,7 +18788,7 @@ around the various holes, an equivalence that doesn't care exactly what
 path we take as long as we can deform one path to the other.
 We have seen that for closed paths, homotopy is such an equivalence, although
 here we look at paths from one fixed point to another.  The definition
-is almost the same (compare \defnref{defn:homotopy}), except instead of
+is almost the same (compare \defnref{defn:homotopy}), except that instead of
 \myquote{closed} we require that the paths
 are \myquote{from $p$ to $q$.}
 
@@ -18796,13 +18796,13 @@ are \myquote{from $p$ to $q$.}
 Let $U \subset \C$ be open and $p,q \in U$.
 Two continuous functions
 $\gamma_0 \colon [0,1] \to U$ and
-$\gamma_1 \colon [0,1] \to U$ where
+$\gamma_1 \colon [0,1] \to U$ with
 $\gamma_0(0)=\gamma_1(0)=p$
 and
 $\gamma_0(1)=\gamma_1(1)=q$
 are
 \emph{\myindex{fixed-endpoint homotopic}} in $U$
-(or relative to $U$) if there exists a continuous function
+if there exists a continuous function
 $H \colon [0,1] \times [0,1] \to U$ such that
 for all $s$ and $t$ in $[0,1]$
 \begin{equation*}
@@ -18818,7 +18818,7 @@ We also write $\gamma_s$, where $\gamma_s(t) = H(t,s)$, for the paths in the hom
 
 \begin{myfig}
 \subimport*{figures/}{homotopyfixed.pdf_t}
-\caption{Fixed endpoint homotopy of two paths $\gamma_0$ and
+\caption{Fixed-endpoint homotopy of two paths $\gamma_0$ and
 $\gamma_1$ with intermediate paths marked in gray.\label{fig:homotopyfixed}}
 \end{myfig}
 
@@ -18883,7 +18883,7 @@ As $U$ is convex, $H(t,s) \in U$ for all $(t,s) \in
 $H(0,s) = \gamma_0(0)=\gamma_1(0)$ and
 $H(1,s) = \gamma_0(1)=\gamma_1(1)$.  So $H$ is a fixed-endpoint homotopy in
 $U$. By the proposition, the value of the continuation at
-$q$ is the same whether we continued $f$ along $\gamma_0$ or $\gamma_1$.
+$q$ is the same whether we continue $f$ along $\gamma_0$ or $\gamma_1$.
 We define $F(q)$ to be this value.
 The function $F$ is holomorphic as it was obtained by continuation.
 It equals $f$ on all of $W$ as it is a continuation of $f$ from $p$ along
@@ -18928,9 +18928,9 @@ We will not prove so, but every domain in
 $\C$ has a universal cover.\footnote{Actually every reasonably nice topological space
 has a topological universal cover, where the \myquote{local biholomorphism} is
 replaced by \myquote{local homeomorphism.}}
-What we proved above is that the only universal covering of a simply
-connected domain is essentially just a biholomorphism.
-By \hyperref[thm:RMT]{Riemann mapping theorem},
+What we proved above is that the only universal cover of a simply
+connected domain is just a biholomorphism.
+By the \hyperref[thm:RMT]{Riemann mapping theorem},
 every domain has a universal cover that
 is either $\C$ or $\D$.  In fact, the little Picard theorem, which we do
 not prove, says that any nonconstant entire function misses at most one value.  So
@@ -18943,7 +18943,7 @@ We leave the proof as an exercise.
 
 \begin{cor} \label{cor:coverscover}
 Suppose $U,V,W \subset \C$ are domains, $h \colon U \to V$ is a 
-holomorphic covering map and $f \colon W \to V$ is a holomorphic universal cover ($W$ is
+holomorphic covering map, and $f \colon W \to V$ is a holomorphic universal cover ($W$ is
 simply connected).  Then there exists a holomorphic covering map
 $g \colon W \to U$ such that $f = h \circ g$.
 \end{cor}
@@ -18956,14 +18956,14 @@ U \arrow[rr,"h"]                   & & V
 \end{tikzcd}
 \end{equation*}
 
-After you prove this corollary, via the monodromy theorem, you can quickly
+After you prove this corollary, then via the monodromy theorem, you can quickly
 prove
 that the universal cover is unique up to biholomorphism.
 
 \begin{cor} \label{cor:univcoverunique}
 Suppose $U_1,U_2,V \subset \C$ are domains and $f \colon U_1 \to V$ and $g \colon
 U_2 \to V$ are
-universal holomorphic covering maps ($U_1$ and $U_2$ are simply connected).
+holomorphic universal covering maps ($U_1$ and $U_2$ are simply connected).
 Then there
 exists a biholomorphism $\varphi \colon U_1 \to U_2$
 such that $f = g \circ \varphi$.
@@ -18977,7 +18977,7 @@ U_1 \arrow[rr,"\varphi"] \arrow[dr,"f"'] & & U_2 \arrow[dl,"g"] \\
 \end{tikzcd}
 \end{equation*}
 
-As an example for the setup of both corollaries,
+As an example of the setup of both corollaries,
 notice that $e^z$ is a universal covering map taking $\C$ to $\C \setminus \{ 0 \}$.
 The map $z^2$ is a covering map from $\C \setminus \{ 0 \}$ to itself.
 We might think we can compose the two and obtain a new universal covering map:
@@ -19016,7 +19016,7 @@ See \exerciseref{exercise:segmentcomplement}.
 \begin{exercise}
 Suppose $K \subset \C$ is compact, connected, contains more than one
 point, and $\C \setminus K$ is connected.  Show that there
-exists a universal holomorphic cover $f \colon \D \to \C \setminus K$.
+exists a holomorphic universal cover $f \colon \D \to \C \setminus K$.
 \end{exercise}
 
 \begin{exercise}
@@ -19028,7 +19028,7 @@ Prove that the universal covering map of $U$ is infinite-to-one.
 
 \begin{exercise} \label{exercise:EPHimpliesSC}
 Suppose $U \subset \C$ is a domain such that 
-every pair of continuous 
+any two continuous 
 $\gamma_0 \colon [0,1] \to U$ and
 $\gamma_1 \colon [0,1] \to U$
 with
