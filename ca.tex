@@ -112,7 +112,16 @@
 \counterwithout{footnote}{chapter} % Fix footnotes starting at 2 on the first page of a chapter.
 \usepackage{perpage}
 \MakePerPage{footnote}
-\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\makeatletter
+\def\safe@fnsymbol#1{%
+  \ifnum\value{#1}>9 
+    \arabic{#1}%
+  \else
+    \fnsymbol{#1}%
+  \fi
+}
+\renewcommand{\thefootnote}{\safe@fnsymbol{footnote}}
+\makeatother
 
 \usepackage{footnote}
 
@@ -403,7 +412,7 @@
 Ji{\v r}\'i Lebl\\[3ex]} 
 \today
 \\
-(version 1.9)
+(version 1.10)
 \end{minipage}}
 
 %\addtolength{\textwidth}{\centeroffset}
@@ -14135,7 +14144,7 @@ It is achieved by integration against the so-called
 \emph{\myindex{Poisson kernel}}.
 The
 Poisson kernel
-for the unit disc $\D \subset \C$,
+for the unit disc $\D \subset \C$
 is
 \glsadd{not:Pr}%
 \begin{equation*}
@@ -14153,8 +14162,8 @@ z \mapsto \frac{1}{2\pi} \Re \left(
 \end{equation*}
 \begin{myfig}
 \includegraphics{figures/poisson-graph}
-\caption{Graph of the Poisson kernel on $\D$,
-the pole at $z=1$ is cut off at $2$.%
+\caption{Graph of the Poisson kernel on $\D$.
+The pole at $z=1$ is cut off at $2$.%
 \label{fig:poissongraph}}
 \end{myfig}
 
@@ -14325,8 +14334,8 @@ whenever $\delta \leq \sabs{t} \leq \pi$.
 
 Since
 $\int_{-\pi}^\pi P_r(t) \, dt = 1$,%
-\footnote{This is a trick you see all the time in analysis, it is good to
-remember it.}
+\footnote{This is a trick you see all the time in analysis.
+It is good to remember it.}
 \begin{equation*}
 f(e^{i\theta})=
 \int_{-\pi}^\pi f(e^{i\theta}) P_r(t) \, dt .
@@ -14370,8 +14379,8 @@ P_r(t) \, dt
 & \leq (\pi-\delta) 2M \frac{\epsilon}{8M\pi} < \frac{\epsilon}{4} .
 \end{split}
 \end{equation*}
-The integral from $\delta$ to $\pi$ is exactly the same.
-Next the middle integral,
+The integral from $\delta$ to $\pi$ has the same estimate.
+Next, the middle integral:
 \begin{equation*}
 \begin{split}
 \abs{
@@ -14486,13 +14495,13 @@ In particular, for $z = p+re^{i\theta} \in \Delta_R(p)$,
 \begin{equation*}
 f(z) = \int_{-\pi}^\pi f(p+Re^{it}) P_{r/R}(\theta-t) \, dt .
 \end{equation*}
-A difference with the Cauchy integral formula is that the Poisson kernel
+A difference from the Cauchy integral formula is that the Poisson kernel
 changes based on the domain.  The Poisson kernel exists for
 domains other than the disc (as long as the boundary is nice enough), although
 in general we do not have an explicit formula.  In
 the Cauchy integral formula, the kernel is $\frac{1}{\zeta-z}$
-no matter the path that we were integrating around, that is, no matter
-what domain we were solving in.
+no matter the path that we are integrating around, that is, no matter
+what domain we are solving in.
 
 The Poisson kernel is also a reproducing kernel for
 holomorphic functions, as holomorphic functions are harmonic
@@ -14513,13 +14522,13 @@ but $Cf = z$ in $\D$.
 %analogous properties, although we will not study those here.
 
 It is particularly useful to notice that
-in the corollary if we plug in $r=0$, we get
+in the corollary, if we plug in $r=0$, we get
 \begin{equation} \label{eq:averageofPf}
 Pf(p) = \frac{1}{2\pi} \int_{-\pi}^{\pi}f(p + R e^{it}) \, dt .
 \end{equation}
 The value at the center of the disc, $Pf(p)$, is the average 
 value of $f$ on $\partial \Delta_R(p)$.
-In the next section, we will see that this property actually characterizes
+In the next subsection, we will see that this property actually characterizes
 harmonic functions.
 
 \begin{exbox}
@@ -14571,7 +14580,7 @@ is harmonic in $\bH$ and continuous on $\overline{\bH}$.
 Given an open $U \subset \C$,
 a continuous function $f \colon \widebar{U} \to \R$,
 positive and harmonic on $U$,
-and zero on $\partial U$ is called a
+and zero on $\partial U$, is called a
 \emph{\myindex{Martin function}}.
 \begin{exparts}
 \item
@@ -14608,7 +14617,7 @@ f(z) =
 \end{exercise}
 
 \begin{exercise}
-Let $q_1,q_2,\ldots$ be an enumeration of rational
+Let $q_1,q_2,\ldots$ be an enumeration of the rational
 numbers in $[0,1]$.
 \begin{exparts}
 \item
@@ -14619,7 +14628,8 @@ zero otherwise (the indicator function).  Show that
 $\varphi$ is discontinuous at every rational number in $(0,1]$,
 nondecreasing, and bounded (hence Riemann integrable).
 \item
-Define $\Phi(t) = \int_0^t \varphi(s)\, ds$, show that $\Phi$
+Define $\Phi(t) = \int_0^t \varphi(s)\, ds$.
+Show that $\Phi$
 is increasing, continuous, but not differentiable
 on a dense set in $[0,1]$.  Use it to construct a
 $\psi(t)$ that is $2\pi$-periodic, continuous, and 
@@ -14627,7 +14637,7 @@ not differentiable on a dense subset of $\R$.
 \item
 Find a continuous $u \colon \overline{\D} \to \R$
 such that $u|_{\D}$ is harmonic and
-$u(e^{it}) = \psi(t)$, then find a holomorphic $h \colon \D \to \C$
+$u(e^{it}) = \psi(t)$.  Then find a holomorphic $h \colon \D \to \C$
 such that $\Re h = u$.
 \item
 Show that $h$ does not extend through any point of
@@ -14648,7 +14658,7 @@ linear function.  It is quite useful to think of harmonic functions on $\C$ as o
 particular analogue of such affine linear functions, although we ought
 not to take this analogy too far, of course.
 One property of affine linear functions is a mean-value property, that is,
-given $a < b$ then $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
+given $a < b$, we have $f\bigl(\frac{a+b}{2}\bigr) = \frac{f(a)+f(b)}{2}$.  The
 value at the center of an interval is equal to the average of values at the
 ends.  In fact, if a continuous function satisfies this equality for all
 intervals $[a,b]$, then it is
@@ -14696,14 +14706,14 @@ arbitrary closed disc.  Let $h = P\bigl[f|_{\partial \Delta_s(q)}\bigr]$
 be the solution of the Dirichlet problem in $\Delta_s(q)$ with boundary
 values given by $f$.  Consider $\varphi = f-h$,
 which is continuous, identically zero
-on $\partial \Delta_s(q)$ and satisfies the mean-value property
+on $\partial \Delta_s(q)$, and satisfies the mean-value property
 on the same circles as $f$ (as long as they lie in $\Delta_s(q)$).
 Suppose for contradiction that $\varphi$ is positive
 somewhere on $\Delta_s(q)$.
 Let $\varphi$ achieve a maximum at $p \in
 \Delta_s(q)$, so $\varphi(p) > 0$.
 The set $X \subset \Delta_s(q)$ where $\varphi(z) = \varphi(p)$ is compact.
-Assume $p$ is the point on $X$ closest to
+Assume $p$ is a point of $X$ closest to
 $\partial \Delta_s(q)$.  For some small $r < R_p$, the circle
 $\partial \Delta_r(p) \subset \Delta_s(q)$ and there is a constant
 $C$ so that $\varphi(z) \leq C < \varphi(p)$ for $z$
@@ -14726,7 +14736,7 @@ $X$.\label{fig:meanvalue}}
 
 We have proved that $\varphi \leq 0$ on $\Delta_s(q)$.  Applying the same
 logic to $-\varphi$, we find that $\varphi = 0$ on $\Delta_s(q)$.
-Namely, $f=h$ and $h$ is harmonic, so $f$ is harmonic on
+Consequently, $f=h$ and $h$ is harmonic, so $f$ is harmonic on
 $\Delta_s(q)$ (and thus on $U$).
 \end{proof}
 
@@ -14809,7 +14819,7 @@ Prove that $g \colon U \to \R$ defined by
 g(z) = \int_0^1 f(z,t) \, dt
 \avoidbreak
 \end{equation*}
-is harmonic.  Hint: Fubini not Leibniz.
+is harmonic.  Hint: Fubini, not Leibniz.
 \end{exercise}
 
 \begin{exercise}
@@ -14924,7 +14934,7 @@ The inequalities are optimal.  In the unit disc $\D$, the theorem says
 Consider the function $f(z) = \Re \frac{1+z}{1-z}$.  Except for the
 $\frac{1}{2\pi}$, it is the Poisson kernel and so 
 $f(z) > 0$ on $\D$.  Note that $f(0)=1$.  Plugging in $z=r$, we get
-equality in the right-hand inequality above, and plugging in $z=-r$
+equality in the right-hand inequality above, and plugging in $z=-r$,
 we get equality in the left-hand inequality above.  In other words,
 the two constants
 $\frac{R-r}{R+r}$ and $\frac{R+r}{R-r}$ are optimal.
@@ -14941,11 +14951,11 @@ for every harmonic and nonnegative function $f$ defined on $U$.
 \end{cor}
 
 \begin{proof}
-If we prove the theorem for a larger $K$ we are done, so we
+If we prove the result for a larger $K$, we are done, so we
 replace $K$ by a larger connected compact subset of $U$.
-First, make $K$ have only finitely many components by replacing it
+We first make $K$ have only finitely many components by replacing it
 by finitely many closed discs
-(see the proof of \lemmaref{lemma:patharoundK}).  Then, $U$ is path
+(see the proof of \lemmaref{lemma:patharoundK}).  Since $U$ is path
 connected and so adding finitely many paths to $K$, we can connect
 the discs.
 
@@ -14965,7 +14975,7 @@ The proof is illustrated in \figureref{fig:harnacksgeneral}.
 \begin{myfig}
 \subimport*{figures/}{harnacksgeneral.pdf_t}
 \caption{A chain of discs with centers $z_1,z_2,z_3,z_4$ connecting
-$\zeta$ to $\xi$ in $K$ (marked in darker shade).  Midpoints of the segments
+$\zeta$ to $\xi$ in $K$ (marked in a darker shade).  Midpoints of the segments
 between $z_j$ and $z_{j+1}$ are marked as well.
 The solid circles are discs of radius $r$ and
 dashed circles are discs of radius $2r$.\label{fig:harnacksgeneral}}
@@ -15011,8 +15021,8 @@ f(\xi)
 3^{2N}
 f(\xi) .
 \end{equation*}
-The number $N$ only depends on $K$, not on $\zeta$, $\xi$, or $f$.
-As $\zeta$ and $\xi$ were arbitrary, the theorem follows.
+The number $N$ depends only on $K$, not on $\zeta$, $\xi$, or $f$.
+As $\zeta$ and $\xi$ were arbitrary, the result follows.
 \end{proof}
 
 The constant we get in the proof is not optimal, but it is explicit.
@@ -15029,7 +15039,7 @@ is not assumed to be connected.
 \begin{exercise}[Easy]
 Find the following counterexample to Harnack's inequality
 if $f$ is not assumed to be
-nonnegative.  For every $M > 0$ find
+nonnegative.  For every $M > 0$, find
 a harmonic function $f \colon \D \to \R$ such that $f(0) = 1$ and
 $f(\nicefrac{1}{2}) \geq M$.
 \end{exercise}
@@ -15038,7 +15048,7 @@ $f(\nicefrac{1}{2}) \geq M$.
 Fix some $s > t > 0$.
 Let $U = \{z \in \C : -s < \Re z < s, -1 < \Im z < 1 \}$.
 Compute an explicit constant $C$
-(doesn't need to be optimal)
+(it need not be optimal)
 for the following $K$ for the general
 Harnack's inequality:
 \smallskip
@@ -15061,7 +15071,7 @@ and prove that the constants are optimal.
 
 \begin{exercise}
 Let $U = \D$ and $K=\overline{\Delta_r(0)}$, $r < 1$, in the general 
-Harnack's inequality.  Prove that the $C$ from the theorem
+Harnack's inequality.  Prove that the $C$ from the result
 must necessarily go to infinity as $r \uparrow 1$.
 \end{exercise}
 
@@ -15105,7 +15115,7 @@ f_n(p) \leq \sup_{z \in K'} f_n(z) \leq C \inf_{z\in K'} f_n(z) \leq C \inf_{z\i
 \end{equation*}
 Thus, $f_n(z) \to +\infty$ uniformly on $K$.
 
-Therefore, suppose the limit of $\{ f_n(z) \}$ is finite
+Now suppose the limit of $\{ f_n(z) \}$ is finite
 for every $z \in U$.  Let $f \colon U \to \R$ be the limit.
 Let $K \subset U$ be any compact subset,
 $C$ the constant from Harnack's inequality, and $p \in K$ any point.
@@ -15155,7 +15165,7 @@ compact subsets.
 \begin{exercise}
 Prove a Montel-like theorem for harmonic functions.  Suppose $U \subset \C$
 is a domain and $\{ f_n \}$ is a sequence of nonnegative harmonic functions.
-Show that at least one (or both) of the following are true:
+Show that at least one of the following are true:
 \begin{enumerate}[(i)]
 \item
 There exists a subsequence converging to $+\infty$ uniformly on compact subsets.
