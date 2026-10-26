@@ -15191,8 +15191,8 @@ For harmonic functions, we get the following classification of removable
 singularities, which is sharp, that is, best possible.
 The harmonic function $\log \sabs{z}$
 has a nonremovable singularity at the origin.
-Any function
-that blows up any slower than that, doesn't actually blow up and, in fact,
+Any harmonic function
+that blows up any slower than that doesn't actually blow up and, in fact,
 extends to be
 harmonic at the origin.
 
@@ -15241,8 +15241,8 @@ $z \in \D \setminus \{0\}$.  So $u$ is the extension near $0$ that
 we are looking for.
 \end{proof}
 
-An isolated singularity of a harmonic function $g$ could be very wild, for
-example $\Re e^{1/z}$ or similar.  If $f(z) = \log \sabs{h(z)}$
+An isolated singularity of a harmonic function could be very wild, for
+example $\Re e^{1/z}$ or similar.  On the other hand, if $f(z) = \log \sabs{h(z)}$
 for a holomorphic $h$ with either a pole or a zero at the origin,
 then near the origin $h(z) = \psi(z) z^n$ where $\psi(0)\not=0$ and $n \in \Z$.
 So
@@ -15306,8 +15306,7 @@ c_{-1} \log z +
 \psi(z),
 \end{equation*}
 for some branch of the $\log$, where $\psi$ is a holomorphic function
-on $\D \setminus \{ 0 \}$,
-and we can assume $A=0$.
+on $\D \setminus \{ 0 \}$.
 Taking the real part, we get $f$, a well-defined function on
 $\D \setminus \{ 0 \}$.  Therefore,
 $c_{-1} \log z$ has real part that is well-defined in $\D \setminus \{ 0 \}$,
@@ -15336,9 +15335,9 @@ That is,
 $z^{-k} e^{-\psi(z)}$ has
 a removable singularity at the origin.
 By \exerciseref{exercise:singofexp}, 
-$e^{-\psi(z)}$ cannot have a pole.
-So $e^{-\psi(z)}$
-and thus $\psi(z)$ has a removable singularity.
+$e^{-\psi(z)}$ does not have a pole,
+and so $e^{-\psi(z)}$ and consequently
+$\psi(z)$ have a removable singularity.
 As $-c_{-1} \log\sabs{z} \leq \Re \psi(z)$,
 we find $-c_{-1} \log\sabs{z}$ is bounded from above
 near the origin and so $-c_{-1} \geq 0$.
@@ -15369,6 +15368,7 @@ B\^{o}cher's theorem are unique.
 \begin{exercise}
 Suppose $f \colon \D \setminus \{ 0 \} \to \R$ is nonnegative and harmonic.
 Let $z=x+iy$.  Prove that the $C$ from B\^{o}cher's theorem can be computed by
+(for any $0 < r < 1$)
 \begin{equation*}
 C =  \frac{-r}{2\pi} \int_0^{2\pi}
 \bigl(
@@ -15476,9 +15476,9 @@ then $f(z)=f(-z)$ for all $z \in \C$.
 
 \begin{exercise} \label{exercise:Hdirichuniq}
 Prove that a bounded solution to the Dirichlet problem in the
-upper-half plane $\bH$ is unique:
-Let $f,g \colon \overline{\bH} \to \R$ be 
-continuous functions harmonic on $\bH$ such that $f-g$ is bounded and
+upper half-plane $\bH$ is unique:
+Take continuous $f,g \colon \overline{\bH} \to \R$
+harmonic on $\bH$ such that $f-g$ is bounded and
 $f=g$ on $\partial \bH = \R$.  Prove that $f=g$ on $\bH$.
 Compare to \exerciseref{exercise:upperhalfplanedirichlet}.
 \end{exercise}
@@ -15508,7 +15508,7 @@ Find an example $f$ that does not extend to be harmonic through the origin.
 Suppose $f \colon \overline{\bH} \to \R$ is continuous, harmonic on $\bH$, zero on $\R = \partial \bH$,
 and positive on $\bH$  (a Martin function).
 Prove that $f(z) = c \Im z$ for some $c > 0$.
-Hint: Find an entire function whose imaginary part is $f$ and
+Hint: Find an entire function whose imaginary part is $f$ on $\bH$ and
 show that it has a pole at infinity.
 \end{exercise}
 
