@@ -12948,9 +12948,8 @@ upper half-disc to the unit disc.  You will explicitly construct this map in
 The proof of the theorem is a wonderful example of solving
 a problem by formulating a related extremal problem.  The $f$
 in the theorem maximizes
-$\sabs{f'(p)}$ among injective holomorphic maps taking $p$ to $0$.
-We will prove that maximizing $\sabs{f'(p)}$ is equivalent to $f$ being
-onto:
+$\sabs{f'(p)}$ among injective holomorphic to $\D$ maps taking $p$ to $0$.
+We will prove that maximizing $\sabs{f'(p)}$ makes $f$ onto:
 For any map that is not onto, we find one with a bigger
 $\sabs{f'(p)}$ that still goes into the disc.  Such maps are bounded,
 so Montel gives us a convergent sequence with $\sabs{f'(p)}$
@@ -13084,9 +13083,9 @@ The map from the theorem can be useful, but the theorem
 itself doesn't tell you how to construct it.
 There are entire books
 written on the subject, collecting the techniques for constructing
-these maps for various types of domains.
+these maps for various domains.
 For instance, there is an explicit formula, called the Schwarz--Christoffel
-mapping, for the map given any polygon.
+mapping, for the map (actually its inverse) given any polygon.
 We will not worry about these constructions here.
 \end{remark}
 
@@ -13106,8 +13105,8 @@ Again, we refer the reader to more advanced literature.
 \begin{remark}
 In the proof we only used that $U$ was simply connected to 
 obtain square roots of nowhere zero functions.  So the result we actually
-proved is that the existence of square roots on $U \neq \C$ implies that $U$ is
-biholomorphic to $\D$.  In other words, $U$ being simply
+proved is that the existence of square roots on a domain $U \neq \C$ implies that $U$ is
+biholomorphic to $\D$.  In fact, $U$ being simply
 connected is equivalent to the existence of square roots.
 \end{remark}
 
@@ -13199,7 +13198,7 @@ The proof of this corollary is a wonderful example of something that would
 be quite difficult without the
 \hyperref[thm:RMT]{Riemann mapping theorem}, and it is almost
 trivial with the mapping theorem.
-The key idea is that any path is trivially homotopic to the zero path in the
+The key idea is that any closed path is trivially homotopic to the zero path in the
 disc just by scaling.  See also \exampleref{example:homotopydiscsc}.
 
 \begin{cor} \label{cor:simplyconnhard}
@@ -13320,14 +13319,14 @@ morally one could think of it that way (hence the quotes).\label{fig:cyclearound
 
 \begin{proof}
 We first enlarge $K$ so that it
-has only finitely many connected components.  For a small enough $r > 0$, we cover
-$K$ by finitely many discs $\Delta_r(z)$ such that $\overline{\Delta_r(z)}
-\subset U$.  In particular, for some $z_1,\ldots,z_m$,
+has only finitely many connected components.  For a small enough $\epsilon > 0$, we cover
+$K$ by finitely many discs $\Delta_r(z)$ such that $\overline{\Delta_{\epsilon}(z)}
+\subset U$.  In particular, for some $z_1,\ldots,z_\ell$,
 \begin{equation*}
 K' =
-\overline{\Delta_r(z_1)}
+\overline{\Delta_{\epsilon}(z_1)}
 \cup \cdots \cup
-\overline{\Delta_r(z_m)}
+\overline{\Delta_{\epsilon}(z_\ell)}
 \end{equation*}
 is a compact subset of $U$ and $K \subset K'$.
 As $K'$ is a union of finitely many closed discs, it has
@@ -13336,19 +13335,21 @@ If we find a $\Gamma$ in $U$ around $K'$, then we are done as $K \subset K'$.
 
 Let $K_1,\ldots,K_n$ be the components of $K'$.
 The components are closed, and as there are finitely many,
-$K_2 \cup \cdots \cup K_n$ is also closed.
-If we prove the lemma for the connected compact set $K_1$ and
-the open set $U \setminus ( K_2 \cup \cdots \cup K_n )$ to find a cycle
-$\Gamma_1$, then we claim we are done: We could repeat the procedure
-for each $K_j$ to find $\Gamma_j$ and let $\Gamma = \Gamma_1 + \cdots +
+we can find pairwise disjoint open sets $W_1,\ldots,W_n$
+so that $K_j \subset W_j \subset U$ for all $j$.
+If we prove the lemma for the connected compact set $K_j$ and
+the open set $W_j$, then we are done.
+That is, for every $j$ we find a $\Gamma_j$ in $W_j$
+with the desired properties, we let $\Gamma = \Gamma_1 + \cdots +
 \Gamma_n$.  As $\Gamma_j$ winds exactly once around every point of $K_j$
-and does not wind around any point of $K_\ell$ for $\ell \neq j$,
-then $\Gamma$ will wind exactly once around any point of $K'$,
-and it is still homologous to zero in $U$.
+and does not wind around anything outside $W_j$, then
+$\Gamma$ will wind exactly once around any point of $K'$,
+it is still homologous to zero in $U$, and the winding number
+around any point not in $\Gamma$ is either $1$ or $0$.
 
-So, without loss of generality, assume that $K$ is connected.
-Also assume that $0 \in K$.  If $K= \{0 \}$, we are done trivially, so
-assume $K$ is more than one point.
+So, without loss of generality, assume that $K$ is connected and is a union of
+closed discs.  In particular, it contains more than one point.
+Also assume that $0 \in K$.
 Let $\varphi \colon \C_\infty \to \C_\infty$ be the inversion
 LFT\@:
 $\varphi(z) = \nicefrac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
@@ -13363,7 +13364,7 @@ point), and
 $\C_\infty \setminus V = \varphi(K)$ is connected.
 So each connected component of $V$ is a simply connected domain
 by \propref{prop:scbycomplementeasy} (exercise).
-As we can assume that $K$ is a finite union of closed discs,
+As $K$ is a finite union of closed discs,
 $\C_\infty \setminus K$ and therefore $V$ have finitely many connected components.
 Let $V_1,\ldots,V_m$ be the connected
 components of $V$.
@@ -13493,13 +13494,14 @@ n(\Gamma;p) =
 \end{equation*}
 
 If $p$ is any other point not on $\Gamma$, then $n(\Gamma;p)$
-is either $0$ or $1$, depending on if there is a pole at
-$\psi(\nicefrac{1}{p})$ and if $\Gamma$ goes around it or not.
+is either $0$ or $1$, depending on if $\Gamma$ goes around the
+pole at $\psi(\nicefrac{1}{p})$ or not.
 \end{proof}
 
 \begin{exbox}
 \begin{exercise}
-Prove that if $K \subset \C_\infty$ is compact and connected, then 
+Prove that if $K \subset \C_\infty$ is compact, connected,
+and $\infty \in K$, then 
 every component of $\C_\infty \setminus K$ is a simply connected domain.
 Hint: Prove that the complement of each one of these components is connected.
 \end{exercise}
@@ -13543,10 +13545,11 @@ Why does this example not contradict the construction in the proof of the lemma?
 \end{exercise}
 
 \begin{exercise}
-Suppose $\{ f_n \}$ is a sequence of holomorphic functions on an open set
+Suppose $\{ f_n \}$ is a sequence of holomorphic functions on a domain
 $U \subset \C$ that converges uniformly on compact subsets to
-a nonconstant
-$f \colon U \to \C$.  Let $K \subset U$ be a compact set.  Prove that
+an
+$f \colon U \to \C$ that is not identically zero.
+Let $K \subset U$ be a compact set.  Prove that
 for every open neighborhood $V$ of $K$ in $U$ (so $K \subset V \subset U$) there exists
 a smaller open neighborhood $W$ (so $K \subset W \subset V$) and an $N \in \N$
 such that $f$ and $f_n$ have the same number of zeros in $W$ for all
