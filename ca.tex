@@ -6474,7 +6474,7 @@ Then for all $n$,
 \end{thm}
 
 In other words, the sequence $\bigl\{ \sabs{c_n} r^n \bigr\}$ is bounded by
-$\snorm{f}_{\partial \Delta_r(p)}$.  Compare to \propref{prop:cnrnbounded}.
+$\snorm{f}_{\partial \Delta_r(p)}$.  Compare with \propref{prop:cnrnbounded}.
 
 \begin{proof}
 The proof is a brute-force estimation:
@@ -12980,7 +12980,7 @@ root---there exists a $g \colon U \to \C$ such that
 ${\bigl(g(z)\bigr)}^2 = z-q$.
 The set $g(U)$ is open by the \hyperref[thm:OMT]{open mapping theorem}.
 If $g(z)=g(\zeta)$, then ${\bigl(g(z)\bigr)}^2={\bigl(g(\zeta)\bigr)}^2$ and so
-$z=\zeta$.  Thus $g$ is injective.  What's more,
+$z=\zeta$.  That is, $g$ is injective.  What's more,
 $g(z)=-g(\zeta)$ also implies $z=\zeta$.  Thus, $g(z) =
 -g(\zeta)$ never happens since $g$ is never zero.
 In other words, $g(U) \cap \bigl( - g(U) \bigr) = \emptyset$,
@@ -13001,7 +13001,7 @@ such that $f(p) = 0$, but that $f$ is not onto: There is a
 $q \in \D \setminus f(U)$.
 Recall that
 $\varphi_q(z) = \frac{z-q}{1-\bar{q}z}$ is an automorphism of $\D$ that
-takes $q$ to $0$, and consider $\varphi_q \circ f$.  This function is not
+takes $q$ to $0$, and consider $\varphi_q \circ f$.  This function is never
 zero on $U$ and thus
 there exists a holomorphic square root $g$ on $U$, that is,
 ${\bigl(g(z)\bigr)}^2 = \varphi_q\bigl(f(z)\bigr)$.
@@ -13035,9 +13035,9 @@ As ${\bigl(g(p)\bigr)}^2 = -q$,
 =
 \frac{2 \sqrt{\sabs{q}}}{1+\sabs{q}} \sabs{h'(p)} .
 \end{equation*}
-If $\sabs{q} < 1$, then $\frac{2 \sqrt{\sabs{q}}}{1+\sabs{q}} < 1$
+Since $\sabs{q} < 1$, we have $\frac{2 \sqrt{\sabs{q}}}{1+\sabs{q}} < 1$
 (calculus exercise).
-In other words,
+Consequently,
 \begin{equation*}
 \sabs{f'(p)} < \sabs{h'(p)} .
 \end{equation*}
@@ -13055,16 +13055,16 @@ By the corollary to Hurwitz,
 the function $f$ is injective or constant.  It cannot be constant,
 as $f_n'(p)$ converges to $f'(p)$, which
 cannot be zero as  
-$0 < \sabs{f_n'(p)} \leq \sabs{f'(p)}$ for any $n$.
+$0 < \sabs{f_n'(p)} \leq \sabs{f'(p)}$ for all $n$.
 We must have $f(p) = 0$ by taking the limit.
 Similarly,
 $\sabs{f(z)} \leq 1$ for all $z \in U$ by taking limits,
 so $f(U) \subset \overline{\D}$.
 By the \hyperref[thm:OMT]{open mapping theorem}, $f(U) \subset \D$, so $f \in
 \sF$.  If $f$ were not onto, then it would not be the one that achieves the
-supremum of $\sabs{f'(p)}$, see the construction of $h$ above.
+supremum of $\sabs{f'(p)}$.  See the construction of $h$ above.
 Thus $f(U) = \D$, and $f$ is the desired map.
-Multiplying by $e^{i\theta}$ we can make $f'(p) > 0$.
+Multiplying by $e^{i\theta}$, we can make $f'(p) > 0$.
 
 The uniqueness is left as an exercise.
 \end{proof}
@@ -13103,7 +13103,7 @@ Again, we refer the reader to more advanced literature.
 \end{remark}
 
 \begin{remark}
-In the proof we only used that $U$ was simply connected to 
+In the proof we used that $U$ was simply connected only to 
 obtain square roots of nowhere zero functions.  So the result we actually
 proved is that the existence of square roots on a domain $U \neq \C$ implies that $U$ is
 biholomorphic to $\D$.  In fact, $U$ being simply
@@ -13177,7 +13177,7 @@ Hint: What if the component contained $\infty$?
 \begin{exercise}
 Let $S \subset \C$ be a countable closed subset.
 Prove that $U = \C \setminus S$ is not biholomorphic
-to any subset of $\D$.  Hint: A countable closed set contains isolated points
+to any subset of $\D$.  Hint: A nonempty countable closed set contains isolated points
 since every nonempty perfect set is uncountable
 (feel free to assume this fact).
 \end{exercise}
@@ -13192,9 +13192,9 @@ onto.
 \subsection{Simply connected is simply connected \texorpdfstring{$\star$}{*}}
 
 Let us finally prove that simply connected (in the sense of homology,
-\defnref{defn:simplyconnected:homology}, that we have been using all this
-time), is equivalent to simply connected in the sense of homotopy.
-The proof of this corollary is a wonderful example of something that would
+\defnref{defn:simplyconnected:homology}, which we have been using all this
+time) is equivalent to simply connected in the sense of homotopy.
+The proof of this corollary is a great example of something that would
 be quite difficult without the
 \hyperref[thm:RMT]{Riemann mapping theorem}, and it is almost
 trivial with the mapping theorem.
@@ -13250,7 +13250,8 @@ general topological spaces.
 Without using the Riemann mapping theorem, \corref{cor:simplyconnhard},
 or mapping to the disc in any way, prove by constructing an explicit homotopy
 that the slit plane $\C \setminus (-\infty,0]$ is simply connected in
-the sense of homotopy, see the proof of the corollary.
+the sense of homotopy.
+See the proof of the corollary for inspiration.
 \end{exercise}
 \end{exbox}
 
@@ -13258,7 +13259,7 @@ the sense of homotopy, see the proof of the corollary.
 
 As a second and perhaps much less obvious application of the Riemann
 mapping theorem,
-we will prove a lemma that around any compact set in some domain $U$
+we will prove a lemma that for any compact set in some open $U$
 we can find a cycle that goes around this compact set and is homologous to
 zero in $U$.
 What's interesting is that there is no simply connected domain in sight
@@ -13276,7 +13277,7 @@ my book after all.
 
 This lemma will allow us to finish the proof that simply
 connected domains in $\C$ are precisely those 
-where the complement in $\C_\infty$ is connected.  That is, we will prove
+whose complement in $\C_\infty$ is connected.  That is, we will prove
 the converse of \propref{prop:scbycomplementeasy}.  First the lemma.
 
 \begin{lemma}\label{lemma:patharoundK}
@@ -13299,7 +13300,7 @@ Then the path is a backwards (clockwise) circle very close to the boundary of th
 to \myquote{go around} (after reversing the inversion) what's
 \myquote{outside the disc,} that is, it will go around $K$.
 The complement of $U$
-corresponds to a compact set inside the disc so this way we will not
+corresponds to a compact set inside the disc, so this way we will not
 \myquote{go around} the complement of $U$.
 Then we repeat the procedure for all components of $K$.  See
 \figureref{fig:cyclearoundcompact}.  As expected,
@@ -13311,7 +13312,7 @@ nice, but we need to actually do some grubby computation to prove anything.
 \begin{myfig}
 \subimport*{figures/}{cyclearoundcompact.pdf_t}
 \caption{The idea of the proof: The complement of $K$ with infinity goes to
-the inside of the disc by Riemann mapping theorem.  The inversion is the
+the inside of the disc by the Riemann mapping theorem.  The inversion is the
 $\varphi$ and $\psi$ is the mapping from Riemann's theorem.
 The outside of the disc on the right is not really the image of $K$, but
 morally one could think of it that way (hence the quotes).\label{fig:cyclearoundcompact}}
@@ -13342,7 +13343,7 @@ the open set $W_j$, then we are done.
 That is, for every $j$ we find a $\Gamma_j$ in $W_j$
 with the desired properties, we let $\Gamma = \Gamma_1 + \cdots +
 \Gamma_n$.  As $\Gamma_j$ winds exactly once around every point of $K_j$
-and does not wind around anything outside $W_j$, then
+and does not wind around anything outside $W_j$, the cycle
 $\Gamma$ will wind exactly once around any point of $K'$,
 it is still homologous to zero in $U$, and the winding number
 around any point not in $\Gamma$ is either $1$ or $0$.
@@ -13355,7 +13356,7 @@ LFT\@:
 $\varphi(z) = \nicefrac{1}{z}$ for $z \in \C \setminus \{ 0 \}$,
 $\varphi(0) = \infty$, and $\varphi(\infty) = 0$.
 Being an LFT\@, $\varphi$ is a biholomorphic
-mapping of $\C_\infty$ to itself, where $\varphi^{-1} = \varphi$.  Let
+mapping of $\C_\infty$ to itself, and $\varphi^{-1} = \varphi$.  Let
 \begin{equation*}
 V = \varphi(\C_\infty \setminus K) .
 \end{equation*}
@@ -13373,7 +13374,7 @@ a biholomorphic map from $V_j$ to $\Delta_1(q_j)$,
 where $q_1,\ldots,q_m$ are some points
 far enough apart so that the discs are disjoint.
 Write $D = \Delta_1(q_1) \cup \cdots \cup \Delta_1(q_m)$.
-In other words, there is
+Together, these give
 a biholomorphic $\psi \colon V \to D$.  We can arrange that $q_1=0$
 and $\psi(0)=0$.
 
@@ -13395,7 +13396,6 @@ that is, $\gamma_j = -\partial
 Let $\Gamma_j=\varphi^{-1} \circ \psi^{-1} \circ \gamma_j$, and $\Gamma = \Gamma_1 +
 \cdots + \Gamma_m$.
 
-Let us compute the winding numbers.
 For any $p$ not on $\Gamma$, compute
 the winding number (see \propref{prop:usubst}):
 \begin{multline*}
@@ -13433,7 +13433,7 @@ h(\xi) =
 \end{equation*}
 defined on $D$ has two poles: one at $\psi(\nicefrac{1}{p})$ and one
 at $q_1=0$ (the third factor in the denominator is never zero).
-They are both simple poles as is easy to check and the residues are (using
+They are both simple poles, as is easy to check, and the residues are (using
 \propref{prop:residuesimpleratio})
 \begin{equation*}
 \operatorname{Res}(h;0) = 
@@ -13474,7 +13474,7 @@ by the \hyperref[thm:residue]{residue theorem},
 n(\Gamma;p) = 0 .
 \end{equation*}
 
-Next suppose $p \in K$.  As before
+Next suppose $p \in K$.  As before,
 $n(\Gamma;p) = 
 \sum_j
 \frac{1}{2\pi i}
@@ -13524,7 +13524,7 @@ Assume $\infty \in S$.
 The set $U' = U \cup K$ is open as $S$ is closed, $U' \subset \C$,
 and $K \subset U'$ is compact.  Apply the lemma to find a cycle
 $\Gamma$ in $U = U' \setminus K$ such that $n(\Gamma;z) = 1$ for all $z \in
-K$.  In other words, $\Gamma$ is not homologous to zero in $U$.
+K$.  Hence, $\Gamma$ is not homologous to zero in $U$.
 \end{proof}
 
 \begin{exbox}
@@ -13550,7 +13550,7 @@ $U \subset \C$ that converges uniformly on compact subsets to
 an
 $f \colon U \to \C$ that is not identically zero.
 Let $K \subset U$ be a compact set.  Prove that
-for every open neighborhood $V$ of $K$ in $U$ (so $K \subset V \subset U$) there exists
+for every open neighborhood $V$ of $K$ in $U$ (so $K \subset V \subset U$) there exist
 a smaller open neighborhood $W$ (so $K \subset W \subset V$) and an $N \in \N$
 such that $f$ and $f_n$ have the same number of zeros in $W$ for all
 $n \geq N$.
@@ -13571,14 +13571,14 @@ $\sabs{p-q} < \delta$ ($\Gamma$ is within $\delta$ of $K$).
 Let $U \subset \C$ be a domain.
 \begin{exparts}
 \item
-Prove that if $U$ is not simply connected, then there exists a $p \in \C
+Prove that if $U$ is not simply connected, then there exist a $p \in \C
 \setminus U$ and a cycle $\Gamma$ in $U$ such that $n(\Gamma;p)=1$.
 \item
 Fix an integer $k \geq 2$.
 Suppose that for every nowhere zero holomorphic $f \colon U \to \C$,
 there exists a holomorphic $g \colon U \to \C$ such that $g^k = f$.
 Prove that $U$ is simply connected.
-Hint: See \exerciseref{exercise:rootgivesscI} for a hint.
+Hint: See \exerciseref{exercise:rootgivesscI}.
 \end{exparts}
 \end{exercise}
 \end{exbox}
@@ -15187,11 +15187,11 @@ uniformly on compact subsets.
 
 \subsection{Isolated singularities}
 
-For harmonic functions, we get the following classification of removable
+For harmonic functions, we get the following criterion for removable
 singularities, which is sharp, that is, best possible.
 The harmonic function $\log \sabs{z}$
 has a nonremovable singularity at the origin.
-Any harmonic function
+A harmonic function
 that blows up any slower than that doesn't actually blow up and, in fact,
 extends to be
 harmonic at the origin.
@@ -15228,13 +15228,13 @@ g(z)
 \leq
 \epsilon (- \log\sabs{z}) .
 \end{equation}
-The estimate \eqref{eq:removableestimateharmonic} holds also when
+The estimate \eqref{eq:removableestimateharmonic} also holds when
 $\sabs{z}=1$ as $g=0$ there.
 The functions $-\log\sabs{z}$ and $g$ are harmonic
 outside of the origin, so
 the maximum principle (the version in
 \exerciseref{exercise:maxprincsecondharmonic}) implies that
-\eqref{eq:removableestimateharmonic} holds also for $\delta < \sabs{z} < 1$,
+\eqref{eq:removableestimateharmonic} also holds for $\delta < \sabs{z} < 1$,
 and thus for all $z \in \D \setminus \{ 0 \}$.
 As the estimate holds for all $\epsilon > 0$, we have $g(z) = 0$ for all
 $z \in \D \setminus \{0\}$.  So $u$ is the extension near $0$ that
@@ -15267,8 +15267,8 @@ harmonic at the origin.
 \begin{thm}[B\^{o}cher]
 Suppose $U \subset \C$ is open, $p \in U$, and
 $f \colon U \setminus \{ p \} \to \R$ is
-harmonic and nonnegative.  Then there exists a harmonic function
-$g \colon U \to \R$ and a $C \geq 0$ such that
+harmonic and nonnegative.  Then there exist a harmonic function
+$g \colon U \to \R$ and a constant $C \geq 0$ such that
 for all $z \in U \setminus \{ p \}$,
 \begin{equation*}
 f(z) = g(z) - C \log \sabs{z-p} .
@@ -15309,7 +15309,7 @@ for some branch of the $\log$, where $\psi$ is a holomorphic function
 on $\D \setminus \{ 0 \}$.
 Taking the real part, we get $f$, a well-defined function on
 $\D \setminus \{ 0 \}$.  Therefore,
-$c_{-1} \log z$ has real part that is well-defined in $\D \setminus \{ 0 \}$,
+$c_{-1} \log z$ has a well-defined real part in $\D \setminus \{ 0 \}$,
 meaning $c_{-1} \in \R$.
 So
 \begin{equation*}
@@ -15317,8 +15317,8 @@ f(z) = \Re \Phi(z) =
 c_{-1} \log \sabs{z} +  
 \Re \psi(z).
 \end{equation*}
-Let $k$ be some integer $k \leq c_{-1}$.
-Nonnegativity of $f(z)$ says that
+Let $k \leq c_{-1}$ be an integer.
+Nonnegativity of $f$ says that
 \begin{equation*}
 -k \log \sabs{z} \leq
 -c_{-1} \log \sabs{z} \leq  \Re \psi(z) .
@@ -15331,7 +15331,7 @@ Then
 \quad
 \sabs{z^{-k} e^{-\psi(z)}} \leq 1 .
 \end{equation*}
-That is, 
+Hence, 
 $z^{-k} e^{-\psi(z)}$ has
 a removable singularity at the origin.
 By \exerciseref{exercise:singofexp}, 
@@ -15361,7 +15361,7 @@ Prove that the Dirichlet problem is not necessarily solvable in the punctured di
 \end{exercise}
 
 \begin{exercise}
-Prove that given $f$, the function $g$ and the constant $C$ in 
+Prove that, given $f$, the function $g$ and the constant $C$ in 
 B\^{o}cher's theorem are unique.
 \end{exercise}
 
@@ -15386,7 +15386,7 @@ functions, but it is also a theorem for harmonic functions.
 We will prove the corresponding holomorphic version
 (\thmref{thm:schwarzreflectionholo}) later separately.
 
-Basically the reflection principle says that if a harmonic function vanishes on a nice enough
+Basically, the reflection principle says that if a harmonic function vanishes on a nice enough
 curve---such as the real line---then it extends (reflects) across.
 
 \begin{thm}[Schwarz reflection principle for harmonic functions]%
@@ -15425,7 +15425,7 @@ f(z) & \text{if } \Im z \geq 0, \\
 \end{equation*}
 
 If $z \in U$ and $\Im z > 0$, then $F$ is harmonic at $z$ by hypothesis.
-Suppose $z \in U$ and $\Im z < 0$.  Write $F(z) = F(x,y) = -f(x,-y)$, then
+Suppose $z \in U$ and $\Im z < 0$.  Write $F(z) = F(x,y) = -f(x,-y)$.  Then
 \begin{equation*}
 \nabla^2|_{(x,y)} F
 =
@@ -15480,7 +15480,7 @@ upper half-plane $\bH$ is unique:
 Take continuous $f,g \colon \overline{\bH} \to \R$
 harmonic on $\bH$ such that $f-g$ is bounded and
 $f=g$ on $\partial \bH = \R$.  Prove that $f=g$ on $\bH$.
-Compare to \exerciseref{exercise:upperhalfplanedirichlet}.
+Compare with \exerciseref{exercise:upperhalfplanedirichlet}.
 \end{exercise}
 
 \begin{exercise}
@@ -15521,7 +15521,7 @@ $f,g \colon \overline{\bH} \setminus S \to \R$ are
 continuous functions harmonic on $\bH$ such that $f-g$ is bounded and
 $f=g$ on $\R \setminus S$.  Prove that $f=g$ everywhere.
 \item
-Show uniqueness of the bounded Dirichlet problem in $\D$ with
+Show uniqueness in the bounded Dirichlet problem in $\D$ with
 discontinuities:  Suppose $S \subset \partial \D$ is finite and
 $f \colon \partial \D \setminus S \to \R$ is continuous and bounded.
 By \exerciseref{exercise:dirichDwithsings}, a continuous $g \colon
