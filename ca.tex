@@ -1000,7 +1000,7 @@ It is possible that the analysis you have seen so far in your mathematical
 career has been for real-valued functions $f \colon X \to \R$.  In this
 book, we are concerned with complex-valued functions $f \colon X \to \C$.
 The results for real-valued functions are then applied either by thinking of
-either the components of $f$ separately or by thinking of $\C$ as the
+the components of $f$ separately or by thinking of $\C$ as the
 real vector space $\R^2$.
 
 When we find ourselves in the possession of a complex-valued function
@@ -9636,7 +9636,7 @@ open neighborhood $V$ of $p$, there is a
 connected open neighborhood $W \subset V$ of $p$ such that
 $W \setminus \gamma$
 has exactly two components and $\gamma \cap W$ is contained in the
-closer of each component.
+closure of each component.
 \end{lemma}
 
 For a piecewise-$C^1$ path, $\gamma'$ is never
@@ -11418,7 +11418,7 @@ and $f \colon U \to \C_\infty$ is meromorphic with
 no zeros or poles on $\Gamma$.
 Show that there exists an open $U' \subset U$
 with $\Gamma$ a cycle in $U'$ homologous to zero in $U'$ such that
-every zeros or pole $z$ of the restriction $f|_{U'}$
+every zero or pole $z$ of the restriction $f|_{U'}$
 satisfies $n(\Gamma;z) \neq 0$.
 \end{exercise}
 
@@ -11966,7 +11966,7 @@ If $f(p)$ is in the interior of $f(V)$ for any neighborhood $V$ of
 $p$, then $\sabs{f(z)}$ cannot achieve a maximum at $p$.
 Notice also that the proof says something stronger than the theorem statement.  It
 gives an explicit bound.  It says that if 
-$\abs{f(z)-f(p)} \leq \delta$ for $z \in \partial \Delta_r(p)$,
+$\abs{f(z)-f(p)} \geq \delta$ for $z \in \partial \Delta_r(p)$,
 then
 $\Delta_{\delta}\bigl(f(p)\bigr) \subset f\bigl(\Delta_r(p)\bigr)$.
 
@@ -13321,7 +13321,7 @@ morally one could think of it that way (hence the quotes).\label{fig:cyclearound
 \begin{proof}
 We first enlarge $K$ so that it
 has only finitely many connected components.  For a small enough $\epsilon > 0$, we cover
-$K$ by finitely many discs $\Delta_r(z)$ such that $\overline{\Delta_{\epsilon}(z)}
+$K$ by finitely many discs $\Delta_\epsilon(z)$ such that $\overline{\Delta_{\epsilon}(z)}
 \subset U$.  In particular, for some $z_1,\ldots,z_\ell$,
 \begin{equation*}
 K' =
@@ -19513,7 +19513,7 @@ Find a metric $d$ on $\N$ such that $\N$ is a bounded set in $(\N,d)$.
 \item
 Find a metric $d$ on $\N$ such that for every $n \in \N$ and
 every $\epsilon > 0$,
-there exists an $m \in \N$ such that $d(n,m) < \epsilon$.
+there exists an $m \in \N$, $m \neq n$, such that $d(n,m) < \epsilon$.
 \end{exparts}
 \end{exercise}
 
@@ -21061,7 +21061,7 @@ $x_1,x_2,x_3,x_4$,
 the three sets 
 $U_{\lambda_1}$,
 $U_{\lambda_2}$,
-$U_{\lambda_2}$,
+$U_{\lambda_3}$,
 and 
 the first three balls
 of radius $\delta$ are drawn.\label{fig:seqcompactiscompact}}
@@ -23946,7 +23946,7 @@ $V$ around $p$ such that
 The inequality implies that $Df|_x$ is invertible for all $x \in V$
 (see exercise below).
 
-Given $y \in \R^n$, define $\varphi_y \colon C \to \R^n$ by
+Given $y \in \R^n$, define $\varphi_y \colon V \to \R^n$ by
 \begin{equation*}
 \varphi_y (x) = x + A^{-1}\bigl(y-f(x)\bigr) .
 \end{equation*}
