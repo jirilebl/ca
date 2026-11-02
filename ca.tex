@@ -580,7 +580,7 @@ The first seven chapters are a natural first semester in a two-semester sequence
 semester could be several complex variables (e.g., \cite{scv:book})
 or perhaps harmonic analysis.
 It could perhaps be used for a more elementary two-semester sequence if the
-appendix is covered first, and all the optional bits of the main text are
+appendices are covered first, and all the optional bits of the main text are
 also covered.
 We assume basic knowledge of undergraduate
 analysis in the real variable, called \myquote{advanced calculus} in some schools.
@@ -2398,7 +2398,7 @@ is complex differentiable at $z$ and $(g \circ f)'(z) = g'\bigl(f(z)\bigr) f'(z)
 \begin{proof}
 We offer two proofs.  The first works only for holomorphic
 functions, and the second allows a generalization to nonholomorphic functions
-with the Wirtinger operators in the next section (an exercise).
+with the Wirtinger operators in the next subsection (an exercise).
 
 Let $h \neq 0$, and let $k = f(z+h) -f(z)$.
 Assume first that $k \neq 0$.
@@ -3299,10 +3299,10 @@ if and only if $f$ is holomorphic and $f'$ never vanishes.
 
 In other words, conformal maps are holomorphic, and holomorphic
 maps with nonzero derivative preserve angles and orientation.
-Once we prove later that
-holomorphic maps are continuously differentiable and we will be able to
-apply the inverse function theorem we have just presented in the previous
-subsection, then we will see that conformal maps are also biholomorphic.
+Once we prove that
+holomorphic maps are continuously differentiable, we will be able to
+apply the inverse function theorem from the previous
+subsection and see that conformal maps are also biholomorphic.
 
 \begin{exbox}
 \begin{exercise}
@@ -7837,10 +7837,12 @@ $n(\Gamma;z) = 0$.
 
 \begin{exercise}%[\optneededexmark]
 \label{exercise:rayktimes}
-Suppose $\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ is a closed $C^1$ path such that
-$\gamma(a) = \gamma(b)$ is some negative real number.  Suppose
-that $\gamma(t)$ is real and negative for exactly $k$ distinct~$t$ (that
-includes $t=a$ and $t=b$, so $k \geq 2$), and whenever $\gamma(t)$ is real and negative,
+Let $\gamma \colon [a,b] \to \C \setminus \{ 0 \}$ be a closed
+piecewise-$C^1$ path with
+$\gamma(a) = \gamma(b)$ real and negative.  Suppose
+that $\gamma(t)$ is real and negative for exactly $k$ distinct~$t$
+(including $t=a$ and $t=b$, so $k \geq 2$), and whenever $\gamma(t)$ is real
+and negative, $\gamma$ is differentiable at $t$, and
 $\Im \gamma'(t) < 0$.  Prove that $n(\gamma;0) = k-1$.  Hint: Use
 the principal branch.
 \end{exercise}
@@ -14958,8 +14960,8 @@ If we prove the result for a larger $K$, we are done, so we
 replace $K$ by a larger connected compact subset of $U$.
 We first make $K$ have only finitely many components by replacing it
 by finitely many closed discs
-(see the proof of \lemmaref{lemma:patharoundK}).  Since $U$ is path
-connected and so adding finitely many paths to $K$, we can connect
+(which we can do as $K$ is compact).  Since $U$ is path
+connected, we add finitely many paths to $K$ to connect
 the discs.
 
 Suppose $r> 0$ is less than half the distance from $K$ to $\partial U$.
@@ -17568,7 +17570,7 @@ that is holomorphic on a neighborhood of $K_n$, and it equals $0$ on $K_n \setmi
 and $1$ on $K_n \cap \R$.
 Indeed, pick three pairwise disjoint neighborhoods of the three components of
 $K_n$, and set the function to be identically $0$ or $1$ on the corresponding
-neighorhood.  Constants are holomorphic.
+neigborhood.  Constants are holomorphic.
 Runge says that there is a polynomial $P_n(z)$ such that $\sabs{P_n(z)-f(z)}
 \leq \nicefrac{1}{n}$ for $z \in K_n$.  The sequence $\{ P_n \}$ then does
 the job.  Since $K_n \subset K_{n+1}$ for all $n$ and $\bigcup K_n = \C$,
@@ -17605,7 +17607,7 @@ If $X$ is a component of $\C_\infty \setminus K'_n$ that we added into
 $K_n$, then $X \subset K_{m}$ for all $m > n$, and as $X$ is open,
 $X$ is in the interior of $K_{m}$.
 The components of $\C_\infty \setminus K_n$ are those
-we did not add, so they contain a point of $U$.
+we did not add, so they contain a point of $\C_\infty \setminus U$.
 So all the conditions are 
 satisfied.
 \end{proof}
