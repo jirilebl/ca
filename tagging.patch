@@ -1,0 +1,641 @@
+diff --git a/ca-tagging.tex b/ca-tagging.tex
+new file mode 100644
+index 0000000..68c8f4b
+--- /dev/null
++++ b/ca-tagging.tex
+@@ -0,0 +1,134 @@
++% ca-tagging.tex
++%
++% Adjustments used only when producing a tagged (accessible) PDF, that is,
++% when ca.tex is run through lualatex (\DocumentMetadata with tagging=on).
++% It is read by ca.tex via \IfDocumentMetadataTF, so pdflatex never sees it.
++%
++% Two kinds of things are here:
++%  1. Tagging for things LaTeX does not tag by itself (titlesec headings).
++%  2. Workarounds so that the tagged output looks the same as the pdflatex
++%     output (LaTeX's tagging code changes some spacing by itself).
++%
++% Tested with TeX Live 2026 (LaTeX 2026-06-01).  Much of this pokes at
++% LaTeX's tagging internals, so it may need revisiting when they change.
++
++\makeatletter
++\ExplSyntaxOn
++
++%%% Headings (titlesec)
++%
++% LaTeX's tagging code only tags its own heading commands, which we
++% disable in ca.tex to keep the titlesec formatting.  So wrap titlesec's
++% \ttl@select to open/close the Sect structures and to tag the title
++% paragraph as H1, H2, ... (chapter = level 0, section = 1, ...).
++\tl_new:N \l__ca_level_tl
++\cs_new_eq:NN \__ca_ttl_select:nnnn \ttl@select
++\cs_gset_protected:Npn \ttl@select #1#2#3#4
++  {
++    \tl_set:Ne \l__ca_level_tl { \int_eval:n { \use:c { ttll@#1 } } }
++    \UseTaggingSocket{sec/end}{\l__ca_level_tl}
++    \UseTaggingSocket{sec/begin}
++      {{\l__ca_level_tl}{tag=\UseStructureName{sec/\l__ca_level_tl}}}
++    \group_begin:
++      \UseTaggingSocket{sec/title/init}{\l__ca_level_tl}
++      \__ca_ttl_select:nnnn {#1}{#2}{#3}{#4}
++    \group_end:
++  }
++
++% Decorations in headings (\cadeco inline, \cadecopar a whole paragraph)
++% become artifacts, so screen readers skip them.
++\cs_gset_protected:Npn \cadeco #1
++  {
++    \tag_mc_end_push:
++    \tag_mc_begin:n {artifact}
++    \tag_suspend:n {cadeco}
++    #1
++    \tag_resume:n {cadeco}
++    \tag_mc_end:
++    \tag_mc_begin_pop:n {}
++  }
++\cs_gset_protected:Npn \cadecopar #1
++  {
++    \tagpdfparaOff
++    \tag_mc_begin:n {artifact}
++    \tag_suspend:n {cadecopar}
++    #1 \par
++    \tag_resume:n {cadecopar}
++    \tag_mc_end:
++    \tagpdfparaOn
++  }
++
++%%% Display followed by a blank line
++%
++% When a display is followed by a blank line, the tagging code re-adds
++% \parskip as the last glue, so a following list/theorem/exbox cannot merge
++% its space with the space below the display (\addvspace), giving extra
++% space.  Re-add \parskip underneath the last skip instead.
++\def\@doendpe{\@endpetrue
++  \def\par
++    {
++      \@restorepar
++      \clubpenalty\@clubpenalty
++      \if@domathendpe
++        \skip_set_eq:NN \l_tmpa_skip \lastskip
++        \skip_vertical:n { -\l_tmpa_skip }
++        \skip_vertical:n { \tex_parskip:D }
++        \skip_vertical:n { \l_tmpa_skip }
++        \@domathendpefalse
++      \fi
++      \tag_socket_use:n {@doendpe}
++      \@endpefalse
++      \everypar{}
++      \par
++    }
++  \everypar{{\setbox\z@\lastbox}
++            \everypar{}
++            \@endpefalse
++            \@domathendpefalse
++  }
++}
++
++%%% Theorem spacing
++%
++% With tagging, amsthm is replaced by an emulation whose spacing differs:
++% * it adds \partopsep before theorems defined with \newtheoremstyle
++%   (newpxtext's theoremfont option redefines "plain" that way),
++% * styles it does not know (definition) fall back to "plain", but amsthm
++%   uses \topsep (as of the preamble) for them.
++\DeclareInstanceCopy{block}{thm-definition-1}{thm-legacy2e-1}
++\EditInstance{block}{thm-definition-1}
++  { begin-vspace:e = \the\topsep, end-vspace:e = \the\topsep }
++\DeclareInstanceCopy{block}{thm-definition-2}{thm-definition-1}
++\AddToHook{begindocument}
++  {
++    \clist_map_inline:nn {plain,definition,exercise,example}
++      {
++        \EditInstance{block}{thm-#1-1}{begin-extra-vspace=0pt}
++        \EditInstance{block}{thm-#1-2}{begin-extra-vspace=0pt}
++      }
++  }
++
++%%% Captions
++%
++% The tagging code replaces \@makecaption at \begin{document}, losing the
++% caption package layout.  Use the caption package's typesetting inside
++% the tagging sockets.
++\AddToHook{begindocument}
++  {
++    \long\def\@makecaption#1#2
++      {
++        \UseHookWithArguments{cmd/@makecaption/before}{2}{#1}{#2}
++        \UseTaggingSocket{caption/begin}{\@current@float@struct}
++        \caption@makecaption{#1}{#2}
++        \UseTaggingSocket{caption/end}
++      }
++  }
++
++%%% Footnotes
++%
++% The tagging output routine puts footnotes right below the text on short
++% pages; keep the classic placement at the bottom of the page.
++\AssignSocketPlug{build/column/outputbox}{footnotes-floats-legacy}
++
++\ExplSyntaxOff
++\makeatother
+diff --git a/ca.tex b/ca.tex
+index 6077df4..db41df5 100644
+--- a/ca.tex
++++ b/ca.tex
+@@ -1,3 +1,10 @@
++% Running lualatex produces a tagged (accessible) PDF, running pdflatex
++% produces the classic untagged PDF.  Both should look the same.
++\ifdefined\directlua
++  \DocumentMetadata{lang=en-US,pdfstandard=ua-2,pdfversion=2.0,tagging=on}
++  % Keep the titlesec headings (tagging is added below by hand)
++  \RemoveFromHook{class/book/after}[head/example]
++\fi
+ \documentclass[12pt,openany]{book}
+ 
+ %FIXME: for PRINT run for lulu or kdp, search for %PRINT
+@@ -34,7 +41,12 @@
+ \usepackage[toc,nopostdot,sort=use,automake]{glossaries}
+ 
+ %Palatino
++% Under lualatex force newpxtext to use the same Type1 fonts as pdflatex
++\usepackage{iftex}
++\let\caiftutex\iftutex \let\iftutex\iffalse
++\renewcommand\sfdefault{cmss}\renewcommand\ttdefault{cmtt}
+ \usepackage[theoremfont]{newpxtext}
++\let\iftutex\caiftutex
+ \usepackage[vvarbb]{newpxmath}
+ \linespread{1.05}
+ \usepackage[scr=boondoxo]{mathalpha} % but we want the nice fancy script fonts
+@@ -69,7 +81,9 @@
+ %If you have an older tex installation you might need
+ %to comment out the next line:
+ %PRINT (COMMENT OUT FOR PRINT)
++\IfDocumentMetadataTF{}{% ocgx2 breaks tagged PDF
+ \usepackage[ocgcolorlinks]{ocgx2} %perhaps run without for lulu/kdp
++}
+ 
+ %\usepackage[all]{hypcap} % handled by caption
+ \usepackage[shortalphabetic,msc-links]{amsrefs}
+@@ -84,19 +98,23 @@
+ 
+ \definecolor{gray75}{gray}{0.75}
+ 
++% Decorations (redefined as artifacts for tagged PDF in ca-tagging.tex)
++\providecommand\cadeco[1]{#1}
++\providecommand\cadecopar[1]{#1}
++
+ \titleformat{\chapter}[hang]{\Huge\bfseries\filleft}%
+-{\thechapter$i$\hspace*{10pt}{\textcolor{gray75}{$\backslash\!\!\backslash$}}}%
++{\thechapter$i$\hspace*{10pt}\cadeco{\textcolor{gray75}{$\backslash\!\!\backslash$}}}%
+ {10pt}%
+ {}
+-[\vspace{-1ex}\rule{0.5\textwidth}{0.5pt}\rule{0.5\textwidth}{1pt}]
++[\cadecopar{\vspace{-1ex}\rule{0.5\textwidth}{0.5pt}\rule{0.5\textwidth}{1pt}}]
+ 
+ \titleformat{\section}[hang]{\Large\bfseries}%
+-{\thesection$i$\hspace*{10pt}{\textcolor{gray75}{$\backslash$}}}%
++{\thesection$i$\hspace*{10pt}\cadeco{\textcolor{gray75}{$\backslash$}}}%
+ {10pt}%
+ {}%
+ 
+ \titleformat{\subsection}[hang]{\large\bfseries}%
+-{\thesubsection$i$\hspace*{10pt}{\textcolor{gray75}{$\cdot$}}}%
++{\thesubsection$i$\hspace*{10pt}\cadeco{\textcolor{gray75}{$\cdot$}}}%
+ {10pt}%
+ {}%
+ 
+@@ -256,6 +274,8 @@
+     pdfkeywords={one complex variable, complex analysis},
+     pdfauthor={Jiri Lebl}
+ }
++\IfDocumentMetadataTF{\hypersetup{colorlinks}}{}% instead of ocgcolorlinks
++\IfDocumentMetadataTF{\input{ca-tagging}}{}% fixes for tagged PDF
+ 
+ % Set up our index
+ \makeindex
+@@ -290,8 +310,8 @@
+ \newtheorem{defn}[thm]{Definition}
+ 
+ \newtheoremstyle{exercise}% name
+-  {}% Space above
+-  {}% Space below
++  {10pt plus 4pt minus 6pt}% Space above (= \topsep; explicit for tagging)
++  {10pt plus 4pt minus 6pt}% Space below
+   {\itshape}% Body font
+   {}% Indent amount 1
+   {\bfseries \itshape}% Theorem head font
+@@ -313,23 +333,28 @@
+ }
+ 
+ \newenvironment{exparts}{%
+-    \leavevmode\begin{enumerate}[a),noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
++    \leavevmode\begin{enumerate}[label=\alph*),noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+ }{%
+     \end{enumerate}
+ }
+ \newenvironment{exnumparts}{%
+-    \leavevmode\begin{enumerate}[1),noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
++    \leavevmode\begin{enumerate}[label=\arabic*),noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt]
+ }{%
+     \end{enumerate}
+ }
++\newcounter{expartshor}
+ \newenvironment{expartshor}[1]{%
+     \begingroup%
+     \NumTabs{#1}%
+     \leavevmode%
+     \par%
+-    \begin{enumerate*}[a),itemjoin={\tab}]
++    \setcounter{expartshor}{0}%
++    \def\item{%
++      \ifnum\value{expartshor}>0 \unskip\tab\fi
++      \stepcounter{expartshor}%
++      \alph{expartshor})\nobreakspace\ignorespaces}%
+ }{%
+-    \end{enumerate*}\endgroup\par
++    \unskip\endgroup\par
+ }
+ 
+ \newenvironment{myfig}{%
+@@ -350,8 +375,8 @@
+ \newtheorem{exercise}{Exercise}[section]
+ 
+ \newtheoremstyle{example}% name
+-  {}% Space above
+-  {}% Space below
++  {10pt plus 4pt minus 6pt}% Space above (= \topsep; explicit for tagging)
++  {10pt plus 4pt minus 6pt}% Space below
+   {}% Body font
+   {}% Indent amount 1
+   {\bfseries}% Theorem head font
+@@ -398,7 +423,7 @@
+ \thispagestyle{empty}
+ \vspace*{\stretch{1}}
+ \noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
+-\flushright
++\raggedleft
+ {\Huge\bfseries \sffamily Guide to Cultivating Complex Analysis}
+ \noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
+ \hfill\emph{\Large \sffamily Working the Complex Field}
+@@ -406,7 +431,7 @@
+ 
+ \vspace{\stretch{1}}
+ \noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
+-\flushright
++\raggedleft
+ {\bfseries 
+ %by
+ Ji{\v r}\'i Lebl\\[3ex]} 
+@@ -655,18 +680,18 @@ plan such as
+ \ref{ch:runge} (Runge), and
+ \ref{ch:analcont} (analytic continuation).
+ \begin{equation*}
+-\begin{tikzcd}[cramped, row sep=small]
+-{\text{\Chdotref{ch:complexplane}}} \arrow[r] &
+-{\text{\Chdotref{ch:holanal}}} \arrow[r] &
+-{\text{\Chdotref{ch:cauchysimple}}} \arrow[r] &
++\begin{tikzcd}[cramped, row sep=small, ampersand replacement=\&]
++{\text{\Chdotref{ch:complexplane}}} \arrow[r] \&
++{\text{\Chdotref{ch:holanal}}} \arrow[r] \&
++{\text{\Chdotref{ch:cauchysimple}}} \arrow[r] \&
+ {\text{\Chdotref{ch:log}}} \arrow[dl] \\
+-& & {\text{\Chdotref{ch:counting}}} \arrow[dl] \arrow[d]
++\& \& {\text{\Chdotref{ch:counting}}} \arrow[dl] \arrow[d]
+ \arrow[dr] \\
+-& {\text{\Chdotref{ch:montelriemann}}} \arrow[dl] \arrow[d] &
+-{\text{\Chdotref{ch:harmonic}}} &
++\& {\text{\Chdotref{ch:montelriemann}}} \arrow[dl] \arrow[d] \&
++{\text{\Chdotref{ch:harmonic}}} \&
+ {\text{\Chdotref{ch:weier}}}
+ \\
+-{\text{\Chdotref{ch:runge}}} &
++{\text{\Chdotref{ch:runge}}} \&
+ {\text{\Chdotref{ch:analcont}}}
+ \\
+ \end{tikzcd}
+@@ -859,7 +884,7 @@ if and only if $z=0$.
+ 
+ \begin{prop}[Cauchy--Schwarz and the triangle inequality]
+ If $z,w \in \C$, then
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ $\sabs{\Re z\bar{w}} \leq \sabs{z} \sabs{w}$ \quad (Cauchy--Schwarz inequality,\footnote{%
+ The name is wrong.
+@@ -919,7 +944,7 @@ for an introduction to metric spaces.
+ Complex addition, multiplication, division, and conjugation are continuous:
+ Suppose $\{ a_n \}$ and $\{ b_n \}$ are two convergent sequences
+ of complex numbers.  Then,
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ $\lim\limits_{n\to\infty} (a_n + b_n) = 
+ \left(\lim\limits_{n\to\infty} a_n \right) +
+@@ -1206,6 +1231,7 @@ e^{x+iy}
+ %=
+ e^x\cos y + i e^x \sin y .
+ \end{equation*}
++\leavevmode % needed for tagged PDF, no effect otherwise
+ \begin{myfig}
+ \includegraphics{figures/realexp}
+ \qquad
+@@ -1874,13 +1900,13 @@ gives the same map.}
+ may
+ illustrate the entire situation better:
+ \begin{equation*}
+-\begin{tikzcd}
+-\C^2 \setminus \{ 0 \} \arrow[r,"M"] \arrow[d,"\pi"] &
++\begin{tikzcd}[ampersand replacement=\&]
++\C^2 \setminus \{ 0 \} \arrow[r,"M"] \arrow[d,"\pi"] \&
+ \C^2 \setminus \{ 0 \} \arrow[d,"\pi"] \\
+-\C \bP^1 \arrow[r,"\Psi \circ f \circ \Psi^{-1}"] \arrow[d,shift left,"\Psi^{-1}"] &
++\C \bP^1 \arrow[r,"\Psi \circ f \circ \Psi^{-1}"] \arrow[d,shift left,"\Psi^{-1}"] \&
+ \C \bP^1 \arrow[d,shift left,"\Psi^{-1}"]
+ \\
+-\C_\infty \arrow[r,"f"]\arrow[u,shift left,"\Psi"] &
++\C_\infty \arrow[r,"f"]\arrow[u,shift left,"\Psi"] \&
+ \C_\infty \arrow[u,shift left,"\Psi"]
+ \end{tikzcd}
+ \end{equation*}
+@@ -2483,7 +2509,7 @@ and the power rule.
+ \begin{prop} \label{prop:sumproddiv}
+ Let $U \subset \C$ be open, and $f \colon U \to \C$ and
+ $g \colon U \to \C$ holomorphic.
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ $f+g$ is holomorphic and $\frac{d}{dz}\bigl[ f(z)+g(z) \bigr] = f'(z) + g'(z)$.
+ \item
+@@ -2503,7 +2529,7 @@ $\bigl\{ z \in U : g(z) \neq 0 \bigr\}$ is open.
+ 
+ \begin{prop}[Power rule and its consequences] \label{prop:powerrule}
+ \leavevmode
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item For every integer $n$, the function $z \mapsto z^n$ is holomorphic
+ where defined (outside the origin if $n$ negative) and
+ $\frac{d}{dz}\bigl[ z^n \bigr] = n z^{n-1}$
+@@ -3419,7 +3445,7 @@ know how to sum, is the \emph{\myindex{geometric series}}.
+ 
+ \begin{prop}[Geometric series]\label{prop:geomseries}
+ \leavevmode
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item For $z \in \D$,
+ \begin{equation*}
+ \frac{1}{1-z} = \sum_{n=0}^\infty z^n .
+@@ -4468,7 +4494,7 @@ Suppose $\gamma \colon [a,b] \to \C$ and $\alpha \colon [c,d] \to \C$ are
+ piecewise-$C^1$ paths such that
+ $\gamma\bigl([a,b]\bigr) = \alpha\bigl([c,d]\bigr)$.
+ Suppose either
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ $\gamma$ and $\alpha$ are injective, or
+ \item
+@@ -4479,7 +4505,7 @@ $\gamma(a)=\alpha(c)=\gamma(b)=\alpha(d)$ (simple closed paths).
+ Then there exists a strictly monotone continuous $h \colon [c,d] \to [a,b]$ such
+ that $\gamma\bigl(h(t)\bigr) = \alpha(t)$ for all $t \in [c,d]$.
+ Furthermore:
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ If $h$ is increasing, then for every $f$ continuous on the path,
+ \begin{equation*}
+@@ -7118,7 +7144,7 @@ bounded function can be rescaled to be valued in $\D$.
+ \begin{lemma}[Schwarz's lemma]\index{Schwarz's lemma}\label{lemma:schwarz}
+ If $f \colon \D \to \D$ is holomorphic and $f(0) = 0$,
+ then 
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item $\sabs{f(z)} \leq \sabs{z}$ for all $z \in \D$, and
+ \item $\sabs{f'(0)} \leq 1$.
+ \end{enumerate}
+@@ -7244,7 +7270,7 @@ Careful when reading the literature---some authors use $\frac{a-z}{1-\bar{a}z}$
+ 
+ \begin{prop}
+ For every $a \in \D$,
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ $\varphi_a(a) = 0$, \enspace
+ $\varphi_a(0) = -a$, \enspace
+@@ -8318,7 +8344,7 @@ versions of simply-connectedness for domains.
+ 
+ \begin{prop}
+ Let $U \subset \C$ be a domain.  The following are equivalent:
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item \label{thm:simplyconnected:i}
+ $U$ is simply connected (in the homology sense).
+ \item \label{thm:simplyconnected:ii}
+@@ -8346,13 +8372,13 @@ cycle $\Gamma$ in $U$, we have
+ \begin{proof}
+ The logic of the proof is the following diagram:
+ \begin{equation*}
+-\begin{tikzcd}[cramped, row sep=small]
+-& \text{\ref{thm:simplyconnected:ii}} \arrow[d, Rightarrow] \arrow[r, Rightarrow] &
++\begin{tikzcd}[cramped, row sep=small, ampersand replacement=\&]
++\& \text{\ref{thm:simplyconnected:ii}} \arrow[d, Rightarrow] \arrow[r, Rightarrow] \&
+ \text{\ref{thm:simplyconnected:iii}} \arrow[d, Rightarrow] \\
+-\text{\ref{thm:simplyconnected:i}} \arrow[ur, Rightarrow] & 
+-\text{\ref{thm:simplyconnected:v}} \arrow[d, Rightarrow] &
++\text{\ref{thm:simplyconnected:i}} \arrow[ur, Rightarrow] \& 
++\text{\ref{thm:simplyconnected:v}} \arrow[d, Rightarrow] \&
+ \text{\ref{thm:simplyconnected:iv}} \arrow[dl, Rightarrow] \\
+-& \text{\ref{thm:simplyconnected:vi}} \arrow[ul, Leftrightarrow] &
++\& \text{\ref{thm:simplyconnected:vi}} \arrow[ul, Leftrightarrow] \&
+ \end{tikzcd}
+ \end{equation*}
+ We proved
+@@ -8849,7 +8875,7 @@ f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n ,
+ \avoidbreak
+ \end{equation*}
+ converging uniformly on compact subsets of $\ann(p;r_1,r_2)$.  Then:
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ The function
+ $f$ is holomorphic and its 
+@@ -10350,7 +10376,7 @@ poles according to order just like zeros.
+ \pagebreak[2]
+ Suppose $U \subset \C$ is open, $p \in U$,
+ and $f \colon U \setminus \{p\} \to \C$ is holomorphic.
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ If $p$ is a pole, then there exists a $k \in \N$ such that
+ \begin{equation*}
+@@ -10487,7 +10513,7 @@ f(z) = \sum_{n=-\infty}^\infty c_n {(z-p)}^n
+ \end{equation*}
+ is the corresponding Laurent series.
+ The singularity at $p$ is
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item \emph{removable} if and only if $c_n = 0$ for all $n < 0$,
+ \item a \emph{pole} of order $k \in \N$ if and only if $c_n = 0$ for all $n < -k$ and
+ $c_{-k} \neq 0$,
+@@ -13781,7 +13807,7 @@ functions.
+ 
+ \begin{prop} \label{prop:harmanal}
+ Let $U \subset \C$ be open and $f \colon U \to \R$ a function.
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ The function $f$ is harmonic if and only if
+ for every point $p \in U$, there exist an open neighborhood $V$ of $p$ and a
+@@ -14165,6 +14191,7 @@ the Poisson kernel is (see \figureref{fig:poissongraph})
+ z \mapsto \frac{1}{2\pi} \Re \left(
+ \frac{1+z}{1-z}\right).
+ \end{equation*}
++\leavevmode % needed for tagged PDF, no effect otherwise
+ \begin{myfig}
+ \includegraphics{figures/poisson-graph}
+ \caption{Graph of the Poisson kernel on $\D$.
+@@ -14174,7 +14201,7 @@ The pole at $z=1$ is cut off at $2$.%
+ 
+ \begin{prop}\label{prop:Poissonprops}
+ \leavevmode
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ $P_r(\theta) > 0$ for all $0 \leq r < 1$ and all $\theta$.
+ \item
+@@ -15171,7 +15198,7 @@ compact subsets.
+ Prove a Montel-like theorem for harmonic functions.  Suppose $U \subset \C$
+ is a domain and $\{ f_n \}$ is a sequence of nonnegative harmonic functions.
+ Show that at least one of the following are true:
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ There exists a subsequence converging to $+\infty$ uniformly on compact subsets.
+ \item
+@@ -17836,7 +17863,7 @@ As a corollary we get the following equivalence.
+ 
+ \begin{cor}
+ Let $U \subset \C$ be a domain.  The following are equivalent.
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item\label{cor:polyhull:i}
+ The domain $U$ is simply connected.
+ \item\label{cor:polyhull:ii}
+@@ -18506,7 +18533,7 @@ along $\gamma$
+ if for every $t \in [0,1]$ there exist
+ a disc $D_t$ centered at $\gamma(t)$ and a holomorphic function
+ $f_t \colon D_t \to \C$ such that:
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ $D_0 \subset U$ and $f_0 = f|_{D_0}$.
+ \item
+@@ -18967,9 +18994,9 @@ $g \colon W \to U$ such that $f = h \circ g$.
+ 
+ In other words, you have the following commutative diagram:
+ \begin{equation*}
+-\begin{tikzcd}[column sep=small]
+-& W \arrow[dl,"g"'] \arrow[dr,"f"] \\
+-U \arrow[rr,"h"]                   & & V
++\begin{tikzcd}[column sep=small, ampersand replacement=\&]
++\& W \arrow[dl,"g"'] \arrow[dr,"f"] \\
++U \arrow[rr,"h"]                   \& \& V
+ \end{tikzcd}
+ \end{equation*}
+ 
+@@ -18988,9 +19015,9 @@ such that $f = g \circ \varphi$.
+ 
+ In other words, you have the following commutative diagram:
+ \begin{equation*}
+-\begin{tikzcd}[column sep=small]
+-U_1 \arrow[rr,"\varphi"] \arrow[dr,"f"'] & & U_2 \arrow[dl,"g"] \\
+-                               & V
++\begin{tikzcd}[column sep=small, ampersand replacement=\&]
++U_1 \arrow[rr,"\varphi"] \arrow[dr,"f"'] \& \& U_2 \arrow[dl,"g"] \\
++                               \& V
+ \end{tikzcd}
+ \end{equation*}
+ 
+@@ -19004,9 +19031,9 @@ We might think we can compose the two and obtain a new universal covering map:
+ and darnit, $2z$ is an automorphism of $\C$.  Since we're already drawing
+ diagrams:
+ \begin{equation*}
+-\begin{tikzcd}[column sep=small]
+-& \C \arrow[dl,"e^z"'] \arrow[dr,"e^{2z}"] \arrow[rr,"2z"] & & \C \arrow[dl,"e^z"] \\
+-\C \setminus \{ 0 \} \arrow[rr,"z^2"'] & & \C \setminus \{ 0 \} 
++\begin{tikzcd}[column sep=small, ampersand replacement=\&]
++\& \C \arrow[dl,"e^z"'] \arrow[dr,"e^{2z}"] \arrow[rr,"2z"] \& \& \C \arrow[dl,"e^z"] \\
++\C \setminus \{ 0 \} \arrow[rr,"z^2"'] \& \& \C \setminus \{ 0 \} 
+ \end{tikzcd}
+ \end{equation*}
+ 
+@@ -19097,7 +19124,7 @@ analysis, it gets us very far indeed.
+ Let $X$ be a set, and let
+ $d \colon X \times X \to \R$
+ be a function such that for all $x,y,z \in X$,
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ %
+ \item \label{metric:pos}
+ \makebox[2.8in][l]{$d(x,y) \geq 0$}
+@@ -19407,7 +19434,7 @@ discrete metric is bounded.
+ 
+ Suppose $X$ is nonempty.
+ Then $S \subset X$ is bounded if and only if
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item
+ For every $p \in X$, there exists a $B > 0$ such that $d(p,x) \leq B$ for
+ all $x \in S$.
+@@ -19655,7 +19682,7 @@ Thus ${[0,1)}^c = \R \setminus
+ 
+ \begin{prop} \label{prop:topology:open}
+ Let $(X,d)$ be a metric space.
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item \label{topology:openi} $\emptyset$ and $X$ are open.
+ \item \label{topology:openii} If $V_1, V_2, \ldots, V_k$ are open subsets of
+ $X$, then
+@@ -19705,7 +19732,7 @@ $\bigcap_{n \in \N} (\nicefrac{-1}{n},\nicefrac{1}{n}) = \{ 0
+ 
+ \begin{prop} \label{prop:topology:closed}
+ Let $(X,d)$ be a metric space.
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item \label{topology:closedi} $\emptyset$ and $X$ are closed.
+ \item \label{topology:closedii} If $\{ E_\lambda \}_{\lambda \in I}$ is
+ an arbitrary collection of closed subsets of $X$, then
+@@ -19833,7 +19860,7 @@ set, matters are simpler.
+ \begin{prop} \label{prop:topology:subspacesame}
+ Suppose $(X,d)$ is a metric space, $V \subset X$ is open,
+ and $E \subset X$ is closed.
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item \label{prop:topology:subspacesame:i}
+ $U \subset V$ is open in the subspace topology if and only if $U$ is open
+ in $X$.
+@@ -20381,7 +20408,7 @@ d(x_n,p) \leq a_n \quad \text{for all } n \in \N,
+ 
+ \begin{prop} \label{prop:mssubseq}
+ Let $\{ x_n \}$ be a sequence in a metric space $(X,d)$.
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item If $\{ x_n \}$ converges to $p \in X$, then every subsequence $\{ x_{n_k} \}$
+ converges to $p$.
+ \item If for some $K \in \N$ the $K$-tail $\{ x_n \}_{n=K+1}^\infty$
+@@ -21187,7 +21214,7 @@ we have $E_1 \subset U_k$ for some $k$.   Thus $E_k$ is empty.
+ Let $(X,d)$ be a metric space with the discrete metric, that is, $d(x,y) = 1$
+ if $x \neq y$.  Suppose
+ $X$ is an infinite set.  Then:
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item $(X,d)$ is a complete metric space.
+ \item Any subset $K \subset X$ is closed and bounded.
+ \item A subset $K \subset X$ is compact if and only if it is a finite set.
+@@ -21423,7 +21450,7 @@ $\bigl\{ v(p_n) \bigr\}$ converges to $v(p)$.
+ 
+ \begin{prop}\label{prop:distcont}
+ Let $(X,d)$ be a metric space.
+-\begin{enumerate}[(i)]
++\begin{enumerate}[label=(\roman*)]
+ \item\label{prop:distcont:i}
+ If $p \in X$,
+ then $f \colon X \to \R$ defined
