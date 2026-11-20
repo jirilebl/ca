@@ -2,49 +2,71 @@
 
 %FIXME: for PRINT run for lulu or kdp, search for %PRINT
 
-%\usepackage{pdf14}
+% Safely define \iflatexml if latexml.sty wasn't loaded
+%\expandafter\ifx\csname iflatexml\endcsname\relax
+%  \newif\iflatexml
+%  \latexmlfalse
+%\fi
+\IfFileExists{latexml.sty}{%
+  \usepackage{latexml}%
+}{%
+  \newif\iflatexml
+  \latexmlfalse
+}
 
 \usepackage[shortlabels,inline]{enumitem}
 \usepackage{ifpdf}
 \usepackage{mathtools}
-\usepackage{amsmath}
-\usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{graphicx}
 \usepackage{xcolor}
-\usepackage{chngcntr}
 \usepackage{titlesec}
 \usepackage{import}
-\usepackage{vogtwidebar}
 \usepackage{nicefrac}
-\usepackage{mathdots}
 \usepackage{microtype}
 \usepackage{cancel}
 \usepackage{framed}
-\usepackage{varioref}
-\usepackage{faktor}
-\usepackage{tabto}
+\iflatexml
+  \newcommand{\faktor}[2]{\left.#1\middle/#2\right.}
+  %This may not be the bes
+  \newcommand{\tab}{\qquad}
+  \newcommand{\widebar}[1]{\overline{#1}}
+\else
+  \usepackage{vogtwidebar}
+  \usepackage{faktor}
+  \usepackage{tabto}
+  \usepackage{cellspace}
+\fi
 
 \usepackage{tikz}
 \usetikzlibrary{cd}
-\usepackage{rotating}
 
-\usepackage{cellspace}
-\usepackage[toc,nopostdot,sort=use,automake]{glossaries}
+\iflatexml
+  \newcommand{\glsadd}[2][]{}
+  \newcommand{\loadglsentries}[2][]{}
+  \newcommand{\makeglossaries}{}
+  \newcommand{\printglossary}[1][]{}
+\else
+  \usepackage[toc,nopostdot,sort=use,automake]{glossaries}
+\fi
 
-%Palatino
-\usepackage[theoremfont]{newpxtext}
-\usepackage[vvarbb]{newpxmath}
-\linespread{1.05}
-\usepackage[scr=boondoxo]{mathalpha} % but we want the nice fancy script fonts
+\iflatexml
+  %FIXME: font setup for latexml should go here
+\else
+  %Palatino
+  \usepackage[theoremfont]{newpxtext}
+  \usepackage[vvarbb]{newpxmath}
+  \linespread{1.05}
+  \usepackage[scr=boondoxo]{mathalpha} % but we want the nice fancy script fonts
 
-\usepackage[T1]{fontenc}
+  \usepackage[T1]{fontenc}
 
-%symmetric for web
-\usepackage[inner=1.2in,outer=1.2in,top=1in,bottom=1in]{geometry}
-%PRINT asymmetric for book
-%\usepackage[inner=1.4in,outer=1.0in,top=1in,bottom=1in]{geometry}
+  %symmetric for web
+  \usepackage[inner=1.2in,outer=1.2in,top=1in,bottom=1in]{geometry}
+  %PRINT asymmetric for book
+  %\usepackage[inner=1.4in,outer=1.0in,top=1in,bottom=1in]{geometry}
+\fi
 
 \usepackage[margin=10pt,font=small,labelfont=bf,labelsep=colon,singlelinecheck=false]{caption}
 
@@ -61,15 +83,20 @@
 %\addtolength{\evensidemargin}{-0.125in}
 
 
-\usepackage{url}
-\usepackage{imakeidx}
+\iflatexml
+ %no imakeidx for latexml
+\else
+  \usepackage{imakeidx}
+\fi
 \PassOptionsToPackage{hyphens}{url}
 \usepackage{hyperref} % do NOT set [ocgcolorlinks] here!
 
-%If you have an older tex installation you might need
-%to comment out the next line:
+\iflatexml
+  %don't use ocgx2 for latexml
+\else
 %PRINT (COMMENT OUT FOR PRINT)
-\usepackage[ocgcolorlinks]{ocgx2} %perhaps run without for lulu/kdp
+  \usepackage[ocgcolorlinks]{ocgx2} %perhaps run without for lulu/kdp
+\fi
 
 %\usepackage[all]{hypcap} % handled by caption
 \usepackage[shortalphabetic,msc-links]{amsrefs}
@@ -108,20 +135,24 @@
 % however footmisc now has some sort of conflict with texlive 2026
 %\usepackage[perpage,symbol*]{footmisc}
 
-% footnotes per page using symbols
-\counterwithout{footnote}{chapter} % Fix footnotes starting at 2 on the first page of a chapter.
-\usepackage{perpage}
-\MakePerPage{footnote}
-\makeatletter
-\def\safe@fnsymbol#1{%
-  \ifnum\value{#1}>9 
-    \arabic{#1}%
-  \else
-    \fnsymbol{#1}%
-  \fi
-}
-\renewcommand{\thefootnote}{\safe@fnsymbol{footnote}}
-\makeatother
+\iflatexml
+  %
+\else
+  % footnotes per page using symbols
+  \counterwithout{footnote}{chapter} % Fix footnotes starting at 2 on the first page of a chapter.
+  \usepackage{perpage}
+  \MakePerPage{footnote}
+  \makeatletter
+  \def\safe@fnsymbol#1{%
+    \ifnum\value{#1}>9 
+      \arabic{#1}%
+    \else
+      \fnsymbol{#1}%
+    \fi
+  }
+  \renewcommand{\thefootnote}{\safe@fnsymbol{footnote}}
+  \makeatother
+\fi
 
 \usepackage{footnote}
 
@@ -398,21 +429,23 @@
 \thispagestyle{empty}
 \vspace*{\stretch{1}}
 \noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
-\flushright
+\begin{flushright}
 {\Huge\bfseries \sffamily Guide to Cultivating Complex Analysis}
 \noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
 \hfill\emph{\Large \sffamily Working the Complex Field}
+\end{flushright}
 \end{minipage}}
 
 \vspace{\stretch{1}}
 \noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
-\flushright
+\begin{flushright}
 {\bfseries 
 %by
 Ji{\v r}\'i Lebl\\[3ex]} 
 \today
 \\
 (version 1.10)
+\end{flushright}
 \end{minipage}}
 
 %\addtolength{\textwidth}{\centeroffset}
